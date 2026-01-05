@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3em3wop4li52"]
+
+[ext_resource type="Texture2D" uid="uid://dothpbt8u5xb1" path="res://assets/textures/material6.png" id="1_ai3n5"]
+[ext_resource type="Script" uid="uid://bpoentocldcyq" path="res://chapter2/doors/doors.gd" id="1_te1en"]
+[ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="2_ub2wn"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_u8pyo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp0bw"]
+albedo_texture = ExtResource("2_ub2wn")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_g543t"]
+material = SubResource("StandardMaterial3D_fp0bw")
+size = Vector2(0.85, 0.85)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te1en"]
+albedo_color = Color(0.5058824, 0.3882353, 0.28235295, 1)
+albedo_texture = ExtResource("1_ai3n5")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_u8pyo"]
+material = SubResource("StandardMaterial3D_te1en")
+size = Vector2(1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8pyo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ub2wn"]
+material = SubResource("StandardMaterial3D_u8pyo")
+size = Vector3(0.1, 2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkmqe"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fp0bw"]
+material = SubResource("StandardMaterial3D_tkmqe")
+size = Vector3(1.2, 0.1, 0.1)
+
+[node name="doors" type="Area3D" groups=["interactive_objects"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_te1en")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6iqkm")
+debug_color = Color(0.983333, 1, 0, 0.419608)
+
+[node name="DoorE" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24333337, 0.018270433)
+visible = false
+mesh = SubResource("QuadMesh_g543t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_u8pyo")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519, 0.01)
+texture_filter = 0
+text = "PLAY"
+font = ExtResource("3_u8pyo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
+mesh = SubResource("BoxMesh_fp0bw")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

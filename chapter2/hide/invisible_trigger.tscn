@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdrhd5io8vjva"]
+
+[ext_resource type="Script" uid="uid://dnsngmh03qf2d" path="res://chapter2/hide/invisible_trigger.gd" id="1_7lbmc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6ed2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lbmc"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6ed2"]
+material = SubResource("StandardMaterial3D_7lbmc")
+
+[node name="InvisibleTrigger" type="Area3D"]
+script = ExtResource("1_7lbmc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_g6ed2")
+debug_color = Color(0, 0.595, 0.7, 0.572549)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_g6ed2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

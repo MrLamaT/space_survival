@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://ns31586bsfvd"]
+
+[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="1_y30ok"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3noi"]
+albedo_texture = ExtResource("1_y30ok")
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rggfb"]
+size = Vector3(4, 1, 10)
+
+[node name="HorizontalStaircase" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -1.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -2.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -3)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -3.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -4.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, -5.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, -6.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -7)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, -7.5)
+size = Vector3(4, 0.25, 1)
+material = SubResource("StandardMaterial3D_q3noi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9063077, -0.42261824, 0, 0.42261824, 0.9063077, 0, 1.2826648, -2.9375877)
+shape = SubResource("BoxShape3D_rggfb")

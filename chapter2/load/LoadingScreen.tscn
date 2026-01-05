@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvll2nqa4j2wb"]
+
+[ext_resource type="Script" uid="uid://cq7c8a0c2nagt" path="res://chapter2/load/loading_screen.gd" id="1_iqfpq"]
+[ext_resource type="Texture2D" uid="uid://dateaog7yobbw" path="res://assets/logo.png" id="2_vpunw"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_vpunw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqfpq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpunw"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_dhqi2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 248)]
+}
+
+[sub_resource type="Animation" id="Animation_ghsbh"]
+resource_name = "load"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 248), Vector2(576, 228), Vector2(576, 248)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ij24"]
+_data = {
+&"RESET": SubResource("Animation_dhqi2"),
+&"load": SubResource("Animation_ghsbh")
+}
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iqfpq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+modulate = Color(0.5137255, 0, 0, 1)
+texture_filter = 1
+position = Vector2(576, 248)
+scale = Vector2(8, 8)
+texture = ExtResource("2_vpunw")
+
+[node name="ProgressBar" type="ProgressBar" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 108.0
+offset_right = 400.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_vpunw")
+theme_override_styles/background = SubResource("StyleBoxFlat_iqfpq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vpunw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2ij24")
+}

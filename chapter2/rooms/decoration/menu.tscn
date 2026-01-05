@@ -1,0 +1,569 @@
+[gd_scene load_steps=23 format=3 uid="uid://b2tpuf62megqf"]
+
+[ext_resource type="Script" uid="uid://wxrmi8j1a8sf" path="res://chapter2/rooms/decoration/menu.gd" id="1_kxafx"]
+[ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="3_f7un4"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="4_6eul1"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="5_dgutp"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="5_jeltb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnnrj"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lq2r2"]
+material = SubResource("StandardMaterial3D_bnnrj")
+size = Vector3(0.1, 1.1, 1.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f845c"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f845c"]
+material = SubResource("StandardMaterial3D_f845c")
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m70t"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_40pl7"]
+material = SubResource("StandardMaterial3D_6m70t")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.1
+radial_segments = 6
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxmwg"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6w7je"]
+material = SubResource("StandardMaterial3D_fxmwg")
+size = Vector3(0.1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40pl7"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0.65882355, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_60ni8"]
+material = SubResource("StandardMaterial3D_40pl7")
+size = Vector3(0.1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bep4"]
+albedo_texture = ExtResource("3_f7un4")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_oohos"]
+material = SubResource("StandardMaterial3D_2bep4")
+size = Vector2(0.85, 0.85)
+
+[sub_resource type="Animation" id="Animation_6eul1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/monitor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/monitor2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monitor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("monitor/Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("monitor/Sprite3D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.035019755, -0.7727012)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("monitor/Sprite3D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6, 6, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("monitor/INITIALIZED/1:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("monitor/INITIALIZED/2:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("monitor/INITIALIZED/3:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("monitor/INITIALIZED/4:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("monitor/INITIALIZED/5:text")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("monitor/INITIALIZED/6:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("monitor/INITIALIZED/7:text")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("monitor/INITIALIZED/8:text")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_10g0r"]
+resource_name = "intro"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/monitor:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 0.9, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/monitor2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.9, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monitor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 0.9, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_10f18"]
+resource_name = "Flowy"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor/Sprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor/Sprite3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.035019755, -0.7727012)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monitor/Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 1), Vector3(6, 6, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jeltb"]
+resource_name = "textIntro"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor/INITIALIZED/1:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["> BOOTLOADER v.12.7.4 INITIALIZED.", "> BOOTLOADER v.12.7.4 INITIALIZED..", "> BOOTLOADER v.12.7.4 INITIALIZED..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor/INITIALIZED/2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["> MEMORY CHECK: OK [32768 VQ]"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monitor/INITIALIZED/3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["> CPU: CITADEL M.III - ONLINE"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("monitor/INITIALIZED/4:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["> -----------------------------------"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("monitor/INITIALIZED/5:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["> LOADING PERSONAL LOG.", "> LOADING PERSONAL LOG..
+", "> LOADING PERSONAL LOG... 
+"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("monitor/INITIALIZED/6:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["> > ERROR: FILE CORRUPTED."]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("monitor/INITIALIZED/7:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5.2, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["> LOADING MISSION PARAMETERS.", "> LOADING MISSION PARAMETERS..", "> LOADING MISSION PARAMETERS..."]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("monitor/INITIALIZED/8:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["> > OBJECTIVE: SURVIVE. "]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gggwc"]
+_data = {
+&"Flowy": SubResource("Animation_10f18"),
+&"RESET": SubResource("Animation_6eul1"),
+&"intro": SubResource("Animation_10g0r"),
+&"textIntro": SubResource("Animation_jeltb")
+}
+
+[node name="menu" type="Area3D" groups=["interactive_objects"]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_kxafx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.85)
+mesh = SubResource("BoxMesh_lq2r2")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1.0552863e-07, 1, 6.181724e-08, 0.70710677, -3.090862e-08, -0.70710677, -0.70710677, 1.183314e-07, -0.70710677, 0, -0.40391642, -1)
+mesh = SubResource("BoxMesh_f845c")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1.0552862e-07, 1, -6.181723e-08, 0.7071067, -3.090862e-08, 0.7071067, 0.7071067, -1.183314e-07, -0.7071067, 0, -0.40391642, -1.29)
+mesh = SubResource("BoxMesh_f845c")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.5589164, -1.45)
+mesh = SubResource("CylinderMesh_40pl7")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.45, -0.947)
+mesh = SubResource("CylinderMesh_40pl7")
+skeleton = NodePath("")
+
+[node name="monitor" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.83692783)
+mesh = SubResource("BoxMesh_6w7je")
+skeleton = NodePath("")
+
+[node name="monitor2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.83692783)
+visible = false
+mesh = SubResource("BoxMesh_60ni8")
+skeleton = NodePath("")
+
+[node name="DoorE" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -2.3841858e-07, 0, 1, 0, 2.3841858e-07, 0, 1, -2.7179246e-09, -0.001750946, -0.76286227)
+visible = false
+mesh = SubResource("QuadMesh_oohos")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7611751, -0.7708623)
+visible = false
+texture_filter = 0
+text = "turn on"
+font = ExtResource("5_dgutp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gggwc")
+}
+
+[node name="monitor" type="Node3D" parent="."]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.74015725)
+light_color = Color(0, 0, 0.65882355, 1)
+light_energy = 2.0
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="Sprite3D" type="Sprite3D" parent="monitor"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
+visible = false
+texture_filter = 0
+texture = ExtResource("4_6eul1")
+
+[node name="Sprite3D2" type="Sprite3D" parent="monitor"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, -0.40864, 0.40779734, -0.7727012)
+visible = false
+texture_filter = 0
+texture = ExtResource("4_6eul1")
+
+[node name="INITIALIZED" type="Node3D" parent="monitor"]
+
+[node name="1" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.44, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="2" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.3804516, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="3" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.32, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="4" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.26, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="5" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.2, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="6" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.14, -0.773)
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="7" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.08, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="8" type="Label3D" parent="monitor/INITIALIZED"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.02, -0.773)
+texture_filter = 0
+font = ExtResource("5_dgutp")
+font_size = 16
+horizontal_alignment = 0
+
+[node name="beep" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
+stream = ExtResource("5_jeltb")
+volume_db = -20.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

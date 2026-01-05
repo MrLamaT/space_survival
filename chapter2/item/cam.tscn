@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c81x2u5mrjpew"]
+
+[ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="1_13fm4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oabn4"]
+size = Vector3(1, 0.25, 1)
+
+[node name="cam" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 4
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oabn4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D"]
+offset_right = 35.0
+offset_bottom = 25.0
+scale = Vector2(36.239998, 29.69)
+color = Color(1, 0, 0, 0.09803922)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera3D"]
+position = Vector2(576, 324)
+scale = Vector2(18, 20.25)
+texture = ExtResource("1_13fm4")

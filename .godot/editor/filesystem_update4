@@ -1,0 +1,14 @@
+res://chapter2/rooms/main.tscn
+res://chapter2/rooms/decoration/light.gd
+res://chapter2/rooms/main.gd
+res://chapter2/rooms/decoration/panel/panel1.tscn
+res://chapter2/rooms/decoration/panel/panel2.tscn
+res://chapter2/rooms/GlobalMain.tscn
+res://chapter2/rooms/decoration/wall/wall.tscn
+res://chapter2/rooms/decoration/table.tscn
+res://chapter2/rooms/decoration/TV.tscn
+res://chapter2/rooms/decoration/light.tscn
+res://chapter2/rooms/decoration/lightTable.tscn
+res://chapter2/rooms/decoration/menu.tscn
+res://chapter2/rooms/decoration/menu.gd
+res://chapter2/rooms/decoration/light_table.gd

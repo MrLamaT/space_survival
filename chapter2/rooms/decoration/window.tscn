@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://6v0pay6q4xwe"]
+
+[ext_resource type="Script" uid="uid://cqnes5sxow8of" path="res://chapter2/rooms/decoration/window.gd" id="1_64neb"]
+[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/material10.png" id="1_jo2fu"]
+[ext_resource type="Texture2D" uid="uid://ilkd253irnxk" path="res://assets/textures/material14.png" id="2_kyt8u"]
+[ext_resource type="Texture2D" uid="uid://ddyc247egkic8" path="res://assets/textures/material15.png" id="3_2a5um"]
+[ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="5_frdbb"]
+[ext_resource type="Texture2D" uid="uid://c83n0xd647eyd" path="res://assets/NotE.png" id="6_f1j44"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="7_r5jm3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjmea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frdbb"]
+size = Vector3(1, 1.890625, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frdbb"]
+albedo_texture = ExtResource("5_frdbb")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_wudbw"]
+material = SubResource("StandardMaterial3D_frdbb")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1j44"]
+albedo_texture = ExtResource("6_f1j44")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_e01qn"]
+material = SubResource("StandardMaterial3D_f1j44")
+size = Vector2(0.5, 0.5)
+
+[node name="window" type="Area3D" groups=["interactive_objects", "progressive_interactive"]]
+collision_layer = 4
+script = ExtResource("1_64neb")
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-09, -1, -1, -4.37114e-09, -3.59989e-21, -4.37114e-08, 0.1, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody"]
+shape = SubResource("BoxShape3D_cjmea")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody"]
+transform = Transform3D(-6.556708e-08, -1.5, -4.371139e-08, -5.684342e-14, -6.556695e-08, 1, -1.5, 6.556708e-08, 1.7763568e-15, 2.5437734e-09, -0.03194738, 2.5437734e-09)
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_jo2fu")
+
+[node name="Sprite3D3" type="Sprite3D" parent="StaticBody"]
+transform = Transform3D(-6.556708e-08, -1.5, -4.371139e-08, -5.684342e-14, -6.556695e-08, 1, -1.5, 6.556708e-08, 1.7763568e-15, 2.5437734e-09, -0.03194738, 2.5437734e-09)
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_2a5um")
+
+[node name="Sprite3D2" type="Sprite3D" parent="StaticBody"]
+transform = Transform3D(-1.7484555e-07, -4, -4.371139e-08, 0, -1.7484555e-07, 1, -4, 1.7484555e-07, 1.9106855e-15, 4.6105764e-10, 0.44452232, 4.6105764e-10)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_kyt8u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-09, -1, -1, -4.37114e-09, -3.59989e-21, -4.37114e-08, 0.1, -4.37114e-08, 1.9465232e-09, 1.9465232e-09, 0.010768924)
+shape = SubResource("BoxShape3D_frdbb")
+
+[node name="DoorE" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014259875, 0.16171089)
+visible = false
+mesh = SubResource("QuadMesh_wudbw")
+
+[node name="DoorENot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014259875, 0.16171089)
+visible = false
+mesh = SubResource("QuadMesh_e01qn")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62988704, 0.19558111)
+visible = false
+texture_filter = 0
+text = "need a crowbar"
+font = ExtResource("7_r5jm3")

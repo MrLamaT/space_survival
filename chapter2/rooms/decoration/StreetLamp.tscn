@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://crknx4gx3q5wb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+shading_mode = 0
+albedo_color = Color(0.74, 0.71188, 0.31820002, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnnpa"]
+material = SubResource("StandardMaterial3D_4hct6")
+size = Vector3(0.3, 0.5, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40gp7"]
+albedo_color = Color(0.061473116, 0.04994154, 0.037142165, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uaqgc"]
+material = SubResource("StandardMaterial3D_40gp7")
+size = Vector3(0.25, 4, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r8o57"]
+material = SubResource("StandardMaterial3D_40gp7")
+size = Vector3(0.35, 0.1, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdsuu"]
+size = Vector3(0.25, 5, 0.25)
+
+[node name="StreetLamp" type="Area3D"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+mesh = SubResource("BoxMesh_vnnpa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+light_color = Color(0.7411765, 0.7137255, 0.31764707, 1)
+light_energy = 8.0
+light_bake_mode = 1
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uaqgc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55, 0)
+mesh = SubResource("BoxMesh_r8o57")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_kdsuu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_kdsuu")

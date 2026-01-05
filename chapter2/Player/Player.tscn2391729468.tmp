@@ -1,0 +1,483 @@
+[gd_scene load_steps=18 format=3 uid="uid://cn5qxioc77162"]
+
+[ext_resource type="Script" uid="uid://ckntn10e1xfb2" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
+[ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
+[ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
+[ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
+[ext_resource type="AudioStream" uid="uid://dmoceerf52ppr" path="res://assets/open.wav" id="4_kd1ih"]
+[ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lojj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xng4x"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_3lojj"]
+resource_name = "BlackOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/black:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_sfgwg"]
+resource_name = "KillEnemy"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qr0cu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("head/Camera3D/black:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("head/Camera3D/black:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("head/Camera3D/blood1:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("head/Camera3D/blood1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("head/Camera3D/message:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("head/Camera3D/message:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("head/Camera3D/Time:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("head/Camera3D/TimeLabel:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n1vqc"]
+resource_name = "blood"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/blood1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/blood1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xng4x"]
+resource_name = "message"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/message:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_puud3"]
+resource_name = "TimeHP"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head/Camera3D/Time:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D/TimeLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lojj"]
+_data = {
+&"BlackOut": SubResource("Animation_3lojj"),
+&"KillEnemy": SubResource("Animation_sfgwg"),
+&"RESET": SubResource("Animation_qr0cu"),
+&"TimeHP": SubResource("Animation_puud3"),
+&"blood": SubResource("Animation_n1vqc"),
+&"message": SubResource("Animation_xng4x")
+}
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_mask = 12
+script = ExtResource("1_3dlvw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_al2fp")
+debug_color = Color(0, 0.576471, 0.701961, 1)
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="head/Camera3D"]
+omni_range = 15.0
+
+[node name="Time" type="ColorRect" parent="head/Camera3D"]
+visible = false
+z_index = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="TimeLabel" type="Label" parent="head/Camera3D"]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -9.0
+offset_right = 22.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(22.111153, 8.011124)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "00:00"
+
+[node name="black" type="ColorRect" parent="head/Camera3D"]
+visible = false
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.000002, 16.48)
+color = Color(0, 0, 0, 1)
+
+[node name="crosshair" type="TextureRect" parent="head/Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -16.5
+offset_right = 32.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(32.6, 16.6)
+texture = ExtResource("3_lmkso")
+
+[node name="Timespeedrun" type="Label" parent="head/Camera3D"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "Time: 00:00.0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cheat" type="Label" parent="head/Camera3D"]
+visible = false
+offset_top = 50.0
+offset_right = 144.0
+offset_bottom = 73.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "cheat mod enabled"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="coordinates" type="Label" parent="head/Camera3D"]
+visible = false
+offset_left = 864.0
+offset_top = 601.0
+offset_right = 1008.0
+offset_bottom = 624.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fps" type="Label" parent="head/Camera3D"]
+visible = false
+offset_left = 868.0
+offset_top = 5.0
+offset_right = 1012.0
+offset_bottom = 28.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "FPS:60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="head/Camera3D"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = 32.0
+offset_top = 136.0
+offset_right = 518.0
+offset_bottom = 159.0
+scale = Vector2(2.25, 2.25)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "Enemy will revive in 120 seconds."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="message" type="Label" parent="head/Camera3D"]
+visible = false
+offset_left = 32.0
+offset_top = 481.0
+offset_right = 518.0
+offset_bottom = 504.0
+scale = Vector2(2.25, 2.25)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "Enemy will revive in 120 seconds."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blood1" type="Sprite2D" parent="head/Camera3D"]
+visible = false
+scale = Vector2(18, 20.25)
+texture = ExtResource("4_3lojj")
+offset = Vector2(32, 16)
+
+[node name="blood2" type="Sprite2D" parent="head/Camera3D"]
+visible = false
+scale = Vector2(18, 20.25)
+texture = ExtResource("5_xng4x")
+offset = Vector2(32, 16)
+
+[node name="hand_position" type="Node3D" parent="head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, -0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="head/Camera3D/hand_position"]
+transform = Transform3D(-0.012548685, 0, -0.99992126, 0, 1, 0, 0.99992126, 0, -0.012548685, 0.28171474, 0, -0.11359966)
+texture_filter = 0
+
+[node name="InteractionProgressBar" type="ProgressBar" parent="head/Camera3D"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 220.0
+offset_right = 200.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
+show_percentage = false
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_kd1ih")
+volume_db = -20.0
+
+[node name="open" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kd1ih")
+
+[node name="ObstacleCheck" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3lojj")
+}

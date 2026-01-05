@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://bsbcsmkb4kgdi"]
+
+[ext_resource type="Script" uid="uid://cbw3s46axa0l" path="res://chapter2/interactable_object/interactable_object.gd" id="1_7v1ss"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_btual"]
+[ext_resource type="Texture2D" uid="uid://baxmh0q5dkq1x" path="res://assets/test.png" id="3_dc6cq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v1ss"]
+albedo_color = Color(0.0133333, 0.4, 0, 0.623529)
+
+[sub_resource type="BoxMesh" id="BoxMesh_btual"]
+material = SubResource("StandardMaterial3D_7v1ss")
+size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="Animation" id="Animation_btual"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7v1ss"]
+resource_name = "movement"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.6667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1, -0.1, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dc6cq"]
+_data = {
+&"RESET": SubResource("Animation_btual"),
+&"movement": SubResource("Animation_7v1ss")
+}
+
+[node name="InteractableObject" type="Area3D" groups=["interactive_objects"]]
+collision_layer = 4
+script = ExtResource("1_7v1ss")
+interaction_name = "test"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6iqkm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_btual")
+
+[node name="Node3D" type="Node3D" parent="."]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+billboard = 1
+shaded = true
+texture_filter = 0
+
+[node name="Label3D" type="Label3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7068479, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+font = ExtResource("2_btual")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dc6cq")
+}
+
+[node name="test" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+modulate = Color(0, 1, 0.083333254, 1)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("3_dc6cq")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

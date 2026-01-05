@@ -1,0 +1,111 @@
+[gd_scene load_steps=19 format=3 uid="uid://vp6d2sdlmwdf"]
+
+[ext_resource type="Script" uid="uid://cx13xbfpc1fbx" path="res://chapter2/ventilation/ventilation.gd" id="1_biire"]
+[ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="2_83n5t"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="2_ntw6t"]
+[ext_resource type="Texture2D" uid="uid://c83n0xd647eyd" path="res://assets/NotE.png" id="3_biire"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_83n5t"]
+[ext_resource type="AudioStream" uid="uid://dwsj25qedus5j" path="res://assets/venti.mp3" id="4_rqoej"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83n5t"]
+albedo_texture = ExtResource("2_83n5t")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_g543t"]
+material = SubResource("StandardMaterial3D_83n5t")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwexu"]
+albedo_texture = ExtResource("3_biire")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bwexu"]
+material = SubResource("StandardMaterial3D_bwexu")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqoej"]
+albedo_texture = ExtResource("2_ntw6t")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_biire"]
+material = SubResource("StandardMaterial3D_rqoej")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8pyo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ub2wn"]
+material = SubResource("StandardMaterial3D_u8pyo")
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkmqe"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fp0bw"]
+material = SubResource("StandardMaterial3D_tkmqe")
+size = Vector3(1.2, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83n5t"]
+size = Vector3(1, 1, 0.25)
+
+[node name="ventilation" type="Area3D" groups=["interactive_objects", "progressive_interactive"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_biire")
+
+[node name="DoorE" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014259875, 0.018270433)
+visible = false
+mesh = SubResource("QuadMesh_g543t")
+
+[node name="DoorENot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.014259875, 0.018270433)
+visible = false
+mesh = SubResource("QuadMesh_bwexu")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68311256, 0.05214066)
+visible = false
+texture_filter = 0
+text = "need a screwdriver"
+font = ExtResource("4_83n5t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_biire")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_fp0bw")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_fp0bw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rqoej")
+volume_db = -5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_6iqkm")
+debug_color = Color(0.983333, 1, 0, 0.419608)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_83n5t")
+debug_color = Color(0.983333, 1, 0, 0.419608)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

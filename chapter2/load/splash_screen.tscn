@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://2b46d713lssn"]
+
+[ext_resource type="Script" uid="uid://c23egdnmpri5b" path="res://chapter2/load/splash_screen.gd" id="1_2pka5"]
+[ext_resource type="Texture2D" uid="uid://dateaog7yobbw" path="res://assets/logo.png" id="2_drjrb"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2pka5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.5137255, 0, 0, 1)
+texture_filter = 1
+position = Vector2(576, 248)
+scale = Vector2(8, 8)
+texture = ExtResource("2_drjrb")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmggski320s00"]
+
+[ext_resource type="Texture2D" uid="uid://hii0jd8hbkqu" path="res://assets/textures/tree1.png" id="1_udo1o"]
+[ext_resource type="Script" uid="uid://bv6er4ebxce20" path="res://chapter2/rooms/decoration/tree.gd" id="2_80m31"]
+
+[node name="Tree" type="Sprite3D"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_udo1o")
+script = ExtResource("2_80m31")

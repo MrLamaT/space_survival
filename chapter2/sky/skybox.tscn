@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnapm3ml63i6a"]
+
+[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="1_hq4ad"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oht7b"]
+panorama = ExtResource("1_hq4ad")
+filter = false
+
+[sub_resource type="Sky" id="Sky_kd80a"]
+sky_material = SubResource("PanoramaSkyMaterial_oht7b")
+
+[sub_resource type="Environment" id="Environment_dm2hf"]
+background_mode = 2
+sky = SubResource("Sky_kd80a")
+
+[node name="Skybox" type="WorldEnvironment"]
+environment = SubResource("Environment_dm2hf")

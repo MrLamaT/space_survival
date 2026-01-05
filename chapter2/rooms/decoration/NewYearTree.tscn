@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq1nlqrg1a1d3"]
+
+[ext_resource type="Texture2D" uid="uid://by0xaas2p3ink" path="res://assets/textures/tree3.png" id="1_r3sdc"]
+[ext_resource type="Script" uid="uid://drmtcammslony" path="res://chapter2/rooms/decoration/new_year_tree.gd" id="2_ikggg"]
+
+[node name="NewYearTree" type="Sprite3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_r3sdc")
+script = ExtResource("2_ikggg")

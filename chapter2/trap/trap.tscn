@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwvprsripwl1m"]
+
+[ext_resource type="Script" uid="uid://dia2hp2tj8llh" path="res://chapter2/trap/trap.gd" id="1_yi7hl"]
+[ext_resource type="Texture2D" uid="uid://ciwf30xb6ggav" path="res://chapter2/assets/Trap/trap.png" id="2_s4pmb"]
+[ext_resource type="AudioStream" uid="uid://b7y1yps24bjh6" path="res://assets/trap.wav" id="3_s4pmb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
+
+[node name="trap" type="Area3D" groups=["interactive_objects", "progressive_interactive"]]
+collision_layer = 4
+script = ExtResource("1_yi7hl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_6iqkm")
+debug_color = Color(0.9897904, 0, 0.29177716, 0.41960785)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_s4pmb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_s4pmb")
+volume_db = -25.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

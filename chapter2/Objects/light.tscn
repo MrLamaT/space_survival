@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://w045ieqtfkw1"]
+
+[ext_resource type="Script" uid="uid://u0wk2vhudxlk" path="res://chapter2/Objects/Object.gd" id="1_uv5r6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+shading_mode = 0
+albedo_color = Color(0.74, 0.71188, 0.31820002, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uv5r6"]
+material = SubResource("StandardMaterial3D_4hct6")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmrp4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uv5r6"]
+size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0yp3s"]
+size = Vector3(50, 50, 50)
+
+[node name="light" type="StaticBody3D" groups=["Object"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_uv5r6")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uv5r6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Model"]
+light_color = Color(0.7411765, 0.7137255, 0.31764707, 1)
+light_bake_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_rmrp4")
+disabled = true
+
+[node name="ClippingHitBox" type="Area3D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClippingHitBox"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_uv5r6")
+
+[node name="FloatinHitBox" type="Area3D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloatinHitBox"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_0yp3s")

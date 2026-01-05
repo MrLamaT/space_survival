@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1awuh7hobog0"]
+
+[ext_resource type="Script" uid="uid://d0jw4oaxfiey2" path="res://chapter2/item/item.gd" id="1_0mlum"]
+[ext_resource type="Texture2D" uid="uid://baxmh0q5dkq1x" path="res://assets/test.png" id="3_2od2i"]
+[ext_resource type="AudioStream" uid="uid://cxirtiw7s35mp" path="res://assets/droop.mp3" id="3_tyht3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oabn4"]
+size = Vector3(1, 0.25, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tyht3"]
+albedo_color = Color(1, 0.933333, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oabn4"]
+material = SubResource("StandardMaterial3D_tyht3")
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2f6sf"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = -1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2od2i"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.63529414, 0, 0.63529414, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4bby"]
+material = SubResource("StandardMaterial3D_2od2i")
+size = Vector2(0.05, 0.05)
+
+[node name="Item" type="RigidBody3D" groups=["interactive_objects", "item"]]
+collision_layer = 2
+collision_mask = 14
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 10
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_0mlum")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oabn4")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_tyht3")
+volume_db = -25.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
+light_color = Color(0.6367873, 0.00030149103, 0.63678306, 1)
+light_indirect_energy = 2.5
+light_size = 1.0
+omni_range = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_oabn4")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.63529414, 0, 0.63529414, 1)
+light_energy = 0.5
+spot_range = 2.0
+spot_angle = 90.0
+spot_angle_attenuation = 6.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_color = Color(0.63529414, 0, 0.63529414, 1)
+light_energy = 0.5
+spot_range = 2.0
+spot_angle = 90.0
+spot_angle_attenuation = 6.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, 0, 0, 0)
+cast_shadow = 0
+amount = 5
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_2f6sf")
+draw_pass_1 = SubResource("QuadMesh_g4bby")
+
+[node name="test" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+modulate = Color(1, 0, 1, 1)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("3_2od2i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

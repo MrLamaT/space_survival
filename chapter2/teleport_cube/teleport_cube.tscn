@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ndlne2lgksdk"]
+
+[ext_resource type="Script" uid="uid://c6txh153mwbbw" path="res://chapter2/teleport_cube/teleport_cube.gd" id="1_kab61"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4no40"]
+size = Vector3(2, 2, 2)
+
+[node name="TeleportCube" type="Area3D"]
+collision_mask = 3
+script = ExtResource("1_kab61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_4no40")
+debug_color = Color(0.73807883, 0.003038398, 0.9855762, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

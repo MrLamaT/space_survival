@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt32mdlwj8ff5"]
+
+[ext_resource type="Script" uid="uid://c1yajsyi8ns7t" path="res://chapter2/Player/terminal/terminal.gd" id="1_2c528"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_do17e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
+bg_color = Color(0, 0, 0, 0.4117647)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.9372549, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh810"]
+bg_color = Color(0, 0, 0, 0.4117647)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.9372549, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qe0r"]
+bg_color = Color(0, 0, 0, 0.4117647)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.9372549, 0, 1)
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_2c528")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 600.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 590.0
+offset_bottom = 370.0
+theme_override_fonts/normal_font = ExtResource("2_do17e")
+scroll_following = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+modulate = Color(0, 0.9372549, 0, 1)
+offset_top = 410.0
+offset_right = 500.0
+offset_bottom = 441.0
+theme_override_fonts/font = ExtResource("2_do17e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hh810")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0, 0.9372549, 0, 1)
+offset_left = 510.0
+offset_top = 410.0
+offset_right = 610.0
+offset_bottom = 441.0
+theme_override_fonts/font = ExtResource("2_do17e")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6qe0r")
+text = "Send"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_send_pressed"]

@@ -1,0 +1,198 @@
+[gd_scene load_steps=19 format=3 uid="uid://dlc4ndjbvvxsi"]
+
+[ext_resource type="Script" uid="uid://bn1b15k03rhox" path="res://chapter2/enemy/enemy_2.gd" id="1_isa7v"]
+[ext_resource type="Texture2D" uid="uid://d38ppj1yfsmhj" path="res://chapter2/assets/enemy/new/Scar/scar4.png" id="2_bfwgx"]
+[ext_resource type="Texture2D" uid="uid://cl6ibqqmflyu2" path="res://chapter2/assets/enemy/new/Scar/scar5.png" id="3_f274j"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_jyd1i"]
+[ext_resource type="Texture2D" uid="uid://dtm571iybsx2a" path="res://chapter2/assets/enemy/new/Scar/scar2.png" id="4_ypvhf"]
+[ext_resource type="Texture2D" uid="uid://bybgk3oixub2" path="res://chapter2/assets/enemy/new/Scar/scar3.png" id="5_wxjfw"]
+[ext_resource type="Texture2D" uid="uid://2aox5pbdefrh" path="res://chapter2/assets/enemy/old/Scar/scar4.png" id="6_jkcik"]
+[ext_resource type="Texture2D" uid="uid://r86ygyklt6fo" path="res://chapter2/assets/enemy/new/Scar/scar.png" id="6_ypvhf"]
+[ext_resource type="Texture2D" uid="uid://cfd17l5hphps2" path="res://chapter2/assets/enemy/old/Scar/scar5.png" id="7_1eu1k"]
+[ext_resource type="Texture2D" uid="uid://ces3n1kkabc60" path="res://chapter2/assets/enemy/old/Scar/scar2.png" id="8_8s8yj"]
+[ext_resource type="Texture2D" uid="uid://dtbpuics51xvl" path="res://chapter2/assets/enemy/old/Scar/scar3.png" id="9_8stvr"]
+[ext_resource type="Texture2D" uid="uid://jfv17swni08l" path="res://chapter2/assets/enemy/old/Scar/scar.png" id="11_wxjfw"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="13_wxjfw"]
+[ext_resource type="AudioStream" uid="uid://c2w52baurjymm" path="res://assets/nail.wav" id="14_jkcik"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25a6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bfwgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f274j")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ypvhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wxjfw")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ypvhf")
+}],
+"loop": true,
+"name": &"shock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bfwgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f274j")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ypvhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wxjfw")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 2.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fuby3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jkcik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1eu1k")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8s8yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8stvr")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wxjfw")
+}],
+"loop": true,
+"name": &"shock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jkcik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1eu1k")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 2.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8s8yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8stvr")
+}],
+"loop": true,
+"name": &"walk_front",
+"speed": 2.5
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
+radius = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0mjta"]
+size = Vector3(10, 1, 10)
+
+[node name="Enemy2" type="CharacterBody3D" groups=["click_interact", "enemy2", "interactive_objects"]]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_isa7v")
+
+[node name="AnimatedSprite3D_old" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.033, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_25a6a")
+animation = &"shock"
+
+[node name="AnimatedSprite3D_new" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.033, 0)
+billboard = 2
+shaded = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fuby3")
+animation = &"shock"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_se8os")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="VisionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.253056)
+shape = SubResource("BoxShape3D_0mjta")
+
+[node name="CollisionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
+shape = SubResource("CapsuleShape3D_se8os")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="StateLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2153388, 0)
+visible = false
+billboard = 2
+texture_filter = 0
+font = ExtResource("4_jyd1i")
+
+[node name="ResurrectionTimer" type="Timer" parent="."]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+navigation_layers = 7
+
+[node name="shock_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="shock_animation_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="shock" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_wxjfw")
+
+[node name="nail" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_jkcik")
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]
+[connection signal="body_exited" from="VisionArea" to="." method="_on_vision_area_body_exited"]
+[connection signal="timeout" from="shock_timer" to="." method="_on_shock_timer_timeout"]
+[connection signal="timeout" from="shock_animation_timer" to="." method="_on_shock_animation_timer_timeout"]

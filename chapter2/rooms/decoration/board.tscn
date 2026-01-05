@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://iuthusc4lu48"]
+
+[ext_resource type="Script" uid="uid://coo8x3vim8gks" path="res://chapter2/rooms/decoration/board.gd" id="1_cofpk"]
+[ext_resource type="Texture2D" uid="uid://f7113tsm5wda" path="res://assets/textures/material7.png" id="2_sd2c5"]
+[ext_resource type="Texture2D" uid="uid://bvfr60r1ey227" path="res://assets/paintings/picture11.png" id="3_uj640"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w8tc"]
+albedo_color = Color(0.505882, 0.388235, 0.282353, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vy737"]
+material = SubResource("StandardMaterial3D_7w8tc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cofpk"]
+albedo_texture = ExtResource("2_sd2c5")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_uj640"]
+material = SubResource("StandardMaterial3D_cofpk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2loi4"]
+albedo_texture = ExtResource("3_uj640")
+
+[sub_resource type="QuadMesh" id="QuadMesh_b2vxy"]
+material = SubResource("StandardMaterial3D_2loi4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjmea"]
+
+[node name="board" type="Node3D"]
+script = ExtResource("1_cofpk")
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-09, -1, -1, -4.37114e-09, -3.59989e-21, -4.37114e-08, 0.1, -4.37114e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody"]
+mesh = SubResource("BoxMesh_vy737")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody"]
+transform = Transform3D(1, 4.23516e-22, 0, 0, -4.37115e-08, 1, -1.05879e-22, -1, -4.37114e-08, 0, 0.55, 0)
+mesh = SubResource("QuadMesh_uj640")
+
+[node name="paintings" type="MeshInstance3D" parent="StaticBody"]
+transform = Transform3D(-3.49691e-08, -0.85, -4.37114e-08, 0, -3.71547e-08, 1, -0.8, 3.71547e-08, 1.91069e-15, 0, 0.6, 0)
+mesh = SubResource("QuadMesh_b2vxy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody"]
+shape = SubResource("BoxShape3D_cjmea")
