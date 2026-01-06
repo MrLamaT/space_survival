@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2tpuf62megqf"]
+[gd_scene load_steps=25 format=3 uid="uid://b2tpuf62megqf"]
 
 [ext_resource type="Script" uid="uid://wxrmi8j1a8sf" path="res://chapter2/rooms/decoration/menu.gd" id="1_kxafx"]
 [ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="3_f7un4"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="4_6eul1"]
+[ext_resource type="Texture2D" uid="uid://c8uj1j8awq1ii" path="res://assets/textures/material16.png" id="5_av5wm"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="5_dgutp"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="5_jeltb"]
+[ext_resource type="PackedScene" uid="uid://bg8487sig4rmg" path="res://chapter2/interactable_object/buttonText.tscn" id="5_vkg4q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnnrj"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
@@ -54,6 +56,70 @@ texture_filter = 0
 [sub_resource type="QuadMesh" id="QuadMesh_oohos"]
 material = SubResource("StandardMaterial3D_2bep4")
 size = Vector2(0.85, 0.85)
+
+[sub_resource type="Animation" id="Animation_10f18"]
+resource_name = "Flowy"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("monitor/Sprite3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("monitor/Sprite3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.035019755, -0.7727012)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monitor/Sprite3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 1), Vector3(6, 6, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("monitor/Sprite3D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("menu:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6eul1"]
 length = 0.001
@@ -225,6 +291,42 @@ tracks/13/keys = {
 "update": 1,
 "values": [""]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("monitor/Sprite3D2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("monitor/INITIALIZED:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("menu:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_10g0r"]
 resource_name = "intro"
@@ -264,46 +366,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_10f18"]
-resource_name = "Flowy"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("monitor/Sprite3D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("monitor/Sprite3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.035019755, -0.7727012)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("monitor/Sprite3D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.1, 0.1, 1), Vector3(6, 6, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jeltb"]
@@ -407,6 +469,18 @@ tracks/7/keys = {
 "update": 1,
 "values": ["> > OBJECTIVE: SURVIVE. "]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("monitor/INITIALIZED:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gggwc"]
 _data = {
@@ -478,6 +552,99 @@ font = ExtResource("5_dgutp")
 libraries = {
 &"": SubResource("AnimationLibrary_gggwc")
 }
+
+[node name="menu" type="Node3D" parent="."]
+visible = false
+
+[node name="ButtonText" parent="menu" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, 0.2, -0.773)
+CustText = "PLAY"
+
+[node name="ButtonText2" parent="menu" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, 0, -0.773)
+CustText = "OPTIONS"
+
+[node name="ButtonText3" parent="menu" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, -0.2, -0.773)
+CustText = "QUIT"
+
+[node name="options" type="Node3D" parent="."]
+visible = false
+
+[node name="Autosave" parent="options" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.2, -0.773)
+CustText = "Autosave"
+setting = true
+
+[node name="Coords" parent="options" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.11, -0.773)
+CustText = "Coords"
+setting = true
+
+[node name="FPS" parent="options" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.02, -0.773)
+CustText = "FPS"
+setting = true
+
+[node name="ButtonText" parent="options" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.07, -0.773)
+CustText = "BACK"
+
+[node name="world" type="Node3D" parent="."]
+visible = false
+
+[node name="ButtonText1" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.2, -0.773)
+CustText = "[NEW GAME 1]"
+
+[node name="ButtonText2" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.11, -0.773)
+CustText = "[NEW GAME 2]"
+
+[node name="ButtonText3" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.02, -0.773)
+CustText = "[NEW GAME 3]"
+
+[node name="ButtonText4" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.07, -0.773)
+CustText = "[NEW GAME 4]"
+
+[node name="ButtonText5" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.16, -0.773)
+CustText = "[NEW GAME 5]"
+
+[node name="ButtonText" parent="world" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.25, -0.773)
+CustText = "BACK"
+
+[node name="worldSetting" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045, 0, 0)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="worldSetting"]
+transform = Transform3D(0.82022977, 0, 0, 0, 1.0857829, 0, 0, 0, 1, 0.17379914, -0.020924166, -0.773)
+texture_filter = 0
+texture = ExtResource("5_av5wm")
+
+[node name="WorldName" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, 0.2, -0.773)
+CustText = "world name"
+
+[node name="GameMode" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, 0.11, -0.773)
+CustText = "game mode"
+
+[node name="stage" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.048, 0.02, -0.773)
+CustText = "stage"
+
+[node name="delete" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, -0.16, -0.773)
+CustText = "delete"
+
+[node name="load" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, -0.25, -0.773)
+CustText = "load"
 
 [node name="monitor" type="Node3D" parent="."]
 visible = false

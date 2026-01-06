@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dvyormlmcnr8r"]
+[gd_scene load_steps=18 format=4 uid="uid://dvyormlmcnr8r"]
 
 [ext_resource type="Script" uid="uid://cu01v74yppo1" path="res://chapter2/rooms/main.gd" id="1_rukgg"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="2_nx5a4"]
@@ -146,6 +146,9 @@ data = PackedByteArray("cW9hZgAJCWUCAKxEFAAQKAAAAAAAAAAAAAAAAOAAQAAAAAAAAAAAAAAA
 format = 3
 stereo = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7o45e"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rukgg")
 
@@ -227,5 +230,13 @@ stream = SubResource("AudioStreamWAV_7o45e")
 volume_db = -35.0
 autoplay = true
 
+[node name="AreaLight" type="Area3D" parent="."]
+transform = Transform3D(-1.8474118e-07, 0, 7.937516, 0, 8.890741, 0, -4.2263856, 0, -3.4695987e-07, -1.8676317, 2.0615518, -4.393621)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaLight"]
+shape = SubResource("BoxShape3D_7o45e")
+
 [connection signal="animation_finished" from="On" to="." method="_on_on_animation_finished"]
 [connection signal="finished" from="fans" to="." method="_on_fans_finished"]
+[connection signal="mouse_entered" from="AreaLight" to="." method="_on_area_light_mouse_entered"]
+[connection signal="mouse_exited" from="AreaLight" to="." method="_on_area_light_mouse_exited"]

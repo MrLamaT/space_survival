@@ -1,5 +1,12 @@
 extends Node3D
 
+var mouseLight = false
+
+func _input(event):
+	if event.is_action_pressed("UI_click"):
+		if mouseLight:
+			$Light2.switching()
+
 func _ready() -> void:
 	$AnimationPlayer.play("light")
 	$On.play("OnSystem")
@@ -52,3 +59,11 @@ func _on_on_animation_finished(_anim_name: StringName) -> void:
 
 func _on_fans_finished() -> void:
 	$fans.play()
+
+func _on_area_light_mouse_entered() -> void:
+	mouseLight = true
+	print(true)
+
+func _on_area_light_mouse_exited() -> void:
+	mouseLight = false
+	print(false)
