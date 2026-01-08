@@ -47,7 +47,7 @@ func _input(event):
 			else:
 				button_node.text = hovered + " [OFF]"
 			$beep.play()
-			Global.save_settings()
+			Global.save(0)
 		if hovered.begins_with("[NEW GAME "):
 			$worldSetting.visible = true
 			$beep.play()
@@ -87,13 +87,23 @@ func _input(event):
 					$worldSetting/GameMode.text = "mode: survival"
 		if hovered == "delete":
 			$beep.play()
+			$confirmation.visible = true
+			$world.visible = false
+			$worldSetting.visible = false
+		if hovered == "CANCEL":
+			$beep.play()
+			$confirmation.visible = false
+			$world.visible = true
+		if hovered == "DELETE":
+			$beep.play()
 			var world_data = Global.get(select_world)
 			world_data["name"] = "[NEW GAME " + select_world[-1] + "]"
 			world_data["mode"] = 0
 			world_data["stage"] = 0
-			$worldSetting.visible = false
 			Initialization_names()
-			$beep.play()
+			$confirmation.visible = false
+			$world.visible = true
+			Global.save(int(select_world[-1]))
 		if hovered == "load":
 			$beep.play()
 			var world_data = Global.get(select_world)
@@ -101,6 +111,11 @@ func _input(event):
 				$worldSetting.visible = false
 				world_data["name"] = $worldSetting/WorldName.text
 				Initialization_names()
+				Global.save(int(select_world[-1]))
+			else:
+				SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
+				Global.game_settings["word"] = int(select_world[-1])
+				print(Global.game_settings["word"])
 
 func Initialization_names():
 	$world/ButtonText1.text = Global.world_1["name"]

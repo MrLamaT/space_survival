@@ -1,8 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene load_steps=19 format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
-[ext_resource type="Script" uid="uid://bopviik6y8keo" path="res://chapter2/Player/pause.gd" id="2_68v2k"]
-[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://LabelButton/LabelButton.tscn" id="2_exxaw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
@@ -15,19 +13,6 @@
 [ext_resource type="AudioStream" uid="uid://c6rmekx11bec8" path="res://assets/step2.mp3" id="11_u8yn7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_puud3"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lojj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -68,76 +53,48 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_sfgwg"]
-resource_name = "KillEnemy"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/label:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_qr0cu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/label:visible")
+tracks/0/path = NodePath("head/Camera3D/black:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/label:modulate")
+tracks/1/path = NodePath("head/Camera3D/black:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("head/Camera3D/black:modulate")
+tracks/2/path = NodePath("head/Camera3D/blood1:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("head/Camera3D/black:visible")
+tracks/3/path = NodePath("head/Camera3D/blood1:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -145,130 +102,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("head/Camera3D/blood1:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("head/Camera3D/blood1:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("head/Camera3D/Use:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("head/Camera3D/Use:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("head/Camera3D/Time:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("head/Camera3D/TimeLabel:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("tick:volume_db")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_puud3"]
-resource_name = "TimeHP"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/Time:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/TimeLabel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("tick:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -80.0]
 }
 
 [sub_resource type="Animation" id="Animation_n1vqc"]
@@ -298,42 +131,11 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_xng4x"]
-resource_name = "message"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/Use:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/Use:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3lojj"]
 _data = {
 &"BlackOut": SubResource("Animation_3lojj"),
-&"KillEnemy": SubResource("Animation_sfgwg"),
 &"RESET": SubResource("Animation_qr0cu"),
-&"TimeHP": SubResource("Animation_puud3"),
-&"blood": SubResource("Animation_n1vqc"),
-&"message": SubResource("Animation_xng4x")
+&"blood": SubResource("Animation_n1vqc")
 }
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
@@ -357,180 +159,6 @@ spot_range = 15.0
 [node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D"]
 light_energy = 0.5
 spot_angle = 90.0
-
-[node name="Pause" type="Panel" parent="head/Camera3D"]
-visible = false
-z_index = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = -200.0
-offset_right = 316.0
-offset_bottom = 200.0
-grow_vertical = 2
-pivot_offset = Vector2(250, 250)
-theme_override_styles/panel = SubResource("StyleBoxFlat_puud3")
-script = ExtResource("2_68v2k")
-
-[node name="ButtonCoords" type="Button" parent="head/Camera3D/Pause"]
-modulate = Color(1, 1, 1, 0)
-z_index = 4
-layout_mode = 0
-offset_left = 30.0
-offset_top = 10.0
-offset_right = 38.0
-offset_bottom = 18.0
-scale = Vector2(30, 11)
-
-[node name="ButtonTimer" type="Button" parent="head/Camera3D/Pause"]
-modulate = Color(1, 1, 1, 0)
-z_index = 4
-layout_mode = 0
-offset_left = 30.0
-offset_top = 106.0
-offset_right = 38.0
-offset_bottom = 114.0
-scale = Vector2(30, 11)
-
-[node name="ButtonFPS" type="Button" parent="head/Camera3D/Pause"]
-modulate = Color(1, 1, 1, 0)
-z_index = 4
-layout_mode = 0
-offset_left = 30.0
-offset_top = 202.0
-offset_right = 38.0
-offset_bottom = 210.0
-scale = Vector2(30, 11)
-
-[node name="ButtonMain" type="Button" parent="head/Camera3D/Pause"]
-modulate = Color(1, 1, 1, 0)
-z_index = 4
-layout_mode = 0
-offset_left = 30.0
-offset_top = 298.0
-offset_right = 38.0
-offset_bottom = 306.0
-scale = Vector2(30, 11)
-
-[node name="LabelButton2" parent="head/Camera3D/Pause" instance=ExtResource("2_exxaw")]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 58.0
-offset_right = 190.0
-offset_bottom = 58.0
-text = "Coords [OFF]"
-
-[node name="LabelButton3" parent="head/Camera3D/Pause" instance=ExtResource("2_exxaw")]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 153.0
-offset_right = 190.0
-offset_bottom = 153.0
-text = "Timer [OFF]"
-
-[node name="LabelButton" parent="head/Camera3D/Pause" instance=ExtResource("2_exxaw")]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 248.0
-offset_right = 190.0
-offset_bottom = 248.0
-text = "FPS [OFF]"
-
-[node name="LabelButton4" parent="head/Camera3D/Pause" instance=ExtResource("2_exxaw")]
-modulate = Color(1, 0, 0, 1)
-layout_mode = 0
-offset_left = 150.0
-offset_top = 343.0
-offset_right = 190.0
-offset_bottom = 343.0
-text = "Reset"
-direction_A_and_D = "A"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="head/Camera3D/Pause"]
-stream = ExtResource("4_kd1ih")
-
-[node name="Label" type="Label" parent="head/Camera3D/Pause"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = -48.0
-offset_right = 96.0
-offset_bottom = -25.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "Options"
-
-[node name="Time" type="ColorRect" parent="head/Camera3D"]
-visible = false
-z_index = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
-
-[node name="TheEND" type="ColorRect" parent="head/Camera3D"]
-visible = false
-z_index = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-mouse_behavior_recursive = 2
-color = Color(0, 0, 0, 1)
-
-[node name="LabelButton" parent="head/Camera3D/TheEND" instance=ExtResource("2_exxaw")]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 600.0
-offset_right = 120.0
-offset_bottom = 600.0
-text = "Reset"
-direction_A_and_D = "A"
-
-[node name="EndExit" type="Button" parent="head/Camera3D/TheEND"]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-layout_mode = 0
-offset_top = 552.0
-offset_right = 8.0
-offset_bottom = 560.0
-scale = Vector2(29.800005, 11.64)
-
-[node name="TimeLabel" type="Label" parent="head/Camera3D"]
-visible = false
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -9.0
-offset_right = 22.5
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(22.111153, 8.011124)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "00:00"
-
-[node name="TheEND2" type="Label" parent="head/Camera3D"]
-visible = false
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -12.0
-offset_right = 3.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(22.111153, 8.011124)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "THE END"
 
 [node name="black" type="ColorRect" parent="head/Camera3D"]
 visible = false
@@ -557,40 +185,15 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(32.6, 16.6)
 texture = ExtResource("3_lmkso")
 
-[node name="Timespeedrun" type="Label" parent="head/Camera3D"]
-visible = false
-modulate = Color(1, 1, 1, 0.5019608)
-z_index = 2
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "Time: 00:00.0000"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="coordinates" type="Label" parent="head/Camera3D"]
-visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 offset_left = 864.0
-offset_top = 61.0
+offset_top = 599.0
 offset_right = 1008.0
-offset_bottom = 84.0
+offset_bottom = 622.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "00:00:00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="shoot" type="Label" parent="head/Camera3D"]
-visible = false
-offset_left = 864.0
-offset_top = 601.0
-offset_right = 1008.0
-offset_bottom = 624.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "Left Click = shoot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -738,9 +341,3 @@ libraries = {
 [node name="screem" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_puud3")
 pitch_scale = 0.5
-
-[connection signal="pressed" from="head/Camera3D/Pause/ButtonCoords" to="head/Camera3D/Pause" method="_on_button_coords_pressed"]
-[connection signal="pressed" from="head/Camera3D/Pause/ButtonTimer" to="head/Camera3D/Pause" method="_on_button_timer_pressed"]
-[connection signal="pressed" from="head/Camera3D/Pause/ButtonFPS" to="head/Camera3D/Pause" method="_on_button_fps_pressed"]
-[connection signal="pressed" from="head/Camera3D/Pause/ButtonMain" to="head/Camera3D/Pause" method="_on_button_main_pressed"]
-[connection signal="pressed" from="head/Camera3D/TheEND/EndExit" to="." method="_on_end_exit_pressed"]

@@ -617,6 +617,25 @@ CustText = "[NEW GAME 5]"
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.25, -0.773)
 CustText = "BACK"
 
+[node name="confirmation" type="Node3D" parent="."]
+visible = false
+
+[node name="ButtonText1" parent="confirmation" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.10565844, -0.097, -0.773)
+CustText = "DELETE"
+
+[node name="ButtonText2" parent="confirmation" instance=ExtResource("5_vkg4q")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.35445297, -0.097, -0.773)
+CustText = "CANCEL"
+
+[node name="Label3D" type="Label3D" parent="confirmation"]
+transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 1, 0, 0.15, -0.772)
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "Are you sure you want to permanently 
+delete the world?"
+font = ExtResource("5_dgutp")
+
 [node name="worldSetting" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045, 0, 0)
 visible = false

@@ -3,11 +3,6 @@ extends Node3D
 var painting = 0
 
 func _ready() -> void:
-	$Player.startSpreedrun()
-	$Player.PlayerDeath(-1)
-	$NavigationRegion3D/Living/Label3D.text = Global.game_settings["password"].substr(0, 2) + "??"
-	$NavigationRegion3D3/attic/Label3D.text = "??" + Global.game_settings["password"].substr(2, 5)
-	setup_seasonal_materials()
 	var env_scene = preload("res://chapter2/sky/skybox.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)

@@ -5,7 +5,7 @@ func _ready():
 	set_random_texture()
 
 func set_random_texture():
-	var is_new_year_period = !Global.game_settings["ModSeason"]
+	var is_new_year_period = true
 	var texture_paths = []
 	if is_new_year_period:
 		texture_paths = [

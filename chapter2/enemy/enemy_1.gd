@@ -34,14 +34,10 @@ var spawnpoint: Vector3
 var is_shocked: bool = false
 
 func _ready():
-	if Global.game_settings["ModEye"]:
-		print("eye delet")
+	if !Global.game_settings["Enemy"]:
 		queue_free()
 		return
 	initialize_sprites()
-	if Global.game_settings["ModHard"]:
-		SPEED = 5
-	print("eye speed: ", SPEED)
 	player = get_tree().get_first_node_in_group("player")
 	find_target()
 	update_state_label("Patrolling")
@@ -53,16 +49,10 @@ func _ready():
 func initialize_sprites():
 	sprite_3d_old = get_node_or_null("AnimatedSprite3D_old")
 	sprite_3d_new = get_node_or_null("AnimatedSprite3D_new")
-	if Global.game_settings["ModSkin"]:
-		sprite_3d = sprite_3d_old
-		if sprite_3d_new:
-			sprite_3d_new.queue_free()
-			sprite_3d_new = null
-	else:
-		sprite_3d = sprite_3d_new
-		if sprite_3d_old:
-			sprite_3d_old.queue_free()
-			sprite_3d_old = null
+	sprite_3d = sprite_3d_old
+	if sprite_3d_new:
+		sprite_3d_new.queue_free()
+		sprite_3d_new = null
 	if not sprite_3d:
 		push_error("No valid sprite found for eye enemy!")
 		queue_free()

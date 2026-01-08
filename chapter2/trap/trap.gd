@@ -1,18 +1,10 @@
 extends Area3D
 
-@export var Level: int = 0
-
 var is_active: bool = true
 var player_trapped: bool = false
 var respawn_timer: float = 0.0
 var respawn_delay: float = 60.0  
 var trapped_player: Node3D = null
-
-func _ready():
-	if Level == 1:
-		$Node3D/Sprite3D.texture = preload("res://chapter2/assets/Trap/trap_traps.png")
-		if !Global.game_settings["ModTraps"]:
-			queue_free()
 
 func _process(delta):
 	if not is_active and respawn_timer > 0:

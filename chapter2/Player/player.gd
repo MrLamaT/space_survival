@@ -162,8 +162,6 @@ func _ready():
 	update_stamina_display()
 	stamina_bar.visible = false  
 	$open.play()
-	if Global.game_settings["ModHard"]:
-		DarkHardMod(true)
 	update_gui_visibility()
 
 func DarkHardMod(mod):
@@ -253,8 +251,6 @@ func respawn_player():
 				await get_tree().create_timer(4.25).timeout
 				$head/Camera3D/TheEND.visible = true
 				$head/Camera3D/TheEND2.visible = true
-				stopSpreedrun()
-				SpreedrunMod(true)
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/main.tscn")
@@ -290,9 +286,6 @@ func find_camera_in_node(node: Node) -> Camera3D:
 			return camera
 	return null
 
-func SpreedrunMod(mod):
-	$head/Camera3D/Timespeedrun.visible = mod
-
 func set_movement_enabled(enabled: bool):
 	movement_enabled = enabled
 	if not enabled:
@@ -327,9 +320,8 @@ func toggle_terminal():
 
 func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
-	$head/Camera3D/coordinates.visible = gui_settings["coordinates"]
-	$head/Camera3D/fps.visible = gui_settings["fps"]
-	SpreedrunMod(gui_settings["timer"])
+	$head/Camera3D/coordinates.visible = gui_settings["Coords"]
+	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -381,7 +373,6 @@ func _process(delta):
 	$head/Camera3D/fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	if is_runningTime:
 		time_elapsed += delta
-		update_textSpreedrun()
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	_update_stamina(delta)
@@ -463,18 +454,6 @@ func drop_item():
 func clear_item():
 	Global.game_settings["Item"] = ""
 	hand_sprite.texture = null
-
-func update_textSpreedrun():
-	var minutes = int(time_elapsed / 60)
-	var seconds = int(time_elapsed) % 60
-	var milliseconds = int((time_elapsed - int(time_elapsed)) * 1000)
-	$head/Camera3D/Timespeedrun.text = "Timer: %02d:%02d.%03d" % [minutes, seconds, milliseconds]
-
-func startSpreedrun():
-	is_runningTime = true
-
-func stopSpreedrun():
-	is_runningTime = false
 
 func message(Mtext):
 	$AnimationPlayer.stop()
