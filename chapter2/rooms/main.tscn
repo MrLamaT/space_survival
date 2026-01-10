@@ -214,12 +214,15 @@ material = SubResource("StandardMaterial3D_vy737")
 
 [node name="wall" parent="." instance=ExtResource("6_7o45e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+light = false
 
 [node name="wall3" parent="." instance=ExtResource("6_7o45e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.5)
+light = false
 
 [node name="wall2" parent="." instance=ExtResource("6_7o45e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5.5)
+light = false
 
 [node name="Light2" parent="." instance=ExtResource("6_4kqoq")]
 transform = Transform3D(0.39796466, 0, 0.9174007, 0, 1, 0, -0.9174007, 0, 0.39796466, -0.91872525, 2.3906944, -4.060623)

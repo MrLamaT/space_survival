@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ip2y14ixvdk"]
+
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="1_00hl7"]
+[ext_resource type="Script" uid="uid://cyvp422fyclpi" path="res://UI/pause/pause.gd" id="1_6xmdl"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_4uepe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
+bg_color = Color(0, 0, 0.66, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="Pause" type="Node2D"]
+script = ExtResource("1_6xmdl")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="LabelButton" parent="." instance=ExtResource("1_00hl7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_right = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YES"
+direction_A_and_D = "D"
+target_node = NodePath("..")
+button_id = "exit"
+
+[node name="LabelButton2" parent="." instance=ExtResource("1_00hl7")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NO"
+direction_A_and_D = "D"
+target_node = NodePath("..")
+button_id = "back"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -120.0
+offset_right = 162.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_4uepe")
+theme_override_font_sizes/font_size = 32
+text = "Quit to Main Menu?"

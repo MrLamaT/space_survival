@@ -1,15 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://btlhau0niepik"]
 
-[ext_resource type="Script" uid="uid://dx25pso40lqfc" path="res://LabelButton/label_button.gd" id="1_yid14"]
-[ext_resource type="Texture2D" uid="uid://bp46otm30s4gr" path="res://LabelButton/button_next.png" id="2_r3hcl"]
+[ext_resource type="Script" uid="uid://dx25pso40lqfc" path="res://UI/LabelButton/label_button.gd" id="1_yid14"]
+[ext_resource type="Texture2D" uid="uid://bp46otm30s4gr" path="res://UI/LabelButton/button_next.png" id="2_r3hcl"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_p5rb6"]
 
 [node name="LabelButton" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yid14")
-text = "TEXTTTTTT"
-direction_A_and_D = "D"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_r3hcl")
@@ -29,3 +27,15 @@ scale = Vector2(1.75, 1.75)
 theme_override_fonts/font = ExtResource("3_p5rb6")
 text = "TEXT"
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -117.0
+offset_top = -42.0
+offset_right = 117.0
+offset_bottom = 42.0
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

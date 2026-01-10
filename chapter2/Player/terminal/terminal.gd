@@ -3,7 +3,7 @@ extends Node2D
 var messages := []
 var command_args := {}
 
-var system_color := Color("e6d91aff")
+var system_color := Color("#faff68")
 var user_color := Color("00ef00")
 var error_color := Color("ff0000")
 
@@ -17,6 +17,9 @@ var cheat_mod: bool = false
 
 func _ready():
 	SystemPrint("The system is running")
+	var select_world = "world_" + str(Global.game_settings["word"])
+	if Global.get(select_world)["mode"] == 1:
+		cheat_mod = true
 	player = get_tree().get_first_node_in_group("player")
 
 func get_current_time() -> String:
@@ -78,21 +81,15 @@ func parse_command(text: String):
 	command_args[command] = argument
 
 	match command:
-		"cheat":
-			SystemPrint("Cheats included")
-			cheat_mod = true
 		"ghost", "noclip":
 			if cheat_mod:
 				SystemPrint("Ghost mode has been changed")
 				player.ghost_cheat()
 			else:
 				ErrorPrint("No rights")
-		"teleport":
-			if cheat_mod:
-				player.global_position = Vector3(0, 0, 0)
-				SystemPrint("Teleported to coordinates 0, 0, 0")
-			else:
-				ErrorPrint("No rights")
+		"teleport", "home":
+			player.global_position = Vector3(0, 0, 0)
+			SystemPrint("Teleported to coordinates 0, 0, 0")
 		"give":
 			if cheat_mod:
 				if argument == "":
@@ -139,26 +136,6 @@ func parse_command(text: String):
 					SystemPrint(argument + " " + str(value))
 				else:
 					ErrorPrint("Key not found: " + argument)
-		"preset":
-			if cheat_mod:
-				if argument == "":
-					SystemPrint("Usage: preset [0-5]")
-					return
-				
-				if not argument.is_valid_int():
-					ErrorPrint("Preset value must be an integer number from 0 to 5")
-					return
-				
-				var preset_value = argument.to_int()
-				if preset_value < 0 or preset_value > 5:
-					ErrorPrint("Preset value must be from 0 to 5 (got: " + argument + ")")
-					return
-				
-				# Устанавливаем новое значение
-				Global.game_settings["preset"] = preset_value
-				SystemPrint("Preset value set to: " + str(preset_value))
-			else:
-				ErrorPrint("No rights")
 		"restart", "respawn":
 			if cheat_mod:
 				player.respawn_player()

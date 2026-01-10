@@ -1,5 +1,7 @@
-Label3D
 Label
+Panel
+Button
+Label3D
 CollisionShape3D
 StaticBody3D
 Sprite3D
@@ -10,5 +12,3 @@ AudioStreamPlayer3D
 SpotLight3D
 CSGBox3D
 CSGCombiner3D
-CSGPolygon3D
-CSGSphere3D

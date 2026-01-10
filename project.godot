@@ -34,7 +34,7 @@ enabled=PackedStringArray()
 [file_customization]
 
 folder_colors={
-"res://LabelButton/": "green",
+"res://UI/": "purple",
 "res://assets/": "green",
 "res://chapter2/": "orange"
 }

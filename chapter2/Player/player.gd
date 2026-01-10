@@ -3,7 +3,6 @@ extends CharacterBody3D
 @onready var head = $head
 @onready var cam = $head/Camera3D
 @onready var stamina_bar = $head/Camera3D/staminaProgressBar
-@onready var time_label = $head/Camera3D/TimeLabel
 @onready var blood_overlay = $head/Camera3D/blood1
 @onready var footstep_player = $FootstepPlayer
 @onready var footstep_player2 = $FootstepPlayer2
@@ -81,7 +80,7 @@ var jump_cooldown_timer = 0.0
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
 
 #стройка
-var grid_size = 0.25
+var grid_size = 0.3
 var ghost_block: Node3D = null
 var objects = {
 	"light": preload("res://chapter2/Objects/light.tscn"),
@@ -222,22 +221,8 @@ func respawn_player():
 	update_stamina_display()
 	$head/Camera3D/Time.visible = true
 	$head/Camera3D/label.visible = false
-	time_label.visible = true
 	blood_overlay.visible = false
 	stepGrass = false
-	if Global.game_settings["HP"] == 4:
-		time_label.text = "01:30"
-	elif Global.game_settings["HP"] == 3:
-		time_label.text = "02:00"
-		SPEED = 4.0
-	elif Global.game_settings["HP"] == 2:
-		time_label.text = "03:30"
-		$head/Camera3D/blood2.visible = true
-	elif Global.game_settings["HP"] == 1:
-		time_label.text = "05:00\nlast try"
-		SPEED = 3.0
-	elif Global.game_settings["HP"] <= 0:
-		time_label.text = "06:00"
 	update_running_speed()
 	$AnimationPlayer.play("TimeHP")
 	$tick.play()
@@ -258,7 +243,6 @@ func respawn_player():
 	await get_tree().create_timer(3.0).timeout
 	$tick.stop()
 	$head/Camera3D/Time.visible = false
-	time_label.visible = false
 	movement_enabled = true
 
 func throw_camera_out():
@@ -300,14 +284,9 @@ func play_blood_animation():
 	$AnimationPlayer.play("blood")
 
 func toggle_pause():
-	is_paused = !is_paused
-	if is_paused:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		$head/Camera3D/Pause.visible = true
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		$head/Camera3D/Pause.visible = false
-		update_gui_visibility()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$head/Camera3D/Pause.visible = true
+	update_gui_visibility()
 
 func toggle_terminal():
 	is_terminal = !is_terminal

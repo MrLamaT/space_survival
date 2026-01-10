@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://coa0qjrqe67hj"]
+[gd_scene load_steps=72 format=3 uid="uid://coa0qjrqe67hj"]
 
 [ext_resource type="Script" uid="uid://c1b3ijvg6fiwb" path="res://chapter2/rooms/global_main.gd" id="1_w630j"]
 [ext_resource type="PackedScene" uid="uid://6v0pay6q4xwe" path="res://chapter2/rooms/decoration/window.tscn" id="4_5xes0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="20_afyk1"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="21_fh80c"]
 [ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/material25.png" id="25_jhkrm"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="29_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="29_oxgi4"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="34_n4wpw"]
@@ -237,8 +238,8 @@ size = Vector2(0.05, 0.05)
 size = Vector3(0.397, 0.25, 0.51)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dxjcn"]
-albedo_color = Color(0.5803922, 0.5803922, 0.5803922, 1)
-albedo_texture = ExtResource("25_jhkrm")
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("26_jhkrm")
 uv1_scale = Vector3(15, 1, 15)
 uv1_triplanar = true
 texture_filter = 0
@@ -253,6 +254,13 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emt8f"]
 albedo_texture = ExtResource("21_fh80c")
 uv1_scale = Vector3(50, 1, 50)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxgi4"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("26_jhkrm")
+uv1_scale = Vector3(15, 1, 15)
 uv1_triplanar = true
 texture_filter = 0
 
@@ -409,9 +417,6 @@ transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -4.156864, 1.3720968, -5.5732
 
 [node name="trap" parent="NavigationRegion3D/PlayerRoom" instance=ExtResource("14_mw8n5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1541297, 0.84000003, 13.9153385)
-
-[node name="Light" parent="NavigationRegion3D/PlayerRoom" instance=ExtResource("42_3dqjl")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.132, 0)
 
 [node name="chair" parent="NavigationRegion3D/PlayerRoom" instance=ExtResource("62_wrtcm")]
 transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -3.6990597, 0.75, 1.5147032)
@@ -990,7 +995,7 @@ debug_fill = false
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/floor2/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 0.35, -0.431)
 size = Vector3(0.397, 0.25, 0.51)
-material = SubResource("StandardMaterial3D_dxjcn")
+material = SubResource("StandardMaterial3D_oxgi4")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/floor2/CSGCombiner3D"]
 transform = Transform3D(0.7071067, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, 0.7071067, -0.33931452, 0, -0.20833774)
@@ -1111,6 +1116,12 @@ transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4
 
 [node name="wall10" parent="." instance=ExtResource("29_jhkrm")]
 transform = Transform3D(16.9, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 13.7)
+
+[node name="Light" parent="." instance=ExtResource("42_3dqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8, 0, 5.2, 0)
+
+[node name="Light2" parent="." instance=ExtResource("42_3dqjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8, 0, 5.2, 10)
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/dirt/grassTrig" to="." method="_on_grass_trig_body_entered"]

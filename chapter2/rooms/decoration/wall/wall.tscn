@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://wstyeotnokcn"]
+[gd_scene load_steps=10 format=3 uid="uid://wstyeotnokcn"]
 
 [ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="1_aeb8l"]
+[ext_resource type="Script" uid="uid://cxpxdvjudj7fy" path="res://chapter2/rooms/decoration/wall/wall.gd" id="1_vabq7"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="2_5wqm1"]
+[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="3_5wqm1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]
 size = Vector3(5, 5.582, 1)
@@ -25,6 +27,7 @@ albedo_texture = ExtResource("2_5wqm1")
 texture_filter = 0
 
 [node name="wall" type="Node3D"]
+script = ExtResource("1_vabq7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4
@@ -94,3 +97,6 @@ material = SubResource("StandardMaterial3D_1t1nx")
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 5.75, 1.1)
 size = Vector3(5, 1, 1.5)
 material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="Light" parent="." instance=ExtResource("3_5wqm1")]
+transform = Transform3D(1, 0, 0, 0, 0.4999999, 0.8660253, 0, -0.8660253, 0.4999999, 0, 4.4, 0.675)

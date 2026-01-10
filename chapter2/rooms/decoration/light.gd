@@ -3,7 +3,7 @@ extends Area3D
 @onready var light = $MeshInstance3D/OmniLight3D
 @onready var mesh_instance = $MeshInstance3D
 @export var burning_out: bool = false
-@export var torch_color: Color = Color("bdb651")
+@export var torch_color: Color = Color("f3f1c5")
 
 var flicker_patterns = [
 	[0.3, 0.7, 0.4, 0.8, 0.2],  # Паттерн 1: быстрое мерцание

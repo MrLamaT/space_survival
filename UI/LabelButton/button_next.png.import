@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ldwg6n4qn4od"
-path="res://.godot/imported/button_previous.png-6cd1d2267980bd7a6cc570bacaed0995.ctex"
+uid="uid://bp46otm30s4gr"
+path="res://.godot/imported/button_next.png-5345ab6969bdbf7aefb66de59138b2d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LabelButton/button_previous.png"
-dest_files=["res://.godot/imported/button_previous.png-6cd1d2267980bd7a6cc570bacaed0995.ctex"]
+source_file="res://UI/LabelButton/button_next.png"
+dest_files=["res://.godot/imported/button_next.png-5345ab6969bdbf7aefb66de59138b2d7.ctex"]
 
 [params]
 
