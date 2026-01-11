@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene load_steps=22 format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
@@ -8,10 +8,12 @@
 [ext_resource type="AudioStream" uid="uid://dmoceerf52ppr" path="res://assets/open.wav" id="4_kd1ih"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
+[ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://dsic1c8h3j8lw" path="res://assets/tick.mp3" id="8_xng4x"]
 [ext_resource type="AudioStream" uid="uid://tfw84iepyf0d" path="res://assets/damage.mp3" id="10_puud3"]
 [ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://c6rmekx11bec8" path="res://assets/step2.mp3" id="11_u8yn7"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -321,6 +323,43 @@ collision_mask = 4
 visible = false
 position = Vector2(575, 323)
 
+[node name="UI" type="Node2D" parent="head/Camera3D"]
+
+[node name="HP" type="Node2D" parent="head/Camera3D/UI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/UI/HP"]
+texture_filter = 1
+position = Vector2(50, 600)
+texture = ExtResource("8_u8yn7")
+
+[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/UI/HP"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 85.0
+offset_top = 585.0
+offset_right = 235.0
+offset_bottom = 612.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sfgwg")
+theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="head/Camera3D/UI/HP"]
+offset_left = 238.0
+offset_top = 587.0
+offset_right = 278.0
+offset_bottom = 610.0
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_kd1ih")
 volume_db = -25.0
@@ -346,3 +385,6 @@ libraries = {
 [node name="screem" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_puud3")
 pitch_scale = 0.5
+
+[node name="beep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_uckl1")

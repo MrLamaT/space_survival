@@ -163,12 +163,6 @@ func _ready():
 	$open.play()
 	update_gui_visibility()
 
-func DarkHardMod(mod):
-	if mod:
-		$head/Camera3D/SpotLight3D.visible = false
-	else:
-		$head/Camera3D/SpotLight3D.visible = true
-
 func UpdateCartridge(itemShot):
 	if itemShot == "NailGun":
 		Global.game_settings["nails_cartridge"] -= 1
@@ -306,8 +300,10 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("ui_cancel"):
 		if !is_terminal:
 			toggle_pause()
+			$beep.play()
 		else:
 			toggle_terminal()
+			$beep.play()
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * sens)
@@ -333,8 +329,10 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+f1"):
 		if !is_paused:
 			toggle_terminal()
+			$beep.play()
 		else:
 			toggle_pause()
+			$beep.play()
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
 

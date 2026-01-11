@@ -1,16 +1,2 @@
-res://chapter2/rooms/GlobalMain.tscn
-res://LabelButton/LabelButton.tscn
-res://LabelButton/label_button.gd
-res://chapter2/interactable_object/buttonText.tscn
-res://UI/LabelButton/label_button.gd
-res://UI/pause/pause.tscn
 res://chapter2/Player/Player.tscn
-res://UI/pause/pause.gd
 res://chapter2/Player/player.gd
-res://chapter2/Player/terminal/terminal.tscn
-res://chapter2/Player/terminal/terminal.gd
-res://chapter2/rooms/decoration/light.tscn
-res://chapter2/rooms/decoration/light.gd
-res://chapter2/rooms/decoration/wall/wall.tscn
-res://chapter2/rooms/decoration/wall/wall.gd
-res://chapter2/rooms/main.tscn
