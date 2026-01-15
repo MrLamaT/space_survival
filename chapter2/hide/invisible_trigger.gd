@@ -11,7 +11,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):  
-		Global.game_settings["HidePlayer"] = true
 		if not can_stand_up:
 			Global.game_settings["CanStandUp"] = false
 		if not can_throw_item:
@@ -20,9 +19,7 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
-		if !Global.game_settings["GodMod"]:
-			Global.game_settings["HidePlayer"] = false
-			print("HidePlayer установлен в false")
+		print("HidePlayer установлен в false")
 		Global.game_settings["CanStandUp"] = true
 		Global.game_settings["CanThrowItem"] = true
 		body.force_stand_up()

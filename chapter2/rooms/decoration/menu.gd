@@ -9,6 +9,7 @@ var world_names = ["Voyager", "Odyssey", "Exodus", "Zenith", "Nadir", "Apex", "R
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Initialization_names()
+	$options/language.text = "Language [" + Global.game_settings["gui_settings"]["Language"] + "]"
 
 func _input(event):
 	if event.is_action_pressed("UI_fullscreen"):
@@ -46,6 +47,14 @@ func _input(event):
 				button_node.text = hovered + " [ON]"
 			else:
 				button_node.text = hovered + " [OFF]"
+			$beep.play()
+			Global.save(0)
+		if hovered == "Language":
+			if Global.game_settings["gui_settings"]["Language"] == "English":
+				Global.game_settings["gui_settings"]["Language"] = "русский"
+			else:
+				Global.game_settings["gui_settings"]["Language"] = "English"
+			$options/language.text = "Language [" + Global.game_settings["gui_settings"]["Language"] + "]"
 			$beep.play()
 			Global.save(0)
 		if hovered.begins_with("[NEW GAME "):

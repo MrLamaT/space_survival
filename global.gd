@@ -36,7 +36,8 @@ var game_settings: Dictionary = {
 	"gui_settings": {
 		"Coords": false,
 		"FPS": false,
-		"Autosave": true
+		"Autosave": true,
+		"Language": "English"
 	},
 	"CanStandUp": true,
 	"CanThrowItem": true,
@@ -51,7 +52,7 @@ var game_settings: Dictionary = {
 	"affected_by_gravity": true,
 	"FloatHeight": 0,
 	"word": 0,
-	"debugging": false
+	"debugging": false,
 }
 var saved_portal_data: Dictionary = {}
 

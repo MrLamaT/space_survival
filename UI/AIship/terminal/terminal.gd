@@ -183,6 +183,7 @@ func parse_command(text: String):
 			if cheat_mod:
 				if argument == "":
 					SystemPrint("Usage: build [object_name|stop|list]")
+					SystemPrint("Available objects: light, foundation")
 					SystemPrint("Type 'build stop' to exit building mode")
 					SystemPrint("Type 'build list' to see all available objects")
 					return

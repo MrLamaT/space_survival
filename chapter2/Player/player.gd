@@ -20,7 +20,7 @@ var crouched = false
 var input_dir = Vector3(0,0,0)
 var direction = Vector3() 
 var sens = 0.005
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var is_walking = false
 var footstep_timer = 0.0
 var footstep_delay = 0.5
@@ -84,7 +84,8 @@ var grid_size = 0.3
 var ghost_block: Node3D = null
 var objects = {
 	"light": preload("res://chapter2/Objects/light.tscn"),
-	"foundation": preload("res://chapter2/Objects/foundation.tscn")
+	"foundation": preload("res://chapter2/Objects/foundation.tscn"),
+	"table": preload("res://chapter2/Objects/table.tscn")
 }
 var current_build_object: String = ""
 

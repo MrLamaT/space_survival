@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://g8na814e2gbx"]
+
+[ext_resource type="Script" uid="uid://u0wk2vhudxlk" path="res://chapter2/Objects/Object.gd" id="1_fr0nf"]
+[ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="2_7abte"]
+[ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://chapter2/hide/invisible_trigger.tscn" id="3_l1r3e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq7kb"]
+albedo_color = Color(0.15487596, 0.154876, 0.1548759, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwe7q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uv5r6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0n5f"]
+size = Vector3(1.2, 1.9, 1.2)
+
+[node name="table" type="StaticBody3D" groups=["Object"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_fr0nf")
+
+[node name="Model" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(2, 0.25, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.8, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, -0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.1, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.8, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Model9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.1, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_pq7kb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -6.797121e-08, -1, 0, 1.555, -4.371139e-08, 0, 1.13, 0)
+modulate = Color(0.53333336, 0.53333336, 0.53333336, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_7abte")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -2, 0, 0.25, 0, 1, 0, -8.74228e-08, 0, 1, 0)
+shape = SubResource("BoxShape3D_nwe7q")
+disabled = true
+
+[node name="InvisibleTrigger" parent="." instance=ExtResource("3_l1r3e")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.2920279, 0)
+can_stand_up = false
+
+[node name="ClippingHitBox" type="Area3D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClippingHitBox"]
+transform = Transform3D(-4.371139e-08, 0, 2, 0, 0.25, 0, -1, 0, -8.742278e-08, 0, 1, 0)
+shape = SubResource("BoxShape3D_uv5r6")
+
+[node name="FloatinHitBox" type="Area3D" parent="."]
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloatinHitBox"]
+transform = Transform3D(-4.371139e-08, 0, 2, 0, 0.25, 0, -1, 0, -8.742278e-08, 0, 0.15004477, 0)
+shape = SubResource("BoxShape3D_o0n5f")

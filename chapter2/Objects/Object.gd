@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@onready var model: MeshInstance3D = $Model
+@onready var model = $Model
 @onready var colision_shape: CollisionShape3D = $CollisionShape3D
 @onready var clipping_hitbox: Area3D = $ClippingHitBox
 @onready var floatin_hitbox: Area3D = $FloatinHitBox
@@ -13,6 +13,7 @@ func _process(_delta: float) -> void:
 	if clipping_hitbox:
 		model.transparency = 0.6
 		can_place = clipping_hitbox.get_overlapping_bodies().is_empty() and not floatin_hitbox.get_overlapping_bodies().is_empty()
+		print(clipping_hitbox.get_overlapping_bodies().is_empty(), not floatin_hitbox.get_overlapping_bodies().is_empty())
 		if can_place:
 			model.material_overlay = blue_material
 		else:

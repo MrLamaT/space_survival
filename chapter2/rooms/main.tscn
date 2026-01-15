@@ -226,6 +226,7 @@ light = false
 
 [node name="Light2" parent="." instance=ExtResource("6_4kqoq")]
 transform = Transform3D(0.39796466, 0, 0.9174007, 0, 1, 0, -0.9174007, 0, 0.39796466, -0.91872525, 2.3906944, -4.060623)
+on = false
 
 [node name="fans" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6748047, -2.5119486)

@@ -388,3 +388,4 @@ pitch_scale = 0.5
 
 [node name="beep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uckl1")
+volume_db = -5.0
