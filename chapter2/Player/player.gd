@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var blood_overlay = $head/Camera3D/blood1
 @onready var footstep_player = $FootstepPlayer
 @onready var footstep_player2 = $FootstepPlayer2
+@onready var footstep_player3 = $FootstepPlayer3
 @onready var crosshair = $head/Camera3D/crosshair
 @onready var hand_sprite = $head/Camera3D/hand_position/Sprite3D
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
@@ -79,16 +80,6 @@ var jump_cooldown_timer = 0.0
 
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
 
-#стройка
-var grid_size = 0.3
-var ghost_block: Node3D = null
-var objects = {
-	"light": preload("res://chapter2/Objects/light.tscn"),
-	"foundation": preload("res://chapter2/Objects/foundation.tscn"),
-	"table": preload("res://chapter2/Objects/table.tscn")
-}
-var current_build_object: String = ""
-
 #полёт
 var is_floating: bool = false
 var float_start_height: float = 0.0
@@ -96,47 +87,6 @@ var float_target_height: float = 0.0
 var float_speed: float = 3.0 # скорость подъема/спуска при парении
 
 var stepGrass = false
-
-func building(_delta):
-	if not ghost_block or current_build_object == "":
-		return
-	var snap_pos: Vector3 = snap_to_grid(hand_target.global_position, grid_size)
-	ghost_block.global_position = lerp(ghost_block.global_position, snap_pos, 0.1)
-	if Input.is_action_just_pressed("rotate"):
-		ghost_block.rotation.y += deg_to_rad(45)
-	if Input.is_action_just_pressed("UI_click") and ghost_block.can_place:
-		var block_instance = objects[current_build_object].instantiate()
-		get_parent().add_child(block_instance)
-		block_instance.place()
-		block_instance.global_transform.origin = snap_to_grid(ghost_block.global_transform.origin, grid_size)
-		block_instance.global_rotation = ghost_block.global_rotation
-
-func snap_to_grid(input_position: Vector3, grid_snap: float) -> Vector3:
-	var x = round(input_position.x / grid_snap) * grid_snap
-	var y = round(input_position.y / grid_snap) * grid_snap
-	var z = round(input_position.z / grid_snap) * grid_snap
-	return Vector3(x,y,z)
-
-func spawn_ghost_block(object_type: String):
-	if current_build_object == object_type and ghost_block:
-		return
-	if ghost_block:
-		ghost_block.queue_free()
-		ghost_block = null
-	if objects.has(object_type):
-		current_build_object = object_type
-		ghost_block = objects[object_type].instantiate()
-		get_parent().add_child(ghost_block)
-		ghost_block.global_position = self.global_position
-		ghost_block.global_position.y -= 1.0
-	else:
-		current_build_object = ""
-
-func stop_building():
-	if ghost_block:
-		ghost_block.queue_free()
-		ghost_block = null
-	current_build_object = ""
 
 func look_at_point(target_point: Vector3):
 	var head_look_point = Vector3(target_point.x, head.global_position.y, target_point.z)
@@ -163,6 +113,8 @@ func _ready():
 	stamina_bar.visible = false  
 	$open.play()
 	update_gui_visibility()
+	if Global.game_settings["gui_settings"]["Autosave"]:
+		$save.start()
 
 func UpdateCartridge(itemShot):
 	if itemShot == "NailGun":
@@ -442,12 +394,6 @@ func _physics_process(delta):
 	$head/Camera3D/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if not Global.game_settings["affected_by_gravity"]:
 		is_floating = false
-	if ghost_block and current_build_object != "":
-		building(delta)
-	elif raycast.is_colliding():
-		if Input.is_action_just_pressed("+f3"):
-			if raycast.get_collider().is_in_group("Object"):
-				raycast.get_collider().destroy()
 	if Global.game_settings["affected_by_gravity"]:
 		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:
 			if jump_cooldown_timer <= 0:
@@ -557,12 +503,19 @@ func AnimationPlayPlayer(Anim):
 		push_error("AnimationPlayer или анимация не найдены: " + str(Anim))
 
 func play_footstep():
-	if movement_enabled and stepGrass:
-		footstep_player2.pitch_scale = randf_range(0.9, 1.1)
-		footstep_player2.play()
-	else:
-		footstep_player.pitch_scale = randf_range(0.9, 1.1)
-		footstep_player.play()
+	if movement_enabled:
+		if stepGrass:
+			footstep_player2.pitch_scale = randf_range(0.9, 1.1)
+			footstep_player2.play()
+		else:
+			footstep_player3.pitch_scale = randf_range(0.9, 1.1)
+			footstep_player3.play()
 
 func _on_end_exit_pressed() -> void:
 	SceneManager.load_scene_with_loading("res://chapter2/rooms/main.tscn")
+	
+func save():
+	Global.save(Global.game_settings["word"])
+
+func _on_save_timeout() -> void:
+	save()

@@ -52,7 +52,6 @@ enemy_targets2=""
 enemy2=""
 elevators=""
 click_interact=""
-Object=""
 
 [input]
 

@@ -179,34 +179,5 @@ func parse_command(text: String):
 				light1.light_color = color
 				light2.light_color = color
 				SystemPrint("Flashlight color changed to: " + argument)
-		"build":
-			if cheat_mod:
-				if argument == "":
-					SystemPrint("Usage: build [object_name|stop|list]")
-					SystemPrint("Type 'build stop' to exit building mode")
-					SystemPrint("Type 'build list' to see all available objects")
-					return
-				if argument.to_lower() == "stop":
-					player.stop_building()
-					SystemPrint("Building mode stopped")
-					return
-				if argument.to_lower() == "list":
-					SystemPrint("Available build objects:")
-					for obj_name in player.objects.keys():
-						SystemPrint("• " + obj_name)
-					return
-				if player.objects.has(argument.to_lower()):
-					player.spawn_ghost_block(argument.to_lower())
-					SystemPrint("Building mode: " + argument)
-					SystemPrint("Controls:")
-					SystemPrint("  • LMB - Place object")
-					SystemPrint("  • R - Rotate object")
-					SystemPrint("  • F3 - Delete object (aim at it)")
-					SystemPrint("  • Type 'build stop' to exit")
-				else:
-					ErrorPrint("Unknown build object: " + argument)
-					SystemPrint("Available objects: light, foundation")
-			else:
-				ErrorPrint("No rights")
 		_:
 			ErrorPrint("Unknown command: " + command)

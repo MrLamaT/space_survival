@@ -156,6 +156,7 @@ func load_world(world_num: int):
 
 func save(world_num: int = 0):
 	save_settings(world_num)
+	print("сохранение: ", world_num)
 
 func load(world_num: int = 0):
 	load_settings(world_num)

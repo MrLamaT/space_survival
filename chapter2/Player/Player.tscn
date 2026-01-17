@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene load_steps=23 format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dsic1c8h3j8lw" path="res://assets/tick.mp3" id="8_xng4x"]
 [ext_resource type="AudioStream" uid="uid://tfw84iepyf0d" path="res://assets/damage.mp3" id="10_puud3"]
 [ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
+[ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/step3.wav" id="11_8e3ni"]
 [ext_resource type="AudioStream" uid="uid://c6rmekx11bec8" path="res://assets/step2.mp3" id="11_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
 
@@ -368,14 +369,15 @@ volume_db = -25.0
 stream = ExtResource("11_u8yn7")
 volume_db = -25.0
 
+[node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_8e3ni")
+volume_db = -20.0
+
 [node name="open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_kd1ih")
 
 [node name="tick" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_xng4x")
-
-[node name="ObstacleCheck" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -389,3 +391,8 @@ pitch_scale = 0.5
 [node name="beep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uckl1")
 volume_db = -5.0
+
+[node name="save" type="Timer" parent="."]
+wait_time = 60.0
+
+[connection signal="timeout" from="save" to="." method="_on_save_timeout"]

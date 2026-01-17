@@ -153,7 +153,6 @@ func On():
 
 func on_label_hovered(text_value: String) -> void:
 	hovered = text_value
-	print("Наведено на: ", text_value)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "intro":
