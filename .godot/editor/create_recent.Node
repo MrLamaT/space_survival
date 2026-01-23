@@ -1,4 +1,9 @@
+AudioStreamPlayer3D
+AnimationPlayer
+Area3D
 CollisionShape3D
+StaticBody3D
+OmniLight3D
 MeshInstance3D
 Sprite3D
 Node3D
@@ -8,7 +13,3 @@ Node2D
 Sprite2D
 Label
 Panel
-Button
-Label3D
-StaticBody3D
-Area3D

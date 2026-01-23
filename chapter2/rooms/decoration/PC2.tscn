@@ -61,24 +61,30 @@ mesh = SubResource("BoxMesh_6w7je")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.5048154e-07, 1, 1.0677014e-07, -0.7071068, 1.8190443e-07, -0.7071066, -0.7071066, 3.090861e-08, 0.7071068, 0, -0.9636584, -1.1289055)
+transform = Transform3D(1.5048154e-07, 1, 1.0677014e-07, -0.7071068, 1.8190443e-07, -0.7071066, -0.7071066, 3.090861e-08, 0.7071068, 0, -0.8201456, -1.1289055)
 mesh = SubResource("BoxMesh_f845c")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1.5048153e-07, 1, -1.0677015e-07, 0.70710665, -1.8190443e-07, -0.7071068, -0.7071068, 3.0908627e-08, -0.70710665, 0, -1.2536583, -1.1289053)
+transform = Transform3D(1.5048153e-07, 1, -1.0677015e-07, 0.70710665, -1.8190443e-07, -0.7071068, -0.7071068, 3.0908627e-08, -0.70710665, 0, -1.1101456, -1.1289053)
 mesh = SubResource("BoxMesh_f845c")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -1.4136584, -0.9739055)
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -1.2701457, -0.9739055)
 mesh = SubResource("CylinderMesh_40pl7")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, -0.82915676, -0.94647413)
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, -0.68564403, -0.94647413)
 mesh = SubResource("CylinderMesh_40pl7")
 skeleton = NodePath("")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, -0.35, -0.91)
+modulate = Color(0.33660746, 0.3366077, 0.33660752, 1)
+texture_filter = 0
+texture = ExtResource("2_d1mq6")
 
 [node name="monitor" type="Node3D" parent="."]
 visible = false

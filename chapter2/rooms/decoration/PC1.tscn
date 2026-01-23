@@ -80,6 +80,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -
 mesh = SubResource("BoxMesh_6w7je")
 skeleton = NodePath("")
 
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, -0.75, -0.91)
+modulate = Color(0.33660746, 0.3366077, 0.33660752, 1)
+texture_filter = 0
+texture = ExtResource("6_1dcqe")
+
 [node name="monitor" type="Node3D" parent="."]
 visible = false
 

@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://r8ovmsrsspiy"]
+
+[ext_resource type="Script" uid="uid://5j7qaq7j8l80" path="res://chapter2/rooms/decoration/button.gd" id="1_lwxqn"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="3_iqukg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lwxqn"]
+albedo_color = Color(0.3372549, 0.3372549, 0.3372549, 1)
+albedo_texture = ExtResource("3_iqukg")
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_21cvt"]
+material = SubResource("StandardMaterial3D_lwxqn")
+size = Vector3(0.65, 0.65, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgojc"]
+size = Vector3(0.65, 0.65, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74r7q"]
+albedo_color = Color(1, 0.03137255, 0.047058824, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dgojc"]
+material = SubResource("StandardMaterial3D_74r7q")
+size = Vector3(0.15, 0.75, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y0t56"]
+size = Vector3(0.15, 0.75, 0.25)
+
+[node name="button" type="Area3D" groups=["interactive_objects"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_lwxqn")
+
+[node name="board" type="StaticBody3D" parent="."]
+transform = Transform3D(4.371139e-08, -0.1, -8.742278e-08, -1, -4.371139e-09, 0, -3.821371e-15, 8.742278e-09, -1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="board"]
+transform = Transform3D(1, 6.4857024e-22, 2.8349905e-29, 0, -4.371139e-08, 1, 6.4857024e-22, -1, -4.371139e-08, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_21cvt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="board"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_dgojc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.371139e-08, -0.1, -8.742278e-08, -1, -4.371139e-09, -8.4703295e-22, -3.8213718e-15, 8.742278e-09, -1, -0.03, 0, 0)
+mesh = SubResource("BoxMesh_dgojc")
+skeleton = NodePath("../board")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+visible = false
+light_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4.8082526e-08, -0.2, 9.616505e-08, -1.1, -8.742278e-09, 0, 4.203508e-15, -1.7484556e-08, -1.1, -0.03, 0, 0)
+shape = SubResource("BoxShape3D_y0t56")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
