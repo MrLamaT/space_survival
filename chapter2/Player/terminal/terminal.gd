@@ -81,7 +81,7 @@ func parse_command(text: String):
 	command_args[command] = argument
 
 	match command:
-		"ghost", "noclip":
+		"ghost", "noclip", "fly":
 			if cheat_mod:
 				SystemPrint("Ghost mode has been changed")
 				player.ghost_cheat()

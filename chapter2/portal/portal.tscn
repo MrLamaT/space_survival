@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://baf8dlttmni7"]
+[gd_scene load_steps=35 format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
 [ext_resource type="AudioStream" uid="uid://buidj75cugdmq" path="res://assets/teleport1.mp3" id="7_il6ae"]
@@ -49,6 +49,42 @@ shading_mode = 0
 [sub_resource type="BoxMesh" id="BoxMesh_4ie0m"]
 material = SubResource("StandardMaterial3D_q66jv")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwwir"]
+albedo_texture = ExtResource("12_4ie0m")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_syhg2"]
+material = SubResource("StandardMaterial3D_nwwir")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syhg2"]
+albedo_texture = ExtResource("12_4ie0m")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bguse"]
+material = SubResource("StandardMaterial3D_syhg2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mqc6g"]
+albedo_texture = ExtResource("12_4ie0m")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3ide"]
+material = SubResource("StandardMaterial3D_mqc6g")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5jja"]
+albedo_texture = ExtResource("12_4ie0m")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_pykp5"]
+material = SubResource("StandardMaterial3D_f5jja")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kdil"]
 albedo_texture = ExtResource("12_4ie0m")
 uv1_scale = Vector3(3, 2, 3)
@@ -80,33 +116,6 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_we58f")
 size = Vector2(0.05, 0.05)
 
-[sub_resource type="Animation" id="Animation_6pdco"]
-resource_name = "teleport"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GPUParticles3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_il6ae"]
 length = 0.001
 tracks/0/type = "value"
@@ -134,10 +143,145 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_6pdco"]
+resource_name = "teleport"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nwwir"]
 _data = {
 &"RESET": SubResource("Animation_il6ae"),
 &"teleport": SubResource("Animation_6pdco")
+}
+
+[sub_resource type="Animation" id="Animation_syhg2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube/MeshInstance3D2:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.9135334]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube2/MeshInstance3D2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.914]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube3/MeshInstance3D2:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.914]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube4/MeshInstance3D2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.914]
+}
+
+[sub_resource type="Animation" id="Animation_nwwir"]
+resource_name = "downC"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube/MeshInstance3D2:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.9135334, -1.914]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube2/MeshInstance3D2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.914, -1.914]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube3/MeshInstance3D2:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.914, -1.914]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube4/MeshInstance3D2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.914, -1.914]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bguse"]
+_data = {
+&"RESET": SubResource("Animation_syhg2"),
+&"downC": SubResource("Animation_nwwir")
 }
 
 [node name="portal" type="StaticBody3D" groups=["elevators"]]
@@ -156,6 +300,10 @@ mesh = SubResource("ArrayMesh_q66jv")
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.9135334, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube"]
+transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.9135334, 0)
+mesh = SubResource("BoxMesh_syhg2")
+
 [node name="Cube2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -2.5, 0, 2.5)
 mesh = SubResource("ArrayMesh_q66jv")
@@ -163,6 +311,11 @@ mesh = SubResource("ArrayMesh_q66jv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2"]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
+skeleton = NodePath("../../Cube")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube2"]
+transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
+mesh = SubResource("BoxMesh_bguse")
 skeleton = NodePath("../../Cube")
 
 [node name="Cube3" type="MeshInstance3D" parent="."]
@@ -174,6 +327,11 @@ transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 skeleton = NodePath("../../Cube")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube3"]
+transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
+mesh = SubResource("BoxMesh_w3ide")
+skeleton = NodePath("../../Cube")
+
 [node name="Cube4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -2.5, 0, -2.5)
 mesh = SubResource("ArrayMesh_q66jv")
@@ -181,6 +339,11 @@ mesh = SubResource("ArrayMesh_q66jv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cube4"]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
+skeleton = NodePath("../../Cube")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube4"]
+transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
+mesh = SubResource("BoxMesh_pykp5")
 skeleton = NodePath("../../Cube")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -234,6 +397,11 @@ draw_pass_1 = SubResource("QuadMesh_gdmmc")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_nwwir")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bguse")
 }
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

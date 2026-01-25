@@ -118,27 +118,21 @@ func update_sprite_animation():
 			sprite_3d.play("walk_back")
 
 func can_attack_player() -> bool:
-	if not player or Global.game_settings["HidePlayer"]:
+	if not player or Global.game_settings["GodMod"]:
 		return false
 	# Проверяем дистанцию до игрока
 	var distance_to_player = global_position.distance_to(player.global_position)
 	return distance_to_player <= ATTACK_DISTANCE
 
 func check_player_hidden(delta):
-	if Global.game_settings["HidePlayer"]:
-		if not was_player_hidden:
-			was_player_hidden = true
-			player_hide_timer = 0.0
-			update_state_label("Lost Player?")
-		else:
-			player_hide_timer += delta
-			if player_hide_timer >= player_hide_timeout:
-				lose_player()
+	if not was_player_hidden:
+		was_player_hidden = true
+		player_hide_timer = 0.0
+		update_state_label("Lost Player?")
 	else:
-		if was_player_hidden:
-			was_player_hidden = false
-			player_hide_timer = 0.0
-			update_state_label("Chasing Player")
+		player_hide_timer += delta
+		if player_hide_timer >= player_hide_timeout:
+			lose_player()
 
 func lose_player():
 	is_chasing_player = false
@@ -156,12 +150,11 @@ func find_target():
 		is_chasing_player = false
 
 func start_chasing_player():
-	if not Global.game_settings["HidePlayer"]:
-		current_target = player
-		is_chasing_player = true
-		was_player_hidden = false
-		player_hide_timer = 0.0
-		update_state_label("Chasing Player")
+	current_target = player
+	is_chasing_player = true
+	was_player_hidden = false
+	player_hide_timer = 0.0
+	update_state_label("Chasing Player")
 
 func stop_chasing_player():
 	find_target()
@@ -188,12 +181,8 @@ func update_state_label(state: String):
 func _on_vision_area_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
-		# Начинаем погоню только если игрок не скрыт
-		if not Global.game_settings["HidePlayer"]:
-			start_chasing_player()
-		else:
-			# Если игрок скрыт, но вошел в зону видимости - запоминаем его, но не преследуем
-			update_state_label("Player Detected (Hidden)")
+		# Начинаем погоню 
+		start_chasing_player()
 
 func _on_vision_area_body_exited(body):
 	if body == player and is_chasing_player:

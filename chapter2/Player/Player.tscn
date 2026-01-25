@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene load_steps=24 format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://dsic1c8h3j8lw" path="res://assets/tick.mp3" id="8_xng4x"]
+[ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://tfw84iepyf0d" path="res://assets/damage.mp3" id="10_puud3"]
 [ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/step3.wav" id="11_8e3ni"]
@@ -322,6 +323,7 @@ collision_mask = 4
 
 [node name="Pause" parent="head/Camera3D" instance=ExtResource("7_68v2k")]
 visible = false
+z_index = 1
 position = Vector2(575, 323)
 
 [node name="UI" type="Node2D" parent="head/Camera3D"]
@@ -360,6 +362,9 @@ theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Teleport" parent="head/Camera3D" instance=ExtResource("9_y13tn")]
+position = Vector2(575, 509)
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_kd1ih")
