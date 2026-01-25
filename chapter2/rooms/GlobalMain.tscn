@@ -71,6 +71,7 @@ transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.8485
 
 [node name="portal" parent="ship/Zona1" instance=ExtResource("27_fqaro")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
+skin = 1
 
 [node name="wall1" parent="ship/Zona1" instance=ExtResource("28_dyctc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.05164425, -0.01590252, 10.421387)
@@ -213,7 +214,7 @@ size = Vector3(0.084469914, 1, 0.07252261)
 material = SubResource("StandardMaterial3D_emt8f")
 
 [node name="KillZona" type="Area3D" parent="ship/Zona1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 collision_layer = 0
 collision_mask = 3
 

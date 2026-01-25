@@ -1,13 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://2wrfubx7a0ln"]
+[gd_scene load_steps=22 format=3 uid="uid://2wrfubx7a0ln"]
 
 [ext_resource type="Texture2D" uid="uid://cmtiux7f2mf7g" path="res://assets/textures/material22.png" id="1_c3jm7"]
 [ext_resource type="Script" uid="uid://b6ib1sytl28fw" path="res://chapter2/rooms/decoration/exit_gates.gd" id="1_yxun7"]
-[ext_resource type="Texture2D" uid="uid://btmmp4wgsylsa" path="res://chapter2/assets/items/gear.png" id="2_iahdh"]
 [ext_resource type="Texture2D" uid="uid://ilkd253irnxk" path="res://assets/textures/material14.png" id="2_k87ym"]
 [ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="3_equ5c"]
-[ext_resource type="PackedScene" uid="uid://baqi51ygvoof" path="res://chapter2/closet/shield.tscn" id="5_wxao6"]
-[ext_resource type="Texture2D" uid="uid://bmn27kj4pludh" path="res://assets/textures/scute.png" id="6_2so0o"]
-[ext_resource type="Texture2D" uid="uid://bq4bsnlxmt7gu" path="res://assets/textures/scute2.png" id="7_jwmcb"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="8_iorqv"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_iahdh"]
 
@@ -31,79 +27,6 @@ size = Vector3(5, 0.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdh0c"]
 size = Vector3(1, 5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_iahdh"]
-size = Vector3(2, 2, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl7wl"]
-albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u64si"]
-albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftrin"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_iahdh"]
-resource_name = "mechanism"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 1.5707964)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5707964)]
-}
-
-[sub_resource type="Animation" id="Animation_hl7wl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u64si"]
-_data = {
-&"RESET": SubResource("Animation_hl7wl"),
-&"mechanism": SubResource("Animation_iahdh")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wxao6"]
 albedo_color = Color(0.41960785, 0.37254903, 0.28627452, 1)
@@ -159,59 +82,6 @@ mesh = SubResource("BoxMesh_c3jm7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_vdh0c")
 
-[node name="mechanism" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, -4)
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mechanism"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.703, 0)
-shape = SubResource("BoxShape3D_iahdh")
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="mechanism"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="mechanism/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.703, 0)
-size = Vector3(2, 2, 2)
-material = SubResource("StandardMaterial3D_hl7wl")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="mechanism/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70300007, -0.15181684)
-operation = 2
-size = Vector3(1.5, 1.5, 1.806)
-material = SubResource("StandardMaterial3D_u64si")
-
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="mechanism"]
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="mechanism/CSGCombiner3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70300007, 0.042603016)
-size = Vector3(1.5, 1.5, 1.417)
-material = SubResource("StandardMaterial3D_ftrin")
-
-[node name="Sprite3D" type="Sprite3D" parent="mechanism"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0.36489725, -0.51264656, -0.67323685)
-visible = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("2_iahdh")
-
-[node name="Sprite3D2" type="Sprite3D" parent="mechanism"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, -0.35248947, -1.0017536, -0.67323685)
-visible = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("2_iahdh")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="mechanism"]
-libraries = {
-&"": SubResource("AnimationLibrary_u64si")
-}
-
-[node name="InteractableObject" parent="mechanism" instance=ExtResource("3_equ5c")]
-transform = Transform3D(1.5, 0, 0, 0, 1.408, 0, 0, 0, 1, 0, -0.66401446, -1.1020002)
-interaction_name = "mechanism"
-handler_node = NodePath("../..")
-
 [node name="lock" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9538903, 0, 0)
 collision_layer = 4
@@ -258,28 +128,7 @@ visible = false
 interaction_name = "boards"
 handler_node = NodePath("..")
 
-[node name="shield" parent="." instance=ExtResource("5_wxao6")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.697, -0.35, -11.25)
-
 [node name="electro" type="StaticBody3D" parent="."]
-
-[node name="scute" type="Sprite3D" parent="."]
-transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 1, 11.741568, -0.42074364, -10.611908)
-shaded = true
-texture_filter = 0
-texture = ExtResource("6_2so0o")
-
-[node name="scute2" type="Sprite3D" parent="."]
-transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 1, 11.741568, -0.42074364, -10.611908)
-visible = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("7_jwmcb")
-
-[node name="InteractableObject2" parent="." instance=ExtResource("3_equ5c")]
-transform = Transform3D(0.4, 0, 0, 0, 0.3, 0, 0, 0, 0.25, 11.75615, -0.14614758, -10.587649)
-interaction_name = "scute"
-handler_node = NodePath("..")
 
 [node name="board" type="StaticBody3D" parent="."]
 transform = Transform3D(1.9106855e-15, -4.371139e-09, 1, -1, -4.371139e-09, 0, 4.371139e-08, -0.1, -4.371139e-08, -1.903, -0.8, -0.2)

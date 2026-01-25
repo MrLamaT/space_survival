@@ -1,9 +1,15 @@
 extends StaticBody3D
 
+@export var skin = 0
+
 var is_animating = false
 var cubes = []
 
 func _ready():
+	if skin == 0:
+		$Sprite3D.queue_free()
+		$Sprite3D2.queue_free()
+		$Table.queue_free()
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 

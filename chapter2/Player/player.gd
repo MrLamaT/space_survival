@@ -111,7 +111,6 @@ func _ready():
 	base_camera_position = cam.position
 	update_stamina_display()
 	stamina_bar.visible = false  
-	$open.play()
 	update_gui_visibility()
 	if Global.game_settings["gui_settings"]["Autosave"]:
 		$save.start()

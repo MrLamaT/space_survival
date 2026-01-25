@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene load_steps=23 format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
-[ext_resource type="AudioStream" uid="uid://dmoceerf52ppr" path="res://assets/open.wav" id="4_kd1ih"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
@@ -378,9 +377,6 @@ volume_db = -25.0
 stream = ExtResource("11_8e3ni")
 volume_db = -20.0
 
-[node name="open" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_kd1ih")
-
 [node name="tick" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_xng4x")
 
@@ -395,7 +391,7 @@ pitch_scale = 0.5
 
 [node name="beep" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_uckl1")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="save" type="Timer" parent="."]
 wait_time = 60.0

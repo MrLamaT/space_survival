@@ -2,9 +2,6 @@ extends Node3D
 
 var code_input = "" 
 
-func _ready() -> void:
-	$mechanism/AnimationPlayer.play("mechanism")
-
 func handle_interaction(object_name: String):
 	match object_name:
 		"boards":

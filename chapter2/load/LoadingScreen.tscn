@@ -61,9 +61,10 @@ script = ExtResource("1_iqfpq")
 layout_mode = 1
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
+color = Color(0.62352943, 0, 0.62352943, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+visible = false
 modulate = Color(0.5137255, 0, 0, 1)
 texture_filter = 1
 position = Vector2(576, 248)
