@@ -1,14 +1,14 @@
+AnimationPlayer
+Sprite2D
+Label
+BoneAttachment3D
+Skeleton3D
+MeshInstance3D
 Node3D
 NavigationRegion3D
 ColorRect
-AnimationPlayer
 Node2D
 AudioStreamPlayer3D
 Area3D
 CollisionShape3D
 StaticBody3D
-OmniLight3D
-MeshInstance3D
-Sprite3D
-Timer
-Label      - Matches the "text" keyword.

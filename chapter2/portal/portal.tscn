@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://baf8dlttmni7"]
+[gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
 [ext_resource type="AudioStream" uid="uid://buidj75cugdmq" path="res://assets/teleport1.mp3" id="7_il6ae"]
@@ -284,108 +284,108 @@ _data = {
 &"downC": SubResource("Animation_nwwir")
 }
 
-[node name="portal" type="StaticBody3D" groups=["elevators"]]
+[node name="portal" type="StaticBody3D" unique_id=2061914237]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_6pdco")
 
-[node name="TeleportCube" parent="." instance=ExtResource("11_cukvh")]
+[node name="TeleportCube" parent="." unique_id=304554480 instance=ExtResource("11_cukvh")]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 2, 0)
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=1311910108]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 2.5, 0, 2.5)
 mesh = SubResource("ArrayMesh_q66jv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=1045357187]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.9135334, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube" unique_id=1813469746]
 transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.9135334, 0)
 mesh = SubResource("BoxMesh_syhg2")
 
-[node name="Cube2" type="MeshInstance3D" parent="."]
+[node name="Cube2" type="MeshInstance3D" parent="." unique_id=2124538980]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -2.5, 0, 2.5)
 mesh = SubResource("ArrayMesh_q66jv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube2" unique_id=1129380210]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 skeleton = NodePath("../../Cube")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube2" unique_id=2057531423]
 transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_bguse")
 skeleton = NodePath("../../Cube")
 
-[node name="Cube3" type="MeshInstance3D" parent="."]
+[node name="Cube3" type="MeshInstance3D" parent="." unique_id=1556494209]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 2.5, 0, -2.5)
 mesh = SubResource("ArrayMesh_q66jv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube3" unique_id=280401507]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 skeleton = NodePath("../../Cube")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube3"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube3" unique_id=1249253184]
 transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_w3ide")
 skeleton = NodePath("../../Cube")
 
-[node name="Cube4" type="MeshInstance3D" parent="."]
+[node name="Cube4" type="MeshInstance3D" parent="." unique_id=815376727]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, -2.5, 0, -2.5)
 mesh = SubResource("ArrayMesh_q66jv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube4" unique_id=2110063034]
 transform = Transform3D(3, 0, 0, 0, 3.75, 0, 0, 0, 3, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_4ie0m")
 skeleton = NodePath("../../Cube")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube4"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cube4" unique_id=186887735]
 transform = Transform3D(3.2, 0, 0, 0, 3.75, 0, 0, 0, 3.2, 0, 1.914, 0)
 mesh = SubResource("BoxMesh_pykp5")
 skeleton = NodePath("../../Cube")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1635954676]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 1.25)
 mesh = SubResource("BoxMesh_we58f")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1198592409]
 transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, -5, 0, 5, -2.1855695e-07, 0, 0, 0)
 shaded = true
 texture_filter = 0
 texture = ExtResource("12_q66jv")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=989025326]
 transform = Transform3D(23.5, 0, 0, 0, -1.0272176e-06, -23.5, 0, 23.5, -1.0272176e-06, 0, 0, 0)
 shaded = true
 texture_filter = 0
 texture = ExtResource("13_4ie0m")
 
-[node name="Table" parent="." instance=ExtResource("15_6kdil")]
+[node name="Table" parent="." unique_id=137677908 instance=ExtResource("15_6kdil")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, -0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2068785459]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.9842072, -2.5)
 shape = SubResource("BoxShape3D_6kdil")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=938356620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.757, 2.5)
 shape = SubResource("BoxShape3D_6kdil")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1343704020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.757, -2.5)
 shape = SubResource("BoxShape3D_6kdil")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1477015948]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.7570496, 2.5)
 shape = SubResource("BoxShape3D_6kdil")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=2055062586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 1.25)
 shape = SubResource("BoxShape3D_we58f")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=338238636]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, -5, 0)
 visible = false
 cast_shadow = 0
@@ -394,22 +394,18 @@ lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_6kdil")
 draw_pass_1 = SubResource("QuadMesh_gdmmc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nwwir")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=324242673]
+libraries/ = SubResource("AnimationLibrary_nwwir")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bguse")
-}
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1337899138]
+libraries/ = SubResource("AnimationLibrary_bguse")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1192623370]
 stream = ExtResource("7_il6ae")
 volume_db = -15.0
 pitch_scale = 0.5
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1615355909]
 stream = ExtResource("8_nwwir")
 volume_db = -15.0
 pitch_scale = 0.75

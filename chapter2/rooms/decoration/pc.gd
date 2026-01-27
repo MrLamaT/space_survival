@@ -1,8 +1,13 @@
 extends Area3D
 
+@export var nameUI:String = ""
+
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
-	print(player)
+	if nameUI != "":
+		player.openUI(nameUI)
+	else:
+		print(player)
 
 func _on_mouse_entered() -> void:
 	$monitor.visible = true

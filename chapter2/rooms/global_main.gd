@@ -6,6 +6,7 @@ func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skybox.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
+	$ship/Zona1/portal/TeleportCube.teleport_contents()
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")
@@ -20,4 +21,4 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 func handle_interaction(object_name: String):
 	match object_name:
 		"portal":
-			$ship/Zona1/portal.teleport()
+			$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")

@@ -36,8 +36,6 @@ func check_loading_progress(scene_path: String):
 			switch_to_scene(scene)
 			break
 		elif status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
-			if current_loading_screen:
-				current_loading_screen.update_progress(progress[0] * 100)
 			await get_tree().create_timer(0.05).timeout
 		else:
 			print("Ошибка загрузки сцены: ", status)

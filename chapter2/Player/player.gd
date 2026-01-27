@@ -166,7 +166,6 @@ func respawn_player():
 	update_running_speed()
 	update_stamina_display()
 	$head/Camera3D/Time.visible = true
-	$head/Camera3D/label.visible = false
 	blood_overlay.visible = false
 	stepGrass = false
 	update_running_speed()
@@ -229,16 +228,10 @@ func show_blood_overlay():
 func play_blood_animation():
 	$AnimationPlayer.play("blood")
 
-func toggle_pause():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	$head/Camera3D/Pause.visible = true
-	update_gui_visibility()
-
 func toggle_terminal():
 	is_terminal = !is_terminal
 	if is_terminal:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		$head/Camera3D/Terminal.visible = true
+		openUI("Terminal")
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		$head/Camera3D/Terminal.visible = false
@@ -250,12 +243,14 @@ func update_gui_visibility():
 
 func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("ui_cancel"):
-		if !is_terminal:
-			toggle_pause()
-			$beep.play()
+		var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
+		if !is_terminal and has_ui_nodes == 0:
+			openUI("Pause")
 		else:
-			toggle_terminal()
-			$beep.play()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			for child in cam.get_children():
+				if child.is_in_group("UI"):
+					child.queue_free()
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * sens)
@@ -281,10 +276,8 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+f1"):
 		if !is_paused:
 			toggle_terminal()
-			$beep.play()
 		else:
-			toggle_pause()
-			$beep.play()
+			openUI("Pause")
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
 
@@ -518,3 +511,26 @@ func save():
 
 func _on_save_timeout() -> void:
 	save()
+
+func openUI(nameUI):
+	var path = "head/Camera3D/" + nameUI
+	var node = get_node_or_null(path)
+	if not node:
+		var ui_scene_path = "res://UI/" + nameUI + "/" + nameUI + ".tscn"
+		if ResourceLoader.exists(ui_scene_path):
+			var ui_scene = load(ui_scene_path)
+			node = ui_scene.instantiate()
+			node.name = nameUI
+			get_node("head/Camera3D").add_child(node)
+			node.add_to_group("UI")
+	node.visible = true
+	$beep.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	update_gui_visibility()
+	
+func warning(text):
+	if !$head/Camera3D/label:
+		$head/Camera3D/label.text = text
+		$head/Camera3D/label.visible = true
+		await get_tree().create_timer(2.5).timeout
+		$head/Camera3D/label.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://coa0qjrqe67hj"]
+[gd_scene format=3 uid="uid://coa0qjrqe67hj"]
 
 [ext_resource type="Script" uid="uid://c1b3ijvg6fiwb" path="res://chapter2/rooms/global_main.gd" id="1_w630j"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="7_ges2j"]
@@ -48,177 +48,181 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_n5xo8"]
 size = Vector3(150, 1, 150)
 
-[node name="GlobalMain" type="Node3D"]
+[node name="GlobalMain" type="Node3D" unique_id=821387345]
 script = ExtResource("1_w630j")
 
-[node name="Player" parent="." instance=ExtResource("11_fqaro")]
+[node name="Player" parent="." unique_id=1889524789 instance=ExtResource("11_fqaro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 12)
 
-[node name="ship" type="Node3D" parent="."]
+[node name="ship" type="Node3D" parent="." unique_id=2044402407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05164516, 0.01590252, -0.032613516)
 
-[node name="Zona1" type="Node3D" parent="ship"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+[node name="Zona1" type="Node3D" parent="ship" unique_id=48013067]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="Table" parent="ship/Zona1" instance=ExtResource("7_ges2j")]
+[node name="Table" parent="ship/Zona1" unique_id=1826599159 instance=ExtResource("7_ges2j")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, 0.5, 8.9)
 
-[node name="Table2" parent="ship/Zona1" instance=ExtResource("7_ges2j")]
+[node name="Table2" parent="ship/Zona1" unique_id=1678526959 instance=ExtResource("7_ges2j")]
 transform = Transform3D(1.4142135, 0, 0.84852815, 0, 1, 0, -1.4142135, 0, 0.84852815, 5.5, 0.5, 6.8)
 
-[node name="Table3" parent="ship/Zona1" instance=ExtResource("7_ges2j")]
+[node name="Table3" parent="ship/Zona1" unique_id=1909063332 instance=ExtResource("7_ges2j")]
 transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.84852815, -5.5, 0.5, 6.8)
 
-[node name="portal" parent="ship/Zona1" instance=ExtResource("27_fqaro")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
+[node name="portal" parent="ship/Zona1" unique_id=1282351702 instance=ExtResource("27_fqaro")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
 skin = 1
 
-[node name="wall1" parent="ship/Zona1" instance=ExtResource("28_dyctc")]
+[node name="wall1" parent="ship/Zona1" unique_id=2024134017 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.05164425, -0.01590252, 10.421387)
 
-[node name="wall2" parent="ship/Zona1" instance=ExtResource("28_dyctc")]
+[node name="wall2" parent="ship/Zona1" unique_id=654008939 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 6.798355, -0.01590252, 7.5923862)
 
-[node name="wall3" parent="ship/Zona1" instance=ExtResource("28_dyctc")]
+[node name="wall3" parent="ship/Zona1" unique_id=85523339 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -6.9016447, -0.01590252, 7.592387)
 
-[node name="wall4" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall4" parent="ship/Zona1" unique_id=1928508872 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721645, -0.01590252, 0.76738733)
 emergency_light = true
 glass = true
 
-[node name="wall5" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall5" parent="ship/Zona1" unique_id=1745126650 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618355, -0.01590252, 0.76738566)
 emergency_light = true
 glass = true
 
-[node name="wall6" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall6" parent="ship/Zona1" unique_id=697429122 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721645, -0.01590252, -5.2353835)
 emergency_light = true
 
-[node name="wall7" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall7" parent="ship/Zona1" unique_id=777113205 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618355, -0.01590252, -5.2353854)
 emergency_light = true
 
-[node name="wall8" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall8" parent="ship/Zona1" unique_id=127263076 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721646, -0.01590252, -11.232613)
 emergency_light = true
 
-[node name="wall9" parent="ship/Zona1" instance=ExtResource("29_oxgi4")]
+[node name="wall9" parent="ship/Zona1" unique_id=1559170281 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618354, -0.01590252, -11.2326145)
 emergency_light = true
 
-[node name="wall10" parent="ship/Zona1" instance=ExtResource("29_jhkrm")]
+[node name="wall10" parent="ship/Zona1" unique_id=860480662 instance=ExtResource("29_jhkrm")]
 transform = Transform3D(-16.9, 0, -8.742278e-08, 0, 1, 0, 1.4774449e-06, 0, -1, -0.051646363, 0.3840975, -13.732614)
 
-[node name="Light" parent="ship/Zona1" instance=ExtResource("42_3dqjl")]
+[node name="Light" parent="ship/Zona1" unique_id=872065384 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.051645163, 5.1840973, -0.032613512)
 torch_color = Color(0, 0, 0, 1)
 
-[node name="Light3" parent="ship/Zona1" instance=ExtResource("42_3dqjl")]
+[node name="Light3" parent="ship/Zona1" unique_id=9099645 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.051644463, 5.1840973, 7.9673867)
 torch_color = Color(1, 0, 0, 1)
 
-[node name="Light2" parent="ship/Zona1" instance=ExtResource("42_3dqjl")]
+[node name="Light2" parent="ship/Zona1" unique_id=872012408 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.05164604, 5.1840973, -10.032614)
 torch_color = Color(0, 0, 0, 1)
 
-[node name="Light4" parent="ship/Zona1" instance=ExtResource("32_80e1f")]
+[node name="Light4" parent="ship/Zona1" unique_id=640223375 instance=ExtResource("32_80e1f")]
 transform = Transform3D(-0.5251598, 0, -0.8510037, 0, 1, 0, 0.8510037, 0, -0.5251598, 0.4153112, 2.4024546, 8.388197)
 
-[node name="PC2" parent="ship/Zona1" instance=ExtResource("32_fqaro")]
+[node name="PC2" parent="ship/Zona1" unique_id=2084464429 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.015644472, 2.3840976, 7.894387)
+nameUI = "AIship"
 
-[node name="PC5" parent="ship/Zona1" instance=ExtResource("32_fqaro")]
+[node name="PC5" parent="ship/Zona1" unique_id=412720986 instance=ExtResource("32_fqaro")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.9793056, 2.3840976, -4.4000564)
+nameUI = "planet"
 
-[node name="PC3" parent="ship/Zona1" instance=ExtResource("32_fqaro")]
+[node name="PC3" parent="ship/Zona1" unique_id=1407305812 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 4.780724, 2.3840976, 5.98077)
+nameUI = "AIship"
 
-[node name="PC4" parent="ship/Zona1" instance=ExtResource("32_fqaro")]
+[node name="PC4" parent="ship/Zona1" unique_id=1472144462 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
+nameUI = "AIship"
 
-[node name="button" parent="ship/Zona1" instance=ExtResource("28_k2u2h")]
+[node name="button" parent="ship/Zona1" unique_id=2145555756 instance=ExtResource("28_k2u2h")]
 transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 2.9999995, 1.6, -6.25)
 interaction_name = "portal"
 handler_node = NodePath("../../..")
 
-[node name="floor" type="StaticBody3D" parent="ship/Zona1"]
+[node name="floor" type="StaticBody3D" parent="ship/Zona1" unique_id=326749266]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 8.500002, 0, 19.5)
 collision_layer = 36
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/floor" unique_id=2069476977]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 0.35, -0.431)
 shape = SubResource("BoxShape3D_fxxdm")
 debug_fill = false
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ship/Zona1/floor"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ship/Zona1/floor" unique_id=1703955843]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=306422608]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 0.35, -0.431)
 size = Vector3(0.397, 0.25, 0.51)
 material = SubResource("StandardMaterial3D_dxjcn")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1670814769]
 transform = Transform3D(0.7071067, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, 0.7071067, -0.33931452, 0, -0.20833774)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
 material = SubResource("StandardMaterial3D_3a5pw")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=36824725]
 transform = Transform3D(0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071066, -0.0052686334, 0, -0.20799994)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
 material = SubResource("StandardMaterial3D_3a5pw")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1487193712]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12495689, 0, -0.09694925)
 operation = 2
 size = Vector3(0.084469914, 1, 0.07252261)
 material = SubResource("StandardMaterial3D_emt8f")
 
-[node name="floor2" type="StaticBody3D" parent="ship/Zona1"]
+[node name="floor2" type="StaticBody3D" parent="ship/Zona1" unique_id=1511228781]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 8.500002, 5, 19.5)
 collision_layer = 36
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/floor2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/floor2" unique_id=1587097213]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 0.35, -0.431)
 shape = SubResource("BoxShape3D_fxxdm")
 debug_fill = false
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ship/Zona1/floor2"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ship/Zona1/floor2" unique_id=1012225517]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=985611770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171, 0.35, -0.431)
 size = Vector3(0.397, 0.25, 0.51)
 material = SubResource("StandardMaterial3D_oxgi4")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=1230046801]
 transform = Transform3D(0.7071067, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, 0.7071067, -0.33931452, 0, -0.20833774)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
 material = SubResource("StandardMaterial3D_3a5pw")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=427363454]
 transform = Transform3D(0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071066, -0.0052686334, 0, -0.20799994)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
 material = SubResource("StandardMaterial3D_3a5pw")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=1636146011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12495689, 0, -0.09694925)
 operation = 2
 size = Vector3(0.084469914, 1, 0.07252261)
 material = SubResource("StandardMaterial3D_emt8f")
 
-[node name="KillZona" type="Area3D" parent="ship/Zona1"]
+[node name="KillZona" type="Area3D" parent="ship/Zona1" unique_id=1860593763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 collision_layer = 0
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/KillZona"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/KillZona" unique_id=1009234743]
 shape = SubResource("BoxShape3D_n5xo8")
 debug_color = Color(0.99607843, 0, 0, 1)
 debug_fill = false

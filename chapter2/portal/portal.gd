@@ -10,6 +10,11 @@ func _ready():
 		$Sprite3D.queue_free()
 		$Sprite3D2.queue_free()
 		$Table.queue_free()
+		$AnimationPlayer2.queue_free()
+		$Cube/MeshInstance3D2.queue_free()
+		$Cube2/MeshInstance3D2.queue_free()
+		$Cube3/MeshInstance3D2.queue_free()
+		$Cube4/MeshInstance3D2.queue_free()
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 
@@ -17,12 +22,19 @@ func _ready():
 		$Cube4/MeshInstance3D
 	]
 
-func teleport():
+func casing(cont):
+	if cont == 1:
+		$AnimationPlayer2.play("downC")
+	else:
+		$AnimationPlayer2.play("downC", -1, -1.0, true)
+
+func teleport(map):
 	if is_animating:
 		return
 	is_animating  = true
-	$AnimationPlayer2.play("downC")
-	await get_tree().create_timer(2).timeout
+	if skin != 0:
+		casing(1)
+		await get_tree().create_timer(2).timeout
 	$AudioStreamPlayer3D.play()
 	var tween1 = create_tween()
 	tween1.tween_method(
@@ -39,14 +51,15 @@ func teleport():
 	print("бум")
 	$TeleportCube.save_contents()
 	if Global.saved_portal_data.size() > 0:
-		SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/test.tscn")
+		SceneManager.load_scene_with_loading(map)
 		return
 	$AnimationPlayer.play("RESET")
 	for i in range(20):
 		set_cube_colors(Color.BLACK if i % 2 == 0 else Color("9f009f"))
 		await get_tree().create_timer(0.5).timeout
-	$AnimationPlayer2.play("downC", -1, -1.0, true)
-	await get_tree().create_timer(2).timeout
+	if skin != 0:
+		casing(-1)
+		await get_tree().create_timer(2).timeout
 	set_cube_colors(Color.WHITE)
 	is_animating = false
 

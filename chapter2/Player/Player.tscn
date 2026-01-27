@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cn5qxioc77162"]
+[gd_scene format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
@@ -142,29 +142,29 @@ _data = {
 &"blood": SubResource("Animation_n1vqc")
 }
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1744104925 groups=["player"]]
 collision_mask = 44
 script = ExtResource("1_3dlvw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1704773250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_al2fp")
 debug_color = Color(0, 0.576471, 0.701961, 1)
 
-[node name="head" type="Node3D" parent="."]
+[node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head"]
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=2117932246]
 current = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D" unique_id=592302959]
 spot_range = 15.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D" unique_id=1939203437]
 light_energy = 0.5
 spot_angle = 90.0
 
-[node name="black" type="ColorRect" parent="head/Camera3D"]
+[node name="black" type="ColorRect" parent="head/Camera3D" unique_id=629452091]
 visible = false
 modulate = Color(0, 0, 0, 0)
 z_index = 1
@@ -173,7 +173,7 @@ offset_bottom = 40.0
 scale = Vector2(29.000002, 16.48)
 color = Color(0, 0, 0, 1)
 
-[node name="crosshair" type="TextureRect" parent="head/Camera3D"]
+[node name="crosshair" type="TextureRect" parent="head/Camera3D" unique_id=538462597]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -189,7 +189,7 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(32.6, 16.6)
 texture = ExtResource("3_lmkso")
 
-[node name="coordinates" type="Label" parent="head/Camera3D"]
+[node name="coordinates" type="Label" parent="head/Camera3D" unique_id=1054782826]
 modulate = Color(1, 1, 1, 0.5019608)
 offset_left = 864.0
 offset_top = 599.0
@@ -201,7 +201,7 @@ text = "00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="shoot2" type="Label" parent="head/Camera3D"]
+[node name="shoot2" type="Label" parent="head/Camera3D" unique_id=1257884787]
 visible = false
 offset_left = 732.0
 offset_top = 533.0
@@ -213,7 +213,7 @@ text = "0/2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="fps" type="Label" parent="head/Camera3D"]
+[node name="fps" type="Label" parent="head/Camera3D" unique_id=942679321]
 visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 offset_left = 868.0
@@ -226,20 +226,20 @@ text = "FPS:60"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label" type="Label" parent="head/Camera3D"]
+[node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]
 visible = false
 modulate = Color(1, 1, 1, 0)
 offset_left = 32.0
-offset_top = 136.0
+offset_top = 147.25
 offset_right = 518.0
-offset_bottom = 159.0
+offset_bottom = 165.25
 scale = Vector2(2.25, 2.25)
 theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "Enemy will revive in 60 seconds."
+text = "text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Use" type="Label" parent="head/Camera3D"]
+[node name="Use" type="Label" parent="head/Camera3D" unique_id=1586412216]
 visible = false
 offset_left = 32.0
 offset_top = 481.0
@@ -251,30 +251,30 @@ text = "E - USE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="blood1" type="Sprite2D" parent="head/Camera3D"]
+[node name="blood1" type="Sprite2D" parent="head/Camera3D" unique_id=1813390469]
 visible = false
 z_index = -1
 scale = Vector2(18, 20.25)
 texture = ExtResource("4_3lojj")
 offset = Vector2(32, 16)
 
-[node name="blood2" type="Sprite2D" parent="head/Camera3D"]
+[node name="blood2" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
 visible = false
 z_index = -1
 scale = Vector2(18, 20.25)
 texture = ExtResource("5_xng4x")
 offset = Vector2(32, 16)
 
-[node name="hand_position" type="Node3D" parent="head/Camera3D"]
+[node name="hand_position" type="Node3D" parent="head/Camera3D" unique_id=1280255816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, -0.5)
 
-[node name="Sprite3D" type="Sprite3D" parent="head/Camera3D/hand_position"]
+[node name="Sprite3D" type="Sprite3D" parent="head/Camera3D/hand_position" unique_id=1174636246]
 transform = Transform3D(-0.012548685, 0, -0.99992126, 0, 1, 0, 0.99992126, 0, -0.012548685, 0.28171474, 0, -0.11359966)
 shaded = true
 texture_filter = 0
 render_priority = 1
 
-[node name="InteractionProgressBar" type="ProgressBar" parent="head/Camera3D"]
+[node name="InteractionProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=311574927]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -292,7 +292,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 show_percentage = false
 
-[node name="staminaProgressBar" type="ProgressBar" parent="head/Camera3D"]
+[node name="staminaProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=667892664]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -310,31 +310,31 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 show_percentage = false
 
-[node name="Terminal" parent="head/Camera3D" instance=ExtResource("10_u8yn7")]
+[node name="Terminal" parent="head/Camera3D" unique_id=2037745027 instance=ExtResource("10_u8yn7")]
 visible = false
 
-[node name="HandTarget" type="Marker3D" parent="head/Camera3D"]
+[node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
-[node name="RayCast" type="RayCast3D" parent="head/Camera3D"]
+[node name="RayCast" type="RayCast3D" parent="head/Camera3D" unique_id=498664006]
 target_position = Vector3(0, 0, -2.5)
 collision_mask = 4
 
-[node name="Pause" parent="head/Camera3D" instance=ExtResource("7_68v2k")]
+[node name="Pause" parent="head/Camera3D" unique_id=1541495378 instance=ExtResource("7_68v2k")]
 visible = false
 z_index = 1
 position = Vector2(575, 323)
 
-[node name="UI" type="Node2D" parent="head/Camera3D"]
+[node name="UI" type="Node2D" parent="head/Camera3D" unique_id=823880279]
 
-[node name="HP" type="Node2D" parent="head/Camera3D/UI"]
+[node name="HP" type="Node2D" parent="head/Camera3D/UI" unique_id=152171685]
 
-[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/UI/HP"]
+[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/UI/HP" unique_id=663250395]
 texture_filter = 1
 position = Vector2(50, 600)
 texture = ExtResource("8_u8yn7")
 
-[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/UI/HP"]
+[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/UI/HP" unique_id=444207690]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -352,7 +352,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="head/Camera3D/UI/HP"]
+[node name="Label" type="Label" parent="head/Camera3D/UI/HP" unique_id=639042209]
 offset_left = 238.0
 offset_top = 587.0
 offset_right = 278.0
@@ -362,38 +362,36 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Teleport" parent="head/Camera3D" instance=ExtResource("9_y13tn")]
+[node name="Teleport" parent="head/Camera3D" unique_id=959803594 instance=ExtResource("9_y13tn")]
 position = Vector2(575, 509)
 
-[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("3_kd1ih")
 volume_db = -25.0
 
-[node name="FootstepPlayer2" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=718981928]
 stream = ExtResource("11_u8yn7")
 volume_db = -25.0
 
-[node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="."]
+[node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="." unique_id=1239327092]
 stream = ExtResource("11_8e3ni")
 volume_db = -20.0
 
-[node name="tick" type="AudioStreamPlayer3D" parent="."]
+[node name="tick" type="AudioStreamPlayer3D" parent="." unique_id=489023864]
 stream = ExtResource("8_xng4x")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_3lojj")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1010058049]
+libraries/ = SubResource("AnimationLibrary_3lojj")
 
-[node name="screem" type="AudioStreamPlayer2D" parent="."]
+[node name="screem" type="AudioStreamPlayer2D" parent="." unique_id=544180724]
 stream = ExtResource("10_puud3")
 pitch_scale = 0.5
 
-[node name="beep" type="AudioStreamPlayer2D" parent="."]
+[node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
 stream = ExtResource("14_uckl1")
 volume_db = -10.0
 
-[node name="save" type="Timer" parent="."]
+[node name="save" type="Timer" parent="." unique_id=246559202]
 wait_time = 60.0
 
 [connection signal="timeout" from="save" to="." method="_on_save_timeout"]

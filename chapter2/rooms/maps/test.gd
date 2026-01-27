@@ -6,6 +6,11 @@ func _ready() -> void:
 	add_child(env_instance)
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
 
+func handle_interaction(object_name: String):
+	match object_name:
+		"portal":
+			$NavigationRegion3D/portal.teleport("res://chapter2/rooms/GlobalMain.tscn")
+
 func setup_seasonal_materials():
 	var material = StandardMaterial3D.new()
 	if !Global.game_settings["ModSeason"]:
