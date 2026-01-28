@@ -1,10 +1,13 @@
 extends Node3D
 
+var world = Global.get_world(Global.game_settings.word)
+
 func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skyboxBlue.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
+	get_node("Player/head/Camera3D/timer").start_countdown(120)
 
 func handle_interaction(object_name: String):
 	match object_name:

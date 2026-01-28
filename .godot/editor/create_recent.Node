@@ -1,5 +1,6 @@
-AnimationPlayer
 Sprite2D
+Timer
+AnimationPlayer
 Label
 BoneAttachment3D
 Skeleton3D
@@ -11,4 +12,3 @@ Node2D
 AudioStreamPlayer3D
 Area3D
 CollisionShape3D
-StaticBody3D

@@ -1,6 +1,6 @@
 extends Node3D
 
-var painting = 0
+var world = Global.get_world(Global.game_settings.word)
 
 func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skybox.tscn")
@@ -21,4 +21,8 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 func handle_interaction(object_name: String):
 	match object_name:
 		"portal":
-			$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")
+			if world["selectWorld"] != 0:
+				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")
+			else:
+				var player = get_tree().get_first_node_in_group("player")
+				player.warning("no world selected for teleportation")

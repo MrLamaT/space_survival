@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://jg0hpn2nahbb"]
 
 [ext_resource type="Script" uid="uid://bxtqubwrr51ik" path="res://UI/planet/planet.gd" id="1_dch0o"]
-[ext_resource type="Texture2D" uid="uid://c644es5qjluwt" path="res://assets/logo2.png" id="1_ei3f8"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_fhdr7"]
+[ext_resource type="Texture2D" uid="uid://djad13l7f43tj" path="res://assets/planet/planet1.png" id="2_gxkjw"]
+[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="3_345ih"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_cyec6"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="4_gxkjw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -119,11 +121,16 @@ offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1028603425]
-position = Vector2(982, 162)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ei3f8")
+position = Vector2(950, 200)
+scale = Vector2(10, 10)
+texture = ExtResource("2_gxkjw")
 
-[node name="Label" type="Label" parent="Panel" unique_id=378347037]
+[node name="Sprite2D2" type="Sprite2D" parent="Panel" unique_id=1244406692]
+z_index = -1
+position = Vector2(950, 200)
+texture = ExtResource("3_345ih")
+
+[node name="Id" type="Label" parent="Panel" unique_id=378347037]
 texture_filter = 1
 layout_mode = 0
 offset_left = 20.0
@@ -183,6 +190,28 @@ theme_override_fonts/font = ExtResource("2_fhdr7")
 text = "Gravity: weak"
 vertical_alignment = 1
 
+[node name="LabelButton" parent="Panel" unique_id=728115836 instance=ExtResource("4_gxkjw")]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 589.0
+offset_right = 1019.0
+offset_bottom = 589.0
+text = "confirm"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "open"
+
+[node name="LabelButton2" parent="Panel" unique_id=1106262274 instance=ExtResource("4_gxkjw")]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 589.0
+offset_right = 1019.0
+offset_bottom = 589.0
+text = "cancel"
+direction_A_and_D = "A"
+target_node = NodePath("../..")
+button_id = "close"
+
 [node name="load" type="Panel" parent="." unique_id=591527759]
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -212,3 +241,25 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_gxkjw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="load" unique_id=1357708578]
 libraries/ = SubResource("AnimationLibrary_506nj")
+
+[node name="Label" type="Label" parent="load" unique_id=776909600]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 166.0
+offset_right = 26.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_fonts/font = ExtResource("2_fhdr7")
+text = "search"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="load/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

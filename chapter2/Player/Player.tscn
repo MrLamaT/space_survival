@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://tfw84iepyf0d" path="res://assets/damage.mp3" id="10_puud3"]
 [ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
+[ext_resource type="PackedScene" uid="uid://c4l8kd7cmxhvi" path="res://UI/timer/timer.tscn" id="10_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/step3.wav" id="11_8e3ni"]
 [ext_resource type="AudioStream" uid="uid://c6rmekx11bec8" path="res://assets/step2.mp3" id="11_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
@@ -28,6 +29,43 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xng4x"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_8e3ni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1166.0]
+}
+
+[sub_resource type="Animation" id="Animation_y13tn"]
+resource_name = "warning"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1166.0, 8.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8fo2"]
+_data = {
+&"RESET": SubResource("Animation_8e3ni"),
+&"warning": SubResource("Animation_y13tn")
+}
 
 [sub_resource type="Animation" id="Animation_3lojj"]
 resource_name = "BlackOut"
@@ -214,7 +252,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="fps" type="Label" parent="head/Camera3D" unique_id=942679321]
-visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 offset_left = 868.0
 offset_top = 5.0
@@ -228,15 +265,14 @@ vertical_alignment = 1
 
 [node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]
 visible = false
-modulate = Color(1, 1, 1, 0)
-offset_left = 32.0
-offset_top = 147.25
-offset_right = 518.0
-offset_bottom = 165.25
+offset_left = 1166.0
+offset_top = 542.0
+offset_right = 1652.0015
+offset_bottom = 560.0
 scale = Vector2(2.25, 2.25)
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "text"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Use" type="Label" parent="head/Camera3D" unique_id=1586412216]
@@ -364,6 +400,13 @@ vertical_alignment = 1
 
 [node name="Teleport" parent="head/Camera3D" unique_id=959803594 instance=ExtResource("9_y13tn")]
 position = Vector2(575, 509)
+
+[node name="warning" type="AnimationPlayer" parent="head/Camera3D" unique_id=542201009]
+libraries/ = SubResource("AnimationLibrary_s8fo2")
+
+[node name="timer" parent="head/Camera3D" unique_id=2043717137 instance=ExtResource("10_y13tn")]
+visible = false
+position = Vector2(1035, 100)
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("3_kd1ih")

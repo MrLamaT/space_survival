@@ -3,31 +3,41 @@ extends Node
 var world_1: Dictionary = { 
 	"name": "[NEW GAME 1]",
 	"mode": 0,
-	"stage": 0
+	"stage": 0,
+	"selectWorld": 0,
+	"selectWorldName": ""
 }
 
 var world_2: Dictionary = { 
 	"name": "[NEW GAME 2]",
 	"mode": 0,
-	"stage": 0
+	"stage": 0,
+	"selectWorld": 0,
+	"selectWorldName": ""
 }
 
 var world_3: Dictionary = { 
 	"name": "[NEW GAME 3]",
 	"mode": 0,
-	"stage": 0
+	"stage": 0,
+	"selectWorld": 0,
+	"selectWorldName": ""
 }
 
 var world_4: Dictionary = { 
 	"name": "[NEW GAME 4]",
 	"mode": 0,
-	"stage": 0
+	"stage": 0,
+	"selectWorld": 0,
+	"selectWorldName": ""
 }
 
 var world_5: Dictionary = { 
 	"name": "[NEW GAME 5]",
 	"mode": 0,
-	"stage": 0
+	"stage": 0,
+	"selectWorld": 0,
+	"selectWorldName": ""
 }
 
 var game_settings: Dictionary = {

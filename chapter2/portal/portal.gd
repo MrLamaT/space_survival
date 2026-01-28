@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 @export var skin = 0
-
+var world = Global.get_world(Global.game_settings.word)
 var is_animating = false
 var cubes = []
 
@@ -49,6 +49,7 @@ func teleport(map):
 	$AudioStreamPlayer3D2.play()
 	await get_tree().create_timer(1).timeout
 	print("бум")
+	world["PortalTimer"] = 120
 	$TeleportCube.save_contents()
 	if Global.saved_portal_data.size() > 0:
 		SceneManager.load_scene_with_loading(map)
