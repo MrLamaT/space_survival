@@ -1,16 +1,3 @@
 res://UI/planet/planet.tscn
-res://UI/planet/planet.gd
-res://chapter2/portal/portal.tscn
-res://chapter2/rooms/GlobalMain.tscn
 res://chapter2/Player/Player.tscn
-res://chapter2/portal/portal.gd
-res://global.gd
-res://chapter2/rooms/global_main.gd
 res://chapter2/Player/player.gd
-res://UI/timer/pause.gd
-res://UI/timer/pause.tscn
-res://UI/timer/timer.tscn
-res://UI/timer/timer.gd
-res://UI/teleport/teleport.tscn
-res://chapter2/rooms/maps/test.tscn
-res://chapter2/rooms/maps/test.gd

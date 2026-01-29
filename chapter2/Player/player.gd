@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var footstep_player2 = $FootstepPlayer2
 @onready var footstep_player3 = $FootstepPlayer3
 @onready var crosshair = $head/Camera3D/crosshair
-@onready var hand_sprite = $head/Camera3D/hand_position/Sprite3D
+@onready var hand_sprite = $hand_position/Sprite3D
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
 
@@ -34,9 +34,6 @@ var standing_collision_scale = 1.0
 var crouching_collision_scale = 0.4
 
 var was_under_obstacle = false
-
-var time_elapsed: float = 0.0
-var is_runningTime: bool = false
 
 var movement_enabled: bool = true
 
@@ -87,6 +84,38 @@ var float_target_height: float = 0.0
 var float_speed: float = 3.0 # скорость подъема/спуска при парении
 
 var stepGrass = false
+
+# инерция руки
+var hand_follow_speed = 10.0  # Скорость следования руки (чем больше, тем быстрее)
+var hand_rotation_speed = 8.0  # Скорость поворота руки
+var max_hand_offset = Vector3(0.1, 0.1, 0.1)
+
+func _update_hand_position(delta):
+	if not hand_target or not hand_sprite:
+		return
+	var target_position = hand_target.global_position
+	var current_position = hand_sprite.global_position
+	var position_diff = target_position - current_position
+	var move_amount = position_diff * hand_follow_speed * delta
+	hand_sprite.global_position += move_amount
+	var target_rotation = hand_target.global_rotation
+	var current_rotation = hand_sprite.global_rotation
+	var rotation_diff = target_rotation - current_rotation
+	for i in range(3):
+		while rotation_diff[i] > PI:
+			rotation_diff[i] -= 2 * PI
+		while rotation_diff[i] < -PI:
+			rotation_diff[i] += 2 * PI
+	var rotation_amount = rotation_diff * hand_rotation_speed * delta
+	hand_sprite.global_rotation += rotation_amount
+	if input_dir.length() > 0 and is_on_floor():
+		var time = Time.get_ticks_msec() * 0.001
+		var move_offset = Vector3(
+			sin(time * 5.0) * 0.005,
+			cos(time * 3.0) * 0.0025,
+			0
+		)
+		hand_sprite.position += move_offset
 
 func look_at_point(target_point: Vector3):
 	var head_look_point = Vector3(target_point.x, head.global_position.y, target_point.z)
@@ -274,6 +303,10 @@ func _input(event: InputEvent): #повороты мышкой
 			crouched = !crouched  
 		update_running_speed()
 	if Input.is_action_just_pressed("+f1"):
+		var handVisible = !$hand_position.visible
+		$hand_position.visible = handVisible
+		$head/Camera3D/UI.visible = handVisible
+	if Input.is_action_just_pressed("+~"):
 		if !is_paused:
 			toggle_terminal()
 		else:
@@ -293,8 +326,7 @@ func ghost_cheat():
 
 func _process(delta):
 	$head/Camera3D/fps.text = "FPS: %d" % Engine.get_frames_per_second()
-	if is_runningTime:
-		time_elapsed += delta
+	_update_hand_position(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	_update_stamina(delta)

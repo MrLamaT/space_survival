@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1769630616
+::res://::1769719401
 default_env.tres::Environment::4252175493748035018::1763216573::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1769538061::0::1::::<><><>0<>0<><>::
 global.gd::GDScript::3714646894747957548::1769630616::0::1::::<>Node<><>0<>0<><>::
@@ -53,7 +53,7 @@ picture12.png::CompressedTexture2D::7138641160927618532::1763216569::1764169580:
 picture13.png::CompressedTexture2D::5227317952503333187::1763216569::1764169580::1::::<><><>0<>0<>fc15d74ab50a8a77daf43253d84fd521<>res://.godot/imported/picture13.png-8260a419853ce44b9273eac92d685465.ctex::
 picture14.png::CompressedTexture2D::3613392378608253275::1763216569::1764169580::1::::<><><>0<>0<>c74b4fc4fb1b8b7894d825faf0771f42<>res://.godot/imported/picture14.png-477a34ad105ed09f5d649dbbd2debd45.ctex::
 picture15.png::CompressedTexture2D::7328197156136402720::1766691498::1766691750::1::::<><><>0<>0<>3e1db0e8c988212a3463caf762a3d24f<>res://.godot/imported/picture15.png-6b03cf90e7a67510252cf30b9735206b.ctex::
-::res://assets/planet/::1769633383
+::res://assets/planet/::1769633387
 planet1.png::CompressedTexture2D::7791191714549862007::1769633383::1769633387::1::::<><><>0<>0<>cf1c29527a78a05cdd5ca7d36eaac738<>res://.godot/imported/planet1.png-22d183d7be8180c01fe69619716df89b.ctex::
 ::res://assets/screen/::1767611836
 1.png::CompressedTexture2D::7606040742254186466::1767016843::1767016849::1::::<><><>0<>0<>ba14a22005b5b4ae46e6a83f08b98e9d<>res://.godot/imported/1.png-172d4b1228bf5f60d3a955e462ecbc76.ctex::
@@ -288,9 +288,9 @@ label_button.gd::GDScript::8831192919204280436::1768046659::0::1::::<>Control<><
 ::res://UI/pause/::1768659547
 pause.gd::GDScript::6501689550548487714::1768659547::0::1::::<>Node2D<><>0<>0<><>::
 pause.tscn::PackedScene::4649938975524109340::1768050917::0::1::::<><><>0<>0<><>::uid://btlhau0niepik::::res://UI/LabelButton/LabelButton.tscn<>uid://cyvp422fyclpi::::res://UI/pause/pause.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata
-::res://UI/planet/::1769605179
-planet.gd::GDScript::4040994539762719650::1769605099::0::1::::<>Node2D<><>0<>0<><>::
-planet.tscn::PackedScene::645617093819992495::1769605179::0::1::::<><><>0<>0<><>::uid://bxtqubwrr51ik::::res://UI/planet/planet.gd<>uid://c644es5qjluwt::::res://assets/logo2.png<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://bxj2sw3re86dx::::res://assets/textures/citadelFlow.png<>uid://btlhau0niepik::::res://UI/LabelButton/LabelButton.tscn
+::res://UI/planet/::1769639089
+planet.gd::GDScript::4040994539762719650::1769639087::0::1::::<>Node2D<><>0<>0<><>::
+planet.tscn::PackedScene::645617093819992495::1769639089::0::1::::<><><>0<>0<><>::uid://bxtqubwrr51ik::::res://UI/planet/planet.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://djad13l7f43tj::::res://assets/planet/planet1.png<>uid://dr8hllvffgsk7::::res://assets/nightskycolor.png<>uid://bxj2sw3re86dx::::res://assets/textures/citadelFlow.png<>uid://btlhau0niepik::::res://UI/LabelButton/LabelButton.tscn
 ::res://UI/teleport/::1769629478
 teleport.gd::GDScript::8079596199177193395::1769295269::0::1::::<>Node2D<><>0<>0<><>::
 teleport.tscn::PackedScene::6283729601886883755::1769629478::0::1::::<><><>0<>0<><>::uid://dnd21e6cqmf3h::::res://UI/teleport/teleport.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata

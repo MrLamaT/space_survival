@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
+[ext_resource type="Texture2D" uid="uid://cspabnxppets1" path="res://chapter2/assets/items/shotgun.png" id="6_s8fo2"]
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="AudioStream" uid="uid://dsic1c8h3j8lw" path="res://assets/tick.mp3" id="8_xng4x"]
@@ -189,6 +190,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_al2fp")
 debug_color = Color(0, 0.576471, 0.701961, 1)
 
+[node name="hand_position" type="Node3D" parent="." unique_id=1280255816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
+
+[node name="Sprite3D" type="Sprite3D" parent="hand_position" unique_id=1174636246]
+transform = Transform3D(-0.012548685, 0, -0.99992126, 0, 1, 0, 0.99992126, 0, -0.012548685, 0.28171474, 0, -0.11359966)
+shaded = true
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("6_s8fo2")
+
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
@@ -301,15 +312,6 @@ scale = Vector2(18, 20.25)
 texture = ExtResource("5_xng4x")
 offset = Vector2(32, 16)
 
-[node name="hand_position" type="Node3D" parent="head/Camera3D" unique_id=1280255816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, -0.5)
-
-[node name="Sprite3D" type="Sprite3D" parent="head/Camera3D/hand_position" unique_id=1174636246]
-transform = Transform3D(-0.012548685, 0, -0.99992126, 0, 1, 0, 0.99992126, 0, -0.012548685, 0.28171474, 0, -0.11359966)
-shaded = true
-texture_filter = 0
-render_priority = 1
-
 [node name="InteractionProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=311574927]
 visible = false
 anchors_preset = 8
@@ -348,9 +350,6 @@ show_percentage = false
 
 [node name="Terminal" parent="head/Camera3D" unique_id=2037745027 instance=ExtResource("10_u8yn7")]
 visible = false
-
-[node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="RayCast" type="RayCast3D" parent="head/Camera3D" unique_id=498664006]
 target_position = Vector3(0, 0, -2.5)
@@ -407,6 +406,9 @@ libraries/ = SubResource("AnimationLibrary_s8fo2")
 [node name="timer" parent="head/Camera3D" unique_id=2043717137 instance=ExtResource("10_y13tn")]
 visible = false
 position = Vector2(1035, 100)
+
+[node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, -0.20000005, -0.5)
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("3_kd1ih")

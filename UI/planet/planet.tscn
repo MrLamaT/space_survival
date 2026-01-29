@@ -163,7 +163,7 @@ offset_right = 209.0
 offset_bottom = 173.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("2_fhdr7")
-text = "radiation: No"
+text = "Radiation: No"
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="Panel" unique_id=1398903936]
