@@ -63,6 +63,7 @@ var game_settings: Dictionary = {
 	"FloatHeight": 0,
 	"word": 0,
 	"debugging": false,
+	"step": 1
 }
 var saved_portal_data: Dictionary = {}
 

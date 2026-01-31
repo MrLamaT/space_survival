@@ -4,7 +4,6 @@ var mouseLight = false
 var skip = false
 
 func _input(event):
-	
 	if event.is_action_pressed("UI_click"):
 		if mouseLight:
 			$Light2.switching()
@@ -16,16 +15,12 @@ func _input(event):
 func _ready() -> void:
 	$AnimationPlayer.play("light")
 	$On.play("OnSystem")
-	$fans.play()
 
 func _on_on_animation_finished(_anim_name: StringName) -> void:
 	skip = true
 	$Light2.On()
 	await get_tree().create_timer(1.5).timeout
 	$menu.On()
-
-func _on_fans_finished() -> void:
-	$fans.play()
 
 func _on_area_light_mouse_entered() -> void:
 	mouseLight = true

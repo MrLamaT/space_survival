@@ -7,7 +7,8 @@ func _ready() -> void:
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
-	get_node("Player/head/Camera3D/timer").start_countdown(120)
+	get_node("Player/head/Camera3D/timer").start_countdown(world["PortalTimer"])
+	Global.game_settings["step"] = 2
 
 func handle_interaction(object_name: String):
 	match object_name:
@@ -34,14 +35,6 @@ func setup_seasonal_materials():
 		$NavigationRegion3D/floor_ceiling/dirt2/CSGCombiner3D/CSGBox3D.material = material
 	else:
 		push_error("CSGBox3D не найден!")
-
-func _on_grass_trig_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.stepGrass = true
-		
-func _on_grass_trig_body_exited(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		body.stepGrass = false
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")

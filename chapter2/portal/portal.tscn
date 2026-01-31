@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
-[ext_resource type="AudioStream" uid="uid://buidj75cugdmq" path="res://assets/teleport1.mp3" id="7_il6ae"]
-[ext_resource type="AudioStream" uid="uid://b2nphy5h3vl0m" path="res://assets/teleport2.mp3" id="8_nwwir"]
+[ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/teleport1.wav" id="7_nwwir"]
+[ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/teleport2.wav" id="8_nwwir"]
 [ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/material26.png" id="12_q66jv"]
@@ -401,7 +401,7 @@ libraries/ = SubResource("AnimationLibrary_nwwir")
 libraries/ = SubResource("AnimationLibrary_bguse")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1192623370]
-stream = ExtResource("7_il6ae")
+stream = ExtResource("7_nwwir")
 volume_db = -15.0
 pitch_scale = 0.5
 

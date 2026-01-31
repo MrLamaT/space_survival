@@ -8,7 +8,6 @@ extends RigidBody3D
 @export var item_texture_4: Texture2D
 @export var item_texture_5: Texture2D
 
-@onready var audio_player = $AudioStreamPlayer3D
 var check = false
 
 func _ready():
@@ -74,8 +73,6 @@ func play_collision_sound():
 		var current_target = targets[0]
 		current_target.global_position = global_position
 		current_target.timeStart()
-	audio_player.pitch_scale = randf_range(0.9, 1.1)
-	audio_player.play()
 
 func _on_mouse_entered() -> void:
 	pass # Replace with function body.

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
-[ext_resource type="AudioStream" uid="uid://dbl2scnesa84b" path="res://assets/step.mp3" id="3_kd1ih"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
@@ -9,14 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://cspabnxppets1" path="res://chapter2/assets/items/shotgun.png" id="6_s8fo2"]
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
-[ext_resource type="AudioStream" uid="uid://dsic1c8h3j8lw" path="res://assets/tick.mp3" id="8_xng4x"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
-[ext_resource type="AudioStream" uid="uid://tfw84iepyf0d" path="res://assets/damage.mp3" id="10_puud3"]
 [ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://c4l8kd7cmxhvi" path="res://UI/timer/timer.tscn" id="10_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/step3.wav" id="11_8e3ni"]
-[ext_resource type="AudioStream" uid="uid://c6rmekx11bec8" path="res://assets/step2.mp3" id="11_u8yn7"]
+[ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/step.wav" id="12_y13tn"]
+[ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/step2.wav" id="13_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
+[ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/damage.wav" id="16_s8fo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -337,10 +336,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 262.0
-offset_right = 200.0
-offset_bottom = 289.0
+offset_left = -558.0
+offset_top = 203.0
+offset_right = -358.0
+offset_bottom = 230.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_sfgwg")
@@ -369,28 +368,10 @@ texture_filter = 1
 position = Vector2(50, 600)
 texture = ExtResource("8_u8yn7")
 
-[node name="ProgressBar" type="ProgressBar" parent="head/Camera3D/UI/HP" unique_id=444207690]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 85.0
-offset_top = 585.0
-offset_right = 235.0
-offset_bottom = 612.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_sfgwg")
-theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
-value = 100.0
-show_percentage = false
-
 [node name="Label" type="Label" parent="head/Camera3D/UI/HP" unique_id=639042209]
-offset_left = 238.0
+offset_left = 86.0
 offset_top = 587.0
-offset_right = 278.0
+offset_right = 126.0
 offset_bottom = 610.0
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "100"
@@ -411,26 +392,22 @@ position = Vector2(1035, 100)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, -0.20000005, -0.5)
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
-stream = ExtResource("3_kd1ih")
+stream = ExtResource("12_y13tn")
 volume_db = -25.0
 
 [node name="FootstepPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=718981928]
-stream = ExtResource("11_u8yn7")
+stream = ExtResource("13_s8fo2")
 volume_db = -25.0
 
 [node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="." unique_id=1239327092]
 stream = ExtResource("11_8e3ni")
 volume_db = -20.0
 
-[node name="tick" type="AudioStreamPlayer3D" parent="." unique_id=489023864]
-stream = ExtResource("8_xng4x")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1010058049]
 libraries/ = SubResource("AnimationLibrary_3lojj")
 
 [node name="screem" type="AudioStreamPlayer2D" parent="." unique_id=544180724]
-stream = ExtResource("10_puud3")
-pitch_scale = 0.5
+stream = ExtResource("16_s8fo2")
 
 [node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
 stream = ExtResource("14_uckl1")

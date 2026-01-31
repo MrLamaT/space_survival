@@ -145,13 +145,11 @@ func parse_command(text: String):
 		"kill", "HP", "hp":
 			if cheat_mod:
 				if argument == "":
-					player.PlayerDeath(-1)
-					SystemPrint("Player killed")
+					player.HP(100)
 				else:
 					if argument.is_valid_int():
 						var damage_value = argument.to_int()
-						player.PlayerDeath(damage_value)
-						SystemPrint("Player killed")
+						player.HP(damage_value)
 					else:
 						ErrorPrint("Invalid argument: must be an integer number")
 			else:

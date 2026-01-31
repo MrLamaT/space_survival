@@ -83,8 +83,6 @@ var float_start_height: float = 0.0
 var float_target_height: float = 0.0
 var float_speed: float = 3.0 # скорость подъема/спуска при парении
 
-var stepGrass = false
-
 # инерция руки
 var hand_follow_speed = 10.0  # Скорость следования руки (чем больше, тем быстрее)
 var hand_rotation_speed = 8.0  # Скорость поворота руки
@@ -154,70 +152,31 @@ func UpdateCartridge(itemShot):
 		$head/Camera3D/shoot2.text = "%01d/2" % [Global.game_settings["shock_cartridge"]]
 		print(Global.game_settings["shock_cartridge"])
 
-func PlayerDeath(Hp):
+func PlayerDeath():
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["IsDying"] = true
-	Global.game_settings["HP"] += Hp
-	print("HP: ", Global.game_settings["HP"])
-	if Global.game_settings["HP"] < 5:
-		screem()
-		throw_camera_out()
-		drop_item()
-		movement_enabled = false
-		velocity = Vector3.ZERO
-		is_running = false
-		await get_tree().create_timer(2.5).timeout
+	$screem.play()
+	throw_camera_out()
+	movement_enabled = false
+	velocity = Vector3.ZERO
+	is_running = false
+	$head/Camera3D/UI.visible = false
+	$hand_position.visible = false
+	await get_tree().create_timer(2.5).timeout
+	Global.game_settings["HP"] = 100
 	respawn_player()
 
-func screem():
-	$screem.pitch_scale = randf_range(0.4, 0.6)
-	$screem.play()
+func HP(hp):
+	if Global.game_settings["IsDying"]:
+		return
+	Global.game_settings["HP"] -= hp
+	if Global.game_settings["HP"] <= 0:
+		PlayerDeath()
 
 func respawn_player():
-	Global.game_settings["IsDying"] = false
-	if Global.game_settings.has("ThrownCamera") and is_instance_valid(Global.game_settings["ThrownCamera"]):
-		Global.game_settings["ThrownCamera"].queue_free()
-		Global.game_settings["ThrownCamera"] = null
-	cam.current = true
-	velocity = Vector3.ZERO
-	if Global.game_settings["affected_by_gravity"]:
-		velocity.y = 0
-	if Global.game_settings["HP"] <= 1:
-		global_position = Vector3(-22.0, -6.24, -15.0)
-	else:
-		global_position = Vector3(2.599, 0.656, 2.599)
-	is_floating = false  
-	movement_enabled = false
-	stamina = max_stamina
-	is_running = false
-	SPEED = base_speed
-	update_running_speed()
-	update_stamina_display()
-	$head/Camera3D/Time.visible = true
-	blood_overlay.visible = false
-	stepGrass = false
-	update_running_speed()
-	$AnimationPlayer.play("TimeHP")
-	$tick.play()
-	if Global.game_settings["HP"] <= 0:
-		Global.game_settings["ModHard"] = false
-		if Global.game_settings["HP"] == 0:
-			if get_tree().root.has_node("GlobalMain/NavigationRegion3D2/basement/cutscene/Camera3D"):
-				get_node("/root/GlobalMain/NavigationRegion3D2/basement/cutscene/Camera3D").current = true
-				await get_tree().create_timer(1.0).timeout
-				get_node("/root/GlobalMain/NavigationRegion3D2/basement/cutscene/AnimationPlayer").play("cutscene")
-				await get_tree().create_timer(4.25).timeout
-				$head/Camera3D/TheEND.visible = true
-				$head/Camera3D/TheEND2.visible = true
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			SceneManager.load_scene_with_loading("res://chapter2/rooms/main.tscn")
-		return
-	await get_tree().create_timer(3.0).timeout
-	$tick.stop()
-	$head/Camera3D/Time.visible = false
-	movement_enabled = true
+	save()
+	SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
 
 func throw_camera_out():
 	var cam_scene = load("res://chapter2/item/cam.tscn")
@@ -374,11 +333,8 @@ func _update_camera_dynamics(delta):
 	var target_tilt = 0.0
 	if movement_enabled and input_dir.length() > 0.1:
 		target_tilt = -input_dir.x * camera_tilt_amount
-	
 	current_tilt = lerp(current_tilt, target_tilt, camera_tilt_speed * delta)
-	
 	cam.rotation.z = deg_to_rad(current_tilt)
-	
 	if movement_enabled and input_dir.length() < 0.1 and is_on_floor():
 		breathing_time += delta * breathing_frequency
 		var breathing_offset = sin(breathing_time) * breathing_amplitude
@@ -415,6 +371,7 @@ func message(Mtext):
 	$AnimationPlayer.play("message")
 
 func _physics_process(delta):
+	$head/Camera3D/UI/HP/Label.text = str(int(Global.game_settings["HP"]))
 	$head/Camera3D/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if not Global.game_settings["affected_by_gravity"]:
 		is_floating = false
@@ -528,7 +485,10 @@ func AnimationPlayPlayer(Anim):
 
 func play_footstep():
 	if movement_enabled:
-		if stepGrass:
+		if Global.game_settings["step"] == 1:
+			footstep_player.pitch_scale = randf_range(0.9, 1.1)
+			footstep_player.play()
+		elif Global.game_settings["step"] == 2:
 			footstep_player2.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player2.play()
 		else:

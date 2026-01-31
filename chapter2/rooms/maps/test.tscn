@@ -34,9 +34,6 @@ uv1_scale = Vector3(50, 1, 50)
 uv1_triplanar = true
 texture_filter = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_s5wav"]
-size = Vector3(1.0383506, 2.206543, 1.4894428)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3gvc"]
 albedo_color = Color(0.34117648, 0.3137255, 0.30980393, 1)
 albedo_texture = ExtResource("15_6hvyv")
@@ -129,13 +126,6 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006530732, 0, 0.2367742)
 size = Vector3(1.0130615, 1, 1.4735489)
 material = SubResource("StandardMaterial3D_kmrdn")
-
-[node name="grassTrig" type="Area3D" parent="NavigationRegion3D/floor_ceiling/dirt" unique_id=962465490]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt/grassTrig" unique_id=791541634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009997534, 0.6032715, 0.23491147)
-shape = SubResource("BoxShape3D_s5wav")
-debug_fill = false
 
 [node name="Enemy1" parent="NavigationRegion3D" unique_id=1605591451 instance=ExtResource("28_bj5nk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.668034, 1.5090754, -43.47822)
@@ -299,5 +289,3 @@ interaction_name = "portal"
 handler_node = NodePath("../..")
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/dirt/grassTrig" to="." method="_on_grass_trig_body_entered"]
-[connection signal="body_exited" from="NavigationRegion3D/floor_ceiling/dirt/grassTrig" to="." method="_on_grass_trig_body_exited"]
