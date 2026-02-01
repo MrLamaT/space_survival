@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var footstep_player2 = $FootstepPlayer2
 @onready var footstep_player3 = $FootstepPlayer3
 @onready var crosshair = $head/Camera3D/crosshair
-@onready var hand_sprite = $hand_position/Sprite3D
+@onready var hand_position = $hand_position
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
 
@@ -89,15 +89,15 @@ var hand_rotation_speed = 8.0  # Скорость поворота руки
 var max_hand_offset = Vector3(0.1, 0.1, 0.1)
 
 func _update_hand_position(delta):
-	if not hand_target or not hand_sprite:
+	if not hand_target or not hand_position:
 		return
 	var target_position = hand_target.global_position
-	var current_position = hand_sprite.global_position
+	var current_position = hand_position.global_position
 	var position_diff = target_position - current_position
 	var move_amount = position_diff * hand_follow_speed * delta
-	hand_sprite.global_position += move_amount
+	hand_position.global_position += move_amount
 	var target_rotation = hand_target.global_rotation
-	var current_rotation = hand_sprite.global_rotation
+	var current_rotation = hand_position.global_rotation
 	var rotation_diff = target_rotation - current_rotation
 	for i in range(3):
 		while rotation_diff[i] > PI:
@@ -105,7 +105,7 @@ func _update_hand_position(delta):
 		while rotation_diff[i] < -PI:
 			rotation_diff[i] += 2 * PI
 	var rotation_amount = rotation_diff * hand_rotation_speed * delta
-	hand_sprite.global_rotation += rotation_amount
+	hand_position.global_rotation += rotation_amount
 	if input_dir.length() > 0 and is_on_floor():
 		var time = Time.get_ticks_msec() * 0.001
 		var move_offset = Vector3(
@@ -113,7 +113,7 @@ func _update_hand_position(delta):
 			cos(time * 3.0) * 0.0025,
 			0
 		)
-		hand_sprite.position += move_offset
+		hand_position.position += move_offset
 
 func look_at_point(target_point: Vector3):
 	var head_look_point = Vector3(target_point.x, head.global_position.y, target_point.z)
@@ -125,16 +125,12 @@ func _ready():
 		self,
 		cam,
 		crosshair,
-		$head/Camera3D/InteractionProgressBar,
-		hand_sprite
+		$head/Camera3D/InteractionProgressBar
 	)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	movement_enabled = true
-	Global.game_settings["Item"] = ""
 	Global.game_settings["GodMod"] = false
 	Global.game_settings["affected_by_gravity"] = true
-	Global.game_settings["nails_cartridge"] = 8
-	Global.game_settings["shock_cartridge"] = 2
 	base_camera_position = cam.position
 	update_stamina_display()
 	stamina_bar.visible = false  
@@ -230,6 +226,10 @@ func update_gui_visibility():
 	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
+	if Input.is_action_just_pressed("+1"):
+		$hand_position/AnimationPlayer.play("take")
+	if Input.is_action_just_pressed("rotate"):
+		$hand_position/AnimationPlayer.play("r")
 	if Input.is_action_just_pressed("ui_cancel"):
 		var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
 		if !is_terminal and has_ui_nodes == 0:
@@ -247,8 +247,6 @@ func _input(event: InputEvent): #повороты мышкой
 			if new_camera_rotation < deg_to_rad(-89) or new_camera_rotation > deg_to_rad(89):
 				vertical_rotation = 0
 			cam.rotate_x(vertical_rotation)
-	if Input.is_action_just_pressed("+drop") and Global.game_settings["Item"] != "":
-		drop_item()
 	if event.is_action_pressed("UI_fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -262,9 +260,12 @@ func _input(event: InputEvent): #повороты мышкой
 			crouched = !crouched  
 		update_running_speed()
 	if Input.is_action_just_pressed("+f1"):
-		var handVisible = !$hand_position.visible
-		$hand_position.visible = handVisible
+		var handVisible = !$hand_position/handItem.visible
 		$head/Camera3D/UI.visible = handVisible
+		if handVisible:
+			$hand_position/AnimationPlayer.play("take")
+		else:
+			$hand_position/handItem.visible = false
 	if Input.is_action_just_pressed("+~"):
 		if !is_paused:
 			toggle_terminal()
@@ -343,27 +344,6 @@ func _update_camera_dynamics(delta):
 		cam.position.y = lerp(cam.position.y, base_camera_position.y, 5.0 * delta)
 		if input_dir.length() > 0.1:
 			breathing_time = 0.0
-
-func drop_item():
-	if Global.game_settings["Item"] == "" or !Global.game_settings["CanThrowItem"]:
-		return
-	var item_scene = load("res://chapter2/item/item.tscn")
-	var new_item = item_scene.instantiate()
-	var texture_path = "res://chapter2/assets/items/%s.png" % Global.game_settings["Item"]
-	print(texture_path)
-	new_item.item_texture = load(texture_path)
-	get_parent().add_child(new_item)
-	new_item.global_position = global_position + Vector3(0, 0.5, 0)
-	var throw_force = cam.global_transform.basis.z * -3
-	new_item.apply_impulse(throw_force)
-	Global.game_settings["Item"] = ""
-	hand_sprite.texture = null
-	$head/Camera3D/shoot.visible = false
-	$head/Camera3D/shoot2.visible = false
-
-func clear_item():
-	Global.game_settings["Item"] = ""
-	hand_sprite.texture = null
 
 func message(Mtext):
 	$AnimationPlayer.stop()

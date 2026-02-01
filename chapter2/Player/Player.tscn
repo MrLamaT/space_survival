@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
+[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="3_s8fo2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
-[ext_resource type="Texture2D" uid="uid://cspabnxppets1" path="res://chapter2/assets/items/shotgun.png" id="6_s8fo2"]
 [ext_resource type="PackedScene" uid="uid://b7ip2y14ixvdk" path="res://UI/pause/pause.tscn" id="7_68v2k"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
@@ -18,6 +18,96 @@
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/damage.wav" id="16_s8fo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
+
+[sub_resource type="Animation" id="Animation_s8fo2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.2, 0.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("handItem:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_r6r0m"]
+resource_name = "r"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.2831855)]
+}
+
+[sub_resource type="Animation" id="Animation_hold0"]
+resource_name = "take"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.25, 0.25), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hold0"]
+_data = {
+&"RESET": SubResource("Animation_s8fo2"),
+&"r": SubResource("Animation_r6r0m"),
+&"take": SubResource("Animation_hold0")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lojj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -192,12 +282,12 @@ debug_color = Color(0, 0.576471, 0.701961, 1)
 [node name="hand_position" type="Node3D" parent="." unique_id=1280255816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
 
-[node name="Sprite3D" type="Sprite3D" parent="hand_position" unique_id=1174636246]
-transform = Transform3D(-0.012548685, 0, -0.99992126, 0, 1, 0, 0.99992126, 0, -0.012548685, 0.28171474, 0, -0.11359966)
-shaded = true
-texture_filter = 0
-render_priority = 1
-texture = ExtResource("6_s8fo2")
+[node name="handItem" parent="hand_position" unique_id=837608605 instance=ExtResource("3_s8fo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.2)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position" unique_id=1770924603]
+libraries/ = SubResource("AnimationLibrary_hold0")
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)

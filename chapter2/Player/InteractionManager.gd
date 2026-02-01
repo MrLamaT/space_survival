@@ -4,7 +4,6 @@ var _player: CharacterBody3D
 var _camera: Camera3D
 var _crosshair: TextureRect
 var _progress_bar: ProgressBar
-var _hand_sprite: Sprite3D
 
 var current_interactable: Node3D = null
 var is_interacting: bool = false
@@ -12,12 +11,11 @@ var interaction_progress: float = 0.0
 var interaction_time_required: float = 2.0
 var interaction_target: Node3D = null
 
-func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, progress_bar: ProgressBar, hand_sprite: Sprite3D):
+func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, progress_bar: ProgressBar):
 	_player = player
 	_camera = camera
 	_crosshair = crosshair
 	_progress_bar = progress_bar
-	_hand_sprite = hand_sprite
 
 func process_interaction_input():
 	if Input.is_action_just_pressed("UI_click") and current_interactable and current_interactable.is_in_group("click_interact"):
@@ -75,9 +73,7 @@ func start_interaction():
 	if not current_interactable:
 		return
 	
-	if current_interactable.is_in_group("item"):
-		pick_up_item(current_interactable)
-	elif current_interactable.is_in_group("progressive_interactive"):
+	if current_interactable.is_in_group("progressive_interactive"):
 		is_interacting = true
 		interaction_target = current_interactable
 		interaction_progress = 0.0
@@ -96,35 +92,6 @@ func complete_interaction():
 		is_interacting = false
 		interaction_target = null
 		hide_interaction_progress_bar()
-
-func pick_up_item(item_node):
-	if not is_instance_valid(item_node):
-		return
-	if Global.game_settings["Item"] != "":
-		_player.drop_item()
-	
-	var texture_path = item_node.item_texture.resource_path
-	var item_name = texture_path.get_file().get_basename()
-	Global.game_settings["Item"] = item_name
-	_hand_sprite.texture = item_node.item_texture
-	item_node.queue_free()
-	current_interactable = null
-	_handle_item_pickup(item_name)
-
-func _handle_item_pickup(item_name: String):
-	match item_name:
-		"shotgun":
-			_player.get_node("head/Camera3D/shoot").visible = true
-		"NailGun":
-			_player.get_node("head/Camera3D/shoot").visible = true
-			_player.get_node("head/Camera3D/shoot2").visible = true
-			_player.get_node("head/Camera3D/shoot2").text = "%01d/8" % [Global.game_settings["nails_cartridge"]]
-		"taser":
-			_player.get_node("head/Camera3D/shoot").visible = true
-			_player.get_node("head/Camera3D/shoot2").visible = true
-			_player.get_node("head/Camera3D/shoot2").text = "%01d/2" % [Global.game_settings["shock_cartridge"]]
-		_:
-			print("Подобран предмет: ", item_name)
 
 func _update_crosshair():
 	if current_interactable and not current_interactable.is_in_group("click_interact"):
