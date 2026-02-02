@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/step2.wav" id="13_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/damage.wav" id="16_s8fo2"]
+[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/laser-blast.wav" id="17_s8fo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -481,6 +482,9 @@ position = Vector2(1035, 100)
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, -0.20000005, -0.5)
 
+[node name="BulletSpawn" type="Marker3D" parent="head/Camera3D" unique_id=1917553546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.4, -0.6)
+
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("12_y13tn")
 volume_db = -25.0
@@ -501,6 +505,10 @@ stream = ExtResource("16_s8fo2")
 
 [node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
 stream = ExtResource("14_uckl1")
+volume_db = -10.0
+
+[node name="laser_blast" type="AudioStreamPlayer2D" parent="." unique_id=1140841386]
+stream = ExtResource("17_s8fo2")
 volume_db = -10.0
 
 [node name="save" type="Timer" parent="." unique_id=246559202]

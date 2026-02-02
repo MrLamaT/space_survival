@@ -1,21 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7ip2y14ixvdk"]
+[gd_scene format=3 uid="uid://b7ip2y14ixvdk"]
 
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="1_00hl7"]
 [ext_resource type="Script" uid="uid://cyvp422fyclpi" path="res://UI/pause/pause.gd" id="1_6xmdl"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_4uepe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
-bg_color = Color(0, 0, 0.66, 0.5882353)
+bg_color = Color(0, 0, 0, 0.5882353)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
-[node name="Pause" type="Node2D"]
+[node name="Pause" type="Node2D" unique_id=709397907]
 script = ExtResource("1_6xmdl")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1405108526]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,7 +31,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
 
-[node name="LabelButton" parent="." instance=ExtResource("1_00hl7")]
+[node name="LabelButton" parent="." unique_id=21224137 instance=ExtResource("1_00hl7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,7 +46,7 @@ direction_A_and_D = "D"
 target_node = NodePath("..")
 button_id = "exit"
 
-[node name="LabelButton2" parent="." instance=ExtResource("1_00hl7")]
+[node name="LabelButton2" parent="." unique_id=1790547767 instance=ExtResource("1_00hl7")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,7 +61,7 @@ direction_A_and_D = "D"
 target_node = NodePath("..")
 button_id = "back"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=751106219]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -18,11 +18,11 @@ func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, pr
 	_progress_bar = progress_bar
 
 func process_interaction_input():
-	if Input.is_action_just_pressed("UI_click") and current_interactable and current_interactable.is_in_group("click_interact"):
+	if Input.is_action_just_pressed("UI_click") and current_interactable:
 		start_interaction()
 	if Input.is_action_just_released("UI_click"):
 		stop_interaction()
-	if Input.is_action_just_pressed("+e") and current_interactable and not current_interactable.is_in_group("click_interact"):
+	if Input.is_action_just_pressed("+e") and current_interactable:
 		start_interaction()
 	if Input.is_action_just_released("+e"):
 		stop_interaction()
@@ -94,7 +94,7 @@ func complete_interaction():
 		hide_interaction_progress_bar()
 
 func _update_crosshair():
-	if current_interactable and not current_interactable.is_in_group("click_interact"):
+	if current_interactable:
 		_crosshair.texture = preload("res://assets/crosshair2.png")
 		_player.get_node("head/Camera3D/Use").visible = true
 	else:
