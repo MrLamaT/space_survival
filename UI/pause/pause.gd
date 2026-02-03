@@ -6,8 +6,8 @@ func _on_label_button_pressed(id: String) -> void:
 			save()
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/main.tscn")
 		"back":
-			visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			queue_free()
 
 func save():
 	Global.save(Global.game_settings["word"])

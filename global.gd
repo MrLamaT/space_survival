@@ -5,7 +5,12 @@ var world_1: Dictionary = {
 	"mode": 0,
 	"stage": 0,
 	"selectWorld": 0,
-	"selectWorldName": ""
+	"selectWorldName": "",
+	"inventory": {
+		"inventory": ["iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight"],
+		"equipment": [],
+		"chest_1": []
+	}
 }
 
 var world_2: Dictionary = { 
@@ -13,7 +18,12 @@ var world_2: Dictionary = {
 	"mode": 0,
 	"stage": 0,
 	"selectWorld": 0,
-	"selectWorldName": ""
+	"selectWorldName": "",
+	"inventory": {
+		"inventory": [],
+		"equipment": [],
+		"chest_1": []
+	}
 }
 
 var world_3: Dictionary = { 
@@ -21,7 +31,12 @@ var world_3: Dictionary = {
 	"mode": 0,
 	"stage": 0,
 	"selectWorld": 0,
-	"selectWorldName": ""
+	"selectWorldName": "",
+	"inventory": {
+		"inventory": [],
+		"equipment": [],
+		"chest_1": []
+	}
 }
 
 var world_4: Dictionary = { 
@@ -29,7 +44,12 @@ var world_4: Dictionary = {
 	"mode": 0,
 	"stage": 0,
 	"selectWorld": 0,
-	"selectWorldName": ""
+	"selectWorldName": "",
+	"inventory": {
+		"inventory": [],
+		"equipment": [],
+		"chest_1": []
+	}
 }
 
 var world_5: Dictionary = { 
@@ -37,7 +57,12 @@ var world_5: Dictionary = {
 	"mode": 0,
 	"stage": 0,
 	"selectWorld": 0,
-	"selectWorldName": ""
+	"selectWorldName": "",
+	"inventory": {
+		"inventory": [],
+		"equipment": [],
+		"chest_1": []
+	}
 }
 
 var game_settings: Dictionary = {

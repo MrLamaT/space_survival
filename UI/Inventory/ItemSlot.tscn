@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c5vyb1ge0awtj"]
+
+[ext_resource type="Script" uid="uid://b7kk4vgf8v60f" path="res://UI/Inventory/item_slot.gd" id="1_d7hos"]
+
+[node name="ItemSlot" type="TextureRect" unique_id=1606255390]
+mouse_filter = 0
+script = ExtResource("1_d7hos")

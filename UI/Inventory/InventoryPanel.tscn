@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dm38fx5etd3oi"]
+
+[ext_resource type="Script" uid="uid://btsj0boyxx68v" path="res://UI/Inventory/inventory_panel.gd" id="1_11hnm"]
+
+[node name="InventoryPanel" type="GridContainer" unique_id=171753026]
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+script = ExtResource("1_11hnm")

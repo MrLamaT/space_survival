@@ -12,7 +12,8 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
-[node name="Pause" type="Node2D" unique_id=709397907]
+[node name="Pause" type="Node2D" unique_id=709397907 groups=["UI"]]
+position = Vector2(575, 323)
 script = ExtResource("1_6xmdl")
 
 [node name="Panel" type="Panel" parent="." unique_id=1405108526]

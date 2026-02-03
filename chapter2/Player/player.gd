@@ -267,6 +267,7 @@ func update_gui_visibility():
 	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
+	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
 	if Input.is_action_pressed("UI_click") and not is_terminal and not is_paused:
 		shoot()
 	if Input.is_action_just_pressed("+1"):
@@ -276,8 +277,23 @@ func _input(event: InputEvent): #повороты мышкой
 			$hand_position/AnimationPlayer.play("take")
 	if Input.is_action_just_pressed("rotate"):
 		$hand_position/AnimationPlayer.play("r")
+	if Input.is_action_just_pressed("UI_focus_next"):
+		if !is_terminal and has_ui_nodes == 0:
+			openUI("Inventory")
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			for child in cam.get_children():
+				if child.is_in_group("UI"):
+					child.queue_free()
+	if Input.is_action_just_pressed("+q"):
+		if !is_terminal and has_ui_nodes == 0:
+			openUI("AIship")
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			for child in cam.get_children():
+				if child.is_in_group("UI"):
+					child.queue_free()
 	if Input.is_action_just_pressed("ui_cancel"):
-		var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
 		if !is_terminal and has_ui_nodes == 0:
 			openUI("Pause")
 		else:
@@ -551,6 +567,6 @@ func warning(text):
 		$head/Camera3D/label.text = text
 		$head/Camera3D/label.visible = true
 		$head/Camera3D/warning.play("warning")
-		await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(5).timeout
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
 		$head/Camera3D/label.visible = false

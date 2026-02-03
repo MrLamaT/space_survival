@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b1gdm3qfar5p8"]
 
 [ext_resource type="Script" uid="uid://q3haq1v8a81y" path="res://UI/AIship/AIship.gd" id="1_5jj61"]
-[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_dplou"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="2_oet5i"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_oet5i"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="4_oet5i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -11,8 +13,107 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_27jd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r6kyn"]
+resource_name = "logo"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966, 1.5707963267948966, 3.141592653589793]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aewge"]
+_data = {
+&"RESET": SubResource("Animation_27jd1"),
+&"logo": SubResource("Animation_r6kyn")
+}
+
 [node name="AIship" type="Node2D" unique_id=38368963 groups=["UI"]]
 script = ExtResource("1_5jj61")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816728210]
+z_index = 1
+position = Vector2(100, 100)
+scale = Vector2(5, 5)
+texture = ExtResource("2_oet5i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=773893602]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(100, 100)
+scale = Vector2(25, 25)
+texture = ExtResource("3_oet5i")
 
 [node name="Panel" type="Panel" parent="." unique_id=1949862155]
 offset_right = 1152.0
@@ -21,13 +122,24 @@ scale = Vector2(1, 1.5200002)
 theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1531833852]
+texture_filter = 1
 layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 590.0
-offset_bottom = 402.36115
-scale = Vector2(1.9599997, 1.0610524)
-theme_override_fonts/normal_font = ExtResource("2_dplou")
-scroll_following = true
+offset_left = 193.99998
+offset_top = 9.868419
+offset_right = 774.0
+offset_bottom = 334.8684
+scale = Vector2(1.6400007, 1.0610524)
+text = "text"
 
-[node name="TypeTimer" type="Timer" parent="." unique_id=25150318]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1108841997]
+libraries/ = SubResource("AnimationLibrary_aewge")
+
+[node name="LabelButton" parent="." unique_id=2097061640 instance=ExtResource("4_oet5i")]
+offset_left = 1030.0
+offset_top = 600.0
+offset_right = 1030.0
+offset_bottom = 600.0
+text = "confirmed"
+direction_A_and_D = "D"
+target_node = NodePath("..")
+button_id = "1"

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cpt6gk55sdf5v"]
+
+[ext_resource type="Script" uid="uid://cwvvb6kjp60lh" path="res://UI/Inventory/inventory_ui.gd" id="1_uo64e"]
+[ext_resource type="PackedScene" uid="uid://dm38fx5etd3oi" path="res://UI/Inventory/InventoryPanel.tscn" id="2_sv8nv"]
+[ext_resource type="Texture2D" uid="uid://c8uj1j8awq1ii" path="res://assets/textures/material16.png" id="3_sv8nv"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_2prv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2prv4"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="InventoryUi" type="Control" unique_id=1942951996]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uo64e")
+
+[node name="InventoryPanel" parent="." unique_id=171753026 instance=ExtResource("2_sv8nv")]
+z_index = 1
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
+grid_width = 4
+grid_height = 5
+
+[node name="InventoryPanel2" parent="." unique_id=1590605946 instance=ExtResource("2_sv8nv")]
+z_index = 1
+layout_mode = 0
+offset_left = 600.0
+offset_top = 50.0
+offset_right = 600.0
+offset_bottom = 50.0
+scale = Vector2(1.5, 1.5)
+grid_width = 4
+grid_height = 5
+
+[node name="load" type="Panel" parent="." unique_id=1177339579]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2prv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=374503612]
+position = Vector2(830, 325)
+scale = Vector2(10, 11)
+texture = ExtResource("3_sv8nv")
+
+[node name="Label" type="Label" parent="." unique_id=247466407]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 131.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_2prv4")
+text = "inventory"
+
+[node name="Label2" type="Label" parent="." unique_id=895660013]
+layout_mode = 0
+offset_left = 600.0
+offset_right = 681.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("4_2prv4")
+text = "equipment"
