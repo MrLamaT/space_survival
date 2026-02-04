@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg8487sig4rmg"]
+[gd_scene format=3 uid="uid://bg8487sig4rmg"]
 
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_d7eci"]
 [ext_resource type="Script" uid="uid://4o5xant8ctlb" path="res://chapter2/interactable_object/button_text.gd" id="2_iwnbx"]
@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7eci"]
 size = Vector3(0.5, 0.1, 0.1)
 
-[node name="ButtonText" type="Label3D"]
+[node name="ButtonText" type="Label3D" unique_id=1996500282]
 texture_filter = 0
 text = "TEXT"
 font = ExtResource("1_d7eci")
@@ -14,9 +14,9 @@ font_size = 16
 horizontal_alignment = 0
 script = ExtResource("2_iwnbx")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="." unique_id=1468454706]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1006679124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20042723, 0, 0)
 shape = SubResource("BoxShape3D_d7eci")
 

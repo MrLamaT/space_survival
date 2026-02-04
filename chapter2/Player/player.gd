@@ -267,7 +267,6 @@ func update_gui_visibility():
 	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
-	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
 	if Input.is_action_pressed("UI_click") and not is_terminal and not is_paused:
 		shoot()
 	if Input.is_action_just_pressed("+1"):
@@ -278,29 +277,11 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("rotate"):
 		$hand_position/AnimationPlayer.play("r")
 	if Input.is_action_just_pressed("UI_focus_next"):
-		if !is_terminal and has_ui_nodes == 0:
-			openUI("Inventory")
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			for child in cam.get_children():
-				if child.is_in_group("UI"):
-					child.queue_free()
+		handle_ui_action("Inventory")
 	if Input.is_action_just_pressed("+q"):
-		if !is_terminal and has_ui_nodes == 0:
-			openUI("AIship")
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			for child in cam.get_children():
-				if child.is_in_group("UI"):
-					child.queue_free()
+		handle_ui_action("AIship")
 	if Input.is_action_just_pressed("ui_cancel"):
-		if !is_terminal and has_ui_nodes == 0:
-			openUI("Pause")
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			for child in cam.get_children():
-				if child.is_in_group("UI"):
-					child.queue_free()
+		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * sens)
@@ -545,6 +526,16 @@ func save():
 
 func _on_save_timeout() -> void:
 	save()
+
+func handle_ui_action(ui_name: String) -> void:
+	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
+	if !is_terminal and has_ui_nodes == 0:
+		openUI(ui_name)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		for child in cam.get_children():
+			if child.is_in_group("UI"):
+				child.queue_free()
 
 func openUI(nameUI):
 	var path = "head/Camera3D/" + nameUI

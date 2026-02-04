@@ -105,14 +105,10 @@ func _input(event):
 			$world.visible = true
 		if hovered == "DELETE":
 			$beep.play()
-			var world_data = Global.get(select_world)
-			world_data["name"] = "[NEW GAME " + select_world[-1] + "]"
-			world_data["mode"] = 0
-			world_data["stage"] = 0
-			Initialization_names()
 			$confirmation.visible = false
 			$world.visible = true
-			Global.save(int(select_world[-1]))
+			Global.delete_world_save(int(select_world[-1]))
+			Initialization_names()
 		if hovered == "load":
 			$beep.play()
 			var world_data = Global.get(select_world)

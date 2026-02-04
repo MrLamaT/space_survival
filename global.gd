@@ -7,7 +7,7 @@ var world_1: Dictionary = {
 	"selectWorld": 0,
 	"selectWorldName": "",
 	"inventory": {
-		"inventory": ["iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight", "iron", "iron", "flashlight"],
+		"inventory": [],
 		"equipment": [],
 		"chest_1": []
 	}
@@ -196,3 +196,45 @@ func save(world_num: int = 0):
 
 func load(world_num: int = 0):
 	load_settings(world_num)
+
+func reset_world_to_default(world_num: int) -> void:
+	var default_world = {
+		"name": "[NEW GAME " + str(world_num) + "]",
+		"mode": 0,
+		"stage": 0,
+		"selectWorld": 0,
+		"selectWorldName": "",
+		"inventory": {
+			"inventory": [],
+			"equipment": [],
+			"chest_1": []
+		}
+	}
+	match world_num:
+		1: world_1 = default_world
+		2: world_2 = default_world
+		3: world_3 = default_world
+		4: world_4 = default_world
+		5: world_5 = default_world
+
+func delete_world_save(world_num: int) -> bool:
+	if world_num < 1 or world_num > 5:
+		print("Ошибка: Номер мира должен быть от 1 до 5")
+		return false
+	reset_world_to_default(world_num)
+	var file_path = "user://world_" + str(world_num) + ".save"
+	if not FileAccess.file_exists(file_path):
+		print("Файл сохранения мира ", world_num, " не найден")
+		return false
+	var dir = DirAccess.open("user://")
+	if dir:
+		var error = dir.remove(file_path)
+		if error == OK:
+			print("Файл сохранения мира ", world_num, " успешно удален")
+			return true
+		else:
+			print("Ошибка при удалении файла сохранения мира ", world_num, ": ", error)
+			return false
+	else:
+		print("Ошибка при открытии директории user://")
+		return false
