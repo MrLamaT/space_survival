@@ -1,8 +1,10 @@
+Button
 Sprite2D
+Panel
+PopupMenu
 Label
 Control
 GridContainer
-Button
 TextureRect
 AnimationPlayer
 Timer
@@ -10,5 +12,3 @@ SplineIK3D
 OmniLight3D
 Marker3D
 Sprite3D
-Node3D
-MeshInstance3D

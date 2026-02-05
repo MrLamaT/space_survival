@@ -486,150 +486,161 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.4, -0.6)
 
 [node name="silicon" type="Sprite2D" parent="head/Camera3D" unique_id=1235826446]
+visible = false
 modulate = Color(0.6509804, 0.6901961, 0.74509805, 1)
 position = Vector2(339, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
-[node name="quartz" type="Sprite2D" parent="head/Camera3D" unique_id=1108897463]
-modulate = Color(0.8901961, 0.8509804, 0.8156863, 1)
-position = Vector2(454, 185)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="coal" type="Sprite2D" parent="head/Camera3D" unique_id=2053553991]
-modulate = Color(0.16470589, 0.16470589, 0.16470589, 1)
-position = Vector2(572, 180)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
 [node name="aluminium" type="Sprite2D" parent="head/Camera3D" unique_id=1027963871]
+visible = false
 modulate = Color(0.7529412, 0.7764706, 0.8039216, 1)
 position = Vector2(692, 178)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="titanium" type="Sprite2D" parent="head/Camera3D" unique_id=669423266]
+visible = false
 modulate = Color(0.5411765, 0.60784316, 0.65882355, 1)
 position = Vector2(819, 172)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="platinum" type="Sprite2D" parent="head/Camera3D" unique_id=1515878874]
+visible = false
 modulate = Color(0.8980392, 0.8980392, 0.8980392, 1)
 position = Vector2(941, 165)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="uranium" type="Sprite2D" parent="head/Camera3D" unique_id=1022742011]
+visible = false
 modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
 position = Vector2(1071, 161)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="cryo_crystal" type="Sprite2D" parent="head/Camera3D" unique_id=921759084]
+visible = false
 modulate = Color(0.5647059, 0.89411765, 0.9607843, 1)
 position = Vector2(76, 309)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="ion_crystal" type="Sprite2D" parent="head/Camera3D" unique_id=1612096303]
+visible = false
 modulate = Color(0.7019608, 0.53333336, 0.92156863, 1)
 position = Vector2(206, 309)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="nanotube" type="Sprite2D" parent="head/Camera3D" unique_id=1515803090]
+visible = false
 modulate = Color(0.101960786, 0.101960786, 0.101960786, 1)
 position = Vector2(335, 312)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="ice" type="Sprite2D" parent="head/Camera3D" unique_id=1731397970]
+visible = false
 modulate = Color(0.6666667, 0.85882354, 0.91764706, 1)
 position = Vector2(450, 305)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="nitrate" type="Sprite2D" parent="head/Camera3D" unique_id=1205101447]
+visible = false
 modulate = Color(1, 0.9764706, 0.76862746, 1)
 position = Vector2(568, 300)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="nitrogen" type="Sprite2D" parent="head/Camera3D" unique_id=762018929]
+visible = false
 modulate = Color(0.5058824, 0.83137256, 0.98039216, 1)
 position = Vector2(688, 298)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="organic_mass" type="Sprite2D" parent="head/Camera3D" unique_id=1443249079]
+visible = false
 modulate = Color(0.4862745, 0.7019608, 0.25882354, 1)
 position = Vector2(815, 292)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="bioplastic" type="Sprite2D" parent="head/Camera3D" unique_id=1109860884]
+visible = false
 modulate = Color(0.84313726, 0.8, 0.78431374, 1)
 position = Vector2(937, 285)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="bioluminophore" type="Sprite2D" parent="head/Camera3D" unique_id=566318145]
+visible = false
 modulate = Color(0.39215687, 1, 0.85490197, 1)
 position = Vector2(1067, 281)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="superconductive_alloy" type="Sprite2D" parent="head/Camera3D" unique_id=818868198]
+visible = false
 modulate = Color(0.2509804, 0.76862746, 1, 1)
 position = Vector2(72, 430)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="sercilist" type="Sprite2D" parent="head/Camera3D" unique_id=1086853619]
+visible = false
 modulate = Color(0.38039216, 0.3882353, 0.5019608, 1)
 position = Vector2(202, 430)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="quantum_filament" type="Sprite2D" parent="head/Camera3D" unique_id=1373179389]
+visible = false
 modulate = Color(0.91764706, 0.5019608, 0.9882353, 1)
 position = Vector2(331, 433)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="quantum_core" type="Sprite2D" parent="head/Camera3D" unique_id=1226338492]
+visible = false
 modulate = Color(1, 0.2509804, 0.5058824, 1)
 position = Vector2(446, 426)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="neutronium" type="Sprite2D" parent="head/Camera3D" unique_id=551991757]
+visible = false
 modulate = Color(0.25882354, 0.25882354, 0.25882354, 1)
 position = Vector2(564, 421)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="singularity_energy" type="Sprite2D" parent="head/Camera3D" unique_id=861647673]
+visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(684, 419)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="uranium_rod" type="Sprite2D" parent="head/Camera3D" unique_id=421251970]
+visible = false
 modulate = Color(0.4, 0.73333335, 0.41568628, 1)
 position = Vector2(811, 413)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="basic_circuit" type="Sprite2D" parent="head/Camera3D" unique_id=1826679086]
+visible = false
 modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
 position = Vector2(933, 406)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
 [node name="advanced_circuit" type="Sprite2D" parent="head/Camera3D" unique_id=213986227]
+visible = false
 modulate = Color(0.95686275, 0.2627451, 0.21176471, 1)
 position = Vector2(1063, 402)
 scale = Vector2(2, 2)

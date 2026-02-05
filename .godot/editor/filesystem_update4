@@ -1,7 +1,7 @@
-res://UI/pause/pause.tscn
-res://chapter2/Player/player.gd
-res://UI/Inventory/Inventory.tscn
-res://global.gd
-res://chapter2/rooms/decoration/menu.gd
-res://chapter2/interactable_object/buttonText.tscn
 res://chapter2/Player/Player.tscn
+res://UI/Inventory/Inventory.tscn
+res://UI/Inventory/inventory_ui.gd
+res://UI/Inventory/ItemSlot.tscn
+res://UI/Inventory/item_slot.gd
+res://UI/Inventory/InventoryPanel.tscn
+res://UI/Inventory/inventory_panel.gd

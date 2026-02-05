@@ -18,7 +18,7 @@ func update_slot():
 	if item_name == "" or item_count == 0:
 		texture = null
 		tooltip_text = ""
-		modulate = Color(1, 1, 1, 0.3)
+		modulate = Color(1.0, 1.0, 1.0, 0.0)
 	else:
 		var icon_path = "res://assets/item/%s.png" % item_name.replace(" ", "_").to_lower()
 		if ResourceLoader.exists(icon_path):
@@ -51,8 +51,8 @@ func _gui_input(event: InputEvent):
 
 func _on_mouse_entered():
 	if item_name != "":
-		modulate = Color(1.2, 1.2, 1.2, 1)
+		modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_mouse_exited():
 	if item_name != "":
-		modulate = Color(1, 1, 1, 1)
+		modulate = Color(1.0, 1.0, 1.0, 1.0)

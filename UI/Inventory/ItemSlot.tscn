@@ -1,7 +1,38 @@
 [gd_scene format=3 uid="uid://c5vyb1ge0awtj"]
 
 [ext_resource type="Script" uid="uid://b7kk4vgf8v60f" path="res://UI/Inventory/item_slot.gd" id="1_d7hos"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_kpyft"]
+
+[sub_resource type="Theme" id="Theme_kial5"]
+default_font = ExtResource("1_kpyft")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7hos"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [node name="ItemSlot" type="TextureRect" unique_id=1606255390]
 mouse_filter = 0
+theme = SubResource("Theme_kial5")
 script = ExtResource("1_d7hos")
+
+[node name="Panel" type="Panel" parent="." unique_id=679270087]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7hos")
