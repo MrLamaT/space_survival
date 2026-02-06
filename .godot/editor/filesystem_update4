@@ -1,7 +1,7 @@
-res://chapter2/Player/Player.tscn
-res://UI/Inventory/Inventory.tscn
-res://UI/Inventory/inventory_ui.gd
-res://UI/Inventory/ItemSlot.tscn
-res://UI/Inventory/item_slot.gd
-res://UI/Inventory/InventoryPanel.tscn
-res://UI/Inventory/inventory_panel.gd
+res://UI/AIship/AIship.tscn
+res://global.gd
+res://UI/AIship/AIship.gd
+res://UI/construction/construction.tscn
+res://UI/craft/craft.tscn
+res://UI/LabelButton/LabelButton.tscn
+res://UI/LabelButton/label_button.gd

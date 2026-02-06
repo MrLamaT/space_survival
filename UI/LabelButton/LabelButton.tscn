@@ -1,34 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://btlhau0niepik"]
+[gd_scene format=3 uid="uid://btlhau0niepik"]
 
 [ext_resource type="Script" uid="uid://dx25pso40lqfc" path="res://UI/LabelButton/label_button.gd" id="1_yid14"]
 [ext_resource type="Texture2D" uid="uid://bp46otm30s4gr" path="res://UI/LabelButton/button_next.png" id="2_r3hcl"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_p5rb6"]
 
-[node name="LabelButton" type="Control"]
+[node name="LabelButton" type="Control" unique_id=1811368051]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yid14")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983221626]
 texture = ExtResource("2_r3hcl")
 
-[node name="Label" type="Label" parent="Sprite2D"]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -109.0
-offset_top = -57.0
-offset_right = -109.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="Sprite2D" unique_id=980247554]
+offset_left = -106.00001
+offset_top = -16.000002
+offset_right = -70.00001
+offset_bottom = 1.9999981
 scale = Vector2(1.75, 1.75)
 theme_override_fonts/font = ExtResource("3_p5rb6")
 text = "TEXT"
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1611241623]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -117.0

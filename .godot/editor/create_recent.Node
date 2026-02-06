@@ -1,9 +1,9 @@
+Control
 Button
+Label
 Sprite2D
 Panel
 PopupMenu
-Label
-Control
 GridContainer
 TextureRect
 AnimationPlayer
