@@ -1,7 +1,1 @@
-res://UI/AIship/AIship.tscn
-res://global.gd
-res://UI/AIship/AIship.gd
-res://UI/construction/construction.tscn
-res://UI/craft/craft.tscn
-res://UI/LabelButton/LabelButton.tscn
-res://UI/LabelButton/label_button.gd
+res://chapter2/portal/portal.tscn
