@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dm38fx5etd3oi" path="res://UI/Inventory/InventoryPanel.tscn" id="2_sv8nv"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_2prv4"]
 [ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/sort.png" id="4_gvl8j"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="5_gvl8j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2prv4"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -26,16 +27,6 @@ offset_top = 50.0
 offset_right = 50.0
 offset_bottom = 50.0
 scale = Vector2(1.5, 1.5)
-
-[node name="InventoryPanel2" parent="." unique_id=1590605946 instance=ExtResource("2_sv8nv")]
-z_index = 1
-layout_mode = 0
-offset_left = 600.0
-offset_top = 50.0
-offset_right = 600.0
-offset_bottom = 50.0
-scale = Vector2(1.5, 1.5)
-panel_id = "equipment"
 
 [node name="load" type="Panel" parent="." unique_id=1177339579]
 layout_mode = 0
@@ -69,10 +60,9 @@ item_0/text = "sorting"
 item_0/icon = ExtResource("4_gvl8j")
 item_0/id = 1
 item_1/text = "delete"
+item_1/icon = ExtResource("5_gvl8j")
 item_1/id = 0
 
 [connection signal="slot_left_clicked" from="InventoryPanel" to="." method="_on_slot_left_clicked"]
 [connection signal="slot_right_clicked" from="InventoryPanel" to="." method="_on_slot_right_clicked"]
-[connection signal="slot_left_clicked" from="InventoryPanel2" to="." method="_on_slot_left_clicked"]
-[connection signal="slot_right_clicked" from="InventoryPanel2" to="." method="_on_slot_right_clicked"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_right_click_menu_selected"]

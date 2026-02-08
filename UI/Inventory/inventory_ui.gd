@@ -3,15 +3,35 @@ extends Control
 @onready var inventory_panel: InventoryPanel = $InventoryPanel
 @onready var inventory_panel2: InventoryPanel
 @onready var right_click_menu: PopupMenu = $PopupMenu
+@export var inventory2: String
+@export var Label2: String
 
 func _ready():
-	if has_node("InventoryPanel2"):
-		inventory_panel2 = $InventoryPanel2
+	if inventory2 != "":
+		create_second_panel()
+	
+	if Label2 != "":
+		$Label2.text = Label2
 	else:
-		inventory_panel2 = null
+		$Label2.queue_free()
+	
 	var world = Global.get_world(Global.game_settings.word)
 	if world.has("inventory") and world["inventory"].has(inventory_panel.panel_id):
 		update_inventory()
+
+func create_second_panel():
+	var inventory_panel_scene = load("res://UI/Inventory/InventoryPanel.tscn")
+	inventory_panel2 = inventory_panel_scene.instantiate()
+	inventory_panel2.panel_id = inventory2
+	inventory_panel2.position = Vector2(600.0, 50.0)
+	inventory_panel2.scale = Vector2(1.5, 1.5)
+	inventory_panel2.z_index = 1
+	add_child(inventory_panel2)
+	inventory_panel2.slot_left_clicked.connect(_on_slot_left_clicked)
+	inventory_panel2.slot_right_clicked.connect(_on_slot_right_clicked)
+	var world = Global.get_world(Global.game_settings.word)
+	if world.has("inventory") and world["inventory"].has(inventory2):
+		inventory_panel2.update_display()
 
 var selected_slot_data = {}
 

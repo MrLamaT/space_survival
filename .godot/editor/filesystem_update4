@@ -1,1 +1,14 @@
-res://chapter2/portal/portal.tscn
+res://chapter2/closet/chest.tscn
+res://chapter2/closet/chest.gd
+res://chapter2/rooms/GlobalMain.tscn
+res://chapter2/closet/clock.tscn
+res://chapter2/rooms/main.tscn
+res://chapter2/rooms/main.gd
+res://chapter2/rooms/decoration/menu.tscn
+res://chapter2/rooms/decoration/menu.gd
+res://UI/Inventory/Inventory.tscn
+res://UI/Inventory/inventory_ui.gd
+res://chapter2/Player/player.gd
+res://chapter2/rooms/global_main.gd
+res://global.gd
+res://chapter2/Player/InteractionManager.gd

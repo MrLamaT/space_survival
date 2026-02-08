@@ -46,39 +46,15 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_4kqoq"]
 resource_name = "OnSystem"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("OmniLight3D2:visible")
+tracks/0/path = NodePath("OmniLight3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.15),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -89,34 +65,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("OmniLight3D2:visible")
+tracks/0/path = NodePath("OmniLight3D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OmniLight3D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("OmniLight3D3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -165,22 +117,6 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1654273174]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5.698, -3.377)
-visible = false
-light_color = Color(1, 0, 0, 1)
-light_energy = 2.0
-light_bake_mode = 1
-shadow_enabled = true
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=233943505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5.698, -3.377)
-visible = false
-light_color = Color(1, 0, 0, 1)
-light_energy = 2.0
-light_bake_mode = 1
-shadow_enabled = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1922123084]
 libraries/ = SubResource("AnimationLibrary_4kqoq")
 
@@ -205,14 +141,6 @@ material = SubResource("StandardMaterial3D_vy737")
 
 [node name="wall" parent="." unique_id=1092426163 instance=ExtResource("6_7o45e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
-light = false
-
-[node name="wall3" parent="." unique_id=311870743 instance=ExtResource("6_7o45e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.5)
-light = false
-
-[node name="wall2" parent="." unique_id=1676578889 instance=ExtResource("6_7o45e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5.5)
 light = false
 
 [node name="Light2" parent="." unique_id=1753787402 instance=ExtResource("6_4kqoq")]

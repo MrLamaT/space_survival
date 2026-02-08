@@ -152,7 +152,6 @@ func on_label_hovered(text_value: String) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "intro":
-		$beep.play()
 		$AnimationPlayer.play("textIntro")
 	elif anim_name == "textIntro":
 		$AnimationPlayer.play("Flowy")

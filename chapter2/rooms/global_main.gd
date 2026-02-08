@@ -27,7 +27,7 @@ func handle_interaction(object_name: String):
 			if world["selectWorld"] != 0:
 				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")
 			else:
-				var player = get_tree().get_first_node_in_group("player")
+				var player = $Player
 				if Global.game_settings["gui_settings"]["Language"] == "русский":
 					player.warning("Выберите цель телепортации")
 				else:

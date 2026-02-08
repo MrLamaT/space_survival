@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bpgfpevuaphsu"]
+[gd_scene format=3 uid="uid://bpgfpevuaphsu"]
 
 [ext_resource type="Script" uid="uid://b1rkf7sldtwit" path="res://chapter2/closet/closet.gd" id="1_5t8ao"]
 [ext_resource type="Texture2D" uid="uid://blqhso5d07nh1" path="res://assets/textures/material23.png" id="2_5t8ao"]
@@ -180,140 +180,138 @@ size = Vector3(0.01, 2, 0.85)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mcutc"]
 size = Vector3(1, 1.0167968, 0.8122314)
 
-[node name="clock" type="Area3D" groups=["interactive_objects"]]
+[node name="clock" type="Area3D" unique_id=1912484450 groups=["interactive_objects"]]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource("1_5t8ao")
 
-[node name="D1" type="CollisionShape3D" parent="."]
+[node name="D1" type="CollisionShape3D" parent="." unique_id=1878635468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_6iqkm")
 debug_color = Color(0.983333, 1, 0, 0.419608)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="D1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="D1" unique_id=718904155]
 collision_layer = 8
 collision_mask = 15
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="D1/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="D1/StaticBody3D" unique_id=269419260]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0.0076116025)
 shape = SubResource("BoxShape3D_6iqkm")
 debug_color = Color(0.983333, 1, 0, 0.419608)
 
-[node name="Door1" type="MeshInstance3D" parent="D1/StaticBody3D"]
+[node name="Door1" type="MeshInstance3D" parent="D1/StaticBody3D" unique_id=910220140]
 transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
 mesh = SubResource("QuadMesh_qx72u")
 skeleton = NodePath("../../..")
 
-[node name="Door2" type="MeshInstance3D" parent="D1/StaticBody3D"]
+[node name="Door2" type="MeshInstance3D" parent="D1/StaticBody3D" unique_id=406953382]
 transform = Transform3D(-0.9999999, 0, -1.5099579e-07, 0, 1, 0, 1.5099579e-07, 0, -0.9999999, 0, 0, 0)
 mesh = SubResource("QuadMesh_clb7a")
 skeleton = NodePath("../../..")
 
-[node name="DoorE" type="MeshInstance3D" parent="D1"]
+[node name="DoorE" type="MeshInstance3D" parent="D1" unique_id=915260600]
 transform = Transform3D(1, 0, -2.3841858e-07, 0, 1, 0, 2.3841858e-07, 0, 1, -2.7179246e-09, -0.015414208, 0.018)
 visible = false
 mesh = SubResource("QuadMesh_g543t")
 skeleton = NodePath("../..")
 
-[node name="DoorE2" type="MeshInstance3D" parent="D1"]
+[node name="DoorE2" type="MeshInstance3D" parent="D1" unique_id=764034475]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 2.220446e-16, -0.015414208, -0.018)
 visible = false
 mesh = SubResource("QuadMesh_g543t")
 skeleton = NodePath("../..")
 
-[node name="DoorENot" type="MeshInstance3D" parent="D1"]
+[node name="DoorENot" type="MeshInstance3D" parent="D1" unique_id=148944792]
 transform = Transform3D(1, 0, -2.3841858e-07, 0, 1, 0, 2.3841858e-07, 0, 1, -2.7179246e-09, -0.0362778, 0.018)
 visible = false
 mesh = SubResource("QuadMesh_e5w14")
 skeleton = NodePath("../..")
 
-[node name="Label3D" type="Label3D" parent="D1"]
+[node name="Label3D" type="Label3D" parent="D1" unique_id=26582724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7257222, 0.01)
 visible = false
 texture_filter = 0
 text = "need a key"
 font = ExtResource("5_155oa")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_clb7a")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1421715112]
+libraries/ = SubResource("AnimationLibrary_clb7a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1994099718]
 collision_layer = 4
 collision_mask = 3
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=2142177393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, -0.4)
 mesh = SubResource("BoxMesh_ub2wn")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=1288436463]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, -0.4)
 mesh = SubResource("BoxMesh_ub2wn")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="StaticBody3D" unique_id=1561058154]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.85)
 mesh = SubResource("BoxMesh_fblti")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D" unique_id=559210794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -0.40012434)
 mesh = SubResource("BoxMesh_fp0bw")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D" unique_id=1693734494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.05, -0.4)
 mesh = SubResource("BoxMesh_fp0bw")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D" unique_id=2001390107]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.4)
 mesh = SubResource("BoxMesh_fp0bw")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D" unique_id=2095586120]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5929302, -0.14860922)
 transparency = 0.75
 mesh = SubResource("BoxMesh_5t8ao")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D" unique_id=980890165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -0.49552086)
 mesh = SubResource("BoxMesh_6u6vr")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D" unique_id=511388159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, -0.49552086)
 mesh = SubResource("BoxMesh_e01oc")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=227314570]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.1855695e-09, 0, -0.90000004)
 shape = SubResource("BoxShape3D_7aaki")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1353755448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59522456, 0, -0.45000002)
 shape = SubResource("BoxShape3D_enub4")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=276832274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59504825, 0, -0.45000002)
 shape = SubResource("BoxShape3D_enub4")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=685273952]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5083984, -0.3978843)
 shape = SubResource("BoxShape3D_mcutc")
 debug_color = Color(0, 0.6, 0.69803923, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1029473409]
 stream = ExtResource("7_u1pn5")
 max_db = -3.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=1688524487]
 stream = ExtResource("8_7do42")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1b3ijvg6fiwb" path="res://chapter2/rooms/global_main.gd" id="1_w630j"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="7_ges2j"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="11_fqaro"]
+[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="15_akdvk"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="21_fh80c"]
 [ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/material25.png" id="25_jhkrm"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
@@ -226,5 +227,18 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_n5xo8")
 debug_color = Color(0.99607843, 0, 0, 1)
 debug_fill = false
+
+[node name="chest" type="Node3D" parent="ship/Zona1" unique_id=854491374]
+
+[node name="chest" parent="ship/Zona1/chest" unique_id=1727052689 instance=ExtResource("15_akdvk")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -7.85, 0.475, 0)
+
+[node name="chest2" parent="ship/Zona1/chest" unique_id=1567652648 instance=ExtResource("15_akdvk")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -7.85, 0.475, -2.5)
+chest = "chest_2"
+
+[node name="chest3" parent="ship/Zona1/chest" unique_id=56819896 instance=ExtResource("15_akdvk")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -7.85, 0.475, -4.9999995)
+chest = "chest_3"
 
 [connection signal="body_entered" from="ship/Zona1/KillZona" to="." method="_on_kill_zona_body_entered"]

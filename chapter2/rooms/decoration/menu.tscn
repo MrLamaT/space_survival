@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2tpuf62megqf"]
+[gd_scene format=3 uid="uid://b2tpuf62megqf"]
 
 [ext_resource type="Script" uid="uid://wxrmi8j1a8sf" path="res://chapter2/rooms/decoration/menu.gd" id="1_kxafx"]
 [ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="3_f7un4"]
@@ -270,31 +270,31 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("monitor/INITIALIZED/7:text")
+tracks/12/path = NodePath("monitor/Sprite3D2:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [""]
+"values": [false]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("monitor/INITIALIZED/8:text")
+tracks/13/path = NodePath("monitor/INITIALIZED:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [""]
+"values": [true]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("monitor/Sprite3D2:visible")
+tracks/14/path = NodePath("menu:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -303,34 +303,10 @@ tracks/14/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("monitor/INITIALIZED:visible")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("menu:visible")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_10g0r"]
 resource_name = "intro"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -370,7 +346,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_jeltb"]
 resource_name = "textIntro"
-length = 9.0
+length = 3.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -378,10 +354,10 @@ tracks/0/path = NodePath("monitor/INITIALIZED/1:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["> BOOTLOADER v.12.7.4 INITIALIZED.", "> BOOTLOADER v.12.7.4 INITIALIZED..", "> BOOTLOADER v.12.7.4 INITIALIZED..."]
+"values": ["> BOOTLOADER v.12.7.4 INITIALIZED..."]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -390,7 +366,7 @@ tracks/1/path = NodePath("monitor/INITIALIZED/2:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["> MEMORY CHECK: OK [32768 VQ]"]
@@ -402,7 +378,7 @@ tracks/2/path = NodePath("monitor/INITIALIZED/3:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.5),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["> CPU: CITADEL M.III - ONLINE"]
@@ -414,7 +390,7 @@ tracks/3/path = NodePath("monitor/INITIALIZED/4:text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.7),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["> -----------------------------------"]
@@ -426,7 +402,7 @@ tracks/4/path = NodePath("monitor/INITIALIZED/5:text")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2, 3, 4),
+"times": PackedFloat32Array(0.4, 1.4, 2.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": ["> LOADING PERSONAL LOG.", "> LOADING PERSONAL LOG..
@@ -440,7 +416,7 @@ tracks/5/path = NodePath("monitor/INITIALIZED/6:text")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(3.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["> > ERROR: FILE CORRUPTED."]
@@ -448,35 +424,11 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("monitor/INITIALIZED/7:text")
+tracks/6/path = NodePath("monitor/INITIALIZED:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(5.2, 6, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": ["> LOADING MISSION PARAMETERS.", "> LOADING MISSION PARAMETERS..", "> LOADING MISSION PARAMETERS..."]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("monitor/INITIALIZED/8:text")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["> > OBJECTIVE: SURVIVE. "]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("monitor/INITIALIZED:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(9),
+"times": PackedFloat32Array(3.6),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -490,149 +442,147 @@ _data = {
 &"textIntro": SubResource("Animation_jeltb")
 }
 
-[node name="menu" type="Area3D" groups=["interactive_objects"]]
+[node name="menu" type="Area3D" unique_id=1594479049 groups=["interactive_objects"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_kxafx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=737141647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 4
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1441732104]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.85)
 mesh = SubResource("BoxMesh_lq2r2")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D" unique_id=330728023]
 transform = Transform3D(1.0552863e-07, 1, 6.181724e-08, 0.70710677, -3.090862e-08, -0.70710677, -0.70710677, 1.183314e-07, -0.70710677, 0, -0.40391642, -1)
 mesh = SubResource("BoxMesh_f845c")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D" unique_id=89432878]
 transform = Transform3D(1.0552862e-07, 1, -6.181723e-08, 0.7071067, -3.090862e-08, 0.7071067, 0.7071067, -1.183314e-07, -0.7071067, 0, -0.40391642, -1.29)
 mesh = SubResource("BoxMesh_f845c")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D" unique_id=1145989738]
 transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.5589164, -1.45)
 mesh = SubResource("CylinderMesh_40pl7")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D" unique_id=1673975278]
 transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.45, -0.947)
 mesh = SubResource("CylinderMesh_40pl7")
 skeleton = NodePath("")
 
-[node name="monitor" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="monitor" type="MeshInstance3D" parent="StaticBody3D" unique_id=563328639]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.83692783)
 mesh = SubResource("BoxMesh_6w7je")
 skeleton = NodePath("")
 
-[node name="monitor2" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="monitor2" type="MeshInstance3D" parent="StaticBody3D" unique_id=2142251171]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.83692783)
 visible = false
 mesh = SubResource("BoxMesh_60ni8")
 skeleton = NodePath("")
 
-[node name="DoorE" type="MeshInstance3D" parent="."]
+[node name="DoorE" type="MeshInstance3D" parent="." unique_id=561271959]
 transform = Transform3D(1, 0, -2.3841858e-07, 0, 1, 0, 2.3841858e-07, 0, 1, -2.7179246e-09, -0.001750946, -0.76286227)
 visible = false
 mesh = SubResource("QuadMesh_oohos")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=1025578650]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7611751, -0.7708623)
 visible = false
 texture_filter = 0
 text = "turn on"
 font = ExtResource("5_dgutp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gggwc")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1109672860]
+libraries/ = SubResource("AnimationLibrary_gggwc")
 
-[node name="menu" type="Node3D" parent="."]
+[node name="menu" type="Node3D" parent="." unique_id=448920155]
 visible = false
 
-[node name="ButtonText" parent="menu" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText" parent="menu" unique_id=1313765657 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, 0.2, -0.773)
 CustText = "PLAY"
 
-[node name="ButtonText2" parent="menu" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText2" parent="menu" unique_id=1009753479 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, 0, -0.773)
 CustText = "OPTIONS"
 
-[node name="ButtonText3" parent="menu" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText3" parent="menu" unique_id=1990875277 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.475, -0.2, -0.773)
 CustText = "QUIT"
 
-[node name="options" type="Node3D" parent="."]
+[node name="options" type="Node3D" parent="." unique_id=1185156668]
 visible = false
 
-[node name="Autosave" parent="options" instance=ExtResource("5_vkg4q")]
+[node name="Autosave" parent="options" unique_id=34524628 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.2, -0.773)
 CustText = "Autosave"
 setting = true
 
-[node name="Coords" parent="options" instance=ExtResource("5_vkg4q")]
+[node name="Coords" parent="options" unique_id=1690327193 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.11, -0.773)
 CustText = "Coords"
 setting = true
 
-[node name="FPS" parent="options" instance=ExtResource("5_vkg4q")]
+[node name="FPS" parent="options" unique_id=659673187 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.02, -0.773)
 CustText = "FPS"
 setting = true
 
-[node name="language" parent="options" instance=ExtResource("5_vkg4q")]
+[node name="language" parent="options" unique_id=233670530 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.07, -0.773)
 CustText = "Language"
 
-[node name="ButtonText" parent="options" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText" parent="options" unique_id=1046523671 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.16, -0.773)
 CustText = "BACK"
 
-[node name="world" type="Node3D" parent="."]
+[node name="world" type="Node3D" parent="." unique_id=403268131]
 visible = false
 
-[node name="ButtonText1" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText1" parent="world" unique_id=1881256144 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.2, -0.773)
 CustText = "[NEW GAME 1]"
 
-[node name="ButtonText2" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText2" parent="world" unique_id=1418074104 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.11, -0.773)
 CustText = "[NEW GAME 2]"
 
-[node name="ButtonText3" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText3" parent="world" unique_id=305242570 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, 0.02, -0.773)
 CustText = "[NEW GAME 3]"
 
-[node name="ButtonText4" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText4" parent="world" unique_id=1641706896 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.07, -0.773)
 CustText = "[NEW GAME 4]"
 
-[node name="ButtonText5" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText5" parent="world" unique_id=715433358 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.16, -0.773)
 CustText = "[NEW GAME 5]"
 
-[node name="ButtonText" parent="world" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText" parent="world" unique_id=1047834591 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.475, -0.25, -0.773)
 CustText = "BACK"
 
-[node name="confirmation" type="Node3D" parent="."]
+[node name="confirmation" type="Node3D" parent="." unique_id=1574070641]
 visible = false
 
-[node name="ButtonText1" parent="confirmation" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText1" parent="confirmation" unique_id=1824053486 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, 0.10565844, -0.097, -0.773)
 CustText = "DELETE"
 
-[node name="ButtonText2" parent="confirmation" instance=ExtResource("5_vkg4q")]
+[node name="ButtonText2" parent="confirmation" unique_id=1591260684 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.35445297, -0.097, -0.773)
 CustText = "CANCEL"
 
-[node name="Label3D" type="Label3D" parent="confirmation"]
+[node name="Label3D" type="Label3D" parent="confirmation" unique_id=573473976]
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 1, 0, 0.15, -0.772)
 texture_filter = 0
 modulate = Color(1, 0, 0, 1)
@@ -640,39 +590,39 @@ text = "Are you sure you want to permanently
 delete the world?"
 font = ExtResource("5_dgutp")
 
-[node name="worldSetting" type="Node3D" parent="."]
+[node name="worldSetting" type="Node3D" parent="." unique_id=1796297518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.045, 0, 0)
 visible = false
 
-[node name="Sprite3D" type="Sprite3D" parent="worldSetting"]
+[node name="Sprite3D" type="Sprite3D" parent="worldSetting" unique_id=742580547]
 transform = Transform3D(0.82022977, 0, 0, 0, 1.0857829, 0, 0, 0, 1, 0.17379914, -0.020924166, -0.773)
 texture_filter = 0
 texture = ExtResource("5_av5wm")
 
-[node name="WorldName" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+[node name="WorldName" parent="worldSetting" unique_id=1221176723 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, 0.2, -0.773)
 CustText = "world name"
 
-[node name="GameMode" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+[node name="GameMode" parent="worldSetting" unique_id=1780879644 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, 0.11, -0.773)
 CustText = "game mode"
 
-[node name="stage" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+[node name="stage" parent="worldSetting" unique_id=757580532 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.048, 0.02, -0.773)
 CustText = "stage"
 
-[node name="delete" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+[node name="delete" parent="worldSetting" unique_id=636767788 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, -0.16, -0.773)
 CustText = "delete"
 
-[node name="load" parent="worldSetting" instance=ExtResource("5_vkg4q")]
+[node name="load" parent="worldSetting" unique_id=944251992 instance=ExtResource("5_vkg4q")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 1, -0.04804848, -0.25, -0.773)
 CustText = "load"
 
-[node name="monitor" type="Node3D" parent="."]
+[node name="monitor" type="Node3D" parent="." unique_id=59229901]
 visible = false
 
-[node name="OmniLight3D" type="OmniLight3D" parent="monitor"]
+[node name="OmniLight3D" type="OmniLight3D" parent="monitor" unique_id=222365221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.74015725)
 light_color = Color(0, 0, 0.65882355, 1)
 light_energy = 2.0
@@ -680,56 +630,56 @@ light_bake_mode = 1
 shadow_enabled = true
 omni_range = 7.0
 
-[node name="Sprite3D" type="Sprite3D" parent="monitor"]
+[node name="Sprite3D" type="Sprite3D" parent="monitor" unique_id=1614411125]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
 visible = false
 texture_filter = 0
 texture = ExtResource("4_6eul1")
 
-[node name="Sprite3D2" type="Sprite3D" parent="monitor"]
+[node name="Sprite3D2" type="Sprite3D" parent="monitor" unique_id=2101810784]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, -0.40864, 0.40779734, -0.7727012)
 visible = false
 texture_filter = 0
 texture = ExtResource("4_6eul1")
 
-[node name="INITIALIZED" type="Node3D" parent="monitor"]
+[node name="INITIALIZED" type="Node3D" parent="monitor" unique_id=409807958]
 
-[node name="1" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="1" type="Label3D" parent="monitor/INITIALIZED" unique_id=334110740]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.44, -0.773)
 texture_filter = 0
 font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="2" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="2" type="Label3D" parent="monitor/INITIALIZED" unique_id=1412407881]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.3804516, -0.773)
 texture_filter = 0
 font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="3" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="3" type="Label3D" parent="monitor/INITIALIZED" unique_id=354576830]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.32, -0.773)
 texture_filter = 0
 font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="4" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="4" type="Label3D" parent="monitor/INITIALIZED" unique_id=88982054]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.26, -0.773)
 texture_filter = 0
 font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="5" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="5" type="Label3D" parent="monitor/INITIALIZED" unique_id=1302653506]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.2, -0.773)
 texture_filter = 0
 font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="6" type="Label3D" parent="monitor/INITIALIZED"]
+[node name="6" type="Label3D" parent="monitor/INITIALIZED" unique_id=463288606]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.14, -0.773)
 texture_filter = 0
 modulate = Color(1, 0, 0, 1)
@@ -737,21 +687,7 @@ font = ExtResource("5_dgutp")
 font_size = 16
 horizontal_alignment = 0
 
-[node name="7" type="Label3D" parent="monitor/INITIALIZED"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.08, -0.773)
-texture_filter = 0
-font = ExtResource("5_dgutp")
-font_size = 16
-horizontal_alignment = 0
-
-[node name="8" type="Label3D" parent="monitor/INITIALIZED"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, -0.47458577, 0.02, -0.773)
-texture_filter = 0
-font = ExtResource("5_dgutp")
-font_size = 16
-horizontal_alignment = 0
-
-[node name="beep" type="AudioStreamPlayer3D" parent="."]
+[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=1047316705]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
 stream = ExtResource("5_jeltb")
 volume_db = -20.0

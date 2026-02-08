@@ -8,8 +8,9 @@ var world_1: Dictionary = {
 	"selectWorldName": "",
 	"inventory": {
 		"inventory": [],
-		"equipment": [],
-		"chest_1": []
+		"chest_1": [],
+		"chest_2": [],
+		"chest_3": []
 	}
 }
 
@@ -21,8 +22,9 @@ var world_2: Dictionary = {
 	"selectWorldName": "",
 	"inventory": {
 		"inventory": [],
-		"equipment": [],
-		"chest_1": []
+		"chest_1": [],
+		"chest_2": [],
+		"chest_3": []
 	}
 }
 
@@ -34,8 +36,9 @@ var world_3: Dictionary = {
 	"selectWorldName": "",
 	"inventory": {
 		"inventory": [],
-		"equipment": [],
-		"chest_1": []
+		"chest_1": [],
+		"chest_2": [],
+		"chest_3": []
 	}
 }
 
@@ -47,8 +50,9 @@ var world_4: Dictionary = {
 	"selectWorldName": "",
 	"inventory": {
 		"inventory": [],
-		"equipment": [],
-		"chest_1": []
+		"chest_1": [],
+		"chest_2": [],
+		"chest_3": []
 	}
 }
 
@@ -60,8 +64,9 @@ var world_5: Dictionary = {
 	"selectWorldName": "",
 	"inventory": {
 		"inventory": [],
-		"equipment": [],
-		"chest_1": []
+		"chest_1": [],
+		"chest_2": [],
+		"chest_3": []
 	}
 }
 
@@ -206,8 +211,9 @@ func reset_world_to_default(world_num: int) -> void:
 		"selectWorldName": "",
 		"inventory": {
 			"inventory": [],
-			"equipment": [],
-			"chest_1": []
+			"chest_1": [],
+			"chest_2": [],
+			"chest_3": []
 		}
 	}
 	match world_num:

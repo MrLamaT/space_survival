@@ -18,10 +18,6 @@ func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, pr
 	_progress_bar = progress_bar
 
 func process_interaction_input():
-	if Input.is_action_just_pressed("UI_click") and current_interactable:
-		start_interaction()
-	if Input.is_action_just_released("UI_click"):
-		stop_interaction()
 	if Input.is_action_just_pressed("+e") and current_interactable:
 		start_interaction()
 	if Input.is_action_just_released("+e"):
