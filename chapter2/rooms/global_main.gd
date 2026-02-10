@@ -10,6 +10,7 @@ func _ready() -> void:
 	Global.game_settings["HP"] = 100
 	Global.game_settings["step"] = 3
 	Global.game_settings["IsDying"] = false
+	setBuild()
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")
@@ -32,3 +33,26 @@ func handle_interaction(object_name: String):
 					player.warning("Выберите цель телепортации")
 				else:
 					player.warning("Select Teleport Target")
+		"chest":
+			if world["build"]["chest"] == 0:
+				$ship/Zona1/chest/chest.position.y = 0.475
+			if world["build"]["chest"] == 1:
+				$ship/Zona1/chest/chest2.position.y = 0.475
+			if world["build"]["chest"] == 2:
+				$ship/Zona1/chest/chest3.position.y = 0.475
+				$ship/Zona1/chest/InteractableObject.queue_free()
+				$Player.recipe([], "", "")
+			world["build"]["chest"] += 1
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Строительство завершено!")
+			else:
+				$Player.warning("Construction complete!")
+
+func setBuild():
+	if world["build"]["chest"] >= 1:
+		$ship/Zona1/chest/chest.position.y = 0.475
+	if world["build"]["chest"] >= 2:
+		$ship/Zona1/chest/chest2.position.y = 0.475
+	if world["build"]["chest"] >= 3:
+		$ship/Zona1/chest/chest3.position.y = 0.475
+		$ship/Zona1/chest/InteractableObject.queue_free()

@@ -5,6 +5,8 @@ extends Control
 @onready var right_click_menu: PopupMenu = $PopupMenu
 @export var inventory2: String
 @export var Label2: String
+@export var inventory2_grid_width: int
+@export var inventory2_grid_height: int
 
 func _ready():
 	if inventory2 != "":
@@ -23,6 +25,8 @@ func create_second_panel():
 	var inventory_panel_scene = load("res://UI/Inventory/InventoryPanel.tscn")
 	inventory_panel2 = inventory_panel_scene.instantiate()
 	inventory_panel2.panel_id = inventory2
+	inventory_panel2.grid_width = inventory2_grid_width
+	inventory_panel2.grid_height = inventory2_grid_height
 	inventory_panel2.position = Vector2(600.0, 50.0)
 	inventory_panel2.scale = Vector2(1.5, 1.5)
 	inventory_panel2.z_index = 1

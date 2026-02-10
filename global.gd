@@ -6,6 +6,9 @@ var world_1: Dictionary = {
 	"stage": 0,
 	"selectWorld": 0,
 	"selectWorldName": "",
+	"build": {
+		"chest": 0
+	},
 	"inventory": {
 		"inventory": [],
 		"chest_1": [],
@@ -20,6 +23,9 @@ var world_2: Dictionary = {
 	"stage": 0,
 	"selectWorld": 0,
 	"selectWorldName": "",
+	"build": {
+		"chest": 0
+	},
 	"inventory": {
 		"inventory": [],
 		"chest_1": [],
@@ -34,6 +40,9 @@ var world_3: Dictionary = {
 	"stage": 0,
 	"selectWorld": 0,
 	"selectWorldName": "",
+	"build": {
+		"chest": 0
+	},
 	"inventory": {
 		"inventory": [],
 		"chest_1": [],
@@ -48,6 +57,9 @@ var world_4: Dictionary = {
 	"stage": 0,
 	"selectWorld": 0,
 	"selectWorldName": "",
+	"build": {
+		"chest": 0
+	},
 	"inventory": {
 		"inventory": [],
 		"chest_1": [],
@@ -62,6 +74,9 @@ var world_5: Dictionary = {
 	"stage": 0,
 	"selectWorld": 0,
 	"selectWorldName": "",
+	"build": {
+		"chest": 0
+	},
 	"inventory": {
 		"inventory": [],
 		"chest_1": [],
@@ -209,6 +224,9 @@ func reset_world_to_default(world_num: int) -> void:
 		"stage": 0,
 		"selectWorld": 0,
 		"selectWorldName": "",
+		"build": {
+			"chest": 0
+		},
 		"inventory": {
 			"inventory": [],
 			"chest_1": [],

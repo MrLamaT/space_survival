@@ -18,6 +18,8 @@ border_color = Color(1, 1, 1, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uo64e")
+inventory2_grid_width = 4
+inventory2_grid_height = 1
 
 [node name="InventoryPanel" parent="." unique_id=171753026 instance=ExtResource("2_sv8nv")]
 z_index = 1

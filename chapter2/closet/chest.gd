@@ -4,7 +4,7 @@ extends Area3D
 
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
-	player.open_inventory(chest, "storage")
+	player.open_inventory(chest, "storage", 4, 1)
 
 func _on_mouse_entered() -> void:
 	$Sprite3D.modulate = Color("ffffffff")

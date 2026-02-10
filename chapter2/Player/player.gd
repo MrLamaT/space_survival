@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
 @onready var bullet_spawn_point = $head/Camera3D/BulletSpawn
+@onready var recipeMenu = $head/Camera3D/recipe
 
 var interaction_manager: InteractionManager
 
@@ -553,7 +554,7 @@ func openUI(nameUI):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
 	
-func open_inventory(inventory_data: String, label_text: String):
+func open_inventory(inventory_data: String, label_text: String, grid_width: int, grid_height: int):
 	var node_name = "Inventory"
 	var path = "head/Camera3D/" + node_name
 	var node = get_node_or_null(path)
@@ -565,6 +566,8 @@ func open_inventory(inventory_data: String, label_text: String):
 			node.name = node_name
 			node.set("inventory2", inventory_data)
 			node.set("Label2", label_text)
+			node.set("inventory2_grid_width", grid_width)
+			node.set("inventory2_grid_height", grid_height)
 			get_node("head/Camera3D").add_child(node)
 			node.add_to_group("UI")
 	node.visible = true
@@ -580,3 +583,10 @@ func warning(text):
 		await get_tree().create_timer(5).timeout
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
 		$head/Camera3D/label.visible = false
+
+func recipe(required_resources, required_label, required_description):
+	if required_resources == []:
+		recipeMenu.visible = false
+		return false
+	recipeMenu.visible = true
+	recipeMenu.recipe(required_resources, required_label, required_description)
