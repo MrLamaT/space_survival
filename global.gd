@@ -156,22 +156,7 @@ func reset_world_to_default(world_num: int) -> void:
 			"inventory": [],
 			"chest_1": [],
 			"chest_2": [],
-			"chest_3": [],
-			"chest_W1": [],
-			"chest_W2": [],
-			"chest_W3": [],
-			"chest_W4": [],
-			"chest_W5": [],
-			"chest_W6": [],
-			"chest_W7": [],
-			"chest_W8": [],
-			"chest_W9": [],
-			"chest_W10": [],
-			"chest_W11": [],
-			"chest_W12": [],
-			"chest_W13": [],
-			"chest_W14": [],
-			"chest_W15": []
+			"chest_3": []
 		}
 	}
 	match world_num:

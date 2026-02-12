@@ -2,6 +2,11 @@ extends Area3D
 
 @export var chest: String
 
+func _ready() -> void:
+	var world_data = Global.get_world(Global.game_settings.word)
+	if not world_data.inventory.has(chest):
+		world_data.inventory[chest] = []
+
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
 	player.open_inventory(chest, "storage", 4, 1)

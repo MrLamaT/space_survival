@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="2_ok3dl"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="4_bh0lk"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="14_j7ugk"]
+[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="14_nlssu"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="15_6hvyv"]
 [ext_resource type="PackedScene" uid="uid://6v0pay6q4xwe" path="res://chapter2/rooms/decoration/window.tscn" id="16_vbyq0"]
 [ext_resource type="PackedScene" uid="uid://bwvprsripwl1m" path="res://chapter2/trap/trap.tscn" id="17_t3y8a"]
@@ -287,5 +288,9 @@ visible = false
 transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, -3, 1.6, 1.25)
 interaction_name = "portal"
 handler_node = NodePath("../..")
+
+[node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_nlssu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6769661, 0.841, 9.463154)
+chest = "chest_15"
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]

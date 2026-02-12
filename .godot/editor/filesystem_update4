@@ -1,0 +1,4 @@
+res://chapter2/rooms/decoration/wall/impenetrableField.tscn
+res://global.gd
+res://chapter2/rooms/maps/test.tscn
+res://chapter2/closet/chest.gd

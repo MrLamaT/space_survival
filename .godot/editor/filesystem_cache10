@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770927262
+::res://::1770927828
 default_env.tres::Environment::4252175493748035018::1763216573::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1770232240::0::1::::<><><>0<>0<><>::
 global.gd::GDScript::3714646894747957548::1770926415::0::1::::<>Node<><>0<>0<><>::
@@ -115,7 +115,7 @@ tree2.png::CompressedTexture2D::361214557015881962::1765120337::1765120340::1:::
 tree2N.png::CompressedTexture2D::3690901323490460231::1765131613::1765131618::1::::<><><>0<>0<>2179b73ca7c31a3f1ede138cc79d5514<>res://.godot/imported/tree2N.png-9b7f2747abcb5ae51c26bb49cf76c2a4.ctex::
 tree3.png::CompressedTexture2D::4123958894745392532::1765118928::1765129356::1::::<><><>0<>0<>db5bd8bb7a1ac7f86c91cca67d3246b5<>res://.godot/imported/tree3.png-10b13e55c3d0a4c8e9c075e58d7f1a9d.ctex::
 ::res://chapter2/::1769145976
-::res://chapter2/assets/::1767611838
+::res://chapter2/assets/::1770927282
 ::res://chapter2/assets/enemy/::1767611838
 ::res://chapter2/assets/enemy/Bat/::1767611837
 Bat1.png::CompressedTexture2D::1970388719395621679::1763216571::1763216605::1::::<><><>0<>0<>984f0bb3cf89b1d476ffbb82afb6d6dc<>res://.godot/imported/Bat1.png-5f90a714e156a5d01296354ebfc46c48.ctex::
@@ -161,9 +161,6 @@ screwdriver.png::CompressedTexture2D::896700857835090006::1763216572::1763216604
 shotgun.png::CompressedTexture2D::6067208724011396218::1763216572::1769970069::1::::<><><>0<>0<>bf6d42ff1e0a6250f877b90d8c25ac70<>res://.godot/imported/shotgun.png-1d1b4af6b2488936b2f558251abe2e8a.ctex::
 taser.png::CompressedTexture2D::8173585446275891552::1769979919::1769979922::1::::<><><>0<>0<>f90635592c40307eec158fb886ca9a44<>res://.godot/imported/taser.png-dad758e88a1ac70a5ecdf0b6f34909bb.ctex::
 WireCutters.png::CompressedTexture2D::5334394192177622659::1763216572::1769970075::1::::<><><>0<>0<>7370ae0a800d766a027751f7014243f0<>res://.godot/imported/WireCutters.png-304fcce502c0b052aa552fa06a568fa2.ctex::
-::res://chapter2/assets/ModIcon/::1767737149
-Mod7_0.png::CompressedTexture2D::8579383822535218428::1763216570::1763216604::1::::<><><>0<>0<>45c4ec4636a544fe3e171c550ad080e8<>res://.godot/imported/Mod7_0.png-36eb71efa5f567a8d6abbd29d6b85148.ctex::
-Mod7_1.png::CompressedTexture2D::8498754347991271853::1763216570::1763216604::1::::<><><>0<>0<>672d7ed499eee5d63e3881da142cd437<>res://.godot/imported/Mod7_1.png-33dcc5611319d269fcce6d60c4012aa3.ctex::
 ::res://chapter2/assets/Trap/::1767611838
 trap.png::CompressedTexture2D::5380123362974305453::1763216570::1763216604::1::::<><><>0<>0<>ec11f1218b45c33d1767eab8246f6481<>res://.godot/imported/trap.png-9b762e69e2d6282be6fc4e9504ab9bcf.ctex::
 trap_traps.png::CompressedTexture2D::2628295548688893259::1763216570::1763216604::1::::<><><>0<>0<>d50eee1edc3913cc7d8397b6699481c7<>res://.godot/imported/trap_traps.png-a7704e27191da6ce89d9ba393f890e29.ctex::
