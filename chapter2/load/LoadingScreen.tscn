@@ -1,63 +1,49 @@
 [gd_scene format=3 uid="uid://bvll2nqa4j2wb"]
 
 [ext_resource type="Script" uid="uid://cq7c8a0c2nagt" path="res://chapter2/load/loading_screen.gd" id="1_iqfpq"]
-[ext_resource type="Texture2D" uid="uid://dateaog7yobbw" path="res://assets/logo.png" id="2_vpunw"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_iqfpq"]
 
-[sub_resource type="Animation" id="Animation_dhqi2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(576, 248)]
-}
-
-[sub_resource type="Animation" id="Animation_ghsbh"]
-resource_name = "load"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(576, 248), Vector2(576, 228), Vector2(576, 248)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ij24"]
-_data = {
-&"RESET": SubResource("Animation_dhqi2"),
-&"load": SubResource("Animation_ghsbh")
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpunw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [node name="LoadingScreen" type="Control" unique_id=1133054075]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_iqfpq")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1292526815]
+[node name="Panel" type="Panel" parent="." unique_id=1368940458]
 layout_mode = 1
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.62352943, 0, 0.62352943, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 526.0
+offset_top = 299.0
+offset_right = 626.0
+offset_bottom = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_vpunw")
 
-[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=171435110]
-visible = false
-modulate = Color(0.5137255, 0, 0, 1)
-texture_filter = 1
-position = Vector2(576, 248)
-scale = Vector2(8, 8)
-texture = ExtResource("2_vpunw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1497851599]
-libraries/ = SubResource("AnimationLibrary_2ij24")
+[node name="Label" type="Label" parent="Panel" unique_id=830175539]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_iqfpq")
+text = "loading"

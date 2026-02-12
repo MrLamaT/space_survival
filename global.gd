@@ -1,89 +1,10 @@
 extends Node
 
-var world_1: Dictionary = { 
-	"name": "[NEW GAME 1]",
-	"mode": 0,
-	"stage": 0,
-	"selectWorld": 0,
-	"selectWorldName": "",
-	"build": {
-		"chest": 0
-	},
-	"inventory": {
-		"inventory": [],
-		"chest_1": [],
-		"chest_2": [],
-		"chest_3": []
-	}
-}
-
-var world_2: Dictionary = { 
-	"name": "[NEW GAME 2]",
-	"mode": 0,
-	"stage": 0,
-	"selectWorld": 0,
-	"selectWorldName": "",
-	"build": {
-		"chest": 0
-	},
-	"inventory": {
-		"inventory": [],
-		"chest_1": [],
-		"chest_2": [],
-		"chest_3": []
-	}
-}
-
-var world_3: Dictionary = { 
-	"name": "[NEW GAME 3]",
-	"mode": 0,
-	"stage": 0,
-	"selectWorld": 0,
-	"selectWorldName": "",
-	"build": {
-		"chest": 0
-	},
-	"inventory": {
-		"inventory": [],
-		"chest_1": [],
-		"chest_2": [],
-		"chest_3": []
-	}
-}
-
-var world_4: Dictionary = { 
-	"name": "[NEW GAME 4]",
-	"mode": 0,
-	"stage": 0,
-	"selectWorld": 0,
-	"selectWorldName": "",
-	"build": {
-		"chest": 0
-	},
-	"inventory": {
-		"inventory": [],
-		"chest_1": [],
-		"chest_2": [],
-		"chest_3": []
-	}
-}
-
-var world_5: Dictionary = { 
-	"name": "[NEW GAME 5]",
-	"mode": 0,
-	"stage": 0,
-	"selectWorld": 0,
-	"selectWorldName": "",
-	"build": {
-		"chest": 0
-	},
-	"inventory": {
-		"inventory": [],
-		"chest_1": [],
-		"chest_2": [],
-		"chest_3": []
-	}
-}
+var world_1: Dictionary
+var world_2: Dictionary
+var world_3: Dictionary
+var world_4: Dictionary
+var world_5: Dictionary
 
 var game_settings: Dictionary = {
 	"Skin": 0,
@@ -113,6 +34,11 @@ var game_settings: Dictionary = {
 var saved_portal_data: Dictionary = {}
 
 func _ready():
+	reset_world_to_default(1)
+	reset_world_to_default(2)
+	reset_world_to_default(3)
+	reset_world_to_default(4)
+	reset_world_to_default(5)
 	load_game_settings()
 	for i in range(1, 6):
 		load_world(i)
@@ -222,8 +148,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"stage": 0,
-		"selectWorld": 0,
-		"selectWorldName": "",
+		"selectWorld": "",
 		"build": {
 			"chest": 0
 		},
@@ -231,7 +156,22 @@ func reset_world_to_default(world_num: int) -> void:
 			"inventory": [],
 			"chest_1": [],
 			"chest_2": [],
-			"chest_3": []
+			"chest_3": [],
+			"chest_W1": [],
+			"chest_W2": [],
+			"chest_W3": [],
+			"chest_W4": [],
+			"chest_W5": [],
+			"chest_W6": [],
+			"chest_W7": [],
+			"chest_W8": [],
+			"chest_W9": [],
+			"chest_W10": [],
+			"chest_W11": [],
+			"chest_W12": [],
+			"chest_W13": [],
+			"chest_W14": [],
+			"chest_W15": []
 		}
 	}
 	match world_num:

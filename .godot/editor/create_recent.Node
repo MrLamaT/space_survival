@@ -1,7 +1,8 @@
 Label
+Panel
+AnimationPlayer
 Control
 Sprite2D
-Panel
 ColorRect
 SubViewport
 SubViewportContainer
@@ -11,4 +12,3 @@ Area3D
 CollisionShape3D
 Sprite3D
 MeshInstance3D
-Button

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
 [ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/teleport1.wav" id="7_nwwir"]
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/teleport2.wav" id="8_nwwir"]
+[ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="9_syhg2"]
 [ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/material26.png" id="12_q66jv"]
@@ -409,3 +410,15 @@ pitch_scale = 0.5
 stream = ExtResource("8_nwwir")
 volume_db = -15.0
 pitch_scale = 0.75
+
+[node name="ImpenetrableField" parent="." unique_id=1337111662 instance=ExtResource("9_syhg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 2.35)
+
+[node name="ImpenetrableField2" parent="." unique_id=912440804 instance=ExtResource("9_syhg2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -2.35)
+
+[node name="ImpenetrableField3" parent="." unique_id=1266091607 instance=ExtResource("9_syhg2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.35, 1.9, 0)
+
+[node name="ImpenetrableField4" parent="." unique_id=759232354 instance=ExtResource("9_syhg2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.35, 1.9, 0)

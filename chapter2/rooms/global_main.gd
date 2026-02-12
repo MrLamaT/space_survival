@@ -25,7 +25,7 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 func handle_interaction(object_name: String):
 	match object_name:
 		"portal":
-			if world["selectWorld"] != 0:
+			if world["selectWorld"] != "":
 				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")
 			else:
 				var player = $Player
@@ -34,25 +34,20 @@ func handle_interaction(object_name: String):
 				else:
 					player.warning("Select Teleport Target")
 		"chest":
-			if world["build"]["chest"] == 0:
-				$ship/Zona1/chest/chest.position.y = 0.475
-			if world["build"]["chest"] == 1:
-				$ship/Zona1/chest/chest2.position.y = 0.475
-			if world["build"]["chest"] == 2:
-				$ship/Zona1/chest/chest3.position.y = 0.475
-				$ship/Zona1/chest/InteractableObject.queue_free()
-				$Player.recipe([], "", "")
 			world["build"]["chest"] += 1
+			setBuild()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
 
 func setBuild():
-	if world["build"]["chest"] >= 1:
+	if world["build"]["chest"] >= 0:
 		$ship/Zona1/chest/chest.position.y = 0.475
-	if world["build"]["chest"] >= 2:
+	if world["build"]["chest"] >= 1:
 		$ship/Zona1/chest/chest2.position.y = 0.475
-	if world["build"]["chest"] >= 3:
+	if world["build"]["chest"] >= 2:
 		$ship/Zona1/chest/chest3.position.y = 0.475
 		$ship/Zona1/chest/InteractableObject.queue_free()
+	$Player.recipe([], "", "")
+	
