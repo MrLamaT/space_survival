@@ -3,6 +3,7 @@ extends Node3D
 var world = Global.get_world(Global.game_settings.word)
 
 func _ready() -> void:
+	randomize()
 	var env_scene = preload("res://chapter2/sky/skybox.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)

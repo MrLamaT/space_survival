@@ -291,6 +291,18 @@ handler_node = NodePath("../..")
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_nlssu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6769661, 0.841, 9.463154)
-chest = "chest_15"
+chest = "chest_W1"
+
+[node name="chest2" parent="." unique_id=570308089 instance=ExtResource("14_nlssu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29729056, 0.841, 9.463154)
+chest = "chest_W2"
+
+[node name="chest3" parent="." unique_id=641208030 instance=ExtResource("14_nlssu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1264547, 0.841, 9.463154)
+chest = "chest_W3"
+
+[node name="chest4" parent="." unique_id=227750937 instance=ExtResource("14_nlssu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3533187, 0.841, 9.463154)
+chest = "chest_W4"
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
