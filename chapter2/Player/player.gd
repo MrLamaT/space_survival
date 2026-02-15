@@ -153,6 +153,9 @@ func PlayerDeath():
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["IsDying"] = true
+	var world = Global.get_world(Global.game_settings.word)
+	world["PointDeath"] = global_position
+	DeathInventory()
 	$screem.play()
 	throw_camera_out()
 	movement_enabled = false
@@ -163,6 +166,23 @@ func PlayerDeath():
 	await get_tree().create_timer(2.5).timeout
 	Global.game_settings["HP"] = 100
 	respawn_player()
+
+func DeathInventory():
+	var world = Global.get_world(Global.game_settings.word)
+	world["PointDeath"] = global_position
+	var inventory = world["inventory"]["inventory"]
+	var death_inventory = world["inventory"]["death"]
+	death_inventory.clear()
+	if inventory.size() > 0:
+		var items_to_move = max(1, ceil(inventory.size() * 0.5))
+		var inventory_copy = inventory.duplicate()
+		inventory_copy.shuffle()
+		for i in range(min(items_to_move, inventory_copy.size())):
+			var item = inventory_copy[i]
+			death_inventory.append(item)
+			var index_to_remove = inventory.find(item)
+			if index_to_remove != -1:
+				inventory.remove_at(index_to_remove)
 
 func shoot():
 	if not movement_enabled or Global.game_settings["IsDying"] or not $hand_position/handItem.visible:
@@ -209,6 +229,7 @@ func HP(hp):
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["HP"] -= hp
+	$head/Camera3D/damage.play("damage")
 	if Global.game_settings["HP"] <= 0:
 		PlayerDeath()
 

@@ -42,10 +42,6 @@ func teleport(map):
 		0.0, 1.0, 1.0
 	)
 	$AnimationPlayer.play("teleport")
-	$ImpenetrableField.on(false)
-	$ImpenetrableField2.on(false)
-	$ImpenetrableField3.on(false)
-	$ImpenetrableField4.on(false)
 	await tween1.finished
 	var player = get_tree().get_first_node_in_group("player")
 	player.get_node("head/Camera3D/Teleport").teleport()
@@ -59,10 +55,6 @@ func teleport(map):
 		SceneManager.load_scene_with_loading(map)
 		return
 	$AnimationPlayer.play("RESET")
-	$ImpenetrableField.on(true)
-	$ImpenetrableField2.on(true)
-	$ImpenetrableField3.on(true)
-	$ImpenetrableField4.on(true)
 	for i in range(20):
 		set_cube_colors(Color.BLACK if i % 2 == 0 else Color("9f009f"))
 		await get_tree().create_timer(0.5).timeout

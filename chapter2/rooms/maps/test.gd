@@ -9,6 +9,15 @@ func _ready() -> void:
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
 	get_node("Player/head/Camera3D/timer").start_countdown(world["PortalTimer"])
 	Global.game_settings["step"] = 2
+	DeathBox()
+
+func DeathBox():
+	var death_point = world["PointDeath"]
+	if (death_point is Vector3) and (world["inventory"]["death"] != []):
+		$deathChest.global_position = death_point
+	else:
+		$deathChest.queue_free()
+	world["PointDeath"] = ""
 
 func handle_interaction(object_name: String):
 	match object_name:

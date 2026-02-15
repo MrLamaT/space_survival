@@ -1,6 +1,8 @@
 extends Area3D
 
 @export var chest: String
+@export var _base_color: Color
+@export var _base_sprite: Texture
 
 var stage_items = {
 	1: {
@@ -18,6 +20,8 @@ var chance_settings = {
 	"rare": 0.1
 }
 
+var _secondary_color: Color
+
 func _ready() -> void:
 	var world_data = Global.get_world(Global.game_settings.word)
 	var current_stage = world_data.stage
@@ -31,6 +35,15 @@ func _ready() -> void:
 			queue_free()
 			return
 		world_data.inventory[chest] = generate_random_inventory(current_stage)
+	ApplyingSkin()
+
+func ApplyingSkin():
+	var material = StandardMaterial3D.new()
+	material.albedo_color = _base_color
+	$MeshInstance3D.material_override = material
+	_secondary_color = _base_color.darkened(0.3)
+	$Sprite3D.texture = _base_sprite
+	$Sprite3D.modulate = _secondary_color
 
 func generate_random_inventory(stage: int) -> Array:
 	var inventory = []
@@ -47,7 +60,6 @@ func generate_random_inventory(stage: int) -> Array:
 		inventory.append(selected_item)
 	return inventory
 
-
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
 	player.open_inventory(chest, "storage", 4, 1)
@@ -58,6 +70,6 @@ func _on_mouse_entered() -> void:
 	$Sprite3D/OmniLight3D.visible = true
 
 func _on_mouse_exited() -> void:
-	$Sprite3D.modulate = Color("402923")
+	$Sprite3D.modulate = _secondary_color
 	$Sprite3D.shaded = true
 	$Sprite3D/OmniLight3D.visible = false

@@ -160,6 +160,42 @@ _data = {
 &"warning": SubResource("Animation_y13tn")
 }
 
+[sub_resource type="Animation" id="Animation_1c5wy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood2:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uqqn0"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood2:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pv45"]
+_data = {
+&"RESET": SubResource("Animation_1c5wy"),
+&"damage": SubResource("Animation_uqqn0")
+}
+
 [sub_resource type="Animation" id="Animation_3lojj"]
 resource_name = "BlackOut"
 length = 0.5
@@ -402,7 +438,7 @@ texture = ExtResource("4_3lojj")
 offset = Vector2(32, 16)
 
 [node name="blood2" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
-visible = false
+modulate = Color(1, 1, 1, 0)
 z_index = -1
 scale = Vector2(18, 20.25)
 texture = ExtResource("5_xng4x")
@@ -651,6 +687,9 @@ texture = ExtResource("12_r6r0m")
 visible = false
 position = Vector2(910, 323)
 scale = Vector2(0.75, 0.75)
+
+[node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
+libraries/ = SubResource("AnimationLibrary_0pv45")
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("12_y13tn")

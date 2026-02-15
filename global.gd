@@ -149,6 +149,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"mode": 0,
 		"stage": 0,
 		"selectWorld": "",
+		"PointDeath": "",
 		"build": {
 			"chest": 0
 		},
@@ -156,7 +157,8 @@ func reset_world_to_default(world_num: int) -> void:
 			"inventory": [],
 			"chest_1": [],
 			"chest_2": [],
-			"chest_3": []
+			"chest_3": [],
+			"death": []
 		}
 	}
 	match world_num:
