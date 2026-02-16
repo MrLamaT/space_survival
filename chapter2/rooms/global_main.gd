@@ -27,7 +27,7 @@ func handle_interaction(object_name: String):
 	match object_name:
 		"portal":
 			if world["selectWorld"] != "":
-				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/test.tscn")
+				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/RoP.tscn")
 			else:
 				var player = $Player
 				if Global.game_settings["gui_settings"]["Language"] == "русский":
