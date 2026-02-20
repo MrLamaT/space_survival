@@ -250,4 +250,8 @@ use_billboard_sprite = true
 sprite_label = "storage"
 required_resources = Array[String](["iron", "iron"])
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79402236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
+light_energy = 0.1
+
 [connection signal="body_entered" from="ship/Zona1/KillZona" to="." method="_on_kill_zona_body_entered"]

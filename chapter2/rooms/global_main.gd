@@ -51,4 +51,3 @@ func setBuild():
 		$ship/Zona1/chest/chest3.position.y = 0.475
 		$ship/Zona1/chest/InteractableObject.queue_free()
 	$Player.recipe([], "", "")
-	
