@@ -164,7 +164,7 @@ func PlayerDeath():
 	$head/Camera3D/UI.visible = false
 	$hand_position.visible = false
 	await get_tree().create_timer(2.5).timeout
-	Global.game_settings["HP"] = 100
+	world["HP"] = 100
 	respawn_player()
 
 func DeathInventory():
@@ -228,9 +228,10 @@ func add_recoil():
 func HP(hp):
 	if Global.game_settings["IsDying"]:
 		return
-	Global.game_settings["HP"] -= hp
+	var world = Global.get_world(Global.game_settings.word)
+	world["HP"] -= hp
 	$head/Camera3D/damage.play("damage")
-	if Global.game_settings["HP"] <= 0:
+	if world["HP"] <= 0:
 		PlayerDeath()
 
 func respawn_player():
@@ -416,7 +417,8 @@ func message(Mtext):
 	$AnimationPlayer.play("message")
 
 func _physics_process(delta):
-	$head/Camera3D/UI/HP/Label.text = str(int(Global.game_settings["HP"]))
+	var world = Global.get_world(Global.game_settings.word)
+	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
 	$head/Camera3D/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if not Global.game_settings["affected_by_gravity"]:
 		is_floating = false

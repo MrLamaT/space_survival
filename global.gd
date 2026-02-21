@@ -19,7 +19,6 @@ var game_settings: Dictionary = {
 	"CanThrowItem": true,
 	"GodMod": false,
 	"Item": "",
-	"HP": 100,
 	"nails_cartridge": 8,
 	"shock_cartridge": 2,
 	"IsDying": false,
@@ -148,6 +147,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"stage": 0,
+		"HP": 100,
 		"selectWorld": "",
 		"PointDeath": "",
 		"build": {

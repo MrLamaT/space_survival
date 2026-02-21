@@ -1,8 +1,6 @@
-res://chapter2/rooms/GlobalMain.tscn
-res://chapter2/rooms/global_main.gd
-res://UI/planet/planet.gd
 res://chapter2/rooms/maps/RoP.tscn
-res://chapter2/rooms/decoration/wall/wall.tscn
-res://chapter2/rooms/decoration/wall/wall.gd
-res://chapter2/rooms/decoration/wall/wallGates.tscn
-res://UI/planet/planet.tscn
+res://global.gd
+res://chapter2/Player/player.gd
+res://UI/timer/timer.gd
+res://UI/AIship/AIship.tscn
+res://UI/AIship/AIship.gd
