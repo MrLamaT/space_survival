@@ -151,7 +151,8 @@ func reset_world_to_default(world_num: int) -> void:
 		"selectWorld": "",
 		"PointDeath": "",
 		"build": {
-			"chest": 0
+			"chest": 0,
+			"workbench": 0
 		},
 		"inventory": {
 			"inventory": [],

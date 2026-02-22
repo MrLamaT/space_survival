@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="11_fqaro"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="15_akdvk"]
 [ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="16_h1qgk"]
+[ext_resource type="PackedScene" uid="uid://b3rxfbmsi1qv2" path="res://chapter2/rooms/decoration/workbench.tscn" id="17_h6cr0"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="21_fh80c"]
 [ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/material25.png" id="25_jhkrm"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
@@ -249,6 +250,19 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "storage"
 required_resources = Array[String](["iron", "iron"])
+
+[node name="workbench" type="Node3D" parent="ship/Zona1" unique_id=192270933]
+
+[node name="workbench" parent="ship/Zona1/workbench" unique_id=251428274 instance=ExtResource("17_h6cr0")]
+transform = Transform3D(-6.556709e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556709e-08, 6.95, -4.85, -1.5)
+
+[node name="InteractableObject" parent="ship/Zona1/workbench" unique_id=1987921257 instance=ExtResource("16_h1qgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, 2)
+interaction_name = "workbench"
+handler_node = NodePath("../../../..")
+use_billboard_sprite = true
+sprite_label = "workbench"
+required_resources = Array[String](["iron", "copper", "coal"])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79402236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)

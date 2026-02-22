@@ -1,7 +1,9 @@
-Sprite3D
-Label3D
+MeshInstance3D
 Node3D
 AnimationPlayer
+CSGCombiner3D
+Sprite3D
+Label3D
 DirectionalLight3D
 Panel
 Label
@@ -10,5 +12,3 @@ Sprite2D
 ColorRect
 SubViewport
 SubViewportContainer
-StaticBody3D
-Area3D

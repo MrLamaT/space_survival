@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bwvprsripwl1m" path="res://chapter2/trap/trap.tscn" id="17_t3y8a"]
 [ext_resource type="PackedScene" uid="uid://cmggski320s00" path="res://chapter2/rooms/decoration/tree.tscn" id="18_tusxh"]
 [ext_resource type="PackedScene" uid="uid://bkb3lr01j0ug3" path="res://chapter2/rooms/decoration/StreetWall.tscn" id="19_3cade"]
-[ext_resource type="PackedScene" uid="uid://2wrfubx7a0ln" path="res://chapter2/rooms/decoration/ExitGates.tscn" id="20_co7v1"]
 [ext_resource type="PackedScene" uid="uid://crknx4gx3q5wb" path="res://chapter2/rooms/decoration/StreetLamp.tscn" id="22_5espy"]
 [ext_resource type="PackedScene" uid="uid://baqi51ygvoof" path="res://chapter2/closet/shield.tscn" id="26_bmlje"]
 [ext_resource type="PackedScene" uid="uid://epl1yj604jor" path="res://chapter2/enemy/enemy1.tscn" id="28_bj5nk"]
@@ -259,9 +258,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9, 2.989, 2.7999992)
 
 [node name="StreetWall13" parent="NavigationRegion3D/StreetWall" unique_id=204438949 instance=ExtResource("19_3cade")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.9, 2.989, 2.7999992)
-
-[node name="ExitGates" parent="NavigationRegion3D/StreetWall" unique_id=1292467422 instance=ExtResource("20_co7v1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 2.989, 2.8)
 
 [node name="StreetLamp" parent="NavigationRegion3D" unique_id=1689148216 instance=ExtResource("22_5espy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.051829, 2.5159025, 18.598816)

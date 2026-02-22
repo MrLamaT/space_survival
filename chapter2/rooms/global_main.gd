@@ -41,6 +41,13 @@ func handle_interaction(object_name: String):
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
+		"workbench":
+			world["build"]["workbench"] += 1
+			setBuild()
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Строительство завершено!")
+			else:
+				$Player.warning("Construction complete!")
 
 func setBuild():
 	if world["build"]["chest"] >= 0:
@@ -50,4 +57,7 @@ func setBuild():
 	if world["build"]["chest"] >= 2:
 		$ship/Zona1/chest/chest3.position.y = 0.475
 		$ship/Zona1/chest/InteractableObject.queue_free()
+	if world["build"]["workbench"] >= 1:
+		$ship/Zona1/workbench/workbench.position.y = 0.45
+		$ship/Zona1/workbench/InteractableObject.queue_free()
 	$Player.recipe([], "", "")

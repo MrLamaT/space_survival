@@ -503,7 +503,6 @@ offset_right = 126.0
 offset_bottom = 610.0
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "100"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Teleport" parent="head/Camera3D" unique_id=959803594 instance=ExtResource("9_y13tn")]
@@ -520,7 +519,7 @@ position = Vector2(1035, 100)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, -0.20000005, -0.5)
 
 [node name="BulletSpawn" type="Marker3D" parent="head/Camera3D" unique_id=1917553546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.4, -0.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.14999998, -0.85)
 
 [node name="silicon" type="Sprite2D" parent="head/Camera3D" unique_id=1235826446]
 visible = false
