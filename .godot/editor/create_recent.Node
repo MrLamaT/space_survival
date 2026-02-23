@@ -1,6 +1,10 @@
-MeshInstance3D
-Node3D
 AnimationPlayer
+Node3D
+GPUParticles3D
+AudioStreamPlayer3D
+CollisionShape3D
+Area3D
+MeshInstance3D
 CSGCombiner3D
 Sprite3D
 Label3D
@@ -8,7 +12,3 @@ DirectionalLight3D
 Panel
 Label
 Control
-Sprite2D
-ColorRect
-SubViewport
-SubViewportContainer

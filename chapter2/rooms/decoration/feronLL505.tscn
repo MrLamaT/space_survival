@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://cyhpb2fq0on1c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0uje"]
+size = Vector3(2, 3.558, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdsuu"]
+size = Vector3(0.25, 5, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
+albedo_color = Color(0.9882353, 0.7137255, 0.007843138, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ej8gu"]
+material = SubResource("StandardMaterial3D_m0uje")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_m0uje"]
+material = SubResource("StandardMaterial3D_m0uje")
+top_radius = 0.075
+bottom_radius = 0.075
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40gp7"]
+albedo_color = Color(0.061473116, 0.04994154, 0.037142165, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0uje"]
+material = SubResource("StandardMaterial3D_40gp7")
+size = Vector3(0.1, 0.75, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej8gu"]
+shading_mode = 0
+albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vkjcn"]
+material = SubResource("StandardMaterial3D_ej8gu")
+size = Vector3(0.1, 0.6, 0.6)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vkjcn"]
+material = SubResource("StandardMaterial3D_m0uje")
+top_radius = 0.1
+bottom_radius = 0.1
+
+[node name="StreetLamp" type="Area3D" unique_id=1550972398]
+collision_layer = 4
+collision_mask = 3
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1496638069]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868613835]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.79836416, 0)
+shape = SubResource("BoxShape3D_m0uje")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1827699606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_kdsuu")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=943808342]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1788564959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+mesh = SubResource("CylinderMesh_ej8gu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D" unique_id=1789075175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("CylinderMesh_m0uje")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D" unique_id=645949692]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.7460089, 0)
+mesh = SubResource("CylinderMesh_m0uje")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D" unique_id=2019781050]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.2, -0.6)
+mesh = SubResource("BoxMesh_m0uje")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D8" unique_id=1854185962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0)
+mesh = SubResource("BoxMesh_vkjcn")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/MeshInstance3D8/MeshInstance3D" unique_id=801102306]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+spot_range = 70.0
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D" unique_id=202167293]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.2, 0.6)
+mesh = SubResource("BoxMesh_m0uje")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D9" unique_id=1322903466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05, 0, 0)
+mesh = SubResource("BoxMesh_vkjcn")
+skeleton = NodePath("../../..")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/MeshInstance3D9/MeshInstance3D" unique_id=1994821504]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+spot_range = 70.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=730234024]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, -0.7)
+mesh = SubResource("CylinderMesh_vkjcn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D" unique_id=1368350316]
+transform = Transform3D(0.70710677, -0.7071067, 0, 0.70710677, 0.7071067, 0, 0, 0, 0.99999994, 0.7, 0, 0)
+mesh = SubResource("CylinderMesh_vkjcn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=1608677158]
+transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 0.99999994, -0.7, 0, 0)
+mesh = SubResource("CylinderMesh_vkjcn")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=916452421]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0.7)
+mesh = SubResource("CylinderMesh_vkjcn")
+skeleton = NodePath("../..")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btmmp4wgsylsa"
-path="res://.godot/imported/flashlight.png-63cbccea3143319c3ebcdbbc94c23731.ctex"
+uid="uid://bflx8bly6oy8x"
+path="res://.godot/imported/schematic.png-bfcfadfc1dfaa922d74108dc9ad62d52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/flashlight.png"
-dest_files=["res://.godot/imported/flashlight.png-63cbccea3143319c3ebcdbbc94c23731.ctex"]
+source_file="res://assets/item/schematic.png"
+dest_files=["res://.godot/imported/schematic.png-bfcfadfc1dfaa922d74108dc9ad62d52.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

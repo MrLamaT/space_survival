@@ -254,7 +254,7 @@ required_resources = Array[String](["iron", "iron"])
 [node name="workbench" type="Node3D" parent="ship/Zona1" unique_id=192270933]
 
 [node name="workbench" parent="ship/Zona1/workbench" unique_id=251428274 instance=ExtResource("17_h6cr0")]
-transform = Transform3D(-6.556709e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556709e-08, 6.95, -4.85, -1.5)
+transform = Transform3D(-5.4639237e-08, 0, -1.25, 0, 1.25, 0, 1.25, 0, -5.4639237e-08, 6.95, -4.85, -1.5)
 
 [node name="InteractableObject" parent="ship/Zona1/workbench" unique_id=1987921257 instance=ExtResource("16_h1qgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, 2)

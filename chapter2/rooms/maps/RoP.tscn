@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="7_ehydn"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="8_ug7w8"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="9_huk7k"]
+[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="12_dfycd"]
+[ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://chapter2/rooms/decoration/feronLL505.tscn" id="13_0m8kx"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="13_lqwyh"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="14_0vstr"]
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/textures/LogoDeath.png" id="15_b4kqi"]
@@ -287,6 +289,39 @@ emergency_light = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15.5, 0, 27)
 emergency_light = true
 
+[node name="StreetLamp" parent="NavigationRegion3D" unique_id=1550972398 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(0.4369353, 0, -0.54688895, 0, 0.7, 0, 0.54688895, 0, 0.4369353, 5.804, 6, -45.969)
+
+[node name="StreetLamp8" parent="NavigationRegion3D" unique_id=618188721 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(0.4369353, 0, -0.54688895, 0, 0.7, 0, 0.54688895, 0, 0.4369353, 11.385529, 1, -28.529)
+
+[node name="StreetLamp9" parent="NavigationRegion3D" unique_id=1841191280 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.69334483, 0, -0.096295945, 0, 0.7, 0, 0.096295945, 0, -0.69334483, -0.655, 1, -10.009)
+
+[node name="StreetLamp10" parent="NavigationRegion3D" unique_id=1361799463 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(0.2052092, 0, -0.66924524, 0, 0.7, 0, 0.66924524, 0, 0.2052092, 14.072, 1, 12.396)
+
+[node name="StreetLamp11" parent="NavigationRegion3D" unique_id=623163925 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.59066916, 0, -0.375646, 0, 0.7, 0, 0.375646, 0, -0.59066916, -2.396, 1, 23.441)
+
+[node name="StreetLamp3" parent="NavigationRegion3D" unique_id=904520815 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.68968964, 0, -0.119700395, 0, 0.7, 0, 0.119700395, 0, -0.68968964, -6.914, 6, -43.068)
+
+[node name="StreetLamp2" parent="NavigationRegion3D" unique_id=2115802742 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.31982732, 0, 0.62266403, 0, 0.7, 0, -0.62266403, 0, -0.31982732, 9.073359, 6, -61.122326)
+
+[node name="StreetLamp4" parent="NavigationRegion3D" unique_id=1353887850 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.31982732, 0, 0.62266403, 0, 0.7, 0, -0.62266403, 0, -0.31982732, 16.282, 11, -61.263706)
+
+[node name="StreetLamp7" parent="NavigationRegion3D" unique_id=775163846 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.31982732, 0, 0.62266403, 0, 0.7, 0, -0.62266403, 0, -0.31982732, -23.663, 11, -61.263237)
+
+[node name="StreetLamp5" parent="NavigationRegion3D" unique_id=1083803641 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(-0.5012408, 0, -0.48862833, 0, 0.7, 0, 0.48862833, 0, -0.5012408, 26.058, 11, -48.519)
+
+[node name="StreetLamp6" parent="NavigationRegion3D" unique_id=155130011 instance=ExtResource("13_0m8kx")]
+transform = Transform3D(0.53869677, 0, -0.44699642, 0, 0.7, 0, 0.44699642, 0, 0.53869677, 36.375294, 11, -38.979)
+
 [node name="deathChest" parent="." unique_id=1142319162 instance=ExtResource("14_0vstr")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 chest = "death"
@@ -362,5 +397,11 @@ debug_fill = false
 [node name="CSGBox3D" type="CSGBox3D" parent="dirt4/CSGCombiner3D" unique_id=1670885826]
 size = Vector3(2.5, 1, 2.5)
 material = SubResource("StandardMaterial3D_kmrdn")
+
+[node name="Spring" parent="." unique_id=1428768737 instance=ExtResource("12_dfycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.262744, 0.5, -35.464)
+
+[node name="Spring2" parent="." unique_id=1626194758 instance=ExtResource("12_dfycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.332144, 5.4864545, -57.731815)
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
