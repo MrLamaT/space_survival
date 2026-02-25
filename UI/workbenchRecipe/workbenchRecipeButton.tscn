@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://62jhviqg3mdm"]
+
+[ext_resource type="Script" uid="uid://dfnnalh7ewjsu" path="res://UI/workbenchRecipe/workbench_recipe_button.gd" id="1_a2mfu"]
+[ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_a08ub"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_r7rrw"]
+
+[node name="Control1" type="Control" unique_id=923352174]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_a2mfu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1018427359]
+position = Vector2(32, 32)
+texture = ExtResource("2_a08ub")
+
+[node name="Button" type="Button" parent="." unique_id=996595567]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+offset_top = 0.33332825
+offset_right = 64.0
+offset_bottom = 64.33333
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="." unique_id=888380046]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 20.0
+offset_right = 108.0
+offset_bottom = 43.0
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_fonts/font = ExtResource("2_r7rrw")
+vertical_alignment = 1
+
+[connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
+[connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bj5d5vyjtl57a"]
+
+[ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/workbenchRecipe/workbenchRecipeButton.tscn" id="1_kc2rc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="workbench" type="Node2D" unique_id=38368963]
+
+[node name="Panel" type="Panel" parent="." unique_id=1949862155]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1792009513]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.0
+offset_top = -314.0
+offset_right = -526.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="Control1" parent="Panel/VBoxContainer" unique_id=923352174 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+sprite_label = "рашифровать рецепт"
+required_resources = Array[String](["schematic"])
+required_description = "да"
+
+[node name="Control2" parent="Panel/VBoxContainer" unique_id=83531797 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control3" parent="Panel/VBoxContainer" unique_id=839778713 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control4" parent="Panel/VBoxContainer" unique_id=380768315 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control5" parent="Panel/VBoxContainer" unique_id=1137515755 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control6" parent="Panel/VBoxContainer" unique_id=677495700 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control7" parent="Panel/VBoxContainer" unique_id=472856549 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control8" parent="Panel/VBoxContainer" unique_id=2044113638 instance=ExtResource("1_kc2rc")]
+layout_mode = 2
+
+[node name="Control9" parent="Panel/VBoxContainer" unique_id=626549887 instance=ExtResource("1_kc2rc")]
+layout_mode = 2

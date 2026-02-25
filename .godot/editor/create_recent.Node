@@ -1,3 +1,6 @@
+VBoxContainer
+Button
+Panel
 AnimationPlayer
 Node3D
 GPUParticles3D
@@ -9,6 +12,4 @@ CSGCombiner3D
 Sprite3D
 Label3D
 DirectionalLight3D
-Panel
 Label
-Control

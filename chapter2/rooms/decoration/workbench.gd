@@ -16,7 +16,7 @@ func ApplyingSkin():
 
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
-	print(player)
+	player.openUI("workbenchRecipe")
 
 func _on_mouse_entered() -> void:
 	$StaticBody/Sprite3D.modulate = Color("ffffffff")

@@ -684,6 +684,7 @@ texture = ExtResource("12_r6r0m")
 
 [node name="recipe" parent="head/Camera3D" unique_id=709397907 instance=ExtResource("13_hold0")]
 visible = false
+z_index = 1
 position = Vector2(910, 323)
 scale = Vector2(0.75, 0.75)
 
