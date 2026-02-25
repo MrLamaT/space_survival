@@ -1,11 +1,9 @@
-res://chapter2/rooms/decoration/workbench.tscn
-res://UI/RecipeButton/RecipeButton.tscn
-res://UI/LabelButton/LabelButton.tscn
-res://chapter2/Player/Player.tscn
-res://UI/workbench/workbench.tscn
-res://UI/recipe/recipe.tscn
 res://UI/workbenchRecipe/workbenchRecipe.tscn
 res://UI/workbenchRecipe/workbench_recipe.gd
 res://UI/workbenchRecipe/workbench_recipe_button.gd
 res://UI/workbenchRecipe/workbenchRecipeButton.tscn
-res://chapter2/rooms/decoration/workbench.gd
+res://global.gd
+res://chapter2/closet/chest.tscn
+res://chapter2/closet/chest.gd
+res://chapter2/rooms/decoration/lighthouse.tscn
+res://chapter2/rooms/maps/RoP.tscn

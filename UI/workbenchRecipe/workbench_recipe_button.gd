@@ -1,8 +1,5 @@
 extends Control
 
-@export var interaction_name: String = "" 
-@export var handler_node: NodePath 
-@export var handler_method: String = "handle_interaction" 
 @export var sprite_label: String = ""
 @export var required_resources: Array[String] = []
 @export var required_description: String = ""
@@ -15,19 +12,6 @@ func _ready():
 	if billboard_sprite:
 		visible = true
 		billboard_label.text = sprite_label
-	if interaction_name == "":
-		push_warning("InteractableObject at %s has no interaction name set!" % global_position)
-	if handler_node.is_empty():
-		push_warning("InteractableObject at %s has no handler node set!" % global_position)
-
-func trigger_interaction():
-	if !check_and_consume_resources():
-		return
-	var target_node = get_node(handler_node)
-	if target_node and target_node.has_method(handler_method):
-		target_node.call(handler_method, interaction_name)
-	else:
-		push_error("Handler node or method not found for interaction: %s" % interaction_name)
 
 func check_and_consume_resources() -> bool:
 	if required_resources.size() == 0:
@@ -73,10 +57,37 @@ func check_and_consume_resources() -> bool:
 				removed_count += 1
 	return true
 
-func _on_button_focus_entered() -> void:
+func _on_button_pressed() -> void:
+	if !check_and_consume_resources():
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_parent().get_parent().get_parent().queue_free()
+		return
+	if sprite_label == "decipher the recipe":
+		var world = Global.get_world(Global.game_settings.word)
+		var available_builds = []
+		for key in world["build"]:
+			if world["build"][key] == -1:
+				available_builds.append(key)
+		if available_builds.size() > 0:
+			var random_index = randi() % available_builds.size()
+			var selected_key = available_builds[random_index]
+			world["build"][selected_key] = 0
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				player.warning("Новый чертёж получен!")
+			else:
+				player.warning("New blueprint acquired!")
+		else:
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				player.warning("Нет новых чертежей для текущего этапа.")
+			else:
+				player.warning("No new blueprints available for current stage.")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_parent().get_parent().get_parent().queue_free()
+
+func _on_button_mouse_entered() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe(required_resources, sprite_label, required_description)
 
-func _on_button_focus_exited() -> void:
+func _on_button_mouse_exited() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe([], "", "")

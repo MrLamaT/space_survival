@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="7_ehydn"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="8_ug7w8"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="9_huk7k"]
+[ext_resource type="PackedScene" uid="uid://dukni03dmr573" path="res://chapter2/rooms/decoration/lighthouse.tscn" id="11_2lrxp"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="12_dfycd"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://chapter2/rooms/decoration/feronLL505.tscn" id="13_0m8kx"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="13_lqwyh"]
@@ -321,6 +322,15 @@ transform = Transform3D(-0.5012408, 0, -0.48862833, 0, 0.7, 0, 0.48862833, 0, -0
 
 [node name="StreetLamp6" parent="NavigationRegion3D" unique_id=155130011 instance=ExtResource("13_0m8kx")]
 transform = Transform3D(0.53869677, 0, -0.44699642, 0, 0.7, 0, 0.44699642, 0, 0.53869677, 36.375294, 11, -38.979)
+
+[node name="lighthouse" parent="NavigationRegion3D" unique_id=788143296 instance=ExtResource("11_2lrxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.330177, 10.766, -43.317547)
+
+[node name="lighthouse2" parent="NavigationRegion3D" unique_id=1900138005 instance=ExtResource("11_2lrxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.192951, 0.766, 22.368362)
+
+[node name="lighthouse3" parent="NavigationRegion3D" unique_id=416573538 instance=ExtResource("11_2lrxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.205803, 5.7660007, -57.75652)
 
 [node name="deathChest" parent="." unique_id=1142319162 instance=ExtResource("14_0vstr")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

@@ -34,9 +34,8 @@ theme_override_constants/separation = 70
 
 [node name="Control1" parent="Panel/VBoxContainer" unique_id=923352174 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
-sprite_label = "рашифровать рецепт"
+sprite_label = "decipher the recipe"
 required_resources = Array[String](["schematic"])
-required_description = "да"
 
 [node name="Control2" parent="Panel/VBoxContainer" unique_id=83531797 instance=ExtResource("1_kc2rc")]
 layout_mode = 2

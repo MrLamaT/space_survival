@@ -7,11 +7,11 @@ extends Area3D
 var stage_items = {
 	1: {
 		"common": ["iron", "copper", "coal"],      
-		"rare": ["quartz", "flashlight"]                      
+		"rare": ["quartz", "schematic"]                      
 	},
 	2: {
 		"common": ["iron", "copper", "coal"],
-		"rare": ["quartz", "flashlight"]
+		"rare": ["quartz", "schematic"]
 	}
 }
 
