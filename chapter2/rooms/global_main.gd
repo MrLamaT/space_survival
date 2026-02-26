@@ -51,6 +51,15 @@ func handle_interaction(object_name: String):
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
+		"light":
+			world["build"]["light"] += 1
+			setBuild()
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Строительство завершено!")
+			else:
+				$Player.warning("Construction complete!")
+			for i in range(1, 10):
+				get_node("ship/Zona1/wall" + str(i)).lightOn()
 
 func setBuild():
 	if world["build"]["chest"] >= 0:
@@ -59,8 +68,16 @@ func setBuild():
 		$ship/Zona1/chest/chest2.position.y = 0.475
 	if world["build"]["chest"] >= 2:
 		$ship/Zona1/chest/chest3.position.y = 0.475
-		$ship/Zona1/chest/InteractableObject.queue_free()
+		if has_node("ship/Zona1/chest/InteractableObject"):
+			$ship/Zona1/chest/InteractableObject.queue_free()
 	if world["build"]["workbench"] >= 1:
 		$ship/Zona1/workbench/workbench.position.y = 0.45
-		$ship/Zona1/workbench/InteractableObject.queue_free()
+		if has_node("ship/Zona1/workbench/InteractableObject"):
+			$ship/Zona1/workbench/InteractableObject.queue_free()
+	if world["build"]["light"] >= 1:
+		$ship/Zona1/Light.update_torch_color(Color("f3f1c5"))
+		$ship/Zona1/Light2.update_torch_color(Color("f3f1c5"))
+		$ship/Zona1/Light3.update_torch_color(Color("f3f1c5"))
+		if has_node("ship/Zona1/lightBuild/InteractableObject"):
+			$ship/Zona1/lightBuild/InteractableObject.queue_free()
 	$Player.recipe([], "", "")

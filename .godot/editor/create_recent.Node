@@ -1,9 +1,9 @@
+Node3D
 Sprite3D
 AnimationPlayer
 VBoxContainer
 Button
 Panel
-Node3D
 GPUParticles3D
 AudioStreamPlayer3D
 CollisionShape3D

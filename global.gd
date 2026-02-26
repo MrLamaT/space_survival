@@ -157,7 +157,8 @@ func reset_world_to_default(world_num: int) -> void:
 			"workbench": 0,
 			"chest": 0,
 			"light": 0,
-			"solar_panel": 0
+			"solar_panel": 0,
+			"copper_cable": -1
 		},
 		"inventory": {
 			"inventory": [],

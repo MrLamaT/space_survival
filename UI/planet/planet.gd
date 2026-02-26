@@ -20,3 +20,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "load" and world["selectWorld"] == "":
 		$Panel/Id.text = "ID planet: RoP-856"
 		world["selectWorld"] = $Panel/Id.text
+		var keys_to_remove = []
+		for key in world["inventory"].keys():
+			if key is String and "chest_W" in key:
+				keys_to_remove.append(key)
+		for key in keys_to_remove:
+			world["inventory"].erase(key)

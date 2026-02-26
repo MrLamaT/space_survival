@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bj5d5vyjtl57a"]
 
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/workbenchRecipe/workbenchRecipeButton.tscn" id="1_kc2rc"]
+[ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_t5vi5"]
+[ext_resource type="Texture2D" uid="uid://ca6jetkmbkk2s" path="res://assets/item/copper_cable.png" id="3_yheh7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -34,11 +36,16 @@ theme_override_constants/separation = 70
 
 [node name="Control1" parent="Panel/VBoxContainer" unique_id=923352174 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_texture = ExtResource("2_t5vi5")
 sprite_label = "decipher the recipe"
 required_resources = Array[String](["schematic"])
 
 [node name="Control2" parent="Panel/VBoxContainer" unique_id=83531797 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_texture = ExtResource("3_yheh7")
+sprite_label = "copper cable"
+required_resources = Array[String](["copper", "copper", "copper", "copper"])
+build_global = "copper_cable"
 
 [node name="Control3" parent="Panel/VBoxContainer" unique_id=839778713 instance=ExtResource("1_kc2rc")]
 layout_mode = 2

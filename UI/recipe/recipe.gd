@@ -32,7 +32,8 @@ func recipe(required_resources, required_label, required_description):
 			var resource = required_resources[i]
 			var sprite = control.get_node("Sprite2D")
 			var label = control.get_node("Label")
-			var texture_path = "res://assets/item/%s.png" % resource
+			var texture_filename = resource.replace(" ", "_")
+			var texture_path = "res://assets/item/%s.png" % texture_filename
 			var texture = texture_cache.get(texture_path)
 			if not texture:
 				texture = load(texture_path)

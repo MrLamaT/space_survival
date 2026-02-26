@@ -78,38 +78,56 @@ skin = 1
 
 [node name="wall1" parent="ship/Zona1" unique_id=2024134017 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.05164425, -0.01590252, 10.421387)
+light = true
+emergency_light = false
+glass = false
+mother_ship = true
 
 [node name="wall2" parent="ship/Zona1" unique_id=654008939 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 6.798355, -0.01590252, 7.5923862)
+light = true
+emergency_light = false
+glass = false
+mother_ship = true
 
 [node name="wall3" parent="ship/Zona1" unique_id=85523339 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -6.9016447, -0.01590252, 7.592387)
+light = true
+emergency_light = false
+glass = false
+mother_ship = true
 
 [node name="wall4" parent="ship/Zona1" unique_id=1928508872 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721645, -0.01590252, 0.76738733)
 emergency_light = true
 glass = true
+mother_ship = true
 
 [node name="wall5" parent="ship/Zona1" unique_id=1745126650 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618355, -0.01590252, 0.76738566)
 emergency_light = true
 glass = true
+mother_ship = true
 
 [node name="wall6" parent="ship/Zona1" unique_id=697429122 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721645, -0.01590252, -5.2353835)
 emergency_light = true
+mother_ship = true
 
 [node name="wall7" parent="ship/Zona1" unique_id=777113205 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618355, -0.01590252, -5.2353854)
 emergency_light = true
+mother_ship = true
 
 [node name="wall8" parent="ship/Zona1" unique_id=127263076 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, -9.721646, -0.01590252, -11.232613)
 emergency_light = true
+mother_ship = true
 
 [node name="wall9" parent="ship/Zona1" unique_id=1559170281 instance=ExtResource("29_oxgi4")]
 transform = Transform3D(1.3113416e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.3113416e-07, 9.618354, -0.01590252, -11.2326145)
 emergency_light = true
+mother_ship = true
 
 [node name="wall10" parent="ship/Zona1" unique_id=860480662 instance=ExtResource("29_jhkrm")]
 transform = Transform3D(-16.9, 0, -8.742278e-08, 0, 1, 0, 1.4774449e-06, 0, -1, -0.051646363, 0.3840975, -13.732614)
@@ -263,6 +281,16 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "workbench"
 required_resources = Array[String](["iron", "copper", "coal"])
+
+[node name="lightBuild" type="Node3D" parent="ship/Zona1" unique_id=938531591]
+
+[node name="InteractableObject" parent="ship/Zona1/lightBuild" unique_id=1069373469 instance=ExtResource("16_h1qgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, -10)
+interaction_name = "light"
+handler_node = NodePath("../../../..")
+use_billboard_sprite = true
+sprite_label = "light"
+required_resources = Array[String](["copper cable", "copper cable"])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79402236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)

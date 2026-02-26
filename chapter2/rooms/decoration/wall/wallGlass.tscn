@@ -33,6 +33,9 @@ texture_filter = 0
 
 [node name="wall" type="Node3D" unique_id=1000846582]
 script = ExtResource("1_67vyf")
+light = null
+emergency_light = null
+glass = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2004481998]
 collision_layer = 4

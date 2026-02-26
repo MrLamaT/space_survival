@@ -332,6 +332,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.192951, 0.766, 22.368362)
 [node name="lighthouse3" parent="NavigationRegion3D" unique_id=416573538 instance=ExtResource("11_2lrxp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.205803, 5.7660007, -57.75652)
 
+[node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_0vstr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -20.262497, 0.5, 20.250519)
+chest = "chest_W1"
+
+[node name="chest2" parent="." unique_id=1195173486 instance=ExtResource("14_0vstr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 23.713743, 0.5, -24.137403)
+chest = "chest_W2"
+
+[node name="chest3" parent="." unique_id=1645804995 instance=ExtResource("14_0vstr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -22.819351, 10.5, -58.474476)
+chest = "chest_W3"
+
+[node name="chest4" parent="." unique_id=365278508 instance=ExtResource("14_0vstr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 26.88831, 10.5, -32.894672)
+chest = "chest_W4"
+
+[node name="chest5" parent="." unique_id=601947172 instance=ExtResource("14_0vstr")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 2.0878272, 15.5, 34.38466)
+chest = "chest_W5"
+
 [node name="deathChest" parent="." unique_id=1142319162 instance=ExtResource("14_0vstr")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 chest = "death"

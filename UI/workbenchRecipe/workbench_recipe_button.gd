@@ -1,8 +1,10 @@
 extends Control
 
+@export var sprite_texture: Texture
 @export var sprite_label: String = ""
 @export var required_resources: Array[String] = []
 @export var required_description: String = ""
+@export var build_global: String = ""
 @onready var billboard_sprite: Sprite2D = $Sprite2D
 @onready var billboard_label: Label = $Label
 
@@ -10,8 +12,12 @@ var player: CharacterBody3D
 
 func _ready():
 	if billboard_sprite:
+		var world = Global.get_world(Global.game_settings.word)
+		$Sprite2D.texture = sprite_texture
 		visible = true
 		billboard_label.text = sprite_label
+		if build_global != "" and world["build"][build_global] < 0:
+			queue_free()
 
 func check_and_consume_resources() -> bool:
 	if required_resources.size() == 0:
@@ -81,13 +87,18 @@ func _on_button_pressed() -> void:
 				player.warning("Нет новых чертежей для текущего этапа.")
 			else:
 				player.warning("No new blueprints available for current stage.")
+	if sprite_label == "copper cable":
+		var world = Global.get_world(Global.game_settings.word)
+		world["inventory"]["inventory"].append("copper cable")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_parent().get_parent().get_parent().queue_free()
 
 func _on_button_mouse_entered() -> void:
+	$Label.modulate = Color("faff68")
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe(required_resources, sprite_label, required_description)
 
 func _on_button_mouse_exited() -> void:
+	$Label.modulate = Color("ffffffff")
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe([], "", "")
