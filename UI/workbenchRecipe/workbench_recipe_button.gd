@@ -5,6 +5,8 @@ extends Control
 @export var required_resources: Array[String] = []
 @export var required_description: String = ""
 @export var build_global: String = ""
+@export var build_global_min: int = 0
+@export var build_global_max: int = 0
 @onready var billboard_sprite: Sprite2D = $Sprite2D
 @onready var billboard_label: Label = $Label
 
@@ -16,7 +18,7 @@ func _ready():
 		$Sprite2D.texture = sprite_texture
 		visible = true
 		billboard_label.text = sprite_label
-		if build_global != "" and world["build"][build_global] < 0:
+		if build_global != "" and (world["build"][build_global] < build_global_min or  world["build"][build_global] > build_global_max):
 			queue_free()
 
 func check_and_consume_resources() -> bool:
@@ -90,6 +92,9 @@ func _on_button_pressed() -> void:
 	if sprite_label == "copper cable":
 		var world = Global.get_world(Global.game_settings.word)
 		world["inventory"]["inventory"].append("copper cable")
+	if sprite_label == "backpack 1":
+		var world = Global.get_world(Global.game_settings.word)
+		world["build"]["backpack"] += 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_parent().get_parent().get_parent().queue_free()
 

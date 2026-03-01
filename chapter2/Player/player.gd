@@ -68,6 +68,10 @@ var can_regenerate = true
 var regen_delay = 1  # Задержка перед восстановлением после бега
 var regen_timer = 0.0
 
+# Фонарик
+var flashlight_enabled: bool = false
+var flashlight_stamina_cost: float = 10.0  # Расход стамины в секунду при включенном фонарике
+
 var is_paused = false
 var is_terminal = false
 
@@ -325,6 +329,15 @@ func _input(event: InputEvent): #повороты мышкой
 		else:
 			crouched = !crouched  
 		update_running_speed()
+	if Input.is_action_just_pressed("+f"):
+		var world = Global.get_world(Global.game_settings.word)
+		if world["build"]["flashlight"] >= 1:
+			toggle_flashlight()
+		else:
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				warning("ОШИБКА: фонарик отсутствует")
+			else:
+				warning("ERROR: Flashlight missing")
 	if Input.is_action_just_pressed("+f1"):
 		var handVisible = !$hand_position/handItem.visible
 		$head/Camera3D/UI.visible = handVisible
@@ -339,6 +352,37 @@ func _input(event: InputEvent): #повороты мышкой
 			openUI("Pause")
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
+
+func toggle_flashlight():
+	if flashlight_enabled:
+		flashlight_enabled = false
+		$head/Camera3D/flashlight/AnimationPlayer.play("burnout")
+		$head/Camera3D/flashlight/SpotLight3D.visible = false
+		$head/Camera3D/flashlight/SpotLight3D2.visible = false
+	else:
+		if stamina > 0:
+			flashlight_enabled = true
+			$head/Camera3D/flashlight/AnimationPlayer.play("on")
+			$head/Camera3D/flashlight/SpotLight3D.visible = true
+			$head/Camera3D/flashlight/SpotLight3D2.visible = true
+		else:
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				warning("нет энергии")
+			else:
+				warning("no energy")
+			return
+	$beep.play()
+
+func update_flashlight(delta):
+	if flashlight_enabled and movement_enabled:
+		stamina = max(0, stamina - flashlight_stamina_cost * delta)
+		can_regenerate = false
+		regen_timer = 0.0
+		if stamina <= 0:
+			flashlight_enabled = false
+			$head/Camera3D/flashlight/AnimationPlayer.play("burnout")
+			$head/Camera3D/flashlight/SpotLight3D2.visible = false
+		update_stamina_display()
 
 func ghost_cheat():
 	cheat_f3 = !cheat_f3
@@ -356,6 +400,7 @@ func _process(delta):
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	_update_stamina(delta)
+	update_flashlight(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	interaction_manager.update_interaction(delta)

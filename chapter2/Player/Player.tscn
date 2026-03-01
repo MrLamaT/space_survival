@@ -112,6 +112,144 @@ _data = {
 &"take": SubResource("Animation_hold0")
 }
 
+[sub_resource type="Animation" id="Animation_0pv45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpotLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("flashlightText:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [530.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("flashlightText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q4qd6"]
+resource_name = "burnout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpotLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("flashlightText:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [502.0, 530.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("flashlightText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5019608), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eafwc"]
+resource_name = "on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flashlightText:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [530.0, 502.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flashlightText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.5019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eafwc"]
+_data = {
+&"RESET": SubResource("Animation_0pv45"),
+&"burnout": SubResource("Animation_q4qd6"),
+&"on": SubResource("Animation_eafwc")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lojj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 2
@@ -327,6 +465,7 @@ visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position" unique_id=1770924603]
 libraries/ = SubResource("AnimationLibrary_hold0")
+autoplay = &"take"
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -334,12 +473,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=2117932246]
 current = true
 
-[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D" unique_id=592302959]
+[node name="flashlight" type="Node3D" parent="head/Camera3D" unique_id=1438072815]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=592302959]
+visible = false
 spot_range = 15.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D" unique_id=1939203437]
+[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=1939203437]
+visible = false
 light_energy = 0.5
 spot_angle = 90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/flashlight" unique_id=1869635674]
+libraries/ = SubResource("AnimationLibrary_eafwc")
+
+[node name="flashlightText" type="Label" parent="head/Camera3D/flashlight" unique_id=904482022]
+modulate = Color(1, 1, 1, 0)
+offset_left = 18.0
+offset_top = 530.0
+offset_right = 162.0
+offset_bottom = 552.99963
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "flashlight"
+vertical_alignment = 1
 
 [node name="black" type="ColorRect" parent="head/Camera3D" unique_id=629452091]
 visible = false
@@ -375,18 +531,6 @@ offset_bottom = 622.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "00:00:00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="shoot2" type="Label" parent="head/Camera3D" unique_id=1257884787]
-visible = false
-offset_left = 732.0
-offset_top = 533.0
-offset_right = 894.0
-offset_bottom = 556.0
-scale = Vector2(3, 3)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "0/2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -463,7 +607,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 show_percentage = false
 
 [node name="staminaProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=667892664]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c6vhj6o1e6kgl"]
 
 [ext_resource type="Script" uid="uid://brsixyrg23tcu" path="res://chapter2/rooms/decoration/wall/impenetrable_field.gd" id="1_bv5rj"]
-[ext_resource type="Texture2D" uid="uid://qksjhmk4lf8o" path="res://assets/textures/material27.png" id="1_yb512"]
+[ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/sort.png" id="2_bv5rj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yeqmo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83stq"]
 transparency = 1
 cull_mode = 2
-albedo_texture = ExtResource("1_yb512")
+albedo_color = Color(1, 1, 1, 0.49019608)
+albedo_texture = ExtResource("2_bv5rj")
 metallic = 0.3
 texture_filter = 0
 
@@ -16,7 +17,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wall/box2:size:x")
+tracks/0/path = NodePath("wall/box4:size:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +44,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("wall/box2:size:x")
+tracks/0/path = NodePath("wall/box4:size:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,6 +72,68 @@ _data = {
 &"RESET": SubResource("Animation_gashk")
 }
 
+[sub_resource type="Animation" id="Animation_6q4hf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall/box:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wall/box2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2.5]
+}
+
+[sub_resource type="Animation" id="Animation_pqpdn"]
+resource_name = "pole"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall/box:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wall/box2:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.5, 1.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nh1gh"]
+_data = {
+&"RESET": SubResource("Animation_6q4hf"),
+&"pole": SubResource("Animation_pqpdn")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqpdn"]
 size = Vector3(5, 3.75, 0.2)
 
@@ -83,15 +146,29 @@ collision_mask = 3
 
 [node name="box" type="CSGBox3D" parent="wall" unique_id=84395701 groups=["wall"]]
 size = Vector3(5, 3.75, 0.1)
-material = SubResource("StandardMaterial3D_yeqmo")
+material = SubResource("StandardMaterial3D_83stq")
 
-[node name="box2" type="CSGBox3D" parent="wall" unique_id=2124404460 groups=["wall"]]
+[node name="box2" type="CSGBox3D" parent="wall" unique_id=652371534 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+size = Vector3(5, 3.75, 0.1)
+material = SubResource("StandardMaterial3D_83stq")
+
+[node name="box4" type="CSGBox3D" parent="wall" unique_id=2124404460 groups=["wall"]]
 operation = 2
 size = Vector3(5, 3.75, 0.2)
-material = SubResource("StandardMaterial3D_yeqmo")
+material = SubResource("StandardMaterial3D_83stq")
+
+[node name="box5" type="CSGBox3D" parent="wall" unique_id=2058669075 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
+operation = 2
+size = Vector3(5, 3.75, 0.2)
+material = SubResource("StandardMaterial3D_83stq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=459517786]
 libraries/ = SubResource("AnimationLibrary_6q4hf")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1592497672]
+libraries/ = SubResource("AnimationLibrary_nh1gh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=844559820]
 collision_layer = 4

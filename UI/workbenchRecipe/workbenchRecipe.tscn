@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bj5d5vyjtl57a"]
 
+[ext_resource type="Script" uid="uid://bxhr4v26atos4" path="res://UI/workbenchRecipe/workbench_recipe.gd" id="1_i72g0"]
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/workbenchRecipe/workbenchRecipeButton.tscn" id="1_kc2rc"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_t5vi5"]
 [ext_resource type="Texture2D" uid="uid://ca6jetkmbkk2s" path="res://assets/item/copper_cable.png" id="3_yheh7"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="5_hvgj3"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_msvbn"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="7_hvgj3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -12,7 +16,94 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_27jd1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r6kyn"]
+resource_name = "logo"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(10, 11, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966, 1.5707963267948966, 3.141592653589793]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msvbn"]
+_data = {
+&"RESET": SubResource("Animation_27jd1"),
+&"logo": SubResource("Animation_r6kyn")
+}
+
 [node name="workbench" type="Node2D" unique_id=38368963]
+script = ExtResource("1_i72g0")
 
 [node name="Panel" type="Panel" parent="." unique_id=1949862155]
 offset_right = 1152.0
@@ -27,9 +118,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -566.0
-offset_top = -314.0
+offset_top = -252.0
 offset_right = -526.0
-offset_bottom = 246.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 70
@@ -49,6 +140,10 @@ build_global = "copper_cable"
 
 [node name="Control3" parent="Panel/VBoxContainer" unique_id=839778713 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_label = "backpack 1"
+required_resources = Array[String](["iron", "iron", "copper cable", "copper cable"])
+required_description = "capacity Bonus: +4 Slots"
+build_global = "backpack"
 
 [node name="Control4" parent="Panel/VBoxContainer" unique_id=380768315 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
@@ -65,5 +160,30 @@ layout_mode = 2
 [node name="Control8" parent="Panel/VBoxContainer" unique_id=2044113638 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
 
-[node name="Control9" parent="Panel/VBoxContainer" unique_id=626549887 instance=ExtResource("1_kc2rc")]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=488008546]
+z_index = 1
+position = Vector2(40, 40)
+scale = Vector2(2, 2)
+texture = ExtResource("5_hvgj3")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1033062676]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 46.0
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_fonts/font = ExtResource("6_msvbn")
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel" unique_id=1764378791]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(40, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("7_hvgj3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1573796745]
+libraries/ = SubResource("AnimationLibrary_msvbn")
+autoplay = &"logo"

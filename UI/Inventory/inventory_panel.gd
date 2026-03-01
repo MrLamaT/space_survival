@@ -12,6 +12,14 @@ signal slot_right_clicked(panel_id, slot_index)
 var slots: Array[ItemSlot] = []
 
 func _ready():
+	var world = Global.get_world(Global.game_settings.word)
+	var backpack = world["build"]["backpack"]
+	if panel_id == "inventory":
+		if backpack > 0 and backpack < 6:
+			grid_height = backpack + 1
+		if backpack == 6:
+			grid_height = backpack
+			grid_width = 5
 	columns = grid_width
 	for i in range(grid_width * grid_height):
 		var slot_scene = load("res://UI/Inventory/ItemSlot.tscn")

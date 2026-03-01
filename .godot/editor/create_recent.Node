@@ -1,6 +1,8 @@
-Node3D
-Sprite3D
 AnimationPlayer
+Node3D
+Label
+Node2D
+Sprite3D
 VBoxContainer
 Button
 Panel
@@ -10,5 +12,3 @@ CollisionShape3D
 Area3D
 MeshInstance3D
 CSGCombiner3D
-Label3D
-DirectionalLight3D

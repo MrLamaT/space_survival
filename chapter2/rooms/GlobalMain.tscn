@@ -134,7 +134,7 @@ transform = Transform3D(-16.9, 0, -8.742278e-08, 0, 1, 0, 1.4774449e-06, 0, -1, 
 
 [node name="Light" parent="ship/Zona1" unique_id=872065384 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.051645163, 5.1840973, -0.032613512)
-torch_color = Color(0, 0, 0, 1)
+torch_color = Color(1, 0, 0, 1)
 
 [node name="Light3" parent="ship/Zona1" unique_id=9099645 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.051644463, 5.1840973, 7.9673867)
@@ -142,7 +142,7 @@ torch_color = Color(1, 0, 0, 1)
 
 [node name="Light2" parent="ship/Zona1" unique_id=872012408 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.05164604, 5.1840973, -10.032614)
-torch_color = Color(0, 0, 0, 1)
+torch_color = Color(1, 0, 0, 1)
 
 [node name="Light4" parent="ship/Zona1" unique_id=640223375 instance=ExtResource("32_80e1f")]
 transform = Transform3D(-0.5251598, 0, -0.8510037, 0, 1, 0, 0.8510037, 0, -0.5251598, 0.4153112, 2.4024546, 8.388197)

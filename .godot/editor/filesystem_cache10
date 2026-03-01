@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1772135965
+::res://::1772362804
 default_env.tres::Environment::4252175493748035018::1763216573::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1771886904::0::1::::<><><>0<>0<><>::
 global.gd::GDScript::3714646894747957548::1772135965::0::1::::<>Node<><>0<>0<><>::
@@ -40,7 +40,7 @@ teleport2.wav::AudioStreamWAV::8681677101498144016::1769788312::1769788312::1:::
 test.png::CompressedTexture2D::2434643815675116171::1767017105::1767017175::1::::<><><>0<>0<>2028e2d51680801d4e78c834c445f2cc<>res://.godot/imported/test.png-9345e8a13a5ffc7f7c123bcf8dce3547.ctex::
 trap.wav::AudioStreamWAV::4683631063995509353::1763216569::1763216605::1::::<><><>0<>0<>9f328ea16f0b219a247a900f797ff899<>res://.godot/imported/trap.wav-1b43ad0ad2e97b5e1dd3e64bf94d9966.sample::
 venti.mp3::AudioStreamMP3::8741171680663355549::1763216569::1763216604::1::::<><><>0<>0<>7e470746462758222bd5b1eb26479fd5<>res://.godot/imported/venti.mp3-e7b194617a2d22f962a6da5fb26beb13.mp3str::
-::res://assets/item/::1772135256
+::res://assets/item/::1772137971
 coal.png::CompressedTexture2D::7303642955791425132::1770322937::1770322940::1::::<><><>0<>0<>8bdd9c7010453c84b1c138537fab6890<>res://.godot/imported/coal.png-647fdc103d7429a1a2195815618d0f26.ctex::
 copper.png::CompressedTexture2D::6953925282941947998::1770246387::1770246390::1::::<><><>0<>0<>c450bfda945d08efd553042dbc829e7f<>res://.godot/imported/copper.png-8a8277d372c167d753860fe0ab52e53e.ctex::
 copper_cable.png::CompressedTexture2D::4837391687811236784::1772137858::1772137971::1::::<><><>0<>0<>4362cfb86438c85a2f436077b1d0d8ad<>res://.godot/imported/copper_cable.png-d4c8be1bc452073268cd9d272bb07c84.ctex::
@@ -231,8 +231,8 @@ terminal.tscn::PackedScene::8552313621222953844::1768283508::0::1::::<><><>0<>0<
 ::res://chapter2/portal/::1771162793
 portal.gd::GDScript::6633622357255409270::1771162793::0::1::::<>StaticBody3D<><>0<>0<><>::
 portal.tscn::PackedScene::70551535252775700::1771162759::0::1::::<><><>0<>0<><>::uid://c1rm15pa0qodi::::res://chapter2/portal/portal.gd<>uid://cav0g4fhsohr2::::res://assets/teleport1.wav<>uid://dvxp7ogrjepae::::res://assets/teleport2.wav<>uid://ndlne2lgksdk::::res://chapter2/teleport_cube/teleport_cube.tscn<>uid://ccpmoysk2fpo8::::res://assets/textures/material8.png<>uid://c7pexrp31h77::::res://assets/textures/material26.png<>uid://dxq20ahvutywr::::res://assets/textures/material25.png<>uid://66f66cwy6tfc::::res://chapter2/rooms/decoration/table.tscn
-::res://chapter2/rooms/::1772134688
-GlobalMain.tscn::PackedScene::5757032175545689583::1772133290::0::1::::<><><>0<>0<><>::uid://c1b3ijvg6fiwb::::res://chapter2/rooms/global_main.gd<>uid://66f66cwy6tfc::::res://chapter2/rooms/decoration/table.tscn<>uid://cn5qxioc77162::::res://chapter2/Player/Player.tscn<>uid://d1lre76f0a5ir::::res://chapter2/closet/chest.tscn<>uid://bsbcsmkb4kgdi::::res://chapter2/interactable_object/InteractableObject.tscn<>uid://b3rxfbmsi1qv2::::res://chapter2/rooms/decoration/workbench.tscn<>uid://bd832m7qavblv::::res://assets/textures/material1.png<>uid://dxq20ahvutywr::::res://assets/textures/material25.png<>uid://bfegx3jao2xq8::::res://assets/textures/material12.png<>uid://baf8dlttmni7::::res://chapter2/portal/portal.tscn<>uid://dxhy42mlkocj0::::res://chapter2/rooms/decoration/wall/wallGlass.tscn<>uid://r8ovmsrsspiy::::res://chapter2/rooms/decoration/button.tscn<>uid://bh30777mfkhal::::res://chapter2/rooms/decoration/wall/wall_pillar.tscn<>uid://wstyeotnokcn::::res://chapter2/rooms/decoration/wall/wall.tscn<>uid://bpglrkg3gng2c::::res://chapter2/rooms/decoration/lightTable.tscn<>uid://d2kp3ovym1413::::res://chapter2/rooms/decoration/PC2.tscn<>uid://cdrhprd8i3g4q::::res://chapter2/rooms/decoration/light.tscn
+::res://chapter2/rooms/::1772138325
+GlobalMain.tscn::PackedScene::5757032175545689583::1772138325::0::1::::<><><>0<>0<><>::uid://c1b3ijvg6fiwb::::res://chapter2/rooms/global_main.gd<>uid://66f66cwy6tfc::::res://chapter2/rooms/decoration/table.tscn<>uid://cn5qxioc77162::::res://chapter2/Player/Player.tscn<>uid://d1lre76f0a5ir::::res://chapter2/closet/chest.tscn<>uid://bsbcsmkb4kgdi::::res://chapter2/interactable_object/InteractableObject.tscn<>uid://b3rxfbmsi1qv2::::res://chapter2/rooms/decoration/workbench.tscn<>uid://bd832m7qavblv::::res://assets/textures/material1.png<>uid://dxq20ahvutywr::::res://assets/textures/material25.png<>uid://bfegx3jao2xq8::::res://assets/textures/material12.png<>uid://baf8dlttmni7::::res://chapter2/portal/portal.tscn<>uid://dxhy42mlkocj0::::res://chapter2/rooms/decoration/wall/wallGlass.tscn<>uid://r8ovmsrsspiy::::res://chapter2/rooms/decoration/button.tscn<>uid://bh30777mfkhal::::res://chapter2/rooms/decoration/wall/wall_pillar.tscn<>uid://wstyeotnokcn::::res://chapter2/rooms/decoration/wall/wall.tscn<>uid://bpglrkg3gng2c::::res://chapter2/rooms/decoration/lightTable.tscn<>uid://d2kp3ovym1413::::res://chapter2/rooms/decoration/PC2.tscn<>uid://cdrhprd8i3g4q::::res://chapter2/rooms/decoration/light.tscn
 global_main.gd::GDScript::6601530547343093541::1772134688::0::1::::<>Node3D<><>0<>0<><>::
 main.gd::GDScript::183230751592350282::1770551778::0::1::::<>Node3D<><>0<>0<><>::
 main.tscn::PackedScene::8683653877792011391::1770552272::0::1::::<><><>0<>0<><>::uid://cu01v74yppo1::::res://chapter2/rooms/main.gd<>uid://do5y7jxljt63c::::res://assets/textures/material11.png<>uid://b2tpuf62megqf::::res://chapter2/rooms/decoration/menu.tscn<>uid://bpglrkg3gng2c::::res://chapter2/rooms/decoration/lightTable.tscn<>uid://wstyeotnokcn::::res://chapter2/rooms/decoration/wall/wall.tscn<>uid://66f66cwy6tfc::::res://chapter2/rooms/decoration/table.tscn
@@ -305,8 +305,8 @@ ventilation.tscn::PackedScene::1506820412955488307::1763216573::0::1::::<><><>0<
 ::res://UI/AIship/::1771677499
 AIship.gd::GDScript::1181249975808356288::1771677498::0::1::::<>Node2D<><>0<>0<><>::
 AIship.tscn::PackedScene::4223921960910015039::1771677499::0::1::::<><><>0<>0<><>::uid://q3haq1v8a81y::::res://UI/AIship/AIship.gd<>uid://djh8750mv5q1y::::res://assets/textures/citadelAI.png<>uid://bxj2sw3re86dx::::res://assets/textures/citadelFlow.png<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata
-::res://UI/Inventory/::1770761026
-Inventory.tscn::PackedScene::5866790713787888797::1770761026::0::1::::<><><>0<>0<><>::uid://cwvvb6kjp60lh::::res://UI/Inventory/inventory_ui.gd<>uid://dm38fx5etd3oi::::res://UI/Inventory/InventoryPanel.tscn<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://cqjgqkce4nlsc::::res://assets/sort.png<>uid://c3v0bi6l1vl1m::::res://assets/delete.png
+::res://UI/Inventory/::1772138602
+Inventory.tscn::PackedScene::5866790713787888797::1772138602::0::1::::<><><>0<>0<><>::uid://cwvvb6kjp60lh::::res://UI/Inventory/inventory_ui.gd<>uid://dm38fx5etd3oi::::res://UI/Inventory/InventoryPanel.tscn<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://cqjgqkce4nlsc::::res://assets/sort.png<>uid://c3v0bi6l1vl1m::::res://assets/delete.png
 InventoryPanel.tscn::PackedScene::8061344596168651932::1770740783::0::1::::<><><>0<>0<><>::uid://btsj0boyxx68v::::res://UI/Inventory/inventory_panel.gd
 inventory_panel.gd::GDScript::3757758685444051739::1770321375::0::1::::InventoryPanel<>GridContainer<><>0<>0<><>::
 inventory_ui.gd::GDScript::6361626347002280681::1770760609::0::1::::<>Control<><>0<>0<><>::
@@ -323,8 +323,8 @@ pause.tscn::PackedScene::4649938975524109340::1770232188::0::1::::<><><>0<>0<><>
 ::res://UI/planet/::1772134491
 planet.gd::GDScript::4040994539762719650::1772134491::0::1::::<>Node2D<><>0<>0<><>::
 planet.tscn::PackedScene::645617093819992495::1771613275::0::1::::<><><>0<>0<><>::uid://bxtqubwrr51ik::::res://UI/planet/planet.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://cpbilemb7savo::::res://assets/planet/planet1.png<>uid://dr8hllvffgsk7::::res://assets/nightskycolor.png<>uid://bxj2sw3re86dx::::res://assets/textures/citadelFlow.png<>uid://btlhau0niepik::::res://UI/LabelButton/LabelButton.tscn
-::res://UI/recipe/::1771990128
-recipe.gd::GDScript::7788311532477547649::1770758621::0::1::::<>Node2D<><>0<>0<><>::
+::res://UI/recipe/::1772138232
+recipe.gd::GDScript::7788311532477547649::1772138232::0::1::::<>Node2D<><>0<>0<><>::
 recipe.tscn::PackedScene::646720231959190196::1771990128::0::1::::<><><>0<>0<><>::uid://di7ymaen5vvw0::::res://UI/recipe/recipe.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata
 ::res://UI/teleport/::1770735338
 teleport.gd::GDScript::8079596199177193395::1769785527::0::1::::<>Node2D<><>0<>0<><>::
