@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ckqg38pdvnigu"]
+
+[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/material10.png" id="2_hcohb"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="3_mdqbu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q4hf"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+albedo_texture = ExtResource("3_mdqbu")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqpdn"]
+size = Vector3(4, 4, 0.25)
+
+[node name="latticeWall" type="Node3D" unique_id=1337111662]
+
+[node name="wall" type="CSGCombiner3D" parent="." unique_id=591739501]
+collision_layer = 4
+collision_mask = 3
+
+[node name="box" type="CSGBox3D" parent="wall" unique_id=1752821713 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
+
+[node name="box2" type="CSGBox3D" parent="wall" unique_id=714562113 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
+
+[node name="Sprite3D" type="Sprite3D" parent="wall" unique_id=1115792504]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_hcohb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=844559820]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=539931473]
+shape = SubResource("BoxShape3D_pqpdn")

@@ -7,7 +7,6 @@ var world_4: Dictionary
 var world_5: Dictionary
 
 var game_settings: Dictionary = {
-	"Skin": 0,
 	"Enemy": true,
 	"gui_settings": {
 		"Coords": false,
@@ -16,11 +15,7 @@ var game_settings: Dictionary = {
 		"Language": "English"
 	},
 	"CanStandUp": true,
-	"CanThrowItem": true,
 	"GodMod": false,
-	"Item": "",
-	"nails_cartridge": 8,
-	"shock_cartridge": 2,
 	"IsDying": false,
 	"ThrownCamera": null,
 	"can_jump": true,

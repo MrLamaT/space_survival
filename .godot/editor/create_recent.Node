@@ -1,5 +1,9 @@
-AnimationPlayer
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
 Node3D
+CSGCylinder3D
+AnimationPlayer
 Label
 Node2D
 Sprite3D
@@ -8,7 +12,3 @@ Button
 Panel
 GPUParticles3D
 AudioStreamPlayer3D
-CollisionShape3D
-Area3D
-MeshInstance3D
-CSGCombiner3D

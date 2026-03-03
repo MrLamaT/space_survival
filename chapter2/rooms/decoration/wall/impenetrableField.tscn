@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://brsixyrg23tcu" path="res://chapter2/rooms/decoration/wall/impenetrable_field.gd" id="1_bv5rj"]
 [ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/sort.png" id="2_bv5rj"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="3_gashk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83stq"]
 transparency = 1
@@ -9,6 +10,11 @@ cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.49019608)
 albedo_texture = ExtResource("2_bv5rj")
 metallic = 0.3
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q4hf"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+albedo_texture = ExtResource("3_gashk")
 texture_filter = 0
 
 [sub_resource type="Animation" id="Animation_bv5rj"]
@@ -135,7 +141,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pqpdn"]
-size = Vector3(5, 3.75, 0.2)
+size = Vector3(5.75, 3.75, 0.2)
 
 [node name="ImpenetrableField" type="Node3D" unique_id=1337111662]
 script = ExtResource("1_bv5rj")
@@ -163,6 +169,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)
 operation = 2
 size = Vector3(5, 3.75, 0.2)
 material = SubResource("StandardMaterial3D_83stq")
+
+[node name="box6" type="CSGBox3D" parent="wall" unique_id=1752821713 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0.125, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
+
+[node name="box7" type="CSGBox3D" parent="wall" unique_id=714562113 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75, 0.125, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=459517786]
 libraries/ = SubResource("AnimationLibrary_6q4hf")

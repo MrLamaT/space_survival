@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dyqkb52rhy3h7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnqdi"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t143y"]
+material = SubResource("StandardMaterial3D_lnqdi")
+bottom_radius = 2.5
+height = 5.0
+radial_segments = 16
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_triiq"]
+height = 4.0
+radius = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_triiq"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lnqdi"]
+material = SubResource("StandardMaterial3D_triiq")
+top_radius = 5.0
+radial_segments = 16
+
+[sub_resource type="BoxMesh" id="BoxMesh_un0tp"]
+material = SubResource("StandardMaterial3D_triiq")
+size = Vector3(0.5, 1.5, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_triiq"]
+material = SubResource("StandardMaterial3D_triiq")
+top_radius = 1.0
+bottom_radius = 1.5
+height = 1.0
+radial_segments = 16
+
+[node name="Antenna" type="StaticBody3D" unique_id=552829376]
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=636553593]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2, 0)
+mesh = SubResource("CylinderMesh_t143y")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1867902676]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_triiq")
+
+[node name="Node3D" type="StaticBody3D" parent="." unique_id=539175461]
+transform = Transform3D(0.70710677, 0.49999997, 0.49999997, 0, 0.70710677, -0.70710677, -0.70710677, 0.49999997, 0.49999997, 0, 5, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1968569025]
+mesh = SubResource("CylinderMesh_lnqdi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=229930471]
+transform = Transform3D(0.8, 0, 0, 0, 2.65165, -0.56568533, 0, 2.65165, 0.56568533, 0, 3, -3)
+mesh = SubResource("BoxMesh_un0tp")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=1645935352]
+transform = Transform3D(0.8, 0, 0, 0, 2.65165, 0.56568533, 0, -2.65165, 0.56568533, 0, 3, 3)
+mesh = SubResource("BoxMesh_un0tp")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D" unique_id=760069256]
+transform = Transform3D(0.56568545, -2.65165, 0, 0.56568545, 2.65165, 0, 0, 0, 0.7999999, 3, 3, 0)
+mesh = SubResource("BoxMesh_un0tp")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D" unique_id=777780814]
+transform = Transform3D(0.56568545, 2.65165, 0, -0.56568545, 2.65165, 0, 0, 0, 0.7999999, -3, 3, 0)
+mesh = SubResource("BoxMesh_un0tp")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D" unique_id=373153628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("CylinderMesh_triiq")
+skeleton = NodePath("")

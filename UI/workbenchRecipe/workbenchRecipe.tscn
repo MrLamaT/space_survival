@@ -147,6 +147,10 @@ build_global = "backpack"
 
 [node name="Control4" parent="Panel/VBoxContainer" unique_id=380768315 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_label = "flashlight 1"
+required_resources = Array[String](["iron", "copper cable", "coal"])
+required_description = "flashlight for F support"
+build_global = "flashlight"
 
 [node name="Control5" parent="Panel/VBoxContainer" unique_id=1137515755 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
