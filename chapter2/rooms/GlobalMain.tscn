@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="15_akdvk"]
 [ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="16_h1qgk"]
 [ext_resource type="PackedScene" uid="uid://b3rxfbmsi1qv2" path="res://chapter2/rooms/decoration/workbench.tscn" id="17_h6cr0"]
-[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="21_fh80c"]
-[ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/material25.png" id="25_jhkrm"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="27_fqaro"]
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://chapter2/rooms/decoration/wall/wallGlass.tscn" id="28_dyctc"]
@@ -25,19 +23,6 @@ size = Vector3(0.397, 0.25, 0.51)
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
 albedo_texture = ExtResource("26_jhkrm")
 uv1_scale = Vector3(15, 1, 15)
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3a5pw"]
-albedo_color = Color(0.5803922, 0.5803922, 0.5803922, 1)
-albedo_texture = ExtResource("25_jhkrm")
-uv1_scale = Vector3(50, 1, 50)
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emt8f"]
-albedo_texture = ExtResource("21_fh80c")
-uv1_scale = Vector3(50, 1, 50)
 uv1_triplanar = true
 texture_filter = 0
 
@@ -189,19 +174,16 @@ material = SubResource("StandardMaterial3D_dxjcn")
 transform = Transform3D(0.7071067, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, 0.7071067, -0.33931452, 0, -0.20833774)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
-material = SubResource("StandardMaterial3D_3a5pw")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=36824725]
 transform = Transform3D(0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071066, -0.0052686334, 0, -0.20799994)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
-material = SubResource("StandardMaterial3D_3a5pw")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1487193712]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12495689, 0, -0.09694925)
 operation = 2
 size = Vector3(0.084469914, 1, 0.07252261)
-material = SubResource("StandardMaterial3D_emt8f")
 
 [node name="floor2" type="StaticBody3D" parent="ship/Zona1" unique_id=1511228781]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 8.500002, 5, 19.5)
@@ -224,19 +206,16 @@ material = SubResource("StandardMaterial3D_oxgi4")
 transform = Transform3D(0.7071067, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, 0.7071067, -0.33931452, 0, -0.20833774)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
-material = SubResource("StandardMaterial3D_3a5pw")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=427363454]
 transform = Transform3D(0.7071066, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071066, -0.0052686334, 0, -0.20799994)
 operation = 2
 size = Vector3(0.09637451, 1, 0.1928711)
-material = SubResource("StandardMaterial3D_3a5pw")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=1636146011]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12495689, 0, -0.09694925)
 operation = 2
 size = Vector3(0.084469914, 1, 0.07252261)
-material = SubResource("StandardMaterial3D_emt8f")
 
 [node name="KillZona" type="Area3D" parent="ship/Zona1" unique_id=1860593763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)

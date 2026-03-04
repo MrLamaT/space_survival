@@ -8,6 +8,7 @@ radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
 albedo_color = Color(0.38039216, 0.3882353, 0.5019608, 1)
+metallic = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ej8gu"]
 material = SubResource("StandardMaterial3D_m0uje")

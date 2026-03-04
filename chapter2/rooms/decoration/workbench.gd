@@ -10,6 +10,7 @@ func _ready() -> void:
 func ApplyingSkin():
 	var material = StandardMaterial3D.new()
 	material.albedo_color = _base_color
+	material.metallic = 1
 	$StaticBody/MeshInstance3D.material_override = material
 	_secondary_color = _base_color.darkened(0.3)
 	$StaticBody/Sprite3D.modulate = _secondary_color

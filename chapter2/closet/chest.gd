@@ -16,8 +16,8 @@ var stage_items = {
 }
 
 var chance_settings = {
-	"common": 0.9, 
-	"rare": 0.1
+	"common": 0.8, 
+	"rare": 0.2
 }
 
 var _secondary_color: Color
@@ -40,6 +40,7 @@ func _ready() -> void:
 func ApplyingSkin():
 	var material = StandardMaterial3D.new()
 	material.albedo_color = _base_color
+	material.metallic = 1
 	$MeshInstance3D.material_override = material
 	_secondary_color = _base_color.darkened(0.3)
 	$Sprite3D.texture = _base_sprite

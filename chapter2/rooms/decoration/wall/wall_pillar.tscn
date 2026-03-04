@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh30777mfkhal"]
+[gd_scene format=3 uid="uid://bh30777mfkhal"]
 
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="2_xlfqc"]
 
@@ -10,27 +10,27 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_psxp8"]
 size = Vector3(1, 10.002, 1)
 
-[node name="wall" type="Node3D"]
+[node name="wall" type="Node3D" unique_id=1609011729]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1618197398]
 collision_layer = 4
 collision_mask = 3
 
-[node name="wall" type="CSGCombiner3D" parent="StaticBody3D"]
+[node name="wall" type="CSGCombiner3D" parent="StaticBody3D" unique_id=283975363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 collision_layer = 4
 collision_mask = 3
 
-[node name="box4" type="CSGBox3D" parent="StaticBody3D/wall" groups=["wall"]]
+[node name="box4" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1343173135 groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 size = Vector3(1, 5, 1)
 material = SubResource("StandardMaterial3D_u83kx")
 
-[node name="box8" type="CSGBox3D" parent="StaticBody3D/wall" groups=["wall"]]
+[node name="box8" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1865110146 groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.5)
 size = Vector3(1, 5, 1)
 material = SubResource("StandardMaterial3D_u83kx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=21049524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0.5)
 shape = SubResource("BoxShape3D_psxp8")

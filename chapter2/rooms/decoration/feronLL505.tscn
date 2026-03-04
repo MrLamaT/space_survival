@@ -8,6 +8,7 @@ size = Vector3(0.25, 5, 0.25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
 albedo_color = Color(0.9882353, 0.7137255, 0.007843138, 1)
+metallic = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ej8gu"]
 material = SubResource("StandardMaterial3D_m0uje")
@@ -22,6 +23,7 @@ bottom_radius = 0.075
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40gp7"]
 albedo_color = Color(0.061473116, 0.04994154, 0.037142165, 1)
+metallic = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_m0uje"]
 material = SubResource("StandardMaterial3D_40gp7")

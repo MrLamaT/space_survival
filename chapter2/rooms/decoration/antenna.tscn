@@ -2,6 +2,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnqdi"]
 albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+metallic = 1.0
 texture_filter = 0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_t143y"]
@@ -16,6 +17,7 @@ radius = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_triiq"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+metallic = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_lnqdi"]
 material = SubResource("StandardMaterial3D_triiq")

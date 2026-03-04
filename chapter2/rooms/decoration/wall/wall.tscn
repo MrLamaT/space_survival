@@ -22,11 +22,13 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vabq7"]
 albedo_color = Color(0.53303695, 0.53303665, 0.53303677, 1)
 albedo_texture = ExtResource("1_aeb8l")
+metallic = 1.0
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u83kx"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 albedo_texture = ExtResource("2_5wqm1")
+metallic = 1.0
 texture_filter = 0
 
 [node name="wall" type="Node3D" unique_id=1533157946]

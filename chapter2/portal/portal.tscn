@@ -11,6 +11,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oivt"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nwwir"]
 _surfaces = [{
