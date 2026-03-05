@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="11_fqaro"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="15_akdvk"]
 [ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="16_h1qgk"]
+[ext_resource type="PackedScene" uid="uid://b4stfemrbiggl" path="res://chapter2/rooms/decoration/chair.tscn" id="16_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://b3rxfbmsi1qv2" path="res://chapter2/rooms/decoration/workbench.tscn" id="17_h6cr0"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="27_fqaro"]
@@ -134,7 +135,7 @@ transform = Transform3D(-0.5251598, 0, -0.8510037, 0, 1, 0, 0.8510037, 0, -0.525
 
 [node name="PC2" parent="ship/Zona1" unique_id=2084464429 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.015644472, 2.3840976, 7.894387)
-nameUI = "AIship"
+nameUI = "messages"
 
 [node name="PC5" parent="ship/Zona1" unique_id=412720986 instance=ExtResource("32_fqaro")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.9793056, 2.3840976, -4.4000564)
@@ -142,11 +143,11 @@ nameUI = "planet"
 
 [node name="PC3" parent="ship/Zona1" unique_id=1407305812 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 4.780724, 2.3840976, 5.98077)
-nameUI = "AIship"
+nameUI = "messages"
 
 [node name="PC4" parent="ship/Zona1" unique_id=1472144462 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
-nameUI = "AIship"
+nameUI = "messages"
 
 [node name="button" parent="ship/Zona1" unique_id=2145555756 instance=ExtResource("28_k2u2h")]
 transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 2.9999995, 1.6, -6.25)
@@ -270,6 +271,15 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "light"
 required_resources = Array[String](["copper cable", "copper cable"])
+
+[node name="chair" parent="ship/Zona1" unique_id=169179891 instance=ExtResource("16_h6cr0")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4, 0.961, 5)
+
+[node name="chair2" parent="ship/Zona1" unique_id=1843518296 instance=ExtResource("16_h6cr0")]
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 4, 0.961, 5)
+
+[node name="chair3" parent="ship/Zona1" unique_id=1296074761 instance=ExtResource("16_h6cr0")]
+transform = Transform3D(0.86694014, 0, -0.49841207, 0, 1, 0, 0.49841207, 0, 0.86694014, 1.7271628, 0.961, 6.8069763)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79402236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)

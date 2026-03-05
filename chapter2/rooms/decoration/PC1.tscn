@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dod24ouleti6"]
 
 [ext_resource type="Script" uid="uid://fyfdd5uhb2dt" path="res://chapter2/rooms/decoration/pc.gd" id="1_lq2wg"]
-[ext_resource type="Texture2D" uid="uid://lcktuu1dac3x" path="res://assets/Eanim1.png" id="3_xtupx"]
-[ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/Eanim2.png" id="5_kdc8b"]
+[ext_resource type="Texture2D" uid="uid://bopx18mm06xvw" path="res://assets/textures/envelope.png" id="3_3ti70"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="6_1dcqe"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="7_xhikc"]
 
@@ -42,47 +41,11 @@ size = Vector3(0.1, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ti70"]
 size = Vector3(1, 1, 0.16748047)
 
-[sub_resource type="Animation" id="Animation_vmm4o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_xtupx")]
-}
-
-[sub_resource type="Animation" id="Animation_xpuf5"]
-resource_name = "notification"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("3_xtupx"), ExtResource("5_kdc8b")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7dhs"]
-_data = {
-&"RESET": SubResource("Animation_vmm4o"),
-&"notification": SubResource("Animation_xpuf5")
-}
-
 [node name="PC1" type="Area3D" unique_id=1029461300 groups=["interactive_objects"]]
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_lq2wg")
+nameUI = null
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1149358277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -129,7 +92,7 @@ texture = ExtResource("6_1dcqe")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
 visible = false
 texture_filter = 0
-texture = ExtResource("3_xtupx")
+texture = ExtResource("3_3ti70")
 
 [node name="monitor" type="Node3D" parent="." unique_id=901060355]
 visible = false
@@ -147,9 +110,6 @@ volume_db = -20.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256404457 groups=["interactive_objects"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.810791)
 shape = SubResource("BoxShape3D_3ti70")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=569354369]
-libraries/ = SubResource("AnimationLibrary_b7dhs")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

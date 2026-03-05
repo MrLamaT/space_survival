@@ -1,22 +1,23 @@
 extends Area3D
 
 @export var nameUI:String = ""
-
+@export var messages:int = 1
 var notificationVar = false
 
 func notificationOn(check):
 	notificationVar = check
 	if check:
 		$Sprite3D.visible = true
-		$AnimationPlayer.play("notification")
 	else:
 		$Sprite3D.visible = false
-		$AnimationPlayer.stop()
 
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
 	if nameUI != "":
-		player.openUI(nameUI)
+		if nameUI == "messages":
+			player.openMessage(messages)
+		else:
+			player.openUI(nameUI)
 	else:
 		print(player)
 

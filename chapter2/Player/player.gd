@@ -200,6 +200,10 @@ func shoot():
 	can_regenerate = false
 	regen_timer = 0.0
 	update_stamina_display()
+	is_reloading = false
+	if stamina < stamina_cost_per_shot and !is_reloading:
+		is_reloading = true
+		$hand_position/AnimationPlayer.play("r")
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.global_transform = bullet_spawn_point.global_transform
@@ -301,12 +305,10 @@ func _input(event: InputEvent): #повороты мышкой
 			$hand_position/handItem.visible = false
 		else:
 			$hand_position/AnimationPlayer.play("take")
-	if Input.is_action_just_pressed("rotate"):
-		$hand_position/AnimationPlayer.play("r")
 	if Input.is_action_just_pressed("UI_focus_next"):
 		handle_ui_action("Inventory")
 	if Input.is_action_just_pressed("+q"):
-		handle_ui_action("AIship")
+		handle_ui_action("messages")
 	if Input.is_action_just_pressed("ui_cancel"):
 		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
@@ -366,10 +368,6 @@ func toggle_flashlight():
 			$head/Camera3D/flashlight/SpotLight3D.visible = true
 			$head/Camera3D/flashlight/SpotLight3D2.visible = true
 		else:
-			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				warning("нет энергии")
-			else:
-				warning("no energy")
 			return
 	$beep.play()
 
@@ -494,7 +492,10 @@ func _physics_process(delta):
 		if is_on_floor():
 			is_jumping = false
 		if not is_on_floor() and not is_floating:
-			velocity.y -= gravity * delta
+			if crouched and movement_enabled:
+				velocity.y -= gravity * delta * 10
+			else:
+				velocity.y -= gravity * delta
 	else:
 		handle_flight_movement(delta)
 	if Input.is_action_pressed("+shift") and stamina > 0 and input_dir.length() > 0 and movement_enabled and not crouched:
@@ -642,7 +643,25 @@ func open_inventory(inventory_data: String, label_text: String, grid_width: int,
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
-	
+
+func openMessage(MessageID):
+	var node_name = "messages"
+	var path = "head/Camera3D/" + node_name
+	var node = get_node_or_null(path)
+	if not node:
+		var ui_scene_path = "res://UI/messages/messages.tscn"
+		if ResourceLoader.exists(ui_scene_path):
+			var ui_scene = load(ui_scene_path)
+			node = ui_scene.instantiate()
+			node.name = node_name
+			node.set("MessageID", MessageID)
+			get_node("head/Camera3D").add_child(node)
+			node.add_to_group("UI")
+	node.visible = true
+	$beep.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	update_gui_visibility()
+
 func warning(text):
 	if $head/Camera3D/label.visible == false:
 		$head/Camera3D/label.text = text
