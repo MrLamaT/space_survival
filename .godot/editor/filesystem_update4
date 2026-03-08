@@ -1,10 +1,3 @@
-res://chapter2/rooms/GlobalMain.tscn
-res://chapter2/rooms/decoration/chair.tscn
-res://UI/workbenchRecipe/workbenchRecipe.tscn
-res://global.gd
-res://UI/workbenchRecipe/workbench_recipe_button.gd
+res://chapter2/Player/Player.tscn
 res://chapter2/rooms/global_main.gd
-res://chapter2/rooms/maps/RoP.tscn
-res://chapter2/portal/portal.gd
-res://chapter2/Player/player.gd
-res://chapter2/rooms/decoration/crane.tscn
+res://chapter2/rooms/GlobalMain.tscn
