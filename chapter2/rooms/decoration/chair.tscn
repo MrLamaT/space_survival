@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4stfemrbiggl"]
 
-[ext_resource type="Script" uid="uid://dommb2huw2mr" path="res://chapter2/rooms/decoration/table.gd" id="1_000my"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="1_0hh0a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hh0a"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -20,7 +20,6 @@ size = Vector3(1, 1.0499268, 1)
 size = Vector3(1, 1.9977417, 0.28320313)
 
 [node name="chair" type="Node3D" unique_id=169179891]
-script = ExtResource("1_000my")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=591332495]
 
@@ -70,3 +69,9 @@ shape = SubResource("BoxShape3D_0hh0a")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1360537565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49887085, -0.35839844)
 shape = SubResource("BoxShape3D_000my")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1448545690]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 1, -0.51)
+modulate = Color(0.33660746, 0.3366077, 0.33660752, 1)
+texture_filter = 0
+texture = ExtResource("1_0hh0a")

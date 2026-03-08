@@ -98,6 +98,12 @@ func _on_button_pressed() -> void:
 	if sprite_label == "flashlight 1":
 		var world = Global.get_world(Global.game_settings.word)
 		world["build"]["flashlight"] += 1
+	if sprite_label == "iron plate":
+		var world = Global.get_world(Global.game_settings.word)
+		world["inventory"]["inventory"].append("iron plate")
+	if sprite_label == "glass panel":
+		var world = Global.get_world(Global.game_settings.word)
+		world["inventory"]["inventory"].append("glass panel")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_parent().get_parent().get_parent().queue_free()
 

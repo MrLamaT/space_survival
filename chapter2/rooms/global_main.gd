@@ -58,6 +58,13 @@ func handle_interaction(object_name: String):
 				$Player.warning("Construction complete!")
 			for i in range(1, 10):
 				get_node("ship/Zona1/wall" + str(i)).lightOn()
+		"solarPanels":
+			world["build"]["solar_panel"] += 1
+			setBuild()
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Строительство завершено!")
+			else:
+				$Player.warning("Construction complete!")
 
 func setBuild():
 	if world["build"]["chest"] >= 0:
@@ -78,4 +85,8 @@ func setBuild():
 		$ship/Zona1/Light3.update_torch_color(Color("f3f1c5"))
 		if has_node("ship/Zona1/lightBuild/InteractableObject"):
 			$ship/Zona1/lightBuild/InteractableObject.queue_free()
+	if world["build"]["solar_panel"] >= 1:
+		world["PortalTimer"] = 180
+		if has_node("ship/Zona1/solarPanels/InteractableObject"):
+			$ship/Zona1/solarPanels/InteractableObject.queue_free()
 	$Player.recipe([], "", "")

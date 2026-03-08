@@ -1,8 +1,9 @@
-CollisionShape3D
 Sprite3D
 Node3D
-StaticBody3D
 MeshInstance3D
+DirectionalLight3D
+CollisionShape3D
+StaticBody3D
 CSGBox3D
 CSGCombiner3D
 CSGCylinder3D
@@ -11,4 +12,3 @@ Label
 Node2D
 VBoxContainer
 Button
-Panel

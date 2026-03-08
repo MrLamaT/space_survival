@@ -248,6 +248,7 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "storage"
 required_resources = Array[String](["iron", "iron"])
+required_description = "Keeps your inventory organized."
 
 [node name="workbench" type="Node3D" parent="ship/Zona1" unique_id=192270933]
 
@@ -261,6 +262,7 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "workbench"
 required_resources = Array[String](["iron", "copper", "coal"])
+required_description = "Craft essential tools and components."
 
 [node name="lightBuild" type="Node3D" parent="ship/Zona1" unique_id=938531591]
 
@@ -271,6 +273,17 @@ handler_node = NodePath("../../../..")
 use_billboard_sprite = true
 sprite_label = "light"
 required_resources = Array[String](["copper cable", "copper cable"])
+
+[node name="solarPanels" type="Node3D" parent="ship/Zona1" unique_id=130499284]
+
+[node name="InteractableObject" parent="ship/Zona1/solarPanels" unique_id=1594677678 instance=ExtResource("16_h1qgk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, -8.5)
+interaction_name = "solarPanels"
+handler_node = NodePath("../../../..")
+use_billboard_sprite = true
+sprite_label = "solar panels"
+required_resources = Array[String](["iron plate", "iron plate", "copper cable", "glass panel"])
+required_description = "more time to explore planets."
 
 [node name="chair" parent="ship/Zona1" unique_id=169179891 instance=ExtResource("16_h6cr0")]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -4, 0.961, 5)

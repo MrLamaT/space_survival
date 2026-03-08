@@ -19,7 +19,8 @@ var interaction_manager: InteractionManager
 var accel = 6
 var SPEED = 5.0
 var base_speed = 5.0
-var crouched = false
+var crouched: bool = false
+var falling_fast: bool = false
 var input_dir = Vector3(0,0,0)
 var direction = Vector3() 
 var sens = 0.005
@@ -325,12 +326,15 @@ func _input(event: InputEvent): #повороты мышкой
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"]:
-		if crouched:
-			if Global.game_settings["CanStandUp"]:
-				crouched = false
+		if not is_on_floor():
+			falling_fast = true
 		else:
-			crouched = !crouched  
-		update_running_speed()
+			if crouched:
+				if Global.game_settings["CanStandUp"]:
+					crouched = false
+			else:
+				crouched = !crouched  
+			update_running_speed()
 	if Input.is_action_just_pressed("+f"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["build"]["flashlight"] >= 1:
@@ -466,6 +470,8 @@ func _physics_process(delta):
 	if not Global.game_settings["affected_by_gravity"]:
 		is_floating = false
 	if Global.game_settings["affected_by_gravity"]:
+		if is_on_floor():
+			falling_fast = false
 		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:
 			if jump_cooldown_timer <= 0:
 				velocity.y = jump_velocity
@@ -492,7 +498,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			is_jumping = false
 		if not is_on_floor() and not is_floating:
-			if crouched and movement_enabled:
+			if falling_fast and movement_enabled:
 				velocity.y -= gravity * delta * 10
 			else:
 				velocity.y -= gravity * delta

@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_t5vi5"]
 [ext_resource type="Texture2D" uid="uid://ca6jetkmbkk2s" path="res://assets/item/copper_cable.png" id="3_yheh7"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="5_hvgj3"]
+[ext_resource type="Texture2D" uid="uid://crensa5fx4vhe" path="res://assets/item/iron_plate.png" id="5_x61ko"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_msvbn"]
+[ext_resource type="Texture2D" uid="uid://b5t7kak0uau11" path="res://assets/item/glass_panel.png" id="6_ys5ru"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="7_hvgj3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
@@ -154,9 +156,17 @@ build_global = "flashlight"
 
 [node name="Control5" parent="Panel/VBoxContainer" unique_id=1137515755 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_texture = ExtResource("5_x61ko")
+sprite_label = "iron plate"
+required_resources = Array[String](["iron", "iron", "iron", "iron"])
+build_global = "iron_plate"
 
 [node name="Control6" parent="Panel/VBoxContainer" unique_id=677495700 instance=ExtResource("1_kc2rc")]
 layout_mode = 2
+sprite_texture = ExtResource("6_ys5ru")
+sprite_label = "glass panel"
+required_resources = Array[String](["quartz", "quartz", "coal"])
+build_global = "glass_panel"
 
 [node name="Control7" parent="Panel/VBoxContainer" unique_id=472856549 instance=ExtResource("1_kc2rc")]
 layout_mode = 2

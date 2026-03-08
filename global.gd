@@ -145,6 +145,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"HP": 100,
 		"selectWorld": "",
 		"PointDeath": "",
+		"PortalTimer": 120,
 		"build": {
 			"backpack": -1,
 			"flashlight": -1,
@@ -153,7 +154,9 @@ func reset_world_to_default(world_num: int) -> void:
 			"chest": 0,
 			"light": 0,
 			"solar_panel": 0,
-			"copper_cable": -1
+			"copper_cable": -1,
+			"iron_plate": -1,
+			"glass_panel": -1
 		},
 		"inventory": {
 			"inventory": [],
