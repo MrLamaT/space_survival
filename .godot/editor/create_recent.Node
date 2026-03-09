@@ -1,14 +1,14 @@
+CollisionShape3D
+Area3D
+AnimationPlayer
 Sprite3D
 Node3D
 MeshInstance3D
 DirectionalLight3D
-CollisionShape3D
 StaticBody3D
 CSGBox3D
 CSGCombiner3D
 CSGCylinder3D
-AnimationPlayer
 Label
 Node2D
 VBoxContainer
-Button

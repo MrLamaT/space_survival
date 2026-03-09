@@ -37,21 +37,18 @@ func handle_interaction(object_name: String):
 					player.warning("Select Teleport Target")
 		"chest":
 			world["build"]["chest"] += 1
-			setBuild()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
 		"workbench":
 			world["build"]["workbench"] += 1
-			setBuild()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
 		"light":
 			world["build"]["light"] += 1
-			setBuild()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Строительство завершено!")
 			else:
@@ -60,11 +57,17 @@ func handle_interaction(object_name: String):
 				get_node("ship/Zona1/wall" + str(i)).lightOn()
 		"solarPanels":
 			world["build"]["solar_panel"] += 1
-			setBuild()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
+		"compartment_1":
+			world["build"]["compartment"] += 1
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Строительство завершено!")
+			else:
+				$Player.warning("Construction complete!")
+	setBuild()
 
 func setBuild():
 	if world["build"]["chest"] >= 0:
@@ -89,4 +92,8 @@ func setBuild():
 		world["PortalTimer"] = 180
 		if has_node("ship/Zona1/solarPanels/InteractableObject"):
 			$ship/Zona1/solarPanels/InteractableObject.queue_free()
+	if world["build"]["compartment"] >= 1:
+		$ship/Zona1/wallGates["unlocked"] = true
+		if has_node("ship/Zona1/compartment/InteractableObject"):
+			$ship/Zona1/compartment/InteractableObject.queue_free()
 	$Player.recipe([], "", "")
