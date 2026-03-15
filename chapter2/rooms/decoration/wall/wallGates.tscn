@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="4_eeqvj"]
 [ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/material31.png" id="5_eeqvj"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="6_p33jc"]
+[ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/door.ogg" id="8_yahcm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p33jc"]
 size = Vector3(5, 1.4209516, 1)
@@ -237,6 +238,11 @@ libraries/ = SubResource("AnimationLibrary_rqbg7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="detect" unique_id=844724063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.5)
 shape = SubResource("BoxShape3D_eeqvj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1035230465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+stream = ExtResource("8_yahcm")
+max_db = -5.0
 
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]

@@ -49,13 +49,10 @@ player=""
 interactive_objects=""
 item=""
 progressive_interactive=""
-enemy1=""
 target_object=""
-enemy_targets1=""
-enemy_targets2=""
-enemy2=""
 UI=""
 portal=""
+enemy=""
 
 [input]
 

@@ -23,8 +23,10 @@ func lightOn():
 func _on_detect_body_entered(_body: Node3D) -> void:
 	if unlocked:
 		$AnimationPlayer.play("open")
+		$AudioStreamPlayer3D.play()
 		$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", true)
 
 func _on_detect_body_exited(_body: Node3D) -> void:
 	if unlocked:
 		$AnimationPlayer.play_backwards("open", -1)
+		$AudioStreamPlayer3D.play()

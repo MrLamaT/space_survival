@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://epl1yj604jor"]
+
+[ext_resource type="Script" uid="uid://dg74vvvcsgyw6" path="res://chapter2/enemy/enemy.gd" id="1_se8os"]
+[ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="4_cudbv"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="13_xai3o"]
+[ext_resource type="AudioStream" uid="uid://c2w52baurjymm" path="res://assets/nail.wav" id="14_kkywk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
+radius = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0mjta"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_asacb"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4be61"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.5, 0.5, 0.5, 0.39215687)
+albedo_texture = ExtResource("4_cudbv")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_upn35"]
+material = SubResource("StandardMaterial3D_4be61")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrxh4"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.5882353)
+albedo_texture = ExtResource("4_cudbv")
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2d7oq"]
+material = SubResource("StandardMaterial3D_nrxh4")
+top_radius = 0.2
+bottom_radius = 0.15
+height = 0.25
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7xldo"]
+material = SubResource("StandardMaterial3D_nrxh4")
+top_radius = 0.15
+bottom_radius = 0.2
+height = 0.2
+radial_segments = 16
+
+[sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
+material = SubResource("StandardMaterial3D_nrxh4")
+radius = 0.2
+height = 0.4
+radial_segments = 16
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cudbv"]
+shading_mode = 0
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_nrxh4"]
+material = SubResource("StandardMaterial3D_cudbv")
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 16
+
+[sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
+material = SubResource("StandardMaterial3D_nrxh4")
+size = Vector3(0.1, 0.5, 0.1)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 5
+script = ExtResource("1_se8os")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+shape = SubResource("CapsuleShape3D_se8os")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="VisionArea" type="Area3D" parent="." unique_id=1980625927]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea" unique_id=939705532]
+shape = SubResource("BoxShape3D_0mjta")
+
+[node name="CollisionArea" type="Area3D" parent="." unique_id=1865184365]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" unique_id=1037020477]
+shape = SubResource("CapsuleShape3D_se8os")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="ResurrectionTimer" type="Timer" parent="." unique_id=930393129]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]
+navigation_layers = 7
+
+[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
+stream = ExtResource("13_xai3o")
+
+[node name="nail" type="AudioStreamPlayer3D" parent="." unique_id=633376102]
+stream = ExtResource("14_kkywk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1844936673]
+cast_shadow = 0
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_asacb")
+draw_pass_1 = SubResource("QuadMesh_upn35")
+
+[node name="body" type="Node3D" parent="." unique_id=718440528]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=767566586]
+mesh = SubResource("CylinderMesh_2d7oq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body" unique_id=1773145490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+mesh = SubResource("CylinderMesh_7xldo")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="body" unique_id=15942310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("SphereMesh_gbrfq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1650728555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, 0.075)
+mesh = SubResource("SphereMesh_nrxh4")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D6" unique_id=1909613313]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1457677310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, -0.075)
+mesh = SubResource("SphereMesh_nrxh4")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D7" unique_id=1256160706]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="hand1" type="Node3D" parent="body" unique_id=151550358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand1" unique_id=332451061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24052843, -0.275)
+mesh = SubResource("BoxMesh_smhvd")
+skeleton = NodePath("../../..")
+
+[node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand2" unique_id=1956648094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24052843, -0.275)
+mesh = SubResource("BoxMesh_smhvd")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
+light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]

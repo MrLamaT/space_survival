@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cbw3s46axa0l" path="res://chapter2/interactable_object/interactable_object.gd" id="1_7v1ss"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_btual"]
 [ext_resource type="Texture2D" uid="uid://lcktuu1dac3x" path="res://assets/Eanim1.png" id="2_tg7ct"]
-[ext_resource type="Texture2D" uid="uid://baxmh0q5dkq1x" path="res://assets/test.png" id="3_dc6cq"]
 [ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/Eanim2.png" id="4_vrg63"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
@@ -82,14 +81,6 @@ font = ExtResource("2_btual")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352534228]
 libraries/ = SubResource("AnimationLibrary_dc6cq")
-
-[node name="test" type="Sprite3D" parent="." unique_id=1337616901]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
-visible = false
-modulate = Color(0, 1, 0.083333254, 1)
-billboard = 2
-texture_filter = 0
-texture = ExtResource("3_dc6cq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

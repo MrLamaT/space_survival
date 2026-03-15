@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdcq1du4edx1r"]
 
-[ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP.gd" id="1_le6ex"]
+[ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP/RoP.gd" id="1_le6ex"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="2_agh46"]
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="2_dlv1t"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/material28.png" id="3_le6ex"]

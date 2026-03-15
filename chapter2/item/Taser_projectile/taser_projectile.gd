@@ -25,7 +25,7 @@ func _physics_process(delta):
 	
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = [get_parent().get_node("Player")]  # исключаем игрока
-	query.collision_mask = 2 | 4 | 8  # настраивайте маску по необходимости
+	query.collision_mask = 4 | 16  # настраивайте маску по необходимости
 	
 	var result = space_state.intersect_ray(query)
 	if result:

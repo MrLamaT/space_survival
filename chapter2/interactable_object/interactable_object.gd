@@ -13,10 +13,6 @@ extends Area3D
 var player: CharacterBody3D
 
 func _ready():
-	if !Global.game_settings["debugging"]:
-		$test.queue_free()
-	else:
-		$test.visible = true
 	$MeshInstance3D.visible = false
 	if billboard_sprite:
 		$Node3D.visible = true
