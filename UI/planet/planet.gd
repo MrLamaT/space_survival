@@ -3,6 +3,7 @@ extends Node2D
 var world = Global.get_world(Global.game_settings.word)
 
 func _ready() -> void:
+	world["selectWorld"] = "ID planet: RoP-856"
 	$Panel/Id.text = world["selectWorld"]
 
 func _on_label_button_pressed(id: String) -> void:

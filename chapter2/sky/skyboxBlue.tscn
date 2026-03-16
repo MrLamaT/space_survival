@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdps5mw06litg"]
+[gd_scene format=3 uid="uid://bdps5mw06litg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5crh"]
 sky_top_color = Color(0.5294118, 0.80784315, 0.92156863, 1)
@@ -14,5 +14,5 @@ sky_material = SubResource("ProceduralSkyMaterial_h5crh")
 background_mode = 2
 sky = SubResource("Sky_0i6hk")
 
-[node name="Skybox" type="WorldEnvironment"]
+[node name="Skybox" type="WorldEnvironment" unique_id=1322581983]
 environment = SubResource("Environment_tf2ut")

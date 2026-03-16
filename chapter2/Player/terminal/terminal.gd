@@ -125,7 +125,7 @@ func parse_command(text: String):
 						ErrorPrint("Invalid argument: must be an integer number")
 			else:
 				ErrorPrint("No rights")
-		"sand", "sandbox":
+		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
 		"quit", "exit":
 			get_tree().quit()
