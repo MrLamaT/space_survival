@@ -3,6 +3,7 @@ extends Area3D
 @export var chest: String
 @export var _base_color: Color
 @export var _base_sprite: Texture
+@export var stage_random: int = 1
 
 var stage_items = {
 	1: {
@@ -10,8 +11,8 @@ var stage_items = {
 		"rare": ["quartz", "schematic"]                      
 	},
 	2: {
-		"common": ["iron", "copper", "coal"],
-		"rare": ["quartz", "schematic"]
+		"common": ["schematic", "schematic", "schematic"],
+		"rare": ["schematic", "schematic"]
 	}
 }
 
@@ -24,17 +25,8 @@ var _secondary_color: Color
 
 func _ready() -> void:
 	var world_data = Global.get_world(Global.game_settings.word)
-	var current_stage = world_data.stage
-	if world_data.inventory.has(chest):
-		if world_data.inventory[chest] == ["NoSpawn"]:
-			queue_free()
-			return
 	if not world_data.inventory.has(chest):
-		if randf() < 0.5:
-			world_data.inventory[chest] = ["NoSpawn"]
-			queue_free()
-			return
-		world_data.inventory[chest] = generate_random_inventory(current_stage)
+		world_data.inventory[chest] = generate_random_inventory(stage_random)
 	ApplyingSkin()
 
 func ApplyingSkin():

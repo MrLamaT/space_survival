@@ -3,6 +3,10 @@ extends CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var vision_area: Area3D = $VisionArea
 
+var is_dying: bool = false
+var death_timer: float = 0.0
+var DEATH_DELAY: float = 1
+
 var current_target: Node3D = null
 var player: Node3D = null
 var is_chasing_player: bool = false
@@ -36,6 +40,9 @@ var health: int = 50
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
+var jump_timeout: float = 0.0
+var JUMP_MAX_TIME: float = 2.0 
+
 func _ready():
 	if !Global.game_settings["Enemy"]:
 		queue_free()
@@ -46,6 +53,14 @@ func _ready():
 
 func _physics_process(delta):
 	if is_dead:
+		return
+	if is_dying:
+		death_timer += delta
+		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
+		move_and_slide()
+		if death_timer >= DEATH_DELAY:
+			is_dead = true
+			queue_free()
 		return
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
@@ -94,16 +109,22 @@ func prepare_jump(delta):
 func start_jump_to_player():
 	is_jumping = true
 	jump_target_position = player.global_position
+	jump_timeout = 0.0
 	$body/AnimationPlayer.play("jamp")
 	chase_timer = 0.0  # Сбрасываем таймер после прыжка
 
 func land_from_jump():
 	is_jumping = false
+	is_preparing_jump = false
 	$body/AnimationPlayer.play("RESET")
 	if player:
 		navigation_agent.target_position = player.global_position
 
 func handle_jump(delta):
+	jump_timeout += delta
+	if jump_timeout >= JUMP_MAX_TIME:
+		land_from_jump()
+		return
 	var direction = (jump_target_position - global_position).normalized()
 	if direction.length() > 0.1:
 		var target_rotation = atan2(direction.x, direction.z)
@@ -143,8 +164,15 @@ func attack_player():
 			chase_timer = 0.0
 
 func die():
-	is_dead = true
-	queue_free()
+	if is_dying or is_dead:
+		return
+	is_dying = true
+	death_timer = 0.0
+	$sparkDead.emitting = true
+	velocity = Vector3.ZERO
+	is_chasing_player = false
+	is_preparing_jump = false
+	is_jumping = false
 
 func _on_vision_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -154,6 +182,7 @@ func _on_vision_area_body_entered(body):
 func take_damage(damage):
 	health -= damage
 	if health <= 0:
+		$sparkDead.emitting = true
 		die()
 	else:
 		$spark.emitting = true

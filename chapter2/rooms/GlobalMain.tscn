@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="27_fqaro"]
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://chapter2/rooms/decoration/wall/wallGlass.tscn" id="28_dyctc"]
-[ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="28_k2u2h"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="29_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="29_oxgi4"]
 [ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://chapter2/rooms/decoration/lightTable.tscn" id="32_80e1f"]
@@ -55,6 +54,7 @@ transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.8485
 [node name="portal" parent="ship/Zona1" unique_id=1282351702 instance=ExtResource("27_fqaro")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
 skin = 1
+type = "planet"
 
 [node name="wall1" parent="ship/Zona1" unique_id=2024134017 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-1.1, 0, -1.509958e-07, 0, 1, 0, 1.6609539e-07, 0, -1, 0, -0.016, 10.421)
@@ -134,10 +134,6 @@ transform = Transform3D(-0.5251598, 0, -0.8510037, 0, 1, 0, 0.8510037, 0, -0.525
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.015644472, 2.3840976, 7.894387)
 nameUI = "messages"
 
-[node name="PC5" parent="ship/Zona1" unique_id=412720986 instance=ExtResource("32_fqaro")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.9793056, 2.3840976, -4.4000564)
-nameUI = "planet"
-
 [node name="PC3" parent="ship/Zona1" unique_id=1407305812 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 4.780724, 2.3840976, 5.98077)
 nameUI = "messages"
@@ -145,11 +141,6 @@ nameUI = "messages"
 [node name="PC4" parent="ship/Zona1" unique_id=1472144462 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
 nameUI = "messages"
-
-[node name="button" parent="ship/Zona1" unique_id=2145555756 instance=ExtResource("28_k2u2h")]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 2.9999995, 1.6, -6.25)
-interaction_name = "portal"
-handler_node = NodePath("../../..")
 
 [node name="floor" type="StaticBody3D" parent="ship/Zona1" unique_id=326749266]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 8.500002, 0, 19.5)
@@ -295,7 +286,6 @@ transform = Transform3D(0.86694014, 0, -0.49841207, 0, 1, 0, 0.49841207, 0, 0.86
 
 [node name="wallGates" parent="ship/Zona1" unique_id=1533157946 instance=ExtResource("17_ges2j")]
 transform = Transform3D(1, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1, 0, -0.016, -14.5)
-light = false
 pc = false
 
 [node name="Zona2" type="Node3D" parent="ship" unique_id=1648351573]

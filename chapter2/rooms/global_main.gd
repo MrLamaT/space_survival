@@ -26,15 +26,6 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 
 func handle_interaction(object_name: String):
 	match object_name:
-		"portal":
-			if world["selectWorld"] != "":
-				$ship/Zona1/portal.teleport("res://chapter2/rooms/maps/RoP/RoP_1.tscn")
-			else:
-				var player = $Player
-				if Global.game_settings["gui_settings"]["Language"] == "русский":
-					player.warning("Выберите цель телепортации")
-				else:
-					player.warning("Select Teleport Target")
 		"chest":
 			world["build"]["chest"] += 1
 			if Global.game_settings["gui_settings"]["Language"] == "русский":

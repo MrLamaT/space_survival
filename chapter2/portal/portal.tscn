@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/material26.png" id="12_q66jv"]
 [ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/material25.png" id="13_4ie0m"]
-[ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="15_6kdil"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7oivt"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -285,6 +284,9 @@ _data = {
 &"downC": SubResource("Animation_nwwir")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwwir"]
+size = Vector3(5, 1, 5)
+
 [node name="portal" type="StaticBody3D" unique_id=2061914237 groups=["portal"]]
 collision_layer = 4
 collision_mask = 3
@@ -363,9 +365,6 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("13_4ie0m")
 
-[node name="Table" parent="." unique_id=137677908 instance=ExtResource("15_6kdil")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, -0.5)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2068785459]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.9842072, -2.5)
 shape = SubResource("BoxShape3D_6kdil")
@@ -410,3 +409,12 @@ pitch_scale = 0.5
 stream = ExtResource("8_nwwir")
 volume_db = -15.0
 pitch_scale = 0.75
+
+[node name="Area3D" type="Area3D" parent="." unique_id=146876990]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=532563296]
+shape = SubResource("BoxShape3D_nwwir")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,13 @@
+res://chapter2/closet/chest.gd
+res://chapter2/rooms/maps/RoP/RoP_1.tscn
+res://UI/planet/planet.tscn
+res://chapter2/enemy/enemy3.tscn
+res://global.gd
 res://chapter2/enemy/enemy.tscn
+res://UI/planet/planet.gd
+res://chapter2/rooms/global_main.gd
+res://chapter2/portal/portal.tscn
+res://chapter2/portal/portal.gd
+res://chapter2/rooms/GlobalMain.tscn
 res://chapter2/enemy/enemy.gd
-res://chapter2/rooms/maps/sandbox.tscn
-res://chapter2/rooms/maps/sandbox.gd
+res://chapter2/rooms/decoration/wall/wallGates.gd

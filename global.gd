@@ -142,7 +142,6 @@ func reset_world_to_default(world_num: int) -> void:
 		"mode": 0,
 		"stage": 0,
 		"HP": 100,
-		"selectWorld": "",
 		"PointDeath": "",
 		"PortalTimer": 120,
 		"build": {
