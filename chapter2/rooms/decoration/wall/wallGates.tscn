@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="3_p33jc"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="4_eeqvj"]
 [ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/material31.png" id="5_eeqvj"]
-[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="6_p33jc"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="8_rqbg7"]
 [ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/door.ogg" id="8_yahcm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p33jc"]
@@ -227,9 +227,6 @@ texture = ExtResource("5_eeqvj")
 [node name="Light" parent="." unique_id=1381863763 instance=ExtResource("4_eeqvj")]
 transform = Transform3D(1, 0, 0, 0, 0.4999999, 0.8660253, 0, -0.8660253, 0.4999999, 0, 4.4, 0.675)
 
-[node name="PC1" parent="." unique_id=505859813 instance=ExtResource("6_p33jc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.366, 2.145)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=91420227]
 libraries/ = SubResource("AnimationLibrary_rqbg7")
 
@@ -243,6 +240,13 @@ shape = SubResource("BoxShape3D_eeqvj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 stream = ExtResource("8_yahcm")
 max_db = -5.0
+
+[node name="SpriteBlock" type="Sprite3D" parent="." unique_id=1122259994]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 2, 0.3)
+visible = false
+modulate = Color(1, 0, 0, 1)
+texture_filter = 0
+texture = ExtResource("8_rqbg7")
 
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]

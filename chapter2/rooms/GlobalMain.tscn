@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c1b3ijvg6fiwb" path="res://chapter2/rooms/global_main.gd" id="1_w630j"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="7_ges2j"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="11_fqaro"]
+[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="11_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/closet/chest.tscn" id="15_akdvk"]
 [ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="16_h1qgk"]
 [ext_resource type="PackedScene" uid="uid://b4stfemrbiggl" path="res://chapter2/rooms/decoration/chair.tscn" id="16_h6cr0"]
@@ -54,7 +55,6 @@ transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.8485
 [node name="portal" parent="ship/Zona1" unique_id=1282351702 instance=ExtResource("27_fqaro")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
 skin = 1
-type = "planet"
 
 [node name="wall1" parent="ship/Zona1" unique_id=2024134017 instance=ExtResource("28_dyctc")]
 transform = Transform3D(-1.1, 0, -1.509958e-07, 0, 1, 0, 1.6609539e-07, 0, -1, 0, -0.016, 10.421)
@@ -141,6 +141,10 @@ nameUI = "messages"
 [node name="PC4" parent="ship/Zona1" unique_id=1472144462 instance=ExtResource("32_fqaro")]
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
 nameUI = "messages"
+
+[node name="PC1" parent="ship/Zona1" unique_id=1029461300 instance=ExtResource("11_h6cr0")]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 1.6, 1.992, -6.25)
+nameUI = "planet"
 
 [node name="floor" type="StaticBody3D" parent="ship/Zona1" unique_id=326749266]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 8.500002, 0, 19.5)
@@ -286,7 +290,6 @@ transform = Transform3D(0.86694014, 0, -0.49841207, 0, 1, 0, 0.49841207, 0, 0.86
 
 [node name="wallGates" parent="ship/Zona1" unique_id=1533157946 instance=ExtResource("17_ges2j")]
 transform = Transform3D(1, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1, 0, -0.016, -14.5)
-pc = false
 
 [node name="Zona2" type="Node3D" parent="ship" unique_id=1648351573]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 36.141087)

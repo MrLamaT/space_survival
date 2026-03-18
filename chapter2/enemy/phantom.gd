@@ -35,7 +35,7 @@ var movement_direction: Vector3
 var spawnpoint: Vector3
 
 var is_dead: bool = false
-var health: int = 50
+var health: int = 20
 
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
@@ -56,6 +56,13 @@ func _physics_process(delta):
 		return
 	if is_dying:
 		death_timer += delta
+		var shake_intensity = 0.05 * (1.0 - death_timer / DEATH_DELAY)
+		var shake_offset = Vector3(
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity),
+			randf_range(-shake_intensity, shake_intensity)
+		)
+		global_position += shake_offset
 		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
 		move_and_slide()
 		if death_timer >= DEATH_DELAY:
@@ -169,6 +176,7 @@ func die():
 	is_dying = true
 	death_timer = 0.0
 	$sparkDead.emitting = true
+	$shock.play()
 	velocity = Vector3.ZERO
 	is_chasing_player = false
 	is_preparing_jump = false

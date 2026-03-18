@@ -22,7 +22,8 @@ var game_settings: Dictionary = {
 	"affected_by_gravity": true,
 	"FloatHeight": 0,
 	"word": 0,
-	"step": 1
+	"step": 1,
+	"UI": false
 }
 var saved_portal_data: Dictionary = {}
 

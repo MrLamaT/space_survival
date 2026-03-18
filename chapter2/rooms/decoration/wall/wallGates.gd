@@ -3,7 +3,6 @@ extends Node3D
 @export var light = true
 @export var emergency_light = false
 @export var unlocked = false
-@export var pc = true
 
 func _ready() -> void:
 	if !light:
@@ -11,8 +10,6 @@ func _ready() -> void:
 	else:
 		if emergency_light:
 				$Light.update_torch_color(Color("ff0000ff"))
-	if !pc:
-		$PC1.queue_free()
 	if !unlocked:
 		$StaticBody3D/CollisionShape3DDoor.disabled = false
 
@@ -30,3 +27,6 @@ func _on_detect_body_exited(_body: Node3D) -> void:
 	if unlocked:
 		$AnimationPlayer.play_backwards("open", -1)
 		$AudioStreamPlayer3D.play()
+
+func BlockSpawn(check):
+	$SpriteBlock.visible = check

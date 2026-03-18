@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dfiu4jlcpw5b4"]
+
+[ext_resource type="Script" uid="uid://2d5lsy3gwd3l" path="res://chapter2/wave/wave.gd" id="1_bxb8p"]
+[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/whate.wav" id="2_or0xf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxb8p"]
+
+[node name="Wave" type="Area3D" unique_id=956278609]
+collision_layer = 4
+collision_mask = 19
+script = ExtResource("1_bxb8p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1830252472]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_bxb8p")
+debug_color = Color(0.98, 0, 0.016333085, 1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=323981829]
+stream = ExtResource("2_or0xf")
+
+[node name="Timer" type="Timer" parent="." unique_id=448245641]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

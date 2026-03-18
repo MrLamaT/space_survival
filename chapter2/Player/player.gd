@@ -144,6 +144,7 @@ func _ready():
 		$head/Camera3D/InteractionProgressBar
 	)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.game_settings["UI"] = false
 	movement_enabled = true
 	Global.game_settings["GodMod"] = false
 	Global.game_settings["affected_by_gravity"] = true
@@ -291,6 +292,7 @@ func toggle_terminal():
 		openUI("Terminal")
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Global.game_settings["UI"] = false
 		$head/Camera3D/Terminal.visible = false
 
 func update_gui_visibility():
@@ -512,17 +514,17 @@ func _physics_process(delta):
 		if is_running:
 			is_running = false
 			update_running_speed()
-	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0:
+	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and movement_enabled and not Global.game_settings["UI"]:
 		if not is_walking:
 			is_walking = true
 			footstep_timer = 0
-		
 		footstep_timer += delta
 		if footstep_timer >= footstep_delay:
 			play_footstep()
 			footstep_timer = 0
 	else:
 		is_walking = false
+		footstep_timer = 0
 	if crouched:
 		SPEED = 2.5
 		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y,0.4,0.4)
@@ -532,12 +534,18 @@ func _physics_process(delta):
 		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 1.0 ,0.4)
 		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 1.143,0.4)
 		head.position.y = lerp(head.position.y, 1.85 , 0.3)
-	if Global.game_settings["affected_by_gravity"]:
-		input_dir = Input.get_vector("+a", "+d", "+w", "+s")
-		direction = ($head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		if movement_enabled: 
-			velocity.x = lerp(velocity.x ,direction.x * SPEED, accel * delta)
-			velocity.z = lerp(velocity.z ,direction.z * SPEED, accel * delta)
+	if !Global.game_settings["UI"]:
+		if Global.game_settings["affected_by_gravity"]:
+			input_dir = Input.get_vector("+a", "+d", "+w", "+s")
+			direction = ($head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+			if movement_enabled: 
+				velocity.x = lerp(velocity.x ,direction.x * SPEED, accel * delta)
+				velocity.z = lerp(velocity.z ,direction.z * SPEED, accel * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, accel * delta)
+		velocity.z = lerp(velocity.z, 0.0, accel * delta)
+		if not Global.game_settings["affected_by_gravity"]:
+			velocity.y = lerp(velocity.y, 0.0, accel * delta)
 	move_and_slide()
 	interaction_manager.check_interactable()
 
@@ -609,6 +617,7 @@ func handle_ui_action(ui_name: String) -> void:
 		openUI(ui_name)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Global.game_settings["UI"] = false
 		for child in cam.get_children():
 			if child.is_in_group("UI"):
 				child.queue_free()
@@ -624,6 +633,7 @@ func openUI(nameUI):
 			node.name = nameUI
 			get_node("head/Camera3D").add_child(node)
 			node.add_to_group("UI")
+			Global.game_settings["UI"] = true
 	node.visible = true
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -645,6 +655,7 @@ func open_inventory(inventory_data: String, label_text: String, grid_width: int,
 			node.set("inventory2_grid_height", grid_height)
 			get_node("head/Camera3D").add_child(node)
 			node.add_to_group("UI")
+			Global.game_settings["UI"] = true
 	node.visible = true
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -663,6 +674,7 @@ func openMessage(MessageID):
 			node.set("MessageID", MessageID)
 			get_node("head/Camera3D").add_child(node)
 			node.add_to_group("UI")
+			Global.game_settings["UI"] = true
 	node.visible = true
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

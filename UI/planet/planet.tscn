@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpbilemb7savo" path="res://assets/planet/planet1.png" id="2_gxkjw"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="4_gxkjw"]
 [ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/planet/planet1_1.png" id="6_345ih"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="6_jwuu8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -100,6 +101,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/HBoxContainer/Control" unique_id=32990691]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,9 +109,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -53.5
-offset_top = 32.0
+offset_top = 105.0
 offset_right = 54.5
-offset_bottom = 55.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -119,10 +121,25 @@ text = "Completed"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/Control" unique_id=1844034642]
-position = Vector2(0, 40)
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Control" unique_id=1196701772]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -749.5
+offset_top = -777.0
+offset_right = 750.5
+offset_bottom = 723.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.14, 0.14)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("6_345ih")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Button" type="Button" parent="Panel/HBoxContainer/Control" unique_id=367500335]
 modulate = Color(1, 1, 1, 0)
@@ -164,11 +181,6 @@ text = "1-2: Citadel base"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/Control2" unique_id=373137229]
-position = Vector2(0, 40)
-scale = Vector2(0.14, 0.14)
-texture = ExtResource("6_345ih")
-
 [node name="Label2" type="Label" parent="Panel/HBoxContainer/Control2" unique_id=1686548029]
 layout_mode = 1
 anchors_preset = 8
@@ -177,9 +189,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -53.5
-offset_top = 32.0
+offset_top = 105.0
 offset_right = 54.5
-offset_bottom = 55.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -206,6 +218,26 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Control2" unique_id=188539408]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -749.5
+offset_top = -777.0
+offset_right = 750.5
+offset_bottom = 723.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_345ih")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Control3" type="Control" parent="Panel/HBoxContainer" unique_id=2119989109]
 layout_mode = 2
 
@@ -229,12 +261,8 @@ text = "1-3: RoP-856 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/Control3" unique_id=1629952551]
-position = Vector2(0, 40)
-scale = Vector2(0.14, 0.14)
-texture = ExtResource("6_345ih")
-
 [node name="Label2" type="Label" parent="Panel/HBoxContainer/Control3" unique_id=1523257708]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -242,9 +270,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -53.5
-offset_top = 32.0
+offset_top = 105.0
 offset_right = 54.5
-offset_bottom = 55.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -271,6 +299,26 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Control3" unique_id=650757996]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -749.5
+offset_top = -777.0
+offset_right = 750.5
+offset_bottom = 723.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_jwuu8")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="Control4" type="Control" parent="Panel/HBoxContainer" unique_id=434488576]
 layout_mode = 2
 
@@ -294,12 +342,8 @@ text = "1-4: mines"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/HBoxContainer/Control4" unique_id=1646671162]
-position = Vector2(0, 40)
-scale = Vector2(0.14, 0.14)
-texture = ExtResource("6_345ih")
-
 [node name="Label2" type="Label" parent="Panel/HBoxContainer/Control4" unique_id=1338245028]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -307,9 +351,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -53.5
-offset_top = 32.0
+offset_top = 105.0
 offset_right = 54.5
-offset_bottom = 55.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -335,6 +379,26 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Control4" unique_id=1887901963]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -749.5
+offset_top = -777.0
+offset_right = 750.5
+offset_bottom = 723.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("6_jwuu8")
+expand_mode = 1
+stretch_mode = 6
 
 [connection signal="pressed" from="Panel/HBoxContainer/Control/Button" to="." method="_on_button_pressed_1"]
 [connection signal="pressed" from="Panel/HBoxContainer/Control2/Button" to="." method="_on_button_pressed_2"]

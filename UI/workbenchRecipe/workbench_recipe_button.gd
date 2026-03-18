@@ -68,6 +68,7 @@ func check_and_consume_resources() -> bool:
 func _on_button_pressed() -> void:
 	if !check_and_consume_resources():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Global.game_settings["UI"] = false
 		get_parent().get_parent().get_parent().queue_free()
 		return
 	if sprite_label == "decipher the recipe":
@@ -105,6 +106,7 @@ func _on_button_pressed() -> void:
 		var world = Global.get_world(Global.game_settings.word)
 		world["inventory"]["inventory"].append("glass panel")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.game_settings["UI"] = false
 	get_parent().get_parent().get_parent().queue_free()
 
 func _on_button_mouse_entered() -> void:
