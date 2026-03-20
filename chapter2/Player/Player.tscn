@@ -27,7 +27,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:rotation")
+tracks/0/path = NodePath("Taser/handItem:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:position")
+tracks/1/path = NodePath("Taser/handItem:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -51,7 +51,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("handItem:visible")
+tracks/2/path = NodePath("Taser/handItem:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -63,7 +63,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("handItem:position:y")
+tracks/3/path = NodePath("Taser/handItem:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -78,7 +78,7 @@ resource_name = "r"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:rotation")
+tracks/0/path = NodePath("Taser/handItem:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:position:y")
+tracks/1/path = NodePath("Taser/handItem:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +106,7 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:position")
+tracks/0/path = NodePath("Taser/handItem:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,7 +118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:visible")
+tracks/1/path = NodePath("Taser/handItem:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -130,7 +130,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("handItem:rotation")
+tracks/2/path = NodePath("Taser/handItem:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -494,11 +494,14 @@ debug_color = Color(0, 0.576471, 0.701961, 1)
 [node name="hand_position" type="Node3D" parent="." unique_id=1280255816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
 
-[node name="handItem" parent="hand_position" unique_id=837608605 instance=ExtResource("3_s8fo2")]
+[node name="Taser" type="Node3D" parent="hand_position" unique_id=13733417]
+
+[node name="handItem" parent="hand_position/Taser" unique_id=837608605 instance=ExtResource("3_s8fo2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.2)
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position" unique_id=1770924603]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Taser" unique_id=1770924603]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_hold0")
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]

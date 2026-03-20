@@ -5,6 +5,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxb8p"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_or0xf"]
+albedo_color = Color(1, 0, 0, 1)
+
 [node name="Wave" type="Area3D" unique_id=956278609]
 collision_layer = 4
 collision_mask = 19
@@ -19,6 +22,10 @@ debug_color = Color(0.98, 0, 0.016333085, 1)
 stream = ExtResource("2_or0xf")
 
 [node name="Timer" type="Timer" parent="." unique_id=448245641]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=155225655]
+size = Vector3(10, 1, 1)
+material = SubResource("StandardMaterial3D_or0xf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

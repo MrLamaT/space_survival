@@ -3,6 +3,9 @@ extends Area3D
 @export var Gates: Node3D
 var wale = true
 
+func _ready() -> void:
+	$CSGBox3D.queue_free()
+
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and wale:
 		$AudioStreamPlayer3D.play()

@@ -9,9 +9,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0mjta"]
-size = Vector3(15, 1, 15)
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_asacb"]
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
@@ -268,11 +265,6 @@ script = ExtResource("1_se8os")
 shape = SubResource("CapsuleShape3D_se8os")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
-[node name="VisionArea" type="Area3D" parent="." unique_id=1980625927]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea" unique_id=939705532]
-shape = SubResource("BoxShape3D_0mjta")
-
 [node name="CollisionArea" type="Area3D" parent="." unique_id=1865184365]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" unique_id=1037020477]
@@ -379,5 +371,3 @@ libraries/ = SubResource("AnimationLibrary_bwta7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
-
-[connection signal="body_entered" from="VisionArea" to="." method="_on_vision_area_body_entered"]

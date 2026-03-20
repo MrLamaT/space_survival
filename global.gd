@@ -146,7 +146,6 @@ func reset_world_to_default(world_num: int) -> void:
 		"PointDeath": "",
 		"PortalTimer": 120,
 		"build": {
-			"backpack": -1,
 			"flashlight": -1,
 			"compartment": 0,
 			"workbench": 0,

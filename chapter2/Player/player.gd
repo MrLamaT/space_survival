@@ -191,7 +191,7 @@ func DeathInventory():
 				inventory.remove_at(index_to_remove)
 
 func shoot():
-	if not movement_enabled or Global.game_settings["IsDying"] or not $hand_position/handItem.visible:
+	if not movement_enabled or Global.game_settings["IsDying"] or not $hand_position/Taser/handItem.visible:
 		return
 	if stamina < min_stamina_to_shoot:
 		return
@@ -205,7 +205,7 @@ func shoot():
 	is_reloading = false
 	if stamina < stamina_cost_per_shot and !is_reloading:
 		is_reloading = true
-		$hand_position/AnimationPlayer.play("r")
+		$hand_position/Taser/AnimationPlayer.play("r")
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.global_transform = bullet_spawn_point.global_transform
@@ -304,10 +304,10 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_pressed("UI_click") and not is_terminal and not is_paused:
 		shoot()
 	if Input.is_action_just_pressed("+1"):
-		if $hand_position/handItem.visible:
-			$hand_position/handItem.visible = false
+		if $hand_position/Taser/handItem.visible:
+			$hand_position/Taser/handItem.visible = false
 		else:
-			$hand_position/AnimationPlayer.play("take")
+			$hand_position/Taser/AnimationPlayer.play("take")
 	if Input.is_action_just_pressed("UI_focus_next"):
 		handle_ui_action("Inventory")
 	if Input.is_action_just_pressed("+q"):
@@ -347,12 +347,12 @@ func _input(event: InputEvent): #повороты мышкой
 			else:
 				warning("ERROR: Flashlight missing")
 	if Input.is_action_just_pressed("+f1"):
-		var handVisible = !$hand_position/handItem.visible
+		var handVisible = !$hand_position/Taser/handItem.visible
 		$head/Camera3D/UI.visible = handVisible
 		if handVisible:
 			$hand_position/AnimationPlayer.play("take")
 		else:
-			$hand_position/handItem.visible = false
+			$hand_position/Taser/handItem.visible = false
 	if Input.is_action_just_pressed("+~"):
 		if !is_paused:
 			toggle_terminal()

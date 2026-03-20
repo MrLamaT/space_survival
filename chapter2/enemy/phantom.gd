@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var vision_area: Area3D = $VisionArea
 
 var is_dying: bool = false
 var death_timer: float = 0.0
@@ -43,6 +42,8 @@ var ATTACK_COOLDOWN_TIME: float = 1.5
 var jump_timeout: float = 0.0
 var JUMP_MAX_TIME: float = 2.0 
 
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 func _ready():
 	if !Global.game_settings["Enemy"]:
 		queue_free()
@@ -50,6 +51,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	previous_position = global_position
 	current_target = null
+	if player:
+		start_chasing_player()
 
 func _physics_process(delta):
 	if is_dead:
@@ -69,6 +72,8 @@ func _physics_process(delta):
 			is_dead = true
 			queue_free()
 		return
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
 	if is_jumping:
@@ -97,6 +102,7 @@ func _physics_process(delta):
 			var target_rotation = atan2(direction.x, direction.z)
 			rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
 		var target_velocity = direction * SPEED
+		target_velocity.y = velocity.y
 		velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
 	movement_direction = global_position - previous_position
 	previous_position = global_position
@@ -128,15 +134,21 @@ func land_from_jump():
 		navigation_agent.target_position = player.global_position
 
 func handle_jump(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 	jump_timeout += delta
 	if jump_timeout >= JUMP_MAX_TIME:
 		land_from_jump()
 		return
-	var direction = (jump_target_position - global_position).normalized()
-	if direction.length() > 0.1:
-		var target_rotation = atan2(direction.x, direction.z)
+	var horizontal_direction = (jump_target_position - global_position).normalized()
+	horizontal_direction.y = 0
+	horizontal_direction = horizontal_direction.normalized()
+	if horizontal_direction.length() > 0.1:
+		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
 		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
-	velocity = direction * JUMP_SPEED
+	var horizontal_velocity = horizontal_direction * JUMP_SPEED
+	velocity.x = horizontal_velocity.x
+	velocity.z = horizontal_velocity.z
 	var distance_to_target = global_position.distance_to(jump_target_position)
 	if distance_to_target < 1.0 or is_on_floor() and distance_to_target < 2.0:
 		land_from_jump()
@@ -182,11 +194,6 @@ func die():
 	is_preparing_jump = false
 	is_jumping = false
 
-func _on_vision_area_body_entered(body):
-	if body.is_in_group("player"):
-		player = body
-		start_chasing_player()
-		
 func take_damage(damage):
 	health -= damage
 	if health <= 0:

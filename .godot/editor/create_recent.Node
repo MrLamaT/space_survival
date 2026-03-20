@@ -1,6 +1,8 @@
+Node3D
 AnimationPlayer
-Timer
 Sprite3D
+CSGBox3D
+Timer
 AudioStreamPlayer3D
 Marker3D
 CollisionShape3D
@@ -11,4 +13,3 @@ Button
 Sprite2D
 Control
 Node2D
-Label
