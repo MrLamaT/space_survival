@@ -13,13 +13,9 @@ var error_color := Color("ff0000")
 @onready var send_button = $Button
 
 var player: CharacterBody3D
-var cheat_mod: bool = false
 
 func _ready():
 	SystemPrint("The system is running")
-	var select_world = "world_" + str(Global.game_settings["word"])
-	if Global.get(select_world)["mode"] == 1:
-		cheat_mod = true
 	player = get_tree().get_first_node_in_group("player")
 
 func get_current_time() -> String:
@@ -81,21 +77,18 @@ func parse_command(text: String):
 	command_args[command] = argument
 
 	match command:
-		"ghost", "noclip", "fly":
-			if cheat_mod:
-				SystemPrint("Ghost mode has been changed")
-				player.ghost_cheat()
-			else:
-				ErrorPrint("No rights")
+		"noclip", "fly":
+			SystemPrint("Noclip toggled")
+			player.ghost_cheat()
+		"ghost":
+			SystemPrint("Ghost mode has been changed")
+			Global.game_settings["GhostMod"] = !Global.game_settings["GhostMod"]
 		"teleport", "home":
 			player.global_position = Vector3(0, 0, 0)
 			SystemPrint("Teleported to coordinates 0, 0, 0")
 		"godmode", "god":
-			if cheat_mod:
-				Global.game_settings["GodMod"] = !Global.game_settings["GodMod"]
-				SystemPrint("God mode changed")
-			else:
-				ErrorPrint("No rights")
+			Global.game_settings["GodMod"] = !Global.game_settings["GodMod"]
+			SystemPrint("God mode changed")
 		"info":
 			if argument == "":
 				for key in Global.game_settings.keys():
@@ -108,23 +101,26 @@ func parse_command(text: String):
 				else:
 					ErrorPrint("Key not found: " + argument)
 		"restart", "respawn":
-			if cheat_mod:
-				player.respawn_player()
-				SystemPrint("Player respawned")
+			player.respawn_player()
+			SystemPrint("Player respawned")
+		"HP", "hp":
+			if argument == "":
+				player.HP(100)
 			else:
-				ErrorPrint("No rights")
-		"kill", "HP", "hp":
-			if cheat_mod:
-				if argument == "":
-					player.HP(100)
+				if argument.is_valid_int():
+					var damage_value = argument.to_int()
+					player.HP(damage_value)
 				else:
-					if argument.is_valid_int():
-						var damage_value = argument.to_int()
-						player.HP(damage_value)
-					else:
-						ErrorPrint("Invalid argument: must be an integer number")
+					ErrorPrint("Invalid argument: must be an integer number")
+		"kill":
+			var enemies = get_tree().get_nodes_in_group("enemy")
+			if enemies.size() > 0:
+				for enemy in enemies:
+					if enemy.has_method("take_damage"):
+						enemy.take_damage(999999)
+				SystemPrint("Killed " + str(enemies.size()) + " enemy/enemies")
 			else:
-				ErrorPrint("No rights")
+				SystemPrint("No enemies found")
 		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
 		"quit", "exit":

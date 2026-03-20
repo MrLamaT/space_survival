@@ -23,7 +23,8 @@ var game_settings: Dictionary = {
 	"FloatHeight": 0,
 	"word": 0,
 	"step": 1,
-	"UI": false
+	"UI": false,
+	"GhostMod": false
 }
 var saved_portal_data: Dictionary = {}
 
@@ -158,10 +159,17 @@ func reset_world_to_default(world_num: int) -> void:
 		},
 		"inventory": {
 			"inventory": [],
-			"chest_1": [],
+			"chest_1": ["copper cable", "iron plate", "iron plate", "schematic"],
 			"chest_2": [],
 			"chest_3": [],
 			"death": []
+		},
+		"weapon": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": ""
 		}
 	}
 	match world_num:

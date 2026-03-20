@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
-[ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="10_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://c4l8kd7cmxhvi" path="res://UI/timer/timer.tscn" id="10_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/step3.wav" id="11_8e3ni"]
 [ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="12_r6r0m"]
@@ -659,9 +658,6 @@ theme_override_fonts/font = ExtResource("3_sfgwg")
 theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 show_percentage = false
-
-[node name="Terminal" parent="head/Camera3D" unique_id=2037745027 instance=ExtResource("10_u8yn7")]
-visible = false
 
 [node name="RayCast" type="RayCast3D" parent="head/Camera3D" unique_id=498664006]
 target_position = Vector3(0, 0, -2.5)

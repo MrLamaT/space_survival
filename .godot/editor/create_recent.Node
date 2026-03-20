@@ -1,3 +1,11 @@
+Label
+HBoxContainer
+Control
+VBoxContainer
+StaticBody3D
+MeshInstance3D
+CollisionShape3D
+Area3D
 Node3D
 AnimationPlayer
 Sprite3D
@@ -5,11 +13,3 @@ CSGBox3D
 Timer
 AudioStreamPlayer3D
 Marker3D
-CollisionShape3D
-Area3D
-Area2D
-TextureRect
-Button
-Sprite2D
-Control
-Node2D

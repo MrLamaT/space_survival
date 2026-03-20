@@ -48,7 +48,8 @@ func _ready():
 	if !Global.game_settings["Enemy"]:
 		queue_free()
 		return
-	player = get_tree().get_first_node_in_group("player")
+	if !Global.game_settings["GhostMod"]:
+		player = get_tree().get_first_node_in_group("player")
 	previous_position = global_position
 	current_target = null
 	if player:
@@ -155,7 +156,7 @@ func handle_jump(delta):
 	move_and_slide()
 
 func can_attack_player() -> bool:
-	if not player or Global.game_settings["GodMod"]:
+	if not player:
 		return false
 	var distance_to_player = global_position.distance_to(player.global_position)
 	return distance_to_player <= ATTACK_DISTANCE

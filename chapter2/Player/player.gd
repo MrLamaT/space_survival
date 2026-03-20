@@ -15,6 +15,9 @@ extends CharacterBody3D
 @onready var recipeMenu = $head/Camera3D/recipe
 
 var interaction_manager: InteractionManager
+var weapon_system: WeaponSystem
+
+var current_weapon_slot: int = 1
 
 var accel = 6
 var SPEED = 5.0
@@ -74,7 +77,6 @@ var flashlight_enabled: bool = false
 var flashlight_stamina_cost: float = 10.0  # Расход стамины в секунду при включенном фонарике
 
 var is_paused = false
-var is_terminal = false
 
 #прыжок
 var jump_velocity = 4.5
@@ -94,15 +96,6 @@ var float_speed: float = 3.0 # скорость подъема/спуска пр
 var hand_follow_speed = 15.0  # Скорость следования руки (чем больше, тем быстрее)
 var hand_rotation_speed = 15.0  # Скорость поворота руки
 var max_hand_offset = Vector3(0.1, 0.1, 0.1)
-
-# стрельба
-var bullet_scene = preload("res://chapter2/item/Taser_projectile/Taser_projectile.tscn")
-var is_reloading = false
-var fire_rate = 0.2  # задержка между выстрелами
-var last_fire_time = 0.0
-var bullet_speed = 50.0  # скорость пули
-var stamina_cost_per_shot = 8.0  # Стоимость стамины за выстрел
-var min_stamina_to_shoot = 5.0 
 
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
@@ -154,6 +147,14 @@ func _ready():
 	update_gui_visibility()
 	if Global.game_settings["gui_settings"]["Autosave"]:
 		$save.start()
+	weapon_system = WeaponSystem.new()
+	weapon_system.player = self
+	weapon_system.hand_position = hand_position
+	weapon_system.bullet_spawn_point = bullet_spawn_point
+	weapon_system.raycast = raycast
+	weapon_system.cam = cam
+	add_child(weapon_system)
+	weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 
 func PlayerDeath():
 	if Global.game_settings["IsDying"]:
@@ -190,56 +191,12 @@ func DeathInventory():
 			if index_to_remove != -1:
 				inventory.remove_at(index_to_remove)
 
-func shoot():
-	if not movement_enabled or Global.game_settings["IsDying"] or not $hand_position/Taser/handItem.visible:
-		return
-	if stamina < min_stamina_to_shoot:
-		return
-	var current_time = Time.get_ticks_msec() / 1000.0
-	if current_time - last_fire_time < fire_rate:
-		return
-	stamina = max(0, stamina - stamina_cost_per_shot)
-	can_regenerate = false
-	regen_timer = 0.0
-	update_stamina_display()
-	is_reloading = false
-	if stamina < stamina_cost_per_shot and !is_reloading:
-		is_reloading = true
-		$hand_position/Taser/AnimationPlayer.play("r")
-	var bullet = bullet_scene.instantiate()
-	get_parent().add_child(bullet)
-	bullet.global_transform = bullet_spawn_point.global_transform
-	var shoot_direction = -cam.global_transform.basis.z.normalized()  
-	if raycast and raycast.is_colliding():
-		var hit_point = raycast.get_collision_point()
-		shoot_direction = (hit_point - bullet_spawn_point.global_position).normalized()
-	if bullet.has_method("shoot"):
-		bullet.shoot(shoot_direction, bullet_speed)
-	elif bullet.has_method("apply_central_impulse") and bullet is RigidBody3D:
-		bullet.apply_central_impulse(shoot_direction * bullet_speed)
-	elif bullet.has_method("set_velocity") and bullet is CharacterBody3D:
-		bullet.velocity = shoot_direction * bullet_speed
-	last_fire_time = current_time
-	$laser_blast.pitch_scale = randf_range(0.9, 1.1)
-	$laser_blast.play()
-	add_recoil()
-
-func add_recoil():
-	var recoil_rotation = Vector2(
-		randf_range(-0.5, 0.5),  # случайное смещение по X
-		randf_range(1.0, 2.0)    # отдача вверх по Y
-	) * 0.01  # множитель для силы отдачи
-	cam.rotate_x(recoil_rotation.y)
-	head.rotate_y(recoil_rotation.x)
-	var camera_x_rotation = cam.rotation.x
-	if camera_x_rotation < deg_to_rad(-89) or camera_x_rotation > deg_to_rad(89):
-		cam.rotation.x = clamp(camera_x_rotation, deg_to_rad(-89), deg_to_rad(89))
-
 func HP(hp):
 	if Global.game_settings["IsDying"]:
 		return
 	var world = Global.get_world(Global.game_settings.word)
-	world["HP"] -= hp
+	if !Global.game_settings["GodMod"]:
+		world["HP"] -= hp
 	$head/Camera3D/damage.play("damage")
 	if world["HP"] <= 0:
 		PlayerDeath()
@@ -286,28 +243,41 @@ func show_blood_overlay():
 func play_blood_animation():
 	$AnimationPlayer.play("blood")
 
-func toggle_terminal():
-	is_terminal = !is_terminal
-	if is_terminal:
-		openUI("Terminal")
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		Global.game_settings["UI"] = false
-		$head/Camera3D/Terminal.visible = false
-
 func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
 	$head/Camera3D/coordinates.visible = gui_settings["Coords"]
 	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
-	if Input.is_action_pressed("UI_click") and not is_terminal and not is_paused:
-		shoot()
+	if Input.is_action_pressed("UI_click") and not is_paused:
+		weapon_system.shoot()
 	if Input.is_action_just_pressed("+1"):
-		if $hand_position/Taser/handItem.visible:
-			$hand_position/Taser/handItem.visible = false
-		else:
-			$hand_position/Taser/AnimationPlayer.play("take")
+		current_weapon_slot = 1
+		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+2"):
+		current_weapon_slot = 2
+		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+3"):
+		current_weapon_slot = 3
+		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+4"):
+		current_weapon_slot = 4
+		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+5"):
+		current_weapon_slot = 5
+		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+v"):
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			ghost_cheat()
+	if Input.is_action_just_pressed("+delete"):
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			var enemies = get_tree().get_nodes_in_group("enemy")
+			if enemies.size() > 0:
+				for enemy in enemies:
+					if enemy.has_method("take_damage"):
+						enemy.take_damage(999999)
 	if Input.is_action_just_pressed("UI_focus_next"):
 		handle_ui_action("Inventory")
 	if Input.is_action_just_pressed("+q"):
@@ -347,17 +317,11 @@ func _input(event: InputEvent): #повороты мышкой
 			else:
 				warning("ERROR: Flashlight missing")
 	if Input.is_action_just_pressed("+f1"):
-		var handVisible = !$hand_position/Taser/handItem.visible
-		$head/Camera3D/UI.visible = handVisible
-		if handVisible:
-			$hand_position/AnimationPlayer.play("take")
-		else:
-			$hand_position/Taser/handItem.visible = false
+		$head/Camera3D/UI.visible = !$head/Camera3D/UI.visible
 	if Input.is_action_just_pressed("+~"):
-		if !is_paused:
-			toggle_terminal()
-		else:
-			openUI("Pause")
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			openUI("cheat")
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
 
@@ -613,7 +577,7 @@ func _on_save_timeout() -> void:
 
 func handle_ui_action(ui_name: String) -> void:
 	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
-	if !is_terminal and has_ui_nodes == 0:
+	if has_ui_nodes == 0:
 		openUI(ui_name)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -695,3 +659,9 @@ func recipe(required_resources, required_label, required_description):
 		return false
 	recipeMenu.visible = true
 	recipeMenu.recipe(required_resources, required_label, required_description)
+
+func add_weapon_to_slot(slot: int, weapon_name: String):
+	var world = Global.get_world(Global.game_settings.word)
+	world["weapon"][str(slot)] = weapon_name
+	if slot == current_weapon_slot:
+		weapon_system.equip_weapon(weapon_name)
