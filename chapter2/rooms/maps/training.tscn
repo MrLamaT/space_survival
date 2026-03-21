@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://b7uovntued3dp"]
+
+[ext_resource type="Script" uid="uid://cs5hxtwdsgn5l" path="res://chapter2/rooms/maps/training.gd" id="1_wgrq1"]
+[ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="3_c8tpk"]
+[ext_resource type="PackedScene" uid="uid://b4ovs2oii7bfb" path="res://chapter2/rooms/decoration/teleport_simulation.tscn" id="4_jr5s2"]
+[ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://chapter2/rooms/decoration/hologram_text.tscn" id="4_wot7y"]
+[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="6_l4erg"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 4294967268
+cell_size = 0.05
+agent_radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5xo8"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wot7y"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr5s2"]
+albedo_texture = ExtResource("6_l4erg")
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmlfu"]
+size = Vector3(20, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73ba3"]
+albedo_color = Color(0.96008104, 0.43938142, 0, 1)
+albedo_texture = ExtResource("6_l4erg")
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="training" type="Node3D" unique_id=1913855422]
+script = ExtResource("1_wgrq1")
+
+[node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_c8tpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
+
+[node name="1" type="NavigationRegion3D" parent="." unique_id=1739088371]
+navigation_mesh = SubResource("NavigationMesh_o4e3a")
+navigation_layers = 4
+
+[node name="floor_ceiling" type="Node3D" parent="1" unique_id=694901470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
+
+[node name="KillZona" type="Area3D" parent="1/floor_ceiling" unique_id=1439012490]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/floor_ceiling/KillZona" unique_id=1252873173]
+shape = SubResource("BoxShape3D_n5xo8")
+debug_color = Color(0.99607843, 0, 0, 1)
+debug_fill = false
+
+[node name="dirt" type="StaticBody3D" parent="1" unique_id=619489575]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/dirt" unique_id=1521377593]
+shape = SubResource("BoxShape3D_wot7y")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="1/dirt" unique_id=524522657]
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_jr5s2")
+
+[node name="wall" type="StaticBody3D" parent="1" unique_id=338201575]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -10.5, 4.5, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/wall" unique_id=464664841]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="1/wall" unique_id=473941450]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall2" type="StaticBody3D" parent="1" unique_id=518793416]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 10.5, 4.5, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/wall2" unique_id=1987748398]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="1/wall2" unique_id=287481328]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall3" type="StaticBody3D" parent="1" unique_id=2023071128]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.5, 10.5)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/wall3" unique_id=2737315]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="1/wall3" unique_id=304035862]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall4" type="StaticBody3D" parent="1" unique_id=1218095419]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.5, -10.5)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1/wall4" unique_id=1110059255]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="1/wall4" unique_id=1905381118]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="TeleportSimulation" parent="1" unique_id=446955788 node_paths=PackedStringArray("navigation_region") instance=ExtResource("4_jr5s2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.490501)
+navigation_region = NodePath("../../2")
+
+[node name="TeleportSimulation2" parent="1" unique_id=7194671 instance=ExtResource("4_jr5s2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.491)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="1" unique_id=252761234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+light_energy = 2.0
+omni_range = 20.0
+
+[node name="hologramText" parent="1" unique_id=866615671 instance=ExtResource("4_wot7y")]
+
+[node name="Entry" type="Marker3D" parent="1" unique_id=1182574408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
+
+[node name="Exit" type="Marker3D" parent="1" unique_id=1201043700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
+
+[node name="2" type="NavigationRegion3D" parent="." unique_id=448923160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_o4e3a")
+navigation_layers = 4
+
+[node name="floor_ceiling" type="Node3D" parent="2" unique_id=40758672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
+
+[node name="KillZona" type="Area3D" parent="2/floor_ceiling" unique_id=1463826868]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/floor_ceiling/KillZona" unique_id=1014275988]
+shape = SubResource("BoxShape3D_n5xo8")
+debug_color = Color(0.99607843, 0, 0, 1)
+debug_fill = false
+
+[node name="dirt" type="StaticBody3D" parent="2" unique_id=1543074252]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/dirt" unique_id=16952323]
+shape = SubResource("BoxShape3D_wot7y")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="2/dirt" unique_id=1510209947]
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_jr5s2")
+
+[node name="wall" type="StaticBody3D" parent="2" unique_id=1763339538]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, -10.5, 4.5, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/wall" unique_id=113192997]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="2/wall" unique_id=1665502179]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall2" type="StaticBody3D" parent="2" unique_id=2010781421]
+transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 10.5, 4.5, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/wall2" unique_id=480895601]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="2/wall2" unique_id=1258989555]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall3" type="StaticBody3D" parent="2" unique_id=799573160]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.5, 10.5)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/wall3" unique_id=1773027230]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="2/wall3" unique_id=1635780686]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="wall4" type="StaticBody3D" parent="2" unique_id=972784562]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.5, -10.5)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2/wall4" unique_id=968683083]
+shape = SubResource("BoxShape3D_wmlfu")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="2/wall4" unique_id=1076095643]
+size = Vector3(20, 1, 10)
+material = SubResource("StandardMaterial3D_73ba3")
+
+[node name="TeleportSimulation" parent="2" unique_id=1895475198 instance=ExtResource("4_jr5s2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.490501)
+
+[node name="TeleportSimulation2" parent="2" unique_id=458011248 instance=ExtResource("4_jr5s2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.491)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="2" unique_id=155723201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+light_energy = 2.0
+omni_range = 20.0
+
+[node name="hologramText" parent="2" unique_id=655097330 instance=ExtResource("4_wot7y")]
+textLabel_ru = "Похвально. Вы освоили навык, которым владеет даже
+простейшая форма жизни. Теперь вам нужно оружие.
+Заберите Инженерный тесак. Для начала используйте Левую 
+кнопку мыши (ЛКМ), чтобы нанести удар."
+
+[node name="Entry" type="Marker3D" parent="2" unique_id=2108659343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
+
+[node name="Exit" type="Marker3D" parent="2" unique_id=229405154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
+
+[connection signal="body_entered" from="1/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
+[connection signal="body_entered" from="2/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]

@@ -23,7 +23,9 @@ func DeathBox():
 func handle_interaction(object_name: String):
 	match object_name:
 		"portal":
-			$NavigationRegion3D/portal.teleport("res://chapter2/rooms/GlobalMain.tscn")
+			if world["level"] <= 1:
+				world["level"] = 2
+			$NavigationRegion3D/Citadel/portal.teleport("res://chapter2/rooms/GlobalMain.tscn")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")

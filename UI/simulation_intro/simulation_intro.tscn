@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ixehawjpyuf5"]
+
+[ext_resource type="Script" uid="uid://8yg3hca30dan" path="res://UI/simulation_intro/simulation_intro.gd" id="1_2onxn"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_8hqmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_2onxn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_e7m8d"]
+resource_name = "stop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Label:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpuca"]
+_data = {
+&"RESET": SubResource("Animation_2onxn"),
+&"stop": SubResource("Animation_e7m8d")
+}
+
+[node name="Pause" type="Node2D" unique_id=709397907 groups=["UI"]]
+script = ExtResource("1_2onxn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1405108526]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="Label" type="Label" parent="Panel" unique_id=300235360]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -50.5
+offset_right = 61.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_8hqmj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1396829779]
+libraries/ = SubResource("AnimationLibrary_xpuca")

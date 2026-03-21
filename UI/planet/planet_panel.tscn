@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://diapoorvhvhru"]
+
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_ioub4"]
+[ext_resource type="Script" uid="uid://bqwbu222th7k0" path="res://UI/planet/planet_panel.gd" id="1_k2ek1"]
+[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/planet/planet1_1.png" id="2_k2ek1"]
+
+[node name="planet_panel" type="Control" unique_id=1408531095]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k2ek1")
+img = ExtResource("2_k2ek1")
+
+[node name="Label" type="Label" parent="." unique_id=395724693]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -170.0
+offset_right = 54.5
+offset_bottom = -147.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_ioub4")
+text = "1-1: RoP-856"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=435541960]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = 105.0
+offset_right = 54.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_ioub4")
+text = "Completed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1601048740]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -749.5
+offset_top = -777.0
+offset_right = 750.5
+offset_bottom = 723.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.14, 0.14)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("2_k2ek1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="." unique_id=547207144]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -200.0
+offset_right = 137.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

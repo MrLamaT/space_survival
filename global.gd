@@ -143,6 +143,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"stage": 0,
+		"level": 0,
 		"HP": 100,
 		"PointDeath": "",
 		"PortalTimer": 120,
@@ -162,6 +163,7 @@ func reset_world_to_default(world_num: int) -> void:
 			"chest_1": ["copper cable", "iron plate", "iron plate", "schematic"],
 			"chest_2": [],
 			"chest_3": [],
+			"chest_level_1_1": ["copper cable", "iron", "iron", "schematic"],
 			"death": []
 		},
 		"weapon": {

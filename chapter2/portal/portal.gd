@@ -14,6 +14,8 @@ func _ready():
 		$Cube2/MeshInstance3D2.queue_free()
 		$Cube3/MeshInstance3D2.queue_free()
 		$Cube4/MeshInstance3D2.queue_free()
+		$CollisionShape3D4.queue_free()
+		$MeshInstance3D.queue_free()
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 
