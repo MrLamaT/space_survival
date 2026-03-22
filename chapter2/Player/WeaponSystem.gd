@@ -22,8 +22,18 @@ var weapons: Dictionary = {
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
 		"stamina_cost": 8.0,
-		"animation": "r",
-		"visible_node": "Taser"
+		"reload_animation": "r",
+		"visible_node": "Taser",
+		"pitch_scale": [1.4, 1.6]
+	},
+	"EngineersCleaver": {
+		"scene": preload("res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_projectile.tscn"),
+		"fire_rate": 0.5,
+		"bullet_speed": 0.0,
+		"stamina_cost": 4.0,
+		"shoot_animation": "shoot",
+		"visible_node": "EngineersCleaver",
+		"pitch_scale": [1.4, 1.6]
 	}
 }
 
@@ -67,11 +77,16 @@ func shoot():
 	player.regen_timer = 0.0
 	player.update_stamina_display()
 	
+	if weapon_data.has("shoot_animation") and weapon_data["shoot_animation"] != "":
+		if current_weapon and current_weapon.has_node("AnimationPlayer"):
+			current_weapon.get_node("AnimationPlayer").play(weapon_data["shoot_animation"])
+	
 	is_reloading = false
 	if player.stamina < weapon_data["stamina_cost"] and !is_reloading:
 		is_reloading = true
-		if current_weapon and current_weapon.has_node("AnimationPlayer"):
-			current_weapon.get_node("AnimationPlayer").play(weapon_data["animation"])
+		if weapon_data.has("reload_animation") and weapon_data["reload_animation"] != "":
+			if current_weapon and current_weapon.has_node("AnimationPlayer"):
+				current_weapon.get_node("AnimationPlayer").play(weapon_data["reload_animation"])
 	
 	var bullet = weapon_data["scene"].instantiate()
 	player.get_parent().add_child(bullet)
@@ -90,8 +105,11 @@ func shoot():
 		bullet.velocity = shoot_direction * weapon_data["bullet_speed"]
 	
 	last_fire_time = current_time
-	player.get_node("laser_blast").pitch_scale = randf_range(0.9, 1.1)
-	player.get_node("laser_blast").play()
+	if current_weapon and current_weapon.has_node("shootingSound"):
+		var shooting_sound = current_weapon.get_node("shootingSound")
+		var pitch_range = weapon_data.get("pitch_scale", [1.4, 1.6])
+		shooting_sound.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
+		shooting_sound.play()
 	add_recoil()
 
 func add_recoil():

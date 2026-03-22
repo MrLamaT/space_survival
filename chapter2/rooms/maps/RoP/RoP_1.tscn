@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="21_7st0v"]
 [ext_resource type="PackedScene" uid="uid://tjy8ry250xol" path="res://chapter2/rooms/decoration/solarPanels.tscn" id="21_pd54a"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="22_ccvf0"]
+[ext_resource type="PackedScene" uid="uid://b2bsxx5qxkv1a" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_give.tscn" id="23_glknj"]
 [ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://chapter2/item/Taser_projectile/Taser_give.tscn" id="23_w2f0a"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -774,10 +775,10 @@ transform = Transform3D(1, 0, -3.9790393e-13, 0, 1, 0, 0, 0, 1, -39.418396, 4.56
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave2" unique_id=1669803194 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(1, 0, -4.5474735e-13, 0, 1, 0, 0, 0, 1, -11.472702, 4.5698376, 4.0059185)
 
-[node name="TaserGive" parent="NavigationRegion3D" unique_id=2030828468 instance=ExtResource("23_w2f0a")]
+[node name="EngineersCleaverGive" parent="NavigationRegion3D" unique_id=2030828468 instance=ExtResource("23_glknj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -50)
 
-[node name="TaserGive2" parent="NavigationRegion3D" unique_id=1674257042 instance=ExtResource("23_w2f0a")]
+[node name="TaserGive" parent="NavigationRegion3D" unique_id=1674257042 instance=ExtResource("23_w2f0a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.813393, 11, -55.76956)
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_0vstr")]

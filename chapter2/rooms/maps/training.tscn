@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ovs2oii7bfb" path="res://chapter2/rooms/decoration/teleport_simulation.tscn" id="4_jr5s2"]
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://chapter2/rooms/decoration/hologram_text.tscn" id="4_wot7y"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="6_l4erg"]
+[ext_resource type="PackedScene" uid="uid://b2bsxx5qxkv1a" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_give.tscn" id="6_wmlfu"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
 geometry_parsed_geometry_type = 1
@@ -243,6 +244,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
 
 [node name="Exit" type="Marker3D" parent="2" unique_id=229405154]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
+
+[node name="EngineersCleaverGive" parent="2" unique_id=2030828468 instance=ExtResource("6_wmlfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [connection signal="body_entered" from="1/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="2/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]

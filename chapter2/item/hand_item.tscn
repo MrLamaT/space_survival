@@ -3,8 +3,17 @@
 [ext_resource type="Script" uid="uid://cb0qf1nq444x8" path="res://chapter2/item/handItem.gd" id="1_6euei"]
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://chapter2/assets/items/taser.png" id="2_xd7bl"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xd7bl"]
+radius = 0.1
+height = 0.5
+
 [node name="handItem" type="Node3D" unique_id=837608605]
 script = ExtResource("1_6euei")
 texture = ExtResource("2_xd7bl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1512269873]
+visible = false
+mesh = SubResource("CapsuleMesh_xd7bl")
+skeleton = NodePath("../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437667083]

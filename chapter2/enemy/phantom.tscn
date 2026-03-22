@@ -278,12 +278,12 @@ navigation_layers = 7
 
 [node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
 stream = ExtResource("13_xai3o")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="hit" type="AudioStreamPlayer3D" parent="." unique_id=689802459]
 stream = ExtResource("3_nrxh4")
 volume_db = -15.0
-pitch_scale = 4.0
+pitch_scale = 5.0
 
 [node name="nail" type="AudioStreamPlayer3D" parent="." unique_id=633376102]
 stream = ExtResource("14_kkywk")
@@ -371,3 +371,9 @@ libraries/ = SubResource("AnimationLibrary_bwta7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[node name="hp" type="Label3D" parent="." unique_id=329580655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+visible = false
+billboard = 2
+text = "0"

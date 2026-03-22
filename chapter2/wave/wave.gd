@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and wale:
+		$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
 		$AudioStreamPlayer3D.play()
 		var markers = find_children("*", "Marker3D", true, false)
 		for marker in markers:

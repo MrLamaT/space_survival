@@ -318,6 +318,7 @@ func _input(event: InputEvent): #повороты мышкой
 				warning("ERROR: Flashlight missing")
 	if Input.is_action_just_pressed("+f1"):
 		$head/Camera3D/UI.visible = !$head/Camera3D/UI.visible
+		$head/Camera3D/crosshair.visible = $head/Camera3D/UI.visible
 	if Input.is_action_just_pressed("+~"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:

@@ -15,11 +15,6 @@ func start_countdown(initial_value: int) -> void:
 func _on_timer_timeout() -> void:
 	current_value -= 1
 	$Label.text = str(current_value)
-	if current_value == 60:
-		if Global.game_settings["gui_settings"]["Language"] == "русский":
-			player.warning("Схлопывание портала через 60 секунд.\nРекомендован возврат.")
-		else:
-			player.warning("Portal collapse in 60 seconds.\nRecommended return.")
 	if current_value <= 0:
 		if Global.game_settings["gui_settings"]["Language"] == "русский":
 			player.warning("Соединение разорвано. Объект признан потерянным.")

@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var health_label: Label3D = $hp
 
 var is_dying: bool = false
 var death_timer: float = 0.0
@@ -52,6 +53,7 @@ func _ready():
 		player = get_tree().get_first_node_in_group("player")
 	previous_position = global_position
 	current_target = null
+	update_health_label()
 	if player:
 		start_chasing_player()
 
@@ -178,6 +180,7 @@ func attack_player():
 		return
 	if attack_cooldown <= 0:
 		if player and player.has_method("HP"):
+			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
 			player.HP(10)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
@@ -189,6 +192,7 @@ func die():
 	is_dying = true
 	death_timer = 0.0
 	$sparkDead.emitting = true
+	$shock.pitch_scale = randf_range(0.9, 1.1)
 	$shock.play()
 	velocity = Vector3.ZERO
 	is_chasing_player = false
@@ -197,8 +201,19 @@ func die():
 
 func take_damage(damage):
 	health -= damage
+	update_health_label()
 	if health <= 0:
 		$sparkDead.emitting = true
 		die()
 	else:
 		$spark.emitting = true
+
+func update_health_label():
+	if health_label:
+		health_label.text = str(health) + " HP"
+		if health <= 5:
+			health_label.modulate = Color(1, 0.3, 0.3) 
+		elif health <= 10:
+			health_label.modulate = Color(1, 0.8, 0.3)
+		else:
+			health_label.modulate = Color(1, 1, 1)
