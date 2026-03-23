@@ -203,7 +203,21 @@ func HP(hp):
 
 func respawn_player():
 	save()
-	SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
+	var main_scene = get_tree().current_scene
+	if main_scene.has_method("get_checkpoint") and main_scene.get_checkpoint() != null:
+		var checkpoint_pos = main_scene.get_checkpoint()
+		global_position = checkpoint_pos
+		velocity = Vector3.ZERO
+		Global.game_settings["IsDying"] = false
+		movement_enabled = true
+		$head/Camera3D/UI.visible = true
+		$hand_position.visible = true
+		cam.current = true
+		if Global.game_settings["ThrownCamera"]:
+			Global.game_settings["ThrownCamera"].queue_free()
+			Global.game_settings["ThrownCamera"] = null
+	else:
+		SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
 
 func throw_camera_out():
 	var cam_scene = load("res://chapter2/item/cam.tscn")
