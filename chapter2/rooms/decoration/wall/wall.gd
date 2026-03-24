@@ -6,7 +6,7 @@ extends Node3D
 @export var mother_ship = false
 
 func _ready() -> void:
-	if !light:
+	if !light and has_node("Light"):
 		$Light.queue_free()
 	else:
 		if emergency_light:

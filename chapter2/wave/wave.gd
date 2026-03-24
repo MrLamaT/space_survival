@@ -27,6 +27,5 @@ func _on_timer_timeout() -> void:
 	print("enemy_wale: ", enemy_nodes.size())
 	if enemy_nodes.size() == 0:
 		$Timer.stop()
-		Gates.BlockSpawn(false)
-		Gates["unlocked"] = true
+		Gates.unlocking()
 		

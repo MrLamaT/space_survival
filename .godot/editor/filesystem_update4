@@ -1,7 +1,9 @@
 res://chapter2/rooms/maps/training.tscn
-res://global.gd
-res://chapter2/wave/wave_marker.gd
 res://chapter2/rooms/maps/training.gd
-res://chapter2/Player/player.gd
-res://chapter2/rooms/maps/RoP/RoP_1.tscn
-res://chapter2/rooms/decoration/teleport_simulation.tscn
+res://chapter2/closet/chest.tscn
+res://chapter2/rooms/decoration/PC1.tscn
+res://UI/messages/messages.gd
+res://chapter2/rooms/decoration/wall/wallGates.tscn
+res://chapter2/rooms/decoration/wall/wallGates.gd
+res://chapter2/wave/wave.gd
+res://chapter2/rooms/decoration/wall/wall.gd

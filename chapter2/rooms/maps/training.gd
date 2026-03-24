@@ -6,6 +6,7 @@ var checkpoint = Vector3(100.0, 0.656, 7.75)
 func _ready() -> void:
 	Global.game_settings["step"] = 1
 	$Player.openUI("simulation_intro")
+	$"4/PC1".notificationOn(true)
 
 func handle_interaction(object_name: String):
 	match object_name:
@@ -19,8 +20,8 @@ func handle_interaction(object_name: String):
 				$Player.warning("Строительство завершено!")
 			else:
 				$Player.warning("Construction complete!")
-			$"5/workbench/workbench".position.y = 0.45
-			$"5/workbench/InteractableObject".queue_free()
+			$"4/workbench/workbench".position.y = 0.45
+			$"4/workbench/InteractableObject".queue_free()
 			$Player.recipe([], "", "")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:

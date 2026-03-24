@@ -12,10 +12,16 @@ func _ready() -> void:
 				$Light.update_torch_color(Color("ff0000ff"))
 	if !unlocked:
 		$StaticBody3D/CollisionShape3DDoor.disabled = false
+		$detect/CollisionShape3D.disabled = true
 
 func lightOn():
 	if has_node("Light"):
 		$Light.update_torch_color(Color("f3f1c5"))
+
+func unlocking():
+	BlockSpawn(false)
+	unlocked = true
+	$detect/CollisionShape3D.disabled = false
 
 func _on_detect_body_entered(_body: Node3D) -> void:
 	if unlocked:

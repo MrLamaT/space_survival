@@ -81,5 +81,5 @@ transform = Transform3D(0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.4, 0, 0.19084167, 0)
 shape = SubResource("BoxShape3D_hgs8r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1259563392 groups=["interactive_objects"]]
-transform = Transform3D(0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_x83hx")

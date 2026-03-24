@@ -14,6 +14,14 @@ var MessageID = 1
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	print("MessagesID:", MessageID)
+	if MessageID == 0:
+		$AnimationPlayer.play("logo")
+		if Global.game_settings["gui_settings"]["Language"] == "русский":
+			chat_text.text = "тестовый текст. 
+--. ..- .- .-. -.. .. .- -. / .-.. --- ...- . ... / -.-- --- ..- / # ...-- .-.-.-"
+		else:
+			chat_text.text = "test text. 
+--. ..- .- .-. -.. .. .- -. / .-.. --- ...- . ... / -.-- --- ..- / # ...-- .-.-.-"
 	if MessageID == 1:
 		$AnimationPlayer.play("logo")
 		if Global.game_settings["gui_settings"]["Language"] == "русский":
