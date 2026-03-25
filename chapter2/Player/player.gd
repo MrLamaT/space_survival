@@ -19,6 +19,8 @@ var weapon_system: WeaponSystem
 
 var current_weapon_slot: int = 1
 
+var is_shooting: bool = false
+
 var accel = 6
 var SPEED = 5.0
 var base_speed = 5.0
@@ -263,8 +265,11 @@ func update_gui_visibility():
 	$head/Camera3D/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
-	if Input.is_action_pressed("UI_click") and not is_paused:
+	if Input.is_action_just_pressed("UI_click") and not is_paused:
+		is_shooting = true
 		weapon_system.shoot()
+	if Input.is_action_just_released("UI_click"):
+		is_shooting = false
 	if Input.is_action_just_pressed("+1"):
 		current_weapon_slot = 1
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
@@ -527,6 +532,8 @@ func _physics_process(delta):
 			velocity.y = lerp(velocity.y, 0.0, accel * delta)
 	move_and_slide()
 	interaction_manager.check_interactable()
+	if is_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
+		weapon_system.shoot()
 
 func force_stand_up():
 	if crouched:

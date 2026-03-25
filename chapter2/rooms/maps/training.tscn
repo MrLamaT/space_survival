@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://chapter2/hide/invisible_trigger.tscn" id="14_c8tpk"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="14_cs7s5"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_hwhbs"]
+[ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://chapter2/laser/laser.tscn" id="18_ik7v6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
 vertices = PackedVector3Array(-9.75, 10, -10.75, -9.75, 10, -10.25, 9.75, 10, -10.25, 9.75, 10, -10.75, -10.75, 10, -9.75, -10.75, 10, 9.75, -10.25, 10, 9.75, -10.25, 10, -9.75, 10.25, 10, -9.75, 10.25, 10, 9.75, 10.75, 10, 9.75, 10.75, 10, -9.75, 9.75, 0.9999995, -9.7, 1.5500002, 0.9999995, -9.7, 1.5500002, 0.9999995, -8.9, -1.5, 0.9999995, -8.9, -1.5, 0.9999995, -9.7, -9.7, 0.9999995, -9.7, -9.7, 0.9999995, 9.75, -1.5, 0.9999995, 9.75, -1.5, 0.9999995, 8.9, 1.5500002, 0.9999995, 8.9, 1.5500002, 0.9999995, 9.75, 9.75, 0.9999995, 9.75, 1.3500004, 0.9999995, -8.7, 1.3500004, 0.9999995, 8.700001, -1.3000002, 0.9999995, -8.7, -1.3000002, 0.9999995, 8.700001, -1, 4.2499995, -9.7, -1, 4.2499995, -9.2, 1.0500002, 4.2499995, -9.2, 1.0500002, 4.2499995, -9.7, -0.9499998, 0.9999995, -9.7, -0.9499998, 0.9999995, -9.25, 1, 0.9999995, -9.25, 1, 0.9999995, -9.7, -1, 4.2499995, 9.200001, -1, 4.2499995, 9.75, 1.0500002, 4.2499995, 9.75, 1.0500002, 4.2499995, 9.200001, -0.9499998, 0.9999995, 9.25, -0.9499998, 0.9999995, 9.700001, 1, 0.9999995, 9.700001, 1, 0.9999995, 9.25, -9.75, 10, 10.25, -9.75, 10, 10.75, 9.75, 10, 10.75, 9.75, 10, 10.25)
@@ -109,6 +110,9 @@ size = Vector3(7.5, 2, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_80dxx"]
 size = Vector3(15, 1, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0400"]
+size = Vector3(2, 2, 2)
 
 [node name="training" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_wgrq1")
@@ -1009,6 +1013,48 @@ jump_force = 10.0
 [node name="Spring3" parent="6" unique_id=1582878693 instance=ExtResource("14_cs7s5")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -8.790543, 17.23584, -2.608571)
 
+[node name="Laser" parent="6" unique_id=1325278627 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 17.826, -1.103)
+
+[node name="Laser8" parent="6" unique_id=2100224015 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 21.2728, -1.103)
+
+[node name="Laser9" parent="6" unique_id=391510865 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 22.336332, -1.103)
+
+[node name="Laser10" parent="6" unique_id=1324927335 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 23.336332, -1.103)
+
+[node name="Laser2" parent="6" unique_id=359432580 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.6151276, 16.623838, -1.1694633)
+size_laser = 40.0
+
+[node name="Laser3" parent="6" unique_id=536230138 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.615, 16.624, -1.669)
+size_laser = 40.0
+
+[node name="Laser4" parent="6" unique_id=1109408686 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.615, 16.624, -2.169)
+size_laser = 40.0
+
+[node name="Laser5" parent="6" unique_id=1905101579 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.615, 16.624, -2.669)
+size_laser = 40.0
+
+[node name="Laser6" parent="6" unique_id=1218066200 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.615, 16.624, -3.169)
+size_laser = 40.0
+
+[node name="Laser7" parent="6" unique_id=1349322442 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.615, 16.624, -3.669)
+size_laser = 40.0
+
+[node name="spawnpoint" type="Area3D" parent="6" unique_id=559363685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="6/spawnpoint" unique_id=55375318]
+shape = SubResource("BoxShape3D_r0400")
+
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 142.5, 0.5, 7)
 chest = "chest_level_0"
@@ -1019,3 +1065,4 @@ chest = "chest_level_0"
 [connection signal="body_entered" from="4/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="5/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="6/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
+[connection signal="body_entered" from="6/spawnpoint" to="." method="_on_spawnpoint_6_body_entered"]

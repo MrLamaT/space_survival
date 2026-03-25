@@ -31,3 +31,6 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 
 func get_checkpoint():
 	return checkpoint
+
+func _on_spawnpoint_6_body_entered(_body: Node3D) -> void:
+	checkpoint = $"6/spawnpoint".global_position

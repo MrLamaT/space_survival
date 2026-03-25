@@ -28,7 +28,7 @@ var weapons: Dictionary = {
 	},
 	"EngineersCleaver": {
 		"scene": preload("res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_projectile.tscn"),
-		"fire_rate": 0.5,
+		"fire_rate": 0.75,
 		"bullet_speed": 0.0,
 		"stamina_cost": 4.0,
 		"shoot_animation": "shoot",
