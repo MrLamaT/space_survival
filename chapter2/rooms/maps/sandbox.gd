@@ -25,3 +25,6 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 		SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
 	else:
 		body.global_position = Vector3(0, 0, 0)
+
+func get_checkpoint():
+	return Vector3(0.0, 0.656, 40.0)

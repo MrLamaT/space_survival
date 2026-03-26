@@ -179,10 +179,13 @@ func attack_player():
 	if not can_attack_player() or is_dead:
 		return
 	if attack_cooldown <= 0:
-		if player and player.has_method("HP"):
+		if player:
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
-			player.HP(10)
+			if player.has_method("HP"):
+				player.HP(10)
+			if player.has_method("take_damage"):
+				player.take_damage(10)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 			chase_timer = 0.0
 

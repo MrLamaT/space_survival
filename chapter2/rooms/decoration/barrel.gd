@@ -1,5 +1,6 @@
 extends StaticBody3D
 
+## красный, синий, серый, жёлтый, огнеопасная, радиация
 @export var skin = 1
 
 func _ready() -> void:

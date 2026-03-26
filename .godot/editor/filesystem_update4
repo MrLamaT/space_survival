@@ -1,10 +1,10 @@
-res://chapter2/rooms/maps/RoP/RoP_1.tscn
-res://chapter2/enemy/FragileGlass.tscn
-res://chapter2/enemy/fragile_glass.gd
-res://chapter2/rooms/maps/training.tscn
+res://chapter2/rooms/maps/sandbox.gd
 res://chapter2/Player/player.gd
+res://chapter2/rooms/maps/sandbox.tscn
 res://chapter2/enemy/phantom.tscn
-res://chapter2/Player/WeaponSystem.gd
+res://chapter2/enemy/phantom.gd
 res://chapter2/laser/laser.tscn
 res://chapter2/laser/laser.gd
-res://chapter2/rooms/maps/training.gd
+res://chapter2/rooms/maps/training.tscn
+res://chapter2/rooms/maps/RoP/RoP_1.tscn
+res://chapter2/rooms/decoration/barrel.gd

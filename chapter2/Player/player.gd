@@ -173,6 +173,7 @@ func PlayerDeath():
 	$head/Camera3D/UI.visible = false
 	$hand_position.visible = false
 	await get_tree().create_timer(2.5).timeout
+	$screem.stop()
 	world["HP"] = 100
 	respawn_player()
 

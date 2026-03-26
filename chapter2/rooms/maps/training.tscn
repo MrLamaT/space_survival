@@ -1015,15 +1015,35 @@ transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -8.790543, 
 
 [node name="Laser" parent="6" unique_id=1325278627 instance=ExtResource("18_ik7v6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 17.826, -1.103)
+period = 2
+damage = 25
+
+[node name="Laser11" parent="6" unique_id=1689645898 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7753296, 17.826, -1.103)
+period = 2
+damage = 25
 
 [node name="Laser8" parent="6" unique_id=2100224015 instance=ExtResource("18_ik7v6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 21.2728, -1.103)
+period = 2
+damage = 25
 
 [node name="Laser9" parent="6" unique_id=391510865 instance=ExtResource("18_ik7v6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 22.336332, -1.103)
+damage = 25
 
 [node name="Laser10" parent="6" unique_id=1324927335 instance=ExtResource("18_ik7v6")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 23.336332, -1.103)
+damage = 25
+
+[node name="Laser12" parent="6" unique_id=141610844 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.2219086, 21.2728, -1.103)
+
+[node name="Laser13" parent="6" unique_id=141895946 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.2219086, 22.336332, -1.103)
+
+[node name="Laser14" parent="6" unique_id=68228439 instance=ExtResource("18_ik7v6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.2219086, 23.336332, -1.103)
 
 [node name="Laser2" parent="6" unique_id=359432580 instance=ExtResource("18_ik7v6")]
 transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 3.6151276, 16.623838, -1.1694633)
