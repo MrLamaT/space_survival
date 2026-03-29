@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dqmivewv2hyyl"]
+
+[ext_resource type="Texture2D" uid="uid://c42xwktwtgq4s" path="res://assets/nightskypastel.png" id="1_yobwa"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oht7b"]
+panorama = ExtResource("1_yobwa")
+filter = false
+
+[sub_resource type="Sky" id="Sky_kd80a"]
+sky_material = SubResource("PanoramaSkyMaterial_oht7b")
+
+[sub_resource type="Environment" id="Environment_dm2hf"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_kd80a")
+sky_rotation = Vector3(0, 0, 1.5707964)
+
+[node name="Skybox" type="WorldEnvironment" unique_id=767858646]
+environment = SubResource("Environment_dm2hf")

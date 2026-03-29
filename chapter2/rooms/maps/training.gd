@@ -4,6 +4,9 @@ var world = Global.get_world(Global.game_settings.word)
 var checkpoint = Vector3(100.0, 0.656, 7.75)
 
 func _ready() -> void:
+	var env_scene = preload("res://chapter2/sky/skyboxTraining.tscn")
+	var env_instance = env_scene.instantiate()
+	add_child(env_instance)
 	Global.game_settings["step"] = 1
 	$Player.openUI("simulation_intro")
 	$"4/PC1".notificationOn(true)

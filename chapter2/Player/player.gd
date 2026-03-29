@@ -99,6 +99,10 @@ var hand_follow_speed = 15.0  # Скорость следования руки (
 var hand_rotation_speed = 15.0  # Скорость поворота руки
 var max_hand_offset = Vector3(0.1, 0.1, 0.1)
 
+#двигать объект
+var held_build: Node = null
+var hold_distance: float = 2.0
+
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -162,6 +166,7 @@ func PlayerDeath():
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["IsDying"] = true
+	release_build()
 	var world = Global.get_world(Global.game_settings.word)
 	world["PointDeath"] = global_position
 	DeathInventory()
@@ -272,18 +277,23 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
 	if Input.is_action_just_pressed("+1"):
+		release_build()
 		current_weapon_slot = 1
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+2"):
+		release_build()
 		current_weapon_slot = 2
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+3"):
+		release_build()
 		current_weapon_slot = 3
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+4"):
+		release_build()
 		current_weapon_slot = 4
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+5"):
+		release_build()
 		current_weapon_slot = 5
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+v"):
@@ -303,6 +313,7 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+q"):
 		handle_ui_action("messages")
 	if Input.is_action_just_pressed("ui_cancel"):
+		release_build()
 		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
@@ -393,6 +404,8 @@ func _process(delta):
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	interaction_manager.update_interaction(delta)
+	if held_build and is_instance_valid(held_build):
+		update_held_build()
 
 func _update_stamina(delta):
 	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor():
@@ -688,3 +701,25 @@ func add_weapon_to_slot(slot: int, weapon_name: String):
 	world["weapon"][str(slot)] = weapon_name
 	if slot == current_weapon_slot:
 		weapon_system.equip_weapon(weapon_name)
+
+func MoveBuild(build):
+	print("переместить: ", build)
+	held_build = build
+	hold_distance = global_position.distance_to(build.global_position)
+
+func update_held_build():
+	if not held_build:
+		return
+	var camera_forward = -head.global_transform.basis.z
+	camera_forward.y = 0
+	camera_forward = camera_forward.normalized()
+	var target_position = cam.global_position + (camera_forward * hold_distance)
+	target_position.y = held_build.global_position.y
+	held_build.global_position = target_position
+	var target_rotation = head.global_rotation
+	target_rotation.x = 0
+	target_rotation.z = 0
+	held_build.global_rotation = target_rotation
+
+func release_build():
+	held_build = null

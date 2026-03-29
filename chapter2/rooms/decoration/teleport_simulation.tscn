@@ -2,16 +2,19 @@
 
 [ext_resource type="Script" uid="uid://ds3psvryvtued" path="res://chapter2/rooms/decoration/teleport_simulation.gd" id="1_hmcbe"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="1_pukj7"]
+[ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/material33.png" id="2_5lilg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73ba3"]
 size = Vector3(2.5, 3.5, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wot7y"]
-albedo_texture = ExtResource("1_pukj7")
+albedo_color = Color(0.8901961, 0, 0.91764706, 1)
+albedo_texture = ExtResource("2_5lilg")
 uv1_triplanar = true
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmcbe"]
+shading_mode = 0
 albedo_color = Color(1, 0, 1, 1)
 albedo_texture = ExtResource("1_pukj7")
 uv1_triplanar = true
@@ -38,9 +41,9 @@ size = Vector3(2.5, 3.5, 1)
 material = SubResource("StandardMaterial3D_wot7y")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1775101693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 operation = 2
-size = Vector3(1.5, 3, 1)
+size = Vector3(1.5, 3.3, 1)
 material = SubResource("StandardMaterial3D_wot7y")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=470206742]

@@ -148,23 +148,23 @@ func reset_world_to_default(world_num: int) -> void:
 		"PointDeath": "",
 		"PortalTimer": 120,
 		"build": {
-			"flashlight": -1,
+			"flashlight": 0,
 			"compartment": 0,
 			"workbench": 0,
 			"chest": 0,
 			"light": 0,
 			"solar_panel": 0,
-			"copper_cable": -1,
-			"iron_plate": -1,
-			"glass_panel": -1
+			"copper_cable": 0,
+			"iron_plate": 0,
+			"glass_panel": 0
 		},
 		"inventory": {
 			"inventory": [],
-			"chest_1": ["copper cable", "iron plate", "iron plate", "schematic"],
+			"chest_1": ["copper cable", "iron plate", "iron plate"],
 			"chest_2": [],
 			"chest_3": [],
-			"chest_level_1_1": ["copper cable", "iron", "iron", "schematic"],
-			"chest_level_0": ["copper", "iron", "coal", "schematic"],
+			"chest_level_1_1": ["copper cable", "iron", "iron"],
+			"chest_level_0": ["copper", "iron", "coal"],
 			"death": []
 		},
 		"weapon": {

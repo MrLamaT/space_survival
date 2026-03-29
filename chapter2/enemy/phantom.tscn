@@ -265,12 +265,6 @@ script = ExtResource("1_se8os")
 shape = SubResource("CapsuleShape3D_se8os")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
-[node name="CollisionArea" type="Area3D" parent="." unique_id=1865184365]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea" unique_id=1037020477]
-shape = SubResource("CapsuleShape3D_se8os")
-debug_color = Color(0, 0.59607846, 0.7019608, 1)
-
 [node name="ResurrectionTimer" type="Timer" parent="." unique_id=930393129]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]

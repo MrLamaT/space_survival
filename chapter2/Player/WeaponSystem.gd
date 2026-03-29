@@ -34,7 +34,14 @@ var weapons: Dictionary = {
 		"shoot_animation": "shoot",
 		"visible_node": "EngineersCleaver",
 		"pitch_scale": [1.4, 1.6]
-	}
+	},
+	"Move": {
+		"scene": preload("res://chapter2/item/Move_projectile/Move_projectile.tscn"),
+		"fire_rate": 0.5,
+		"bullet_speed": 0.0,
+		"stamina_cost": 0.0,
+		"visible_node": "Move"
+	},
 }
 
 func _ready():

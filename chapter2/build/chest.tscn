@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://d1lre76f0a5ir"]
 
-[ext_resource type="Script" uid="uid://shv1pkwlbix4" path="res://chapter2/closet/chest.gd" id="1_hgs8r"]
+[ext_resource type="Script" uid="uid://shv1pkwlbix4" path="res://chapter2/build/chest.gd" id="1_hgs8r"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="1_x83hx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wo3ei"]
@@ -46,7 +46,7 @@ size = Vector3(1, 0.7633667, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x83hx"]
 
-[node name="chest" type="Area3D" unique_id=1567652648 groups=["interactive_objects"]]
+[node name="chest" type="Area3D" unique_id=1567652648 groups=["build", "interactive_objects"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_hgs8r")
