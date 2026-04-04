@@ -1,3 +1,5 @@
-res://UI/hacking/hacking.tscn
-res://UI/hacking/hacking_player.gd
 res://UI/hacking/hacking.gd
+res://UI/hacking/hacking.tscn
+res://chapter2/rooms/decoration/wall/impenetrableField.tscn
+res://chapter2/rooms/maps/training.tscn
+res://chapter2/rooms/GlobalMain.tscn

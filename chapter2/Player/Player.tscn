@@ -1087,4 +1087,6 @@ volume_db = -10.0
 [node name="save" type="Timer" parent="." unique_id=246559202]
 wait_time = 60.0
 
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1773773453]
+
 [connection signal="timeout" from="save" to="." method="_on_save_timeout"]

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d2hafo5emquxx"]
+
+[ext_resource type="Script" uid="uid://cloqq0c5rctl0" path="res://chapter2/TimerBoost/timer_boost.gd" id="1_380jf"]
+[ext_resource type="Texture2D" uid="uid://ftcjws1e5coq" path="res://assets/TimerBoost.png" id="1_waugf"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_njj6y"]
+[ext_resource type="AudioStream" uid="uid://dd8lsmgeksotb" path="res://assets/glass.wav" id="4_i5lyp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nsiyc"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_380jf"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5lyp"]
+shading_mode = 0
+albedo_color = Color(0, 0.6666667, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_nsiyc"]
+material = SubResource("StandardMaterial3D_i5lyp")
+size = Vector2(0.1, 0.2)
+
+[node name="TimerBoost" type="Area3D" unique_id=727321338]
+collision_layer = 2
+script = ExtResource("1_380jf")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1568795737]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_waugf")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D" unique_id=598465891]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.030000001, 0)
+billboard = 1
+modulate = Color(0, 0.6666667, 1, 1)
+text = "+100"
+font = ExtResource("2_njj6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=529671693]
+shape = SubResource("BoxShape3D_nsiyc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=822090858]
+stream = ExtResource("4_i5lyp")
+pitch_scale = 1.5
+
+[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=504576548]
+cast_shadow = 0
+emitting = false
+amount = 15
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_380jf")
+draw_pass_1 = SubResource("QuadMesh_nsiyc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

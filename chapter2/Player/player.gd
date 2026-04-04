@@ -13,6 +13,7 @@ extends CharacterBody3D
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
 @onready var bullet_spawn_point = $head/Camera3D/BulletSpawn
 @onready var recipeMenu = $head/Camera3D/recipe
+@onready var music_player = $music
 
 var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
@@ -679,6 +680,25 @@ func openMessage(MessageID):
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
+	
+func openHack(nodeHack):
+	var node_name = "hacking"
+	var path = "head/Camera3D/" + node_name
+	var node = get_node_or_null(path)
+	if not node:
+		var ui_scene_path = "res://UI/hacking/hacking.tscn"
+		if ResourceLoader.exists(ui_scene_path):
+			var ui_scene = load(ui_scene_path)
+			node = ui_scene.instantiate()
+			node.name = node_name
+			node.set("node_hack", nodeHack)
+			get_node("head/Camera3D").add_child(node)
+			node.add_to_group("UI")
+			Global.game_settings["UI"] = true
+	node.visible = true
+	$beep.play()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	update_gui_visibility()
 
 func warning(text):
 	if $head/Camera3D/label.visible == false:
@@ -723,3 +743,38 @@ func update_held_build():
 
 func release_build():
 	held_build = null
+
+func timerBoost(boost):
+	$head/Camera3D/timer.boost(boost)
+	
+func _check_and_play_custom_music():
+	var music_file_path = "user://ost"
+	var audio_extensions = [".mp3", ".ogg"]
+	var found_music = null
+	var found_ext = ""
+	for ext in audio_extensions:
+		var test_path = music_file_path + ext
+		if FileAccess.file_exists(test_path):
+			found_music = test_path
+			found_ext = ext
+			break
+	if found_music:
+		print("Музыка найдена: ", found_music)
+		var file = FileAccess.open(found_music, FileAccess.READ)
+		if file:
+			var audio_data = file.get_buffer(file.get_length())
+			file.close()
+			var audio_stream = null
+			match found_ext:
+				".mp3":
+					audio_stream = AudioStreamMP3.new()
+					audio_stream.data = audio_data
+				".ogg":
+					audio_stream = AudioStreamOggVorbis.new()
+					audio_stream.data = audio_data
+			if audio_stream and music_player:
+				music_player.stream = audio_stream
+				music_player.play()
+				return true
+	else:
+		return false

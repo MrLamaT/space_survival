@@ -23,3 +23,6 @@ func _on_timer_timeout() -> void:
 		player.get_node("head/Camera3D/Teleport").kill()
 		$Timer.stop()
 		visible = false
+
+func boost(boostTime):
+	current_value += boostTime

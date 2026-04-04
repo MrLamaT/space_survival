@@ -11,6 +11,7 @@ func _ready() -> void:
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	Global.game_settings["step"] = 1
 	DeathBox()
+	$Player._check_and_play_custom_music()
 
 func DeathBox():
 	var death_point = world["PointDeath"]

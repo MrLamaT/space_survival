@@ -2,122 +2,123 @@
 
 [ext_resource type="Texture2D" uid="uid://20gqgjr0wata" path="res://assets/hack_player.png" id="1_0w633"]
 [ext_resource type="Script" uid="uid://bd0y0f7cph0nj" path="res://UI/hacking/hacking.gd" id="1_b5mh0"]
-[ext_resource type="Script" uid="uid://dtlqhoc6grat4" path="res://UI/hacking/hacking_player.gd" id="2_lcaau"]
-[ext_resource type="Texture2D" uid="uid://crdkelx3f8abn" path="res://assets/hack_vector.png" id="3_jc67h"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_lcaau"]
-[ext_resource type="Texture2D" uid="uid://cb4og5mx3idxa" path="res://assets/hack_key.png" id="6_387qs"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="7_wbnmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc67h"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0.78431374)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 1, 0, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0taql"]
-radius = 20.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_387qs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbnmh"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="Animation" id="Animation_xrnxl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("staminaProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../password:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7m7c5"]
+resource_name = "loading"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("staminaProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4, 1, 1.5, 1.7, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.0, 6.0, 42.0, 72.0, 72.0, 87.0, 100.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../password:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmom6"]
+_data = {
+&"RESET": SubResource("Animation_xrnxl"),
+&"loading": SubResource("Animation_7m7c5")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrnxl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
 
 [node name="Hacking" type="Node2D" unique_id=1848840016]
 script = ExtResource("1_b5mh0")
-
-[node name="game" type="Panel" parent="." unique_id=1366572095]
-visible = false
-offset_right = 1152.0
-offset_bottom = 426.31573
-scale = Vector2(1, 1.5200002)
-theme_override_styles/panel = SubResource("StyleBoxFlat_jc67h")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="game" unique_id=1603733751]
-z_index = 1
-position = Vector2(156, 193.42104)
-scale = Vector2(1, 0.6578947)
-script = ExtResource("2_lcaau")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/CharacterBody2D" unique_id=1604696115]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Sprite2D2" type="Sprite2D" parent="game/CharacterBody2D" unique_id=1155179840]
-texture = ExtResource("1_0w633")
-
-[node name="Sprite2D" type="Sprite2D" parent="game/CharacterBody2D" unique_id=1499028694]
-texture = ExtResource("3_jc67h")
-
-[node name="Area2D" type="Area2D" parent="game/CharacterBody2D" unique_id=1141496415]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/CharacterBody2D/Area2D" unique_id=2057941652]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Label" type="Label" parent="game" unique_id=1339694261]
-modulate = Color(0, 0.4, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(15, 15)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_lcaau")
-text = "0 / 4"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="key" type="Area2D" parent="game" unique_id=135381318]
-z_index = 1
-position = Vector2(520, 121.71052)
-scale = Vector2(1, 0.658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/key" unique_id=1817030155]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="game/key" unique_id=1044311081]
-texture = ExtResource("6_387qs")
-
-[node name="key2" type="Area2D" parent="game" unique_id=2112194177]
-z_index = 1
-position = Vector2(800, 214.47366)
-scale = Vector2(1, 0.658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/key2" unique_id=2094854644]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="game/key2" unique_id=1784839025]
-texture = ExtResource("6_387qs")
-
-[node name="key3" type="Area2D" parent="game" unique_id=2028603508]
-z_index = 1
-position = Vector2(411, 321.05258)
-scale = Vector2(1, 0.658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/key3" unique_id=529731140]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="game/key3" unique_id=266152676]
-texture = ExtResource("6_387qs")
-
-[node name="key4" type="Area2D" parent="game" unique_id=1459934802]
-z_index = 1
-position = Vector2(233, 87.49997)
-scale = Vector2(1, 0.658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="game/key4" unique_id=143402257]
-shape = SubResource("CircleShape2D_0taql")
-debug_color = Color(0, 0.5950001, 0.7, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="game/key4" unique_id=1493803421]
-texture = ExtResource("6_387qs")
 
 [node name="load" type="Panel" parent="." unique_id=2041719566]
 offset_right = 1152.0
@@ -151,7 +152,277 @@ text = "HACK.OS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="game/key" to="." method="_on_key_body_entered"]
-[connection signal="body_entered" from="game/key2" to="." method="_on_key_2_body_entered"]
-[connection signal="body_entered" from="game/key3" to="." method="_on_key_3_body_entered"]
-[connection signal="body_entered" from="game/key4" to="." method="_on_key_4_body_entered"]
+[node name="staminaProgressBar" type="ProgressBar" parent="load" unique_id=1915518800]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 116.84213
+offset_right = 400.0
+offset_bottom = 143.84213
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_styles/background = SubResource("StyleBoxFlat_387qs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wbnmh")
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="load" unique_id=1368397019]
+libraries/ = SubResource("AnimationLibrary_hmom6")
+autoplay = &"loading"
+
+[node name="password" type="Panel" parent="." unique_id=2020813299]
+visible = false
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 326.0
+offset_top = 140.0
+offset_right = 826.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.5200002)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc67h")
+
+[node name="Sprite2D" type="Sprite2D" parent="password" unique_id=1697069054]
+position = Vector2(31, 21.052628)
+scale = Vector2(1, 0.658)
+texture = ExtResource("1_0w633")
+
+[node name="Sprite2D2" type="Sprite2D" parent="password" unique_id=1683538814]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(470, 21.05263)
+scale = Vector2(2, 1.316)
+texture = ExtResource("7_wbnmh")
+
+[node name="Label" type="Label" parent="password" unique_id=1239853260]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -167.10524
+offset_right = -89.0
+offset_bottom = -144.10524
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 1.316)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+text = "password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="password" type="Label" parent="password" unique_id=74557096]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -101.97367
+offset_right = 36.0
+offset_bottom = -78.97367
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 3.948)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+text = "____"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button1" type="Button" parent="password" unique_id=1526609971]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -25.0
+offset_right = -75.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "1"
+
+[node name="Button2" type="Button" parent="password" unique_id=910205763]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "2"
+
+[node name="Button3" type="Button" parent="password" unique_id=295016321]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = -25.0
+offset_right = 125.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "3"
+
+[node name="Button4" type="Button" parent="password" unique_id=463624507]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 40.0
+offset_right = -75.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "4"
+
+[node name="Button5" type="Button" parent="password" unique_id=135635267]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 40.0
+offset_right = 25.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "5"
+
+[node name="Button6" type="Button" parent="password" unique_id=1140632447]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 40.0
+offset_right = 125.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "6"
+
+[node name="Button7" type="Button" parent="password" unique_id=1260802629]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 105.0
+offset_right = -75.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "7"
+
+[node name="Button8" type="Button" parent="password" unique_id=847858668]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 105.0
+offset_right = 25.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "8"
+
+[node name="Button9" type="Button" parent="password" unique_id=888285672]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 105.0
+offset_right = 125.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("4_lcaau")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_xrnxl")
+text = "9"
+
+[connection signal="animation_finished" from="load/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

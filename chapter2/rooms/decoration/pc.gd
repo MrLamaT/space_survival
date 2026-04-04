@@ -16,6 +16,8 @@ func trigger_interaction():
 	if nameUI != "":
 		if nameUI == "messages":
 			player.openMessage(messages)
+		elif nameUI == "hacking":
+			player.openHack(get_parent())
 		else:
 			player.openUI(nameUI)
 	else:
