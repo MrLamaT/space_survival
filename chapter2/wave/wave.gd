@@ -3,6 +3,7 @@ extends Area3D
 @export var Gates: Node3D
 var is_active = true
 var current_wave = 0
+var SpawnAudio = false
 
 func _ready() -> void:
 	$CSGBox3D.queue_free()
@@ -16,8 +17,10 @@ func _on_body_entered(body: Node3D) -> void:
 		is_active = false
 
 func start_wave() -> void:
-	$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
-	$AudioStreamPlayer3D.play()
+	if !SpawnAudio:
+		$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
+		$AudioStreamPlayer3D.play()
+		SpawnAudio = true
 	var markers = find_children("*", "Marker3D", true, false)
 	var wave_started = false
 	for marker in markers:

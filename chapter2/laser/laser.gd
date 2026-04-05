@@ -5,7 +5,7 @@ extends StaticBody3D
 @export var damage = 100
 
 func _ready() -> void:
-	$Area3D.scale = Vector3(size_laser, 1.0, 1.0)
+	$Area3D.scale.x = size_laser
 	if period != 0:
 		$Area3D/Timer.wait_time = period
 		$Area3D/Timer.start()

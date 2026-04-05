@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_6b265"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="11_xrkd4"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="12_27xmk"]
-[ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="13_scqdy"]
-[ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="14_q03qg"]
-[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="15_q03qg"]
+[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="12_xrkd4"]
 [ext_resource type="PackedScene" uid="uid://bwvprsripwl1m" path="res://chapter2/trap/trap.tscn" id="17_t3y8a"]
 [ext_resource type="PackedScene" uid="uid://cmggski320s00" path="res://chapter2/rooms/decoration/tree.tscn" id="18_tusxh"]
 
@@ -915,23 +913,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -21.
 interaction_name = "exit"
 handler_node = NodePath("../..")
 
-[node name="Wave" parent="NavigationRegion3D" unique_id=956278609 node_paths=PackedStringArray("Gates") instance=ExtResource("13_scqdy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.573919, 2.9965587, 25.67638)
-Gates = NodePath("../wallGates")
-
-[node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("14_q03qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.083, -7)
-
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=1451676872 instance=ExtResource("14_q03qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.083, -7)
-
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=56847964 instance=ExtResource("14_q03qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.083, -3)
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=1061092458 instance=ExtResource("14_q03qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.1564536, -3)
-
-[node name="wallGates" parent="NavigationRegion3D" unique_id=1533157946 instance=ExtResource("15_q03qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.72266, 0.11334753, 13.639748)
+[node name="cockroach" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("12_xrkd4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.946117, 1.8849956, 56.0406)
+danve = true
 
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]

@@ -26,6 +26,14 @@ func handle_interaction(object_name: String):
 			$"4/workbench/workbench".position.y = 0.45
 			$"4/workbench/InteractableObject".queue_free()
 			$Player.recipe([], "", "")
+		"TimeStart":
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Бегите назад!!!")
+				get_node("Player/head/Camera3D/timer").start_countdown(120)
+				$"7/TeleportSimulation3".position.y = 0.0
+				$"7/ImpenetrableField2".on(false)
+				$"7/hologramText".queue_free()
+			$Player.recipe([], "", "")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")
@@ -37,3 +45,6 @@ func get_checkpoint():
 
 func _on_spawnpoint_6_body_entered(_body: Node3D) -> void:
 	checkpoint = $"6/spawnpoint".global_position
+
+func _on_spawnpoint_8_body_entered(_body: Node3D) -> void:
+	checkpoint = $"8/spawnpoint".global_position

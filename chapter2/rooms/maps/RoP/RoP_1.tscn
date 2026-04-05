@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="22_ccvf0"]
 [ext_resource type="PackedScene" uid="uid://b2bsxx5qxkv1a" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_give.tscn" id="23_glknj"]
 [ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://chapter2/item/Taser_projectile/Taser_give.tscn" id="23_w2f0a"]
+[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_yu35j"]
 [ext_resource type="PackedScene" uid="uid://d2hafo5emquxx" path="res://chapter2/TimerBoost/TimerBoost.tscn" id="28_5obrl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -797,6 +798,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, -50)
 
 [node name="TaserGive" parent="NavigationRegion3D" unique_id=1674257042 instance=ExtResource("23_w2f0a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.813393, 11, -55.76956)
+
+[node name="cockroach" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("25_yu35j")]
+transform = Transform3D(-0.6815132, 0, 0.7318058, 0, 1, 0, -0.7318058, 0, -0.6815132, -18.419977, 0.949075, -6.8785853)
+
+[node name="cockroach2" parent="NavigationRegion3D" unique_id=1171409481 instance=ExtResource("25_yu35j")]
+transform = Transform3D(0.015602507, 0, 0.9998783, 0, 1, 0, -0.9998783, 0, 0.015602507, -18.419977, 0.949075, -7.7526426)
+
+[node name="cockroach3" parent="NavigationRegion3D" unique_id=483889603 instance=ExtResource("25_yu35j")]
+transform = Transform3D(0.45984328, 0, 0.88800013, 0, 1, 0, -0.88800013, 0, 0.45984328, -18.134296, 0.949075, -9.710506)
+
+[node name="cockroach4" parent="NavigationRegion3D" unique_id=1261430336 instance=ExtResource("25_yu35j")]
+transform = Transform3D(0.02221632, 0, -0.9997531, 0, 1, 0, 0.9997531, 0, 0.02221632, 10.873452, 0.949075, 36.042393)
+
+[node name="cockroach5" parent="NavigationRegion3D" unique_id=730537776 instance=ExtResource("25_yu35j")]
+transform = Transform3D(-0.98060775, 0, -0.19598052, 0, 1, 0, 0.19598052, 0, -0.98060775, 10.685713, 0.949075, 37.40552)
+
+[node name="cockroach6" parent="NavigationRegion3D" unique_id=1556201417 instance=ExtResource("25_yu35j")]
+transform = Transform3D(-0.58484435, 0, -0.81114554, 0, 1, 0, 0.81114554, 0, -0.58484435, 5.657023, 0.949075, 31.434341)
+
+[node name="cockroach7" parent="NavigationRegion3D" unique_id=600873446 instance=ExtResource("25_yu35j")]
+transform = Transform3D(0.11377552, 0, -0.9935065, 0, 1, 0, 0.9935065, 0, 0.11377552, 5.254023, 0.949075, 34.724186)
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_0vstr")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -23.19358, 0.5, 22.542156)
