@@ -813,7 +813,7 @@ texture = ExtResource("4_3lojj")
 offset = Vector2(32, 16)
 
 [node name="blood2" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0.5137255, 0, 0, 0)
 z_index = -1
 scale = Vector2(18, 20.25)
 texture = ExtResource("5_xng4x")

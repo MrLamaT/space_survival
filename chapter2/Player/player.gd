@@ -206,9 +206,15 @@ func HP(hp):
 	var world = Global.get_world(Global.game_settings.word)
 	if !Global.game_settings["GodMod"]:
 		world["HP"] -= hp
+	if hp > 0:
+		$head/Camera3D/blood2.modulate = Color("830000BD")
+	else:
+		$head/Camera3D/blood2.modulate = Color("E8D6C2FF")
 	$head/Camera3D/damage.play("damage")
 	if world["HP"] <= 0:
 		PlayerDeath()
+	if world["HP"] > 100:
+		world["HP"] = 100
 
 func respawn_player():
 	save()

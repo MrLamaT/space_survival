@@ -34,6 +34,10 @@ func handle_interaction(object_name: String):
 				$"7/ImpenetrableField2".on(false)
 				$"7/hologramText".queue_free()
 			$Player.recipe([], "", "")
+		"portal":
+			if world["level"] <= 0:
+				world["level"] = 1
+			$"8/portal".teleport("res://chapter2/rooms/GlobalMain.tscn")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")
