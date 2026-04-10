@@ -380,6 +380,11 @@ textLabel_ru = "Похвально. Вы освоили навык, которы
 простейшая форма жизни. Теперь вам нужно оружие.
 Заберите Инженерный тесак. Для начала используйте Левую 
 кнопку мыши (ЛКМ), чтобы нанести удар."
+textLabel_en = "Admirable. You've mastered a skill that even the 
+simplest form of life possesses.
+Now you need a weapon.
+Take the Engineer's Cleaver. To start, use the Left 
+Mouse Button (LMB) to strike."
 
 [node name="Entry" type="Marker3D" parent="2" unique_id=2108659343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
@@ -493,6 +498,8 @@ omni_range = 20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 textLabel_ru = "Это Фантом. Уничтожьте его. 
 Помните: уклоняйтесь и бейте."
+textLabel_en = "This is a Phantom. Destroy it.
+Remember: dodge and strike."
 
 [node name="Entry" type="Marker3D" parent="3" unique_id=1350914791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
@@ -628,9 +635,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.5
 textLabel_ru = "Это источник ресурсов.
 Такие контейнеры разбросаны повсюду. 
 Любопытство — это единственная черта, которая спасла
-больше жизней, чем осторожность. Загляните внутрь. 
-Запомните внешний вид чертежей.
-Без них ваш верстак будет просто дорогим пресс-папье."
+больше жизней, чем осторожность. Загляните внутрь. "
+textLabel_en = "This is a resource container.
+Such containers are scattered everywhere.
+Curiosity is the one trait that has saved more lives than caution.
+Take a look inside."
 
 [node name="Entry" type="Marker3D" parent="4" unique_id=1840191004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
@@ -642,15 +651,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.656, -7.75)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5.5)
 textLabel_ru = "Видите эту голографическую разметку? 
 Это место для строительства. 
-Подойдите к нему, что бы узнать какие ресурсы требуются. 
-Технически, вы можете проигнорировать её 
-и пойти дальше."
+Подойдите к нему, что бы узнать какие ресурсы требуются. "
+textLabel_en = "See that holographic marker?
+That's a building spot.
+Approach it to find out what resources are required."
 
 [node name="hologramText3" parent="4" unique_id=845677610 instance=ExtResource("4_wot7y")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.5, 0, -5.5)
 textLabel_ru = "Это терминал связи. 
 Здесь передавали приказы и сводки. 
 Сейчас это просто хранилище данных."
+textLabel_en = "This is a communication terminal.
+Orders and reports used to be transmitted here.
+Now it's just a data storage device."
 
 [node name="workbench" type="Node3D" parent="4" unique_id=428344488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8)
@@ -794,8 +807,14 @@ textLabel_ru = "Ваш корабль — это единственная лин
 порталы, чтобы собирать ресурсы и активировать новые 
 точки перехода. Запомните главное правило:
 1. Портал открыт ограниченное время. 
-2. Вы всегда должны вернуться. Если портал закроется, пока 
-вы на поверхности..."
+2. Вы всегда должны вернуться."
+textLabel_en = "Your ship is your only lifeline. It flies along its 
+route automatically. Your task is to 
+leave it through 
+portals to gather resources and activate new transition points.
+Remember the main rule:
+1. The portal is open for a limited time.
+2. You must always come back."
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="5" unique_id=1510489369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -1301,6 +1320,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 textLabel_ru = "Тупик. Классика. Цитадель любила ставить замки. 
 Обесточить его можно через терминал управления."
+textLabel_en = "Dead end. Classic. The Citadel loved putting up locks.
+You can de-energize it via the control terminal."
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="7" unique_id=1395968060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -1449,6 +1470,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8765564, 0, 5.4)
 textLabel_ru = "Портал. Ваш билет домой. 
 На любой локации именно такой объект будет 
 вашей главной целью."
+textLabel_en = "A portal. Your ticket home.
+On any location, this type of object will be your main goal."
 
 [node name="hologramText2" parent="8" unique_id=1310560578 instance=ExtResource("4_wot7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -4.727)
@@ -1457,10 +1480,15 @@ textLabel_ru = "Как только вы открываете портал дл�
 секунд. В вашем — он будет зависеть от реакторов 
 вашего корабля.
 Когда таймер достигнет нуля, портал закроется. "
+textLabel_en = "As soon as you open a landing portal, you have a 
+time limit. In our case — 120 seconds. 
+In your case — it will depend on your ship's reactors.
+When the timer reaches zero, the portal will close."
 
 [node name="hologramText3" parent="8" unique_id=172712956 instance=ExtResource("4_wot7y")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.75, 0, -6)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.25, 0, -6)
 textLabel_ru = "Возвращайтесь на корабль."
+textLabel_en = "Return to the ship."
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="8" unique_id=1383222943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -1715,6 +1743,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 15.5, 8.75)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 15, 6)
 textLabel_ru = "Используйте Медицинскую станцию, 
 чтобы восстановить здоровье и снять повреждения."
+textLabel_en = "Use the Medical Station to 
+restore health and remove injuries."
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 142.5, 0.5, 7)

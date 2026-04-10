@@ -10,6 +10,10 @@ textLabel_ru = "Первое и самое главное.
 Ваше тело — это инструмент.
 Дойдите до конца. Я подожду.
 Мне, в отличие от вас, спешить некуда."
+textLabel_en = "First and most important.
+Your body is a tool.
+Go all the way to the end. I'll wait.
+Unlike you, I'm in no hurry."
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1435596909]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 3, -3.5)

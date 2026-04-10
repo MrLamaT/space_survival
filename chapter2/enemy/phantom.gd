@@ -183,7 +183,8 @@ func attack_player():
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
 			if player.has_method("HP"):
-				player.HP(10)
+				if !Global.game_settings["WeaponProtection"]:
+					player.HP(10)
 			if player.has_method("take_damage"):
 				player.take_damage(10)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
@@ -204,6 +205,8 @@ func die():
 
 func take_damage(damage):
 	health -= damage
+	if not is_on_floor():
+		health -= damage
 	update_health_label()
 	if health <= 0:
 		$sparkDead.emitting = true

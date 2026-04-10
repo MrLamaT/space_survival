@@ -29,10 +29,12 @@ func handle_interaction(object_name: String):
 		"TimeStart":
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Бегите назад!!!")
-				get_node("Player/head/Camera3D/timer").start_countdown(120)
-				$"7/TeleportSimulation3".position.y = 0.0
-				$"7/ImpenetrableField2".on(false)
-				$"7/hologramText".queue_free()
+			else:
+				$Player.warning("Run back!!!")
+			get_node("Player/head/Camera3D/timer").start_countdown(120)
+			$"7/TeleportSimulation3".position.y = 0.0
+			$"7/ImpenetrableField2".on(false)
+			$"7/hologramText".queue_free()
 			$Player.recipe([], "", "")
 		"portal":
 			if world["level"] <= 0:

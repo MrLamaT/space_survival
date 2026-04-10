@@ -146,7 +146,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	movement_enabled = true
-	Global.game_settings["GodMod"] = false
+	Global.game_settings["GodMod"] = false 
+	Global.game_settings["WeaponProtection"] = false
 	Global.game_settings["affected_by_gravity"] = true
 	base_camera_position = cam.position
 	update_stamina_display()
