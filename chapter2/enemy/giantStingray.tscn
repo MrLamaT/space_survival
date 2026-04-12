@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://uaqccm4rgjqh"]
+
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_aouct"]
+[ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="3_pya71"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfwe0"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("3_pya71")
+texture_filter = 0
+
+[sub_resource type="PrismMesh" id="PrismMesh_460sa"]
+material = SubResource("StandardMaterial3D_yfwe0")
+size = Vector3(10, 10, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrxh4"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.5882353)
+albedo_texture = ExtResource("3_pya71")
+texture_filter = 0
+
+[sub_resource type="PrismMesh" id="PrismMesh_yfwe0"]
+material = SubResource("StandardMaterial3D_nrxh4")
+size = Vector3(2.5, 2.5, 0.25)
+
+[sub_resource type="PrismMesh" id="PrismMesh_msqjr"]
+material = SubResource("StandardMaterial3D_nrxh4")
+size = Vector3(1, 5, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cudbv"]
+shading_mode = 0
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_yfwe0"]
+material = SubResource("StandardMaterial3D_cudbv")
+height = 0.5
+radial_segments = 16
+rings = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfwe0"]
+emission_shape_scale = Vector3(5, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, -5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4be61"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.5, 0.5, 0.5, 0.39215687)
+albedo_texture = ExtResource("3_pya71")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_msqjr"]
+material = SubResource("StandardMaterial3D_4be61")
+size = Vector2(0.2, 0.2)
+
+[node name="giantStingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 21
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+shape = SubResource("BoxShape3D_e015f")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="ResurrectionTimer" type="Timer" parent="." unique_id=930393129]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]
+navigation_layers = 7
+
+[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
+stream = ExtResource("2_aouct")
+volume_db = -25.0
+
+[node name="body" type="Node3D" parent="." unique_id=718440528]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body" unique_id=77054682]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, -5, 0, 0)
+mesh = SubResource("PrismMesh_460sa")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="body" unique_id=514399209]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 1.25, 0, 2.5)
+mesh = SubResource("PrismMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="body" unique_id=1771151068]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 1.25, 0, -2.5)
+mesh = SubResource("PrismMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="body" unique_id=1857930131]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="body/Node3D" unique_id=1274865657]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2.5, 0, 0)
+mesh = SubResource("PrismMesh_msqjr")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=780573930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.15, -1)
+mesh = SubResource("SphereMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D" unique_id=1016490918]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1226969118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.15, -2)
+mesh = SubResource("SphereMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D6" unique_id=445226045]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1464926774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.15, 2)
+mesh = SubResource("SphereMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D7" unique_id=586001799]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="body" unique_id=195508104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.15, 1)
+mesh = SubResource("SphereMesh_yfwe0")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D5" unique_id=2052184506]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
+light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1772971923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[node name="hp" type="Label3D" parent="." unique_id=329580655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+visible = false
+billboard = 2
+text = "0"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2102613379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+cast_shadow = 0
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_yfwe0")
+draw_pass_1 = SubResource("QuadMesh_msqjr")

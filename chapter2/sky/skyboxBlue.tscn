@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://bdps5mw06litg"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5crh"]
-sky_top_color = Color(0.5294118, 0.80784315, 0.92156863, 1)
-sky_horizon_color = Color(0.3019608, 0.56078434, 0.8, 1)
-ground_bottom_color = Color(0.3019608, 0.56078434, 0.8, 1)
-ground_horizon_color = Color(0.3019608, 0.56078434, 0.8, 1)
-sun_angle_max = 0.0
+[ext_resource type="Texture2D" uid="uid://t2816lwakjs1" path="res://assets/lightskycolor.png" id="1_0i6hk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tf2ut"]
+panorama = ExtResource("1_0i6hk")
+filter = false
 
 [sub_resource type="Sky" id="Sky_0i6hk"]
-sky_material = SubResource("ProceduralSkyMaterial_h5crh")
+sky_material = SubResource("PanoramaSkyMaterial_tf2ut")
 
 [sub_resource type="Environment" id="Environment_tf2ut"]
 background_mode = 2

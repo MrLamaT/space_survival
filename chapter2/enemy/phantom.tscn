@@ -15,7 +15,7 @@ emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, -1, 0)
 gravity = Vector3(0, 2, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4be61"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5ww8"]
 transparency = 1
 cull_mode = 2
 albedo_color = Color(0.5, 0.5, 0.5, 0.39215687)
@@ -23,7 +23,7 @@ albedo_texture = ExtResource("4_cudbv")
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_upn35"]
-material = SubResource("StandardMaterial3D_4be61")
+material = SubResource("StandardMaterial3D_y5ww8")
 size = Vector2(0.2, 0.2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cudbv"]
@@ -368,5 +368,6 @@ light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
 [node name="hp" type="Label3D" parent="." unique_id=329580655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+visible = false
 billboard = 2
 text = "0"
