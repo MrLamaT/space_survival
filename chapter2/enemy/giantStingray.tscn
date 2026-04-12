@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://uaqccm4rgjqh"]
 
+[ext_resource type="Script" uid="uid://84v2r0rchlr8" path="res://chapter2/enemy/giantStingray.gd" id="1_msqjr"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_aouct"]
+[ext_resource type="AudioStream" uid="uid://dnbkkyy1xcgku" path="res://assets/whate2.wav" id="3_aouct"]
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="3_pya71"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
-size = Vector3(0.25, 0.25, 0.25)
+size = Vector3(10, 1, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfwe0"]
 cull_mode = 2
@@ -58,11 +60,119 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_4be61")
 size = Vector2(0.2, 0.2)
 
+[sub_resource type="Animation" id="Animation_aouct"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../whate:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_msqjr"]
+resource_name = "fly"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.5, 2, 3, 4, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 17), Vector3(-8.25, 0, 34.3), Vector3(-25, 0, 40.25), Vector3(-50, 20, 40.25), Vector3(-100, 20, 40.25), Vector3(-150, 20, 40.25), Vector3(-200, 20, 40.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.1, 1.5, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0), Vector3(-0.61086524, 1.5707964, 0), Vector3(-0.61086524, 0.7853982, 0), Vector3(-0.61086524, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../whate:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aouct"]
+_data = {
+&"RESET": SubResource("Animation_aouct"),
+&"fly": SubResource("Animation_msqjr")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aouct"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(5, 5, 5)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
+albedo_color = Color(0, 0.84313726, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_pya71"]
+material = SubResource("StandardMaterial3D_shb46")
+size = Vector2(0.1, 0.2)
+
 [node name="giantStingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 collision_layer = 16
 collision_mask = 21
+script = ExtResource("1_msqjr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
 shape = SubResource("BoxShape3D_e015f")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
@@ -71,9 +181,13 @@ debug_color = Color(0, 0.59607846, 0.7019608, 1)
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]
 navigation_layers = 7
 
-[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
+[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1804881739]
 stream = ExtResource("2_aouct")
-volume_db = -25.0
+volume_db = -15.0
+
+[node name="whate" type="AudioStreamPlayer3D" parent="." unique_id=63854961]
+stream = ExtResource("3_aouct")
+pitch_scale = 2.0
 
 [node name="body" type="Node3D" parent="." unique_id=718440528]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -136,22 +250,37 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_energy = 0.1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
+[node name="OmniLight3D" type="OmniLight3D" parent="body" unique_id=1012682746]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1772971923]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+[node name="OmniLight3D2" type="OmniLight3D" parent="body" unique_id=1772971923]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5, 0, -2.1855695e-07)
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
-[node name="hp" type="Label3D" parent="." unique_id=329580655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-visible = false
-billboard = 2
-text = "0"
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2102613379]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="body" unique_id=2102613379]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 4.371139e-08)
 cast_shadow = 0
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_yfwe0")
 draw_pass_1 = SubResource("QuadMesh_msqjr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=350018585]
+libraries/ = SubResource("AnimationLibrary_aouct")
+autoplay = &"fly"
+
+[node name="hp" type="Label3D" parent="." unique_id=329580655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+billboard = 2
+text = "0"
+
+[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=1236345209]
+cast_shadow = 0
+emitting = false
+amount = 15
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_aouct")
+draw_pass_1 = SubResource("QuadMesh_pya71")
+
+[connection signal="animation_finished" from="body/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -12,6 +12,7 @@ sky_material = SubResource("PanoramaSkyMaterial_tf2ut")
 [sub_resource type="Environment" id="Environment_tf2ut"]
 background_mode = 2
 sky = SubResource("Sky_0i6hk")
+ambient_light_sky_contribution = 0.1
 
 [node name="Skybox" type="WorldEnvironment" unique_id=1322581983]
 environment = SubResource("Environment_tf2ut")

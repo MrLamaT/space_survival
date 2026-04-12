@@ -1,6 +1,7 @@
 extends Area3D
 
 @export var Gates: Node3D
+@export var sound = true
 var is_active = true
 var current_wave = 0
 var SpawnAudio = false
@@ -17,7 +18,7 @@ func _on_body_entered(body: Node3D) -> void:
 		is_active = false
 
 func start_wave() -> void:
-	if !SpawnAudio:
+	if !SpawnAudio and sound:
 		$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
 		$AudioStreamPlayer3D.play()
 		SpawnAudio = true

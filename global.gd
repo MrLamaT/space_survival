@@ -24,8 +24,7 @@ var game_settings: Dictionary = {
 	"word": 0,
 	"step": 1,
 	"UI": false,
-	"GhostMod": false,
-	"WeaponProtection": false
+	"GhostMod": false
 }
 var saved_portal_data: Dictionary = {}
 

@@ -1,7 +1,7 @@
 Node3D
-Area3D
 MeshInstance3D
 AnimationPlayer
+Area3D
 AudioStreamPlayer2D
 AudioStreamPlayer3D
 CollisionShape3D

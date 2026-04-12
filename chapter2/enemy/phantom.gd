@@ -127,7 +127,7 @@ func start_jump_to_player():
 	jump_target_position = player.global_position
 	jump_timeout = 0.0
 	$body/AnimationPlayer.play("jamp")
-	chase_timer = 0.0  # Сбрасываем таймер после прыжка
+	chase_timer = 0.0  
 
 func land_from_jump():
 	is_jumping = false
@@ -183,8 +183,7 @@ func attack_player():
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
 			if player.has_method("HP"):
-				if !Global.game_settings["WeaponProtection"]:
-					player.HP(10)
+				player.HP(10)
 			if player.has_method("take_damage"):
 				player.take_damage(10)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
