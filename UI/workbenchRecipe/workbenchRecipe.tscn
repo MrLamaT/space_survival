@@ -131,7 +131,7 @@ theme_override_constants/separation = 70
 layout_mode = 2
 sprite_texture = ExtResource("3_yheh7")
 sprite_label = "copper cable"
-required_resources = Array[String](["copper", "copper", "copper", "copper"])
+required_resources = Array[String](["copper", "copper"])
 build_global = "copper_cable"
 
 [node name="Control2" parent="Panel/VBoxContainer" unique_id=380768315 instance=ExtResource("1_kc2rc")]
@@ -146,7 +146,7 @@ build_global = "flashlight"
 layout_mode = 2
 sprite_texture = ExtResource("5_x61ko")
 sprite_label = "iron plate"
-required_resources = Array[String](["iron", "iron", "iron", "iron"])
+required_resources = Array[String](["iron", "iron"])
 build_global = "iron_plate"
 
 [node name="Control4" parent="Panel/VBoxContainer" unique_id=677495700 instance=ExtResource("1_kc2rc")]

@@ -19,6 +19,15 @@ func  _ready() -> void:
 		$Label2.modulate = Color("ff0000")
 		$Label2.text = "Locked"
 		$TextureRect.texture = preload("res://assets/delete.png")
+	if level == -1 and world["mode"] != 1:
+		visible = false
+		
 
 func _on_button_pressed() -> void:
-	get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_1.tscn")
+	if $Label2.text != "Locked":
+		if level == -1:
+			get_node("../../..").teleport("res://chapter2/rooms/maps/sandbox.tscn")
+		if level == 0:
+			get_node("../../..").teleport("res://chapter2/rooms/maps/training.tscn")
+		if level == 1:
+			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_1.tscn")

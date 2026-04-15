@@ -1082,7 +1082,7 @@ stream = ExtResource("16_s8fo2")
 
 [node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
 stream = ExtResource("14_uckl1")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="save" type="Timer" parent="." unique_id=246559202]
 wait_time = 60.0

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be1rd1vhc05ef"
-path.s3tc="res://.godot/imported/sun2.png-5557a4c826500117e9910f7211155fe4.s3tc.ctex"
+uid="uid://dcfdvqkr1k3h2"
+path="res://.godot/imported/material35.png-642dee0fd270b67d8108a754333d96ce.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/sun2.png"
-dest_files=["res://.godot/imported/sun2.png-5557a4c826500117e9910f7211155fe4.s3tc.ctex"]
+source_file="res://assets/textures/material35.png"
+dest_files=["res://.godot/imported/material35.png-642dee0fd270b67d8108a754333d96ce.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

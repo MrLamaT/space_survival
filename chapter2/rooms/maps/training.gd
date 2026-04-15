@@ -39,6 +39,8 @@ func handle_interaction(object_name: String):
 		"portal":
 			if world["level"] <= 0:
 				world["level"] = 1
+			if world["stage"] <= 0:
+				world["stage"] = 1
 			$"8/portal".teleport("res://chapter2/rooms/GlobalMain.tscn")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
