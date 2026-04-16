@@ -13,7 +13,7 @@ var page_data = {
 	},
 	1: {
 		"id_text": "Stage 1: RoP-856",
-		"sprite_texture": preload("res://assets/planet/planet1.png"),
+		"sprite_texture": preload("res://assets/level/planet1.png"),
 		"node_name": "HBoxContainer1"
 	}
 }

@@ -1,3 +1,5 @@
+res://assets/plants/
+res://assets/level/
 res://assets/textures/
 res://assets/models/
 res://assets/
@@ -8,7 +10,6 @@ res://chapter2/assets/items/
 res://assets/item/
 res://chapter2/item/EngineersCleaver_projectile/
 res://chapter2/item/Taser_projectile/
-res://assets/planet/
 res://UI/planet/
 res://chapter2/rooms/decoration/
 res://chapter2/rooms/maps/
@@ -20,4 +21,3 @@ res://assets/paintings/
 res://chapter2/assets/enemy/ghost/
 res://chapter2/assets/enemy/old/Scar/
 res://chapter2/assets/enemy/old/Eye/
-res://chapter2/load/

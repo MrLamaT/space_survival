@@ -1,1 +1,9 @@
+res://chapter2/rooms/decoration/tree.tscn
 res://chapter2/rooms/maps/sandbox.tscn
+res://chapter2/rooms/decoration/crane.tscn
+res://chapter2/Player/Player.tscn
+res://chapter2/Player/terminal/terminal.gd
+res://chapter2/rooms/global_main.gd
+res://UI/cheat/cheat.tscn
+res://UI/cheat/cheat.gd
+res://chapter2/Player/terminal/terminal.tscn

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccv3vqvsml768"]
 
 [ext_resource type="Script" uid="uid://d2c5hb3abt5gl" path="res://chapter2/HpBoost/hp_boost.gd" id="1_lg04g"]
-[ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/HpBoost.png" id="2_yap75"]
+[ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/flora/HpBoost.png" id="2_yap75"]
 [ext_resource type="AudioStream" uid="uid://c3mkme4l36ksb" path="res://assets/liana.wav" id="3_yap75"]
 [ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/material32.png" id="5_un0d0"]
 
@@ -38,7 +38,7 @@ collision_layer = 4
 script = ExtResource("1_lg04g")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1568795737]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.5, 0)
 billboard = 2
 shaded = true
 texture_filter = 0

@@ -84,7 +84,7 @@ func setBuild():
 		if has_node("ship/Zona1/solarPanels/InteractableObject"):
 			$ship/Zona1/solarPanels/InteractableObject.queue_free()
 	if world["build"]["compartment"] >= 1:
-		$ship/Zona1/wallGates["unlocked"] = true
+		$ship/Zona1/wallGates.unlocking()
 		if has_node("ship/Zona1/compartment/InteractableObject"):
 			$ship/Zona1/compartment/InteractableObject.queue_free()
 	$Player.recipe([], "", "")

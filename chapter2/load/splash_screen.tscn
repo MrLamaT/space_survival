@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://2b46d713lssn"]
 
 [ext_resource type="Script" uid="uid://c23egdnmpri5b" path="res://chapter2/load/splash_screen.gd" id="1_2pka5"]
-[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/planet/planet1_1.png" id="2_drjrb"]
+[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/level/planet1_1.png" id="2_drjrb"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_h8fj8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh1dh"]

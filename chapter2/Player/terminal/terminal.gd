@@ -123,8 +123,9 @@ func parse_command(text: String):
 				SystemPrint("No enemies found")
 		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
-		"0":
-			SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/training.tscn")
+		"give":
+			player.openUI("cheat_give")
+			SystemPrint("Opening the item issue menu")
 		"quit", "exit":
 			get_tree().quit()
 		"clear":

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_ioub4"]
 [ext_resource type="Script" uid="uid://bqwbu222th7k0" path="res://UI/planet/planet_panel.gd" id="1_k2ek1"]
-[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/planet/planet1_1.png" id="2_k2ek1"]
+[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/level/planet1_1.png" id="2_k2ek1"]
 
 [node name="planet_panel" type="Control" unique_id=1408531095]
 layout_mode = 3

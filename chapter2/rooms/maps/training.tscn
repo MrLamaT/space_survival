@@ -44,8 +44,6 @@ size = Vector3(20, 1, 20)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr5s2"]
 albedo_color = Color(0.8901961, 0, 0.91764706, 1)
 albedo_texture = ExtResource("3_ik7v6")
-metallic = 1.0
-metallic_specular = 1.0
 uv1_triplanar = true
 texture_filter = 0
 
@@ -55,7 +53,6 @@ size = Vector3(20, 1, 10)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73ba3"]
 albedo_color = Color(0.38431373, 0.54901963, 0.9411765, 1)
 albedo_texture = ExtResource("3_ik7v6")
-metallic = 1.0
 uv1_triplanar = true
 texture_filter = 0
 
@@ -278,6 +275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="1" unique_id=1548668913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="2" type="NavigationRegion3D" parent="." unique_id=448923160]
@@ -397,6 +395,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="2" unique_id=1622366139]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="3" type="NavigationRegion3D" parent="." unique_id=1059001852]
@@ -535,6 +534,7 @@ glass = false
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="3" unique_id=1062174645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="4" type="NavigationRegion3D" parent="." unique_id=1740651203]
@@ -692,14 +692,17 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 2.75)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="4" unique_id=209401043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.677124, 3, 6.8431835)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="4" unique_id=1193996362]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.677124, 3, -6.4855347)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="4" unique_id=1257239057]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.210373, 3, -3.7359412)
+visible = false
 omni_range = 10.0
 
 [node name="5" type="NavigationRegion3D" parent="." unique_id=1452772146]
@@ -820,6 +823,7 @@ Remember the main rule:
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="5" unique_id=1510489369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="6" type="NavigationRegion3D" parent="." unique_id=1758455725]
@@ -1199,18 +1203,22 @@ shape = SubResource("BoxShape3D_r0400")
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="6" unique_id=54851586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.329582, 7.471898)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="6" unique_id=1706833456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.969879, 19.406046, -2.3198776)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="6" unique_id=1864706764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9334564, 19.406046, -2.3198776)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="6" unique_id=1372496757]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="7" type="NavigationRegion3D" parent="." unique_id=838318162]
@@ -1309,6 +1317,7 @@ is_exit = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="7" unique_id=1164388181]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+visible = false
 light_energy = 2.0
 omni_range = 20.0
 
@@ -1327,6 +1336,7 @@ You can de-energize it via the control terminal."
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="7" unique_id=1395968060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="ImpenetrableField" parent="7" unique_id=1433291084 instance=ExtResource("18_uo004")]
@@ -1453,11 +1463,13 @@ is_exit = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="8" unique_id=614556664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2.5)
+visible = false
 light_energy = 2.0
 omni_range = 20.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="8" unique_id=730088215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -6)
+visible = false
 light_energy = 2.0
 omni_range = 20.0
 
@@ -1494,6 +1506,7 @@ textLabel_en = "Return to the ship."
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="8" unique_id=1383222943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
 omni_range = 10.0
 
 [node name="wall7" parent="8" unique_id=1978569753 instance=ExtResource("10_oblyh")]
@@ -1688,14 +1701,17 @@ damage = 25
 
 [node name="OmniLight3D1" type="OmniLight3D" parent="9" unique_id=2039448647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -5)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="9" unique_id=1390884991]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 5)
+visible = false
 omni_range = 10.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="9" unique_id=1684452942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -5)
+visible = false
 omni_range = 10.0
 
 [node name="Spring" parent="9" unique_id=1889657694 instance=ExtResource("14_cs7s5")]
@@ -1752,14 +1768,12 @@ restore health and remove injuries."
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 142.5, 0.5, 7)
 chest = "chest_level_0"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1535245182]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=776505106]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 400, 400, -400)
-light_energy = 0.01
 shadow_enabled = true
 
-[node name="Sprite3D" type="Sprite3D" parent="DirectionalLight3D" unique_id=915089545]
+[node name="Sprite3D" type="Sprite3D" parent="DirectionalLight3D" unique_id=638578939]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-modulate = Color(0.9490196, 0.9254902, 0.59607846, 1)
 billboard = 1
 texture = ExtResource("19_l4erg")
 
