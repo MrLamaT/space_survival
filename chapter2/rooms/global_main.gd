@@ -8,7 +8,6 @@ func _ready() -> void:
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
 	$ship/Zona1/portal/TeleportCube.teleport_contents()
-	Global.game_settings["HP"] = 100
 	Global.game_settings["step"] = 3
 	Global.game_settings["IsDying"] = false
 	setBuild()

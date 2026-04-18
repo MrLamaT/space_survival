@@ -3,28 +3,12 @@
 [ext_resource type="Script" uid="uid://dg74vvvcsgyw6" path="res://chapter2/enemy/phantom.gd" id="1_se8os"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_nrxh4"]
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="4_cudbv"]
+[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_y5ww8"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="13_xai3o"]
 [ext_resource type="AudioStream" uid="uid://c2w52baurjymm" path="res://assets/nail.wav" id="14_kkywk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_asacb"]
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, -1, 0)
-gravity = Vector3(0, 2, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5ww8"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0.5, 0.5, 0.5, 0.39215687)
-albedo_texture = ExtResource("4_cudbv")
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_upn35"]
-material = SubResource("StandardMaterial3D_y5ww8")
-size = Vector2(0.2, 0.2)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cudbv"]
 lifetime_randomness = 0.5
@@ -256,6 +240,68 @@ _data = {
 &"scream": SubResource("Animation_wybfm")
 }
 
+[sub_resource type="Animation" id="Animation_y5ww8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jcinp"]
+resource_name = "aura"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_itf4h"]
+_data = {
+&"RESET": SubResource("Animation_y5ww8"),
+&"aura": SubResource("Animation_jcinp")
+}
+
 [node name="phantom" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
 collision_layer = 16
 collision_mask = 21
@@ -281,12 +327,6 @@ pitch_scale = 5.0
 
 [node name="nail" type="AudioStreamPlayer3D" parent="." unique_id=633376102]
 stream = ExtResource("14_kkywk")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1844936673]
-cast_shadow = 0
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_asacb")
-draw_pass_1 = SubResource("QuadMesh_upn35")
 
 [node name="spark" type="GPUParticles3D" parent="." unique_id=32936107]
 cast_shadow = 0
@@ -371,3 +411,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 visible = false
 billboard = 2
 text = "0"
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_y5ww8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
+libraries/ = SubResource("AnimationLibrary_itf4h")

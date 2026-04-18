@@ -3,6 +3,9 @@ extends CharacterBody3D
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var health_label: Label3D = $hp
 
+@export var is_boss = false
+@export var aura = 0
+
 var is_dying: bool = false
 var death_timer: float = 0.0
 var DEATH_DELAY: float = 1
@@ -53,9 +56,23 @@ func _ready():
 		player = get_tree().get_first_node_in_group("player")
 	previous_position = global_position
 	current_target = null
+	if aura > 0:
+		auraSprite()
 	update_health_label()
+	var boss_bars = get_tree().get_nodes_in_group("BossBar")
+	if boss_bars.size() > 0 and is_boss:
+		boss_bars[0].setup_boss(health, "phantom")
 	if player:
 		start_chasing_player()
+
+func auraSprite():
+	$Aura/AnimationPlayer.play("aura")
+	if aura == 1:
+		$Aura.modulate = Color("#ff7a01")
+	else:
+		$Aura.modulate = Color("#f50000")
+	SPEED *= aura + 1
+	health *= aura + 1
 
 func _physics_process(delta):
 	if is_dead:
@@ -207,6 +224,9 @@ func take_damage(damage):
 	if not is_on_floor():
 		health -= damage
 	update_health_label()
+	var boss_bars = get_tree().get_nodes_in_group("BossBar")
+	if boss_bars.size() > 0 and is_boss:
+		boss_bars[0]._on_health_changed(health)
 	if health <= 0:
 		$sparkDead.emitting = true
 		die()

@@ -1,11 +1,10 @@
-res://assets/plants/
-res://assets/level/
 res://assets/textures/
-res://assets/models/
 res://assets/
-res://chapter2/enemy/
 res://
 C:/Users/anaga/OneDrive/Документы/
+res://assets/level/
+res://assets/models/
+res://chapter2/enemy/
 res://chapter2/assets/items/
 res://assets/item/
 res://chapter2/item/EngineersCleaver_projectile/
@@ -18,6 +17,5 @@ res://UI/workbenchRecipe/
 res://UI/timer/
 res://chapter2/closet/
 res://assets/paintings/
-res://chapter2/assets/enemy/ghost/
 res://chapter2/assets/enemy/old/Scar/
 res://chapter2/assets/enemy/old/Eye/

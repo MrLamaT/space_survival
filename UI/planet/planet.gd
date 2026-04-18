@@ -7,7 +7,7 @@ var current_page_node = null
 
 var page_data = {
 	0: {
-		"id_text": "Stage 0",
+		"id_text": "Stage 0: Simulation",
 		"sprite_texture": null,
 		"node_name": "HBoxContainer0"
 	},
@@ -20,7 +20,7 @@ var page_data = {
 
 func _ready() -> void:
 	portal = get_tree().get_first_node_in_group("portal")
-	page = world["stage"]
+	page = int(world["stage"])
 	reloadChests()
 	hide_all_pages()
 	pageUpdate()

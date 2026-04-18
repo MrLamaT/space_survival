@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcxerpj5evaat"
-path="res://.godot/imported/eye4.png-c4d5abc7aaa8cb32838a5e26fe926fb4.ctex"
+uid="uid://ds0gsrstdq5yk"
+path="res://.godot/imported/Aura.png-dcef3bfba0c2701f92ac703fa173200f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chapter2/assets/enemy/new/Eye/eye4.png"
-dest_files=["res://.godot/imported/eye4.png-c4d5abc7aaa8cb32838a5e26fe926fb4.ctex"]
+source_file="res://assets/Aura.png"
+dest_files=["res://.godot/imported/Aura.png-dcef3bfba0c2701f92ac703fa173200f.ctex"]
 
 [params]
 

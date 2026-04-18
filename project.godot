@@ -54,6 +54,7 @@ UI=""
 portal=""
 enemy=""
 build=""
+BossBar=""
 
 [input]
 

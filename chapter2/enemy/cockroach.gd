@@ -2,7 +2,11 @@ extends CharacterBody3D
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var health_label: Label3D = $hp
+
 @export var danve = false
+@export var is_boss = false
+@export var aura = 0
+
 var is_dying: bool = false
 var death_timer: float = 0.0
 var DEATH_DELAY: float = 1
@@ -42,7 +46,21 @@ func _ready():
 	if !Global.game_settings["GhostMod"]:
 		player = get_tree().get_first_node_in_group("player")
 	previous_position = global_position
+	if aura > 0:
+		auraSprite()
 	update_health_label()
+	var boss_bars = get_tree().get_nodes_in_group("BossBar")
+	if boss_bars.size() > 0 and is_boss:
+		boss_bars[0].setup_boss(health, "spark")
+
+func auraSprite():
+	$Aura/AnimationPlayer.play("aura")
+	if aura == 1:
+		$Aura.modulate = Color("#ff7a01")
+	else:
+		$Aura.modulate = Color("#f50000")
+	SPEED *= aura + 1
+	health *= aura + 1
 
 func _physics_process(delta):
 	if is_dead:
@@ -128,6 +146,9 @@ func take_damage(damage):
 		return
 	health -= damage
 	update_health_label()
+	var boss_bars = get_tree().get_nodes_in_group("BossBar")
+	if boss_bars.size() > 0 and is_boss:
+		boss_bars[0]._on_health_changed(health)
 	if health <= 0:
 		die()
 	else:

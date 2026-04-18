@@ -2,6 +2,8 @@ extends Marker3D
 
 @export var enemy = "phantom"
 @export var numberWave = 0
+@export var is_boss = false
+@export var aura = 0
 var enemy_scene
 
 func _ready() -> void:
@@ -13,6 +15,8 @@ func spawn(type):
 	if enemy == "giantStingray":
 		enemy_scene = preload("res://chapter2/enemy/giantStingray.tscn")
 	var enemy_instance = enemy_scene.instantiate()
+	enemy_instance.is_boss = is_boss
+	enemy_instance.aura = aura
 	var area = get_parent()
 	var navigation_region = area.get_parent()
 	if navigation_region is NavigationRegion3D:

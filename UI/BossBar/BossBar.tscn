@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cbpb3y3qa4m5y"]
+
+[ext_resource type="Script" uid="uid://bqrcuw0vkebps" path="res://UI/BossBar/boss_bar.gd" id="1_i5ejc"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_r1blu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1blu"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5ejc"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ckjct"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="BossBar" type="CanvasLayer" unique_id=1451968511 groups=["BossBar"]]
+script = ExtResource("1_i5ejc")
+
+[node name="Control" type="Control" parent="." unique_id=959031326]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 40.0
+
+[node name="HealthUnder" type="ProgressBar" parent="Control" unique_id=704917808]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r1blu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i5ejc")
+value = 100.0
+show_percentage = false
+
+[node name="HealthOver" type="ProgressBar" parent="Control" unique_id=805669707]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 35.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ckjct")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control" unique_id=14474862]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -18.0
+offset_right = 34.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_r1blu")
+theme_override_font_sizes/font_size = 30
+text = "BOSS"
+horizontal_alignment = 1
+vertical_alignment = 1
