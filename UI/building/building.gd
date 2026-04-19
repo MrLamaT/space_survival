@@ -16,6 +16,15 @@ func _ready() -> void:
 		]
 	}
 	
+	var world = Global.get_world(Global.game_settings.word)
+	var equipment_container = $Panel/equipment
+	
+	if equipment_container:
+		for child in equipment_container.get_children():
+			var sprite_label_value = child["sprite_label"]
+			if sprite_label_value != null and sprite_label_value in world["equipment"]:
+				child.queue_free()
+	
 	var current_language = Global.game_settings["gui_settings"]["Language"]
 	var random_index = randi() % phrases["русский"].size()
 	
@@ -26,7 +35,7 @@ func _ready() -> void:
 
 func create(sprite_label):
 	var world = Global.get_world(Global.game_settings.word)
-	world["inventory"]["inventory"].append(sprite_label)
+	world["equipment"].append(sprite_label)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	queue_free()

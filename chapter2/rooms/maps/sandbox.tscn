@@ -825,29 +825,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 2.9, -33)
 Gates = NodePath("../wallGates")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("17_ab7pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.1316547)
-is_boss = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=2077205756 instance=ExtResource("17_ab7pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.519993)
-numberWave = 2
-is_boss = true
-aura = 1
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=1732447354 instance=ExtResource("17_ab7pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.983635, 0, -6.519993)
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=1732447354 instance=ExtResource("17_ab7pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
 numberWave = 1
 aura = 1
 
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=1747143822 instance=ExtResource("17_ab7pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.143185)
-numberWave = 4
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=638326901 instance=ExtResource("17_ab7pb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+numberWave = 2
 is_boss = true
-aura = 2
-
-[node name="WaveMarker5" parent="NavigationRegion3D/Wave" unique_id=638326901 instance=ExtResource("17_ab7pb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8362961, 0, -8.143185)
-numberWave = 3
 aura = 2
 
 [node name="wallGates" parent="NavigationRegion3D" unique_id=1533157946 instance=ExtResource("18_ab7pb")]

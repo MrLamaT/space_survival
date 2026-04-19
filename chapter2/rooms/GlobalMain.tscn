@@ -52,8 +52,11 @@ transform = Transform3D(1.4142135, 0, 0.84852815, 0, 1, 0, -1.4142135, 0, 0.8485
 [node name="Table3" parent="ship/Zona1" unique_id=1909063332 instance=ExtResource("7_ges2j")]
 transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.84852815, -5.5, 0.5, 6.8)
 
+[node name="Table4" parent="ship/Zona1" unique_id=191175265 instance=ExtResource("7_ges2j")]
+transform = Transform3D(-8.742276e-08, 0, 1.2, 0, 1, 0, -1.9999998, 0, -5.245367e-08, -2.5, 0.5, -5)
+
 [node name="portal" parent="ship/Zona1" unique_id=1282351702 instance=ExtResource("27_fqaro")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -4.3958426e-07, 0.5, -4.9999995)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3958426e-07, 0.5, -4.9999995)
 skin = 1
 
 [node name="wall1" parent="ship/Zona1" unique_id=2024134017 instance=ExtResource("28_dyctc")]
@@ -142,8 +145,12 @@ nameUI = "messages"
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
 nameUI = "messages"
 
+[node name="PC5" parent="ship/Zona1" unique_id=1870169726 instance=ExtResource("32_fqaro")]
+transform = Transform3D(-4.371138e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.371138e-08, -1.5, 2.384, -4)
+nameUI = "building"
+
 [node name="PC1" parent="ship/Zona1" unique_id=1029461300 instance=ExtResource("11_h6cr0")]
-transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, 1.6, 1.992, -6.25)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.992, -3.45)
 nameUI = "planet"
 
 [node name="floor" type="StaticBody3D" parent="ship/Zona1" unique_id=326749266]
@@ -165,6 +172,16 @@ material = SubResource("StandardMaterial3D_dxjcn")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1670814769]
 transform = Transform3D(0.7071066, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, 0.7071066, -0.48587614, 0, -0.25795898)
+operation = 2
+size = Vector3(0.21273804, 1, 0.44958496)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1317565835]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, -0.48587617, 0, -0.42471144)
+operation = 2
+size = Vector3(0.21273804, 1, 0.44958496)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor/CSGCombiner3D" unique_id=1606395515]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0.14073324, 0, -0.4247115)
 operation = 2
 size = Vector3(0.21273804, 1, 0.44958496)
 
@@ -192,6 +209,16 @@ size = Vector3(0.21273804, 1, 0.44958496)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=1903118603]
 transform = Transform3D(0.70710665, 0, -0.7071066, 0, 1, 0, 0.7071066, 0, 0.70710665, 0.14330918, 0, -0.25799993)
+operation = 2
+size = Vector3(0.21273804, 1, 0.44958496)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=1181166465]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, -0.48587617, 0, -0.42471144)
+operation = 2
+size = Vector3(0.21273804, 1, 0.44958496)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="ship/Zona1/floor2/CSGCombiner3D" unique_id=487599573]
+transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0.14073324, 0, -0.4247115)
 operation = 2
 size = Vector3(0.21273804, 1, 0.44958496)
 
@@ -258,24 +285,9 @@ required_resources = Array[String](["copper cable", "copper cable"])
 
 [node name="solarPanels" type="Node3D" parent="ship/Zona1" unique_id=130499284]
 
-[node name="InteractableObject" parent="ship/Zona1/solarPanels" unique_id=1594677678 instance=ExtResource("16_h1qgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, -8.5)
-interaction_name = "solarPanels"
-handler_node = NodePath("../../../..")
-use_billboard_sprite = true
-sprite_label = "solar panels"
-required_resources = Array[String](["iron plate", "iron plate", "copper cable", "glass panel"])
-required_description = "more time to explore planets."
-
 [node name="compartment" type="Node3D" parent="ship/Zona1" unique_id=1402936425]
 
-[node name="InteractableObject" parent="ship/Zona1/compartment" unique_id=1984524222 instance=ExtResource("16_h1qgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, -7)
-interaction_name = "compartment_1"
-handler_node = NodePath("../../../..")
-use_billboard_sprite = true
-sprite_label = "Expand Ship"
-required_resources = Array[String](["iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate"])
+[node name="flashlight" type="Node3D" parent="ship/Zona1" unique_id=2083350364]
 
 [node name="Node3D" type="Node3D" parent="ship/Zona1" unique_id=474940521]
 
@@ -290,6 +302,7 @@ transform = Transform3D(0.86694014, 0, -0.49841207, 0, 1, 0, 0.49841207, 0, 0.86
 
 [node name="wallGates" parent="ship/Zona1" unique_id=1533157946 instance=ExtResource("17_ges2j")]
 transform = Transform3D(1, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1, 0, -0.016, -14.5)
+key_card = "expand ship 1"
 
 [node name="Zona2" type="Node3D" parent="ship" unique_id=1648351573]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 36.141087)

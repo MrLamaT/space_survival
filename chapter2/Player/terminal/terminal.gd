@@ -126,6 +126,9 @@ func parse_command(text: String):
 		"give":
 			player.openUI("cheat_give")
 			SystemPrint("Opening the item issue menu")
+		"save":
+			player.save()
+			SystemPrint("World saved successfully")
 		"quit", "exit":
 			get_tree().quit()
 		"clear":

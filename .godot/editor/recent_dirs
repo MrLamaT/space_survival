@@ -1,3 +1,4 @@
+res://assets/item/
 res://assets/textures/
 res://assets/
 res://
@@ -6,7 +7,6 @@ res://assets/level/
 res://assets/models/
 res://chapter2/enemy/
 res://chapter2/assets/items/
-res://assets/item/
 res://chapter2/item/EngineersCleaver_projectile/
 res://chapter2/item/Taser_projectile/
 res://UI/planet/

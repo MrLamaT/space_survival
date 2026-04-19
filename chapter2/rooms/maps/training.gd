@@ -31,7 +31,7 @@ func handle_interaction(object_name: String):
 				$Player.warning("Бегите назад!!!")
 			else:
 				$Player.warning("Run back!!!")
-			get_node("Player/head/Camera3D/timer").start_countdown(120)
+			get_node("Player/head/Camera3D/timer").start_countdown()
 			$"7/TeleportSimulation3".position.y = 0.0
 			$"7/ImpenetrableField2".on(false)
 			$"7/hologramText".queue_free()

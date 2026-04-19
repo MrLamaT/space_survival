@@ -348,7 +348,7 @@ func _input(event: InputEvent): #повороты мышкой
 			update_running_speed()
 	if Input.is_action_just_pressed("+f"):
 		var world = Global.get_world(Global.game_settings.word)
-		if world["build"]["flashlight"] >= 1:
+		if "flashlight 1" in world["equipment"]:
 			toggle_flashlight()
 		else:
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
@@ -720,6 +720,22 @@ func recipe(required_resources, required_label, required_description):
 	if required_resources == []:
 		recipeMenu.visible = false
 		return false
+	var mouse_pos = get_viewport().get_mouse_position()
+	var menu_size = recipeMenu.get_node("Panel").size * 0.5
+	var viewport_size = get_viewport().get_visible_rect().size
+	var final_pos = mouse_pos
+	var offset = Vector2(10, 10)
+	if mouse_pos.x + menu_size.x + offset.x > viewport_size.x:
+		final_pos.x = mouse_pos.x - menu_size.x - offset.x
+	else:
+		final_pos.x = mouse_pos.x + offset.x
+	if mouse_pos.y + menu_size.y + offset.y > viewport_size.y:
+		final_pos.y = mouse_pos.y - menu_size.y - offset.y
+	else:
+		final_pos.y = mouse_pos.y + offset.y
+	final_pos.x = max(0, min(final_pos.x, viewport_size.x - menu_size.x))
+	final_pos.y = max(0, min(final_pos.y, viewport_size.y - menu_size.y))
+	recipeMenu.position = final_pos
 	recipeMenu.visible = true
 	recipeMenu.recipe(required_resources, required_label, required_description)
 

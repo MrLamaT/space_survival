@@ -4,22 +4,14 @@ extends Control
 @export var sprite_label: String = ""
 @export var required_resources: Array[String] = []
 @export var required_description: String = ""
-@export var build_global: String = ""
-@export var build_global_min: int = 0
-@export var build_global_max: int = 0
 @onready var billboard_sprite: Sprite2D = $Sprite2D
-@onready var billboard_label: Label = $Label
 
 var player: CharacterBody3D
 
 func _ready():
 	if billboard_sprite:
-		var world = Global.get_world(Global.game_settings.word)
 		$Sprite2D.texture = sprite_texture
 		visible = true
-		billboard_label.text = sprite_label
-		if build_global != "" and (world["build"][build_global] < build_global_min or  world["build"][build_global] > build_global_max):
-			queue_free()
 
 func check_and_consume_resources() -> bool:
 	if required_resources.size() == 0:
@@ -71,50 +63,12 @@ func _on_button_pressed() -> void:
 		Global.game_settings["UI"] = false
 		get_parent().get_parent().get_parent().queue_free()
 		return
-	if sprite_label == "decipher the recipe":
-		var world = Global.get_world(Global.game_settings.word)
-		var available_builds = []
-		for key in world["build"]:
-			if world["build"][key] == -1:
-				available_builds.append(key)
-		if available_builds.size() > 0:
-			var random_index = randi() % available_builds.size()
-			var selected_key = available_builds[random_index]
-			world["build"][selected_key] = 0
-			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				player.warning("Новый чертёж получен!")
-			else:
-				player.warning("New blueprint acquired!")
-		else:
-			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				player.warning("Нет новых чертежей для текущего этапа.")
-			else:
-				player.warning("No new blueprints available for current stage.")
-	if sprite_label == "copper cable":
-		var world = Global.get_world(Global.game_settings.word)
-		world["inventory"]["inventory"].append("copper cable")
-	if sprite_label == "backpack 1":
-		var world = Global.get_world(Global.game_settings.word)
-		world["build"]["backpack"] += 1
-	if sprite_label == "flashlight 1":
-		var world = Global.get_world(Global.game_settings.word)
-		world["build"]["flashlight"] += 1
-	if sprite_label == "iron plate":
-		var world = Global.get_world(Global.game_settings.word)
-		world["inventory"]["inventory"].append("iron plate")
-	if sprite_label == "glass panel":
-		var world = Global.get_world(Global.game_settings.word)
-		world["inventory"]["inventory"].append("glass panel")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.game_settings["UI"] = false
-	get_parent().get_parent().get_parent().queue_free()
+	get_parent().get_parent().get_parent().create(sprite_label)
 
 func _on_button_mouse_entered() -> void:
-	$Label.modulate = Color("faff68")
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe(required_resources, sprite_label, required_description)
 
 func _on_button_mouse_exited() -> void:
-	$Label.modulate = Color("ffffffff")
 	player = get_tree().get_first_node_in_group("player")
 	player.recipe([], "", "")
