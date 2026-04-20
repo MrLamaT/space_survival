@@ -678,6 +678,7 @@ pitch_scale = 1.5
 [node name="Move" type="Node3D" parent="hand_position" unique_id=163275995]
 
 [node name="handItem" parent="hand_position/Move" unique_id=1667100869 instance=ExtResource("3_s8fo2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 visible = false
 texture = ExtResource("4_0pv45")
 

@@ -1396,7 +1396,6 @@ transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, -0
 [node name="portal" parent="8" unique_id=2061914237 instance=ExtResource("22_r0400")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.4576416, 0.51, -5.153)
 skin = 1
-portal_rotation = Vector3(0, 90, 0)
 
 [node name="button" parent="8" unique_id=1344810726 instance=ExtResource("21_m6h8y")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.5, 2, -9.75)

@@ -303,7 +303,13 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+5"):
 		release_build()
 		current_weapon_slot = 5
+		weapon_system.equip_weapon("Move")
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	if Input.is_action_just_pressed("+6"):
+		release_build()
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			weapon_system.equip_weapon("Move")
 	if Input.is_action_just_pressed("+v"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -763,8 +769,23 @@ func update_held_build():
 	target_rotation.x = 0
 	target_rotation.z = 0
 	held_build.global_rotation = target_rotation
+	var world = Global.get_world(Global.game_settings.word)
+	for i in range(world["build"].size()):
+		var build_item = world["build"][i]
+		if held_build.name == build_item["node_path"].split("/")[-1]:
+			build_item["position"] = held_build.position
+			build_item["rotation"] = held_build.rotation
+			break
 
 func release_build():
+	if held_build:
+		var world = Global.get_world(Global.game_settings.word)
+		for i in range(world["build"].size()):
+			var build_item = world["build"][i]
+			if held_build.name == build_item["node_path"].split("/")[-1]:
+				build_item["position"] = held_build.position
+				build_item["rotation"] = held_build.rotation
+				break
 	held_build = null
 
 func timerBoost(boost):

@@ -147,11 +147,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"HP": 100,
 		"PointDeath": "",
 		"equipment": [],
-		"build": {
-			"workbench": 0,
-			"chest": 0,
-			"light": 0
-		},
+		"build": [],
 		"inventory": {
 			"inventory": [],
 			"chest_1": ["copper cable", "iron plate", "iron plate"],
