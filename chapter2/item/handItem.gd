@@ -62,6 +62,7 @@ func _ready():
 
 	var mi := MeshInstance3D.new()
 	mi.mesh = mesh
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 	var mat := StandardMaterial3D.new()
 	mat.albedo_texture = texture

@@ -355,6 +355,7 @@ skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1650728555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, 0.075)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_nrxh4")
 skeleton = NodePath("../..")
 
@@ -364,6 +365,7 @@ light_energy = 0.1
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1457677310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, -0.075)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_nrxh4")
 skeleton = NodePath("../..")
 

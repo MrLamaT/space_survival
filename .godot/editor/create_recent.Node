@@ -1,3 +1,4 @@
+CollisionShape3D
 GridContainer
 HBoxContainer
 Node3D
@@ -11,5 +12,3 @@ ProgressBar
 Label
 Control
 CanvasLayer
-CollisionShape3D
-MeshInstance3D

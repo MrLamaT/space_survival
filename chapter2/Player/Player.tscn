@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://chapter2/assets/items/move.png" id="4_0pv45"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
+[ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://chapter2/assets/items/delete.png" id="5_0pv45"]
 [ext_resource type="AudioStream" uid="uid://bpjw5ktpagcdq" path="res://assets/sword.wav" id="5_1c5wy"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="5_r6r0m"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
@@ -683,6 +684,16 @@ visible = false
 texture = ExtResource("4_0pv45")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Move" unique_id=1327956547]
+libraries/ = SubResource("AnimationLibrary_6ecff")
+
+[node name="Delete" type="Node3D" parent="hand_position" unique_id=1441707920]
+
+[node name="handItem" parent="hand_position/Delete" unique_id=892125708 instance=ExtResource("3_s8fo2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
+texture = ExtResource("5_0pv45")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Delete" unique_id=576668086]
 libraries/ = SubResource("AnimationLibrary_6ecff")
 
 [node name="EngineersCleaver" type="Node3D" parent="hand_position" unique_id=578542833]

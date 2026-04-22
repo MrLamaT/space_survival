@@ -4,12 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="7_ges2j"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="11_fqaro"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="11_h6cr0"]
-[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/build/chest.tscn" id="15_akdvk"]
-[ext_resource type="PackedScene" uid="uid://bsbcsmkb4kgdi" path="res://chapter2/interactable_object/InteractableObject.tscn" id="16_h1qgk"]
 [ext_resource type="PackedScene" uid="uid://b4stfemrbiggl" path="res://chapter2/rooms/decoration/chair.tscn" id="16_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="17_ges2j"]
-[ext_resource type="PackedScene" uid="uid://b3rxfbmsi1qv2" path="res://chapter2/build/workbench.tscn" id="17_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://mc0u6khf1trh" path="res://chapter2/item/Move_projectile/Move_give.tscn" id="18_ges2j"]
+[ext_resource type="PackedScene" uid="uid://o5u8unlssb8u" path="res://chapter2/item/Delete_projectile/Delete_give.tscn" id="19_o4e3a"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="27_fqaro"]
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://chapter2/rooms/decoration/wall/wallGlass.tscn" id="28_dyctc"]
@@ -220,42 +218,6 @@ shape = SubResource("BoxShape3D_n5xo8")
 debug_color = Color(0.99607843, 0, 0, 1)
 debug_fill = false
 
-[node name="chest" type="Node3D" parent="ship/Zona1" unique_id=854491374]
-
-[node name="chest1" parent="ship/Zona1/chest" unique_id=1727052689 instance=ExtResource("15_akdvk")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -5, 0)
-
-[node name="chest2" parent="ship/Zona1/chest" unique_id=1567652648 instance=ExtResource("15_akdvk")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -5, 0)
-chest = "chest_2"
-
-[node name="chest3" parent="ship/Zona1/chest" unique_id=56819896 instance=ExtResource("15_akdvk")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -5, 0)
-chest = "chest_3"
-
-[node name="InteractableObject" parent="ship/Zona1/chest" unique_id=905424151 instance=ExtResource("16_h1qgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75, 2, 2)
-interaction_name = "chest"
-handler_node = NodePath("../../../..")
-use_billboard_sprite = true
-sprite_label = "storage"
-required_resources = Array[String](["iron", "iron"])
-required_description = "Keeps your inventory organized."
-
-[node name="workbench" type="Node3D" parent="ship/Zona1" unique_id=192270933]
-
-[node name="workbench" parent="ship/Zona1/workbench" unique_id=251428274 instance=ExtResource("17_h6cr0")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -5, 0)
-
-[node name="InteractableObject" parent="ship/Zona1/workbench" unique_id=1987921257 instance=ExtResource("16_h1qgk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.75, 2, 2)
-interaction_name = "workbench"
-handler_node = NodePath("../../../..")
-use_billboard_sprite = true
-sprite_label = "workbench"
-required_resources = Array[String](["iron", "copper", "coal"])
-required_description = "Craft essential tools and components."
-
 [node name="solarPanels" type="Node3D" parent="ship/Zona1" unique_id=130499284]
 
 [node name="compartment" type="Node3D" parent="ship/Zona1" unique_id=1402936425]
@@ -280,9 +242,8 @@ key_card = "expand ship 1"
 [node name="MoveGive" parent="ship/Zona1" unique_id=2030828468 instance=ExtResource("18_ges2j")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -5.1)
 
-[node name="MoveGive2" parent="ship/Zona1" unique_id=346899691 instance=ExtResource("18_ges2j")]
+[node name="DeleteGive" parent="ship/Zona1" unique_id=2030433732 instance=ExtResource("19_o4e3a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -6.3)
-visible = false
 
 [node name="Zona2" type="Node3D" parent="ship" unique_id=1648351573]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 36.141087)

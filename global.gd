@@ -145,7 +145,6 @@ func reset_world_to_default(world_num: int) -> void:
 		"stage": 0,
 		"level": 0,
 		"HP": 100,
-		"PointDeath": "",
 		"equipment": [],
 		"build": [],
 		"inventory": {
@@ -154,8 +153,7 @@ func reset_world_to_default(world_num: int) -> void:
 			"chest_2": [],
 			"chest_3": [],
 			"chest_level_1_1": ["copper cable", "iron", "iron"],
-			"chest_level_0": ["copper", "iron", "coal"],
-			"death": []
+			"chest_level_0": ["copper", "iron", "coal"]
 		},
 		"weapon": {
 			"1": "",

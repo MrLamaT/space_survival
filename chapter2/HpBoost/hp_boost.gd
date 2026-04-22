@@ -4,7 +4,7 @@ var _secondary_color: Color
 
 func _ready() -> void:
 	if has_node("Sprite3D2"):
-		_secondary_color = Color("c0c6cd").darkened(0.3)
+		_secondary_color = Color("c0c6cd").darkened(0.1)
 		$Sprite3D2.modulate = _secondary_color
 		$Sprite3D3.modulate = _secondary_color
 

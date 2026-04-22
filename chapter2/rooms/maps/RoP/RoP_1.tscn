@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="13_lqwyh"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/build/chest.tscn" id="14_0vstr"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_u33f0"]
-[ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/textures/LogoDeath.png" id="15_b4kqi"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="16_agh46"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://chapter2/rooms/decoration/barrel.tscn" id="16_s50sf"]
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://chapter2/rooms/decoration/barrel2.tscn" id="17_sb4lb"]
@@ -1033,12 +1032,6 @@ chest = "chest_W9"
 [node name="chest11" parent="." unique_id=1655865386 instance=ExtResource("14_0vstr")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -24.329111, 10.5, 15.805)
 chest = "chest_W11"
-
-[node name="deathChest" parent="." unique_id=1142319162 instance=ExtResource("14_0vstr")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-chest = "death"
-_base_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
-_base_sprite = ExtResource("15_b4kqi")
 
 [node name="dirt" type="StaticBody3D" parent="." unique_id=1097589770]
 transform = Transform3D(-5, 0, 6.039832e-06, 0, 25, 0, -7.54979e-07, 0, -40, -43.75, 13.016, -12.5)

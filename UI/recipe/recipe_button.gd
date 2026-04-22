@@ -63,7 +63,7 @@ func _on_button_pressed() -> void:
 		Global.game_settings["UI"] = false
 		get_parent().get_parent().get_parent().queue_free()
 		return
-	get_parent().get_parent().get_parent().create(sprite_label)
+	get_parent().get_parent().get_parent().create(sprite_label, get_parent().name)
 
 func _on_button_mouse_entered() -> void:
 	player = get_tree().get_first_node_in_group("player")

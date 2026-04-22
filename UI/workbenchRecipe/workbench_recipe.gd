@@ -24,7 +24,7 @@ func _ready() -> void:
 	else:
 		$Panel/Label.text = phrases["english"][random_index]
 
-func create(sprite_label):
+func create(sprite_label, _containerName):
 	var world = Global.get_world(Global.game_settings.word)
 	world["inventory"]["inventory"].append(sprite_label)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

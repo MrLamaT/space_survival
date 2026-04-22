@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5g46eulbojb6" path="res://UI/building/building.gd" id="1_sq32p"]
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/recipe/RecipeButton.tscn" id="2_1ckwh"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_o8pnx"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="3_1ckwh"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="6_0ihfv"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="7_ldvkj"]
@@ -109,7 +110,31 @@ offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
 
+[node name="equipmentButton" parent="Panel" unique_id=1811368051 instance=ExtResource("2_o8pnx")]
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 589.0
+offset_right = 1019.0
+offset_bottom = 589.0
+text = "equipment"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "equipment"
+
+[node name="buildingsButton" parent="Panel" unique_id=1659135388 instance=ExtResource("2_o8pnx")]
+visible = false
+layout_mode = 0
+offset_left = 1019.0
+offset_top = 589.0
+offset_right = 1019.0
+offset_bottom = 589.0
+text = "buildings"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "buildings"
+
 [node name="equipment" type="GridContainer" parent="Panel" unique_id=1284506618]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -147,13 +172,57 @@ sprite_texture = ExtResource("3_1ckwh")
 sprite_label = "expand ship 1"
 required_resources = Array[String](["iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate", "iron plate"])
 
+[node name="buildings" type="GridContainer" parent="Panel" unique_id=766911424]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -127.5
+offset_right = 340.0
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/h_separation = 85
+theme_override_constants/v_separation = 85
+columns = 9
+
+[node name="Control1" parent="Panel/buildings" unique_id=637047192 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("3_1ckwh")
+sprite_label = "workbench"
+required_resources = Array[String](["iron", "copper", "coal"])
+required_description = "Craft essential tools and components."
+
+[node name="Control2" parent="Panel/buildings" unique_id=892962802 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("3_1ckwh")
+sprite_label = "storage"
+required_resources = Array[String](["iron", "iron"])
+required_description = "Keeps your inventory organized."
+
 [node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=488008546]
 z_index = 1
 position = Vector2(40, 40)
 scale = Vector2(2, 2)
 texture = ExtResource("6_0ihfv")
 
-[node name="Label" type="Label" parent="Panel" unique_id=1033062676]
+[node name="buildingsLabel" type="Label" parent="Panel" unique_id=1033062676]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 46.0
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_fonts/font = ExtResource("7_ldvkj")
+vertical_alignment = 1
+
+[node name="equipmentLabel" type="Label" parent="Panel" unique_id=1108057269]
+visible = false
 layout_mode = 0
 offset_left = 78.0
 offset_top = 23.0

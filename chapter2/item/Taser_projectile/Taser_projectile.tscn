@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c06e3idr853tr" path="res://chapter2/item/Taser_projectile/taser_projectile.gd" id="1_iexmd"]
 [ext_resource type="Texture2D" uid="uid://w67krk4gafpj" path="res://assets/charge.png" id="1_l5fgb"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_iexmd"]
+
 [node name="TaserProjectile" type="Node3D" unique_id=1211004102]
 script = ExtResource("1_iexmd")
 
@@ -13,3 +15,12 @@ texture = ExtResource("1_l5fgb")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=939888304]
 light_color = Color(0, 0.84313726, 1, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=656076559]
+collision_layer = 4
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1064732246]
+shape = SubResource("SphereShape3D_iexmd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

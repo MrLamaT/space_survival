@@ -17,23 +17,15 @@ func _physics_process(delta):
 	timer += delta
 	if timer >= lifetime:
 		queue_free()
-	
-	# Проверка столкновений
-	var space_state = get_world_3d().direct_space_state
-	var from = global_position
-	var to = from + direction * speed * delta * 2
-	
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	query.exclude = [get_parent().get_node("Player")]  # исключаем игрока
-	query.collision_mask = 4 | 16  # настраивайте маску по необходимости
-	
-	var result = space_state.intersect_ray(query)
-	if result:
-		on_hit(result.collider)
-		queue_free()
 
 func on_hit(collider: Object):
 	# Эффекты попадания
 	print(collider)
 	if collider.has_method("take_damage"):
 		collider.take_damage(damage)
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	print(body)
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
+	queue_free()

@@ -30,7 +30,7 @@ var weapons: Dictionary = {
 		"scene": preload("res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_projectile.tscn"),
 		"fire_rate": 0.75,
 		"bullet_speed": 0.0,
-		"stamina_cost": 4.0,
+		"stamina_cost": 2.0,
 		"shoot_animation": "shoot",
 		"visible_node": "EngineersCleaver",
 		"pitch_scale": [1.4, 1.6]
@@ -42,6 +42,13 @@ var weapons: Dictionary = {
 		"stamina_cost": 0.0,
 		"visible_node": "Move"
 	},
+	"Delete": {
+		"scene": preload("res://chapter2/item/Delete_projectile/Delete_projectile.tscn"),
+		"fire_rate": 0.5,
+		"bullet_speed": 0.0,
+		"stamina_cost": 0.0,
+		"visible_node": "Delete"
+	}
 }
 
 func _ready():

@@ -1,9 +1,8 @@
 extends Area3D
 
-@export var chest: String
-@export var _base_color: Color
-@export var _base_sprite: Texture
+@export var chest: String = ""
 @export var stage_random: int = 1
+@export var generate_items: bool = true
 
 var stage_items = {
 	1: {
@@ -25,17 +24,23 @@ var _secondary_color: Color
 
 func _ready() -> void:
 	var world_data = Global.get_world(Global.game_settings.word)
-	if not world_data.inventory.has(chest):
+	if generate_items and not world_data.inventory.has(chest):
 		world_data.inventory[chest] = generate_random_inventory(stage_random)
+	elif not generate_items and not world_data.inventory.has(chest):
+		world_data.inventory[chest] = []
 	ApplyingSkin()
 
+func generate_unique_chest_id(inventory_dict: Dictionary) -> String:
+	var counter = 1
+	while true:
+		var candidate = "chest_" + str(counter)
+		if not inventory_dict.has(candidate):
+			return candidate
+		counter += 1
+	return ""
+
 func ApplyingSkin():
-	var material = StandardMaterial3D.new()
-	material.albedo_color = _base_color
-	material.metallic = 1
-	$MeshInstance3D.material_override = material
-	_secondary_color = _base_color.darkened(0.3)
-	$Sprite3D.texture = _base_sprite
+	_secondary_color = Color("82594e").darkened(0.1)
 	$Sprite3D.modulate = _secondary_color
 
 func generate_random_inventory(stage: int) -> Array:
@@ -66,3 +71,9 @@ func _on_mouse_exited() -> void:
 	$Sprite3D.modulate = _secondary_color
 	$Sprite3D.shaded = true
 	$Sprite3D/OmniLight3D.visible = false
+
+func set_generate_items(value: bool):
+	generate_items = value
+	
+func set_chest_name(new_chest_name: String):
+	chest = new_chest_name

@@ -10,16 +10,7 @@ func _ready() -> void:
 	get_node("Player/head/Camera3D/timer").start_countdown()
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	Global.game_settings["step"] = 1
-	DeathBox()
 	$Player._check_and_play_custom_music()
-
-func DeathBox():
-	var death_point = world["PointDeath"]
-	if (death_point is Vector3) and (world["inventory"]["death"] != []):
-		$deathChest.global_position = death_point
-	else:
-		$deathChest.queue_free()
-	world["PointDeath"] = ""
 
 func handle_interaction(object_name: String):
 	match object_name:

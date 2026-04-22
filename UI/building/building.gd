@@ -1,20 +1,19 @@
 extends Node2D
 
 func _ready() -> void:
-	var phrases = {
-		"русский": [
-			"Верстак. Место, где из беспорядка рождается порядок.",
-			"Производственный модуль активирован. Соблюдайте технику безопасности.",
-			"Старый добрый верстак. Сколько же всего здесь было создано...",
-			"Все системы в идеальном состоянии. Можно запускать производство."
-		],
-		"english": [
-			"Workbench. The place where order emerges from chaos.",
-			"Fabrication module activated. Please follow safety precautions.",
-			"Good old workbench. So many things have been created here...",
-			"All systems in perfect condition. Ready to start fabrication."
-		]
-	}
+	$Panel/equipmentButton.visible = true
+	$Panel/buildingsButton.visible = false
+	$Panel/buildings.visible = true
+	$Panel/equipment.visible = false
+	$Panel/buildingsLabel.visible = true
+	$Panel/equipmentLabel.visible = false
+	var current_language = Global.game_settings["gui_settings"]["Language"]
+	if current_language == "русский":
+		$Panel/buildingsLabel.text = "Корабль — это дом. А дом нужно обустраивать с умом."
+		$Panel/equipmentLabel.text = "Качество сборки напрямую влияет на продолжительность вашей жизни."
+	else:
+		$Panel/buildingsLabel.text = "The ship is a home. And a home must be furnished wisely."
+		$Panel/equipmentLabel.text = "Build quality directly affects your lifespan."
 	
 	var world = Global.get_world(Global.game_settings.word)
 	var equipment_container = $Panel/equipment
@@ -24,18 +23,21 @@ func _ready() -> void:
 			var sprite_label_value = child["sprite_label"]
 			if sprite_label_value != null and sprite_label_value in world["equipment"]:
 				child.queue_free()
-	
-	var current_language = Global.game_settings["gui_settings"]["Language"]
-	var random_index = randi() % phrases["русский"].size()
-	
-	if current_language == "русский":
-		$Panel/Label.text = phrases["русский"][random_index]
-	else:
-		$Panel/Label.text = phrases["english"][random_index]
 
-func create(sprite_label):
+func _on_label_button_pressed(_id: String) -> void:
+	$Panel/equipmentButton.visible = !$Panel/equipmentButton.visible
+	$Panel/buildingsButton.visible = !$Panel/buildingsButton.visible
+	$Panel/buildings.visible = !$Panel/buildings.visible
+	$Panel/equipment.visible = !$Panel/equipment.visible
+	$Panel/buildingsLabel.visible = !$Panel/buildingsLabel.visible
+	$Panel/equipmentLabel.visible = !$Panel/equipmentLabel.visible
+
+func create(sprite_label, containerName):
 	var world = Global.get_world(Global.game_settings.word)
-	world["equipment"].append(sprite_label)
+	if containerName == "equipment":
+		world["equipment"].append(sprite_label)
+	else:
+		get_tree().current_scene.handle_interaction(sprite_label)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	queue_free()

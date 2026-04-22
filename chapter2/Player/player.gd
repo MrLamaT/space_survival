@@ -170,8 +170,8 @@ func PlayerDeath():
 	Global.game_settings["IsDying"] = true
 	release_build()
 	var world = Global.get_world(Global.game_settings.word)
-	world["PointDeath"] = global_position
-	DeathInventory()
+	var inventory = world["inventory"]["inventory"]
+	inventory.clear()
 	$screem.play()
 	throw_camera_out()
 	movement_enabled = false
@@ -183,23 +183,6 @@ func PlayerDeath():
 	$screem.stop()
 	world["HP"] = 100
 	respawn_player()
-
-func DeathInventory():
-	var world = Global.get_world(Global.game_settings.word)
-	world["PointDeath"] = global_position
-	var inventory = world["inventory"]["inventory"]
-	var death_inventory = world["inventory"]["death"]
-	death_inventory.clear()
-	if inventory.size() > 0:
-		var items_to_move = max(1, ceil(inventory.size() * 0.5))
-		var inventory_copy = inventory.duplicate()
-		inventory_copy.shuffle()
-		for i in range(min(items_to_move, inventory_copy.size())):
-			var item = inventory_copy[i]
-			death_inventory.append(item)
-			var index_to_remove = inventory.find(item)
-			if index_to_remove != -1:
-				inventory.remove_at(index_to_remove)
 
 func HP(hp):
 	if Global.game_settings["IsDying"]:
@@ -310,6 +293,11 @@ func _input(event: InputEvent): #повороты мышкой
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			weapon_system.equip_weapon("Move")
+	if Input.is_action_just_pressed("+7"):
+		release_build()
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			weapon_system.equip_weapon("Delete")
 	if Input.is_action_just_pressed("+v"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -422,7 +410,7 @@ func _process(delta):
 		update_held_build()
 
 func _update_stamina(delta):
-	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor():
+	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
 		stamina = max(0, stamina - stamina_depletion_rate * delta)
 		can_regenerate = false
 		regen_timer = 0.0
@@ -752,6 +740,8 @@ func add_weapon_to_slot(slot: int, weapon_name: String):
 		weapon_system.equip_weapon(weapon_name)
 
 func MoveBuild(build):
+	if held_build == build:
+		return
 	print("переместить: ", build)
 	held_build = build
 	hold_distance = global_position.distance_to(build.global_position)
@@ -772,7 +762,8 @@ func update_held_build():
 	var world = Global.get_world(Global.game_settings.word)
 	for i in range(world["build"].size()):
 		var build_item = world["build"][i]
-		if held_build.name == build_item["node_path"].split("/")[-1]:
+		var stored_path = str(build_item["node_path"])
+		if held_build.name == stored_path.split("/")[-1]:
 			build_item["position"] = held_build.position
 			build_item["rotation"] = held_build.rotation
 			break
@@ -782,11 +773,26 @@ func release_build():
 		var world = Global.get_world(Global.game_settings.word)
 		for i in range(world["build"].size()):
 			var build_item = world["build"][i]
-			if held_build.name == build_item["node_path"].split("/")[-1]:
+			var stored_path = str(build_item["node_path"])
+			if held_build.name == stored_path.split("/")[-1]:
 				build_item["position"] = held_build.position
 				build_item["rotation"] = held_build.rotation
 				break
 	held_build = null
+
+func DeleteBuild(build):
+	print("удалить: ", build)
+	build.global_position = Vector3(0.0, -5.0, 0.0)
+	var world = Global.get_world(Global.game_settings.word)
+	for i in range(world["build"].size() - 1, -1, -1):
+		var build_item = world["build"][i]
+		var stored_path = str(build_item["node_path"])
+		if build.name == stored_path.split("/")[-1]:
+			world["build"].remove_at(i)
+			break
+	if held_build == build:
+		held_build = null
+	print(world["build"])
 
 func timerBoost(boost):
 	$head/Camera3D/timer.boost(boost)
