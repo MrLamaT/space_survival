@@ -1,3 +1,6 @@
+res://chapter2/load/
+res://chapter2/rooms/
+C:/Users/anaga/OneDrive/Документы/
 res://chapter2/assets/items/
 res://chapter2/item/Move_projectile/
 res://chapter2/build/
@@ -5,7 +8,6 @@ res://assets/item/
 res://assets/textures/
 res://assets/
 res://
-C:/Users/anaga/OneDrive/Документы/
 res://assets/level/
 res://assets/models/
 res://chapter2/enemy/
@@ -19,4 +21,3 @@ res://UI/workbenchRecipe/
 res://UI/timer/
 res://assets/paintings/
 res://chapter2/assets/enemy/old/Scar/
-res://chapter2/assets/enemy/old/Eye/

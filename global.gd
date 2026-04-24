@@ -149,11 +149,8 @@ func reset_world_to_default(world_num: int) -> void:
 		"build": [],
 		"inventory": {
 			"inventory": [],
-			"chest_1": ["copper cable", "iron plate", "iron plate"],
-			"chest_2": [],
-			"chest_3": [],
 			"chest_level_1_1": ["copper cable", "iron", "iron"],
-			"chest_level_0": ["copper", "iron", "coal"]
+			"chest_level_0": ["copper", "iron", "coal", "iron"]
 		},
 		"weapon": {
 			"1": "",
