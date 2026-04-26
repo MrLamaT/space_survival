@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dphennbkhj08u"]
 
-[ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="1_sl0gr"]
+[ext_resource type="Script" uid="uid://dskrh33upbvom" path="res://chapter2/rooms/maps/sky_removal.gd" id="1_dko67"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="3_d80o7"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="6_7y8mx"]
 
@@ -31,10 +31,12 @@ uv1_scale = Vector3(50, 1, 50)
 uv1_triplanar = true
 texture_filter = 0
 
-[node name="Dark" type="Area3D" unique_id=255388417]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dko67"]
+size = Vector3(25, 25, 25)
 
-[node name="Player" parent="." unique_id=1744104925 instance=ExtResource("1_sl0gr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)
+[node name="Dark" type="Area3D" unique_id=255388417]
+collision_layer = 4
+script = ExtResource("1_dko67")
 
 [node name="wall" type="StaticBody3D" parent="." unique_id=973870043]
 transform = Transform3D(-1, 0, 3.1786506e-08, 0, 1, 0, -3.1786506e-08, 0, -1, 0, 0.016, 0)
@@ -104,3 +106,9 @@ debug_fill = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 size = Vector3(0.75, 5, 0.75)
 material = SubResource("StandardMaterial3D_b4rx6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372167891]
+shape = SubResource("BoxShape3D_dko67")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

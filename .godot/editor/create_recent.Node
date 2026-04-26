@@ -1,5 +1,6 @@
-Area3D
+Marker3D
 CollisionShape3D
+Area3D
 GridContainer
 HBoxContainer
 Node3D
@@ -12,4 +13,3 @@ Sprite3D
 ProgressBar
 Label
 Control
-CanvasLayer

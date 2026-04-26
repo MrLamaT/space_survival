@@ -135,5 +135,34 @@ func parse_command(text: String):
 			chat_text.text = ""
 		"quit", "exit":
 			get_tree().quit()
+		"smaa", "antialiasing":
+			match argument:
+				"on", "1", "true":
+					_set_smaa(true)
+					SystemPrint("SMAA Anti-aliasing: ON")
+				"off", "0", "false":
+					_set_smaa(false)
+					SystemPrint("SMAA Anti-aliasing: OFF")
+				_:
+					var current = ProjectSettings.get_setting("rendering/anti_aliasing/quality/screen_space_aa")
+					_set_smaa(current != 1)
+					SystemPrint("SMAA Anti-aliasing: " + ("ON" if current != 1 else "OFF"))
+		"+":
+			NavigationServer3D.set_debug_enabled(true)
 		_:
 			ErrorPrint("Unknown command: " + command)
+
+func _set_smaa(enabled: bool):
+	var viewport = get_viewport()
+	if enabled:
+		viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
+	else:
+		viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
+
+func _get_current_msaa() -> int:
+	match get_viewport().msaa_3d:
+		Viewport.MSAA_DISABLED: return 0
+		Viewport.MSAA_2X: return 2
+		Viewport.MSAA_4X: return 4
+		Viewport.MSAA_8X: return 8
+		_: return 0

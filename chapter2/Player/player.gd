@@ -467,6 +467,9 @@ func message(Mtext):
 
 func _physics_process(delta):
 	var world = Global.get_world(Global.game_settings.word)
+	if global_position.y < -5000:
+		global_position.y = 5000
+		velocity.y = 0
 	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
 	$head/Camera3D/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if not Global.game_settings["affected_by_gravity"]:

@@ -13,5 +13,5 @@ sky_material = SubResource("PanoramaSkyMaterial_oht7b")
 background_mode = 2
 sky = SubResource("Sky_kd80a")
 
-[node name="Skybox" type="WorldEnvironment"]
+[node name="Skybox" type="WorldEnvironment" unique_id=485016790]
 environment = SubResource("Environment_dm2hf")
