@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://g2sob3slrcl0"]
 
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="1_nf86b"]
+[ext_resource type="Script" uid="uid://dwjg1xkvjqkw0" path="res://chapter2/suppression/suppression.gd" id="1_x7cqa"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="1_xgtdw"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/material26.png" id="2_cexfy"]
 [ext_resource type="PackedScene" uid="uid://dukni03dmr573" path="res://chapter2/rooms/decoration/lighthouse.tscn" id="4_u627u"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="5_yvv66"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="6_bxxb3"]
+[ext_resource type="Texture2D" uid="uid://bespmjslc7pmx" path="res://assets/textures/material36.png" id="8_wxdti"]
+[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/whate.wav" id="9_lvbb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf86b"]
 size = Vector3(2, 3, 2)
@@ -37,14 +40,19 @@ cull_mode = 2
 albedo_color = Color(0, 0.6156863, 0.99607843, 0.09803922)
 metallic = 0.3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7cab"]
-shading_mode = 0
-albedo_color = Color(0.9882353, 0, 0.7137255, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxxb3"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.99, 0, 0.7095, 0.47058824)
+metallic = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_nf86b"]
-material = SubResource("StandardMaterial3D_n7cab")
+material = SubResource("StandardMaterial3D_bxxb3")
 radial_segments = 4
 rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7cab"]
+albedo_color = Color(0.9882353, 0, 0.7137255, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cexfy"]
 material = SubResource("StandardMaterial3D_n7cab")
@@ -129,9 +137,49 @@ size = Vector3(1, 0.5, 1)
 material = SubResource("StandardMaterial3D_m0uje")
 size = Vector3(1.25, 0.5, 1.1)
 
+[sub_resource type="Animation" id="Animation_wxdti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1.0]
+}
+
+[sub_resource type="Animation" id="Animation_lvbb8"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6oid"]
+_data = {
+&"RESET": SubResource("Animation_wxdti"),
+&"attack": SubResource("Animation_lvbb8")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxdti"]
+size = Vector3(10, 10, 10)
+
 [node name="Suppression" type="StaticBody3D" unique_id=88630]
 collision_layer = 4
 collision_mask = 3
+script = ExtResource("1_x7cqa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2131091596]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -190,13 +238,19 @@ size = Vector3(2, 1, 2)
 material = SubResource("StandardMaterial3D_nf86b")
 
 [node name="crystal" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=952753017]
-transform = Transform3D(0.908827, 0, -0.41717318, 0, 1, 0, 0.41717318, 0, 0.908827, 0, 0, 0)
+transform = Transform3D(0.4039189, 0, -0.9147948, 0, 1, 0, 0.9147948, 0, 0.4039189, 0, 0, 0)
 mesh = SubResource("SphereMesh_nf86b")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=1488974757]
 mesh = SubResource("BoxMesh_cexfy")
 skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/Node3D/box" unique_id=243251853]
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=58147248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.030107439)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Node3D" unique_id=1294820871]
 
@@ -214,7 +268,7 @@ height = 1.0
 material = SubResource("StandardMaterial3D_cexfy")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Node3D/Node3D" unique_id=1414015297]
-transform = Transform3D(0.90882695, 0, 0.41717315, 0, 1, 0, -0.41717315, 0, 0.90882695, 0, 1.75, 0)
+transform = Transform3D(0.40391886, 0, 0.91479474, 0, 1, 0, -0.91479474, 0, 0.40391886, 0, 1.75, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Node3D/Node3D/CSGCombiner3D2" unique_id=1491010299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35448396, 0)
@@ -324,7 +378,7 @@ mesh = SubResource("PrismMesh_u627u")
 skeleton = NodePath("../../../..")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1104189940]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, -3, 0, 3, -1.3113416e-07, 0, 0, 0)
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, -5, 0, 5, -2.1855695e-07, 0, 0, 0)
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_cexfy")
@@ -334,15 +388,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0.25, 2.3)
 
 [node name="button" parent="." unique_id=1344810726 instance=ExtResource("5_yvv66")]
 transform = Transform3D(-3.0908616e-08, -3.090862e-08, 0.99999994, -0.7071067, 0.70710677, 0, -0.7071067, -0.70710677, -4.3711385e-08, 0, 1.025, 1.3)
+interaction_name = "start"
+handler_node = NodePath("..")
 
 [node name="button2" parent="." unique_id=449707663 instance=ExtResource("5_yvv66")]
 transform = Transform3D(-3.0908616e-08, -3.0908616e-08, -0.99999994, -0.7071067, 0.7071067, 0, 0.7071067, 0.7071067, -4.3711385e-08, 0, 1.025, -1.3)
+interaction_name = "start"
+handler_node = NodePath("..")
 
 [node name="button3" parent="." unique_id=63878006 instance=ExtResource("5_yvv66")]
 transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 0.99999994, -1.3, 1.025, 0)
+interaction_name = "start"
+handler_node = NodePath("..")
 
 [node name="button4" parent="." unique_id=529658988 instance=ExtResource("5_yvv66")]
 transform = Transform3D(-0.7071067, 0.7071066, 0, -0.7071066, -0.7071067, 0, 0, 0, 0.99999994, 1.3, 1.025, 0)
+interaction_name = "start"
+handler_node = NodePath("..")
 
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=861739717]
 transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, -25, 0, 25, -1.0927847e-06, 0, 3.01, 0)
@@ -350,3 +412,46 @@ modulate = Color(0.76, 0.6429601, 0.17480001, 1)
 shaded = true
 texture_filter = 0
 texture = ExtResource("6_bxxb3")
+
+[node name="attack" type="Area3D" parent="." unique_id=102826565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 0
+collision_mask = 16
+
+[node name="Sprite3D" type="Sprite3D" parent="attack" unique_id=660713634]
+transform = Transform3D(16, 0, 0, 0, 2.5, 0, 0, 0, 10, 0, 0.5, 4)
+modulate = Color(0.9882353, 0, 0.7137255, 1)
+texture = ExtResource("8_wxdti")
+
+[node name="Sprite3D2" type="Sprite3D" parent="attack" unique_id=190110140]
+transform = Transform3D(16, 0, 0, 0, 2.5, 0, 0, 0, 10, 0, 0.5, -4)
+modulate = Color(0.9882353, 0, 0.7137255, 1)
+texture = ExtResource("8_wxdti")
+
+[node name="Sprite3D3" type="Sprite3D" parent="attack" unique_id=84637622]
+transform = Transform3D(-6.993822e-07, 0, 10, 0, 2.5, 0, -16, 0, -4.371139e-07, -4, 0.5, 0)
+modulate = Color(0.9882353, 0, 0.7137255, 1)
+texture = ExtResource("8_wxdti")
+
+[node name="Sprite3D4" type="Sprite3D" parent="attack" unique_id=1499464928]
+transform = Transform3D(-6.993822e-07, 0, 10, 0, 2.5, 0, -16, 0, -4.371139e-07, 4, 0.5, 0)
+modulate = Color(0.9882353, 0, 0.7137255, 1)
+texture = ExtResource("8_wxdti")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="attack" unique_id=106289382]
+libraries/ = SubResource("AnimationLibrary_u6oid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="attack" unique_id=1497945478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("BoxShape3D_wxdti")
+disabled = true
+debug_color = Color(0.5793557, 9.3854965e-07, 0.34273544, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=1006955855]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=59341284]
+stream = ExtResource("9_lvbb8")
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

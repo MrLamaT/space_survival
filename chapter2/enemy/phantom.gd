@@ -45,6 +45,7 @@ var ATTACK_COOLDOWN_TIME: float = 1.5
 
 var jump_timeout: float = 0.0
 var JUMP_MAX_TIME: float = 2.0 
+var JUMP_LAUNCH_SPEED: float = 5.0
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -144,7 +145,8 @@ func start_jump_to_player():
 	jump_target_position = player.global_position
 	jump_timeout = 0.0
 	$body/AnimationPlayer.play("jamp")
-	chase_timer = 0.0  
+	chase_timer = 0.0 
+	velocity.y = JUMP_LAUNCH_SPEED
 
 func land_from_jump():
 	is_jumping = false
@@ -162,15 +164,15 @@ func handle_jump(delta):
 		return
 	var horizontal_direction = (jump_target_position - global_position).normalized()
 	horizontal_direction.y = 0
-	horizontal_direction = horizontal_direction.normalized()
 	if horizontal_direction.length() > 0.1:
+		horizontal_direction = horizontal_direction.normalized()
 		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
 		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
-	var horizontal_velocity = horizontal_direction * JUMP_SPEED
-	velocity.x = horizontal_velocity.x
-	velocity.z = horizontal_velocity.z
+		velocity.x = horizontal_direction.x * JUMP_SPEED
+		velocity.z = horizontal_direction.z * JUMP_SPEED
 	var distance_to_target = global_position.distance_to(jump_target_position)
-	if distance_to_target < 1.0 or is_on_floor() and distance_to_target < 2.0:
+	var height_difference = abs(global_position.y - jump_target_position.y)
+	if distance_to_target < 1.5 and (is_on_floor() or height_difference < 1.0):
 		land_from_jump()
 	move_and_slide()
 

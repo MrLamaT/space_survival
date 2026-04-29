@@ -147,8 +147,9 @@ func parse_command(text: String):
 					var current = ProjectSettings.get_setting("rendering/anti_aliasing/quality/screen_space_aa")
 					_set_smaa(current != 1)
 					SystemPrint("SMAA Anti-aliasing: " + ("ON" if current != 1 else "OFF"))
-		"+":
-			NavigationServer3D.set_debug_enabled(true)
+		"message", "msg":
+			var message_text = argument.replace("_", " ")
+			player.warning(message_text)
 		_:
 			ErrorPrint("Unknown command: " + command)
 
