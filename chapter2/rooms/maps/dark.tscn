@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dphennbkhj08u"]
 
 [ext_resource type="Script" uid="uid://dskrh33upbvom" path="res://chapter2/rooms/maps/sky_removal.gd" id="1_dko67"]
-[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="3_d80o7"]
-[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/material11.png" id="6_7y8mx"]
+[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="3_d80o7"]
+[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/brick.png" id="6_7y8mx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k8cl"]
 size = Vector3(0.5, 0.5, 0.5)

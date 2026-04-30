@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="11_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://b4stfemrbiggl" path="res://chapter2/rooms/decoration/chair.tscn" id="16_h6cr0"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="17_ges2j"]
-[ext_resource type="PackedScene" uid="uid://mc0u6khf1trh" path="res://chapter2/item/Move_projectile/Move_give.tscn" id="18_ges2j"]
+[ext_resource type="PackedScene" uid="uid://8sx4t31mcf8r" path="res://chapter2/item/Move_projectile/Move_give.tscn" id="18_ges2j"]
 [ext_resource type="PackedScene" uid="uid://o5u8unlssb8u" path="res://chapter2/item/Delete_projectile/Delete_give.tscn" id="19_o4e3a"]
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="26_jhkrm"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="26_jhkrm"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="27_fqaro"]
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://chapter2/rooms/decoration/wall/wallGlass.tscn" id="28_dyctc"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="29_jhkrm"]
@@ -240,7 +240,7 @@ transform = Transform3D(1, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1, 0, -
 key_card = "expand ship 1"
 
 [node name="MoveGive" parent="ship/Zona1" unique_id=2030828468 instance=ExtResource("18_ges2j")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -5.1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -5.1000004)
 
 [node name="DeleteGive" parent="ship/Zona1" unique_id=2030433732 instance=ExtResource("19_o4e3a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -6.3)

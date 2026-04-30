@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhsstafmhh5bn"]
 
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="1_5dflc"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="1_5dflc"]
 [ext_resource type="Script" uid="uid://cvkhb4dmy1d20" path="res://chapter2/laser/laser.gd" id="1_xe3xv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kdil"]

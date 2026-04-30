@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var label = $Control/Label
 var shake_strength: float = 5.0
 var shake_duration: float = 0.3
+var control_original_position: Vector2
 
 func setup_boss(max_hp: int, boss_name: String):
 	label.text = boss_name
@@ -13,6 +14,7 @@ func setup_boss(max_hp: int, boss_name: String):
 	health_over.value = max_hp
 	health_under.max_value = max_hp
 	health_under.value = max_hp
+	control_original_position = control.position
 	visible = true
 	
 func _on_health_changed(hew_hp: int):
@@ -34,7 +36,6 @@ func _on_health_changed(hew_hp: int):
 		control.modulate = Color(1, 1, 1, 1)
 
 func shake_control(intense: bool = false):
-	var original_pos = control.position
 	var shake_power = shake_strength * (2.0 if intense else 1.0)
 	var duration = shake_duration * (1.5 if intense else 1.0)
 	var shake_tween = create_tween()
@@ -43,8 +44,8 @@ func shake_control(intense: bool = false):
 			randf_range(-shake_power, shake_power),
 			randf_range(-shake_power, shake_power)
 		)
-		shake_tween.tween_property(control, "position", original_pos + random_offset, duration / 6.0)
-	shake_tween.tween_property(control, "position", original_pos, duration / 6.0)
+		shake_tween.tween_property(control, "position", control_original_position + random_offset, duration / 6.0)
+	shake_tween.tween_property(control, "position", control_original_position, duration / 6.0)
 
 func flash_effect(intensity: float):
 	var flash_color = Color(1, 1, 1, intensity * 0.5)

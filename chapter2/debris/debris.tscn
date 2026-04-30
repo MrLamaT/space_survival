@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c5ro4vmyvnqqi"]
 
 [ext_resource type="Script" uid="uid://sc81jqiv4mhj" path="res://chapter2/debris/debris.gd" id="1_iyga1"]
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="1_n7g76"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_n7g76"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_t5ndr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5ndr"]

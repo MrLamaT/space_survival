@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh30777mfkhal"]
 
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="2_xlfqc"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_xlfqc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u83kx"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)

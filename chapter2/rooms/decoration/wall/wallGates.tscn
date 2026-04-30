@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ch5k162ylg5lq"]
 
 [ext_resource type="Script" uid="uid://bb42v8c7yubek" path="res://chapter2/rooms/decoration/wall/wallGates.gd" id="1_eeqvj"]
-[ext_resource type="Texture2D" uid="uid://dmrqjs1x8rsb0" path="res://assets/textures/material30.png" id="2_p33jc"]
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="2_q7qqn"]
+[ext_resource type="Texture2D" uid="uid://dmrqjs1x8rsb0" path="res://assets/textures/metalDoor2.png" id="2_p33jc"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_q7qqn"]
 [ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="3_p33jc"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="4_eeqvj"]
-[ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/material31.png" id="5_eeqvj"]
+[ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/metalDoor1.png" id="5_eeqvj"]
 [ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="8_rqbg7"]
 [ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/door.ogg" id="8_yahcm"]
 

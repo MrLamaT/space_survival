@@ -25,12 +25,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
-[sub_resource type="Animation" id="Animation_s8fo2"]
+[sub_resource type="Animation" id="Animation_6ecff"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Taser/handItem:rotation")
+tracks/0/path = NodePath("handItem:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,19 +42,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Taser/handItem:position")
+tracks/1/path = NodePath("handItem:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -0.2, 0.2)]
+"update": 1,
+"values": [-0.25]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Taser/handItem:visible")
+tracks/2/path = NodePath("handItem:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -63,25 +63,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Taser/handItem:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-0.25]
-}
 
-[sub_resource type="Animation" id="Animation_r6r0m"]
+[sub_resource type="Animation" id="Animation_n288m"]
 resource_name = "r"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Taser/handItem:rotation")
+tracks/0/path = NodePath("handItem:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,27 +81,27 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Taser/handItem:position:y")
+tracks/1/path = NodePath("handItem:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [0.0, -0.2, -0.2, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_hold0"]
+[sub_resource type="Animation" id="Animation_8y5eb"]
 resource_name = "take"
 length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Taser/handItem:position")
+tracks/0/path = NodePath("handItem:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -0.25, 0.25), Vector3(0, 0, 0)]
@@ -121,7 +109,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Taser/handItem:visible")
+tracks/1/path = NodePath("handItem:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -133,7 +121,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Taser/handItem:rotation")
+tracks/2/path = NodePath("handItem:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -143,11 +131,11 @@ tracks/2/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -6.2831855)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hold0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5fsn"]
 _data = {
-&"RESET": SubResource("Animation_s8fo2"),
-&"r": SubResource("Animation_r6r0m"),
-&"take": SubResource("Animation_hold0")
+&"RESET": SubResource("Animation_6ecff"),
+&"r": SubResource("Animation_n288m"),
+&"take": SubResource("Animation_8y5eb")
 }
 
 [sub_resource type="Animation" id="Animation_24wi4"]
@@ -664,17 +652,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
 [node name="Taser" type="Node3D" parent="hand_position" unique_id=13733417]
 
 [node name="handItem" parent="hand_position/Taser" unique_id=837608605 instance=ExtResource("3_s8fo2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
 visible = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Taser" unique_id=1770924603]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_hold0")
 
 [node name="shootingSound" type="AudioStreamPlayer2D" parent="hand_position/Taser" unique_id=1140841386]
 stream = ExtResource("17_s8fo2")
 volume_db = -10.0
 pitch_scale = 1.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Taser" unique_id=2080135885]
+libraries/ = SubResource("AnimationLibrary_g5fsn")
 
 [node name="Move" type="Node3D" parent="hand_position" unique_id=163275995]
 

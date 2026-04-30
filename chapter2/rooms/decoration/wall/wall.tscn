@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="1_aeb8l"]
 [ext_resource type="Script" uid="uid://cxpxdvjudj7fy" path="res://chapter2/rooms/decoration/wall/wall.gd" id="1_vabq7"]
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="2_5wqm1"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_5wqm1"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="3_5wqm1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]

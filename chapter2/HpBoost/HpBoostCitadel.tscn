@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2c5hb3abt5gl" path="res://chapter2/HpBoost/hp_boost.gd" id="1_0q1sy"]
 [ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/flora/HpBoost.png" id="2_p5toj"]
 [ext_resource type="AudioStream" uid="uid://c3mkme4l36ksb" path="res://assets/liana.wav" id="3_vinhs"]
-[ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/material32.png" id="4_56gl4"]
+[ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/grass.png" id="4_56gl4"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="5_p5toj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yap75"]
@@ -89,12 +89,12 @@ bottom_radius = 1.0
 height = 0.5
 radial_segments = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vinhs"]
 shading_mode = 0
 albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_p5toj"]
-material = SubResource("StandardMaterial3D_4hct6")
+material = SubResource("StandardMaterial3D_vinhs")
 bottom_radius = 0.75
 height = 0.5
 radial_segments = 16

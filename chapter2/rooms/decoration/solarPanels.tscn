@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://tjy8ry250xol"]
 
-[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/material1.png" id="1_gfmom"]
+[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="1_gfmom"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ywsww"]
 height = 2.9504883

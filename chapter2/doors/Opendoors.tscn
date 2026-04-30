@@ -1,8 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://7ntxuc07kbln"]
+[gd_scene format=3 uid="uid://7ntxuc07kbln"]
 
 [ext_resource type="Script" uid="uid://ds5ymu4wxg7pu" path="res://chapter2/doors/opendoors.gd" id="1_gsnpi"]
 [ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="2_clb7a"]
-[ext_resource type="Texture2D" uid="uid://dothpbt8u5xb1" path="res://assets/textures/material6.png" id="3_e1rpd"]
+[ext_resource type="Texture2D" uid="uid://dothpbt8u5xb1" path="res://assets/textures/door.png" id="3_e1rpd"]
 [ext_resource type="Texture2D" uid="uid://c83n0xd647eyd" path="res://assets/NotE.png" id="4_clb7a"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_qx72u"]
 [ext_resource type="AudioStream" uid="uid://cqirlw0fn7sdl" path="res://assets/door1.wav" id="6_clb7a"]

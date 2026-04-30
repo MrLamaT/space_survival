@@ -1,8 +1,9 @@
 StaticBody3D
+AnimationPlayer
+AudioStreamPlayer3D
 CollisionShape3D
 MeshInstance3D
 Area3D
-AnimationPlayer
 Sprite3D
 Timer
 Node3D
@@ -11,5 +12,3 @@ OmniLight3D
 GridContainer
 HBoxContainer
 CSGCylinder3D
-CSGCombiner3D
-CSGSphere3D

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cn4yn63jc7xoc" path="res://chapter2/item/Delete_projectile/delete_give.gd" id="1_04mtc"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="2_ro2bf"]
 [ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://chapter2/assets/items/delete.png" id="3_1aoi7"]
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="4_3goq4"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="4_3goq4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5kecf"]
 size = Vector3(1, 0.2, 1)

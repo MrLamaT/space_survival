@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://wxrmi8j1a8sf" path="res://chapter2/rooms/decoration/menu.gd" id="1_kxafx"]
 [ext_resource type="Texture2D" uid="uid://d1yrjgdfnrsrq" path="res://assets/E.png" id="3_f7un4"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="4_6eul1"]
-[ext_resource type="Texture2D" uid="uid://c8uj1j8awq1ii" path="res://assets/textures/material16.png" id="5_av5wm"]
+[ext_resource type="Texture2D" uid="uid://c8uj1j8awq1ii" path="res://assets/textures/dottedLine.png" id="5_av5wm"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="5_dgutp"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="5_jeltb"]
 [ext_resource type="PackedScene" uid="uid://bg8487sig4rmg" path="res://chapter2/interactable_object/buttonText.tscn" id="5_vkg4q"]

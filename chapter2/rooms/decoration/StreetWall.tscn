@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkb3lr01j0ug3"]
+[gd_scene format=3 uid="uid://bkb3lr01j0ug3"]
 
-[ext_resource type="Texture2D" uid="uid://cjnr467bvit4c" path="res://assets/textures/material21.png" id="1_vdh0c"]
+[ext_resource type="Texture2D" uid="uid://cjnr467bvit4c" path="res://assets/textures/barbedWire.png" id="1_vdh0c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hxb8"]
 albedo_color = Color(0.28627452, 0.18039216, 0.10980392, 1)

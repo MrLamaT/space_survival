@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="1_gag6h"]
 [ext_resource type="Script" uid="uid://dggmemmq7wjan" path="res://chapter2/item/Taser_projectile/taser_give.gd" id="1_prv8b"]
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="3_5kecf"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="3_5kecf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5kecf"]
 

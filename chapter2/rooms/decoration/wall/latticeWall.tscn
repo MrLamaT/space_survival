@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckqg38pdvnigu"]
 
-[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/material10.png" id="2_hcohb"]
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/material12.png" id="3_mdqbu"]
+[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/lattice.png" id="2_hcohb"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="3_mdqbu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q4hf"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)

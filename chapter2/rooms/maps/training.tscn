@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs5hxtwdsgn5l" path="res://chapter2/rooms/maps/training.gd" id="1_wgrq1"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="3_c8tpk"]
-[ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/material33.png" id="3_ik7v6"]
+[ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="3_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://b4ovs2oii7bfb" path="res://chapter2/rooms/decoration/teleport_simulation.tscn" id="4_jr5s2"]
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://chapter2/rooms/decoration/hologram_text.tscn" id="4_wot7y"]
 [ext_resource type="PackedScene" uid="uid://b2bsxx5qxkv1a" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_give.tscn" id="6_wmlfu"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="19_l4erg"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="21_m6h8y"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="22_r0400"]
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/material8.png" id="22_umkvn"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="22_umkvn"]
 [ext_resource type="PackedScene" uid="uid://d2hafo5emquxx" path="res://chapter2/TimerBoost/TimerBoost.tscn" id="23_bwrc5"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="27_s1abu"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/HpBoost/HpBoostCitadel.tscn" id="27_u1pd6"]

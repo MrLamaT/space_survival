@@ -14,6 +14,8 @@ func spawn(type):
 		enemy_scene = preload("res://chapter2/enemy/phantom.tscn")
 	if enemy == "giantStingray":
 		enemy_scene = preload("res://chapter2/enemy/giantStingray.tscn")
+	if enemy == "infantryman":
+		enemy_scene = preload("res://chapter2/enemy/infantryman.tscn")
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.is_boss = is_boss
 	enemy_instance.aura = aura

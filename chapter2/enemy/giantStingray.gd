@@ -31,8 +31,6 @@ func _ready():
 	var boss_bars = get_tree().get_nodes_in_group("BossBar")
 	if boss_bars.size() > 0 and is_boss:
 		boss_bars[0].setup_boss(health, "stingray")
-	await get_tree().create_timer(2).timeout
-	get_tree().get_first_node_in_group("player").look_at_point($body.global_position)
 
 func auraSprite():
 	$Aura/AnimationPlayer.play("aura")
