@@ -55,6 +55,7 @@ portal=""
 enemy=""
 build=""
 BossBar=""
+nextbot=""
 
 [input]
 

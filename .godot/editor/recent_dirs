@@ -1,4 +1,5 @@
 res://chapter2/enemy/
+res://assets/Nextbot/
 res://assets/textures/
 res://chapter2/assets/items/
 res://chapter2/item/Move_projectile/
@@ -21,4 +22,3 @@ res://chapter2/rooms/decoration/wall/
 res://UI/workbenchRecipe/
 res://UI/timer/
 res://assets/paintings/
-res://chapter2/assets/enemy/old/Scar/

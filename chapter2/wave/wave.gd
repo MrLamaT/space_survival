@@ -43,7 +43,18 @@ func _on_wave_complete() -> void:
 
 func _on_timer_timeout() -> void:
 	var enemy_nodes = get_tree().get_nodes_in_group("enemy_wave")
-	print("enemy_wale: ", enemy_nodes.size())
-	if enemy_nodes.size() == 0:
-		current_wave += 1
-		start_wave()
+	var nextbots = get_tree().get_nodes_in_group("nextbot")
+	var only_nextbots_left = true
+	for enemy in enemy_nodes:
+		if not enemy in nextbots:
+			only_nextbots_left = false
+			break
+	if only_nextbots_left and enemy_nodes.size() > 0:
+		for enemy in enemy_nodes:
+			if enemy.has_method("take_damage"):
+				enemy.take_damage(999999)
+	else:
+		print("enemy_wave: ", enemy_nodes.size())
+		if enemy_nodes.size() == 0:
+			current_wave += 1
+			start_wave()

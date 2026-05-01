@@ -2,7 +2,7 @@ extends Node3D
 
 var speed: float = 50.0
 var direction: Vector3 = Vector3.ZERO
-var damage: int = 10
+var damage: int = 12
 var lifetime: float = 3.0
 var timer: float = 0.0
 

@@ -15,35 +15,24 @@ var player: Node3D = null
 var is_chasing_player: bool = false
 
 # Настройки движения
-var SPEED: float = 6
+var SPEED: float = 4
 var ACCELERATION: float = 5.0
 var ROTATION_SPEED: float = 10.0
-var last_animation_state: String = ""
 
 # Дистанция атаки
-var ATTACK_DISTANCE: float = 2.0 
-var KNOCKBACK_FORCE: float = 50.0  # Сила отталкивания
-var is_attacking: bool = false
+var ATTACK_DISTANCE: float = 3.0 
 
 var previous_position: Vector3
 var movement_direction: Vector3
 var spawnpoint: Vector3
 
 var is_dead: bool = false
-var health: int = 80
+var health: int = 100000
 
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-#стрельба
-var SHOOT_DISTANCE_MIN: float = 3.0  # минимальная дистанция для стрельбы
-var SHOOT_DISTANCE_MAX: float = 12.0 # максимальная дистанция для стрельбы
-var shoot_timer: float = 0.0
-var SHOOT_COOLDOWN: float = 3.5
-var is_shooting_mode: bool = false
-var bullet_scene = preload("res://chapter2/item/Enemy_projectile/Enemy_projectile.tscn")
 
 func _ready():
 	if !Global.game_settings["Enemy"]:
@@ -58,9 +47,16 @@ func _ready():
 	update_health_label()
 	var boss_bars = get_tree().get_nodes_in_group("BossBar")
 	if boss_bars.size() > 0 and is_boss:
-		health = 420
-		$body/body/Sprite3D.visible = true
-		boss_bars[0].setup_boss(health, "infantryman")
+		boss_bars[0].setup_boss(health, "nextbot")
+	var bot_images = [
+		"res://assets/Nextbot/bot1.jpg",
+		"res://assets/Nextbot/bot2.jpg",
+		"res://assets/Nextbot/bot3.jpg",
+		"res://assets/Nextbot/bot4.jpg"
+	]
+	var random_bot = bot_images[randi() % bot_images.size()]
+	var bot_texture = load(random_bot)
+	$body/Sprite3D.texture = bot_texture
 	if player:
 		start_chasing_player()
 
@@ -72,7 +68,6 @@ func auraSprite():
 		$Aura.modulate = Color("#f50000")
 	SPEED *= aura + 1
 	health *= aura + 1
-	SHOOT_COOLDOWN /= aura + 1
 
 func _physics_process(delta):
 	if is_dead:
@@ -101,33 +96,6 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 	if player:
-		if is_attacking:
-			move_and_slide()
-			return
-		var distance_to_player = global_position.distance_to(player.global_position)
-		if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
-			is_shooting_mode = true
-			if last_animation_state != "shoot_mode":
-				$body/run.play_backwards("run")
-				$body/AnimationPlayer.play("weapon")
-				last_animation_state = "shoot_mode"
-			var direction_to_player = (player.global_position - global_position).normalized()
-			if direction_to_player.length() > 0.1:
-				var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
-				rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-			if shoot_timer <= 0:
-				shoot_at_player()
-				shoot_timer = SHOOT_COOLDOWN
-			else:
-				shoot_timer -= delta
-			velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
-			move_and_slide()
-			return
-		is_shooting_mode = false
-		if last_animation_state != "move_mode":
-			$body/run.play("run")
-			$body/AnimationPlayer.play("RESET")
-			last_animation_state = "move_mode"
 		navigation_agent.target_position = player.global_position
 		if can_attack_player():
 			attack_player()
@@ -163,40 +131,16 @@ func stop_chasing_player():
 func attack_player():
 	if not can_attack_player() or is_dead:
 		return
-	if attack_cooldown <= 0 and not is_attacking:
+	if attack_cooldown <= 0:
 		if player:
-			is_attacking = true
 			$hit.pitch_scale = randf_range(4, 6)
-			$body/AnimationPlayer.play("attack")
+			$hit.play()
 			if player.has_method("HP"):
-				player.HP(20)
+				player.HP(100000)
 			if player.has_method("take_damage"):
-				player.take_damage(20)
-			if player is CharacterBody3D:
-				var knockback_direction = (player.global_position - global_position).normalized()
-				player.velocity.x = knockback_direction.x * KNOCKBACK_FORCE
-				player.velocity.z = knockback_direction.z * KNOCKBACK_FORCE
-				player.velocity.y = KNOCKBACK_FORCE * 0.1
+				player.take_damage(100000)
+			take_damage(100000)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
-			await get_tree().create_timer(0.5).timeout
-			is_attacking = false
-
-func shoot_at_player():
-	if not player:
-		return
-	var bullet_spawn = $body/hand1/BulletSpawn
-	if not bullet_spawn:
-		return
-	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
-	bullet.global_position = bullet_spawn.global_position
-	var target_pos = player.global_position
-	target_pos.y = bullet_spawn.global_position.y
-	var shoot_direction = (target_pos - bullet_spawn.global_position).normalized()
-	bullet.shoot(shoot_direction, 10.0)
-	var audio = $body/hand1/Taser/AudioStreamPlayer3D
-	if audio:
-		audio.play()
 
 func die():
 	if is_dying or is_dead:

@@ -1,10 +1,10 @@
+Sprite3D
 StaticBody3D
 AnimationPlayer
 AudioStreamPlayer3D
 CollisionShape3D
 MeshInstance3D
 Area3D
-Sprite3D
 Timer
 Node3D
 Marker3D
