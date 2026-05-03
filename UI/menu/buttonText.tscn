@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cc1qkq4g7g763"]
+
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_8bs3u"]
+[ext_resource type="Script" uid="uid://cb47wd3sukk5s" path="res://UI/menu/button_text.gd" id="2_ui3cs"]
+
+[node name="ButtonText" type="Label" unique_id=907316837]
+theme_override_fonts/font = ExtResource("1_8bs3u")
+text = "TEXT"
+script = ExtResource("2_ui3cs")
+
+[node name="Button" type="Button" parent="." unique_id=1073742845]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 6.0
+offset_bottom = 6.0
+scale = Vector2(13, 3)
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

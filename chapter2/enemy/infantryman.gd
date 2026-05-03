@@ -63,6 +63,7 @@ func _ready():
 		boss_bars[0].setup_boss(health, "infantryman")
 	if player:
 		start_chasing_player()
+		shoot_timer = 2.0
 
 func auraSprite():
 	$Aura/AnimationPlayer.play("aura")
@@ -79,18 +80,16 @@ func _physics_process(delta):
 		return
 	if is_dying:
 		death_timer += delta
-		var shake_intensity = 0.05 * (1.0 - death_timer / DEATH_DELAY)
-		var shake_offset = Vector3(
-			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity)
-		)
-		global_position += shake_offset
-		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
-		move_and_slide()
-		if death_timer >= DEATH_DELAY:
-			is_dead = true
-			queue_free()
+		if death_timer < 1.0:
+			var shake_intensity = 0.05 * (1.0 - death_timer / DEATH_DELAY)
+			var shake_offset = Vector3(
+				randf_range(-shake_intensity, shake_intensity),
+				randf_range(-shake_intensity, shake_intensity),
+				randf_range(-shake_intensity, shake_intensity)
+			)
+			global_position += shake_offset
+			velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
+			move_and_slide()
 		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -208,6 +207,15 @@ func die():
 	$shock.play()
 	velocity = Vector3.ZERO
 	is_chasing_player = false
+	await get_tree().create_timer(1.0).timeout
+	if not is_dead and is_dying:
+		create_physical_copy($body/body, Vector3(1.2, 1.5, 0.8), Vector3(0, 1, 0)) 
+		create_physical_copy($body/hand1, Vector3(0.6, 0.3, 0.3), Vector3(0.5, 0.8, 0.3)) 
+		create_physical_copy($body/hand2, Vector3(0.6, 0.3, 0.3), Vector3(-0.5, 0.8, 0.3))
+		visible = false
+		await get_tree().create_timer(3.0).timeout
+		if self and is_instance_valid(self):
+			queue_free()
 
 func take_damage(damage):
 	health -= damage
@@ -232,3 +240,56 @@ func update_health_label():
 			health_label.modulate = Color(1, 0.8, 0.3)
 		else:
 			health_label.modulate = Color(1, 1, 1)
+
+func create_physical_copy(original_node: Node3D, collision_size: Vector3, _local_offset: Vector3):
+	if not original_node:
+		return
+	var rigid = RigidBody3D.new()
+	rigid.name = "ragdoll_" + original_node.name
+	rigid.global_transform = original_node.global_transform
+	rigid.mass = 8.0
+	rigid.gravity_scale = 1.0
+	rigid.linear_damp = 0.3
+	rigid.angular_damp = 0.3
+	rigid.collision_layer = 0 
+	rigid.collision_layer |= (1 << 1)
+	rigid.collision_mask = 0
+	rigid.collision_mask |= (1 << 2)
+	var collision = CollisionShape3D.new()
+	var box_shape = BoxShape3D.new()
+	box_shape.size = collision_size
+	collision.shape = box_shape
+	rigid.add_child(collision)
+	for child in original_node.get_children():
+		if child is MeshInstance3D or child is Sprite3D or child is GPUParticles3D:
+			var copy = _duplicate_node_recursive(child)
+			rigid.add_child(copy)
+	get_parent().add_child(rigid)
+	var impulse = Vector3(
+		randf_range(-8, 8),
+		randf_range(5, 12),
+		randf_range(-8, 8)
+	)
+	rigid.apply_central_impulse(impulse)
+	rigid.angular_velocity = Vector3(
+		randf_range(-5, 5),
+		randf_range(-5, 5),
+		randf_range(-5, 5)
+	)
+	await get_tree().create_timer(3.0).timeout
+	if rigid and is_instance_valid(rigid):
+		rigid.queue_free()
+
+func _duplicate_node_recursive(node: Node) -> Node:
+	var copy = node.duplicate(Node.DUPLICATE_USE_INSTANTIATION | Node.DUPLICATE_SIGNALS)
+	if copy is MeshInstance3D and node is MeshInstance3D:
+		if node.mesh:
+			copy.mesh = node.mesh.duplicate()
+		if node.material_override:
+			copy.material_override = node.material_override.duplicate()
+	if copy is GPUParticles3D:
+		copy.emitting = true
+	for child in node.get_children():
+		var child_copy = _duplicate_node_recursive(child)
+		copy.add_child(child_copy)
+	return copy

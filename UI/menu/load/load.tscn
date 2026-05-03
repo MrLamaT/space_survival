@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://cky5ax2dk354d"]
+
+[ext_resource type="Script" uid="uid://cilgxm58gt7kk" path="res://UI/menu/load/load.gd" id="1_b53ly"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_cwju6"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_rvef1"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="3_wjhwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axyu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Animation" id="Animation_rvef1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBoxContainer/Label2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/VBoxContainer/Label3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/VBoxContainer/Label4:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/VBoxContainer/Label5:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/VBoxContainer/Label6:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/Sprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/Sprite2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14.49, 14.49)]
+}
+
+[sub_resource type="Animation" id="Animation_pa3f1"]
+resource_name = "text_intro"
+length = 5.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/VBoxContainer/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["> BOOTLOADER v.12.7.4 INITIALIZED...", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBoxContainer/Label2:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["> MEMORY CHECK: OK [32768 VQ]", ""]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/VBoxContainer/Label3:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["> CPU: CITADEL M.III - ONLINE", ""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/VBoxContainer/Label4:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["> -----------------------------------", ""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/VBoxContainer/Label5:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 1.4, 2.4, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["> LOADING PERSONAL LOG.", "> LOADING PERSONAL LOG..", "> LOADING PERSONAL LOG...", ""]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/VBoxContainer/Label6:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.4, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["> > ERROR: FILE CORRUPTED.", ""]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/Sprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.6, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/Sprite2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.6, 4.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(30, 30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfvks"]
+_data = {
+&"RESET": SubResource("Animation_rvef1"),
+&"text_intro": SubResource("Animation_pa3f1")
+}
+
+[node name="load" type="Node2D" unique_id=517620797]
+script = ExtResource("1_b53ly")
+
+[node name="Panel" type="Panel" parent="." unique_id=1533400924]
+offset_left = 460.0
+offset_top = 65.0
+offset_right = 809.9999
+offset_bottom = 415.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_axyu0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=345478228]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -175.0
+offset_right = 334.0
+offset_bottom = -47.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1085298666]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer" unique_id=198225900]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer" unique_id=1911752375]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer" unique_id=1185891748]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Label5" type="Label" parent="Panel/VBoxContainer" unique_id=944245948]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Label6" type="Label" parent="Panel/VBoxContainer" unique_id=452836657]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cwju6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=914225510]
+visible = false
+texture_filter = 1
+position = Vector2(174.49994, 174.5)
+scale = Vector2(14.49, 14.49)
+texture = ExtResource("3_rvef1")
+
+[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=1697329386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
+stream = ExtResource("3_wjhwg")
+volume_db = -20.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=228273801]
+libraries/ = SubResource("AnimationLibrary_vfvks")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

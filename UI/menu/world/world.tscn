@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://wkycjb503jb1"]
+
+[ext_resource type="Script" uid="uid://c0jksrwxkt8tv" path="res://UI/menu/world/world.gd" id="1_ry0ui"]
+[ext_resource type="PackedScene" uid="uid://cc1qkq4g7g763" path="res://UI/menu/buttonText.tscn" id="2_ai7i6"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_q4wmr"]
+[ext_resource type="Texture2D" uid="uid://c8uj1j8awq1ii" path="res://assets/textures/dottedLine.png" id="4_hxh2r"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="4_usin0"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="5_s7h1n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axyu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="world" type="Node2D" unique_id=517620797]
+script = ExtResource("1_ry0ui")
+
+[node name="Panel" type="Panel" parent="." unique_id=1533400924]
+offset_left = 460.0
+offset_top = 65.0
+offset_right = 809.9999
+offset_bottom = 415.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_axyu0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=345478228]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -53.0
+offset_right = 50.0
+offset_bottom = 53.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ButtonText1" parent="Panel/VBoxContainer" unique_id=907316837 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "[NEW GAME 1]"
+textLabel_ru = "[NEW GAME 1]"
+target_node = NodePath("../../..")
+button_id = "world_1"
+
+[node name="ButtonText2" parent="Panel/VBoxContainer" unique_id=504955367 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "[NEW GAME 2]"
+textLabel_ru = "[NEW GAME 2]"
+target_node = NodePath("../../..")
+button_id = "world_2"
+
+[node name="ButtonText3" parent="Panel/VBoxContainer" unique_id=1974376998 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "[NEW GAME 3]"
+textLabel_ru = "[NEW GAME 3]"
+target_node = NodePath("../../..")
+button_id = "world_3"
+
+[node name="ButtonText4" parent="Panel/VBoxContainer" unique_id=810010795 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "[NEW GAME 4]"
+textLabel_ru = "[NEW GAME 4]"
+target_node = NodePath("../../..")
+button_id = "world_4"
+
+[node name="ButtonText5" parent="Panel/VBoxContainer" unique_id=296138154 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "[NEW GAME 5]"
+textLabel_ru = "[NEW GAME 5]"
+target_node = NodePath("../../..")
+button_id = "world_5"
+
+[node name="ButtonText" parent="Panel/VBoxContainer" unique_id=1553359919 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "BACK"
+textLabel_ru = "НАЗАД"
+target_node = NodePath("../../..")
+button_id = "BACK"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1557963991]
+texture_filter = 1
+position = Vector2(40, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("3_q4wmr")
+
+[node name="worldSetting" type="Node2D" parent="Panel" unique_id=2038489154]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/worldSetting" unique_id=1748849108]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 135.0
+offset_top = 111.0
+offset_right = 175.0
+offset_bottom = 239.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="WorldName" parent="Panel/worldSetting/VBoxContainer" unique_id=1315856506 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "world name"
+textLabel_ru = "world name"
+target_node = NodePath("../../../..")
+button_id = "world name"
+
+[node name="GameMode" parent="Panel/worldSetting/VBoxContainer" unique_id=1524632697 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "game mode"
+textLabel_ru = "game mode"
+target_node = NodePath("../../../..")
+button_id = "game mode"
+
+[node name="stage" parent="Panel/worldSetting/VBoxContainer" unique_id=437004217 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "stage"
+textLabel_ru = "stage"
+target_node = NodePath("../../../..")
+button_id = "stage"
+
+[node name="delete" parent="Panel/worldSetting/VBoxContainer" unique_id=1921554110 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "delete"
+textLabel_ru = "удалить"
+target_node = NodePath("../../../..")
+button_id = "delete"
+
+[node name="load" parent="Panel/worldSetting/VBoxContainer" unique_id=1632629456 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "load"
+textLabel_ru = "load"
+target_node = NodePath("../../../..")
+button_id = "load"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/worldSetting" unique_id=756237388]
+position = Vector2(230, 165)
+scale = Vector2(3.5, 4.634)
+texture = ExtResource("4_hxh2r")
+
+[node name="confirmation" type="Panel" parent="." unique_id=1123923100]
+visible = false
+offset_left = 460.0
+offset_top = 65.0
+offset_right = 809.9999
+offset_bottom = 415.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_axyu0")
+
+[node name="Label" type="Label" parent="confirmation" unique_id=2110543628]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.0
+offset_top = -24.5
+offset_right = 151.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_s7h1n")
+text = "Are you sure you want to permanently 
+delete the world?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="confirmation" unique_id=1870521305]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.99994
+offset_top = 75.0
+offset_right = 38.00006
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 140
+
+[node name="ButtonText" parent="confirmation/HBoxContainer" unique_id=313439517 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "CANCEL"
+textLabel_ru = "ОТМЕНА"
+target_node = NodePath("../../..")
+button_id = "CANCEL"
+
+[node name="ButtonText2" parent="confirmation/HBoxContainer" unique_id=1493328955 instance=ExtResource("2_ai7i6")]
+layout_mode = 2
+textLabel_en = "DELETE"
+textLabel_ru = "УДАЛИТЬ"
+target_node = NodePath("../../..")
+button_id = "DELETE"
+
+[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=1697329386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
+stream = ExtResource("4_usin0")
+volume_db = -20.0

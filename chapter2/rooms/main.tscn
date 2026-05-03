@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cu01v74yppo1" path="res://chapter2/rooms/main.gd" id="1_rukgg"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/brick.png" id="2_nx5a4"]
 [ext_resource type="PackedScene" uid="uid://b2tpuf62megqf" path="res://chapter2/rooms/decoration/menu.tscn" id="5_q48q2"]
+[ext_resource type="PackedScene" uid="uid://cky5ax2dk354d" path="res://UI/menu/load/load.tscn" id="5_vy737"]
 [ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://chapter2/rooms/decoration/lightTable.tscn" id="6_4kqoq"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="6_7o45e"]
+[ext_resource type="PackedScene" uid="uid://bjxdu0c8o6rrf" path="res://UI/menu/menu/menu.tscn" id="6_8lup6"]
+[ext_resource type="PackedScene" uid="uid://wkycjb503jb1" path="res://UI/menu/world/world.tscn" id="7_1u0l2"]
+[ext_resource type="PackedScene" uid="uid://c8ije0jsd8354" path="res://UI/menu/options/options.tscn" id="7_4kqoq"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="8_vy737"]
 
 [sub_resource type="Animation" id="Animation_7o45e"]
@@ -106,7 +110,19 @@ transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0.5, -4.145)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2.831, -3.52)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1072168480]
-transform = Transform3D(0.9995885, 0.006588701, -0.02791892, -0.00698058, 0.99987817, -0.013962181, 0.027823525, 0.014151325, 0.99951273, -0.3679899, 2.378475, -1.9542058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3679899, 2.378475, -1.9542058)
+
+[node name="options" parent="Camera3D" unique_id=517620797 instance=ExtResource("7_4kqoq")]
+visible = false
+
+[node name="load" parent="Camera3D" unique_id=2135560590 instance=ExtResource("5_vy737")]
+visible = false
+
+[node name="menu" parent="Camera3D" unique_id=1618934113 instance=ExtResource("6_8lup6")]
+visible = false
+
+[node name="world" parent="Camera3D" unique_id=966059859 instance=ExtResource("7_1u0l2")]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=194896446]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6980104, -3.377)
@@ -119,9 +135,11 @@ omni_range = 7.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1922123084]
 libraries/ = SubResource("AnimationLibrary_4kqoq")
+autoplay = &"light"
 
 [node name="On" type="AnimationPlayer" parent="." unique_id=1538011985]
 libraries/ = SubResource("AnimationLibrary_vy737")
+autoplay = &"OnSystem"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1260801008 groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 5.427377, -3.1325755)

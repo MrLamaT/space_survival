@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bjxdu0c8o6rrf"]
+
+[ext_resource type="Script" uid="uid://b84qwb41whmi6" path="res://UI/menu/menu/menu.gd" id="1_ns2cu"]
+[ext_resource type="PackedScene" uid="uid://cc1qkq4g7g763" path="res://UI/menu/buttonText.tscn" id="2_8yxkb"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_88g1n"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="4_ux56c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axyu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="menu" type="Node2D" unique_id=517620797]
+script = ExtResource("1_ns2cu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1533400924]
+offset_left = 460.0
+offset_top = 65.0
+offset_right = 809.9999
+offset_bottom = 415.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_axyu0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=345478228]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -53.0
+offset_right = 50.0
+offset_bottom = 53.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ButtonText" parent="Panel/VBoxContainer" unique_id=907316837 instance=ExtResource("2_8yxkb")]
+layout_mode = 2
+textLabel_en = "PLAY"
+textLabel_ru = "PLAY"
+target_node = NodePath("../../..")
+button_id = "play"
+
+[node name="ButtonText2" parent="Panel/VBoxContainer" unique_id=504955367 instance=ExtResource("2_8yxkb")]
+layout_mode = 2
+textLabel_en = "OPTIONS"
+textLabel_ru = "OPTIONS"
+target_node = NodePath("../../..")
+button_id = "options"
+
+[node name="ButtonText3" parent="Panel/VBoxContainer" unique_id=1974376998 instance=ExtResource("2_8yxkb")]
+layout_mode = 2
+textLabel_en = "QUIT"
+textLabel_ru = "QUIT"
+target_node = NodePath("../../..")
+button_id = "quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=1557963991]
+texture_filter = 1
+position = Vector2(40, 40)
+scale = Vector2(10, 10)
+texture = ExtResource("3_88g1n")
+
+[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=1697329386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
+stream = ExtResource("4_ux56c")
+volume_db = -20.0
