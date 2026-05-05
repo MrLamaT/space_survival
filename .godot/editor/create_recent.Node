@@ -1,3 +1,4 @@
+Node3D
 HBoxContainer
 Label
 Node2D
@@ -11,5 +12,3 @@ SubViewport
 Sprite3D
 StaticBody3D
 AudioStreamPlayer3D
-CollisionShape3D
-MeshInstance3D

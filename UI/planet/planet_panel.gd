@@ -31,3 +31,7 @@ func _on_button_pressed() -> void:
 			get_node("../../..").teleport("res://chapter2/rooms/maps/training.tscn")
 		if level == 1:
 			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_1.tscn")
+		if level == 2:
+			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_2.tscn")
+		if level == 3:
+			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_3.tscn")

@@ -13,7 +13,6 @@ func _ready() -> void:
 	Global.game_settings["step"] = 3
 	Global.game_settings["IsDying"] = false
 	setBuild()
-	$ship/Zona1/PC2.notificationOn(true)
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")

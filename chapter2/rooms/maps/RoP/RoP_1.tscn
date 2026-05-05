@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdcq1du4edx1r"]
 
-[ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP/RoP.gd" id="1_le6ex"]
+[ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP/RoP_1.gd" id="1_le6ex"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="2_agh46"]
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="2_dlv1t"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="3_le6ex"]
@@ -1136,11 +1136,11 @@ numberWave = 2
 
 [node name="WaveMarker11" parent="NavigationRegion3D/Suppression" unique_id=45291830 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 5, 1, 0)
-numberWave = 3
+numberWave = 2
 
 [node name="WaveMarker12" parent="NavigationRegion3D/Suppression" unique_id=711650133 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -5, 1, 0)
-numberWave = 3
+numberWave = 2
 
 [node name="Debris" parent="NavigationRegion3D" unique_id=374490993 instance=ExtResource("28_56evf")]
 transform = Transform3D(-4.371139e-08, 0, 3, 0, 2, 0, -1, 0, -1.3113416e-07, -3.1, 5.5, -37.57)
