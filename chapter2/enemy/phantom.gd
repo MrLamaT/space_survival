@@ -35,7 +35,6 @@ var jump_cooldown: float = 0.0
 
 var previous_position: Vector3
 var movement_direction: Vector3
-var spawnpoint: Vector3
 
 var is_dead: bool = false
 var health: int = 20
@@ -114,7 +113,6 @@ func _physics_process(delta):
 			attack_player()
 			chase_timer = 0.0
 		if chase_timer >= CHASE_TIMEOUT:
-			$body/AnimationPlayer.play("scream")
 			start_prepare_jump()
 			return
 		var next_position = navigation_agent.get_next_path_position()

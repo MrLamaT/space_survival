@@ -864,12 +864,20 @@ Gates = NodePath("../wallGates")
 [node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=1458340264 instance=ExtResource("19_0mg8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0984964, 0, -8.0092125)
 enemy = "infantryman"
+numberWave = 1
 is_boss = true
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("19_0mg8l")]
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("19_0mg8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0984955, 0, -5.167305)
+
+[node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=965191309 instance=ExtResource("19_0mg8l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20919704, 0, -5.167305)
+enemy = "shooter"
+
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=18913159 instance=ExtResource("19_0mg8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2980299, 0, -8.0092125)
 enemy = "infantryman"
-numberWave = 1
+numberWave = 2
 
 [node name="wallGates" parent="NavigationRegion3D" unique_id=1533157946 instance=ExtResource("20_0mg8l")]
 

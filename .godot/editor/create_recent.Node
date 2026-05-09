@@ -1,3 +1,4 @@
+Sprite3D
 Node3D
 HBoxContainer
 Label
@@ -9,6 +10,5 @@ Button
 VBoxContainer
 ColorRect
 SubViewport
-Sprite3D
 StaticBody3D
 AudioStreamPlayer3D

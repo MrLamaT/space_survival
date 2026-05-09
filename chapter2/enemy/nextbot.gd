@@ -24,7 +24,6 @@ var ATTACK_DISTANCE: float = 3.0
 
 var previous_position: Vector3
 var movement_direction: Vector3
-var spawnpoint: Vector3
 
 var is_dead: bool = false
 var health: int = 100000
