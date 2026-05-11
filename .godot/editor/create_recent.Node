@@ -1,3 +1,6 @@
+CollisionShape3D
+StaticBody3D
+MeshInstance3D
 Sprite3D
 Node3D
 HBoxContainer
@@ -9,6 +12,3 @@ AnimationPlayer
 Button
 VBoxContainer
 ColorRect
-SubViewport
-StaticBody3D
-AudioStreamPlayer3D

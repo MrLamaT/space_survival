@@ -18,6 +18,12 @@ func handle_interaction(object_name: String):
 			if world["level"] <= 2:
 				world["level"] = 3
 			$NavigationRegion3D/Citadel/portal.teleport("res://chapter2/rooms/GlobalMain.tscn")
+		"room1":
+			$NavigationRegion3D/ImpenetrableField.on(true)
+			if Global.game_settings["gui_settings"]["Language"] == "русский":
+				$Player.warning("Непробиваемое поле открылось")
+			else:
+				$Player.warning("The Impenetrable Field has opened")
 
 func _on_kill_zona_body_entered(body: Node3D) -> void:
 	print("item killZona!!!")

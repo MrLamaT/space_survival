@@ -2,11 +2,10 @@ extends Area3D
 
 @export var nameUI:String = ""
 @export var messages:int = 1
-var notificationVar = false
+@export var notificationVar:bool = false
 
-func notificationOn(check):
-	notificationVar = check
-	if check:
+func _ready() -> void:
+	if notificationVar:
 		$Sprite3D.visible = true
 	else:
 		$Sprite3D.visible = false

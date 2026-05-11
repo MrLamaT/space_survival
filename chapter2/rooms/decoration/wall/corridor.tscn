@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://3wierofwxkw1"]
+
+[ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="1_oqja3"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_2fnfe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4kfk"]
+size = Vector3(0.14, 1, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xivn"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("2_2fnfe")
+uv1_scale = Vector3(15, 1, 15)
+uv1_triplanar = true
+texture_filter = 0
+
+[node name="corridor1" type="Node3D" unique_id=2055780126]
+
+[node name="wall" parent="." unique_id=1533157946 instance=ExtResource("1_oqja3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75)
+emergency_light = true
+
+[node name="wall2" parent="." unique_id=2056749451 instance=ExtResource("1_oqja3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3.75)
+emergency_light = true
+
+[node name="dirt" type="StaticBody3D" parent="." unique_id=69137868]
+transform = Transform3D(-50, 0, 7.54979e-06, 0, 1, 0, -7.54979e-06, 0, -50, 0, 5.75, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt" unique_id=146422928]
+shape = SubResource("BoxShape3D_e4kfk")
+debug_fill = false
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt" unique_id=2057088487]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="dirt/CSGCombiner3D" unique_id=1946723100]
+size = Vector3(0.14, 1, 0.15)
+material = SubResource("StandardMaterial3D_7xivn")

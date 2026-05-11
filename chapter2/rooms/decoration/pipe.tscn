@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://vqlspbo86t5h"]
+
+[ext_resource type="Script" uid="uid://dwwo545xwef6t" path="res://chapter2/rooms/decoration/pipe.gd" id="1_hf1ik"]
+[ext_resource type="Texture2D" uid="uid://bsjj1bqwitiqy" path="res://assets/textures/wallpaper2.png" id="1_ky3ni"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="2_53xqy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53xqy"]
+albedo_color = Color(0.22, 0.22, 0.22, 1)
+albedo_texture = ExtResource("1_ky3ni")
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hf1ik"]
+material = SubResource("StandardMaterial3D_53xqy")
+height = 12.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf1ik"]
+albedo_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+albedo_texture = ExtResource("2_53xqy")
+uv1_offset = Vector3(1, 0.5, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iq0nl"]
+material = SubResource("StandardMaterial3D_hf1ik")
+top_radius = 0.6
+bottom_radius = 0.6
+height = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_53xqy"]
+lifetime_randomness = 0.5
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq0nl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.019607844)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_hc51e"]
+material = SubResource("StandardMaterial3D_iq0nl")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_53xqy"]
+height = 12.0
+
+[node name="Pipe" type="StaticBody3D" unique_id=42658265]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_hf1ik")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1552270802]
+mesh = SubResource("CylinderMesh_hf1ik")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=278718092]
+mesh = SubResource("CylinderMesh_iq0nl")
+
+[node name="smoke" type="GPUParticles3D" parent="MeshInstance3D2" unique_id=1122825854]
+cast_shadow = 0
+amount = 100
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_53xqy")
+draw_pass_1 = SubResource("QuadMesh_hc51e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=216751401]
+shape = SubResource("CylinderShape3D_53xqy")

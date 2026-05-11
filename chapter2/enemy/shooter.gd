@@ -11,6 +11,8 @@ var DEATH_DELAY: float = 1
 
 var player: Node3D = null
 
+var ROTATION_SPEED: float = 10.0
+
 # Дистанция атаки
 var ATTACK_DISTANCE: float = 2.0 
 var KNOCKBACK_FORCE: float = 50.0  # Сила отталкивания
@@ -32,7 +34,7 @@ var burst_delay: float = 0.0   # Задержка между выстрелам�
 var BURST_SHOTS: int = 3       # Количество выстрелов в очереди
 var BURST_INTERVAL: float = 0.4 # Интервал между выстрелами
 var burst_cooldown: float = 0.0  # Таймер полной задержки
-var BURST_COOLDOWN_TIME: float = 3.5  # Полная задержка после очереди
+var BURST_COOLDOWN_TIME: float = 2.0  # Полная задержка после очереди
 
 # Прыжок
 var is_jumping: bool = false
@@ -40,10 +42,10 @@ var jump_target_position: Vector3
 var jump_timeout: float = 0.0
 var JUMP_MAX_TIME: float = 2.0
 var JUMP_LAUNCH_SPEED: float = 5.0
-var JUMP_SPEED: float = 15.0
-var is_preparing_jump: bool = false
-var prepare_jump_timer: float = 0.0
-var PREPARE_JUMP_TIME: float = 1.0
+var JUMP_SPEED: float = 12.0
+var chase_timer: float = 0.0 
+var CHASE_TIMEOUT: float = 2.0
+var jump_cooldown: float = 0.0
 
 func _ready():
 	if !Global.game_settings["Enemy"]:
@@ -89,9 +91,6 @@ func _physics_process(delta):
 	if is_jumping:
 		handle_jump(delta)
 		return
-	if is_preparing_jump:
-		prepare_jump(delta)
-		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if attack_cooldown > 0:
@@ -120,12 +119,13 @@ func _physics_process(delta):
 					burst_delay -= delta
 			else:
 				if burst_cooldown <= 0:
-					start_prepare_jump()
+					start_jump_to_player()
 					burst_cooldown = BURST_COOLDOWN_TIME
 					burst_shots_left = BURST_SHOTS
 		else:
 			burst_cooldown -= delta
-		velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
+		if not is_jumping:
+			velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
 		move_and_slide()
 		return
 
@@ -181,21 +181,6 @@ func shoot_at_player():
 	if audio:
 		audio.play()
 
-func start_prepare_jump():
-	is_preparing_jump = true
-	prepare_jump_timer = 0.0
-	is_shooting_mode = false
-	$body/AnimationPlayer.play("RESET")
-	velocity = Vector3.ZERO
-
-func prepare_jump(delta):
-	if not is_preparing_jump:
-		return
-	prepare_jump_timer += delta
-	if prepare_jump_timer >= PREPARE_JUMP_TIME:
-		is_preparing_jump = false
-		start_jump_to_player()
-
 func start_jump_to_player():
 	if not player:
 		return
@@ -203,21 +188,24 @@ func start_jump_to_player():
 	jump_target_position = player.global_position
 	jump_timeout = 0.0
 	$body/AnimationPlayer.play("jamp")
+	chase_timer = 0.0
 	velocity.y = JUMP_LAUNCH_SPEED
 
 func land_from_jump():
+	velocity.x = 0
+	velocity.z = 0
 	is_jumping = false
-	is_preparing_jump = false
 	$body/AnimationPlayer.play("RESET")
-	burst_shots_left = BURST_SHOTS
-	burst_delay = 0.0
 	if player and can_attack_player():
 		attack_player()
+	else:
+		is_shooting_mode = true
+		$body/AnimationPlayer.play("weapon")
+		burst_shots_left = BURST_SHOTS
+		burst_delay = 0.0
+		burst_cooldown = 0.0
 
 func handle_jump(delta):
-	if not player:
-		land_from_jump()
-		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	jump_timeout += delta
@@ -229,7 +217,7 @@ func handle_jump(delta):
 	if horizontal_direction.length() > 0.1:
 		horizontal_direction = horizontal_direction.normalized()
 		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
-		rotation.y = lerp_angle(rotation.y, target_rotation, 10.0 * delta * 2)
+		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
 		velocity.x = horizontal_direction.x * JUMP_SPEED
 		velocity.z = horizontal_direction.z * JUMP_SPEED
 	var distance_to_target = global_position.distance_to(jump_target_position)
@@ -247,14 +235,13 @@ func die():
 	$shock.pitch_scale = randf_range(0.9, 1.1)
 	$shock.play()
 	velocity = Vector3.ZERO
-	is_preparing_jump = false
 	is_jumping = false
 
 func take_damage(damage):
 	health -= damage
 	if not is_on_floor():
 		health -= damage
-	if is_jumping or is_preparing_jump:
+	if is_jumping:
 		land_from_jump()
 	update_health_label()
 	var boss_bars = get_tree().get_nodes_in_group("BossBar")

@@ -312,8 +312,6 @@ func _input(event: InputEvent): #повороты мышкой
 						enemy.take_damage(999999)
 	if Input.is_action_just_pressed("UI_focus_next"):
 		handle_ui_action("Inventory")
-	if Input.is_action_just_pressed("+q"):
-		handle_ui_action("messages")
 	if Input.is_action_just_pressed("ui_cancel"):
 		release_build()
 		handle_ui_action("pause")
