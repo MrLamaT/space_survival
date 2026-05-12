@@ -1,11 +1,7 @@
 res://chapter2/rooms/maps/RoP/RoP_2.tscn
-res://chapter2/rooms/decoration/pipe.tscn
-res://chapter2/rooms/decoration/pipe.gd
-res://chapter2/rooms/maps/RoP/RoP_1.tscn
-res://chapter2/rooms/maps/RoP/RoP_2.gd
-res://chapter2/Player/Player.tscn
-res://chapter2/rooms/decoration/wall/corridor.tscn
-res://chapter2/item/Phantom_projectile/phantom_projectile.gd
-res://chapter2/enemy/shooter.gd
-res://chapter2/enemy/shooter.tscn
-res://chapter2/rooms/maps/sandbox.tscn
+res://chapter2/rooms/decoration/PC2.tscn
+res://chapter2/rooms/decoration/pc.gd
+res://chapter2/rooms/decoration/rising_ring.tscn
+res://chapter2/rooms/decoration/rising_ring.gd
+res://chapter2/rooms/decoration/Bookshelf.tscn
+res://chapter2/rooms/decoration/BookshelfBig.tscn
