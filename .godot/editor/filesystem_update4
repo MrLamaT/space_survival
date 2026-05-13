@@ -1,7 +1,3 @@
+res://chapter2/spring/spring.tscn
+res://chapter2/rooms/decoration/barrel2.tscn
 res://chapter2/rooms/maps/RoP/RoP_2.tscn
-res://chapter2/rooms/decoration/PC2.tscn
-res://chapter2/rooms/decoration/pc.gd
-res://chapter2/rooms/decoration/rising_ring.tscn
-res://chapter2/rooms/decoration/rising_ring.gd
-res://chapter2/rooms/decoration/Bookshelf.tscn
-res://chapter2/rooms/decoration/BookshelfBig.tscn
