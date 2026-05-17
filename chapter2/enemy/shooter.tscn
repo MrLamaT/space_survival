@@ -549,12 +549,6 @@ light_energy = 0.1
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
-[node name="hp" type="Label3D" parent="." unique_id=329580655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-visible = false
-billboard = 2
-text = "0"
-
 [node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)
 visible = false

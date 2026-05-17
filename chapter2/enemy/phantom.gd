@@ -1,25 +1,11 @@
-extends CharacterBody3D
+extends "res://chapter2/enemy/BaseEnemy.gd"
 
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var health_label: Label3D = $hp
 
-@export var is_boss = false
-@export var aura = 0
-
-var is_dying: bool = false
-var death_timer: float = 0.0
-var DEATH_DELAY: float = 1
-
-var current_target: Node3D = null
-var player: Node3D = null
 var is_chasing_player: bool = false
-
-# Настройки движения
 var SPEED: float = 6
 var ACCELERATION: float = 5.0
 var ROTATION_SPEED: float = 10.0
-
-# Дистанция атаки
 var ATTACK_DISTANCE: float = 2.0 
 
 # Настройки прыжка
@@ -32,65 +18,40 @@ var JUMP_SPEED: float = 15.0  # Скорость прыжка
 var is_jumping: bool = false
 var jump_target_position: Vector3
 var jump_cooldown: float = 0.0
-
-var previous_position: Vector3
-var movement_direction: Vector3
-
-var is_dead: bool = false
-var health: int = 20
-
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
-
 var jump_timeout: float = 0.0
 var JUMP_MAX_TIME: float = 2.0 
 var JUMP_LAUNCH_SPEED: float = 5.0
-
-var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var previous_position: Vector3
 
 func _ready():
-	if !Global.game_settings["Enemy"]:
-		queue_free()
-		return
-	if !Global.game_settings["GhostMod"]:
-		player = get_tree().get_first_node_in_group("player")
+	super._ready()
 	previous_position = global_position
-	current_target = null
+	health = 20
 	if aura > 0:
-		auraSprite()
-	update_health_label()
-	var boss_bars = get_tree().get_nodes_in_group("BossBar")
-	if boss_bars.size() > 0 and is_boss:
-		boss_bars[0].setup_boss(health, "phantom")
+		health *= aura + 1
+	_setup_boss_bar()
 	if player:
 		start_chasing_player()
 
-func auraSprite():
-	$Aura/AnimationPlayer.play("aura")
-	if aura == 1:
-		$Aura.modulate = Color("#ff7a01")
-	else:
-		$Aura.modulate = Color("#f50000")
-	SPEED *= aura + 1
-	health *= aura + 1
+func _apply_aura():
+	super._apply_aura()
+	SPEED *= speed_multiplier
+
+func _disable_combat_states():
+	is_chasing_player = false
+	is_preparing_jump = false
+	is_jumping = false
+
+func _get_boss_id() -> String:
+	return "phantom"
 
 func _physics_process(delta):
 	if is_dead:
 		return
 	if is_dying:
-		death_timer += delta
-		var shake_intensity = 0.05 * (1.0 - death_timer / DEATH_DELAY)
-		var shake_offset = Vector3(
-			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity),
-			randf_range(-shake_intensity, shake_intensity)
-		)
-		global_position += shake_offset
-		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
-		move_and_slide()
-		if death_timer >= DEATH_DELAY:
-			is_dead = true
-			queue_free()
+		_handle_death_process(delta)
 		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -123,7 +84,6 @@ func _physics_process(delta):
 		var target_velocity = direction * SPEED
 		target_velocity.y = velocity.y
 		velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
-	movement_direction = global_position - previous_position
 	previous_position = global_position
 	move_and_slide()
 
@@ -139,6 +99,8 @@ func prepare_jump(delta):
 		start_jump_to_player()
 
 func start_jump_to_player():
+	if not player:
+		return
 	is_jumping = true
 	jump_target_position = player.global_position
 	jump_timeout = 0.0
@@ -180,17 +142,12 @@ func can_attack_player() -> bool:
 	var distance_to_player = global_position.distance_to(player.global_position)
 	return distance_to_player <= ATTACK_DISTANCE
 
-func lose_player():
-	is_chasing_player = false
-
 func start_chasing_player():
-	current_target = player
 	is_chasing_player = true
 	chase_timer = 0.0
 
 func stop_chasing_player():
 	is_chasing_player = false
-	current_target = null
 
 func attack_player():
 	if not can_attack_player() or is_dead:
@@ -209,36 +166,7 @@ func attack_player():
 func die():
 	if is_dying or is_dead:
 		return
-	is_dying = true
-	death_timer = 0.0
-	$sparkDead.emitting = true
-	$shock.pitch_scale = randf_range(0.9, 1.1)
-	$shock.play()
-	velocity = Vector3.ZERO
+	super.die()
 	is_chasing_player = false
 	is_preparing_jump = false
 	is_jumping = false
-
-func take_damage(damage):
-	health -= damage
-	if not is_on_floor():
-		health -= damage
-	update_health_label()
-	var boss_bars = get_tree().get_nodes_in_group("BossBar")
-	if boss_bars.size() > 0 and is_boss:
-		boss_bars[0]._on_health_changed(health)
-	if health <= 0:
-		$sparkDead.emitting = true
-		die()
-	else:
-		$spark.emitting = true
-
-func update_health_label():
-	if health_label:
-		health_label.text = str(health) + " HP"
-		if health <= 5:
-			health_label.modulate = Color(1, 0.3, 0.3) 
-		elif health <= 10:
-			health_label.modulate = Color(1, 0.8, 0.3)
-		else:
-			health_label.modulate = Color(1, 1, 1)

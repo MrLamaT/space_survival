@@ -216,6 +216,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_msqjr")
+is_boss = null
+aura = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
@@ -307,12 +309,6 @@ light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=350018585]
 libraries/ = SubResource("AnimationLibrary_aouct")
 autoplay = &"fly"
-
-[node name="hp" type="Label3D" parent="." unique_id=329580655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
-billboard = 2
-text = "0"
 
 [node name="sparkDead" type="GPUParticles3D" parent="." unique_id=1236345209]
 cast_shadow = 0

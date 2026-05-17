@@ -7,7 +7,6 @@ var world_4: Dictionary
 var world_5: Dictionary
 
 var game_settings: Dictionary = {
-	"Enemy": true,
 	"gui_settings": {
 		"Coords": false,
 		"FPS": false,

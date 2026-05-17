@@ -292,7 +292,7 @@ _data = {
 size = Vector3(1.1, 8.5, 1.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5iyra"]
-size = Vector3(7.5, 1, 7.5)
+size = Vector3(7.5, 5, 7.5)
 
 [node name="RisingRing" type="StaticBody3D" unique_id=1699921389]
 collision_layer = 4

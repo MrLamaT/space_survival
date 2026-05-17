@@ -57,70 +57,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Mexico/Node3D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_e015f"]
-resource_name = "dance"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, -1.5707964), Vector3(0, 3.1415927, -1.5707964), Vector3(0, 4.712389, -1.5707964), Vector3(0, 6.2831855, -1.5707964), Vector3(0, 9.424778, -1.5707964)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Mexico/Node3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.7853982, 0), Vector3(0, 0, 0), Vector3(0, -0.7853982, 0), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Mexico/Node3D2:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(3.1415927, 0, 0), Vector3(3.1415927, -0.7853982, 0), Vector3(3.1415927, 0, 0), Vector3(3.1415927, 0.7853982, 0), Vector3(3.1415927, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_vugxl"]
 resource_name = "tail"
@@ -142,45 +78,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e015f"]
 _data = {
 &"RESET": SubResource("Animation_ju8ud"),
-&"dance": SubResource("Animation_e015f"),
 &"tail": SubResource("Animation_vugxl")
 }
 
 [sub_resource type="PrismMesh" id="PrismMesh_e015f"]
 material = SubResource("StandardMaterial3D_nrxh4")
 size = Vector3(0.25, 0.25, 0.25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju8ud"]
-albedo_color = Color(0.6862745, 0.5254902, 0.3019608, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vugxl"]
-material = SubResource("StandardMaterial3D_ju8ud")
-top_radius = 0.025
-bottom_radius = 0.1
-height = 0.25
-radial_segments = 4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e015f"]
-albedo_color = Color(0.5686275, 0.13725491, 0.11372549, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_460sa"]
-material = SubResource("StandardMaterial3D_e015f")
-top_radius = 0.15
-bottom_radius = 0.1
-height = 0.05
-radial_segments = 4
-
-[sub_resource type="SphereMesh" id="SphereMesh_ikd5g"]
-material = SubResource("StandardMaterial3D_ju8ud")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpjr6"]
-albedo_color = Color(0.20784314, 0.654902, 0.1882353, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_yi646"]
-material = SubResource("StandardMaterial3D_tpjr6")
-top_radius = 0.1
-bottom_radius = 0.1
-height = 1.0
 
 [sub_resource type="Animation" id="Animation_y5ww8"]
 length = 0.001
@@ -282,46 +185,8 @@ transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -
 mesh = SubResource("PrismMesh_e015f")
 skeleton = NodePath("../../..")
 
-[node name="Mexico" type="Node3D" parent="body" unique_id=520064354]
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/Mexico" unique_id=1579290926]
-transform = Transform3D(-4.371139e-08, -1, -2.220446e-16, 1, -4.371139e-08, 0, 0, -2.220446e-16, 1, -0.35970688, -1.5723288e-08, -2.6631166e-17)
-mesh = SubResource("CylinderMesh_vugxl")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/Mexico" unique_id=1795957982]
-transform = Transform3D(-4.371139e-08, -1, -8.881784e-16, 1, -4.371139e-08, 0, 0, -8.8817837e-16, 1, -0.21009201, -9.183413e-09, -1.0257905e-16)
-mesh = SubResource("CylinderMesh_460sa")
-
-[node name="Node3D" type="Node3D" parent="body/Mexico" unique_id=2092668542]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/Mexico/Node3D" unique_id=887071792]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.16468272, 3.9510786e-09, -0.25507286)
-mesh = SubResource("SphereMesh_ikd5g")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/Mexico/Node3D" unique_id=268799888]
-transform = Transform3D(-6.5567085e-09, -0.15, 0, 0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.03349501, 9.6854755e-09, -0.25507286)
-mesh = SubResource("CylinderMesh_yi646")
-
-[node name="Node3D2" type="Node3D" parent="body/Mexico" unique_id=704581156]
-transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/Mexico/Node3D2" unique_id=1112709420]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.16468272, 3.9510786e-09, -0.25507286)
-mesh = SubResource("SphereMesh_ikd5g")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/Mexico/Node3D2" unique_id=677686184]
-transform = Transform3D(-6.5567085e-09, -0.15, 0, 0.15, -6.5567085e-09, 0, 0, 0, 0.15, -0.03349501, 9.6854755e-09, -0.25507286)
-mesh = SubResource("CylinderMesh_yi646")
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
-
-[node name="hp" type="Label3D" parent="." unique_id=329580655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-visible = false
-billboard = 2
-text = "0"
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1179688890]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.5)
