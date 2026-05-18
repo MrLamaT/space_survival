@@ -47,5 +47,3 @@ func _activate_spring(body: CharacterBody3D):
 	$AnimationPlayer.play("RESET")
 	target_compression = 0.0
 	is_on_cooldown = false
-	#if cooldown_sound:
-		#_play_sound(cooldown_sound)

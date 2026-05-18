@@ -22,6 +22,8 @@ func spawn(type):
 		enemy_scene = preload("res://chapter2/enemy/nextbot.tscn")
 	if enemy == "shooter":
 		enemy_scene = preload("res://chapter2/enemy/shooter.tscn")
+	if enemy == "cleaner":
+		enemy_scene = preload("res://chapter2/enemy/cleaner.tscn")
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.is_boss = is_boss
 	enemy_instance.aura = aura

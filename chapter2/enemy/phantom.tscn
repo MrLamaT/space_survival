@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="4_cudbv"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_y5ww8"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="13_xai3o"]
-[ext_resource type="AudioStream" uid="uid://c2w52baurjymm" path="res://assets/nail.wav" id="14_kkywk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
@@ -295,9 +294,6 @@ volume_db = -15.0
 stream = ExtResource("3_nrxh4")
 volume_db = -15.0
 pitch_scale = 5.0
-
-[node name="nail" type="AudioStreamPlayer3D" parent="." unique_id=633376102]
-stream = ExtResource("14_kkywk")
 
 [node name="spark" type="GPUParticles3D" parent="." unique_id=32936107]
 cast_shadow = 0

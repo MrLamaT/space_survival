@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dekiakxugbjso" path="res://chapter2/enemy/infantryman.gd" id="1_cr145"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_gp8h5"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_6bkub"]
-[ext_resource type="AudioStream" uid="uid://c2w52baurjymm" path="res://assets/nail.wav" id="4_u1n75"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="5_g63h1"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_gp8h5"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_o20w3"]
@@ -365,9 +364,6 @@ volume_db = -15.0
 stream = ExtResource("3_6bkub")
 volume_db = -15.0
 pitch_scale = 5.0
-
-[node name="nail" type="AudioStreamPlayer3D" parent="." unique_id=633376102]
-stream = ExtResource("4_u1n75")
 
 [node name="spark" type="GPUParticles3D" parent="." unique_id=32936107]
 cast_shadow = 0
