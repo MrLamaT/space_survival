@@ -34,3 +34,10 @@ func _on_kill_zona_body_entered(body: Node3D) -> void:
 		SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
 	else:
 		body.global_position = Vector3(0, 0, 0)
+
+var room5 = false
+
+func _on_area_3d_body_entered_room5(body: Node3D) -> void:
+	if body.is_in_group("player") and !room5:
+		$NavigationRegion3D/ImpenetrableField2.on(false)
+		room5 = true

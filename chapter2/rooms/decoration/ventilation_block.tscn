@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dwoyychcj82aq"]
+
+[ext_resource type="Texture2D" uid="uid://bybry7gwjwbl" path="res://assets/textures/ventilation.png" id="1_bwoun"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvjtk"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvjtk"]
+albedo_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+albedo_texture = ExtResource("1_bwoun")
+texture_filter = 0
+
+[node name="ventilation_block" type="StaticBody3D" unique_id=1098785356]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824383617]
+shape = SubResource("BoxShape3D_xvjtk")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=546180549]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1956922656]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_xvjtk")

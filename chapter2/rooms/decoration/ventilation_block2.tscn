@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://35wxdachd6tm"]
+
+[ext_resource type="Texture2D" uid="uid://bybry7gwjwbl" path="res://assets/textures/ventilation.png" id="1_p5h81"]
+[ext_resource type="Texture2D" uid="uid://dwff8ojfhjbxp" path="res://assets/textures/valve_2.png" id="2_j1bck"]
+[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/lattice.png" id="3_yoh50"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvjtk"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvjtk"]
+albedo_color = Color(0.21960784, 0.21960784, 0.21960784, 1)
+albedo_texture = ExtResource("1_p5h81")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_p5h81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_juvcs"]
+resource_name = "r"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -1.5707964)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jn7l"]
+_data = {
+&"RESET": SubResource("Animation_p5h81"),
+&"r": SubResource("Animation_juvcs")
+}
+
+[node name="ventilation_block2" type="StaticBody3D" unique_id=2134431432]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=54264941]
+shape = SubResource("BoxShape3D_xvjtk")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=837725922]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1870955490]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(1.5, 1.5, 1.5)
+material = SubResource("StandardMaterial3D_xvjtk")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2002919387]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0, -0.45)
+operation = 2
+size = Vector3(1.25, 1.25, 0.6)
+material = SubResource("StandardMaterial3D_xvjtk")
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D" unique_id=174531275]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -0.475)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_j1bck")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CSGCombiner3D/Sprite3D" unique_id=984480959]
+libraries/ = SubResource("AnimationLibrary_2jn7l")
+autoplay = &"r"
+
+[node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D" unique_id=1897231987]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.7)
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_yoh50")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D" unique_id=435828558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+light_color = Color(0.9529412, 0, 0, 1)
+light_energy = 0.75
+light_bake_mode = 1
+omni_range = 10.0
