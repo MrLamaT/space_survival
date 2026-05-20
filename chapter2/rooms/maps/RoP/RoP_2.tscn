@@ -29,8 +29,13 @@
 [ext_resource type="PackedScene" uid="uid://35wxdachd6tm" path="res://chapter2/rooms/decoration/ventilation_block2.tscn" id="21_n81jb"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="22_ve0yt"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="23_54uxv"]
+[ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://chapter2/rooms/decoration/lightTable.tscn" id="23_mh7cw"]
+[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="25_n81jb"]
+[ext_resource type="Texture2D" uid="uid://6noyyqqreptn" path="res://assets/textures/crack.png" id="25_p25oc"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_wuovg"]
+[ext_resource type="Texture2D" uid="uid://dd3wsl2htuleb" path="res://chapter2/assets/items/engineers_cleaver.png" id="26_g05cb"]
 [ext_resource type="PackedScene" uid="uid://d2hafo5emquxx" path="res://chapter2/TimerBoost/TimerBoost.tscn" id="27_nysev"]
+[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="27_wh3vd"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="32_pyy45"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -474,11 +479,140 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 4.25, -12.75)
 [node name="Table" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=191175265 instance=ExtResource("11_to8gd")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 8.225, 0.49999997, -12.816773)
 
+[node name="Light" parent="NavigationRegion3D/floor_ceiling/room5/Table" unique_id=648830743 instance=ExtResource("23_mh7cw")]
+transform = Transform3D(-0.2625799, 0, -0.42550185, 0, 1, 0, 0.70916975, 0, -0.43763313, 0.20765561, 1.9024546, -0.42650223)
+
 [node name="PC" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1824689195 instance=ExtResource("10_e4kfk")]
 transform = Transform3D(-1, 0, -1.4570462e-07, 0, 1, 0, 5.2453668e-08, 0, -1, 8.225, 2.45, -13.816373)
 
 [node name="chair" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=169179891 instance=ExtResource("12_and26")]
 transform = Transform3D(0.96361387, 0, -0.26729828, 0, 1, 0, 0.26729828, 0, 0.96361387, 8.225, 0.961, -14.616773)
+
+[node name="room6" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1728087643]
+
+[node name="wallGates" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1254661987 instance=ExtResource("8_tdhdp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.75, 0, -22.25)
+emergency_light = true
+unlocked = true
+
+[node name="wallGates2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=639194437 instance=ExtResource("8_tdhdp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 38.5, 0, -11.5)
+emergency_light = true
+
+[node name="wall" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=782785313 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, -27)
+emergency_light = true
+
+[node name="wall2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=285782457 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5, 0, -27)
+emergency_light = true
+
+[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/room6/wall2" unique_id=1564883384]
+transform = Transform3D(-4, 0, -6.039832e-07, 0, 4, 0, 6.039832e-07, 0, -4, 0, 2.75, 0.51)
+shaded = true
+texture_filter = 0
+texture = ExtResource("25_p25oc")
+
+[node name="wall5" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1279447426 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 32.5, 0, -11.5)
+emergency_light = true
+
+[node name="wall3" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1539487850 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 27.75, 0, -16.25)
+emergency_light = true
+
+[node name="wall6" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1296833129 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43.25, 0, -22.25)
+emergency_light = true
+
+[node name="wall4" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=423265591 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43.25, 0, -16.25)
+emergency_light = true
+
+[node name="Table" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=821275619 instance=ExtResource("11_to8gd")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 32.5, 0.49999997, -13.5)
+
+[node name="Table2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=202661375 instance=ExtResource("11_to8gd")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 5, 35, 0.5, -20)
+
+[node name="PC" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=303826236 instance=ExtResource("10_e4kfk")]
+transform = Transform3D(-1, 0, -1.4570462e-07, 0, 1, 0, 5.2453668e-08, 0, -1, 34, 2.45, -14.45)
+
+[node name="PC2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=49925100 instance=ExtResource("10_e4kfk")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 35, 2.45, -22.75)
+
+[node name="handItem" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=837608605 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.7071067, -0.7071067, 3.090862e-08, 0, -4.3711385e-08, -1, 0.7071067, 0.7071067, -3.090862e-08, 33, 1.65, -13.5)
+
+[node name="handItem2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1222999459 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.7071067, -0.7071067, 3.090862e-08, 0, -4.3711385e-08, -1, 0.7071067, 0.7071067, -3.090862e-08, 32, 1.65, -13.5)
+
+[node name="handItem3" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1803210600 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.7071067, -0.7071067, 3.090862e-08, 0, -4.3711385e-08, -1, 0.7071067, 0.7071067, -3.090862e-08, 31, 1.65, -13.5)
+
+[node name="handItem4" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=395824241 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, 34, 1.65, -21)
+texture = ExtResource("26_g05cb")
+
+[node name="handItem5" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1875006222 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, 36, 1.65, -21)
+texture = ExtResource("26_g05cb")
+
+[node name="handItem6" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1506667545 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, 34, 1.65, -19)
+texture = ExtResource("26_g05cb")
+
+[node name="handItem7" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=125313170 instance=ExtResource("25_n81jb")]
+transform = Transform3D(0.70710677, -0.70710677, 3.090862e-08, 0, -4.371139e-08, -1, 0.70710677, 0.70710677, -3.090862e-08, 36, 1.65, -19)
+texture = ExtResource("26_g05cb")
+
+[node name="ventilation_block6" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=232817920 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 1.25, -19.35)
+
+[node name="ventilation_block8" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=290492406 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 2.75, -19.35)
+
+[node name="ventilation_block9" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=434329323 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 5.75, -19.35)
+
+[node name="ventilation_block10" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1171081029 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 7.25, -19.35)
+
+[node name="ventilation_block11" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1992432230 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 8.75, -19.35)
+
+[node name="ventilation_block12" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=138405325 instance=ExtResource("21_n81jb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 4.25, -19.35)
+
+[node name="ventilation_block7" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=347382726 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 1.25, -25.35)
+
+[node name="ventilation_block13" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=626847990 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 2.75, -25.35)
+
+[node name="ventilation_block14" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=514172920 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 5.75, -25.35)
+
+[node name="ventilation_block15" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1361957508 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 7.25, -25.35)
+
+[node name="ventilation_block16" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=351763002 instance=ExtResource("20_mh7cw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 8.75, -25.35)
+
+[node name="ventilation_block17" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1402760788 instance=ExtResource("21_n81jb")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.8, 4.25, -25.35)
+
+[node name="StorageBox" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1495650899 instance=ExtResource("15_2btbr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.75, 0.49999997, -22.25)
+
+[node name="StorageBox2" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1513020329 instance=ExtResource("15_2btbr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.75, 0.49999997, -16.25)
+
+[node name="Light" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=1854132827 instance=ExtResource("27_wh3vd")]
+transform = Transform3D(-1, 0, -1.2079664e-06, 0, 1, 0, 1.509958e-07, 0, -8, 35, 5.184, -20)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/room6" unique_id=215260462 instance=ExtResource("11_snwac")]
+transform = Transform3D(0.5, 0, 0, 0, 0.35, 0, 0, 0, 0.5, 35, 7.26, -20)
 
 [node name="room3" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=746262200]
 
@@ -665,6 +799,32 @@ handle = true
 [node name="HpBoost" parent="NavigationRegion3D/floor_ceiling/corridor3" unique_id=1462106428 instance=ExtResource("19_vu8ni")]
 transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.81915206, 8, 0.49999997, 1.5)
 
+[node name="corridor15" parent="NavigationRegion3D/floor_ceiling" unique_id=84698034 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, -7.25)
+
+[node name="wall3" parent="NavigationRegion3D/floor_ceiling/corridor15" unique_id=2069545163 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7, 0, 3.75)
+emergency_light = true
+
+[node name="wall4" parent="NavigationRegion3D/floor_ceiling/corridor15" unique_id=254760676 instance=ExtResource("7_qp8hd")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.75, 0, -0.5)
+emergency_light = true
+
+[node name="dirt2" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling/corridor15" unique_id=1343052680]
+transform = Transform3D(-50, 0, 7.54979e-06, 0, 1, 0, -7.54979e-06, 0, -50, 7, 5.75, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/corridor15/dirt2" unique_id=624828522]
+shape = SubResource("BoxShape3D_cnhd8")
+debug_fill = false
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/corridor15/dirt2" unique_id=1900923918]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/corridor15/dirt2/CSGCombiner3D" unique_id=1068991939]
+size = Vector3(0.14, 1, 0.15)
+material = SubResource("StandardMaterial3D_5ta7f")
+
 [node name="corridor4" parent="NavigationRegion3D/floor_ceiling" unique_id=1440413545 instance=ExtResource("16_cnhd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -36.25)
 
@@ -800,6 +960,132 @@ handle = true
 transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
 
 [node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor12" unique_id=42329139 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor13" parent="NavigationRegion3D/floor_ceiling" unique_id=1392021541 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -22.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor13" unique_id=2057149776 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor13" unique_id=1077962793 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor13" unique_id=1486948839 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor13" unique_id=1357757123 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor14" parent="NavigationRegion3D/floor_ceiling" unique_id=1354220278 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -22.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor14" unique_id=1501735886 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor14" unique_id=956964230 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor14" unique_id=547652010 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor14" unique_id=556178758 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor16" parent="NavigationRegion3D/floor_ceiling" unique_id=947542454 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0, -7.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor16" unique_id=890973560 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor16" unique_id=1813553012 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor16" unique_id=1988649196 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor16" unique_id=434890967 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor17" parent="NavigationRegion3D/floor_ceiling" unique_id=697435520 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0, -7.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor17" unique_id=1545506530 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor17" unique_id=1818081128 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor17" unique_id=1079042109 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor17" unique_id=13302140 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor18" parent="NavigationRegion3D/floor_ceiling" unique_id=1192650740 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, -7.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor18" unique_id=1373231717 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor18" unique_id=1129558054 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor18" unique_id=154041962 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor18" unique_id=907191528 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor19" parent="NavigationRegion3D/floor_ceiling" unique_id=1632233101 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -7.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor19" unique_id=1171706746 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor19" unique_id=1389755228 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor19" unique_id=471391444 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor19" unique_id=714562344 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="corridor20" parent="NavigationRegion3D/floor_ceiling" unique_id=1569673615 instance=ExtResource("16_cnhd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -7.25)
+
+[node name="Pipe" parent="NavigationRegion3D/floor_ceiling/corridor20" unique_id=1112088067 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="NavigationRegion3D/floor_ceiling/corridor20" unique_id=273782602 instance=ExtResource("11_snwac")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+smoke = true
+handle = true
+
+[node name="Pipe2" parent="NavigationRegion3D/floor_ceiling/corridor20" unique_id=1790282906 instance=ExtResource("11_snwac")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="NavigationRegion3D/floor_ceiling/corridor20" unique_id=661932823 instance=ExtResource("11_snwac")]
 transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
 handle = true
 
@@ -944,6 +1230,42 @@ enemy = "cleaner"
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave7" unique_id=886594009 instance=ExtResource("23_54uxv")]
 transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, -12, 0, 20.839748)
 enemy = "cleaner"
+
+[node name="Wave8" parent="NavigationRegion3D" unique_id=1861446740 instance=ExtResource("22_ve0yt")]
+transform = Transform3D(-2.1855694e-08, 0, 1, 0, 1, 0, -0.5, 0, -4.371139e-08, 14.2, 3, -22.25)
+
+[node name="WaveMarker" parent="NavigationRegion3D/Wave8" unique_id=599796397 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave8" unique_id=1982478100 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, -2.0000038, 0, 9)
+
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave8" unique_id=1101356938 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 1.9999962, 0, 9.000002)
+
+[node name="Wave9" parent="NavigationRegion3D" unique_id=391567735 node_paths=PackedStringArray("Gates") instance=ExtResource("22_ve0yt")]
+transform = Transform3D(-2.1855694e-08, 0, 1, 0, 1, 0, -0.5, 0, -4.371139e-08, 29.2, 3, -22.25)
+Gates = NodePath("../floor_ceiling/room6/wallGates2")
+
+[node name="WaveMarker" parent="NavigationRegion3D/Wave9" unique_id=1618274309 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 1.5, 0, 10.25)
+
+[node name="WaveMarker4" parent="NavigationRegion3D/Wave9" unique_id=748781426 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 1.5, 0, 10.25)
+enemy = "shooter"
+numberWave = 1
+
+[node name="WaveMarker5" parent="NavigationRegion3D/Wave9" unique_id=610491675 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.249998)
+enemy = "shooter"
+numberWave = 1
+
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave9" unique_id=1473707566 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, -12.5, 0, 10.249998)
+
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave9" unique_id=1818931610 instance=ExtResource("23_54uxv")]
+transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, -12.499998, 0, 1.2499943)
+enemy = "shooter"
 
 [node name="cockroach" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("25_wuovg")]
 transform = Transform3D(0.4229188, 0, 0.90616757, 0, 1, 0, -0.90616757, 0, 0.4229188, -20, 0.949, -57)

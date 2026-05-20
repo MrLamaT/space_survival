@@ -1,5 +1,4 @@
+res://chapter2/item/Taser_projectile/Taser_give.tscn
 res://chapter2/rooms/maps/RoP/RoP_2.tscn
-res://chapter2/rooms/maps/RoP/RoP_2.gd
-res://chapter2/rooms/maps/RoP/RoP_3.tscn
-res://chapter2/rooms/decoration/ventilation_block.tscn
-res://chapter2/rooms/decoration/ventilation_block2.tscn
+res://chapter2/rooms/GlobalMain.tscn
+res://chapter2/debris/debris.tscn

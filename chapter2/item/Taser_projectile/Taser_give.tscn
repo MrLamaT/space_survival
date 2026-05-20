@@ -22,7 +22,7 @@ collision_layer = 2
 script = ExtResource("1_prv8b")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_gag6h")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1, 0)
+transform = Transform3D(1.4999999, 0, 0, 0, 1.4999999, 0, 0, 0, 1.5, 0, 0.8, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=975060106]
 collision_layer = 4

@@ -7,6 +7,9 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5ndr"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
 albedo_texture = ExtResource("1_n7g76")
+uv1_scale = Vector3(0.3, 0.25, 0.3)
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
 texture_filter = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_megnb"]
@@ -73,6 +76,7 @@ mesh = SubResource("ArrayMesh_iyga1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1647486104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 shape = SubResource("BoxShape3D_n7g76")
 
 [node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=757397055]
