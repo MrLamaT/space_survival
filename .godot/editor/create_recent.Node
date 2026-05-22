@@ -1,11 +1,12 @@
+Timer
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
 Node3D
 AnimationPlayer
 Sprite3D
 CSGBox3D
 CSGCombiner3D
-MeshInstance3D
-StaticBody3D
-CollisionShape3D
 Area3D
 CSGCylinder3D
 OmniLight3D

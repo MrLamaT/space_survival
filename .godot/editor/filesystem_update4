@@ -1,4 +1,6 @@
-res://chapter2/item/Taser_projectile/Taser_give.tscn
 res://chapter2/rooms/maps/RoP/RoP_2.tscn
-res://chapter2/rooms/GlobalMain.tscn
-res://chapter2/debris/debris.tscn
+res://chapter2/enemy/nextbot.gd
+res://chapter2/enemy/cleaner.tscn
+res://chapter2/tesla/tesla.tscn
+res://chapter2/laser/laser.tscn
+res://chapter2/tesla/tesla.gd

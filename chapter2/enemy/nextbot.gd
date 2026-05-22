@@ -22,7 +22,8 @@ func _ready():
 		"res://assets/Nextbot/bot1.jpg",
 		"res://assets/Nextbot/bot2.jpg",
 		"res://assets/Nextbot/bot3.jpg",
-		"res://assets/Nextbot/bot4.jpg"
+		"res://assets/Nextbot/bot4.jpg",
+		"res://assets/Nextbot/bot5.jpg"
 	]
 	var random_bot = bot_images[randi() % bot_images.size()]
 	var bot_texture = load(random_bot)
