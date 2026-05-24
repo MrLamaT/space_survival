@@ -4,12 +4,19 @@ extends Area3D
 
 func _ready() -> void:
 	$Sprite3D/Label3D.text = str(boost)
+	$Sprite3D.modulate = Color("00aaff")
+	if boost == 0:
+		$Sprite3D.modulate = Color("ff7700ff")
+		$Sprite3D/Label3D.visible = false
 
 func _on_body_entered(body: Node3D) -> void:
 	if $Sprite3D.visible:
 		$AudioStreamPlayer3D.play()
 		$Sprite3D.visible = false
-		$sparkDead.emitting = true
+		if boost == 0:
+			$sparkDead2.emitting = true
+		else:
+			$sparkDead.emitting = true
 		body.timerBoost(boost)
 
 func _on_audio_stream_player_3d_finished() -> void:

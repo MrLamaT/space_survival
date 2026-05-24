@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="14_uckl1"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/damage.wav" id="16_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/laser-blast.wav" id="17_s8fo2"]
+[ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://chapter2/Player/leg_damage.gd" id="23_q4qd6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -637,6 +638,9 @@ _data = {
 &"blood": SubResource("Animation_n1vqc")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eafwc"]
+size = Vector3(1.5, 1, 1.5)
+
 [node name="Player" type="CharacterBody3D" unique_id=1744104925 groups=["player"]]
 collision_mask = 44
 script = ExtResource("1_3dlvw")
@@ -752,30 +756,6 @@ scale = Vector2(5, 5)
 pivot_offset = Vector2(32.6, 16.6)
 texture = ExtResource("3_lmkso")
 
-[node name="coordinates" type="Label" parent="head/Camera3D" unique_id=1054782826]
-modulate = Color(1, 1, 1, 0.5019608)
-offset_left = 864.0
-offset_top = 599.0
-offset_right = 1008.0
-offset_bottom = 622.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "00:00:00"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="fps" type="Label" parent="head/Camera3D" unique_id=942679321]
-modulate = Color(1, 1, 1, 0.5019608)
-offset_left = 868.0
-offset_top = 5.0
-offset_right = 1012.0
-offset_bottom = 28.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("3_sfgwg")
-text = "FPS:60"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]
 visible = false
 offset_left = 1166.0
@@ -873,6 +853,42 @@ offset_right = 126.0
 offset_bottom = 610.0
 theme_override_fonts/font = ExtResource("3_sfgwg")
 text = "100"
+vertical_alignment = 1
+
+[node name="coordinates" type="Label" parent="head/Camera3D/UI" unique_id=1054782826]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 864.0
+offset_top = 599.0
+offset_right = 1008.0
+offset_bottom = 622.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="speed" type="Label" parent="head/Camera3D/UI" unique_id=1511421361]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 864.0
+offset_top = 553.0
+offset_right = 1008.0
+offset_bottom = 576.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "speed: 0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fps" type="Label" parent="head/Camera3D/UI" unique_id=942679321]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 868.0
+offset_top = 5.0
+offset_right = 1012.0
+offset_bottom = 28.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "FPS:60"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Teleport" parent="head/Camera3D" unique_id=959803594 instance=ExtResource("9_y13tn")]
@@ -1087,4 +1103,13 @@ wait_time = 60.0
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1773773453]
 
+[node name="leg_damage" type="Area3D" parent="." unique_id=2019060207]
+collision_mask = 16
+script = ExtResource("23_q4qd6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg_damage" unique_id=900643489]
+shape = SubResource("BoxShape3D_eafwc")
+disabled = true
+
 [connection signal="timeout" from="save" to="." method="_on_save_timeout"]
+[connection signal="body_entered" from="leg_damage" to="leg_damage" method="_on_body_entered"]

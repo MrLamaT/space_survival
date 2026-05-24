@@ -258,8 +258,8 @@ func play_blood_animation():
 
 func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
-	$head/Camera3D/coordinates.visible = gui_settings["Coords"]
-	$head/Camera3D/fps.visible = gui_settings["FPS"]
+	$head/Camera3D/UI/coordinates.visible = gui_settings["Coords"]
+	$head/Camera3D/UI/fps.visible = gui_settings["FPS"]
 
 func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("UI_click") and not is_paused:
@@ -331,6 +331,7 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"]:
 		if not is_on_floor():
 			falling_fast = true
+			$leg_damage/CollisionShape3D.disabled = false
 		else:
 			if crouched:
 				if Global.game_settings["CanStandUp"]:
@@ -395,7 +396,8 @@ func ghost_cheat():
 		Global.game_settings["affected_by_gravity"] = true
 
 func _process(delta):
-	$head/Camera3D/fps.text = "FPS: %d" % Engine.get_frames_per_second()
+	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
+	$head/Camera3D/UI/speed.text = "Speed: %d" % velocity.length()
 	_update_hand_position(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
@@ -469,12 +471,13 @@ func _physics_process(delta):
 		global_position.y = 5000
 		velocity.y = 0
 	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
-	$head/Camera3D/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
+	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if not Global.game_settings["affected_by_gravity"]:
 		is_floating = false
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
 			falling_fast = false
+			$leg_damage/CollisionShape3D.disabled = true
 		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:
 			if jump_cooldown_timer <= 0:
 				velocity.y = jump_velocity

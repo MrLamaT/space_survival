@@ -363,9 +363,33 @@ material = SubResource("StandardMaterial3D_kmrdn")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 0, 27)
 emergency_light = true
 
+[node name="Label3D" type="Label3D" parent="NavigationRegion3D/Citadel/wall" unique_id=1516154709]
+transform = Transform3D(1, 0, 6.3573026e-08, 0, 1, 0, -6.3573026e-08, 0, 1, 0.75981545, 2.166778, 0.50305367)
+shaded = true
+texture_filter = 0
+modulate = Color(0.45840502, 0.45840508, 0.45840502, 1)
+text = "Citadel 
+property"
+font = ExtResource("8_ug7w8")
+horizontal_alignment = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/Citadel/wall" unique_id=1085737935]
+transform = Transform3D(25, 0, 1.5893256e-06, 0, 25, 0, -1.5893256e-06, 0, 25, -0.20384216, 2.8720248, 0.50300026)
+modulate = Color(0.76, 0.6429601, 0.17480001, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("9_huk7k")
+
 [node name="wall2" parent="NavigationRegion3D/Citadel" unique_id=975482597 instance=ExtResource("6_s8mwg")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.5, 0, 27)
 emergency_light = true
+
+[node name="Label3D" type="Label3D" parent="NavigationRegion3D/Citadel/wall2" unique_id=300751162]
+transform = Transform3D(6, 0, 3.814382e-07, 0, 6, 0, -3.814382e-07, 0, 6, -0.06629372, 2.881669, 0.50305367)
+shaded = true
+texture_filter = 0
+text = "856"
+font = ExtResource("8_ug7w8")
 
 [node name="wall3" parent="NavigationRegion3D/Citadel" unique_id=1533157946 instance=ExtResource("6_s8mwg")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.5, 0, 40)
@@ -399,41 +423,17 @@ emergency_light = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15.5, 0, 41.45)
 emergency_light = true
 
-[node name="Label3D" type="Label3D" parent="NavigationRegion3D/Citadel" unique_id=1516154709]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 2.7401845, 2.166778, 26.496946)
-shaded = true
-texture_filter = 0
-modulate = Color(0.45840502, 0.45840508, 0.45840502, 1)
-text = "Citadel 
-property"
-font = ExtResource("8_ug7w8")
-horizontal_alignment = 0
-
-[node name="Label3D2" type="Label3D" parent="NavigationRegion3D/Citadel" unique_id=300751162]
-transform = Transform3D(-6, 0, -9.0597484e-07, 0, 6, 0, 9.0597484e-07, 0, -6, 9.566294, 2.881669, 26.496946)
-shaded = true
-texture_filter = 0
-text = "856"
-font = ExtResource("8_ug7w8")
-
-[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/Citadel" unique_id=1085737935]
-transform = Transform3D(-25, 0, -3.774895e-06, 0, 25, 0, 3.774895e-06, 0, -25, 3.7038422, 2.8720248, 26.497)
-modulate = Color(0.76, 0.6429601, 0.17480001, 1)
-shaded = true
-texture_filter = 0
-texture = ExtResource("9_huk7k")
-
 [node name="portal" parent="NavigationRegion3D/Citadel" unique_id=2061914237 instance=ExtResource("4_esd74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.52, 33.5)
 skin = 1
 
+[node name="button" parent="NavigationRegion3D/Citadel/portal" unique_id=1344810726 instance=ExtResource("13_lqwyh")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4499998, 1.48, 0)
+interaction_name = "portal"
+handler_node = NodePath("../../../..")
+
 [node name="wall9" parent="NavigationRegion3D/Citadel" unique_id=1609011729 instance=ExtResource("12_2wc74")]
 transform = Transform3D(12.5, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 27.25)
-
-[node name="button" parent="NavigationRegion3D/Citadel" unique_id=1344810726 instance=ExtResource("13_lqwyh")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.55, 2, 33.5)
-interaction_name = "portal"
-handler_node = NodePath("../../..")
 
 [node name="StreetLamp" parent="NavigationRegion3D" unique_id=1550972398 instance=ExtResource("13_0m8kx")]
 transform = Transform3D(0.4369353, 0, -0.54688895, 0, 0.7, 0, 0.54688895, 0, 0.4369353, 5.804, 6, -45.969)

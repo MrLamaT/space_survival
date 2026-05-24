@@ -150,8 +150,28 @@ func parse_command(text: String):
 		"message", "msg":
 			var message_text = argument.replace("_", " ")
 			player.warning(message_text)
+		"spawn":
+			if argument == "":
+				ErrorPrint("Usage: spawn <entity_name>")
+			else:
+				cmd_spawn(argument)
 		_:
 			ErrorPrint("Unknown command: " + command)
+
+func cmd_spawn(entity_name: String):
+	var nav_region = get_tree().current_scene.get_node_or_null("NavigationRegion3D")
+	if not nav_region:
+		ErrorPrint("NavigationRegion3D not found in the scene")
+		return
+	var wave_marker_scene = load("res://chapter2/wave/waveMarker.tscn")
+	var wave_marker = wave_marker_scene.instantiate()
+	nav_region.add_child(wave_marker)
+	if player:
+		wave_marker.global_position = player.global_position
+	wave_marker.set("enemy", entity_name)
+	SystemPrint("Spawned waveMarker at player position with enemy: " + entity_name)
+	wave_marker.spawn("none")
+
 
 func _set_smaa(enabled: bool):
 	var viewport = get_viewport()

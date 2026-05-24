@@ -28,12 +28,22 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_i5lyp")
 size = Vector2(0.1, 0.2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_380jf"]
+shading_mode = 0
+albedo_color = Color(1, 0.46666667, 0, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_i5lyp"]
+material = SubResource("StandardMaterial3D_380jf")
+size = Vector2(0.1, 0.2)
+
 [node name="TimerBoost" type="Area3D" unique_id=727321338]
 collision_layer = 2
 script = ExtResource("1_380jf")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1568795737]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+modulate = Color(0, 0.6666667, 1, 1)
 billboard = 1
 texture_filter = 0
 texture = ExtResource("1_waugf")
@@ -59,6 +69,14 @@ amount = 15
 lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_380jf")
 draw_pass_1 = SubResource("QuadMesh_nsiyc")
+
+[node name="sparkDead2" type="GPUParticles3D" parent="." unique_id=1459862549]
+cast_shadow = 0
+emitting = false
+amount = 15
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_380jf")
+draw_pass_1 = SubResource("QuadMesh_i5lyp")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

@@ -10,25 +10,28 @@ func _ready() -> void:
 	$Sprite3D.queue_free()
 
 func spawn(type):
-	if enemy == "phantom":
-		enemy_scene = preload("res://chapter2/enemy/phantom.tscn")
-	if enemy == "giantStingray":
-		enemy_scene = preload("res://chapter2/enemy/giantStingray.tscn")
-	if enemy == "infantryman":
-		enemy_scene = preload("res://chapter2/enemy/infantryman.tscn")
-	if enemy == "cockroach":
-		enemy_scene = preload("res://chapter2/enemy/cockroach.tscn")
-	if enemy == "nextbot":
-		enemy_scene = preload("res://chapter2/enemy/nextbot.tscn")
-	if enemy == "shooter":
-		enemy_scene = preload("res://chapter2/enemy/shooter.tscn")
-	if enemy == "cleaner":
-		enemy_scene = preload("res://chapter2/enemy/cleaner.tscn")
+	var enemies = {
+		"phantom": "res://chapter2/enemy/phantom.tscn",
+		"giantStingray": "res://chapter2/enemy/giantStingray.tscn",
+		"infantryman": "res://chapter2/enemy/infantryman.tscn",
+		"cockroach": "res://chapter2/enemy/cockroach.tscn",
+		"nextbot": "res://chapter2/enemy/nextbot.tscn",
+		"shooter": "res://chapter2/enemy/shooter.tscn",
+		"cleaner": "res://chapter2/enemy/cleaner.tscn"
+	}
+	if not enemies.has(enemy):
+		print("ERROR: Unknown enemy type: " + enemy)
+		return
+	enemy_scene = load(enemies[enemy])
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.is_boss = is_boss
 	enemy_instance.aura = aura
 	var area = get_parent()
-	var navigation_region = area.get_parent()
+	var navigation_region = null
+	if !(area is NavigationRegion3D):
+		navigation_region = area.get_parent()
+	else:
+		navigation_region = area
 	if navigation_region is NavigationRegion3D:
 		navigation_region.add_child(enemy_instance)
 		enemy_instance.global_position = global_position

@@ -33,7 +33,7 @@ func _ready():
 	previous_position = global_position
 	health = 80
 	if is_boss:
-		health = 420
+		health = 210
 		$body/body/Sprite3D.visible = true
 	if aura > 0:
 		health *= aura + 1

@@ -15,6 +15,10 @@ func start_countdown() -> void:
 	$Timer.start()
 	visible = true
 
+func stop_countdown() -> void:
+	$Timer.stop()
+	visible = false
+
 func _on_timer_timeout() -> void:
 	current_value -= 1
 	$Label.text = str(current_value)
@@ -24,8 +28,10 @@ func _on_timer_timeout() -> void:
 		else:
 			player.warning("Connection terminated. Asset designated as lost.")
 		player.get_node("head/Camera3D/Teleport").kill()
-		$Timer.stop()
-		visible = false
+		stop_countdown()
 
 func boost(boostTime):
+	if boostTime == 0:
+		stop_countdown()
+		return
 	current_value += boostTime

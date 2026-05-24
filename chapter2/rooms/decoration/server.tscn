@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://c6k2aqcjse4xp"]
+
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_01tto"]
+[ext_resource type="PackedScene" uid="uid://c6loalwjoberb" path="res://chapter2/rooms/decoration/serverBlock.tscn" id="2_01tto"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_oj5s3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xpm5"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("1_01tto")
+metallic = 1.0
+uv1_scale = Vector3(1, 0.35, 1)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_07n33"]
+material = SubResource("StandardMaterial3D_8xpm5")
+size = Vector3(0.25, 3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8g2t"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("1_01tto")
+metallic = 1.0
+uv1_scale = Vector3(1, 0.35, 0.6)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yi7wp"]
+material = SubResource("StandardMaterial3D_i8g2t")
+size = Vector3(0.25, 3, 1.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an0ic"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0, 0.6156863, 0.99607843, 0.09803922)
+metallic = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_b355p"]
+material = SubResource("StandardMaterial3D_an0ic")
+size = Vector3(0.25, 2.65, 1.24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o8mx4"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_c1bgw"]
+material = SubResource("StandardMaterial3D_o8mx4")
+size = Vector3(0.75, 0.25, 1.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1o4f3"]
+material = SubResource("StandardMaterial3D_i8g2t")
+size = Vector3(1, 1, 1.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_01tto"]
+size = Vector3(1.75, 4, 1)
+
+[node name="Server" type="StaticBody3D" unique_id=421743418]
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1418054190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 0)
+mesh = SubResource("BoxMesh_07n33")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1831488369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, 0)
+mesh = SubResource("BoxMesh_07n33")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1987644821]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, -0.375)
+mesh = SubResource("BoxMesh_yi7wp")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=873388173]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.65, 0.375)
+mesh = SubResource("BoxMesh_b355p")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=939728955]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.15, 0.125)
+mesh = SubResource("BoxMesh_c1bgw")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=336396643]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 3.5, 0)
+mesh = SubResource("BoxMesh_1o4f3")
+
+[node name="block" parent="." unique_id=1518423287 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425, 0)
+
+[node name="block2" parent="." unique_id=749416538 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.725, 0)
+
+[node name="block3" parent="." unique_id=758539987 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.025, 0)
+
+[node name="block4" parent="." unique_id=2021279438 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.325, 0)
+
+[node name="block5" parent="." unique_id=956697402 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.625, 0)
+
+[node name="block6" parent="." unique_id=1588198538 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.925, 0)
+
+[node name="block7" parent="." unique_id=1860817390 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.225, 0)
+
+[node name="block8" parent="." unique_id=766112152 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.525, 0)
+
+[node name="block9" parent="." unique_id=1764523790 instance=ExtResource("2_01tto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.825, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=469965896]
+transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, 0, 3.5, 0.501)
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_oj5s3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1304805187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_01tto")
