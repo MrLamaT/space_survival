@@ -1,3 +1,5 @@
-res://chapter2/rooms/maps/RoP/RoP_2.tscn
-res://chapter2/rooms/maps/RoP/RoP_1.tscn
-res://global.gd
+res://chapter2/rooms/decoration/wall/impenetrableField.tscn
+res://assets/shaders/force_field.gdshader
+res://chapter2/rooms/decoration/wall/impenetrable_field.gd
+res://chapter2/build/workbench.tscn
+res://chapter2/build/workbench.gd

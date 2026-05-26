@@ -1,3 +1,5 @@
+res://assets/
+res://assets/shaders/
 res://chapter2/rooms/decoration/
 res://assets/textures/
 res://chapter2/assets/items/
@@ -15,10 +17,8 @@ res://chapter2/rooms/
 C:/Users/anaga/OneDrive/Документы/
 res://chapter2/build/
 res://assets/item/
-res://assets/
 res://assets/level/
 res://chapter2/item/EngineersCleaver_projectile/
 res://chapter2/item/Taser_projectile/
 res://UI/planet/
 res://chapter2/rooms/maps/
-res://UI/workbenchRecipe/

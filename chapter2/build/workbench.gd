@@ -19,7 +19,9 @@ func _on_mouse_entered() -> void:
 	$StaticBody/Sprite3D/OmniLight3D.visible = true
 	$StaticBody/Node3D/MeshInstance3D.visible = false
 	$StaticBody/Node3D/MeshInstance3D2.visible = true
-	$StaticBody/Node3D/CSGCombiner3D/AnimationPlayer.play("pole")
+	$StaticBody/Node3D/CSGCombiner3D/box.visible = true
+	$StaticBody/Node3D/OmniLight3D.visible = true
+	
 
 func _on_mouse_exited() -> void:
 	$StaticBody/Sprite3D.modulate = _secondary_color
@@ -27,4 +29,5 @@ func _on_mouse_exited() -> void:
 	$StaticBody/Sprite3D/OmniLight3D.visible = false
 	$StaticBody/Node3D/MeshInstance3D.visible = true
 	$StaticBody/Node3D/MeshInstance3D2.visible = false
-	$StaticBody/Node3D/CSGCombiner3D/AnimationPlayer.play("RESET")
+	$StaticBody/Node3D/CSGCombiner3D/box.visible = false
+	$StaticBody/Node3D/OmniLight3D.visible = false

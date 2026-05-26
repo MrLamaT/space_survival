@@ -12,7 +12,5 @@ func _ready() -> void:
 func on(reverse):
 	if reverse:
 		$AnimationPlayer.play_backwards("On")
-		$AnimationPlayer2.stop()
 	else:
 		$AnimationPlayer.play("On")
-		$AnimationPlayer2.play("pole")
