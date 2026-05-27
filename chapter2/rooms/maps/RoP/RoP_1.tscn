@@ -935,9 +935,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8820267)
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=1630651691 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.576662, 0, 9.660244)
 
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=539679122 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5198727, 0, 15.587135)
-
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=877807334 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.051138, 0, -6.478668)
 
@@ -1169,10 +1166,6 @@ chest = "chest_W13"
 transform = Transform3D(1.840831, 0, 2.3688278, 0, 3, 0, -2.3688278, 0, 1.840831, 33.619507, 20, -18.942768)
 chest = "chest_W15"
 
-[node name="chest7" parent="." unique_id=122909408 instance=ExtResource("14_0vstr")]
-transform = Transform3D(0.22237813, 0, 2.991746, 0, 2.9999995, 0, -2.991746, 0, 0.22237813, -11.755541, 5.5, -46.99457)
-chest = "chest_W7"
-
 [node name="chest8" parent="." unique_id=180679170 instance=ExtResource("14_0vstr")]
 transform = Transform3D(-2.9841185, 0, -0.30827326, 0, 2.9999993, 0, 0.30827326, 0, -2.9841185, -14.953699, 0.5, -5.4712505)
 chest = "chest_W8"
@@ -1180,10 +1173,6 @@ chest = "chest_W8"
 [node name="chest3" parent="." unique_id=1645804995 instance=ExtResource("14_0vstr")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -22.359814, 10.5, -57.954754)
 chest = "chest_W3"
-
-[node name="chest4" parent="." unique_id=365278508 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 29.674826, 10.5, -31.99876)
-chest = "chest_W4"
 
 [node name="chest12" parent="." unique_id=289253706 instance=ExtResource("14_0vstr")]
 transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 26.773037, 10.5, -31.954048)

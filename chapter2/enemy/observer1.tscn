@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://x8vx3lltl35v"]
+
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_vgi0l"]
+[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_wesqi"]
+[ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="4_6gql8"]
+[ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="5_xf6sc"]
+[ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_6gql8"]
+[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_rohrf"]
+[ext_resource type="Shader" uid="uid://mfdjxlv4klj3" path="res://assets/shaders/wings.gdshader" id="6_wesqi"]
+[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="7_6gql8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
+radius = 0.4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cudbv"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
+albedo_color = Color(0, 0.84313726, 1, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_wybfm"]
+material = SubResource("StandardMaterial3D_shb46")
+size = Vector2(0.1, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcinp"]
+render_priority = 0
+shader = ExtResource("4_6gql8")
+shader_parameter/texture_main = ExtResource("5_xf6sc")
+shader_parameter/texture_scale_main = Vector2(2, 2)
+shader_parameter/texture_speed_main = 0.25
+shader_parameter/iridescence_intensity = 0.10000000475
+shader_parameter/iridescence_speed = 1.2
+shader_parameter/iridescence_scale = 4.0
+shader_parameter/trail_intensity = 0.250000011875
+shader_parameter/trail_persistence = 5.0
+shader_parameter/trail_position = Vector3(0, 0, 0)
+shader_parameter/trail_time = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
+material = SubResource("ShaderMaterial_jcinp")
+radius = 0.2
+height = 0.4
+radial_segments = 16
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cudbv"]
+shading_mode = 0
+texture_filter = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_nrxh4"]
+material = SubResource("StandardMaterial3D_cudbv")
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 16
+
+[sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
+material = SubResource("ShaderMaterial_jcinp")
+size = Vector3(0.1, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf6sc"]
+albedo_color = Color(0.83137256, 0.627451, 0.23137255, 1)
+albedo_texture = ExtResource("6_6gql8")
+metallic = 1.0
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6gql8"]
+material = SubResource("StandardMaterial3D_xf6sc")
+size = Vector3(0.12, 0.05, 0.12)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2d7oq"]
+material = SubResource("ShaderMaterial_jcinp")
+top_radius = 0.2
+bottom_radius = 0.15
+height = 0.25
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7xldo"]
+material = SubResource("ShaderMaterial_jcinp")
+top_radius = 0.15
+bottom_radius = 0.2
+height = 0.2
+radial_segments = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf6sc"]
+render_priority = 0
+shader = ExtResource("6_wesqi")
+shader_parameter/space_texture = ExtResource("7_6gql8")
+shader_parameter/parallax_strength = 0.1
+shader_parameter/speed_multiplier = 1.0
+shader_parameter/wing_color = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_wesqi"]
+material = SubResource("ShaderMaterial_xf6sc")
+left_to_right = 1.0
+size = Vector3(0.85, 1, 0.125)
+
+[sub_resource type="Animation" id="Animation_y5ww8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jcinp"]
+resource_name = "aura"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_itf4h"]
+_data = {
+&"RESET": SubResource("Animation_y5ww8"),
+&"aura": SubResource("Animation_jcinp")
+}
+
+[node name="observer1" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+collision_layer = 16
+collision_mask = 21
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+shape = SubResource("CapsuleShape3D_se8os")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="ResurrectionTimer" type="Timer" parent="." unique_id=930393129]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]
+navigation_layers = 7
+
+[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
+stream = ExtResource("2_vgi0l")
+volume_db = -15.0
+
+[node name="hit" type="AudioStreamPlayer3D" parent="." unique_id=689802459]
+stream = ExtResource("3_wesqi")
+volume_db = -15.0
+pitch_scale = 5.0
+
+[node name="spark" type="GPUParticles3D" parent="." unique_id=32936107]
+cast_shadow = 0
+emitting = false
+amount = 5
+lifetime = 0.4
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_cudbv")
+draw_pass_1 = SubResource("QuadMesh_wybfm")
+
+[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=1200291493]
+cast_shadow = 0
+emitting = false
+amount = 15
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_cudbv")
+draw_pass_1 = SubResource("QuadMesh_wybfm")
+
+[node name="body" type="Node3D" parent="." unique_id=718440528]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=15942310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+mesh = SubResource("SphereMesh_gbrfq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1650728555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, 0.075)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_nrxh4")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D6" unique_id=1909613313]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1457677310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, -0.075)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_nrxh4")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D7" unique_id=1256160706]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+light_energy = 0.1
+
+[node name="hand1" type="Node3D" parent="body" unique_id=151550358]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.14999998, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand1" unique_id=332451061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24052843, -0.275)
+mesh = SubResource("BoxMesh_smhvd")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand1" unique_id=459883218]
+transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, -0.275)
+mesh = SubResource("BoxMesh_6gql8")
+skeleton = NodePath("../../..")
+
+[node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.14999998, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand2" unique_id=1956648094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.241, 0.275)
+mesh = SubResource("BoxMesh_smhvd")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand2" unique_id=135694505]
+transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, 0.275)
+mesh = SubResource("BoxMesh_6gql8")
+skeleton = NodePath("../../..")
+
+[node name="body" type="Node3D" parent="body" unique_id=1046932904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body" unique_id=767566586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1496669, 0)
+mesh = SubResource("CylinderMesh_2d7oq")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body" unique_id=1773145490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2996669, 0)
+mesh = SubResource("CylinderMesh_7xldo")
+skeleton = NodePath("../../..")
+
+[node name="wings" type="Node3D" parent="body" unique_id=836000750]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/wings" unique_id=2144074688]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, 0.99999994, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.3711385e-08, 0.4, -0.15, 0.6)
+mesh = SubResource("PrismMesh_wesqi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/wings" unique_id=632072923]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.99999994, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, -4.3711385e-08, 0.4, -0.15, -0.6)
+mesh = SubResource("PrismMesh_wesqi")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
+light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)
+visible = false
+texture_filter = 0
+texture = ExtResource("6_rohrf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
+libraries/ = SubResource("AnimationLibrary_itf4h")

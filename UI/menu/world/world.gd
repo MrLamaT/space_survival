@@ -29,19 +29,21 @@ func _on_label_button_pressed(id: String) -> void:
 			$beep.play()
 			select_world = id
 			world_name_label.text = Global.get(select_world)["name"]
-			if Global.get(select_world)["mode"] == 1:
-				game_mode_label.text = "mode: creative"
-			elif Global.get(select_world)["mode"] == 2:
-				game_mode_label.text = "mode: hardcore"
-			else:
-				game_mode_label.text = "mode: survival"
 			stage_label.text = "stage: " + str(Global.get(select_world)["stage"])
 			if Global.get(select_world)["name"].begins_with("[NEW GAME "):
 				world_name_label.text = world_names[randi() % world_names.size()]
+				Global.get(select_world)["mode"] = 0
+				game_mode_label.text = "mode: survival"
 				stage_label.visible = false
 				delete_button.visible = false
 				load_button.text = "create"
 			else:
+				if Global.get(select_world)["mode"] == 1:
+					game_mode_label.text = "mode: creative"
+				elif Global.get(select_world)["mode"] == 2:
+					game_mode_label.text = "mode: hardcore"
+				else:
+					game_mode_label.text = "mode: survival"
 				stage_label.visible = true
 				delete_button.visible = true
 				load_button.text = "load"

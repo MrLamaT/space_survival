@@ -179,10 +179,14 @@ func PlayerDeath():
 	is_running = false
 	$head/Camera3D/UI.visible = false
 	$hand_position.visible = false
-	await get_tree().create_timer(2.5).timeout
-	$screem.stop()
-	world["HP"] = 100
-	respawn_player()
+	if world["mode"] != 2:
+		await get_tree().create_timer(2.5).timeout
+		$screem.stop()
+		world["HP"] = 100
+		respawn_player()
+	else:
+		Global.delete_world_save(Global.game_settings.word)
+		SceneManager.load_scene_with_loading("res://chapter2/rooms/main.tscn")
 
 func HP(hp):
 	if Global.game_settings["IsDying"]:

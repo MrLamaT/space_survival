@@ -19,7 +19,6 @@ shape = SubResource("BoxShape3D_oabn4")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=321408693]
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D" unique_id=1228876635]
-offset_right = 35.0
-offset_bottom = 25.0
-scale = Vector2(36.239998, 29.69)
+offset_right = 1152.0
+offset_bottom = 648.0
 color = Color(1, 0, 0, 0.19607843)

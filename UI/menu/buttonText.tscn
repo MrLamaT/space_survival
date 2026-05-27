@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://cb47wd3sukk5s" path="res://UI/menu/button_text.gd" id="2_ui3cs"]
 
 [node name="ButtonText" type="Label" unique_id=907316837]
+offset_right = 36.0
+offset_bottom = 18.0
 theme_override_fonts/font = ExtResource("1_8bs3u")
+theme_override_font_sizes/font_size = 16
 text = "TEXT"
 script = ExtResource("2_ui3cs")
 

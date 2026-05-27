@@ -63,11 +63,9 @@ Who exactly decided that armies need «human» qualities? We need bio-machines, 
 			chat_text.text = "Тема: неэффективность клонирования — ответ.
 
 Инспектор, ваш лог попал ко мне на стол. С позволения Совета, я вынужден ответить.
-Машина без эмоций начнет глючить от первой же нестыковки в приказе. А наш «несовершенный» клон... он испугается, но полезет спасать товарища. Он разозлится и уничтожит врага, который умнее его. Он пожалеет ребенка на руинах и защитит его, даже если это не в приказе.
-Эмоции — это не баги. Это обходной путь для тех случаев, когда логика бессильна. Бездушная машина предаст вас, как только у неё кончится бензин. Солдат со страхом в глазах будет бороться за каждый вдох. Подумайте об этом."
+Машина без эмоций начнет глючить от первой же нестыковки в приказе. А наш «несовершенный» клон... он испугается, но полезет спасать товарища. Он разозлится и уничтожит врага, который умнее его. Он пожалеет ребенка на руинах и защитит его, даже если это не в приказе."
 		else:
 			chat_text.text = "Subject: cloning inefficiencies — answer.
 
 Inspector, your log landed on my desk. With the Council's indulgence, I am compelled to respond.
-An emotionless machine will start glitching at the first contradiction in its orders. But our «imperfect» clone... he will be afraid, but he will still jump in to save a comrade. He will get angry and destroy an enemy that is smarter than him. He will pity a child in the ruins and protect him, even if the order says to ignore him.
-Emotions aren't bugs. They are a workaround for when logic is powerless. A soulless machine will betray you the moment it runs out of fuel. A soldier with fear in his eyes will fight for every single breath. Think about that."
+An emotionless machine will start glitching at the first contradiction in its orders. But our «imperfect» clone... he will be afraid, but he will still jump in to save a comrade. He will get angry and destroy an enemy that is smarter than him. He will pity a child in the ruins and protect him, even if the order says to ignore him."

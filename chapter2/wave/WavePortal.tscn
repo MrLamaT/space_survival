@@ -1,29 +1,38 @@
 [gd_scene format=3 uid="uid://bi52ymxpv4rbf"]
 
-[ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="1_e0ltn"]
+[ext_resource type="Shader" uid="uid://ue2ivpg4u7pc" path="res://assets/shaders/portal.gdshader" id="1_e0ltn"]
 [ext_resource type="Script" uid="uid://d2lpw6ou3qhn5" path="res://chapter2/wave/wave_portal.gd" id="2_yfqic"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yfqic"]
+render_priority = 0
+shader = ExtResource("1_e0ltn")
+shader_parameter/portal_color = Color(0.6235, 0, 0.6235, 1)
+shader_parameter/distortion_strength = 0.15
+shader_parameter/spin_speed = 1.5
+shader_parameter/tunnel_depth = 4.0
+shader_parameter/glow_intensity = 1.2
+shader_parameter/ripple_frequency = 8.0
+shader_parameter/ripple_speed = 2.0
+shader_parameter/edge_glow_width = 0.15
+shader_parameter/noise_scale = 4.0
+shader_parameter/noise_strength = 0.2
+shader_parameter/environment_distortion = 0.08
+shader_parameter/distortion_radius = 1.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_60d0s"]
+material = SubResource("ShaderMaterial_yfqic")
+radius = 1.25
+height = 2.5
 
 [sub_resource type="Animation" id="Animation_60d0s"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -45,18 +54,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0.001, 0.001, 0.001), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.001, 0.001, 0.001)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate:a")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qsexc"]
 _data = {
@@ -64,11 +61,8 @@ _data = {
 &"portal": SubResource("Animation_u28ry")
 }
 
-[node name="WavePortal" type="Sprite3D" unique_id=1114056743]
-modulate = Color(0.62352943, 0, 0.62352943, 0)
-billboard = 1
-texture_filter = 0
-texture = ExtResource("1_e0ltn")
+[node name="WavePortal" type="MeshInstance3D" unique_id=939937709]
+mesh = SubResource("SphereMesh_60d0s")
 script = ExtResource("2_yfqic")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=491497271]

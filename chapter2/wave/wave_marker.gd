@@ -22,10 +22,15 @@ func spawn(type):
 	if not enemies.has(enemy):
 		print("ERROR: Unknown enemy type: " + enemy)
 		return
+	var final_aura = aura
+	if Global.get_world(Global.game_settings.word)["mode"] == 2:
+		var rare_chance = 0.1
+		if randf() < rare_chance:
+			final_aura = aura + 1
 	enemy_scene = load(enemies[enemy])
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.is_boss = is_boss
-	enemy_instance.aura = aura
+	enemy_instance.aura = final_aura
 	var area = get_parent()
 	var navigation_region = null
 	if !(area is NavigationRegion3D):
