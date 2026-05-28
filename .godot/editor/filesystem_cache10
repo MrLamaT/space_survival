@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1779858979
+::res://::1779988426
 default_env.tres::Environment::4252175493748035018::1763216573::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1774135364::0::1::::<><><>0<>0<><>::
 global.gd::GDScript::3714646894747957548::1779637529::0::1::::<>Node<><>0<>0<><>::
@@ -120,7 +120,7 @@ picture15.png::CompressedTexture2D::7328197156136402720::1766691498::1766691750:
 7.png::CompressedTexture2D::4953835371528580940::1767016843::1767016871::1::::<><><>0<>0<>51ed8d31a72f934b9304cc0d57c7070b<>res://.godot/imported/7.png-76ab6646d06d98b7027e203803fa877c.ctex::
 8.png::CompressedTexture2D::8997706428548940905::1767016843::1767016875::1::::<><><>0<>0<>56ce1b45c76509fce98c03f8314f4cc7<>res://.godot/imported/8.png-d0accdf49e7b91418af87dde89f06c68.ctex::
 9.png::CompressedTexture2D::3231820284753392449::1767016843::1767016879::1::::<><><>0<>0<>32de642804da1c4b36f806f1d3e04c50<>res://.godot/imported/9.png-93d402151147ba2ecb48058ac7b74b9c.ctex::
-::res://assets/shaders/::1779886053
+::res://assets/shaders/::1779902599
 force_field.gdshader::Shader::6480978154153683793::1779859097::0::1::::<><><>0<>0<><>::
 phantomShaders.gdshader::Shader::3881141120203101975::1779863036::0::1::::<><><>0<>0<><>::
 portal.gdshader::Shader::1413689155407429616::1779874154::0::1::::<><><>0<>0<><>::
@@ -198,10 +198,11 @@ scar5.png::CompressedTexture2D::5131615130494798275::1763216572::1763216604::1::
 scar.png::CompressedTexture2D::643344678573193633::1763216571::1763828555::1::::<><><>0<>0<>e76968da41599b728eeffdfb9ea9ab56<>res://.godot/imported/scar.png-4dee97d93119cc66c6a8761a832f9a44.ctex::
 ::res://chapter2/assets/enemy/Spider/::1767611838
 spider.png::CompressedTexture2D::8208454566028981513::1763216571::1763216604::1::::<><><>0<>0<>39e86b2c6e1e7e7338c0a5a3573ad8b0<>res://.godot/imported/spider.png-013fdb416fb220977b8fdee8f8b3739b.ctex::
-::res://chapter2/assets/items/::1779897059
+::res://chapter2/assets/items/::1779990119
 delete.png::CompressedTexture2D::2251802132884707996::1776871874::1776871881::1::::<><><>0<>0<>0db1bee52498681b4b879eb08ac36a41<>res://.godot/imported/delete.png-ab71ff0de8964f2c1dff6daf0874561a.ctex::
-engineers_cleaver.png::CompressedTexture2D::7428999697049032485::1779897165::1779897167::1::::<><><>0<>0<>3f8c6442f214e8d8a7c2716b2784383b<>res://.godot/imported/engineers_cleaver.png-0708353b162cc4247780c7a2176251af.ctex::
+engineers_cleaver.png::CompressedTexture2D::1701767161130680999::1779949752::1779949780::1::::<><><>0<>0<>bbfc195cfed50134f2729f235c5e88c4<>res://.godot/imported/engineers_cleaver.png-0708353b162cc4247780c7a2176251af.ctex::
 move.png::CompressedTexture2D::8943606863747474480::1776723364::1776723368::1::::<><><>0<>0<>7969061a02c2df81c7dd4e455cea73d2<>res://.godot/imported/move.png-d2ed6a1df83154fe5e447c412fb9a6d0.ctex::
+spear.png::CompressedTexture2D::3498735774965543395::1779990119::1779990127::1::::<><><>0<>0<>44d2561146cfea43b152248716284806<>res://.godot/imported/spear.png-9c16af4b0b8a182b94da8789b0e9b1c6.ctex::
 taser.png::CompressedTexture2D::8173585446275891552::1769979919::1769979922::1::::<><><>0<>0<>f90635592c40307eec158fb886ca9a44<>res://.godot/imported/taser.png-dad758e88a1ac70a5ecdf0b6f34909bb.ctex::
 ::res://chapter2/assets/Trap/::1767611838
 trap.png::CompressedTexture2D::5380123362974305453::1763216570::1763216604::1::::<><><>0<>0<>ec11f1218b45c33d1767eab8246f6481<>res://.godot/imported/trap.png-9b762e69e2d6282be6fc4e9504ab9bcf.ctex::
@@ -219,7 +220,7 @@ doors.gd::GDScript::3468421729788859344::1765627199::0::1::::<>Area3D<><>0<>0<><
 doors.tscn::PackedScene::4360745600578474303::1777562403::0::1::::<><><>0<>0<><>::uid://dothpbt8u5xb1::::res://assets/textures/door.png<>uid://bpoentocldcyq::::res://chapter2/doors/doors.gd<>uid://d1yrjgdfnrsrq::::res://assets/E.png<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata
 opendoors.gd::GDScript::8486072302835852594::1766474823::0::1::::<>Area3D<><>0<>0<><>::
 Opendoors.tscn::PackedScene::2274075658077843447::1777562403::0::1::::<><><>0<>0<><>::uid://ds5ymu4wxg7pu::::res://chapter2/doors/opendoors.gd<>uid://d1yrjgdfnrsrq::::res://assets/E.png<>uid://dothpbt8u5xb1::::res://assets/textures/door.png<>uid://c83n0xd647eyd::::res://assets/NotE.png<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://cqirlw0fn7sdl::::res://assets/door1.wav<>uid://conq8tsl5on0c::::res://assets/door2.wav
-::res://chapter2/enemy/::1779887865
+::res://chapter2/enemy/::1779906534
 BaseEnemy.gd::GDScript::1782587053628230085::1779054585::0::1::::<>CharacterBody3D<><>0<>0<><>::
 cleaner.gd::GDScript::1247340935182920129::1779138125::0::1::::<>CharacterBody3D<><>0<>0<><>::
 cleaner.tscn::PackedScene::8407635207547766918::1779423074::0::1::::<><><>0<>0<><>::uid://r1hr1stge5v6::::res://chapter2/enemy/cleaner.gd<>uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://cvskq2ib6h3nx::::res://assets/textures/metal.png<>uid://ccpmoysk2fpo8::::res://assets/textures/ventilationDoor.png<>uid://0ocngr06kqvf::::res://assets/Spring.ogg<>uid://ds0gsrstdq5yk::::res://assets/Aura.png
@@ -231,9 +232,9 @@ infantryman.gd::GDScript::7461147500794942014::1779623732::0::1::::<>CharacterBo
 infantryman.tscn::PackedScene::7601060487045940359::1779128748::0::1::::<><><>0<>0<><>::uid://dekiakxugbjso::::res://chapter2/enemy/infantryman.gd<>uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://cvskq2ib6h3nx::::res://assets/textures/metal.png<>uid://ccpmoysk2fpo8::::res://assets/textures/ventilationDoor.png<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://gwq81slq1cw4::::res://chapter2/item/hand_item.tscn<>uid://bxj2sw3re86dx::::res://assets/textures/citadelFlow.png<>uid://wj5v5y3udc83::::res://assets/laser-blast.wav
 nextbot.gd::GDScript::2484338010510815895::1779422537::0::1::::<>CharacterBody3D<><>0<>0<><>::
 nextbot.tscn::PackedScene::2315728350808050212::1779049293::0::1::::<><><>0<>0<><>::uid://bbnoxi1tcr3a6::::res://chapter2/enemy/nextbot.gd<>uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://d2w1kgeitdcsf::::res://assets/Nextbot/bot1.jpg<>uid://ds0gsrstdq5yk::::res://assets/Aura.png
+observer1.tscn::PackedScene::1683785487838924201::1779906513::0::1::::<><><>0<>0<><>::uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://bvkb3eit0cunn::::res://assets/shaders/phantomShaders.gdshader<>uid://bofmtbe1uex0v::::res://assets/textures/phantom.png<>uid://cvskq2ib6h3nx::::res://assets/textures/metal.png<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://mfdjxlv4klj3::::res://assets/shaders/wings.gdshader<>uid://dr8hllvffgsk7::::res://assets/nightskycolor.png
 phantom.gd::GDScript::7648254631046075579::1779050644::0::1::::<>CharacterBody3D<><>0<>0<><>::
-phantom.tscn::PackedScene::312436634331685033::1779864338::0::1::::<><><>0<>0<><>::uid://dg74vvvcsgyw6::::res://chapter2/enemy/phantom.gd<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://bofmtbe1uex0v::::res://assets/textures/phantom.png<>uid://bvkb3eit0cunn::::res://assets/shaders/phantomShaders.gdshader<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://bll553j7ykk0i::::res://assets/shock.mp3
-observer1.tscn::PackedScene::1683785487838924201::1779887865::0::1::::<><><>0<>0<><>::uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://bvkb3eit0cunn::::res://assets/shaders/phantomShaders.gdshader<>uid://fd3385a2q1h::::res://assets/textures/textile.png<>uid://bofmtbe1uex0v::::res://assets/textures/phantom.png<>uid://cvskq2ib6h3nx::::res://assets/textures/metal.png<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://mfdjxlv4klj3::::res://assets/shaders/wings.gdshader<>uid://dr8hllvffgsk7::::res://assets/nightskycolor.png
+phantom.tscn::PackedScene::312436634331685033::1779906534::0::1::::<><><>0<>0<><>::uid://dg74vvvcsgyw6::::res://chapter2/enemy/phantom.gd<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://bofmtbe1uex0v::::res://assets/textures/phantom.png<>uid://bvkb3eit0cunn::::res://assets/shaders/phantomShaders.gdshader<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://bll553j7ykk0i::::res://assets/shock.mp3
 shooter.gd::GDScript::5441578380620000768::1779051476::0::1::::<>CharacterBody3D<><>0<>0<><>::
 shooter.tscn::PackedScene::4937134277671223437::1779865462::0::1::::<><><>0<>0<><>::uid://cjr7abbsnpixk::::res://chapter2/enemy/shooter.gd<>uid://bll553j7ykk0i::::res://assets/shock.mp3<>uid://cg4uilpjkiujw::::res://assets/hit.ogg<>uid://bvkb3eit0cunn::::res://assets/shaders/phantomShaders.gdshader<>uid://bofmtbe1uex0v::::res://assets/textures/phantom.png<>uid://cvskq2ib6h3nx::::res://assets/textures/metal.png<>uid://ds0gsrstdq5yk::::res://assets/Aura.png<>uid://wj5v5y3udc83::::res://assets/laser-blast.wav
 ::res://chapter2/hide/::1768506853
@@ -248,7 +249,7 @@ buttonText.tscn::PackedScene::2877499644320702378::1777837231::0::1::::<><><>0<>
 button_text.gd::GDScript::2066240358092513027::1767731012::0::1::::<>Label3D<><>0<>0<><>::
 InteractableObject.tscn::PackedScene::3652038471020399942::1773595697::0::1::::<><><>0<>0<><>::uid://cbw3s46axa0l::::res://chapter2/interactable_object/interactable_object.gd<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://lcktuu1dac3x::::res://assets/Eanim1.png<>uid://d3ci5vnfgnyw1::::res://assets/Eanim2.png
 interactable_object.gd::GDScript::143828832729357493::1774699891::0::1::::<>Area3D<><>0<>0<><>::
-::res://chapter2/item/::1779869275
+::res://chapter2/item/::1779949779
 cam.tscn::PackedScene::7144192833695335218::1779869275::0::1::::<><><>0<>0<><>::
 handItem.gd::GDScript::4895621442185972635::1776866925::0::1::::<>Node3D<><>0<>0<><>::
 hand_item.tscn::PackedScene::467581169436413633::1777570842::0::1::::<><><>0<>0<><>::uid://cb0qf1nq444x8::::res://chapter2/item/handItem.gd<>uid://dopl01nk55aia::::res://chapter2/assets/items/taser.png
@@ -289,11 +290,11 @@ loading_screen.gd::GDScript::5962103357656601079::1770926986::0::1::::<>Control<
 SceneManager.gd::GDScript::1824012218575730743::1769518443::0::1::::<>Node<><>0<>0<><>::
 splash_screen.gd::GDScript::6725996483679701845::1763582382::0::1::::<>Control<><>0<>0<><>::
 splash_screen.tscn::PackedScene::1898979516605197329::1776363073::0::1::::<><><>0<>0<><>::uid://c23egdnmpri5b::::res://chapter2/load/splash_screen.gd<>uid://cdevl5t5ma0wh::::res://assets/level/planet1_1.png<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata
-::res://chapter2/Player/::1779869594
+::res://chapter2/Player/::1779898933
 InteractionManager.gd::GDScript::6094880055979371714::1776722154::0::1::::InteractionManager<>RefCounted<><>0<>0<><>::
 leg_damage.gd::GDScript::2718955306982067283::1779540585::0::1::::<>Area3D<><>0<>0<><>::
 player.gd::GDScript::3211877759015559300::1779869594::0::1::::<>CharacterBody3D<><>0<>0<><>::
-Player.tscn::PackedScene::5748240654395477857::1779869422::0::1::::<><><>0<>0<><>::uid://bl04fl8vcqlgm::::res://chapter2/Player/player.gd<>uid://dd3wsl2htuleb::::res://chapter2/assets/items/engineers_cleaver.png<>uid://dpk6fqumtvd3y::::res://assets/crosshair1.png<>uid://gwq81slq1cw4::::res://chapter2/item/hand_item.tscn<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://d0ol5srqkqi21::::res://chapter2/assets/items/move.png<>uid://cri4cpqd7yh2::::res://assets/blood1.png<>uid://7c138cmjwfyy::::res://chapter2/assets/items/delete.png<>uid://bpjw5ktpagcdq::::res://assets/sword.wav<>uid://djh8750mv5q1y::::res://assets/textures/citadelAI.png<>uid://l6d7ofh7ucs6::::res://assets/blood2.png<>uid://cig2qcepajnwh::::res://assets/HPIcon.png<>uid://cvr5dxnv8nkql::::res://UI/teleport/teleport.tscn<>uid://c4l8kd7cmxhvi::::res://UI/timer/timer.tscn<>uid://bxucg5nn7jjp0::::res://assets/step3.wav<>uid://dq6db8b2dlaom::::res://assets/item/MATiron.png<>uid://dpfst47uxv0ah::::res://assets/step.wav<>uid://jhjnghqbt63y::::res://UI/recipe/recipe.tscn<>uid://b2awi1tyy4yej::::res://assets/step2.wav<>uid://cdn6b446ovhet::::res://assets/beep.wav<>uid://c3m8vyvv1glpq::::res://assets/damage.wav<>uid://wj5v5y3udc83::::res://assets/laser-blast.wav<>uid://be0c2c68v8jo2::::res://chapter2/Player/leg_damage.gd
+Player.tscn::PackedScene::5748240654395477857::1779898933::0::1::::<><><>0<>0<><>::uid://bl04fl8vcqlgm::::res://chapter2/Player/player.gd<>uid://dd3wsl2htuleb::::res://chapter2/assets/items/engineers_cleaver.png<>uid://dpk6fqumtvd3y::::res://assets/crosshair1.png<>uid://gwq81slq1cw4::::res://chapter2/item/hand_item.tscn<>uid://vpmakd0urni6::::res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata<>uid://d0ol5srqkqi21::::res://chapter2/assets/items/move.png<>uid://cri4cpqd7yh2::::res://assets/blood1.png<>uid://7c138cmjwfyy::::res://chapter2/assets/items/delete.png<>uid://bpjw5ktpagcdq::::res://assets/sword.wav<>uid://djh8750mv5q1y::::res://assets/textures/citadelAI.png<>uid://l6d7ofh7ucs6::::res://assets/blood2.png<>uid://cig2qcepajnwh::::res://assets/HPIcon.png<>uid://cvr5dxnv8nkql::::res://UI/teleport/teleport.tscn<>uid://c4l8kd7cmxhvi::::res://UI/timer/timer.tscn<>uid://bxucg5nn7jjp0::::res://assets/step3.wav<>uid://dq6db8b2dlaom::::res://assets/item/MATiron.png<>uid://dpfst47uxv0ah::::res://assets/step.wav<>uid://jhjnghqbt63y::::res://UI/recipe/recipe.tscn<>uid://b2awi1tyy4yej::::res://assets/step2.wav<>uid://cdn6b446ovhet::::res://assets/beep.wav<>uid://c3m8vyvv1glpq::::res://assets/damage.wav<>uid://wj5v5y3udc83::::res://assets/laser-blast.wav<>uid://be0c2c68v8jo2::::res://chapter2/Player/leg_damage.gd
 WeaponSystem.gd::GDScript::1907489889152685768::1777240447::0::1::::WeaponSystem<>Node<><>0<>0<><>::
 ::res://chapter2/Player/terminal/::1779542038
 terminal.gd::GDScript::6647313423121346707::1779542038::0::1::::<>Node2D<><>0<>0<><>::

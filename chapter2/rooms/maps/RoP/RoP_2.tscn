@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="25_n81jb"]
 [ext_resource type="Texture2D" uid="uid://6noyyqqreptn" path="res://assets/textures/crack.png" id="25_p25oc"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_wuovg"]
-[ext_resource type="Texture2D" uid="uid://dd3wsl2htuleb" path="res://chapter2/assets/items/engineers_cleaver.png" id="26_g05cb"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://chapter2/assets/items/engineers_cleaver.png" id="26_g05cb"]
 [ext_resource type="PackedScene" uid="uid://d2hafo5emquxx" path="res://chapter2/TimerBoost/TimerBoost.tscn" id="27_nysev"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="27_wh3vd"]
 [ext_resource type="PackedScene" uid="uid://c6k2aqcjse4xp" path="res://chapter2/rooms/decoration/server.tscn" id="29_tdhdp"]

@@ -17,7 +17,8 @@ func spawn(type):
 		"cockroach": "res://chapter2/enemy/cockroach.tscn",
 		"nextbot": "res://chapter2/enemy/nextbot.tscn",
 		"shooter": "res://chapter2/enemy/shooter.tscn",
-		"cleaner": "res://chapter2/enemy/cleaner.tscn"
+		"cleaner": "res://chapter2/enemy/cleaner.tscn",
+		"observer1": "res://chapter2/enemy/observer1.tscn"
 	}
 	if not enemies.has(enemy):
 		print("ERROR: Unknown enemy type: " + enemy)

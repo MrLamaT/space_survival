@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yil4eemr5kwt"
-path="res://.godot/imported/engineers_cleaver.png-0708353b162cc4247780c7a2176251af.ctex"
+uid="uid://bp32wxdohtoxv"
+path="res://.godot/imported/spear.png-9c16af4b0b8a182b94da8789b0e9b1c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://chapter2/assets/items/engineers_cleaver.png"
-dest_files=["res://.godot/imported/engineers_cleaver.png-0708353b162cc4247780c7a2176251af.ctex"]
+source_file="res://chapter2/assets/items/spear.png"
+dest_files=["res://.godot/imported/spear.png-9c16af4b0b8a182b94da8789b0e9b1c6.ctex"]
 
 [params]
 

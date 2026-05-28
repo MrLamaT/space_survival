@@ -135,6 +135,7 @@ material = SubResource("ShaderMaterial_icml4")
 [node name="box4" type="CSGBox3D" parent="wall" unique_id=2124404460 groups=["wall"]]
 operation = 2
 size = Vector3(5, 3.75, 0.2)
+material = SubResource("ShaderMaterial_icml4")
 
 [node name="box6" type="CSGBox3D" parent="wall" unique_id=1752821713 groups=["wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0.125, 0)

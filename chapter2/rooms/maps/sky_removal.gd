@@ -19,7 +19,6 @@ func _find_world_environment_by_name(NodeName: String) -> WorldEnvironment:
 	var root = get_tree().root
 	return _find_node_recursive(root, NodeName)
 
-
 func _find_node_recursive(node: Node, target_name: String) -> WorldEnvironment:
 	if node.name == target_name:
 		return node

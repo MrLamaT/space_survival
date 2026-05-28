@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_6gql8"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_rohrf"]
 [ext_resource type="Shader" uid="uid://mfdjxlv4klj3" path="res://assets/shaders/wings.gdshader" id="6_wesqi"]
+[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="6_xf6sc"]
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="7_6gql8"]
+[ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://chapter2/assets/items/spear.png" id="7_rohrf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
@@ -243,6 +245,10 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.1499999
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24052843, -0.275)
 mesh = SubResource("BoxMesh_smhvd")
 skeleton = NodePath("../../..")
+
+[node name="handItem" parent="body/hand1/MeshInstance3D" unique_id=837608605 instance=ExtResource("6_xf6sc")]
+transform = Transform3D(0.1736482, -0.9848076, -3.5527137e-15, 0.9848076, 0.17364821, 0, 0, -3.5527137e-15, 0.99999976, 0, -0.25, 0)
+texture = ExtResource("7_rohrf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand1" unique_id=459883218]
 transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, -0.275)
