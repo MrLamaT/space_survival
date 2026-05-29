@@ -50,9 +50,6 @@ geometry_collision_mask = 4294967268
 cell_size = 0.05
 agent_radius = 0.25
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n5xo8"]
-size = Vector3(150, 1, 150)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
 size = Vector3(2.5, 1, 2.5)
 
@@ -147,16 +144,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, -54)
 
 [node name="floor_ceiling" type="Node3D" parent="NavigationRegion3D" unique_id=694901470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
-
-[node name="KillZona" type="Area3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1439012490]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/KillZona" unique_id=1252873173]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
 
 [node name="dirt" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1849993184]
 transform = Transform3D(-50, 0, 4.371139e-06, 0, 1, 0, -4.371139e-06, 0, -50, 0, 0, 0)
@@ -1959,6 +1946,5 @@ chest = "chest_W4"
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 14, 0.5, 42)
 chest = "chest_level_1_2"
 
-[connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/room5/Area3D" to="." method="_on_area_3d_body_entered_room5"]
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/room10/Area3D" to="." method="_on_area_3d_body_entered_room10"]

@@ -34,11 +34,6 @@ func handle_interaction(object_name: String):
 				world["stage"] = 1
 			$"8/portal".teleport("res://chapter2/rooms/GlobalMain.tscn")
 
-func _on_kill_zona_body_entered(body: Node3D) -> void:
-	print("item killZona!!!")
-	print(body)
-	body.global_position = Vector3(0, 0, 0)
-
 func get_checkpoint():
 	return checkpoint
 

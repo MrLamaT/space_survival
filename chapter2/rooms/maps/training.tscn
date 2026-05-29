@@ -33,9 +33,6 @@ geometry_collision_mask = 4294967268
 cell_size = 0.05
 agent_radius = 0.25
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n5xo8"]
-size = Vector3(50, 1, 50)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_wot7y"]
 size = Vector3(20, 1, 20)
 
@@ -161,16 +158,6 @@ navigation_layers = 4
 [node name="floor_ceiling" type="Node3D" parent="2" unique_id=40758672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
 
-[node name="KillZona" type="Area3D" parent="2/floor_ceiling" unique_id=1463826868]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="2/floor_ceiling/KillZona" unique_id=1014275988]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
-
 [node name="dirt" type="StaticBody3D" parent="2" unique_id=1543074252]
 collision_layer = 36
 collision_mask = 3
@@ -276,16 +263,6 @@ navigation_layers = 4
 
 [node name="floor_ceiling" type="Node3D" parent="3" unique_id=2003345481]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
-
-[node name="KillZona" type="Area3D" parent="3/floor_ceiling" unique_id=12080521]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="3/floor_ceiling/KillZona" unique_id=63824596]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
 
 [node name="dirt" type="StaticBody3D" parent="3" unique_id=407388991]
 collision_layer = 36
@@ -424,16 +401,6 @@ navigation_layers = 4
 [node name="floor_ceiling" type="Node3D" parent="5" unique_id=185995497]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
 
-[node name="KillZona" type="Area3D" parent="5/floor_ceiling" unique_id=649464448]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="5/floor_ceiling/KillZona" unique_id=723299355]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
-
 [node name="dirt" type="StaticBody3D" parent="5" unique_id=2127508631]
 collision_layer = 36
 collision_mask = 3
@@ -544,16 +511,6 @@ navigation_layers = 4
 
 [node name="floor_ceiling" type="Node3D" parent="6" unique_id=1500233104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
-
-[node name="KillZona" type="Area3D" parent="6/floor_ceiling" unique_id=1918676047]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="6/floor_ceiling/KillZona" unique_id=214107547]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
 
 [node name="dirt" type="StaticBody3D" parent="6" unique_id=494251384]
 collision_layer = 36
@@ -940,16 +897,6 @@ navigation_layers = 4
 [node name="floor_ceiling" type="Node3D" parent="7" unique_id=400132954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
 
-[node name="KillZona" type="Area3D" parent="7/floor_ceiling" unique_id=1654618294]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="7/floor_ceiling/KillZona" unique_id=914953060]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
-
 [node name="dirt" type="StaticBody3D" parent="7" unique_id=1578748962]
 collision_layer = 36
 collision_mask = 3
@@ -1089,16 +1036,6 @@ navigation_layers = 4
 
 [node name="floor_ceiling" type="Node3D" parent="8" unique_id=719498178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
-
-[node name="KillZona" type="Area3D" parent="8/floor_ceiling" unique_id=149569916]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="8/floor_ceiling/KillZona" unique_id=420661494]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
 
 [node name="dirt" type="StaticBody3D" parent="8" unique_id=2122528144]
 collision_layer = 36
@@ -1252,16 +1189,6 @@ navigation_layers = 4
 
 [node name="floor_ceiling" type="Node3D" parent="9" unique_id=793186305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
-
-[node name="KillZona" type="Area3D" parent="9/floor_ceiling" unique_id=29818016]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="9/floor_ceiling/KillZona" unique_id=855682111]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
 
 [node name="dirt" type="StaticBody3D" parent="9" unique_id=925252586]
 collision_layer = 36
@@ -1486,12 +1413,5 @@ texture = ExtResource("19_l4erg")
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("27_s1abu")]
 visible = false
 
-[connection signal="body_entered" from="2/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="3/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="5/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="6/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="6/spawnpoint" to="." method="_on_spawnpoint_6_body_entered"]
-[connection signal="body_entered" from="7/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="8/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]
 [connection signal="body_entered" from="8/spawnpoint" to="." method="_on_spawnpoint_8_body_entered"]
-[connection signal="body_entered" from="9/floor_ceiling/KillZona" to="." method="_on_kill_zona_body_entered"]

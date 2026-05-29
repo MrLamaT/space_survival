@@ -21,8 +21,7 @@ var player: Node3D = null
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	if !Global.game_settings.get("GhostMod", false):
-		player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	if aura > 0:
 		_apply_aura()
 

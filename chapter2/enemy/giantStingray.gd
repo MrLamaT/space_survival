@@ -28,6 +28,8 @@ func _physics_process(delta):
 		return
 
 func _handle_death_process(delta):
+	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
+		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if is_on_floor():

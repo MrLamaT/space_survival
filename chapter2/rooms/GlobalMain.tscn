@@ -27,9 +27,6 @@ uv1_scale = Vector3(15, 1, 15)
 uv1_triplanar = true
 texture_filter = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_n5xo8"]
-size = Vector3(150, 1, 150)
-
 [node name="GlobalMain" type="Node3D" unique_id=821387345]
 script = ExtResource("1_w630j")
 
@@ -205,16 +202,6 @@ transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.170
 shape = SubResource("BoxShape3D_fxxdm")
 debug_fill = false
 
-[node name="KillZona" type="Area3D" parent="ship/Zona1" unique_id=1860593763]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona1/KillZona" unique_id=1009234743]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
-
 [node name="solarPanels" type="Node3D" parent="ship/Zona1" unique_id=130499284]
 
 [node name="compartment" type="Node3D" parent="ship/Zona1" unique_id=1402936425]
@@ -275,19 +262,6 @@ transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.0
 [node name="Light2" parent="ship/Zona2" unique_id=561229576 instance=ExtResource("42_3dqjl")]
 transform = Transform3D(-1, 0, -6.993822e-07, 0, 1, 0, 8.742278e-08, 0, -8, -0.05200037, 5.184, 18.134138)
 
-[node name="KillZona" type="Area3D" parent="ship/Zona2" unique_id=651576659]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Zona2/KillZona" unique_id=854876829]
-shape = SubResource("BoxShape3D_n5xo8")
-debug_color = Color(0.99607843, 0, 0, 1)
-debug_fill = false
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79402236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 light_energy = 0.1
-
-[connection signal="body_entered" from="ship/Zona1/KillZona" to="." method="_on_kill_zona_body_entered"]
-[connection signal="body_entered" from="ship/Zona2/KillZona" to="." method="_on_kill_zona_body_entered"]

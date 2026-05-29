@@ -20,6 +20,8 @@ func stop_countdown() -> void:
 	visible = false
 
 func _on_timer_timeout() -> void:
+	if Global.game_settings["UI"]:
+		return
 	current_value -= 1
 	$Label.text = str(current_value)
 	if current_value <= 0:

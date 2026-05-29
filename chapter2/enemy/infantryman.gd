@@ -62,9 +62,9 @@ func _get_boss_id() -> String:
 	return "infantryman"
 
 func _physics_process(delta):
-	if is_dead:
+	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
-	if is_dying:
+	if is_dead or is_dying:
 		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta

@@ -55,6 +55,8 @@ func _get_boss_id() -> String:
 	return "phantom shooter"
 
 func _physics_process(delta):
+	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
+		return
 	if is_dead:
 		return
 	if is_dying:
