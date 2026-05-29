@@ -133,23 +133,20 @@ func parse_command(text: String):
 			get_tree().quit()
 		"clear":
 			chat_text.text = ""
-		"quit", "exit":
-			get_tree().quit()
-		"smaa", "antialiasing":
-			match argument:
-				"on", "1", "true":
-					_set_smaa(true)
-					SystemPrint("SMAA Anti-aliasing: ON")
-				"off", "0", "false":
-					_set_smaa(false)
-					SystemPrint("SMAA Anti-aliasing: OFF")
-				_:
-					var current = ProjectSettings.get_setting("rendering/anti_aliasing/quality/screen_space_aa")
-					_set_smaa(current != 1)
-					SystemPrint("SMAA Anti-aliasing: " + ("ON" if current != 1 else "OFF"))
 		"message", "msg":
 			var message_text = argument.replace("_", " ")
 			player.warning(message_text)
+		"stoptimer", "stoptime", "timerstop", "timestop":
+			player.timerBoost(0)
+			SystemPrint("Timer stopped")
+		"timer", "time":
+			if argument == "":
+				ErrorPrint("Usage: timer <value> (example: timer 5)")
+			elif argument.is_valid_int():
+				player.timerBoost(int(argument))
+				SystemPrint("Timer boost set to: " + str(argument))
+			else:
+				ErrorPrint("Invalid argument: must be a number")
 		"spawn":
 			if argument == "":
 				ErrorPrint("Usage: spawn <entity_name>")
@@ -171,19 +168,3 @@ func cmd_spawn(entity_name: String):
 	wave_marker.set("enemy", entity_name)
 	SystemPrint("Spawned waveMarker at player position with enemy: " + entity_name)
 	wave_marker.spawn("none")
-
-
-func _set_smaa(enabled: bool):
-	var viewport = get_viewport()
-	if enabled:
-		viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_FXAA
-	else:
-		viewport.screen_space_aa = Viewport.SCREEN_SPACE_AA_DISABLED
-
-func _get_current_msaa() -> int:
-	match get_viewport().msaa_3d:
-		Viewport.MSAA_DISABLED: return 0
-		Viewport.MSAA_2X: return 2
-		Viewport.MSAA_4X: return 4
-		Viewport.MSAA_8X: return 8
-		_: return 0
