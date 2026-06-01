@@ -6,11 +6,9 @@ var ROTATION_SPEED: float = 10.0
 
 # Стрельба
 var bullet_scene = preload("res://chapter2/item/Homing_projectile/Homing_projectile.tscn")
-var burst_shots_left: int = 0
-var burst_delay: float = 0.0
+var can_shoot: bool = true
 var BURST_SHOTS: int = 3
 var BURST_INTERVAL: float = 0.4
-var burst_cooldown: float = 0.0
 var BURST_COOLDOWN_TIME: float = 2.0
 
 # Прыжок
@@ -31,25 +29,20 @@ var portal_scene = preload("res://chapter2/wave/WavePortal.tscn")
 # Система атак
 enum AttackType { SHOOT, JUMP, TELEPORT }
 
-var attack_system = {
-	AttackType.SHOOT: {
-		"cd": 0.0,
-		"cd_max": 5.0,
-		"anim": "weapon"
-	},
-	AttackType.JUMP: {
-		"cd": 0.0,
-		"cd_max": 7.5,
-		"anim": "jump"
-	},
-	AttackType.TELEPORT: {
-		"cd": 0.0,
-		"cd_max": 2.0,
-		"anim": "RESET"
-	}
+var attack_cooldowns = {
+	AttackType.SHOOT: 0.0,
+	AttackType.JUMP: 0.0,
+	AttackType.TELEPORT: 0.0
 }
 
-var action_delay: float = 0.0  # Задержка между действиями
+var attack_cooldown_max = {
+	AttackType.SHOOT: 5.0,    
+	AttackType.JUMP: 7.5,  
+	AttackType.TELEPORT: 2.0  
+}
+
+var can_act: bool = true  # Может ли враг выполнять действия
+var spawn_protection: float = 1.5  # Защита после появления
 
 func _ready():
 	super._ready()
@@ -58,7 +51,9 @@ func _ready():
 		health *= aura + 1
 		BURST_COOLDOWN_TIME /= (aura + 1)
 	_setup_boss_bar()
-	burst_shots_left = BURST_SHOTS
+	can_act = false
+	await get_tree().create_timer(spawn_protection).timeout
+	can_act = true
 
 func _apply_aura():
 	super._apply_aura()
@@ -66,6 +61,7 @@ func _apply_aura():
 
 func _disable_combat_states():
 	is_jumping = false
+	is_teleporting = false
 
 func _get_boss_id() -> String:
 	return "phantom observer"
@@ -93,11 +89,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	# Обновляем кулдауны
-	if action_delay > 0:
-		action_delay -= delta
-	for a in attack_system.values():
-		if a["cd"] > 0:
-			a["cd"] -= delta
+	for attack in attack_cooldowns:
+		if attack_cooldowns[attack] > 0:
+			attack_cooldowns[attack] -= delta
 	if not player:
 		move_and_slide()
 		return
@@ -106,69 +100,73 @@ func _physics_process(delta):
 	if direction_to_player.length() > 0.1:
 		var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
 		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-	# Обработка стрельбы очередью
-	if burst_cooldown <= 0:
-		if burst_shots_left > 0:
-			if burst_delay <= 0:
-				shoot_at_player()
-				burst_shots_left -= 1
-				if burst_shots_left > 0:
-					burst_delay = BURST_INTERVAL
-				else:
-					burst_cooldown = BURST_COOLDOWN_TIME
-			else:
-				burst_delay -= delta
-		else:
-			burst_cooldown = BURST_COOLDOWN_TIME
-			burst_shots_left = BURST_SHOTS
-	else:
-		burst_cooldown -= delta
-	# Телепорт 
-	var dist_to_player = global_position.distance_to(player.global_position)
-	if not is_teleporting and not is_jumping and attack_system[AttackType.TELEPORT]["cd"] <= 0:
-		if dist_to_player <= DISTANCE_MIN or dist_to_player >= DISTANCE_MAX:
+	# Проверка телепорта по дистанции (отдельный кулдаун)
+	if not is_teleporting and not is_jumping and can_act:
+		var dist_to_player = global_position.distance_to(player.global_position)
+		if (dist_to_player <= DISTANCE_MIN or dist_to_player >= DISTANCE_MAX) and attack_cooldowns[AttackType.TELEPORT] <= 0:
 			teleport_to_ideal_distance()
 			return
 	# Выбор случайной атаки
-	if action_delay <= 0 and not is_jumping and not is_teleporting and burst_cooldown <= 0:
-		var ready_attacks = []
-		for t in AttackType.values():
-			if attack_system[t]["cd"] <= 0:
-				ready_attacks.append(t)
-		if ready_attacks.size() > 0:
-			var chosen = ready_attacks[randi() % ready_attacks.size()]
+	if can_act and not is_jumping and not is_teleporting:
+		var available_attacks = []
+		for attack in AttackType.values():
+			if attack_cooldowns[attack] <= 0:
+				available_attacks.append(attack)
+		if available_attacks.size() > 0:
+			var chosen = available_attacks[randi() % available_attacks.size()]
 			match chosen:
 				AttackType.SHOOT:
-					do_shoot()
+					start_shoot_attack()
 				AttackType.JUMP:
-					do_jump()
+					start_jump_attack()
 				AttackType.TELEPORT:
-					do_teleport()
+					start_teleport_attack()
 	# Движение
-	if not is_jumping and not is_teleporting:
-		velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
+	velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
 	move_and_slide()
 
-# === ДЕЙСТВИЯ ===
-func do_shoot():
-	$body/AnimationPlayer.play(attack_system[AttackType.SHOOT]["anim"])
-	attack_system[AttackType.SHOOT]["cd"] = attack_system[AttackType.SHOOT]["cd_max"]
-	action_delay = 1.0
-	burst_shots_left = BURST_SHOTS
-	burst_cooldown = 0.0
-	burst_delay = 0.0
+func start_shoot_attack():
+	if not can_act or is_jumping or is_teleporting:
+		return
+	print("стрельба!")
+	can_act = false
+	attack_cooldowns[AttackType.SHOOT] = attack_cooldown_max[AttackType.SHOOT]
+	$body/AnimationPlayer.play("weapon")
+	await shoot_burst()
+	can_act = true
 
-func do_jump():
-	$body/AnimationPlayer.play(attack_system[AttackType.JUMP]["anim"])
-	attack_system[AttackType.JUMP]["cd"] = attack_system[AttackType.JUMP]["cd_max"]
-	action_delay = 1.0
+func shoot_burst():
+	for i in range(BURST_SHOTS):
+		if not is_instance_valid(self) or is_dead:
+			return
+		shoot_at_player()
+		if i < BURST_SHOTS - 1:
+			await get_tree().create_timer(BURST_INTERVAL).timeout
+	await get_tree().create_timer(0.2).timeout
+
+func start_jump_attack():
+	if not can_act or is_jumping or is_teleporting:
+		return
+	print("прыжок!")
+	can_act = false
+	attack_cooldowns[AttackType.JUMP] = attack_cooldown_max[AttackType.JUMP]
+	$body/AnimationPlayer.play("jump")
+	await get_tree().create_timer(0.2).timeout 
 	start_jump_to_player()
+	while is_jumping and is_instance_valid(self) and not is_dead:
+		await get_tree().process_frame
+	can_act = true
 
-func do_teleport():
-	$body/AnimationPlayer.play(attack_system[AttackType.TELEPORT]["anim"])
-	attack_system[AttackType.TELEPORT]["cd"] = attack_system[AttackType.TELEPORT]["cd_max"]
-	action_delay = 1.0
+func start_teleport_attack():
+	if not can_act or is_jumping or is_teleporting:
+		return
+	print("телепорт!")
+	can_act = false
+	attack_cooldowns[AttackType.TELEPORT] = attack_cooldown_max[AttackType.TELEPORT]
 	teleport_near_player()
+	while is_teleporting and is_instance_valid(self) and not is_dead:
+		await get_tree().process_frame
+	can_act = true
 
 func teleport_to_ideal_distance():
 	if not player or is_teleporting:
@@ -193,7 +191,6 @@ func teleport_to_ideal_distance():
 	$body/AnimationPlayer.play("RESET")
 	await get_tree().create_timer(0.2).timeout
 	is_teleporting = false
-	attack_system[AttackType.TELEPORT]["cd"] = attack_system[AttackType.TELEPORT]["cd_max"]
 
 func create_portal(pos: Vector3):
 	var portal = portal_scene.instantiate()

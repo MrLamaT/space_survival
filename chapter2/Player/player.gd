@@ -290,7 +290,6 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+5"):
 		release_build()
 		current_weapon_slot = 5
-		weapon_system.equip_weapon("Move")
 		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	if Input.is_action_just_pressed("+6"):
 		release_build()
@@ -302,6 +301,11 @@ func _input(event: InputEvent): #повороты мышкой
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			weapon_system.equip_weapon("Delete")
+	if Input.is_action_just_pressed("+8"):
+		release_build()
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			weapon_system.equip_weapon("Summon")
 	if Input.is_action_just_pressed("+v"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:

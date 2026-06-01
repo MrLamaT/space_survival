@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ks78ett8khqa"]
+
+[ext_resource type="Script" uid="uid://b7ujmla34sis6" path="res://chapter2/item/Summon_projectile/Summon_projectile.gd" id="1_n11d4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsfy0"]
+size = Vector3(1, 0.1, 3)
+
+[node name="Summon_projectile" type="Node3D" unique_id=1211004102]
+script = ExtResource("1_n11d4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=493375473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+visible = false
+mesh = SubResource("BoxMesh_jsfy0")
+
+[node name="Marker3D" type="Marker3D" parent="MeshInstance3D" unique_id=2067025253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

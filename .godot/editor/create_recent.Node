@@ -1,7 +1,8 @@
 AnimationPlayer
+Node3D
+Marker3D
 Camera3D
 MeshInstance3D
-Node3D
 Panel
 Node2D
 StaticBody3D
@@ -11,4 +12,3 @@ OmniLight3D
 Timer
 Sprite3D
 CSGBox3D
-CSGCombiner3D

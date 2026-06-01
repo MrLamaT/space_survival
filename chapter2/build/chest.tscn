@@ -74,11 +74,11 @@ texture = ExtResource("1_x83hx")
 visible = false
 omni_range = 0.5
 
-[node name="Area3D" type="StaticBody3D" parent="." unique_id=740391896]
+[node name="StaticBody" type="StaticBody3D" parent="." unique_id=740391896]
 collision_layer = 4
 collision_mask = 15
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1930404098 groups=["interactive_objects"]]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody" unique_id=1930404098 groups=["interactive_objects"]]
 transform = Transform3D(0.8, 0, 0, 0, 0.5, 0, 0, 0, 0.4, 0, 0.19084167, 0)
 shape = SubResource("BoxShape3D_hgs8r")
 

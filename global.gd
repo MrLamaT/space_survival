@@ -13,6 +13,11 @@ var game_settings: Dictionary = {
 		"Autosave": true,
 		"Language": "English"
 	},
+	"summon": {
+		"name": "phantom",
+		"aura": 0,
+		"boss": false
+	},
 	"CanStandUp": true,
 	"GodMod": false,
 	"IsDying": false,

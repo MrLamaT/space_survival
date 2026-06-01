@@ -147,24 +147,37 @@ func parse_command(text: String):
 				SystemPrint("Timer boost set to: " + str(argument))
 			else:
 				ErrorPrint("Invalid argument: must be a number")
-		"spawn":
+		"summon_name", "setname":
 			if argument == "":
-				ErrorPrint("Usage: spawn <entity_name>")
+				ErrorPrint("Usage: summon_name <entity_name>")
 			else:
-				cmd_spawn(argument)
+				Global.game_settings["summon"]["name"] = argument
+				SystemPrint("Summon entity name set to: " + argument)
+		"summon_aura", "setaura":
+			if argument == "":
+				ErrorPrint("Usage: summon_aura <value> (example: summon_aura 1)")
+			elif argument.is_valid_int():
+				Global.game_settings["summon"]["aura"] = argument.to_int()
+				SystemPrint("Summon aura multiplier set to: " + argument)
+			else:
+				ErrorPrint("Invalid argument: must be a number")
+		"summon_boss", "setboss":
+			if argument == "":
+				Global.game_settings["summon"]["boss"] = not Global.game_settings["summon"]["boss"]
+				SystemPrint("Summon boss mode toggled to: " + str(Global.game_settings["summon"]["boss"]))
+			elif argument.to_lower() == "true" or argument == "1":
+				Global.game_settings["summon"]["boss"] = true
+				SystemPrint("Summon boss mode set to: true")
+			elif argument.to_lower() == "false" or argument == "0":
+				Global.game_settings["summon"]["boss"] = false
+				SystemPrint("Summon boss mode set to: false")
+			else:
+				ErrorPrint("Invalid argument: use true/false or 1/0")
+		"summon_info", "summonstatus":
+			var summon = Global.game_settings["summon"]
+			SystemPrint("Current summon settings:")
+			SystemPrint("  Name: " + summon["name"])
+			SystemPrint("  Aura: " + str(summon["aura"]))
+			SystemPrint("  Boss: " + str(summon["boss"]))
 		_:
 			ErrorPrint("Unknown command: " + command)
-
-func cmd_spawn(entity_name: String):
-	var nav_region = get_tree().current_scene.get_node_or_null("NavigationRegion3D")
-	if not nav_region:
-		ErrorPrint("NavigationRegion3D not found in the scene")
-		return
-	var wave_marker_scene = load("res://chapter2/wave/waveMarker.tscn")
-	var wave_marker = wave_marker_scene.instantiate()
-	nav_region.add_child(wave_marker)
-	if player:
-		wave_marker.global_position = player.global_position
-	wave_marker.set("enemy", entity_name)
-	SystemPrint("Spawned waveMarker at player position with enemy: " + entity_name)
-	wave_marker.spawn("none")

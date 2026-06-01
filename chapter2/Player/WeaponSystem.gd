@@ -48,6 +48,13 @@ var weapons: Dictionary = {
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
 		"visible_node": "Delete"
+	},
+	"Summon": {
+		"scene": preload("res://chapter2/item/Summon_projectile/Summon_projectile.tscn"),
+		"fire_rate": 0.5,
+		"bullet_speed": 0.0,
+		"stamina_cost": 0.0,
+		"visible_node": "Summon"
 	}
 }
 

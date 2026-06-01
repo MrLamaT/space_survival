@@ -99,6 +99,8 @@ func setBuild():
 				new_object.set_chest_name(target_chest)
 				new_object.set_generate_items(false)
 		$ship/Zona1.add_child(new_object)
+		await get_tree().process_frame
+		build_item["node_path"] = new_object.get_path()
 		new_object.position = target_position
 		new_object.rotation = target_rotation
 		new_object.scale = target_scale

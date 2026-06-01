@@ -3,9 +3,7 @@ render_mode blend_mix, depth_draw_opaque, cull_back;
 
 // Параметры портала
 uniform vec4 portal_color : source_color = vec4(0.6235, 0.0, 0.6235, 1.0); // #9f009f
-uniform float distortion_strength : hint_range(0.0, 0.5) = 0.15;
 uniform float spin_speed : hint_range(0.0, 5.0) = 1.5;
-uniform float tunnel_depth : hint_range(1.0, 10.0) = 4.0;
 uniform float glow_intensity : hint_range(0.0, 2.0) = 1.2;
 
 // Визуальные эффекты
@@ -46,9 +44,6 @@ void fragment() {
     // Радиальная пульсация
     float radial_pulse = sin(radius * ripple_frequency - TIME * ripple_speed) * 0.3;
     
-    // Глубина туннеля
-    float depth_factor = pow(radius, tunnel_depth);
-    
     // Основной цвет портала с градиентом
     vec3 base_color = portal_color.rgb;
     
@@ -70,14 +65,14 @@ void fragment() {
     // Комбинируем цвета
     vec3 color = base_color;
     color += base_color * spiral_pattern * 0.6;
-    color += vec3(0.8, 0.2, 0.8) * radial_waves * 0.4;
-    color += vec3(1.0, 0.5, 1.0) * radial_pulse * 0.5;
-    color += vec3(0.5, 0.0, 0.5) * noise_val;
+    color += portal_color.rgb * 1.2 * radial_waves * 0.4;
+    color += portal_color.rgb * 1.5 * radial_pulse * 0.5;
+    color += portal_color.rgb * 0.6 * noise_val;
     
     // Свечение по краям (градиент от центра)
     float edge_glow = smoothstep(0.7, 0.95, radius) * edge_glow_width * 2.0;
     edge_glow += (1.0 - radius) * 0.8;
-    color += vec3(1.0, 0.3, 1.0) * edge_glow * glow_intensity;
+    color += portal_color.rgb * 1.3 * edge_glow * glow_intensity;
     
     // Центральная яркая точка
     float core_glow = (1.0 - smoothstep(0.0, 0.2, radius)) * 0.8;

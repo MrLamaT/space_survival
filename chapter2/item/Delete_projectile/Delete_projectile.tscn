@@ -8,7 +8,7 @@ size = Vector3(1, 0.1, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jsfy0"]
 size = Vector3(1, 1, 3)
 
-[node name="Move_projectile" type="Node3D" unique_id=1211004102]
+[node name="Delete_projectile" type="Node3D" unique_id=1211004102]
 script = ExtResource("1_w10fa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=493375473]

@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://bi52ymxpv4rbf"]
+[gd_scene format=3 uid="uid://bd5v27psxlr7y"]
 
-[ext_resource type="Shader" uid="uid://ue2ivpg4u7pc" path="res://assets/shaders/portal.gdshader" id="1_e0ltn"]
-[ext_resource type="Script" uid="uid://d2lpw6ou3qhn5" path="res://chapter2/wave/wave_portal.gd" id="2_yfqic"]
+[ext_resource type="Shader" uid="uid://ue2ivpg4u7pc" path="res://assets/shaders/portal.gdshader" id="1_pfnwe"]
+[ext_resource type="Script" uid="uid://d2lpw6ou3qhn5" path="res://chapter2/wave/wave_portal.gd" id="2_t5grv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yfqic"]
 render_priority = 0
-shader = ExtResource("1_e0ltn")
-shader_parameter/portal_color = Color(0.6235, 0, 0.6235, 1)
+shader = ExtResource("1_pfnwe")
+shader_parameter/portal_color = Color(0.2, 0, 0.2, 1)
 shader_parameter/spin_speed = 1.5
 shader_parameter/glow_intensity = 1.2
 shader_parameter/ripple_frequency = 8.0
@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_u28ry"]
 resource_name = "portal"
-length = 0.75
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,10 +47,10 @@ tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.001, 0.001, 0.001), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.001, 0.001, 0.001)]
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.001, 0.001, 0.001)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qsexc"]
@@ -61,7 +61,7 @@ _data = {
 
 [node name="WavePortal" type="MeshInstance3D" unique_id=939937709]
 mesh = SubResource("SphereMesh_60d0s")
-script = ExtResource("2_yfqic")
+script = ExtResource("2_t5grv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=491497271]
 libraries/ = SubResource("AnimationLibrary_qsexc")
