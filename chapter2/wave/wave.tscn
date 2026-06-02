@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfiu4jlcpw5b4"]
 
 [ext_resource type="Script" uid="uid://2d5lsy3gwd3l" path="res://chapter2/wave/wave.gd" id="1_bxb8p"]
-[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/whate.wav" id="2_or0xf"]
+[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/sound/whate.wav" id="2_or0xf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxb8p"]
 

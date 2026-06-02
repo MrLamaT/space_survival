@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
-		"Autosave", "Coords", "FPS":
+		"Autosave", "Coords", "FPS", "Speed":
 			Global.game_settings["gui_settings"][id] = !Global.game_settings["gui_settings"][id]
 			var button_node = get_node("Panel/VBoxContainer/" + id)
 			if Global.game_settings["gui_settings"][id]:

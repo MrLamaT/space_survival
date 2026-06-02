@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fyfdd5uhb2dt" path="res://chapter2/rooms/decoration/pc.gd" id="1_b40f0"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="2_d1mq6"]
-[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="3_r36w7"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="3_r36w7"]
 [ext_resource type="Texture2D" uid="uid://bopx18mm06xvw" path="res://assets/textures/envelope.png" id="4_d1mq6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnnrj"]

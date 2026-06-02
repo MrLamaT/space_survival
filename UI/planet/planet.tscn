@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="4_gxkjw"]
 [ext_resource type="PackedScene" uid="uid://diapoorvhvhru" path="res://UI/planet/planet_panel.tscn" id="5_jwuu8"]
 [ext_resource type="Texture2D" uid="uid://cc74nke6gr6ne" path="res://assets/level/planet0.png" id="6_345ih"]
+[ext_resource type="Texture2D" uid="uid://bbmgd8elw5a28" path="res://assets/level/planet00.png" id="6_506nj"]
+[ext_resource type="Texture2D" uid="uid://co6rxn8hamfxs" path="res://assets/level/planet1_2.png" id="7_jwuu8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -80,7 +82,7 @@ theme_override_constants/separation = 275
 [node name="planet_panel" parent="Panel/HBoxContainer0" unique_id=1408531095 instance=ExtResource("5_jwuu8")]
 layout_mode = 2
 nameLevel = "sandbox"
-img = ExtResource("6_345ih")
+img = ExtResource("6_506nj")
 level = -1
 
 [node name="planet_panel2" parent="Panel/HBoxContainer0" unique_id=1043565056 instance=ExtResource("5_jwuu8")]
@@ -123,6 +125,7 @@ layout_mode = 2
 [node name="planet_panel2" parent="Panel/HBoxContainer1" unique_id=239228296 instance=ExtResource("5_jwuu8")]
 layout_mode = 2
 nameLevel = "1-2: Citadel base"
+img = ExtResource("7_jwuu8")
 level = 2
 
 [node name="planet_panel3" parent="Panel/HBoxContainer1" unique_id=588020866 instance=ExtResource("5_jwuu8")]
@@ -133,4 +136,5 @@ level = 3
 [node name="planet_panel4" parent="Panel/HBoxContainer1" unique_id=1875316189 instance=ExtResource("5_jwuu8")]
 layout_mode = 2
 nameLevel = "1-4: mines"
+img = ExtResource("7_jwuu8")
 level = 4

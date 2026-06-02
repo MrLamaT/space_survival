@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dgkamdgfdxqyp"]
 
 [ext_resource type="Script" uid="uid://dekiakxugbjso" path="res://chapter2/enemy/infantryman.gd" id="1_cr145"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_gp8h5"]
-[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_6bkub"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_gp8h5"]
+[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_6bkub"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="5_g63h1"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_gp8h5"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_o20w3"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="8_cr145"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="9_cr145"]
-[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/laser-blast.wav" id="9_o20w3"]
+[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="9_o20w3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kklp"]
 radius = 0.4

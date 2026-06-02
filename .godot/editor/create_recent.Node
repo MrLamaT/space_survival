@@ -1,12 +1,12 @@
+CollisionShape3D
+MeshInstance3D
 AnimationPlayer
 Node3D
 Marker3D
 Camera3D
-MeshInstance3D
 Panel
 Node2D
 StaticBody3D
-CollisionShape3D
 Area3D
 OmniLight3D
 Timer

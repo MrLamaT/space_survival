@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://ue2ivpg4u7pc" path="res://assets/shaders/portal.gdshader" id="1_bmhvf"]
 [ext_resource type="Script" uid="uid://db1tjjko12ffb" path="res://chapter2/wave/teleport_portal.gd" id="2_ufog4"]
-[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/whate.wav" id="3_bmhvf"]
+[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/sound/whate.wav" id="3_bmhvf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yfqic"]
 render_priority = 0

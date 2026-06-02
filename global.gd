@@ -10,6 +10,7 @@ var game_settings: Dictionary = {
 	"gui_settings": {
 		"Coords": false,
 		"FPS": false,
+		"Speed": false,
 		"Autosave": true,
 		"Language": "English"
 	},

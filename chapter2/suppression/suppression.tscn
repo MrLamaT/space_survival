@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="5_yvv66"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="6_bxxb3"]
 [ext_resource type="Texture2D" uid="uid://bespmjslc7pmx" path="res://assets/textures/verticalGradient.png" id="8_wxdti"]
-[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/whate.wav" id="9_lvbb8"]
+[ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/sound/whate.wav" id="9_lvbb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf86b"]
 size = Vector3(2, 3, 2)

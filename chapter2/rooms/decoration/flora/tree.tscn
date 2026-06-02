@@ -9,13 +9,6 @@ albedo_color = Color(0.39215687, 0.2901961, 0.2, 1)
 material = SubResource("StandardMaterial3D_plsy4")
 radial_segments = 6
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_80m31"]
-material = SubResource("StandardMaterial3D_plsy4")
-top_radius = 1.0
-bottom_radius = 1.0
-height = 0.5
-radial_segments = 6
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsux3"]
 albedo_color = Color(0.35699996, 0.45, 0.17099999, 1)
 albedo_texture = ExtResource("1_80m31")
@@ -108,10 +101,6 @@ collision_mask = 3
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1882891578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CylinderMesh_udo1o")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1612976573]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0)
-mesh = SubResource("CylinderMesh_80m31")
 
 [node name="leaf" type="MeshInstance3D" parent="." unique_id=875833355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.75, 0)

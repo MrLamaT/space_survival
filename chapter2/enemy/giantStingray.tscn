@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://uaqccm4rgjqh"]
 
 [ext_resource type="Script" uid="uid://84v2r0rchlr8" path="res://chapter2/enemy/giantStingray.gd" id="1_msqjr"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_aouct"]
-[ext_resource type="AudioStream" uid="uid://dnbkkyy1xcgku" path="res://assets/whate2.wav" id="3_aouct"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_aouct"]
+[ext_resource type="AudioStream" uid="uid://dnbkkyy1xcgku" path="res://assets/sound/whate2.wav" id="3_aouct"]
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="3_pya71"]
 [ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="4_ieqws"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="5_pya71"]

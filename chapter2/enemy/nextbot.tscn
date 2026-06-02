@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://780yb8y6j6fg"]
 
 [ext_resource type="Script" uid="uid://bbnoxi1tcr3a6" path="res://chapter2/enemy/nextbot.gd" id="1_bpc6b"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_1p1qd"]
-[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_1p1qd"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_1p1qd"]
+[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_1p1qd"]
 [ext_resource type="Texture2D" uid="uid://d2w1kgeitdcsf" path="res://assets/Nextbot/bot1.jpg" id="3_bpc6b"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="4_4n213"]
 

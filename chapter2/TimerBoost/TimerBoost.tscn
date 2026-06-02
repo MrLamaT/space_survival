@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cloqq0c5rctl0" path="res://chapter2/TimerBoost/timer_boost.gd" id="1_380jf"]
 [ext_resource type="Texture2D" uid="uid://ftcjws1e5coq" path="res://assets/TimerBoost.png" id="1_waugf"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_njj6y"]
-[ext_resource type="AudioStream" uid="uid://dd8lsmgeksotb" path="res://assets/glass.wav" id="4_i5lyp"]
+[ext_resource type="AudioStream" uid="uid://dd8lsmgeksotb" path="res://assets/sound/glass.wav" id="4_i5lyp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nsiyc"]
 size = Vector3(3, 3, 3)

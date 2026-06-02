@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dr1yr2fsp6dek"]
 
 [ext_resource type="Script" uid="uid://r1hr1stge5v6" path="res://chapter2/enemy/cleaner.gd" id="1_8nadw"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_ffrjs"]
-[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_j4t6h"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_ffrjs"]
+[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_j4t6h"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="5_n4hur"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_b73np"]
-[ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/Spring.ogg" id="7_h7m6h"]
+[ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="7_h7m6h"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="10_vdv27"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h3rxe"]

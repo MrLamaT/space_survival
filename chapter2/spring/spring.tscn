@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c0l1hm333wk6c"]
 
 [ext_resource type="Script" uid="uid://yvqi7l0xilg4" path="res://chapter2/spring/spring.gd" id="1_k0uii"]
-[ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/Spring.ogg" id="2_geiqc"]
+[ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="2_geiqc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geiqc"]
 shading_mode = 0

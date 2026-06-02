@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="4_eeqvj"]
 [ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/metalDoor1.png" id="5_eeqvj"]
 [ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="8_rqbg7"]
-[ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/door.ogg" id="8_yahcm"]
+[ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/sound/door.ogg" id="8_yahcm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p33jc"]
 size = Vector3(5, 1.4209516, 1)

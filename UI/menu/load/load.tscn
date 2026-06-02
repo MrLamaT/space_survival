@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cilgxm58gt7kk" path="res://UI/menu/load/load.gd" id="1_b53ly"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_cwju6"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_rvef1"]
-[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/beep.wav" id="3_wjhwg"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="3_wjhwg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axyu0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

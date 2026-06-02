@@ -19,6 +19,8 @@ var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
 
 var current_weapon_slot: int = 1
+var weapon_scroll_cooldown: float = 0.0
+var weapon_scroll_delay: float = 0.15
 
 var is_shooting: bool = false
 
@@ -264,6 +266,7 @@ func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
 	$head/Camera3D/UI/coordinates.visible = gui_settings["Coords"]
 	$head/Camera3D/UI/fps.visible = gui_settings["FPS"]
+	$head/Camera3D/UI/speed.visible = gui_settings["Speed"]
 
 func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("UI_click") and not is_paused:
@@ -271,6 +274,52 @@ func _input(event: InputEvent): #повороты мышкой
 		weapon_system.shoot()
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
+	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"]:
+		if weapon_scroll_cooldown <= 0:
+			var world = Global.get_world(Global.game_settings.word)
+			release_build()
+			if world["mode"] != 1:
+				current_weapon_slot += 1
+				if current_weapon_slot > 5:
+					current_weapon_slot = 1
+				weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			else:
+				current_weapon_slot += 1
+				if current_weapon_slot > 8:
+					current_weapon_slot = 1
+				match current_weapon_slot:
+					6:
+						weapon_system.equip_weapon("Move")
+					7:
+						weapon_system.equip_weapon("Delete")
+					8:
+						weapon_system.equip_weapon("Summon")
+					_:
+						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			weapon_scroll_cooldown = weapon_scroll_delay
+	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"]:
+		if weapon_scroll_cooldown <= 0:
+			var world = Global.get_world(Global.game_settings.word)
+			release_build()
+			if world["mode"] != 1:
+				current_weapon_slot -= 1
+				if current_weapon_slot < 1:
+					current_weapon_slot = 5
+					weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			else:
+				current_weapon_slot -= 1
+				if current_weapon_slot < 1:
+					current_weapon_slot = 8
+				match current_weapon_slot:
+					6:
+						weapon_system.equip_weapon("Move")
+					7:
+						weapon_system.equip_weapon("Delete")
+					8:
+						weapon_system.equip_weapon("Summon")
+					_:
+						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			weapon_scroll_cooldown = weapon_scroll_delay
 	if Input.is_action_just_pressed("+1"):
 		release_build()
 		current_weapon_slot = 1
@@ -416,6 +465,8 @@ func _process(delta):
 	interaction_manager.update_interaction(delta)
 	if held_build and is_instance_valid(held_build):
 		update_held_build()
+	if weapon_scroll_cooldown > 0:
+		weapon_scroll_cooldown -= delta
 
 func _update_stamina(delta):
 	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:

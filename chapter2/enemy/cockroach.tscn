@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfnt2r04vbgom"]
 
 [ext_resource type="Script" uid="uid://dh0v4wos4c0b1" path="res://chapter2/enemy/cockroach.gd" id="1_e015f"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_460sa"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_460sa"]
 [ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="3_e015f"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="4_vugxl"]
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="5_yi646"]

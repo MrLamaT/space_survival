@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://x8vx3lltl35v"]
 
 [ext_resource type="Script" uid="uid://dw3s6pb1wc0lt" path="res://chapter2/enemy/observer_1.gd" id="1_rohrf"]
-[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/shock.mp3" id="2_vgi0l"]
-[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/hit.ogg" id="3_wesqi"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_vgi0l"]
+[ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_wesqi"]
 [ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="4_6gql8"]
 [ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="5_xf6sc"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_6gql8"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="6_xf6sc"]
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="7_6gql8"]
 [ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://chapter2/assets/items/spear.png" id="7_rohrf"]
-[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/laser-blast.wav" id="11_2rsbs"]
+[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="11_2rsbs"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="2_ntw6t"]
 [ext_resource type="Texture2D" uid="uid://c83n0xd647eyd" path="res://assets/NotE.png" id="3_biire"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_83n5t"]
-[ext_resource type="AudioStream" uid="uid://dwsj25qedus5j" path="res://assets/venti.mp3" id="4_rqoej"]
+[ext_resource type="AudioStream" uid="uid://dwsj25qedus5j" path="res://assets/sound/venti.mp3" id="4_rqoej"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83n5t"]
 albedo_texture = ExtResource("2_83n5t")

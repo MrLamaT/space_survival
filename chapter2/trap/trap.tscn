@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwvprsripwl1m"]
+[gd_scene format=3 uid="uid://bwvprsripwl1m"]
 
 [ext_resource type="Script" uid="uid://dia2hp2tj8llh" path="res://chapter2/trap/trap.gd" id="1_yi7hl"]
 [ext_resource type="Texture2D" uid="uid://ciwf30xb6ggav" path="res://chapter2/assets/Trap/trap.png" id="2_s4pmb"]
-[ext_resource type="AudioStream" uid="uid://b7y1yps24bjh6" path="res://assets/trap.wav" id="3_s4pmb"]
+[ext_resource type="AudioStream" uid="uid://b7y1yps24bjh6" path="res://assets/sound/trap.wav" id="3_s4pmb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6iqkm"]
 

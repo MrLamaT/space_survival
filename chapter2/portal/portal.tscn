@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
-[ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/teleport1.wav" id="7_nwwir"]
-[ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/teleport2.wav" id="8_nwwir"]
+[ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/sound/teleport1.wav" id="7_nwwir"]
+[ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
 [ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/warningTape.png" id="12_q66jv"]
