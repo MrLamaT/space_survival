@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b3rxfbmsi1qv2"]
 
 [ext_resource type="Script" uid="uid://xgcu807uk3i" path="res://chapter2/build/workbench.gd" id="1_dyhft"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="1_l7xkg"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="1_l7xkg"]
 [ext_resource type="Shader" uid="uid://cylo07nm4bmaj" path="res://assets/shaders/force_field.gdshader" id="3_s502k"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="4_2ghme"]
 [ext_resource type="Texture2D" uid="uid://bbf2tymhi67xo" path="res://assets/hexagon_grid.png" id="4_ll8l2"]

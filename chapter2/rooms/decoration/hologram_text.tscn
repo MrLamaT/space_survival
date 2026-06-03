@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmkqn2w75o55d"]
 
 [ext_resource type="Script" uid="uid://dcns2sr4rxwu5" path="res://chapter2/rooms/decoration/hologram_text.gd" id="1_bksgl"]
-[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="1_wwl5i"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="1_wwl5i"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_bksgl"]
 
 [node name="hologramText" type="Node3D" unique_id=866615671]

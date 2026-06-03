@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="6_s8mwg"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="7_ehydn"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="8_ug7w8"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="9_huk7k"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="9_huk7k"]
 [ext_resource type="PackedScene" uid="uid://dukni03dmr573" path="res://chapter2/rooms/decoration/lighthouse.tscn" id="11_2lrxp"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="12_2wc74"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="12_dfycd"]

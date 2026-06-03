@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://jweuxt1qlk2k" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_give.gd" id="1_knrll"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="2_crc78"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="3_3rl58"]
-[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://chapter2/assets/items/engineers_cleaver.png" id="3_wckyq"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="3_wckyq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5kecf"]
 

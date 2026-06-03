@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_01tto"]
 [ext_resource type="PackedScene" uid="uid://c6loalwjoberb" path="res://chapter2/rooms/decoration/serverBlock.tscn" id="2_01tto"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_oj5s3"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="3_oj5s3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xpm5"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)

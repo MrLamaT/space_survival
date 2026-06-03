@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b1gdm3qfar5p8"]
 
 [ext_resource type="Script" uid="uid://q3haq1v8a81y" path="res://UI/messages/messages.gd" id="1_5jj61"]
-[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="2_oet5i"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="3_oet5i"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="2_oet5i"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="3_oet5i"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_oet5i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gwq81slq1cw4"]
 
 [ext_resource type="Script" uid="uid://cb0qf1nq444x8" path="res://chapter2/item/handItem.gd" id="1_6euei"]
-[ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://chapter2/assets/items/taser.png" id="2_xd7bl"]
+[ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="2_xd7bl"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xd7bl"]
 radius = 0.1

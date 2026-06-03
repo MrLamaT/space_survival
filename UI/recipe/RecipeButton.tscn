@@ -9,8 +9,8 @@ anchors_preset = 0
 script = ExtResource("1_a2mfu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1018427359]
-position = Vector2(56, 56)
-scale = Vector2(1.75, 1.75)
+position = Vector2(48.000004, 48.000004)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_a08ub")
 
 [node name="Button" type="Button" parent="." unique_id=996595567]
@@ -19,7 +19,7 @@ z_index = 1
 layout_mode = 1
 offset_right = 64.0
 offset_bottom = 64.0
-scale = Vector2(1.75, 1.75)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

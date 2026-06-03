@@ -1,9 +1,8 @@
-res://chapter2/rooms/maps/sandbox.tscn
+res://UI/building/building.tscn
 res://assets/shaders/portal.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
 res://assets/shaders/force_field.gdshader
-res://chapter2/rooms/maps/RoP/RoP_1.tscn
-res://chapter2/rooms/decoration/home/home1.tscn
-res://chapter2/rooms/decoration/home/home2.tscn
-res://UI/planet/planet.tscn
+res://UI/recipe/RecipeButton.tscn
+res://chapter2/Player/Player.tscn
+res://chapter2/rooms/maps/sandbox.tscn

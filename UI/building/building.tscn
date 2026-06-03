@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/recipe/RecipeButton.tscn" id="2_1ckwh"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_o8pnx"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="3_1ckwh"]
-[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/textures/citadelAI.png" id="6_0ihfv"]
+[ext_resource type="Texture2D" uid="uid://dcrlbptcgwp6q" path="res://assets/icon/buildings/workbench.png" id="5_atb7m"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="6_0ihfv"]
+[ext_resource type="Texture2D" uid="uid://b6qydg3mclwes" path="res://assets/icon/buildings/chest.png" id="6_q2vjb"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="7_ldvkj"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/textures/citadelFlow.png" id="8_q6t7t"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="8_q6t7t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -192,14 +194,14 @@ columns = 9
 
 [node name="Control1" parent="Panel/buildings" unique_id=637047192 instance=ExtResource("2_1ckwh")]
 layout_mode = 2
-sprite_texture = ExtResource("3_1ckwh")
+sprite_texture = ExtResource("5_atb7m")
 sprite_label = "workbench"
 required_resources = Array[String](["iron", "copper", "coal"])
 required_description = "Craft essential tools and components."
 
 [node name="Control2" parent="Panel/buildings" unique_id=892962802 instance=ExtResource("2_1ckwh")]
 layout_mode = 2
-sprite_texture = ExtResource("3_1ckwh")
+sprite_texture = ExtResource("6_q2vjb")
 sprite_label = "storage"
 required_resources = Array[String](["iron", "iron"])
 required_description = "Keeps your inventory organized."
