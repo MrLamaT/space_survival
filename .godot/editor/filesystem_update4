@@ -3,6 +3,9 @@ res://assets/shaders/portal.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
 res://assets/shaders/force_field.gdshader
-res://UI/recipe/RecipeButton.tscn
 res://chapter2/Player/Player.tscn
+res://UI/building/building.gd
+res://UI/workbenchRecipe/workbench_recipe.gd
+res://chapter2/rooms/maps/sandbox.gd
 res://chapter2/rooms/maps/sandbox.tscn
+res://chapter2/Player/player.gd

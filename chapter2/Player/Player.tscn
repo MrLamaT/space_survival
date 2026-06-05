@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="17_s8fo2"]
 [ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://chapter2/Player/leg_damage.gd" id="23_q4qd6"]
+[ext_resource type="AudioStream" uid="uid://bbdfyp7jsu3lq" path="res://assets/sound/craft.wav" id="24_278cu"]
+[ext_resource type="AudioStream" uid="uid://daxsfub5oenlx" path="res://assets/sound/landing.wav" id="25_bsm05"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -1174,6 +1176,14 @@ volume_db = -15.0
 wait_time = 60.0
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1773773453]
+
+[node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
+stream = ExtResource("24_278cu")
+
+[node name="landing" type="AudioStreamPlayer2D" parent="." unique_id=1488881925]
+stream = ExtResource("25_bsm05")
+volume_db = -5.0
+pitch_scale = 1.5
 
 [node name="leg_damage" type="Area3D" parent="." unique_id=2019060207]
 collision_mask = 16

@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/recipe/RecipeButton.tscn" id="2_1ckwh"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_o8pnx"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="3_1ckwh"]
+[ext_resource type="Texture2D" uid="uid://3m36cyf4hxul" path="res://assets/icon/equipment/flashlight.png" id="4_wx25n"]
 [ext_resource type="Texture2D" uid="uid://dcrlbptcgwp6q" path="res://assets/icon/buildings/workbench.png" id="5_atb7m"]
+[ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/equipment/energy.png" id="5_xb7i8"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="6_0ihfv"]
 [ext_resource type="Texture2D" uid="uid://b6qydg3mclwes" path="res://assets/icon/buildings/chest.png" id="6_q2vjb"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="7_ldvkj"]
@@ -156,14 +158,14 @@ columns = 9
 
 [node name="Control1" parent="Panel/equipment" unique_id=923352174 instance=ExtResource("2_1ckwh")]
 layout_mode = 2
-sprite_texture = ExtResource("3_1ckwh")
+sprite_texture = ExtResource("4_wx25n")
 sprite_label = "flashlight 1"
 required_resources = Array[String](["iron", "copper cable", "coal"])
 required_description = "flashlight for F support"
 
 [node name="Control2" parent="Panel/equipment" unique_id=1725383124 instance=ExtResource("2_1ckwh")]
 layout_mode = 2
-sprite_texture = ExtResource("3_1ckwh")
+sprite_texture = ExtResource("5_xb7i8")
 sprite_label = "solar panels"
 required_resources = Array[String](["iron plate", "iron plate", "copper cable", "glass panel"])
 required_description = "more time to explore planets."

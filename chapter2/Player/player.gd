@@ -536,6 +536,8 @@ func _physics_process(delta):
 		is_floating = false
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
+			if falling_fast:
+				$landing.play()
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
 		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:

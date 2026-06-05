@@ -29,4 +29,6 @@ func create(sprite_label, _containerName):
 	world["inventory"]["inventory"].append(sprite_label)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
+	var player = get_tree().get_first_node_in_group("player")
+	player.get_node("craft").play()
 	queue_free()
