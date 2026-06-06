@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://3wierofwxkw1"]
 
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="1_oqja3"]
+[ext_resource type="Script" uid="uid://43q0u5pvw81m" path="res://chapter2/rooms/decoration/wall/corridor.gd" id="1_wd2jw"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_2fnfe"]
+[ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://chapter2/rooms/decoration/pipe.tscn" id="3_2fnfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e4kfk"]
 size = Vector3(0.14, 1, 0.15)
@@ -14,6 +16,7 @@ uv1_triplanar = true
 texture_filter = 0
 
 [node name="corridor1" type="Node3D" unique_id=2055780126]
+script = ExtResource("1_wd2jw")
 
 [node name="wall" parent="." unique_id=1533157946 instance=ExtResource("1_oqja3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75)
@@ -37,3 +40,17 @@ debug_fill = false
 [node name="CSGBox3D" type="CSGBox3D" parent="dirt/CSGCombiner3D" unique_id=1946723100]
 size = Vector3(0.14, 1, 0.15)
 material = SubResource("StandardMaterial3D_7xivn")
+
+[node name="Pipe" parent="." unique_id=42658265 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="." unique_id=178373593 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+handle = true
+
+[node name="Pipe2" parent="." unique_id=243487056 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="." unique_id=846831106 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true

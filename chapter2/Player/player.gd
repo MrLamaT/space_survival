@@ -275,51 +275,57 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
 	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"]:
-		if weapon_scroll_cooldown <= 0:
-			var world = Global.get_world(Global.game_settings.word)
-			release_build()
-			if world["mode"] != 1:
-				current_weapon_slot += 1
-				if current_weapon_slot > 5:
-					current_weapon_slot = 1
-				weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			else:
-				current_weapon_slot += 1
-				if current_weapon_slot > 8:
-					current_weapon_slot = 1
-				match current_weapon_slot:
-					6:
-						weapon_system.equip_weapon("Move")
-					7:
-						weapon_system.equip_weapon("Delete")
-					8:
-						weapon_system.equip_weapon("Summon")
-					_:
-						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			weapon_scroll_cooldown = weapon_scroll_delay
-	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"]:
-		if weapon_scroll_cooldown <= 0:
-			var world = Global.get_world(Global.game_settings.word)
-			release_build()
-			if world["mode"] != 1:
-				current_weapon_slot -= 1
-				if current_weapon_slot < 1:
-					current_weapon_slot = 5
+		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
+			held_build.position.y -= 1
+		else:
+			if weapon_scroll_cooldown <= 0:
+				var world = Global.get_world(Global.game_settings.word)
+				release_build()
+				if world["mode"] != 1:
+					current_weapon_slot += 1
+					if current_weapon_slot > 5:
+						current_weapon_slot = 1
 					weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			else:
-				current_weapon_slot -= 1
-				if current_weapon_slot < 1:
-					current_weapon_slot = 8
-				match current_weapon_slot:
-					6:
-						weapon_system.equip_weapon("Move")
-					7:
-						weapon_system.equip_weapon("Delete")
-					8:
-						weapon_system.equip_weapon("Summon")
-					_:
+				else:
+					current_weapon_slot += 1
+					if current_weapon_slot > 8:
+						current_weapon_slot = 1
+					match current_weapon_slot:
+						6:
+							weapon_system.equip_weapon("Move")
+						7:
+							weapon_system.equip_weapon("Delete")
+						8:
+							weapon_system.equip_weapon("Summon")
+						_:
+							weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+				weapon_scroll_cooldown = weapon_scroll_delay
+	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"]:
+		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
+			held_build.position.y += 1
+		else:
+			if weapon_scroll_cooldown <= 0:
+				var world = Global.get_world(Global.game_settings.word)
+				release_build()
+				if world["mode"] != 1:
+					current_weapon_slot -= 1
+					if current_weapon_slot < 1:
+						current_weapon_slot = 5
 						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			weapon_scroll_cooldown = weapon_scroll_delay
+				else:
+					current_weapon_slot -= 1
+					if current_weapon_slot < 1:
+						current_weapon_slot = 8
+					match current_weapon_slot:
+						6:
+							weapon_system.equip_weapon("Move")
+						7:
+							weapon_system.equip_weapon("Delete")
+						8:
+							weapon_system.equip_weapon("Summon")
+						_:
+							weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+				weapon_scroll_cooldown = weapon_scroll_delay
 	if Input.is_action_just_pressed("+1"):
 		release_build()
 		current_weapon_slot = 1
@@ -536,8 +542,6 @@ func _physics_process(delta):
 		is_floating = false
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
-			if falling_fast:
-				$landing.play()
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
 		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:
