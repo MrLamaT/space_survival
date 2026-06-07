@@ -1,14 +1,14 @@
+Camera3D
+MeshInstance3D
+Sprite3D
 Node3D
 CollisionShape3D
 Area3D
 OmniLight3D
 AudioStreamPlayer2D
-MeshInstance3D
 AnimationPlayer
 Marker3D
-Camera3D
 Panel
 Node2D
 StaticBody3D
 Timer
-Sprite3D

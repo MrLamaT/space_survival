@@ -255,7 +255,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.15, 0.25, 0), Vector3(-0.147, 0.021, -0.1), Vector3(-0.15, -0.3, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0.25, -0.25), Vector3(-0.15, 0.02, 0.2), Vector3(0, -0.3, 0.25), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -267,7 +267,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.5235988, 0.5235988), Vector3(-0.036651913, -0.18675023, 0.87266463), Vector3(-0.08726646, 0.2617994, 0.2617994), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -0.5235988, 0), Vector3(0.08726646, -0.17453292, 0.87266463), Vector3(-0.2617994, 0.2617994, 0.08726646), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bsm05"]
@@ -762,6 +762,7 @@ libraries/ = SubResource("AnimationLibrary_7fx2g")
 
 [node name="shootingSound" type="AudioStreamPlayer2D" parent="hand_position/EngineersCleaver" unique_id=711386161]
 stream = ExtResource("5_1c5wy")
+volume_db = -5.0
 pitch_scale = 1.5
 
 [node name="Summon" type="Node3D" parent="hand_position" unique_id=248368038]
@@ -975,10 +976,10 @@ visible = false
 position = Vector2(1035, 100)
 
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, -0.20000005, -0.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)
 
 [node name="BulletSpawn" type="Marker3D" parent="head/Camera3D" unique_id=1917553546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.14999998, -0.85)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.15, -0.85)
 
 [node name="silicon" type="Sprite2D" parent="head/Camera3D" unique_id=1235826446]
 visible = false
