@@ -1,6 +1,9 @@
-Camera3D
-MeshInstance3D
 Sprite3D
+Panel
+SubViewport
+CanvasLayer
+MeshInstance3D
+Camera3D
 Node3D
 CollisionShape3D
 Area3D
@@ -8,7 +11,4 @@ OmniLight3D
 AudioStreamPlayer2D
 AnimationPlayer
 Marker3D
-Panel
 Node2D
-StaticBody3D
-Timer

@@ -1,16 +1,12 @@
 extends Node2D
 
-var current_value: int = 0
+var current_value: int = 120
 var player: CharacterBody3D = null
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
 func start_countdown() -> void:
-	current_value = 120
-	var world = Global.get_world(Global.game_settings.word)
-	if "solar panels" in world["equipment"]:
-		current_value = 180
 	$Label.text = str(current_value)
 	$Timer.start()
 	visible = true

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dphennbkhj08u"]
 
 [ext_resource type="Script" uid="uid://dskrh33upbvom" path="res://chapter2/rooms/maps/sky_removal.gd" id="1_dko67"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="2_dko67"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="3_d80o7"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/brick.png" id="6_7y8mx"]
 
@@ -10,16 +11,11 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_1kh3a"]
 size = Vector3(0.5, 4, 0.01)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2ukd"]
-albedo_color = Color(0.0627451, 0.03137255, 0.03137255, 1)
-uv1_scale = Vector3(50, 1, 50)
-uv1_triplanar = true
-texture_filter = 0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67diu"]
 albedo_color = Color(0.4392157, 0.28235295, 0.21960784, 1)
 albedo_texture = ExtResource("6_7y8mx")
 uv1_triplanar = true
+uv1_world_triplanar = true
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ofeke"]
@@ -27,8 +23,9 @@ size = Vector3(0.75, 5, 0.75)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4rx6"]
 albedo_texture = ExtResource("3_d80o7")
-uv1_scale = Vector3(50, 1, 50)
+uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
+uv1_world_triplanar = true
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dko67"]
@@ -68,7 +65,7 @@ shape = SubResource("BoxShape3D_1kh3a")
 [node name="CSGBox3D" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=1573242658]
 transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 0, 4.75, 0)
 size = Vector3(0.5, 0.5, 0.5)
-material = SubResource("StandardMaterial3D_q2ukd")
+material = ExtResource("2_dko67")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=53517414]
 transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, -12, 2.5, 0)

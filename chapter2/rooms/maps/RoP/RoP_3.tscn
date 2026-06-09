@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP/RoP_1.gd" id="1_dth03"]
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="2_7k7ao"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="3_rlohk"]
+[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://chapter2/rooms/dirt/RoPstone.tscn" id="5_8jqej"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="5_d6m2o"]
-[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="6_cem77"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="11_f1ie1"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="15_nohwn"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="16_kk8ka"]
@@ -17,24 +17,10 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294967268
 cell_size = 0.1
-agent_radius = 0.25
+agent_radius = 0.3
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
-size = Vector3(2.5, 1, 2.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjyvf"]
-albedo_color = Color(0.6509804, 0.65882355, 0.654902, 1)
-albedo_texture = ExtResource("6_cem77")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3v485"]
-size = Vector3(2.5, 1, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_le6ex"]
-size = Vector3(2.5, 2.5, 2.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vsbb"]
+size = Vector3(2.5, 1.5, 2.5)
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_dth03")
@@ -62,350 +48,74 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0.52, -70)
 [node name="floor_ceiling" type="Node3D" parent="NavigationRegion3D" unique_id=694901470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
 
-[node name="dirt" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1849993184]
-transform = Transform3D(-75, 0, 1.1324685e-05, 0, 1, 0, -1.1324685e-05, 0, -75, 0, 0, 0)
-collision_layer = 36
-collision_mask = 3
+[node name="dirt" parent="NavigationRegion3D/floor_ceiling" unique_id=1357790181 instance=ExtResource("5_8jqej")]
+transform = Transform3D(75, 0, 0, 0, 1, 0, 0, 0, 75, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt" unique_id=1926326790]
-shape = SubResource("BoxShape3D_6dbuq")
-debug_fill = false
+[node name="dirt2" parent="NavigationRegion3D/floor_ceiling" unique_id=286355121 instance=ExtResource("5_8jqej")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 68.75, 5.5, -50)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt" unique_id=460196833]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt/CSGCombiner3D" unique_id=26749775]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt1" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1348412376]
-transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 68.75, 5.5, -50)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt1" unique_id=1562832125]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt1" unique_id=899673417]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt1/CSGCombiner3D" unique_id=1147161573]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt2" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=2139289896]
+[node name="dirt3" parent="NavigationRegion3D/floor_ceiling" unique_id=254761333 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 57.5, 5.5, 0)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt2" unique_id=1503089544]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt2" unique_id=1607459227]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt2/CSGCombiner3D" unique_id=1914420649]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt7" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1252585056]
+[node name="dirt4" parent="NavigationRegion3D/floor_ceiling" unique_id=1073164374 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 41.75, 5.5, -65)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt7" unique_id=1062988002]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt7" unique_id=970838211]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt7/CSGCombiner3D" unique_id=1468693136]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt3" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1153759910]
+[node name="dirt5" parent="NavigationRegion3D/floor_ceiling" unique_id=1727098924 instance=ExtResource("5_8jqej")]
 transform = Transform3D(16, 0, 0, 0, 10, 0, 0, 0, 1, 40, 5.5, 25)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt3" unique_id=1601462642]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt3" unique_id=721355650]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt3/CSGCombiner3D" unique_id=1202880170]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt5" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=662581320]
+[node name="dirt6" parent="NavigationRegion3D/floor_ceiling" unique_id=1645518179 instance=ExtResource("5_8jqej")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 45, 5.5, -25)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt5" unique_id=937663737]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt5" unique_id=1686713638]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt5/CSGCombiner3D" unique_id=227365984]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt16" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=130528055]
+[node name="dirt7" parent="NavigationRegion3D/floor_ceiling" unique_id=1754994698 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 1, 5.5, -25)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt16" unique_id=680693076]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt16" unique_id=555401733]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt16/CSGCombiner3D" unique_id=14335580]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt17" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=519246622]
+[node name="dirt8" parent="NavigationRegion3D/floor_ceiling" unique_id=626062726 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -14, 5.5, -25)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt17" unique_id=1268719270]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt17" unique_id=963730871]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt17/CSGCombiner3D" unique_id=367192302]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt22" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1215729954]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -14, 5.5, -72)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt22" unique_id=1834578980]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt22" unique_id=240030545]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt22/CSGCombiner3D" unique_id=1230376774]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt18" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1921949999]
+[node name="dirt9" parent="NavigationRegion3D/floor_ceiling" unique_id=1672180391 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -26, 5.5, -25)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt18" unique_id=1974740311]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
+[node name="dirt10" parent="NavigationRegion3D/floor_ceiling" unique_id=1619730216 instance=ExtResource("5_8jqej")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -14, 5.5, -72)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt18" unique_id=635058646]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt18/CSGCombiner3D" unique_id=1789955003]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt19" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=2026094281]
+[node name="dirt11" parent="NavigationRegion3D/floor_ceiling" unique_id=883339320 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -75, 5.5, -19)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt19" unique_id=269796222]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt19" unique_id=1187441420]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt19/CSGCombiner3D" unique_id=2045598301]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt20" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=457682515]
+[node name="dirt12" parent="NavigationRegion3D/floor_ceiling" unique_id=539155433 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -67, 5.5, -36)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt20" unique_id=1127764543]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt20" unique_id=1886741589]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt20/CSGCombiner3D" unique_id=1810663373]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt21" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1001228243]
+[node name="dirt13" parent="NavigationRegion3D/floor_ceiling" unique_id=1682208798 instance=ExtResource("5_8jqej")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -67, 5.5, -51)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt21" unique_id=1709639735]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt21" unique_id=286887929]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt21/CSGCombiner3D" unique_id=452530352]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt6" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1129394847]
+[node name="dirt14" parent="NavigationRegion3D/floor_ceiling" unique_id=1626969965 instance=ExtResource("5_8jqej")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 30.5, 5.5, -41)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt6" unique_id=1783746138]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt6" unique_id=279053509]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt6/CSGCombiner3D" unique_id=113049097]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt8" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1311362647]
+[node name="dirt15" parent="NavigationRegion3D/floor_ceiling" unique_id=563798948 instance=ExtResource("5_8jqej")]
 transform = Transform3D(10.606602, 0, 0.70710677, 0, 10, 0, -10.606602, 0, 0.70710677, 20, 5.5, -2)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt8" unique_id=1021558298]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt8" unique_id=900002786]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt8/CSGCombiner3D" unique_id=1922357640]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt4" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1231227318]
+[node name="dirt16" parent="NavigationRegion3D/floor_ceiling" unique_id=728518945 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-3.934025e-07, 0, 1, 0, 10, 0, -9, 0, -4.371139e-08, 21.25, 5.5, 37.5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt4" unique_id=987737578]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt4" unique_id=370000144]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt4/CSGCombiner3D" unique_id=165409624]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt10" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=2003877343]
+[node name="dirt17" parent="NavigationRegion3D/floor_ceiling" unique_id=1065059174 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-9.1793913e-07, 0, 25.75, 0, 10, 0, -21, 0, -1.1255682e-06, -49, 5.5, 55)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt10" unique_id=1314990923]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt10" unique_id=950405615]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt10/CSGCombiner3D" unique_id=2030388027]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt9" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=642536016]
+[node name="dirt18" parent="NavigationRegion3D/floor_ceiling" unique_id=767444457 instance=ExtResource("5_8jqej")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, -4.31, 5.5, 30)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt9" unique_id=1104118668]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt9" unique_id=467575983]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt9/CSGCombiner3D" unique_id=145686153]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt11" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1586579789]
+[node name="dirt19" parent="NavigationRegion3D/floor_ceiling" unique_id=1864299473 instance=ExtResource("5_8jqej")]
 transform = Transform3D(19, 0, 0, 0, 10, 0, 0, 0, 1, -40.5, 5.5, 4)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt11" unique_id=1315991255]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt11" unique_id=743793559]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt11/CSGCombiner3D" unique_id=1098097852]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt12" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1485449248]
+[node name="dirt20" parent="NavigationRegion3D/floor_ceiling" unique_id=829401960 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, -75, 5.5, 5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt12" unique_id=1348437174]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt12" unique_id=1239292157]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt12/CSGCombiner3D" unique_id=1758942753]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt13" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1170505995]
+[node name="dirt21" parent="NavigationRegion3D/floor_ceiling" unique_id=416782875 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-5.68248e-07, 0, 1, 0, 10, 0, -13, 0, -4.371139e-08, -50, 5.5, -37.5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt13" unique_id=1205909246]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt13" unique_id=349876337]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt13/CSGCombiner3D" unique_id=687334907]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt14" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=2061946416]
+[node name="dirt22" parent="NavigationRegion3D/floor_ceiling" unique_id=671043022 instance=ExtResource("5_8jqej")]
 transform = Transform3D(13, 0, 0, 0, 10, 0, 0, 0, 1, -57, 5.5, -62.5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt14" unique_id=864411494]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt14" unique_id=59270188]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt14/CSGCombiner3D" unique_id=1545838304]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt15" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1410892231]
+[node name="dirt23" parent="NavigationRegion3D/floor_ceiling" unique_id=1073531728 instance=ExtResource("5_8jqej")]
 transform = Transform3D(13, 0, 0, 0, 10, 0, 0, 0, 1, -10, 5.5, -62.5)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor_ceiling/dirt15" unique_id=1424128457]
-shape = SubResource("BoxShape3D_3v485")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/floor_ceiling/dirt15" unique_id=1038006111]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/floor_ceiling/dirt15/CSGCombiner3D" unique_id=179578250]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
 
 [node name="wall" parent="NavigationRegion3D" unique_id=1609011729 instance=ExtResource("11_f1ie1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.75, 0.516, -52.5)
@@ -549,69 +259,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.25, 2.39, -62.5)
 OnDefault = true
 hacking = false
 
-[node name="dirt" type="StaticBody3D" parent="." unique_id=1097589770]
-transform = Transform3D(-5, 0, 1.1324685e-05, 0, 25, 0, -7.54979e-07, 0, -75, -87.5, 13.016, 0)
-collision_layer = 36
-collision_mask = 3
+[node name="dirt" parent="." unique_id=1684382428 instance=ExtResource("5_8jqej")]
+transform = Transform3D(5, 0, 0, 0, 25, 0, 0, 0, 75, -87.5, 13.016, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt" unique_id=1425015706]
-transform = Transform3D(1, 0, 6.82121e-13, 0, 1, 0, 2.1671553e-13, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_le6ex")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt" unique_id=655686661]
+transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_7vsbb")
 debug_fill = false
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt" unique_id=864716616]
+[node name="dirt2" parent="." unique_id=2097375985 instance=ExtResource("5_8jqej")]
+transform = Transform3D(5, 0, 0, 0, 25, 0, 0, 0, 75, 87.5, 13.016, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="dirt/CSGCombiner3D" unique_id=1672158745]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt2" type="StaticBody3D" parent="." unique_id=551767125]
-transform = Transform3D(-5, 0, 1.1324685e-05, 0, 25, 0, -7.54979e-07, 0, -75, 87.5, 13.016, 0)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt2" unique_id=79535605]
-transform = Transform3D(1, 0, 6.82121e-13, 0, 1, 0, 2.1671553e-13, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_le6ex")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt2" unique_id=374811552]
+transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_7vsbb")
 debug_fill = false
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt2" unique_id=1876237279]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="dirt2/CSGCombiner3D" unique_id=689200832]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt3" type="StaticBody3D" parent="." unique_id=1526312503]
+[node name="dirt3" parent="." unique_id=1495243191 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-2.1855695e-07, 0, 65, 0, 25, 0, -5, 0, -2.8412403e-06, 0, 13.016, 87.5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt3" unique_id=1345571571]
-transform = Transform3D(1, 0, 6.82121e-13, 0, 1, 0, 2.1671553e-13, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_le6ex")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt3" unique_id=343876276]
+transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_7vsbb")
 debug_fill = false
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt3" unique_id=1462799639]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="dirt3/CSGCombiner3D" unique_id=30996375]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
-
-[node name="dirt4" type="StaticBody3D" parent="." unique_id=1504998591]
+[node name="dirt4" parent="." unique_id=1169022545 instance=ExtResource("5_8jqej")]
 transform = Transform3D(-2.1855695e-07, 0, 65, 0, 25, 0, -5, 0, -2.8412403e-06, 0, 13.016, -87.5)
-collision_layer = 36
-collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt4" unique_id=1744728595]
-transform = Transform3D(1, 0, 6.82121e-13, 0, 1, 0, 2.1671553e-13, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_le6ex")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt4" unique_id=2015170431]
+transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
+shape = SubResource("BoxShape3D_7vsbb")
 debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt4" unique_id=1725256130]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="dirt4/CSGCombiner3D" unique_id=1670885826]
-size = Vector3(2.5, 1, 2.5)
-material = SubResource("StandardMaterial3D_xjyvf")
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("32_mom7b")]
 visible = false

@@ -7,7 +7,6 @@ func _ready() -> void:
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
-	get_node("Player/head/Camera3D/timer").start_countdown()
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	Global.game_settings["step"] = 3
 	$Player._check_and_play_custom_music()

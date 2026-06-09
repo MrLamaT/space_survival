@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://vclsdpwcxpcl"]
 
 [ext_resource type="Texture2D" uid="uid://crjpq6n0ckqta" path="res://assets/textures/home1.png" id="2_e1gf3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_52kfe"]
-albedo_color = Color(0.0627451, 0.03137255, 0.03137255, 1)
-uv1_scale = Vector3(50, 1, 50)
-uv1_triplanar = true
-texture_filter = 0
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="2_orct1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcqaw"]
 albedo_texture = ExtResource("2_e1gf3")
@@ -22,20 +17,16 @@ size = Vector3(25, 12, 25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_eir4t"]
 size = Vector3(25, 12, 25)
 
-[node name="home3" type="Node3D" unique_id=79975982]
+[sub_resource type="BoxMesh" id="BoxMesh_xeabm"]
+material = ExtResource("2_orct1")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="home" type="Node3D" unique_id=79975982]
 
 [node name="wall" type="StaticBody3D" parent="." unique_id=353121964]
 transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
 collision_layer = 4
 collision_mask = 3
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="wall" unique_id=1232231075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.25, 0)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=923917480]
-transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 0, 0, 0)
-size = Vector3(0.5, 0.5, 0.5)
-material = SubResource("StandardMaterial3D_52kfe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall" unique_id=559690425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
@@ -44,3 +35,8 @@ mesh = SubResource("BoxMesh_xj8qm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall" unique_id=1050262336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 shape = SubResource("BoxShape3D_eir4t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="wall" unique_id=193408243]
+transform = Transform3D(5.9624426e-07, 0, 50, 0, 1, 0, -50, 0, 5.9624426e-07, 0, 12.25, 0)
+mesh = SubResource("BoxMesh_xeabm")
+skeleton = NodePath("../..")

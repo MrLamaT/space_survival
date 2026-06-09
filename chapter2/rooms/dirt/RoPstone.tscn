@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://pa17wvlety3k"]
+
+[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="1_11g11"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+size = Vector3(2.5, 1, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmrdn"]
+albedo_color = Color(0.6509804, 0.65882355, 0.654902, 1)
+albedo_texture = ExtResource("1_11g11")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_11g11"]
+material = SubResource("StandardMaterial3D_kmrdn")
+size = Vector3(2.5, 1, 2.5)
+
+[node name="dirt" type="StaticBody3D" unique_id=1357790181]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1866620565]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631]
+mesh = SubResource("BoxMesh_11g11")

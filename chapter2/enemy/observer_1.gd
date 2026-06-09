@@ -67,13 +67,13 @@ func _get_boss_id() -> String:
 	return "phantom observer"
 
 func _physics_process(delta):
+	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
+		return
 	if watch:
 		if player and global_position.distance_to(player.global_position) < 10.0:
 			create_portal(global_position)
 			queue_free()
 		move_and_slide()
-		return
-	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
 	if is_dead or is_dying:
 		if is_dying:
