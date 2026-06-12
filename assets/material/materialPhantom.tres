@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bxc3eyx5mveqp"]
+
+[ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="1_hvxeg"]
+[ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="2_eg3dx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hvxeg")
+shader_parameter/texture_main = ExtResource("2_eg3dx")
+shader_parameter/texture_scale_main = Vector2(2, 2)
+shader_parameter/texture_speed_main = 0.25
+shader_parameter/iridescence_intensity = 0.10000000475
+shader_parameter/iridescence_speed = 1.2
+shader_parameter/iridescence_scale = 4.0
+shader_parameter/trail_intensity = 0.250000011875
+shader_parameter/trail_persistence = 5.0
+shader_parameter/trail_position = Vector3(0, 0, 0)
+shader_parameter/trail_time = 0.0

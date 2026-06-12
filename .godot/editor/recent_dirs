@@ -1,6 +1,8 @@
-res://assets/teaching/
-res://assets/material/
+res://chapter2/rooms/maps/RoP/
 res://assets/textures/
+res://assets/
+res://assets/material/
+res://assets/teaching/
 res://chapter2/rooms/dirt/
 res://assets/weapon/
 res://assets/shaders/
@@ -11,11 +13,9 @@ res://assets/icon/equipment/
 res://assets/icon/buildings/
 res://assets/level/
 res://chapter2/rooms/decoration/home/
-res://assets/
 res://chapter2/enemy/
 res://assets/models/
 res://chapter2/rooms/decoration/wall/
-res://chapter2/rooms/maps/RoP/
 res://
 res://chapter2/interactable_object/
 res://assets/Nextbot/

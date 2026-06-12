@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://cjr7abbsnpixk" path="res://chapter2/enemy/shooter.gd" id="1_1ac51"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_kjk4p"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_1ac51"]
-[ext_resource type="Shader" uid="uid://bvkb3eit0cunn" path="res://assets/shaders/phantomShaders.gdshader" id="4_1ac51"]
-[ext_resource type="Texture2D" uid="uid://bofmtbe1uex0v" path="res://assets/textures/phantom.png" id="5_2njea"]
+[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_kjk4p"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_1ac51"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_olswx"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="8_85lro"]
@@ -31,29 +30,15 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_shb46")
 size = Vector2(0.1, 0.2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcinp"]
-render_priority = 0
-shader = ExtResource("4_1ac51")
-shader_parameter/texture_main = ExtResource("5_2njea")
-shader_parameter/texture_scale_main = Vector2(2, 2)
-shader_parameter/texture_speed_main = 0.25
-shader_parameter/iridescence_intensity = 0.10000000475
-shader_parameter/iridescence_speed = 1.2
-shader_parameter/iridescence_scale = 4.0
-shader_parameter/trail_intensity = 0.250000011875
-shader_parameter/trail_persistence = 5.0
-shader_parameter/trail_position = Vector3(0, 0, 0)
-shader_parameter/trail_time = 0.0
-
 [sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
-material = SubResource("ShaderMaterial_jcinp")
+material = ExtResource("4_kjk4p")
 radius = 0.2
 height = 0.4
 radial_segments = 16
 rings = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
-material = SubResource("ShaderMaterial_jcinp")
+material = ExtResource("4_kjk4p")
 size = Vector3(0.1, 0.5, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjk4p"]
@@ -80,14 +65,14 @@ left_to_right = 1.0
 size = Vector3(0.15, 0.05, 0.15)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2d7oq"]
-material = SubResource("ShaderMaterial_jcinp")
+material = ExtResource("4_kjk4p")
 top_radius = 0.2
 bottom_radius = 0.15
 height = 0.25
 radial_segments = 16
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7xldo"]
-material = SubResource("ShaderMaterial_jcinp")
+material = ExtResource("4_kjk4p")
 top_radius = 0.15
 bottom_radius = 0.2
 height = 0.2
