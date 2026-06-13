@@ -251,6 +251,7 @@ skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=780573930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.15, -1)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_yfwe0")
 skeleton = NodePath("../..")
 
@@ -260,6 +261,7 @@ light_energy = 0.1
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1226969118]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.15, -2)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_yfwe0")
 skeleton = NodePath("../..")
 
@@ -269,6 +271,7 @@ light_energy = 0.1
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1464926774]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.15, 2)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_yfwe0")
 skeleton = NodePath("../..")
 
@@ -278,6 +281,7 @@ light_energy = 0.1
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="body" unique_id=195508104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -0.15, 1)
+cast_shadow = 0
 mesh = SubResource("SphereMesh_yfwe0")
 skeleton = NodePath("../..")
 

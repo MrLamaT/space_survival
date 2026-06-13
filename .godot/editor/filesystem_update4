@@ -1,7 +1,10 @@
-res://chapter2/rooms/maps/RoP/RoP_3.tscn
+res://chapter2/rooms/maps/RoP/RoP_1.tscn
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/portal.gdshader
 res://assets/shaders/wings.gdshader
 res://assets/shaders/force_field.gdshader
 res://assets/shaders/laser.gdshader
-res://chapter2/rooms/maps/RoP/RoP_2.tscn
+res://chapter2/rooms/maps/RoP/RoP_3.tscn
+res://chapter2/rooms/decoration/antenna.tscn
+res://chapter2/enemy/giantStingray.tscn
+res://chapter2/enemy/infantryman.gd

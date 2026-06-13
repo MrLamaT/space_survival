@@ -31,9 +31,9 @@ var previous_position: Vector3
 func _ready():
 	super._ready()
 	previous_position = global_position
-	health = 80
+	health = 60
 	if is_boss:
-		health = 210
+		health = 190
 		$body/body/Sprite3D.visible = true
 	if aura > 0:
 		health *= aura + 1
