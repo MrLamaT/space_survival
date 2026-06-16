@@ -55,7 +55,7 @@ func teleport(map):
 		SceneManager.load_scene_with_loading(map)
 		return
 	$AnimationPlayer.play("RESET")
-	for i in range(20):
+	for i in range(10):
 		set_cube_colors(Color.BLACK if i % 2 == 0 else Color("9f009f"))
 		await get_tree().create_timer(0.5).timeout
 	if skin != 0:

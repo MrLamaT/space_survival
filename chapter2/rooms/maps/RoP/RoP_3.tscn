@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://chapter2/rooms/decoration/barrel.tscn" id="12_3n33g"]
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://chapter2/rooms/decoration/barrel2.tscn" id="13_mhy3a"]
 [ext_resource type="PackedScene" uid="uid://dyqkb52rhy3h7" path="res://chapter2/rooms/decoration/antenna.tscn" id="14_25sfw"]
-[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/build/chest.tscn" id="14_kipaj"]
+[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="14_kipaj"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="15_nohwn"]
 [ext_resource type="PackedScene" uid="uid://tjy8ry250xol" path="res://chapter2/rooms/decoration/solarPanels.tscn" id="15_u11jv"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="16_8tc7e"]

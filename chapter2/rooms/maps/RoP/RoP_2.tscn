@@ -42,7 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="30_41m8e"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="32_pyy45"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://chapter2/laser/tesla.tscn" id="32_qp8hd"]
-[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/build/chest.tscn" id="41_uxpe4"]
+[ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="41_uxpe4"]
 [ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1.tscn" id="44_yuibf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]

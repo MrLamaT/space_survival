@@ -274,7 +274,7 @@ func _input(event: InputEvent): #повороты мышкой
 		weapon_system.shoot()
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
-	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"]:
+	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
 		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
 			held_build.position.y -= 1
 		else:
@@ -300,7 +300,7 @@ func _input(event: InputEvent): #повороты мышкой
 						_:
 							weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 				weapon_scroll_cooldown = weapon_scroll_delay
-	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"]:
+	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
 		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
 			held_build.position.y += 1
 		else:
@@ -534,7 +534,7 @@ func _physics_process(delta):
 	var world = Global.get_world(Global.game_settings.word)
 	if global_position.y < -5000:
 		print("killZona!!!")
-		global_position = Vector3(0, 5000, 0)
+		global_position = Vector3(0, 0, 0)
 		velocity.y = 0
 	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
