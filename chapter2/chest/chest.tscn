@@ -51,6 +51,67 @@ size = Vector3(1, 0.7633667, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x83hx"]
 
+[sub_resource type="Animation" id="Animation_ggur7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1000.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l3pu0"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 4.75, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1200.0, 900.0, 900.0, 1200.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lppac"]
+_data = {
+&"RESET": SubResource("Animation_ggur7"),
+&"show": SubResource("Animation_l3pu0")
+}
+
 [node name="chest" type="Area3D" unique_id=1567652648 groups=["build", "interactive_objects"]]
 collision_layer = 4
 collision_mask = 3
@@ -66,12 +127,10 @@ mesh = SubResource("BoxMesh_cwkkf")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1704745263]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 0.25, -0.25, 0.175, 0.201)
-shaded = true
 texture_filter = 0
 texture = ExtResource("1_x83hx")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D" unique_id=436119090]
-visible = false
 omni_range = 0.5
 
 [node name="StaticBody" type="StaticBody3D" parent="." unique_id=740391896]
@@ -85,3 +144,24 @@ shape = SubResource("BoxShape3D_hgs8r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1259563392 groups=["interactive_objects"]]
 transform = Transform3D(0.9, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_x83hx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1656950343]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=6276783]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -248.0
+offset_right = -111.99988
+offset_bottom = -208.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(1, 1)
+theme_override_constants/separation = -20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1070527978]
+libraries/ = SubResource("AnimationLibrary_lppac")

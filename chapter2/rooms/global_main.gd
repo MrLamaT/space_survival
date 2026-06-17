@@ -32,6 +32,7 @@ func handle_interaction(object_name: String):
 				"type": "workbench"
 			}
 			world["build"].append(build_data)
+			$Player.save()
 	if Global.game_settings["gui_settings"]["Language"] == "русский":
 		$Player.warning("Строительство завершено!")
 	else:

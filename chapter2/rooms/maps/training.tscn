@@ -1169,7 +1169,7 @@ img = ExtResource("24_s1abu")
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 100.62658, 0.5, -9.112623)
-chest = "chest_level_0"
+fixed_items = Array[String](["copper", "iron", "iron", "coal"])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=776505106]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 400, 400, -400)

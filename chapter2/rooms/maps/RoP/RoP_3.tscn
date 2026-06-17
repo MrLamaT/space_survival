@@ -1088,43 +1088,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.52, -53.65)
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-1.3113416e-07, 0, 2.9999998, 0, 3, 0, -2.9999998, 0, -1.3113416e-07, 8.2, 0.5, 17.75)
-chest = "chest_W1"
 
 [node name="chest3" parent="." unique_id=1570994457 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, -53.377117, 0.5, -6.25)
-chest = "chest_W3"
 
 [node name="chest4" parent="." unique_id=1369117451 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-3, 0, -7.271806e-07, 0, 3, 0, 7.271806e-07, 0, -3, -39, 0.5, -50.15)
-chest = "chest_W4"
 
 [node name="chest5" parent="." unique_id=1240810334 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-3, 0, -7.271806e-07, 0, 3, 0, 7.271806e-07, 0, -3, 3, 0.5, -51.25)
-chest = "chest_W5"
 
 [node name="chest6" parent="." unique_id=904921685 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-7.748604e-07, 0, 3, 0, 2.9999998, 0, -3, 0, -7.748604e-07, -38, 0.5, -22.3)
-chest = "chest_W6"
 
 [node name="chest7" parent="." unique_id=1760754668 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-1.3113417e-07, 0, 3.0000002, 0, 2.9999998, 0, -3.0000002, 0, -1.3113417e-07, -16.75, 0.5, 36.934)
-chest = "chest_W7"
 
 [node name="chest2" parent="." unique_id=1834868504 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-1.4999998, 0, -2.5980756, 0, 2.9999995, 0, 2.5980756, 0, -1.4999998, 50.661316, 10.5, 52.365894)
-chest = "chest_W2"
 
 [node name="chest8" parent="." unique_id=2111365596 instance=ExtResource("14_kipaj")]
 transform = Transform3D(1.5000014, 0, -2.5980759, 0, 2.9999995, 0, 2.5980759, 0, 1.5000014, 40, 0.5, 16.5)
-chest = "chest_W8"
 
 [node name="chest9" parent="." unique_id=1777941556 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-3, 0, -1.3113022e-06, 0, 2.9999993, 0, 1.3113022e-06, 0, -3, 20.15, 0.5, -1.75)
-chest = "chest_W9"
 
 [node name="chest10" parent="." unique_id=809680543 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-2.8977773, 0, -0.7764585, 0, 2.9999993, 0, 0.7764585, 0, -2.8977773, -15.25, 0.5, -27)
-chest = "chest_W10"
 
 [node name="dirt" parent="." unique_id=1684382428 instance=ExtResource("5_8jqej")]
 transform = Transform3D(5, 0, 0, 0, 25, 0, 0, 0, 55, -62.5, 13.016, 0)

@@ -18,8 +18,6 @@ border_color = Color(1, 1, 1, 1)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uo64e")
-inventory2_grid_width = 4
-inventory2_grid_height = 1
 
 [node name="InventoryPanel" parent="." unique_id=171753026 instance=ExtResource("2_sv8nv")]
 z_index = 1
@@ -46,15 +44,6 @@ scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("4_2prv4")
 text = "inventory"
 
-[node name="Label2" type="Label" parent="." unique_id=895660013]
-layout_mode = 0
-offset_left = 600.0
-offset_right = 681.0
-offset_bottom = 23.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("4_2prv4")
-text = "equipment"
-
 [node name="PopupMenu" type="PopupMenu" parent="." unique_id=811489824]
 theme_override_fonts/font = ExtResource("4_2prv4")
 item_count = 2
@@ -65,6 +54,5 @@ item_1/text = "delete"
 item_1/icon = ExtResource("5_gvl8j")
 item_1/id = 0
 
-[connection signal="slot_left_clicked" from="InventoryPanel" to="." method="_on_slot_left_clicked"]
 [connection signal="slot_right_clicked" from="InventoryPanel" to="." method="_on_slot_right_clicked"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_right_click_menu_selected"]

@@ -3,10 +3,9 @@ extends ScrollContainer
 class_name InventoryPanel
 
 @export var panel_id: String = "inventory"
-@export var grid_width: int = 5
+@export var grid_width: int = 10
 @export var grid_height: int = 5
 
-signal slot_left_clicked(panel_id, slot_index)
 signal slot_right_clicked(panel_id, slot_index)
 
 @onready var grid_container: GridContainer = $GridContainer
@@ -23,7 +22,6 @@ func ensure_slots(needed_count: int):
 		var slot: ItemSlot = slot_scene.instantiate()
 		slot.slot_index = slots.size()
 		slot.panel_id = panel_id
-		slot.left_clicked.connect(_on_slot_left_clicked)
 		slot.right_clicked.connect(_on_slot_right_clicked)
 		grid_container.add_child(slot)
 		slots.append(slot)
@@ -43,10 +41,6 @@ func update_display():
 			slot_index += 1
 	for i in range(slots.size()):
 		slots[i].visible = (i < items.size())
-
-func _on_slot_left_clicked(clicked_panel_id: String, slot_index: int):
-	if clicked_panel_id == panel_id:
-		slot_left_clicked.emit(panel_id, slot_index)
 
 func _on_slot_right_clicked(clicked_panel_id: String, slot_index: int):
 	if clicked_panel_id == panel_id:

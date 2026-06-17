@@ -5,7 +5,6 @@ class_name ItemSlot
 @export var slot_index: int = 0
 @export var panel_id: String = "inventory"
 
-signal left_clicked(panel_id, slot_index)
 signal right_clicked(panel_id, slot_index)
 
 var item_name: String = ""
@@ -41,11 +40,7 @@ func clear_slot():
 
 func _gui_input(event: InputEvent):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			left_clicked.emit(panel_id, slot_index)
-			get_viewport().set_input_as_handled()
-			
-		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			right_clicked.emit(panel_id, slot_index)
 			get_viewport().set_input_as_handled()
 

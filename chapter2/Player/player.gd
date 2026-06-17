@@ -710,28 +710,6 @@ func openUI(nameUI):
 	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
-	
-func open_inventory(inventory_data: String, label_text: String, grid_width: int, grid_height: int):
-	var node_name = "Inventory"
-	var path = "head/Camera3D/" + node_name
-	var node = get_node_or_null(path)
-	if not node:
-		var ui_scene_path = "res://UI/Inventory/Inventory.tscn"
-		if ResourceLoader.exists(ui_scene_path):
-			var ui_scene = load(ui_scene_path)
-			node = ui_scene.instantiate()
-			node.name = node_name
-			node.set("inventory2", inventory_data)
-			node.set("Label2", label_text)
-			node.set("inventory2_grid_width", grid_width)
-			node.set("inventory2_grid_height", grid_height)
-			get_node("head/Camera3D").add_child(node)
-			node.add_to_group("UI")
-			Global.game_settings["UI"] = true
-	node.visible = true
-	$beep.play()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	update_gui_visibility()
 
 func openMessage(MessageID):
 	var node_name = "messages"

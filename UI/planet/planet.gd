@@ -21,7 +21,6 @@ var page_data = {
 func _ready() -> void:
 	portal = get_tree().get_first_node_in_group("portal")
 	page = int(world["stage"])
-	reloadChests()
 	hide_all_pages()
 	pageUpdate()
 
@@ -82,14 +81,6 @@ func update_page_elements():
 	else:
 		$Panel/Id.text = "Page " + str(page)
 		$Sprite2D.texture = null
-
-func reloadChests():
-	var keys_to_remove = []
-	for key in world["inventory"].keys():
-		if key is String and "chest_W" in key:
-			keys_to_remove.append(key)
-	for key in keys_to_remove:
-		world["inventory"].erase(key)
 
 func teleport(res):
 	portal.teleport(res)

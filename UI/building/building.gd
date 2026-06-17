@@ -34,12 +34,13 @@ func _on_label_button_pressed(_id: String) -> void:
 
 func create(sprite_label, containerName):
 	var world = Global.get_world(Global.game_settings.word)
+	var player = get_tree().get_first_node_in_group("player")
 	if containerName == "equipment":
 		world["equipment"].append(sprite_label)
+		player.save()
 	else:
 		get_tree().current_scene.handle_interaction(sprite_label)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
-	var player = get_tree().get_first_node_in_group("player")
 	player.get_node("craft").play()
 	queue_free()
