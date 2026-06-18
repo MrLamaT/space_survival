@@ -22,7 +22,7 @@ func handle_interaction(object_name: String):
 				is_active = false
 
 func _on_attack_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage"):
+	if body.has_method("take_damage") and body.is_in_group("phantom"):
 		body.take_damage(999999)
 
 func start_wave() -> void:

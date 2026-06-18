@@ -1,11 +1,5 @@
 [gd_scene format=3 uid="uid://cyhpb2fq0on1c"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_m0uje"]
-size = Vector3(2, 3.558, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kdsuu"]
-size = Vector3(0.25, 5, 0.25)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
 albedo_color = Color(0.9882353, 0.7137255, 0.007843138, 1)
 metallic = 1.0
@@ -42,21 +36,12 @@ material = SubResource("StandardMaterial3D_m0uje")
 top_radius = 0.1
 bottom_radius = 0.1
 
-[node name="StreetLamp" type="Area3D" unique_id=1550972398]
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0uje"]
+size = Vector3(2, 3.558, 2)
+
+[node name="StreetLamp" type="StaticBody3D" unique_id=521116699]
 collision_layer = 4
 collision_mask = 3
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1496638069]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1868613835]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.79836416, 0)
-shape = SubResource("BoxShape3D_m0uje")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1827699606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_kdsuu")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=943808342]
 
@@ -122,3 +107,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0.7)
 mesh = SubResource("CylinderMesh_vkjcn")
 skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1868613835]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0.79836416, 0)
+shape = SubResource("BoxShape3D_m0uje")

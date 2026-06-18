@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6fkye315biac"]
 
-[ext_resource type="Script" uid="uid://k2riye8vekub" path="res://chapter2/rooms/decoration/barrel.gd" id="1_1bowp"]
+[ext_resource type="Script" uid="uid://k2riye8vekub" path="res://chapter2/rooms/prop/barrel.gd" id="1_1bowp"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_iiyfn"]
 [ext_resource type="Texture2D" uid="uid://blf1hsc4twxiy" path="res://assets/textures/barrel2.png" id="2_1bowp"]
 
@@ -36,9 +36,9 @@ radial_segments = 16
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rbw5n"]
 height = 1.0
 
-[node name="Barrel" type="StaticBody3D" unique_id=868428457]
+[node name="Barrel" type="RigidBody3D" unique_id=1828673876 groups=["prop"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_1bowp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=661131766]

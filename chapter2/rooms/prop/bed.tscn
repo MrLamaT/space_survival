@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://v1w5plr0x4ls"]
+
+[ext_resource type="Texture2D" uid="uid://fd3385a2q1h" path="res://assets/textures/textile.png" id="1_8f4fg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x4wj1"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hqcb8"]
+material = SubResource("StandardMaterial3D_x4wj1")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13sp2"]
+albedo_color = Color(0.50980395, 0.47058824, 0.47058824, 1)
+albedo_texture = ExtResource("1_8f4fg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_dxt6l"]
+material = SubResource("StandardMaterial3D_13sp2")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egyk1"]
+albedo_color = Color(0.39215687, 0.3372549, 0.3372549, 1)
+albedo_texture = ExtResource("1_8f4fg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_mnpc5"]
+material = SubResource("StandardMaterial3D_egyk1")
+size = Vector3(1.05, 1, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj5qa"]
+albedo_color = Color(0.3137255, 0.12941177, 0.12941177, 1)
+albedo_texture = ExtResource("1_8f4fg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_dfd3a"]
+material = SubResource("StandardMaterial3D_hj5qa")
+size = Vector3(0.75, 1, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjmea"]
+size = Vector3(1, 1.900232, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w8tc"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+metallic = 1.0
+
+[sub_resource type="PrismMesh" id="PrismMesh_8f4fg"]
+material = SubResource("StandardMaterial3D_7w8tc")
+left_to_right = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8f4fg"]
+material = SubResource("StandardMaterial3D_7w8tc")
+
+[node name="bed" type="RigidBody3D" unique_id=935222559 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1525224126]
+transform = Transform3D(-8.742278e-08, 0, -4, 0, 0.5, 0, 2, 0, -1.7484555e-07, 0, 0.049999997, 0)
+mesh = SubResource("BoxMesh_hqcb8")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1018071271]
+transform = Transform3D(-8.742278e-08, 0, -4, 0, 0.5, 0, 2, 0, -1.7484555e-07, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_dxt6l")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1111991354]
+transform = Transform3D(-8.742278e-08, 0, -4, 0, 0.5, 0, 2, 0, -1.7484555e-07, -0.44, 0.3, -1.9233012e-08)
+mesh = SubResource("BoxMesh_mnpc5")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=561007281]
+transform = Transform3D(-8.742278e-08, 0, -4, 0, 0.5, 0, 2, 0, -1.7484555e-07, 1.5931032, 0.3, -1.9233035e-08)
+mesh = SubResource("BoxMesh_dfd3a")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=771002503]
+transform = Transform3D(-8.742278e-08, 0, -4, 0, 0.5, 0, 2, 0, -1.7484555e-07, 0, 0.07505797, 0)
+shape = SubResource("BoxShape3D_cjmea")
+
+[node name="hoh" type="MeshInstance3D" parent="." unique_id=96010767]
+transform = Transform3D(-1.7484556e-08, -3.4969112e-08, -3.8, 0, -0.4, 3.3220655e-07, -0.4, 1.5285484e-15, 1.6610328e-07, 0, -0.2, 0.7)
+mesh = SubResource("PrismMesh_8f4fg")
+skeleton = NodePath("")
+
+[node name="hoh3" type="MeshInstance3D" parent="." unique_id=2046536136]
+transform = Transform3D(1.7484556e-08, -1.5285484e-15, 3.8, -3.4969112e-08, -0.4, 0, 0.4, -3.4969112e-08, -1.6610328e-07, 0, -0.2, -0.7)
+mesh = SubResource("PrismMesh_8f4fg")
+skeleton = NodePath("")
+
+[node name="hoh2" type="MeshInstance3D" parent="." unique_id=1746845620]
+transform = Transform3D(-4.371139e-08, 0, -3.8, 0, 0.4, 0, 1, 0, -1.6610328e-07, 0, -0.2, 0)
+mesh = SubResource("BoxMesh_8f4fg")
+skeleton = NodePath("")

@@ -1,3 +1,8 @@
+CollisionShape3D
+MeshInstance3D
+StaticBody3D
+RigidBody3D
+Area3D
 TextureRect
 Label
 Sprite2D
@@ -8,8 +13,3 @@ VBoxContainer
 CanvasLayer
 SubViewport
 ScrollContainer
-GridContainer
-MeshInstance3D
-StaticBody3D
-Panel
-Camera3D

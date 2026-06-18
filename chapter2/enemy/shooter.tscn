@@ -380,7 +380,7 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="shooter" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="shooter" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_1ac51")

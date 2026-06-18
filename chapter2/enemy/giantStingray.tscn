@@ -198,7 +198,7 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="giantStingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="giantStingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 collision_layer = 16
 collision_mask = 21

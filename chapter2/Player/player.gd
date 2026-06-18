@@ -801,7 +801,7 @@ func update_held_build():
 	camera_forward.y = 0
 	camera_forward = camera_forward.normalized()
 	var target_position = cam.global_position + (camera_forward * hold_distance)
-	target_position.y = held_build.global_position.y
+	target_position.y = cam.global_position.y - 0.5
 	held_build.global_position = target_position
 	var target_rotation = head.global_rotation
 	target_rotation.x = 0

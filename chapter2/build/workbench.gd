@@ -7,27 +7,33 @@ func _ready() -> void:
 
 func ApplyingSkin():
 	_secondary_color = Color("82594e").darkened(0.1)
-	$StaticBody/Sprite3D.modulate = _secondary_color
+	get_node("../Sprite3D").modulate = _secondary_color
 
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
 	player.openUI("workbenchRecipe")
 
 func _on_mouse_entered() -> void:
-	$StaticBody/Sprite3D.modulate = Color("ffffffff")
-	$StaticBody/Sprite3D.shaded = false
-	$StaticBody/Sprite3D/OmniLight3D.visible = true
-	$StaticBody/Node3D/MeshInstance3D.visible = false
-	$StaticBody/Node3D/MeshInstance3D2.visible = true
-	$StaticBody/Node3D/CSGCombiner3D/box.visible = true
-	$StaticBody/Node3D/OmniLight3D.visible = true
-	
+	get_node("../Sprite3D").modulate = Color("ffffffff")
+	get_node("../Sprite3D").shaded = false
+	get_node("../Sprite3D/OmniLight3D").visible = true
+	get_node("../Node3D/MeshInstance3D").visible = false
+	get_node("../Node3D/MeshInstance3D2").visible = true
+	get_node("../Node3D/CSGCombiner3D/box").visible = true
+	get_node("../Node3D/OmniLight3D").visible = true
 
 func _on_mouse_exited() -> void:
-	$StaticBody/Sprite3D.modulate = _secondary_color
-	$StaticBody/Sprite3D.shaded = true
-	$StaticBody/Sprite3D/OmniLight3D.visible = false
-	$StaticBody/Node3D/MeshInstance3D.visible = true
-	$StaticBody/Node3D/MeshInstance3D2.visible = false
-	$StaticBody/Node3D/CSGCombiner3D/box.visible = false
-	$StaticBody/Node3D/OmniLight3D.visible = false
+	get_node("../Sprite3D").modulate = _secondary_color
+	get_node("../Sprite3D").shaded = true
+	get_node("../Sprite3D/OmniLight3D").visible = false
+	get_node("../Node3D/MeshInstance3D").visible = true
+	get_node("../Node3D/MeshInstance3D2").visible = false
+	get_node("../Node3D/CSGCombiner3D/box").visible = false
+	get_node("../Node3D/OmniLight3D").visible = false
+
+func _physics_process(_delta: float) -> void:
+	var parent = get_parent()
+	if parent.global_position.y <= -5000:
+		parent.global_position = Vector3(0, 1, -5.0)
+		parent.linear_velocity = Vector3.ZERO
+		parent.angular_velocity = Vector3.ZERO

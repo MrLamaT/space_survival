@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends RigidBody3D
 
 ## красный, синий, серый, жёлтый, огнеопасная, радиация
 @export var skin = 1

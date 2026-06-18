@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4stfemrbiggl"]
 
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="1_0hh0a"]
+[ext_resource type="Texture2D" uid="uid://fd3385a2q1h" path="res://assets/textures/textile.png" id="1_quhwg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hh0a"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -8,6 +9,11 @@ metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_000my"]
 albedo_color = Color(0.24313726, 0.34117648, 0.72156864, 1)
+albedo_texture = ExtResource("1_quhwg")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wq2m3"]
 material = SubResource("StandardMaterial3D_000my")

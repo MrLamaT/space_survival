@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://brc4saufsupfn"]
 
-[ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://chapter2/rooms/decoration/barrel.tscn" id="1_8uhhh"]
+[ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://chapter2/rooms/prop/barrel.tscn" id="1_8uhhh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xww5i"]
 albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
@@ -50,14 +50,17 @@ mesh = SubResource("ArrayMesh_8uhhh")
 
 [node name="Barrel" parent="." unique_id=82198151 instance=ExtResource("1_8uhhh")]
 transform = Transform3D(-0.0050789337, 0, -0.9999871, 0, 1, 0, 0.9999871, 0, -0.0050789337, -0.306, 0.25, 0.453)
+freeze = true
 skin = 6
 
 [node name="Barrel2" parent="." unique_id=458263947 instance=ExtResource("1_8uhhh")]
 transform = Transform3D(0.96885175, 0, 0.24764156, 0, 1, 0, -0.24764156, 0, 0.96885175, 0.447, 0.25, -0.488)
+freeze = true
 skin = 6
 
 [node name="Barrel3" parent="." unique_id=681035171 instance=ExtResource("1_8uhhh")]
 transform = Transform3D(0.4542237, 0, -0.8908877, 0, 1, 0, 0.8908877, 0, 0.4542237, 0.447, 1.25, -0.488)
+freeze = true
 skin = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1105578370]

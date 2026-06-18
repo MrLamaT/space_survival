@@ -56,6 +56,8 @@ enemy=""
 build=""
 BossBar=""
 nextbot=""
+prop=""
+phantom=""
 
 [input]
 
