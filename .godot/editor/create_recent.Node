@@ -1,6 +1,7 @@
+Node3D
 CollisionShape3D
-MeshInstance3D
 StaticBody3D
+MeshInstance3D
 RigidBody3D
 Area3D
 TextureRect
@@ -12,4 +13,3 @@ AnimationPlayer
 VBoxContainer
 CanvasLayer
 SubViewport
-ScrollContainer

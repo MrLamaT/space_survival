@@ -21,7 +21,7 @@ var chance_settings = {
 
 var item_icons = {
 	"iron": preload("res://assets/item/iron.png"),
-	"iron_plate": preload("res://assets/item/iron_plate.png"),
+	"iron plate": preload("res://assets/item/iron_plate.png"),
 	"copper": preload("res://assets/item/copper.png"),
 	"copper cable": preload("res://assets/item/copper_cable.png"),
 	"glass panel": preload("res://assets/item/glass_panel.png"),

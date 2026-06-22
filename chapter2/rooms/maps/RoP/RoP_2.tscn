@@ -66,13 +66,13 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_8l84i"]
 size = Vector3(5, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xomq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u77an"]
 albedo_texture = ExtResource("12_k82q6")
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_cnhd8"]
-material = SubResource("StandardMaterial3D_6xomq")
+material = SubResource("StandardMaterial3D_u77an")
 size = Vector3(5, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n81jb"]

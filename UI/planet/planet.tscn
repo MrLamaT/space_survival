@@ -121,6 +121,7 @@ theme_override_constants/separation = 275
 
 [node name="planet_panel" parent="Panel/HBoxContainer1" unique_id=814543906 instance=ExtResource("5_jwuu8")]
 layout_mode = 2
+nameLevel = "1-1: Pockmarked Earth"
 
 [node name="planet_panel2" parent="Panel/HBoxContainer1" unique_id=239228296 instance=ExtResource("5_jwuu8")]
 layout_mode = 2

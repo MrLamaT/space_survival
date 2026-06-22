@@ -11,7 +11,6 @@ shader_parameter/texture_scale_main = Vector2(2, 2)
 shader_parameter/texture_speed_main = 0.25
 shader_parameter/iridescence_intensity = 0.10000000475
 shader_parameter/iridescence_speed = 1.2
-shader_parameter/iridescence_scale = 4.0
 shader_parameter/trail_intensity = 0.250000011875
 shader_parameter/trail_persistence = 5.0
 shader_parameter/trail_position = Vector3(0, 0, 0)
