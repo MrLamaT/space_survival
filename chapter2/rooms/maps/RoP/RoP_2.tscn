@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://blqhso5d07nh1" path="res://assets/textures/clock.png" id="16_xvjtk"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="17_13yxu"]
 [ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://chapter2/rooms/dirt/RoPstone.tscn" id="17_w52mc"]
-[ext_resource type="Texture2D" uid="uid://smw1f44rpyso" path="res://assets/textures/laser_warning.png" id="18_5ta7f"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="18_n2t2h"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/HpBoost/HpBoostCitadel.tscn" id="19_vu8ni"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://chapter2/rooms/decoration/feronLL505.tscn" id="19_w52mc"]
@@ -42,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="30_41m8e"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="32_pyy45"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://chapter2/laser/tesla.tscn" id="32_qp8hd"]
+[ext_resource type="Texture2D" uid="uid://53y16vswyp5o" path="res://assets/paintings/picture1.png" id="35_u77an"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="41_uxpe4"]
 [ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1.tscn" id="44_yuibf"]
 
@@ -1224,9 +1224,9 @@ smoke = true
 handle = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/corridor3" unique_id=1605347862]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 2.5, 2.499)
+transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, -3, 2.5, 2.499)
 shaded = true
-texture = ExtResource("18_5ta7f")
+texture = ExtResource("35_u77an")
 
 [node name="HpBoost" parent="NavigationRegion3D/floor_ceiling/corridor3" unique_id=1462106428 instance=ExtResource("19_vu8ni")]
 transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.81915206, 8, 0.49999997, 1.5)
@@ -1349,9 +1349,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -36.25)
 PipeRight = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/corridor10" unique_id=1017229764]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 2.5, 2.499)
+transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, 3, 2.5, 2.499)
 shaded = true
-texture = ExtResource("18_5ta7f")
+texture = ExtResource("35_u77an")
 
 [node name="corridor11" parent="NavigationRegion3D/floor_ceiling" unique_id=1574835895 instance=ExtResource("16_cnhd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -22.25)
@@ -1422,9 +1422,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 0, -57.25)
 PipeRight = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/corridor5" unique_id=1130531454]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3, 2.5, 2.499)
+transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, -3, 2.5, 2.499)
 shaded = true
-texture = ExtResource("18_5ta7f")
+texture = ExtResource("35_u77an")
 
 [node name="corridor2" parent="NavigationRegion3D/floor_ceiling" unique_id=1214848775 instance=ExtResource("16_cnhd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.50009, 0, -57.25)
