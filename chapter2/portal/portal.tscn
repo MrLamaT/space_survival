@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
 [ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/sound/teleport1.wav" id="7_nwwir"]
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
+[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
 [ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/warningTape.png" id="12_q66jv"]
@@ -286,6 +288,9 @@ _data = {
 &"downC": SubResource("Animation_nwwir")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(5, 3, 5)
+
 [node name="portal" type="StaticBody3D" unique_id=2061914237 groups=["portal"]]
 collision_layer = 4
 collision_mask = 3
@@ -408,3 +413,35 @@ pitch_scale = 0.5
 stream = ExtResource("8_nwwir")
 volume_db = -15.0
 pitch_scale = 0.75
+
+[node name="PC1" parent="." unique_id=1029461300 instance=ExtResource("8_syhg2")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6, 1.5, 0)
+nameUI = "building"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1529036532]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1336555190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Label" type="Label" parent="." unique_id=931999002]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -174.0
+offset_right = 77.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.75, 2.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("9_syhg2")
+text = "mission complete!"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

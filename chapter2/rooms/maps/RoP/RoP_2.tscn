@@ -966,14 +966,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 33.7
 [node name="wall5" parent="NavigationRegion3D/floor_ceiling/room9" unique_id=605969786 instance=ExtResource("7_qp8hd")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.25, 0, 10.5)
 
-[node name="portal" parent="NavigationRegion3D/floor_ceiling/room9" unique_id=2061914237 instance=ExtResource("5_wh3vd")]
+[node name="portal" parent="NavigationRegion3D/floor_ceiling/room9" unique_id=2061914237 groups=["portal_end"] instance=ExtResource("5_wh3vd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.15, 0.52, 11)
 skin = 1
-
-[node name="button" parent="NavigationRegion3D/floor_ceiling/room9/portal" unique_id=877974259 instance=ExtResource("13_8l84i")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4499998, 1.48, 0)
-interaction_name = "portal"
-handler_node = NodePath("../../../../..")
+level = 2
+stade = 1
 
 [node name="room10" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1777106953]
 

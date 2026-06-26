@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://ecpjbyqy1nup" path="res://assets/weapon/summon.png" id="8_eafwc"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
-[ext_resource type="PackedScene" uid="uid://c4l8kd7cmxhvi" path="res://UI/timer/timer.tscn" id="10_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
 [ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="12_r6r0m"]
 [ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
@@ -970,10 +969,6 @@ position = Vector2(575, 509)
 
 [node name="warning" type="AnimationPlayer" parent="head/Camera3D" unique_id=542201009]
 libraries/ = SubResource("AnimationLibrary_s8fo2")
-
-[node name="timer" parent="head/Camera3D" unique_id=2043717137 instance=ExtResource("10_y13tn")]
-visible = false
-position = Vector2(1035, 100)
 
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)

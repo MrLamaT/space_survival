@@ -51,7 +51,7 @@ transform = Transform3D(1.4142134, 0, -0.84852815, 0, 1, 0, 1.4142134, 0, 0.8485
 [node name="Table4" parent="ship/Zona1" unique_id=191175265 instance=ExtResource("7_ges2j")]
 transform = Transform3D(-8.742276e-08, 0, 1.2, 0, 1, 0, -1.9999998, 0, -5.245367e-08, -2.5, 0.5, -5)
 
-[node name="portal" parent="ship/Zona1" unique_id=1282351702 instance=ExtResource("27_fqaro")]
+[node name="portal" parent="ship/Zona1" unique_id=1282351702 groups=["portal_end"] instance=ExtResource("27_fqaro")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.3958426e-07, 0.5, -4.9999995)
 skin = 1
 
@@ -120,13 +120,9 @@ nameUI = "messages"
 transform = Transform3D(-0.70710677, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.70710677, -4.8836446, 2.3840976, 5.980387)
 nameUI = "messages"
 
-[node name="PC5" parent="ship/Zona1" unique_id=1870169726 instance=ExtResource("32_fqaro")]
-transform = Transform3D(-4.371138e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.371138e-08, -1.5, 2.384, -4)
-nameUI = "building"
-
 [node name="PC1" parent="ship/Zona1" unique_id=1029461300 instance=ExtResource("11_h6cr0")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.992, -3.45)
-nameUI = "planet"
+nameUI = "building"
 
 [node name="floor" type="StaticBody3D" parent="ship/Zona1" unique_id=326749266]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 19.5)
@@ -241,7 +237,6 @@ transform = Transform3D(0.86694014, 0, -0.49841207, 0, 1, 0, 0.49841207, 0, 0.86
 
 [node name="wallGates" parent="ship/Zona1" unique_id=1533157946 instance=ExtResource("17_ges2j")]
 transform = Transform3D(1, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1, 0, -0.016, -14.5)
-key_card = "expand ship 1"
 
 [node name="MoveGive" parent="ship/Zona1" unique_id=2030828468 instance=ExtResource("18_ges2j")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 1.35, -5.1000004)

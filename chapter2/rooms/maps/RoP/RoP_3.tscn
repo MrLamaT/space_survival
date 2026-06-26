@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="24_tnkuj"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="25_dth03"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="27_rlohk"]
-[ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="28_7h230"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_g8lgq"]
 [ext_resource type="PackedScene" uid="uid://bwf5obhlhsolk" path="res://chapter2/rooms/decoration/wall/MineWall.tscn" id="28_tnkuj"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="32_mom7b"]
@@ -1154,14 +1153,11 @@ font = ExtResource("25_dth03")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.75, 10, 19.75)
 emergency_light = true
 
-[node name="portal" parent="NavigationRegion3D/mine" unique_id=2061914237 instance=ExtResource("5_d6m2o")]
+[node name="portal" parent="NavigationRegion3D/mine" unique_id=2061914237 groups=["portal_end"] instance=ExtResource("5_d6m2o")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -41.75, 10.52, 36.25)
 skin = 1
-
-[node name="button" parent="NavigationRegion3D/mine/portal" unique_id=1344810726 instance=ExtResource("28_7h230")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4499998, 1.48, 0)
-interaction_name = "portal"
-handler_node = NodePath("../../../..")
+level = 3
+stade = 1
 
 [node name="wall2" parent="NavigationRegion3D/mine" unique_id=1750022861 instance=ExtResource("11_f1ie1")]
 transform = Transform3D(-3.059797e-07, 0, -1, 0, 1, 0, 7, 0, -4.371139e-08, -19, 10, 13.749999)

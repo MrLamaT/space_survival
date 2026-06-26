@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftcjws1e5coq"
-path="res://.godot/imported/TimerBoost.png-1a0c9c5cf1fe86dc135e18ec47b6601b.ctex"
+uid="uid://dhft6b4r38kjk"
+path="res://.godot/imported/USA.png-d64db37de1d86c6778a8e6677eea7364.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/TimerBoost.png"
-dest_files=["res://.godot/imported/TimerBoost.png-1a0c9c5cf1fe86dc135e18ec47b6601b.ctex"]
+source_file="res://assets/icon/USA.png"
+dest_files=["res://.godot/imported/USA.png-d64db37de1d86c6778a8e6677eea7364.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

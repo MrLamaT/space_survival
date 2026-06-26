@@ -1,6 +1,8 @@
 extends StaticBody3D
 
 @export var skin = 0
+@export var level = 0
+@export var stade = 0
 var world = Global.get_world(Global.game_settings.word)
 var is_animating = false
 var cubes = []
@@ -16,6 +18,7 @@ func _ready():
 		$Cube4/MeshInstance3D2.queue_free()
 		$CollisionShape3D4.queue_free()
 		$MeshInstance3D.queue_free()
+		$PC1.queue_free()
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 
@@ -77,3 +80,12 @@ func set_cube_colors(color: Color):
 		var new_mat = mat.duplicate()
 		new_mat.albedo_color = color
 		cube.set_surface_override_material(0, new_mat)
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player") and skin == 1:
+		$Label.visible = true
+		if world["level"] <= level:
+			world["level"] = level + 1
+		if world["stage"] < stade:
+			world["stage"] = stade
+		body.save()

@@ -139,14 +139,6 @@ func parse_command(text: String):
 		"stoptimer", "stoptime", "timerstop", "timestop":
 			player.timerBoost(0)
 			SystemPrint("Timer stopped")
-		"timer", "time":
-			if argument == "":
-				ErrorPrint("Usage: timer <value> (example: timer 5)")
-			elif argument.is_valid_int():
-				player.timerBoost(int(argument))
-				SystemPrint("Timer boost set to: " + str(argument))
-			else:
-				ErrorPrint("Invalid argument: must be a number")
 		"summon_name", "setname":
 			if argument == "":
 				ErrorPrint("Usage: summon_name <entity_name>")

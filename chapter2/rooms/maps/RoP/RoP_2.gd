@@ -13,10 +13,6 @@ func _ready() -> void:
 
 func handle_interaction(object_name: String):
 	match object_name:
-		"portal":
-			if world["level"] <= 2:
-				world["level"] = 3
-			$NavigationRegion3D/floor_ceiling/room9/portal.teleport("res://chapter2/rooms/GlobalMain.tscn")
 		"room1":
 			$NavigationRegion3D/ImpenetrableField.on(true)
 			if Global.game_settings["gui_settings"]["Language"] == "русский":

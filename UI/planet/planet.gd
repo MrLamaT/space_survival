@@ -19,7 +19,7 @@ var page_data = {
 }
 
 func _ready() -> void:
-	portal = get_tree().get_first_node_in_group("portal")
+	portal = get_tree().get_first_node_in_group("portal_end")
 	page = int(world["stage"])
 	hide_all_pages()
 	pageUpdate()

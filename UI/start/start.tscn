@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://bh4lldjba2smx"]
+
+[ext_resource type="Script" uid="uid://wt1sfybui2nh" path="res://UI/start/start.gd" id="1_v4mn3"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_c0x5f"]
+[ext_resource type="Texture2D" uid="uid://dhft6b4r38kjk" path="res://assets/icon/USA.png" id="3_p7atd"]
+[ext_resource type="Texture2D" uid="uid://djotj0lsuuykf" path="res://assets/icon/RU.png" id="4_03dfm"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="5_03dfm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_p7atd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [273.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("usa:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ru:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("usa:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ru:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e01xd"]
+resource_name = "language"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [273.5, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("usa:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ru:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("usa:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ru:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gp7w"]
+_data = {
+&"RESET": SubResource("Animation_p7atd"),
+&"language": SubResource("Animation_e01xd")
+}
+
+[node name="Pause" type="Node2D" unique_id=709397907 groups=["UI"]]
+script = ExtResource("1_v4mn3")
+
+[node name="language" type="Panel" parent="." unique_id=1405108526]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="Label" type="Label" parent="language" unique_id=300235360]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -50.5
+offset_right = 61.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="language" unique_id=105565189]
+libraries/ = SubResource("AnimationLibrary_5gp7w")
+
+[node name="usa" type="Sprite2D" parent="language" unique_id=1834876400]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(376, 324)
+texture = ExtResource("3_p7atd")
+
+[node name="Button" type="Button" parent="language/usa" unique_id=55123743]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -66.0
+offset_right = -125.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ru" type="Sprite2D" parent="language" unique_id=1877092046]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(776, 324)
+texture = ExtResource("4_03dfm")
+
+[node name="Button" type="Button" parent="language/ru" unique_id=1613761258]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -66.0
+offset_right = -125.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Panel" type="Panel" parent="." unique_id=541691378]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="Label" type="Label" parent="Panel" unique_id=82571892]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -50.5
+offset_right = 61.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelButton" parent="Panel" unique_id=1811368051 instance=ExtResource("5_03dfm")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "continue"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "continue"
+
+[connection signal="mouse_entered" from="language/usa/Button" to="." method="_on_En_mouse_entered"]
+[connection signal="mouse_exited" from="language/usa/Button" to="." method="_on_En_mouse_exited"]
+[connection signal="pressed" from="language/usa/Button" to="." method="_on_En_pressed"]
+[connection signal="mouse_entered" from="language/ru/Button" to="." method="_on_Ru_mouse_entered"]
+[connection signal="mouse_exited" from="language/ru/Button" to="." method="_on_Ru_mouse_exited"]
+[connection signal="pressed" from="language/ru/Button" to="." method="_on_Ru_pressed"]

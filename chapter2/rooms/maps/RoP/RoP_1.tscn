@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="12_2wc74"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="12_dfycd"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://chapter2/rooms/decoration/feronLL505.tscn" id="13_0m8kx"]
-[ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://chapter2/rooms/decoration/button.tscn" id="13_lqwyh"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="14_0vstr"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_u33f0"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="16_agh46"]
@@ -30,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_yu35j"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/HpBoost/HpBoostCitadel.tscn" id="26_88l7r"]
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://chapter2/suppression/suppression.tscn" id="26_sajrh"]
-[ext_resource type="PackedScene" uid="uid://d2hafo5emquxx" path="res://chapter2/TimerBoost/TimerBoost.tscn" id="28_5obrl"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_56evf"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://chapter2/rooms/decoration/container.tscn" id="30_22wtc"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="30_88l7r"]
@@ -232,14 +230,11 @@ emergency_light = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15.5, 0, 41.45)
 emergency_light = true
 
-[node name="portal" parent="NavigationRegion3D/Citadel" unique_id=2061914237 instance=ExtResource("4_esd74")]
+[node name="portal" parent="NavigationRegion3D/Citadel" unique_id=2061914237 groups=["portal_end"] instance=ExtResource("4_esd74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.52, 33.5)
 skin = 1
-
-[node name="button" parent="NavigationRegion3D/Citadel/portal" unique_id=1344810726 instance=ExtResource("13_lqwyh")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.4499998, 1.48, 0)
-interaction_name = "portal"
-handler_node = NodePath("../../../..")
+level = 1
+stade = 1
 
 [node name="wall9" parent="NavigationRegion3D/Citadel" unique_id=1609011729 instance=ExtResource("12_2wc74")]
 transform = Transform3D(12.5, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 27.25)
@@ -1051,13 +1046,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.521797, 15.486, -29.014624
 
 [node name="Spring3" parent="." unique_id=415764733 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.215, 15.5, 31.18865)
-
-[node name="TimerBoost" parent="." unique_id=1155093348 instance=ExtResource("28_5obrl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.1, 20)
-boost = 10
-
-[node name="TimerBoost2" parent="." unique_id=657485130 instance=ExtResource("28_5obrl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.488295, 2.1, 3.3113337)
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("30_88l7r")]
 visible = false

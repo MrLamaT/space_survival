@@ -3,7 +3,6 @@ extends Node3D
 @export var light = true
 @export var emergency_light = false
 @export var unlocked = false
-@export var key_card = ""
 
 func _ready() -> void:
 	if !light:
@@ -12,8 +11,7 @@ func _ready() -> void:
 		if emergency_light:
 				$Light.update_torch_color(Color("ff0000ff"))
 	if !unlocked:
-		if key_card == "":
-			$detect/CollisionShape3D.disabled = true
+		$detect/CollisionShape3D.disabled = true
 		$StaticBody3D/CollisionShape3DDoor.disabled = false
 
 func lightOn():
@@ -26,15 +24,13 @@ func unlocking():
 	$detect/CollisionShape3D.disabled = false
 
 func _on_detect_body_entered(_body: Node3D) -> void:
-	var world = Global.get_world(Global.game_settings.word)
-	if unlocked or (key_card in world["equipment"]):
+	if unlocked:
 		$AnimationPlayer.play("open")
 		$AudioStreamPlayer3D.play()
 		$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", true)
 
 func _on_detect_body_exited(_body: Node3D) -> void:
-	var world = Global.get_world(Global.game_settings.word)
-	if unlocked or (key_card in world["equipment"]):
+	if unlocked:
 		$AnimationPlayer.play_backwards("open", -1)
 		$AudioStreamPlayer3D.play()
 

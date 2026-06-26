@@ -35,7 +35,7 @@ height = 0.75
 radius = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q1sy"]
-albedo_color = Color(0.7529412, 0.7764706, 0.8039216, 1)
+albedo_color = Color(0.38039216, 0.3882353, 0.5019608, 1)
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xofdx"]
@@ -70,7 +70,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xofdx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5toj"]
-albedo_color = Color(0.87, 0.3741, 0.2088, 1)
+albedo_color = Color(0.99999994, 0.11385753, 0.2533337, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vinhs"]
 material = SubResource("StandardMaterial3D_p5toj")
