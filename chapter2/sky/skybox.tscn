@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnapm3ml63i6a"]
 
-[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="1_hq4ad"]
+[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="1_hq4ad"]
+[ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="2_oht7b"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_oht7b"]
 panorama = ExtResource("1_hq4ad")
@@ -13,5 +14,15 @@ sky_material = SubResource("PanoramaSkyMaterial_oht7b")
 background_mode = 2
 sky = SubResource("Sky_kd80a")
 
-[node name="Skybox" type="WorldEnvironment" unique_id=485016790]
+[node name="Skybox" type="WorldEnvironment" unique_id=485016790 groups=["skybox"]]
 environment = SubResource("Environment_dm2hf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1073201632]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 400, 400, -400)
+light_energy = 0.05
+shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="DirectionalLight3D" unique_id=829873084]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+billboard = 1
+texture = ExtResource("2_oht7b")

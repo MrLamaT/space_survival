@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr8hllvffgsk7"
-path.s3tc="res://.godot/imported/nightskycolor.png-b8a5e40b4b09b8776a3c6159cf989d49.s3tc.ctex"
+uid="uid://cb05tr8vveabo"
+path="res://.godot/imported/rust.png-16f588b6f255edae4c86df107d2ac999.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nightskycolor.png"
-dest_files=["res://.godot/imported/nightskycolor.png-b8a5e40b4b09b8776a3c6159cf989d49.s3tc.ctex"]
+source_file="res://assets/skybox/rust.png"
+dest_files=["res://.godot/imported/rust.png-16f588b6f255edae4c86df107d2ac999.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

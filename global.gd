@@ -6,6 +6,13 @@ var world_3: Dictionary
 var world_4: Dictionary
 var world_5: Dictionary
 
+var level: Dictionary = {
+	0: "res://chapter2/rooms/maps/training.tscn",
+	1: "res://chapter2/rooms/maps/RoP/RoP_1.tscn",
+	2: "res://chapter2/rooms/maps/RoP/RoP_2.tscn",
+	3: "res://chapter2/rooms/maps/RoP/RoP_3.tscn"
+}
+
 var game_settings: Dictionary = {
 	"gui_settings": {
 		"Coords": false,

@@ -255,11 +255,6 @@ agent_radius = 0.3
 [node name="sandbox" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_pcht1")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=569471068]
-transform = Transform3D(0.90630776, -0.2988362, 0.2988362, 0, 0.7071067, 0.7071067, -0.42261827, -0.64085627, 0.64085627, 0, 25, 0)
-light_energy = 2.5
-shadow_enabled = true
-
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_ok3dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 40)
 

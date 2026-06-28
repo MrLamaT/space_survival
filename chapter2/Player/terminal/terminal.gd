@@ -171,5 +171,7 @@ func parse_command(text: String):
 			SystemPrint("  Name: " + summon["name"])
 			SystemPrint("  Aura: " + str(summon["aura"]))
 			SystemPrint("  Boss: " + str(summon["boss"]))
+		"spawn":
+			player.openUI("spawn")
 		_:
 			ErrorPrint("Unknown command: " + command)

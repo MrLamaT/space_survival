@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t2816lwakjs1"
-path.s3tc="res://.godot/imported/lightskycolor.png-261ba2902eb0af96b4a9b9cb9411154b.s3tc.ctex"
+uid="uid://bb3666nf0owbg"
+path="res://.godot/imported/blood.png-660a8e8e1ea417f98654e152af1ae1dc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lightskycolor.png"
-dest_files=["res://.godot/imported/lightskycolor.png-261ba2902eb0af96b4a9b9cb9411154b.s3tc.ctex"]
+source_file="res://assets/skybox/blood.png"
+dest_files=["res://.godot/imported/blood.png-660a8e8e1ea417f98654e152af1ae1dc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

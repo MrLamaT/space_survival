@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://chapter2/laser/laser.tscn" id="18_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="18_uo004"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="19_80dxx"]
-[ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="19_l4erg"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="22_r0400"]
 [ext_resource type="Texture2D" uid="uid://bdk6oofju7aui" path="res://assets/teaching/teaching3.png" id="24_s1abu"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="27_s1abu"]
@@ -1078,15 +1077,6 @@ img = ExtResource("24_s1abu")
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 100.62658, 0.5, -9.112623)
 fixed_items = Array[String](["copper", "iron", "iron", "coal"])
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=776505106]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 400, 400, -400)
-shadow_enabled = true
-
-[node name="Sprite3D" type="Sprite3D" parent="DirectionalLight3D" unique_id=638578939]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-billboard = 1
-texture = ExtResource("19_l4erg")
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("27_s1abu")]
 visible = false

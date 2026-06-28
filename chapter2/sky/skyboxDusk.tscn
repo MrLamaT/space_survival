@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://pw04jgbg6h3r"]
+
+[ext_resource type="Texture2D" uid="uid://2vv5e6r8wogf" path="res://assets/skybox/dusk.png" id="1_1t2v3"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_tf2ut"]
+panorama = ExtResource("1_1t2v3")
+filter = false
+
+[sub_resource type="Sky" id="Sky_0i6hk"]
+sky_material = SubResource("PanoramaSkyMaterial_tf2ut")
+
+[sub_resource type="Environment" id="Environment_tf2ut"]
+background_mode = 2
+sky = SubResource("Sky_0i6hk")
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.0
+
+[node name="Skybox" type="WorldEnvironment" unique_id=1322581983 groups=["skybox"]]
+environment = SubResource("Environment_tf2ut")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1832902146]
+transform = Transform3D(0.90630776, -0.2988362, 0.2988362, 0, 0.7071067, 0.7071067, -0.42261827, -0.64085627, 0.64085627, 0, 25, 0)
+light_energy = 2.5
+shadow_enabled = true

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://chapter2/rooms/maps/RoP/RoP_1.gd" id="1_le6ex"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://chapter2/Player/Player.tscn" id="2_agh46"]
-[ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="2_dlv1t"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="3_le6ex"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="4_esd74"]
 [ext_resource type="PackedScene" uid="uid://dlaw3kuosj36h" path="res://chapter2/wave/TeleportPortal.tscn" id="4_sajrh"]
@@ -63,16 +62,6 @@ size = Vector3(2.5, 2.5, 2.5)
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_le6ex")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=135425584]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 400, 400, -400)
-light_energy = 0.05
-shadow_enabled = true
-
-[node name="Sprite3D" type="Sprite3D" parent="DirectionalLight3D" unique_id=2124500098]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
-billboard = 1
-texture = ExtResource("2_dlv1t")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_agh46")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

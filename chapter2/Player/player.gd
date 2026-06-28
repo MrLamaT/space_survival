@@ -361,6 +361,10 @@ func _input(event: InputEvent): #повороты мышкой
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			weapon_system.equip_weapon("Summon")
+	if Input.is_action_just_pressed("+q"):
+		var world = Global.get_world(Global.game_settings.word)
+		if world["mode"] == 1:
+			openUI("spawn")
 	if Input.is_action_just_pressed("+v"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:

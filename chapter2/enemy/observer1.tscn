@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_rohrf"]
 [ext_resource type="Shader" uid="uid://mfdjxlv4klj3" path="res://assets/shaders/wings.gdshader" id="6_wesqi"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="6_xf6sc"]
-[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/nightskycolor.png" id="7_6gql8"]
+[ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="7_6gql8"]
 [ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://assets/weapon/spear.png" id="7_rohrf"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="11_2rsbs"]
 

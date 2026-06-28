@@ -91,8 +91,12 @@ func _on_label_button_pressed(id: String) -> void:
 				Initialization_names()
 				Global.save(int(select_world[-1]))
 			else:
-				SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
-				Global.game_settings["word"] = int(select_world[-1])
+				var world_index = int(select_world[-1])
+				var level_path = Global.level.get(int(Global.get_world(world_index)["level"]))
+				if level_path == null:
+					level_path = Global.level[1]
+				SceneManager.load_scene_with_loading(level_path)
+				Global.game_settings["word"] = world_index
 				print(Global.game_settings["word"])
 
 func Initialization_names():

@@ -15,11 +15,12 @@ func save_contents():
 		return
 
 func teleport_contents():
+	var player = get_tree().get_first_node_in_group("player")
 	if Global.saved_portal_data.is_empty():
 		print("Нет данных для телепортации")
+		player.global_position = self.global_position
 		return
 	print("Телепортируем игрока...")
-	var player = get_tree().get_first_node_in_group("player")
 	var new_position = self.global_transform * Global.saved_portal_data["relative_position"]
 	
 	player.global_position = new_position
