@@ -3,11 +3,6 @@ extends Node3D
 var mouseLight = false
 
 func _input(event):
-	if event.is_action_pressed("UI_fullscreen"):
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if event.is_action_pressed("UI_click"):
 		if mouseLight:
 			$Light2.switching()

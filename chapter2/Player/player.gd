@@ -50,6 +50,9 @@ var movement_enabled: bool = true
 
 var cheat_f3: bool = false
 
+var damage_cooldown: float = 0.0
+var damage_cooldown_duration: float = 1.0 
+
 # Динамика камеры
 var camera_tilt_amount = 1.5  # градусы наклона при движении
 var camera_tilt_speed = 8.0   # скорость наклона
@@ -193,9 +196,12 @@ func PlayerDeath():
 func HP(hp):
 	if Global.game_settings["IsDying"]:
 		return
+	if damage_cooldown > 0:
+		return
 	var world = Global.get_world(Global.game_settings.word)
 	if !Global.game_settings["GodMod"]:
 		world["HP"] -= hp
+		damage_cooldown = damage_cooldown_duration
 	if hp > 0:
 		$head/Camera3D/blood2.modulate = Color("830000BD")
 	else:
@@ -390,11 +396,6 @@ func _input(event: InputEvent): #повороты мышкой
 			if new_camera_rotation < deg_to_rad(-89) or new_camera_rotation > deg_to_rad(89):
 				vertical_rotation = 0
 			cam.rotate_x(vertical_rotation)
-	if event.is_action_pressed("UI_fullscreen"):
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"]:
 		if not is_on_floor():
 			falling_fast = true
@@ -477,6 +478,8 @@ func _process(delta):
 		update_held_build()
 	if weapon_scroll_cooldown > 0:
 		weapon_scroll_cooldown -= delta
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
 
 func _update_stamina(delta):
 	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
@@ -807,44 +810,16 @@ func update_held_build():
 	var target_position = cam.global_position + (camera_forward * hold_distance)
 	target_position.y = cam.global_position.y - 0.5
 	held_build.global_position = target_position
+	if held_build is RigidBody3D:
+		held_build.linear_velocity = Vector3.ZERO
+		held_build.angular_velocity = Vector3.ZERO
 	var target_rotation = head.global_rotation
 	target_rotation.x = 0
 	target_rotation.z = 0
 	held_build.global_rotation = target_rotation
-	var world = Global.get_world(Global.game_settings.word)
-	for i in range(world["build"].size()):
-		var build_item = world["build"][i]
-		var stored_path = str(build_item["node_path"])
-		if held_build.name == stored_path.split("/")[-1]:
-			build_item["position"] = held_build.position
-			build_item["rotation"] = held_build.rotation
-			break
 
 func release_build():
-	if held_build:
-		var world = Global.get_world(Global.game_settings.word)
-		for i in range(world["build"].size()):
-			var build_item = world["build"][i]
-			var stored_path = str(build_item["node_path"])
-			if held_build.name == stored_path.split("/")[-1]:
-				build_item["position"] = held_build.position
-				build_item["rotation"] = held_build.rotation
-				break
 	held_build = null
-
-func DeleteBuild(build):
-	print("удалить: ", build)
-	build.global_position = Vector3(0.0, -5.0, 0.0)
-	var world = Global.get_world(Global.game_settings.word)
-	for i in range(world["build"].size() - 1, -1, -1):
-		var build_item = world["build"][i]
-		var stored_path = str(build_item["node_path"])
-		if build.name == stored_path.split("/")[-1]:
-			world["build"].remove_at(i)
-			break
-	if held_build == build:
-		held_build = null
-	print(world["build"])
 
 func timerBoost(boost):
 	$head/Camera3D/timer.boost(boost)

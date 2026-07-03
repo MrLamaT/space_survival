@@ -25,13 +25,8 @@ func  _ready() -> void:
 
 func _on_button_pressed() -> void:
 	if $Label2.text != "Locked":
-		if level == -1:
-			get_node("../../..").teleport("res://chapter2/rooms/maps/sandbox.tscn")
-		if level == 0:
-			get_node("../../..").teleport("res://chapter2/rooms/maps/training.tscn")
-		if level == 1:
-			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_1.tscn")
-		if level == 2:
-			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_2.tscn")
-		if level == 3:
-			get_node("../../..").teleport("res://chapter2/rooms/maps/RoP/RoP_3.tscn")
+		var level_path = Global.level.get(level)
+		if level_path != null:
+			get_node("../../..").teleport(level_path)
+		else:
+			get_node("../../..").teleport(Global.level.get(1))

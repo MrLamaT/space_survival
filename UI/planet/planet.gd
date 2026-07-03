@@ -1,7 +1,6 @@
 extends Node2D
 
 var world = Global.get_world(Global.game_settings.word)
-var portal = null
 var page = 1
 var current_page_node = null
 
@@ -19,7 +18,6 @@ var page_data = {
 }
 
 func _ready() -> void:
-	portal = get_tree().get_first_node_in_group("portal_end")
 	page = int(world["stage"])
 	hide_all_pages()
 	pageUpdate()
@@ -83,7 +81,10 @@ func update_page_elements():
 		$Sprite2D.texture = null
 
 func teleport(res):
-	portal.teleport(res)
+	var portal_nodes = get_tree().get_nodes_in_group("portal")
+	for portal_node in portal_nodes:
+		if portal_node.has_method("teleport"):
+			portal_node.teleport(res)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	queue_free()

@@ -291,6 +291,90 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(5, 3, 5)
 
+[sub_resource type="Animation" id="Animation_bguse"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.75, 2.75)]
+}
+
+[sub_resource type="Animation" id="Animation_mqc6g"]
+resource_name = "vis"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.75, 2.75), Vector2(3.75, 3.75), Vector2(2.75, 2.75), Vector2(2.75, 2.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w3ide"]
+_data = {
+&"RESET": SubResource("Animation_bguse"),
+&"vis": SubResource("Animation_mqc6g")
+}
+
 [node name="portal" type="StaticBody3D" unique_id=2061914237 groups=["portal"]]
 collision_layer = 4
 collision_mask = 3
@@ -443,5 +527,8 @@ scale = Vector2(2.75, 2.75)
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("9_syhg2")
 text = "mission complete!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=1827632291]
+libraries/ = SubResource("AnimationLibrary_w3ide")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

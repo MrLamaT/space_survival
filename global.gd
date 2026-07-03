@@ -7,7 +7,8 @@ var world_4: Dictionary
 var world_5: Dictionary
 
 var level: Dictionary = {
-	0: "res://chapter2/rooms/maps/training.tscn",
+	-1: "res://chapter2/rooms/maps/sandbox.tscn",
+	0: "res://UI/start/start.tscn",
 	1: "res://chapter2/rooms/maps/RoP/RoP_1.tscn",
 	2: "res://chapter2/rooms/maps/RoP/RoP_2.tscn",
 	3: "res://chapter2/rooms/maps/RoP/RoP_3.tscn"
@@ -198,3 +199,10 @@ func delete_world_save(world_num: int) -> bool:
 	else:
 		print("Ошибка при открытии директории user://")
 		return false
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("UI_fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

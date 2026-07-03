@@ -21,7 +21,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 	var overlapping_bodies = $Area3D.get_overlapping_bodies()
 	var target_build = null
 	for potential_body in overlapping_bodies:
-		if potential_body.is_in_group("build") or potential_body.is_in_group("enemy") or potential_body.is_in_group("prop"):
+		if potential_body.is_in_group("enemy") or potential_body.is_in_group("prop"):
 			target_build = potential_body
 			break
 	if target_build:

@@ -16,9 +16,6 @@ func _ready():
 		$Cube2/MeshInstance3D2.queue_free()
 		$Cube3/MeshInstance3D2.queue_free()
 		$Cube4/MeshInstance3D2.queue_free()
-		$CollisionShape3D4.queue_free()
-		$MeshInstance3D.queue_free()
-		$PC1.queue_free()
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 
@@ -47,25 +44,15 @@ func teleport(map):
 	)
 	$AnimationPlayer.play("teleport")
 	await tween1.finished
-	var player = get_tree().get_first_node_in_group("player")
-	player.get_node("head/Camera3D/Teleport").teleport()
-	await get_tree().create_timer(2).timeout
-	$AudioStreamPlayer3D2.play()
-	await get_tree().create_timer(1).timeout
-	print("бум")
-	$TeleportCube.save_contents()
-	if Global.saved_portal_data.size() > 0:
-		SceneManager.load_scene_with_loading(map)
-		return
-	$AnimationPlayer.play("RESET")
-	for i in range(10):
-		set_cube_colors(Color.BLACK if i % 2 == 0 else Color("9f009f"))
-		await get_tree().create_timer(0.5).timeout
 	if skin != 0:
-		casing(-1)
+		var player = get_tree().get_first_node_in_group("player")
+		player.get_node("head/Camera3D/Teleport").teleport()
 		await get_tree().create_timer(2).timeout
-	set_cube_colors(Color.WHITE)
-	is_animating = false
+		$AudioStreamPlayer3D2.play()
+		await get_tree().create_timer(1).timeout
+		print("бум")
+		$TeleportCube.save_contents()
+		SceneManager.load_scene_with_loading(map)
 
 func update_cube_colors(value: float, from_color: Color, to_color: Color):
 	var color = from_color.lerp(to_color, value)
@@ -83,7 +70,7 @@ func set_cube_colors(color: Color):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and skin == 1:
-		$Label.visible = true
+		$Label/AnimationPlayer.play("vis")
 		if world["level"] <= level:
 			world["level"] = level + 1
 		if world["stage"] < stade:
