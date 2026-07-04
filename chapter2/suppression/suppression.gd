@@ -12,6 +12,10 @@ func _ready() -> void:
 		$Node3D/Node3D/AnimationPlayer.play("start")
 		$attack/AnimationPlayer.play("attack")
 		$attack/CollisionShape3D.disabled = false
+		$button.queue_free()
+		$button2.queue_free()
+		$button3.queue_free()
+		$button4.queue_free()
 
 func handle_interaction(object_name: String):
 	match object_name:

@@ -1,8 +1,10 @@
+Label3D
+Label
+OmniLight3D
 AnimationPlayer
 Button
 HBoxContainer
 VBoxContainer
-Label
 Panel
 ScrollContainer
 Container
@@ -11,4 +13,3 @@ TextureRect
 Sprite2D
 CollisionShape3D
 Area3D
-Node3D

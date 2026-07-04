@@ -72,6 +72,7 @@ func _ready():
 
 	mi.material_override = mat
 	add_child(mi)
+	$MeshInstance3D2.queue_free()
 
 func _add_voxel(
 	vertices: PackedVector3Array,

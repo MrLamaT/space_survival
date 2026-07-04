@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://chapter2/rooms/dirt/RoPstone.tscn" id="2_6w42t"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_kgmxx"]
-[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="4_itfmm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]
 size = Vector3(7, 10, 1.5)
@@ -50,9 +49,3 @@ material = SubResource("StandardMaterial3D_u83kx")
 
 [node name="dirt" parent="StaticBody3D/wall" unique_id=1357790181 instance=ExtResource("2_6w42t")]
 transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 0.5, 0, 2.5, 0)
-
-[node name="Light" parent="." unique_id=1381863763 instance=ExtResource("4_itfmm")]
-transform = Transform3D(2, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.4, -0.65)
-
-[node name="Light2" parent="." unique_id=138224829 instance=ExtResource("4_itfmm")]
-transform = Transform3D(2, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.4, 0.65)

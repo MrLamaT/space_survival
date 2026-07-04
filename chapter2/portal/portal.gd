@@ -6,6 +6,7 @@ extends StaticBody3D
 var world = Global.get_world(Global.game_settings.word)
 var is_animating = false
 var cubes = []
+var win_anim = false
 
 func _ready():
 	if skin == 0:
@@ -70,7 +71,9 @@ func set_cube_colors(color: Color):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and skin == 1:
-		$Label/AnimationPlayer.play("vis")
+		if !win_anim:
+			$Label/AnimationPlayer.play("vis")
+			win_anim = true
 		if world["level"] <= level:
 			world["level"] = level + 1
 		if world["stage"] < stade:

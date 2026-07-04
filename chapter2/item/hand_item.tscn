@@ -12,8 +12,12 @@ script = ExtResource("1_6euei")
 texture = ExtResource("2_xd7bl")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1512269873]
-visible = false
 mesh = SubResource("CapsuleMesh_xd7bl")
 skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=310867146]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.15, 0.15, 0)
+mesh = SubResource("CapsuleMesh_xd7bl")
+skeleton = NodePath("../../MeshInstance3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437667083]
