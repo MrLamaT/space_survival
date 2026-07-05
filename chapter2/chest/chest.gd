@@ -9,8 +9,8 @@ var stage_items = {
 		"rare": ["quartz"]                      
 	},
 	2: {
-		"common": ["schematic", "schematic", "schematic"],
-		"rare": ["schematic"]
+		"common": ["sercilist", "sercilist", "sercilist"],
+		"rare": ["sercilist"]
 	}
 }
 
@@ -27,7 +27,8 @@ var item_icons = {
 	"glass panel": preload("res://assets/item/glass_panel.png"),
 	"coal": preload("res://assets/item/coal.png"),
 	"quartz": preload("res://assets/item/quartz.png"),
-	"schematic": preload("res://assets/item/schematic.png")
+	"schematic": preload("res://assets/item/schematic.png"),
+	"sercilist": preload("res://assets/item/sercilist.png")
 }
 
 var _secondary_color: Color

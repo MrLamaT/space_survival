@@ -29,15 +29,11 @@ func _ready():
 	super._ready()
 	previous_position = global_position
 	health = 20
-	if aura > 0:
-		health *= aura + 1
+	health *= int(speed_multiplier)
+	SPEED *= speed_multiplier
 	_setup_boss_bar()
 	if player:
 		start_chasing_player()
-
-func _apply_aura():
-	super._apply_aura()
-	SPEED *= speed_multiplier
 
 func _disable_combat_states():
 	is_chasing_player = false

@@ -711,117 +711,117 @@ transform = Transform3D(0.99999547, 0, -0.0030542314, 0, 1, 0, 0.0030542314, 0, 
 transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1, 31, 13, -50)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.8820267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 3.882)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=1630651691 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.576662, 0, 9.660244)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.577, -1.5, 9.66)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=877807334 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.051138, 0, -6.478668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.051, -1.5, -6.479)
 
 [node name="Wave3" parent="NavigationRegion3D" unique_id=1015534359 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-8.742278e-08, 0, -1, 0, 1, 0, 2, 0, -4.371139e-08, 24.5, 18, -38.863)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave3" unique_id=224960374 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4543924, 0, 7.909918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4543924, -1.5, 7.909918)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave3" unique_id=505925108 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4543924, 0, 5.196024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4543924, -1.5, 5.196024)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave3" unique_id=363152011 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0456085, 0, 7.909918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 7.909918)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave3" unique_id=1387447541 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0456085, 0, 5.196024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 5.196024)
 
 [node name="Wave5" parent="NavigationRegion3D" unique_id=2019108878 node_paths=PackedStringArray("Gates") instance=ExtResource("21_7st0v")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.7, 16.786089)
 Gates = NodePath("../Citadel/wallGates")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave5" unique_id=160361242 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.187, 0, 4.685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.187, -2, 4.685)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave5" unique_id=1907372065 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.599777, 0, 7.138422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.599777, -2, 7.138422)
 numberWave = 1
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Wave5" unique_id=187853087 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.599777, 0, 1.7744255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.599777, -2, 1.7744255)
 numberWave = 1
 
 [node name="WaveMarker6" parent="NavigationRegion3D/Wave5" unique_id=366483309 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42795, 0, 7.138422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42795, -2, 7.138422)
 numberWave = 1
 
 [node name="WaveMarker7" parent="NavigationRegion3D/Wave5" unique_id=1241740321 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42795, 0, 1.7744255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.42795, -2, 1.7744255)
 numberWave = 1
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave5" unique_id=1461738514 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7298555, 0, -4.0765944)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73, -2, -4.077)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave5" unique_id=496501876 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4722667, 0, 2.6538773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4722667, -2, 2.6538773)
 
 [node name="Wave6" parent="NavigationRegion3D" unique_id=96632188 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.836868, 3.7, 21.875252)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave6" unique_id=1721490047 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.073225, 0, 4.6849995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.073, -2.175, 4.685)
 aura = 1
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave6" unique_id=1001993333 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07322502, 0, 4.6849995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.073, -2.175, 4.685)
 aura = 1
 
 [node name="Wave2" parent="NavigationRegion3D" unique_id=805971456 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-1.0927847e-08, 0, 5, 0, 1, 0, -0.25, 0, -2.1855695e-07, -0.91696525, 13, -61.31774)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave2" unique_id=469407771 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 0, 0, 2.060053)
+transform = Transform3D(1, 0, -1.7053026e-13, 0, 1, 0, 0, 0, 1, 0, -1.5, 2.06)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave2" unique_id=654641611 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, -3.9790393e-13, 0, 1, 0, 0, 0, 1, -39.418396, 4.5698376, 4.0059185)
+transform = Transform3D(1, 0, -3.9790393e-13, 0, 1, 0, 0, 0, 1, -39.418, 3.5, 4.006)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave2" unique_id=1669803194 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(1, 0, -4.5474735e-13, 0, 1, 0, 0, 0, 1, -11.472702, 4.5698376, 4.0059185)
+transform = Transform3D(1, 0, -4.5474735e-13, 0, 1, 0, 0, 0, 1, -11.473, 3.5, 4.006)
 
 [node name="Wave4" parent="NavigationRegion3D" unique_id=973391326 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-5.2453668e-08, 0, 1, 0, 1, 0, -1.2, 0, -4.371139e-08, 25.5, 22.25, -25.180058)
 sound = false
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave4" unique_id=554519341 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -6.0721855, -19.25, -5.160961)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -6.072, -20.75, -5.161)
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Wave4" unique_id=616058749 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 7.1218452, -19.25, -23.211315)
+transform = Transform3D(-0.64018434, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 7.122, -20.75, -23.211)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave4" unique_id=908569059 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892558, 0, 1, 0, 1.7677668, 0, -0.7071067, -34.958084, 0.9744606, -2.6551304)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -34.958084, 0.9744606, -2.6551304)
 enemy = "giantStingray"
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave4" unique_id=1340579531 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892558, 0, 1, 0, 1.7677668, 0, -0.7071067, -47.458084, -4.0255394, 7.3448734)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -47.458084, -4.0255394, 7.3448734)
 enemy = "giantStingray"
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave4" unique_id=1200258617 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892558, 0, 1, 0, 1.7677668, 0, -0.7071067, -22.458097, -4.0255394, 7.3448734)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -22.458097, -4.0255394, 7.3448734)
 enemy = "giantStingray"
 
 [node name="Wave7" parent="NavigationRegion3D" unique_id=603881001 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-5.2453668e-08, 0, 1, 0, 1, 0, -1.2, 0, -4.371139e-08, 3.871, 3, -31.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave7" unique_id=619427029 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.58925605, 0, 1, 0, 1.7677668, 0, -0.7071067, -0.18038368, 0, -7.5972395)
+transform = Transform3D(-0.64018434, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -0.18, -1.5, -7.597)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave7" unique_id=1375343407 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.58925617, 0, 1, 0, 1.7677668, 0, -0.7071067, -13.202199, 0, -3.0109293)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -13.202, -1.5, -3.011)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave7" unique_id=1099882793 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892563, 0, 1, 0, 1.7677668, 0, -0.7071067, -18.322002, 0, -15.96444)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -18.322, -1.5, -15.964)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave7" unique_id=356655298 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892564, 0, 1, 0, 1.7677668, 0, -0.7071067, -9.602833, 0, -22.113754)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -9.603, -1.5, -22.114)
 
 [node name="TaserGive" parent="NavigationRegion3D" unique_id=1674257042 instance=ExtResource("23_w2f0a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.813393, 11, -55.76956)
@@ -879,47 +879,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.578, 0.52, 7.523334)
 ImpenetrableField = NodePath("../ImpenetrableField")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Suppression" unique_id=1032688423 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 3, 1, -3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 3, 1, -3)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Suppression" unique_id=2095636215 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -3, 1, -3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -3, 1, -3)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Suppression" unique_id=2074979792 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -3, 1, 3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -3, 1, 3)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Suppression" unique_id=1497953896 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 3, 1, 3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 3, 1, 3)
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Suppression" unique_id=621181834 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, 3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 0, 1, 3)
 numberWave = 1
 
 [node name="WaveMarker6" parent="NavigationRegion3D/Suppression" unique_id=142063117 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, -3)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 0, 1, -3)
 numberWave = 1
 
 [node name="WaveMarker7" parent="NavigationRegion3D/Suppression" unique_id=1221322997 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 3, 1, 0)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 3, 1, 0)
 numberWave = 1
 
 [node name="WaveMarker8" parent="NavigationRegion3D/Suppression" unique_id=84910312 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -3, 1, 0)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -3, 1, 0)
 numberWave = 1
 
 [node name="WaveMarker9" parent="NavigationRegion3D/Suppression" unique_id=17916860 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, 5)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 0, 1, 5)
 numberWave = 2
 
 [node name="WaveMarker10" parent="NavigationRegion3D/Suppression" unique_id=1500944462 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, -5)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 0, 1, -5)
 numberWave = 2
 
 [node name="WaveMarker11" parent="NavigationRegion3D/Suppression" unique_id=45291830 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 5, 1, 0)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, 5, 1, 0)
 numberWave = 2
 
 [node name="WaveMarker12" parent="NavigationRegion3D/Suppression" unique_id=711650133 instance=ExtResource("22_ccvf0")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -5, 1, 0)
+transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -5, 1, 0)
 numberWave = 2
 
 [node name="Debris" parent="NavigationRegion3D" unique_id=374490993 instance=ExtResource("28_56evf")]

@@ -20,9 +20,12 @@ var health: int = 1
 var player: Node3D = null
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var speed_multiplier: float = 1.0 
+
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	if aura > 0:
+		speed_multiplier = aura + 1
 		_apply_aura()
 
 func _setup_boss_bar():
@@ -37,8 +40,6 @@ func _apply_aura():
 	var aura_color = Color("#ff7a01") if aura == 1 else Color("#f50000")
 	if has_node("Aura"):
 		$Aura.modulate = aura_color
-	speed_multiplier = aura + 1
-	health *= aura + 1
 
 func take_damage(damage: int):
 	if is_dying or is_dead:
@@ -146,8 +147,6 @@ func _disable_combat_states():
 
 func _get_boss_id() -> String:
 	return "enemy"
-
-var speed_multiplier: float = 1.0 
 
 func _handle_death_process(delta):
 	if should_shatter:

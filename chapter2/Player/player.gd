@@ -74,10 +74,10 @@ var current_fov: float = base_fov
 var is_running = false
 var stamina = 100.0
 var max_stamina = 100.0
-var stamina_depletion_rate = 50.0  # Скорость расходования стамины в секунду
-var stamina_regen_rate = 20.0      # Скорость восстановления стамины в секунду
+var stamina_depletion_rate = 25.0  # Скорость расходования стамины в секунду
+var stamina_regen_rate = 25.0      # Скорость восстановления стамины в секунду
 var can_regenerate = true
-var regen_delay = 1  # Задержка перед восстановлением после бега
+var regen_delay = 0.5  # Задержка перед восстановлением после бега
 var regen_timer = 0.0
 
 # Фонарик
@@ -281,57 +281,51 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
 	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
-		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
-			held_build.position.y -= 1
-		else:
-			if weapon_scroll_cooldown <= 0:
-				var world = Global.get_world(Global.game_settings.word)
-				release_build()
-				if world["mode"] != 1:
-					current_weapon_slot += 1
-					if current_weapon_slot > 5:
-						current_weapon_slot = 1
-					weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-				else:
-					current_weapon_slot += 1
-					if current_weapon_slot > 8:
-						current_weapon_slot = 1
-					match current_weapon_slot:
-						6:
-							weapon_system.equip_weapon("Move")
-						7:
-							weapon_system.equip_weapon("Delete")
-						8:
-							weapon_system.equip_weapon("Summon")
-						_:
-							weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-				weapon_scroll_cooldown = weapon_scroll_delay
-	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
-		if held_build and Global.get_world(Global.game_settings.word)["mode"] == 1:
-			held_build.position.y += 1
-		else:
-			if weapon_scroll_cooldown <= 0:
-				var world = Global.get_world(Global.game_settings.word)
-				release_build()
-				if world["mode"] != 1:
-					current_weapon_slot -= 1
-					if current_weapon_slot < 1:
-						current_weapon_slot = 5
+		if weapon_scroll_cooldown <= 0:
+			var world = Global.get_world(Global.game_settings.word)
+			release_build()
+			if world["mode"] != 1:
+				current_weapon_slot += 1
+				if current_weapon_slot > 5:
+					current_weapon_slot = 1
+				weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			else:
+				current_weapon_slot += 1
+				if current_weapon_slot > 8:
+					current_weapon_slot = 1
+				match current_weapon_slot:
+					6:
+						weapon_system.equip_weapon("Move")
+					7:
+						weapon_system.equip_weapon("Delete")
+					8:
+						weapon_system.equip_weapon("Summon")
+					_:
 						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-				else:
-					current_weapon_slot -= 1
-					if current_weapon_slot < 1:
-						current_weapon_slot = 8
-					match current_weapon_slot:
-						6:
-							weapon_system.equip_weapon("Move")
-						7:
-							weapon_system.equip_weapon("Delete")
-						8:
-							weapon_system.equip_weapon("Summon")
-						_:
-							weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-				weapon_scroll_cooldown = weapon_scroll_delay
+			weapon_scroll_cooldown = weapon_scroll_delay
+	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
+		if weapon_scroll_cooldown <= 0:
+			var world = Global.get_world(Global.game_settings.word)
+			release_build()
+			if world["mode"] != 1:
+				current_weapon_slot -= 1
+				if current_weapon_slot < 1:
+					current_weapon_slot = 5
+					weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			else:
+				current_weapon_slot -= 1
+				if current_weapon_slot < 1:
+					current_weapon_slot = 8
+				match current_weapon_slot:
+					6:
+						weapon_system.equip_weapon("Move")
+					7:
+						weapon_system.equip_weapon("Delete")
+					8:
+						weapon_system.equip_weapon("Summon")
+					_:
+						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			weapon_scroll_cooldown = weapon_scroll_delay
 	if Input.is_action_just_pressed("+1"):
 		release_build()
 		current_weapon_slot = 1
@@ -482,7 +476,9 @@ func _process(delta):
 		damage_cooldown -= delta
 
 func _update_stamina(delta):
-	if is_running and input_dir.length() > 0 and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
+	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
+	var is_actually_moving = horizontal_speed > 0.5
+	if is_running and is_actually_moving and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
 		stamina = max(0, stamina - stamina_depletion_rate * delta)
 		can_regenerate = false
 		regen_timer = 0.0
@@ -583,14 +579,6 @@ func _physics_process(delta):
 				velocity.y -= gravity * delta
 	else:
 		handle_flight_movement(delta)
-	if Input.is_action_pressed("+shift") and stamina > 0 and input_dir.length() > 0 and movement_enabled and not crouched:
-		if not is_running:
-			is_running = true
-			update_running_speed()
-	else:
-		if is_running:
-			is_running = false
-			update_running_speed()
 	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and movement_enabled and not Global.game_settings["UI"]:
 		if not is_walking:
 			is_walking = true
@@ -623,6 +611,20 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0.0, accel * delta)
 		if not Global.game_settings["affected_by_gravity"]:
 			velocity.y = lerp(velocity.y, 0.0, accel * delta)
+	if Input.is_action_pressed("+shift") and stamina > 0 and movement_enabled and not crouched:
+		var horizontal_speed = Vector2(velocity.x, velocity.z).length()
+		if horizontal_speed > 0.5:
+			if not is_running:
+				is_running = true
+				update_running_speed()
+		else:
+			if is_running:
+				is_running = false
+				update_running_speed()
+	else:
+		if is_running:
+			is_running = false
+			update_running_speed()
 	move_and_slide()
 	interaction_manager.check_interactable()
 	if is_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
@@ -799,16 +801,29 @@ func MoveBuild(build):
 		return
 	print("переместить: ", build)
 	held_build = build
-	hold_distance = global_position.distance_to(build.global_position)
+	var distance_to_build = global_position.distance_to(build.global_position)
+	var min_safe_distance = 2.0
+	if distance_to_build < min_safe_distance:
+		var direction_to_build = build.global_position - global_position
+		direction_to_build.y = 0
+		direction_to_build = direction_to_build.normalized()
+		if direction_to_build.length() < 0.1:
+			var forward = -cam.global_transform.basis.z
+			forward.y = 0
+			forward = forward.normalized()
+			direction_to_build = forward
+		build.global_position = global_position + (direction_to_build * min_safe_distance)
+		build.global_position.y = build.global_position.y 
+		hold_distance = min_safe_distance
+	else:
+		hold_distance = distance_to_build
 
 func update_held_build():
 	if not held_build:
 		return
-	var camera_forward = -head.global_transform.basis.z
-	camera_forward.y = 0
+	var camera_forward = -cam.global_transform.basis.z
 	camera_forward = camera_forward.normalized()
 	var target_position = cam.global_position + (camera_forward * hold_distance)
-	target_position.y = cam.global_position.y - 0.5
 	held_build.global_position = target_position
 	if held_build is RigidBody3D:
 		held_build.linear_velocity = Vector3.ZERO

@@ -32,12 +32,12 @@ func _ready():
 	super._ready()
 	previous_position = global_position
 	health = 60
+	health *= int(speed_multiplier)
+	SPEED *= speed_multiplier
+	SHOOT_COOLDOWN /= speed_multiplier
 	if is_boss:
 		health = 190
 		$body/body/Sprite3D.visible = true
-	if aura > 0:
-		health *= aura + 1
-		SHOOT_COOLDOWN /= aura + 1
 	shatter_parts = [
 		$body/body,
 		$body/hand1,
@@ -47,11 +47,6 @@ func _ready():
 	if player:
 		start_chasing_player()
 		shoot_timer = 2.0
-
-func _apply_aura():
-	super._apply_aura()
-	SPEED *= speed_multiplier
-	SHOOT_COOLDOWN /= speed_multiplier
 
 func _disable_combat_states():
 	is_chasing_player = false

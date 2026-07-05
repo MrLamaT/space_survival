@@ -1,7 +1,10 @@
+Sprite3D
+AnimationPlayer
+MeshInstance3D
+Marker3D
 Label3D
 Label
 OmniLight3D
-AnimationPlayer
 Button
 HBoxContainer
 VBoxContainer
@@ -10,6 +13,3 @@ ScrollContainer
 Container
 Control
 TextureRect
-Sprite2D
-CollisionShape3D
-Area3D

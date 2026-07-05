@@ -34,17 +34,12 @@ var CHASE_TIMEOUT: float = 2.0
 func _ready():
 	super._ready()
 	health = 40
-	if aura > 0:
-		health *= aura + 1
-		BURST_COOLDOWN_TIME /= aura + 1
+	health *= int(speed_multiplier)
+	BURST_COOLDOWN_TIME /= speed_multiplier
 	_setup_boss_bar()
 	if player:
 		burst_shots_left = BURST_SHOTS
 		burst_cooldown = 2.0
-
-func _apply_aura():
-	super._apply_aura()
-	BURST_COOLDOWN_TIME /= speed_multiplier
 
 func _disable_combat_states():
 	is_jumping = false

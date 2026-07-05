@@ -47,17 +47,12 @@ var spawn_protection: float = 1.5  # Защита после появления
 func _ready():
 	super._ready()
 	health = 200
-	if aura > 0:
-		health *= aura + 1
-		BURST_COOLDOWN_TIME /= (aura + 1)
+	health *= int(speed_multiplier)
+	BURST_COOLDOWN_TIME /= speed_multiplier
 	_setup_boss_bar()
 	can_act = false
 	await get_tree().create_timer(spawn_protection).timeout
 	can_act = true
-
-func _apply_aura():
-	super._apply_aura()
-	BURST_COOLDOWN_TIME /= speed_multiplier
 
 func _disable_combat_states():
 	is_jumping = false

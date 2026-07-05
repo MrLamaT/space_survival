@@ -15,13 +15,9 @@ func _ready():
 	super._ready()
 	previous_position = global_position
 	health = 1
-	if aura > 0:
-		health *= aura + 1
-	_setup_boss_bar()
-
-func _apply_aura():
-	super._apply_aura()
+	health *= int(speed_multiplier)
 	SPEED *= speed_multiplier
+	_setup_boss_bar()
 
 func _disable_combat_states():
 	is_running_away = false

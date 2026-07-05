@@ -29,20 +29,15 @@ func _ready():
 	super._ready()
 	previous_position = global_position
 	health = 40
-	if aura > 0:
-		health *= aura + 1
-		SPEED *= aura + 1
+	health *= int(speed_multiplier)
+	SPEED *= speed_multiplier
+	ROTATION_SPEED *= speed_multiplier
 	shatter_parts = [
 		$body/Node3D,
 		$body/Node3D2
 	]
 	_setup_boss_bar()
 	choose_new_direction()
-
-func _apply_aura():
-	super._apply_aura()
-	SPEED *= speed_multiplier
-	ROTATION_SPEED *= speed_multiplier
 
 func _disable_combat_states():
 	is_moving_to_target = false

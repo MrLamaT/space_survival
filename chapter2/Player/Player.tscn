@@ -2,16 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="PackedScene" uid="uid://38pf3qnhxlqx" path="res://chapter2/item/Taser_projectile/Taser.tscn" id="2_eafwc"]
+[ext_resource type="PackedScene" uid="uid://d3iyjnx5spi4v" path="res://chapter2/item/Move_projectile/Move.tscn" id="3_0pv45"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
-[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="3_s8fo2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
-[ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://assets/weapon/move.png" id="4_0pv45"]
 [ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
-[ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://assets/weapon/delete.png" id="5_0pv45"]
+[ext_resource type="PackedScene" uid="uid://dh65kln2m3pgt" path="res://chapter2/item/Delete_projectile/Delete.tscn" id="4_q4qd6"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="5_r6r0m"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
-[ext_resource type="PackedScene" uid="uid://bev0pwjmn8sk3" path="res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver.tscn" id="6_q4qd6"]
-[ext_resource type="Texture2D" uid="uid://ecpjbyqy1nup" path="res://assets/weapon/summon.png" id="8_eafwc"]
+[ext_resource type="PackedScene" uid="uid://dwgeow4xng3p1" path="res://chapter2/item/Summon_projectile/Summon.tscn" id="6_eafwc"]
+[ext_resource type="PackedScene" uid="uid://bev0pwjmn8sk3" path="res://chapter2/item/Knife_projectile/Knife.tscn" id="6_q4qd6"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
@@ -25,128 +24,6 @@
 [ext_resource type="AudioStream" uid="uid://bbdfyp7jsu3lq" path="res://assets/sound/craft.wav" id="24_278cu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
-
-[sub_resource type="Animation" id="Animation_24wi4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_pyd7y"]
-resource_name = "take"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.5, 0.5, 0.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ecff"]
-_data = {
-&"RESET": SubResource("Animation_24wi4"),
-&"take": SubResource("Animation_pyd7y")
-}
-
-[sub_resource type="Animation" id="Animation_g5fsn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_5rrti"]
-resource_name = "take"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("handItem:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.3, 0.3, 0.3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("handItem:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_22qds"]
-_data = {
-&"RESET": SubResource("Animation_g5fsn"),
-&"take": SubResource("Animation_5rrti")
-}
 
 [sub_resource type="Animation" id="Animation_0pv45"]
 length = 0.001
@@ -500,37 +377,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
 
 [node name="Taser" parent="hand_position" unique_id=1688804302 instance=ExtResource("2_eafwc")]
 
-[node name="Move" type="Node3D" parent="hand_position" unique_id=163275995]
+[node name="Move" parent="hand_position" unique_id=362993477 instance=ExtResource("3_0pv45")]
 
-[node name="handItem" parent="hand_position/Move" unique_id=1667100869 instance=ExtResource("3_s8fo2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-visible = false
-texture = ExtResource("4_0pv45")
+[node name="Delete" parent="hand_position" unique_id=914906232 instance=ExtResource("4_q4qd6")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Move" unique_id=1327956547]
-libraries/ = SubResource("AnimationLibrary_6ecff")
+[node name="Knife" parent="hand_position" unique_id=1598003082 instance=ExtResource("6_q4qd6")]
 
-[node name="Delete" type="Node3D" parent="hand_position" unique_id=1441707920]
-
-[node name="handItem" parent="hand_position/Delete" unique_id=892125708 instance=ExtResource("3_s8fo2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-visible = false
-texture = ExtResource("5_0pv45")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Delete" unique_id=576668086]
-libraries/ = SubResource("AnimationLibrary_6ecff")
-
-[node name="EngineersCleaver" parent="hand_position" unique_id=1598003082 instance=ExtResource("6_q4qd6")]
-
-[node name="Summon" type="Node3D" parent="hand_position" unique_id=248368038]
-
-[node name="handItem" parent="hand_position/Summon" unique_id=946322436 instance=ExtResource("3_s8fo2")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-visible = false
-texture = ExtResource("8_eafwc")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="hand_position/Summon" unique_id=885188905]
-libraries/ = SubResource("AnimationLibrary_22qds")
+[node name="Summon" parent="hand_position" unique_id=1429431744 instance=ExtResource("6_eafwc")]
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -734,34 +587,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3,
 [node name="BulletSpawn" type="Marker3D" parent="head/Camera3D" unique_id=1917553546]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.15, -0.85)
 
-[node name="silicon" type="Sprite2D" parent="head/Camera3D" unique_id=1235826446]
-visible = false
-modulate = Color(0.6509804, 0.6901961, 0.74509805, 1)
-position = Vector2(339, 192)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="aluminium" type="Sprite2D" parent="head/Camera3D" unique_id=1027963871]
-visible = false
-modulate = Color(0.7529412, 0.7764706, 0.8039216, 1)
-position = Vector2(692, 178)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="titanium" type="Sprite2D" parent="head/Camera3D" unique_id=669423266]
-visible = false
-modulate = Color(0.5411765, 0.60784316, 0.65882355, 1)
-position = Vector2(819, 172)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="platinum" type="Sprite2D" parent="head/Camera3D" unique_id=1515878874]
-visible = false
-modulate = Color(0.8980392, 0.8980392, 0.8980392, 1)
-position = Vector2(941, 165)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
 [node name="uranium" type="Sprite2D" parent="head/Camera3D" unique_id=1022742011]
 visible = false
 modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
@@ -797,45 +622,10 @@ position = Vector2(450, 305)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
-[node name="nitrate" type="Sprite2D" parent="head/Camera3D" unique_id=1205101447]
-visible = false
-modulate = Color(1, 0.9764706, 0.76862746, 1)
-position = Vector2(568, 300)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="nitrogen" type="Sprite2D" parent="head/Camera3D" unique_id=762018929]
-visible = false
-modulate = Color(0.5058824, 0.83137256, 0.98039216, 1)
-position = Vector2(688, 298)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="organic_mass" type="Sprite2D" parent="head/Camera3D" unique_id=1443249079]
-visible = false
-modulate = Color(0.4862745, 0.7019608, 0.25882354, 1)
-position = Vector2(815, 292)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="bioplastic" type="Sprite2D" parent="head/Camera3D" unique_id=1109860884]
-visible = false
-modulate = Color(0.84313726, 0.8, 0.78431374, 1)
-position = Vector2(937, 285)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
 [node name="bioluminophore" type="Sprite2D" parent="head/Camera3D" unique_id=566318145]
 visible = false
 modulate = Color(0.39215687, 1, 0.85490197, 1)
 position = Vector2(1067, 281)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="superconductive_alloy" type="Sprite2D" parent="head/Camera3D" unique_id=818868198]
-visible = false
-modulate = Color(0.2509804, 0.76862746, 1, 1)
-position = Vector2(72, 430)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
@@ -846,52 +636,10 @@ position = Vector2(202, 430)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 
-[node name="quantum_filament" type="Sprite2D" parent="head/Camera3D" unique_id=1373179389]
-visible = false
-modulate = Color(0.91764706, 0.5019608, 0.9882353, 1)
-position = Vector2(331, 433)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="quantum_core" type="Sprite2D" parent="head/Camera3D" unique_id=1226338492]
-visible = false
-modulate = Color(1, 0.2509804, 0.5058824, 1)
-position = Vector2(446, 426)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
 [node name="neutronium" type="Sprite2D" parent="head/Camera3D" unique_id=551991757]
 visible = false
 modulate = Color(0.25882354, 0.25882354, 0.25882354, 1)
 position = Vector2(564, 421)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="singularity_energy" type="Sprite2D" parent="head/Camera3D" unique_id=861647673]
-visible = false
-modulate = Color(1, 1, 1, 0)
-position = Vector2(684, 419)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="uranium_rod" type="Sprite2D" parent="head/Camera3D" unique_id=421251970]
-visible = false
-modulate = Color(0.4, 0.73333335, 0.41568628, 1)
-position = Vector2(811, 413)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="basic_circuit" type="Sprite2D" parent="head/Camera3D" unique_id=1826679086]
-visible = false
-modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
-position = Vector2(933, 406)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="advanced_circuit" type="Sprite2D" parent="head/Camera3D" unique_id=213986227]
-visible = false
-modulate = Color(0.95686275, 0.2627451, 0.21176471, 1)
-position = Vector2(1063, 402)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
 

@@ -13,6 +13,7 @@ func spawn(type):
 	var enemies = {
 		"phantom": "res://chapter2/enemy/phantom.tscn",
 		"giantStingray": "res://chapter2/enemy/giantStingray.tscn",
+		"stingray": "res://chapter2/enemy/stingray.tscn",
 		"infantryman": "res://chapter2/enemy/infantryman.tscn",
 		"cockroach": "res://chapter2/enemy/cockroach.tscn",
 		"nextbot": "res://chapter2/enemy/nextbot.tscn",

@@ -2,7 +2,8 @@ extends Control
 
 @onready var textures: Array[Texture2D] = [
 	preload("res://assets/level/planet1_1.png"),
-	preload("res://assets/level/planet1_2.png")
+	preload("res://assets/level/planet1_2.png"),
+	preload("res://assets/level/planet1_3.png")
 ]
 
 func _ready():

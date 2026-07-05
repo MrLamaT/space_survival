@@ -17,7 +17,8 @@ func load_item_files() -> void:
 		"res://assets/item/iron_plate.png",
 		"res://assets/item/MATiron.png",
 		"res://assets/item/quartz.png",
-		"res://assets/item/schematic.png"
+		"res://assets/item/schematic.png",
+		"res://assets/item/sercilist.png"
 	]
 	current_index = 0
 	display_current_item()

@@ -790,38 +790,38 @@ enemy = "giantStingray"
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44, 13, 4.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave14" unique_id=622904736 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, -9.536743e-07, 0, 17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, 0, -1.5, 17)
 enemy = "shooter"
 
 [node name="Wave17" parent="NavigationRegion3D" unique_id=1423778356 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.5, 13, -10.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave17" unique_id=6353474 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, 0, 0, 9.000001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, 0, -1, 9)
 enemy = "infantryman"
 
 [node name="Wave15" parent="NavigationRegion3D" unique_id=490152404 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35, 13, -24.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave15" unique_id=407582783 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.333332, 0, 6.666668)
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.333332, -1.5, 6.666668)
 enemy = "shooter"
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave15" unique_id=280374417 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.333332, 0, 6.666668)
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -20.333332, -1.5, 6.666668)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave15" unique_id=1843169788 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.333332, 0, 6.666668)
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.333332, -1.5, 6.666668)
 
 [node name="Wave16" parent="NavigationRegion3D" unique_id=320497708 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 13, 8.5)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave16" unique_id=1396766778 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.333332, 0, 16.666668)
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.333332, -1.5, 16.666668)
 enemy = "shooter"
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave16" unique_id=1358012727 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.333332, 0, 16.666668)
+transform = Transform3D(-4.3711395e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.333332, -1.5, 16.666668)
 enemy = "shooter"
 
 [node name="Wave18" parent="NavigationRegion3D" unique_id=657390997 node_paths=PackedStringArray("Gates") instance=ExtResource("16_8tc7e")]
@@ -829,228 +829,217 @@ transform = Transform3D(-1.09278474e-07, 0, -1, 0, 1, 0, 2.5, 0, -4.371139e-08, 
 Gates = NodePath("../mine/wallGates")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave18" unique_id=2031327507 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 0.5, 0, 12.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -1, -1.5, 12.5)
+enemy = "stingray"
+is_boss = true
+
+[node name="WaveMarker4" parent="NavigationRegion3D/Wave18" unique_id=938500741 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -0.9999995, -1.5, 11.5)
+enemy = "stingray"
+numberWave = 1
+is_boss = true
+
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave18" unique_id=1814546252 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 1, -1.5, 12.5)
 enemy = "shooter"
+numberWave = 1
+
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave18" unique_id=553405371 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -3, -1.5, 12.5)
+enemy = "shooter"
+numberWave = 1
+
+[node name="WaveMarker5" parent="NavigationRegion3D/Wave18" unique_id=952148737 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 1, -1.5, 3.5)
+enemy = "shooter"
+numberWave = 1
+
+[node name="WaveMarker6" parent="NavigationRegion3D/Wave18" unique_id=1334969055 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -2.9999995, -1.5, 3.5000005)
+enemy = "shooter"
+numberWave = 1
 
 [node name="Wave19" parent="NavigationRegion3D" unique_id=344841697 node_paths=PackedStringArray("Gates") instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 13, 19.5)
 Gates = NodePath("../mine/wallGates")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave19" unique_id=259577157 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 0, 0, 22.5)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 0, -1.5, 22.5)
 enemy = "infantryman"
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave19" unique_id=74500724 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 7.999996, 0, 1.4999943)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 7.999996, -1.5, 1.4999943)
 enemy = "infantryman"
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave19" unique_id=761224069 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 2.499998, 0, 4.4999943)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 2.499998, -1.5, 4.4999943)
 enemy = "cleaner"
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave19" unique_id=76194276 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -2.5, 0, 8.5)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, -2.5, -1.5, 8.5)
 enemy = "cleaner"
 
 [node name="WaveMarker7" parent="NavigationRegion3D/Wave19" unique_id=793998125 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 2.4999962, 0, 27.5)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 2.4999962, -1.5, 27.5)
 enemy = "cleaner"
 
 [node name="WaveMarker8" parent="NavigationRegion3D/Wave19" unique_id=889761467 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 8.499992, 0, 7.499998)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 8.499992, -1.5, 7.499998)
 enemy = "cleaner"
 
 [node name="WaveMarker9" parent="NavigationRegion3D/Wave19" unique_id=987401582 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 21.499994, 0, 24.499996)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 21.499994, -1.5, 24.499996)
 enemy = "cleaner"
 
 [node name="WaveMarker6" parent="NavigationRegion3D/Wave19" unique_id=2084856411 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 0.5, 0, 18.5)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 0.5, -1.5, 18.5)
 enemy = "cleaner"
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Wave19" unique_id=1169404034 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 8.5, 0, 12.5)
+transform = Transform3D(-4.3711402e-08, 0, -1, 0, 1, 0, 1, 0, -4.3711374e-08, 8.5, -1.5, 12.5)
 enemy = "cleaner"
 
 [node name="Wave3" parent="NavigationRegion3D" unique_id=375629549 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 3, -11)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave3" unique_id=1194456681 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.6666667, 0, 0, 0, 1, 0, 0, 0, 1, -0.9999924, 0, 9)
-enemy = "infantryman"
-
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave3" unique_id=127283308 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-2.9140926e-08, 0, 9.333334, 0, 1, 0, -0.5, 0, -3.059797e-07, 2.6666183, 0, 3.9999924)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 15)
 enemy = "shooter"
+
+[node name="Wave10" parent="NavigationRegion3D" unique_id=1157071788 instance=ExtResource("16_8tc7e")]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 3, 11)
+
+[node name="WaveMarker" parent="NavigationRegion3D/Wave10" unique_id=1526537830 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 14)
+
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave10" unique_id=641139349 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1666718, -1.5, 14)
+
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave10" unique_id=782063251 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8333435, -1.5, 14)
+
+[node name="WaveMarker4" parent="NavigationRegion3D/Wave10" unique_id=721242216 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1.5, 17)
+
+[node name="WaveMarker5" parent="NavigationRegion3D/Wave10" unique_id=98927707 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1666718, -1.5, 17)
+
+[node name="WaveMarker6" parent="NavigationRegion3D/Wave10" unique_id=1697950639 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8333435, -1.5, 17)
 
 [node name="Wave2" parent="NavigationRegion3D" unique_id=588605585 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 46.5, 3, -38)
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave2" unique_id=298443985 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-2.9140926e-08, 0, 9.333334, 0, 1, 0, -0.5, 0, -3.059797e-07, -3.8146973e-06, 0, 14.999998)
+[node name="WaveMarker" parent="NavigationRegion3D/Wave2" unique_id=298443985 instance=ExtResource("17_ik10i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.8146973e-06, -1.5, 14.999998)
 enemy = "infantryman"
-
-[node name="WaveMarker7" parent="NavigationRegion3D/Wave2" unique_id=322277012 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-2.9140926e-08, 0, 9.333334, 0, 1, 0, -0.5, 0, -3.059797e-07, 6.6666183, 0, 4.9999924)
-
-[node name="WaveMarker8" parent="NavigationRegion3D/Wave2" unique_id=1203626680 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-2.9140926e-08, 0, 9.333334, 0, 1, 0, -0.5, 0, -3.059797e-07, 6.6666183, 0, 6.4999924)
-
-[node name="WaveMarker9" parent="NavigationRegion3D/Wave2" unique_id=699756105 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-2.9140926e-08, 0, 9.333334, 0, 1, 0, -0.5, 0, -3.059797e-07, 6.6666183, 0, 7.9999886)
 
 [node name="Wave4" parent="NavigationRegion3D" unique_id=412804925 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-8.742278e-08, 0, 1, 0, 1, 0, -2, 0, -4.371139e-08, 41.7, 3, 39.35)
 
-[node name="WaveMarker" parent="NavigationRegion3D/Wave4" unique_id=366289260 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33333397, 0, -9.000008)
-enemy = "infantryman"
+[node name="WaveMarker" parent="NavigationRegion3D/Wave4" unique_id=1270884465 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.999999, -1.5, -5.000019)
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave4" unique_id=1270884465 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.999999, 0, -5.000019)
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave4" unique_id=363740277 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.999999, -1.5, -11.000021)
 
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave4" unique_id=363740277 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.999999, 0, -11.000021)
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave4" unique_id=2008745324 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.000019)
+[node name="WaveMarker3" parent="NavigationRegion3D/Wave4" unique_id=2008745324 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1.5, -5.000019)
 
 [node name="Wave5" parent="NavigationRegion3D" unique_id=1332926650 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.7, 3, 48.75)
 
-[node name="WaveMarker" parent="NavigationRegion3D/Wave5" unique_id=1257369062 instance=ExtResource("17_ik10i")]
-transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, 11.249996, 0, -22.000004)
-enemy = "infantryman"
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave5" unique_id=1660467641 instance=ExtResource("17_ik10i")]
-transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 18.249992, 0, -17.000004)
-
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave5" unique_id=479348696 instance=ExtResource("17_ik10i")]
-transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 8.249996, 0, -30.000004)
+transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 8.249996, -1.5, -25.000004)
 enemy = "shooter"
 
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave5" unique_id=1634054745 instance=ExtResource("17_ik10i")]
-transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 3.2499847, 0, -13.000005)
+[node name="WaveMarker" parent="NavigationRegion3D/Wave5" unique_id=1634054745 instance=ExtResource("17_ik10i")]
+transform = Transform3D(3.2500002, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 3.2499847, -1.5, -13.000005)
 enemy = "shooter"
 
 [node name="Wave6" parent="NavigationRegion3D" unique_id=455328080 instance=ExtResource("16_8tc7e")]
-transform = Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1, 13.75, 3, 25)
+transform = Transform3D(-5.4639237e-08, 0, 1, 0, 1, 0, -1.25, 0, -4.371139e-08, 24.75, 3, 18)
 
-[node name="WaveMarker" parent="NavigationRegion3D/Wave6" unique_id=976329612 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -8)
+[node name="WaveMarker" parent="NavigationRegion3D/Wave6" unique_id=291404038 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.0658141e-14, 0, 1, 5.6000004, -1.5, 5)
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave6" unique_id=291404038 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6, 0, -15)
-enemy = "shooter"
-
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave6" unique_id=2123185227 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.600004, 0, -8)
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave6" unique_id=885862955 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 5.6000004, -1.5, 11)
 enemy = "shooter"
 
 [node name="Wave7" parent="NavigationRegion3D" unique_id=801087720 instance=ExtResource("16_8tc7e")]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 33.25, 3, 4.75)
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1, 33.25, 3, -0.25)
 
-[node name="WaveMarker" parent="NavigationRegion3D/Wave7" unique_id=209770532 instance=ExtResource("17_ik10i")]
-transform = Transform3D(0.7692308, 0, 0, 0, 1, 0, 0, 0, 1, -5.089422, 0, -8.75)
-
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave7" unique_id=951833481 instance=ExtResource("17_ik10i")]
-transform = Transform3D(0.7692308, 0, 0, 0, 1, 0, 0, 0, 1, -0.474041, 0, -23.75)
+[node name="WaveMarker" parent="NavigationRegion3D/Wave7" unique_id=951833481 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.474041, -1.5, -23.75)
 enemy = "infantryman"
 
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave7" unique_id=1985571771 instance=ExtResource("17_ik10i")]
-transform = Transform3D(0.7692308, 0, 0, 0, 1, 0, 0, 0, 1, 3.8336525, 0, -12.75)
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave7" unique_id=1985571771 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8336525, -1.5, -12.75)
 enemy = "shooter"
 
 [node name="Wave8" parent="NavigationRegion3D" unique_id=1429258236 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-2.2511365e-07, 0, 1, 0, 1, 0, -5.15, 0, -4.371139e-08, 10.75, 3, -23)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave8" unique_id=740506689 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.655655, 0, -11.000005)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.655655, -1.5, -11.000005)
 enemy = "shooter"
 
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave8" unique_id=1336444760 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.338243, 0, -9.999999)
-enemy = "shooter"
-
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave8" unique_id=1602783361 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6556554, 0, -24.000004)
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave8" unique_id=637519804 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3673673, 0, -23.999998)
-
-[node name="WaveMarker5" parent="NavigationRegion3D/Wave8" unique_id=2068540986 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -9)
-enemy = "infantryman"
+[node name="WaveMarker2" parent="NavigationRegion3D/Wave8" unique_id=2068540986 instance=ExtResource("17_ik10i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.5, -5.9999995)
 
 [node name="Wave9" parent="NavigationRegion3D" unique_id=359888413 instance=ExtResource("16_8tc7e")]
-transform = Transform3D(-1.15835185e-07, 0, 1, 0, 1, 0, -2.65, 0, -4.371139e-08, -13.25, 3, -10.5)
+transform = Transform3D(-1.15835185e-07, 0, 1, 0, 1, 0, -2.65, 0, -4.371139e-08, -23.25, 3, -10.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave9" unique_id=923060971 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, -3.9, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, -3.9, -1.5, -7)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave9" unique_id=819413272 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, -3.9, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, -3.9, -1.5, -9)
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave9" unique_id=1743900195 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, -3.9, 0, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, -3.9, -1.5, -11)
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave9" unique_id=315642255 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, 2.75, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, 2.75, -1.5, -7)
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Wave9" unique_id=1748498654 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, 2.75, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, 2.75, -1.5, -9)
 
 [node name="WaveMarker6" parent="NavigationRegion3D/Wave9" unique_id=626800686 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, 2.75, 0, -11)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, 2.75, -1.5, -11)
 
 [node name="WaveMarker7" parent="NavigationRegion3D/Wave9" unique_id=654563105 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 4.973799e-14, 0, 1, -2.65, 0, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 4.973799e-14, 0, 1, -2.65, -1.5, -21)
 enemy = "shooter"
 
 [node name="WaveMarker8" parent="NavigationRegion3D/Wave9" unique_id=533937711 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 4.973799e-14, 0, 1, 2.65, 0, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 4.973799e-14, 0, 1, 2.65, -1.5, -21)
 enemy = "shooter"
-
-[node name="Wave10" parent="NavigationRegion3D" unique_id=392026563 instance=ExtResource("16_8tc7e")]
-transform = Transform3D(-1.09278474e-07, 0, 1, 0, 1, 0, -2.5, 0, -4.371139e-08, -40.25, 3, -9.85)
-
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave10" unique_id=292702907 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, 6.8000016, 0, -5)
-enemy = "shooter"
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave10" unique_id=7543207 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 7.81597e-14, 0, 1, 11.600002, 0, -4.0000114)
-
-[node name="WaveMarker5" parent="NavigationRegion3D/Wave10" unique_id=1752639501 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 7.81597e-14, 0, 1, -1.1999979, 0, -6.0000114)
-
-[node name="WaveMarker6" parent="NavigationRegion3D/Wave10" unique_id=1635598281 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 9.947598e-14, 0, 1, 10.400003, 0, -15.000019)
-enemy = "infantryman"
 
 [node name="Wave11" parent="NavigationRegion3D" unique_id=1787703383 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-3.278354e-08, 0, 1, 0, 1, 0, -0.75, 0, -4.371139e-08, -48.25, 3, -52.5)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave11" unique_id=1085435434 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.5652174, 0, 0, 0, 1, 0, 3.1974423e-14, 0, 1, 1.2753525, 0, 4.0000076)
+transform = Transform3D(1, 0, -2.0428104e-14, 0, 1, 0, 2.0428104e-14, 0, 1, 1.2753525, -1.5, 4.0000076)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave11" unique_id=414600940 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.5652174, 0, 0, 0, 1, 0, 3.1974423e-14, 0, 1, -0.05797577, 0, 9.000011)
+transform = Transform3D(1, 0, -2.0428104e-14, 0, 1, 0, 2.0428104e-14, 0, 1, -0.05797577, -1.5, 9.000011)
 enemy = "shooter"
 
 [node name="Wave12" parent="NavigationRegion3D" unique_id=587437724 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-2.6226834e-08, 0, 1, 0, 1, 0, -0.6, 0, -4.371139e-08, 2.75, 3, -53.6)
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave12" unique_id=1687781647 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.5652174, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, -3.25, 0, -22)
+transform = Transform3D(1, 0, -4.5395786e-15, 0, 1, 0, 4.5395786e-15, 0, 1, -3.25, -1.5, -22)
 aura = 1
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave12" unique_id=733189266 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.5652174, 0, 0, 0, 1, 0, 7.1054274e-15, 0, 1, 3.25, 0, -22)
+transform = Transform3D(1, 0, -4.5395786e-15, 0, 1, 0, 4.5395786e-15, 0, 1, 3.25, -1.5, -22)
 aura = 1
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave12" unique_id=535445087 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.5652174, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 0, 0, -35)
+transform = Transform3D(1, 0, -9.079157e-15, 0, 1, 0, 9.079157e-15, 0, 1, 0, -1.5, -35)
 enemy = "infantryman"
 aura = 1
 
@@ -1058,20 +1047,20 @@ aura = 1
 transform = Transform3D(-2.6226834e-08, 0, 1, 0, 1, 0, -0.6, 0, -4.371139e-08, 36.75, 3, -53.6)
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave13" unique_id=908578112 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.52, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, -5.73333, 0, -29.000002)
+transform = Transform3D(1, 0, -1.402387e-14, 0, 1, 0, 1.402387e-14, 0, 1, -5.73333, -1.5, -29.000002)
 aura = 1
 
 [node name="WaveMarker5" parent="NavigationRegion3D/Wave13" unique_id=763985976 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.52, 0, 0, 0, 1, 0, 2.1316282e-14, 0, 1, -5.73333, 0, -21.000004)
+transform = Transform3D(1, 0, -1.402387e-14, 0, 1, 0, 1.402387e-14, 0, 1, -5.73333, -1.5, -21.000004)
 aura = 1
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave13" unique_id=1197661743 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.52, 0, 0, 0, 1, 0, 2.842171e-14, 0, 1, 0, 0, -29)
+transform = Transform3D(1, 0, -1.8698493e-14, 0, 1, 0, 1.8698493e-14, 0, 1, 0, -1.5, -29)
 enemy = "shooter"
 aura = 1
 
 [node name="WaveMarker4" parent="NavigationRegion3D/Wave13" unique_id=1581481519 instance=ExtResource("17_ik10i")]
-transform = Transform3D(1.52, 0, 0, 0, 1, 0, 3.5527137e-14, 0, 1, 0, 0, -16)
+transform = Transform3D(1, 0, -2.3373117e-14, 0, 1, 0, 2.3373117e-14, 0, 1, 0, -1.5, -16)
 aura = 1
 
 [node name="crane" parent="NavigationRegion3D" unique_id=1075963565 instance=ExtResource("18_u11jv")]

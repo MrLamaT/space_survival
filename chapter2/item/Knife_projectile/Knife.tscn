@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="1_udn4a"]
 [ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="2_iyb0i"]
 [ext_resource type="AudioStream" uid="uid://bpjw5ktpagcdq" path="res://assets/sound/sword.wav" id="3_857ox"]
-[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/hand1.png" id="4_iyb0i"]
+[ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://chapter2/item/hand.tscn" id="4_fl0d8"]
 
 [sub_resource type="Animation" id="Animation_278cu"]
 length = 0.001
@@ -192,19 +192,7 @@ _data = {
 &"take": SubResource("Animation_bsm05")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5vkf"]
-shading_mode = 0
-albedo_texture = ExtResource("4_iyb0i")
-uv1_scale = Vector3(2, 2, -1.5)
-uv1_offset = Vector3(0.65, 0.5, 0.6)
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_857ox"]
-material = SubResource("StandardMaterial3D_i5vkf")
-size = Vector3(0.15, 0.45, 0.1)
-
-[node name="EngineersCleaver" type="Node3D" unique_id=1598003082]
+[node name="Knife" type="Node3D" unique_id=1598003082]
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_udn4a")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.2, 0.2)
@@ -219,9 +207,5 @@ stream = ExtResource("3_857ox")
 volume_db = -5.0
 pitch_scale = 1.5
 
-[node name="hand" type="MeshInstance3D" parent="." unique_id=125296407]
+[node name="hand" parent="." unique_id=1885934729 instance=ExtResource("4_fl0d8")]
 transform = Transform3D(3.0551252e-08, 1, -1.504212e-07, 0.9961947, -4.3545054e-08, -0.08715564, -0.08715565, -1.4718611e-07, -0.9961946, 0.25, -0.2, 0)
-visible = false
-cast_shadow = 0
-mesh = SubResource("BoxMesh_857ox")
-skeleton = NodePath("../..")

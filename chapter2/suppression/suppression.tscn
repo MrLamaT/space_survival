@@ -453,5 +453,8 @@ debug_color = Color(0.5793557, 9.3854965e-07, 0.34273544, 0.41960785)
 stream = ExtResource("9_lvbb8")
 pitch_scale = 2.0
 
+[node name="BulletSpawn" type="Marker3D" parent="." unique_id=35716350]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 1.5, 0)
+
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

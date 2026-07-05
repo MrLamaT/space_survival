@@ -30,6 +30,11 @@ func _on_attack_body_entered(body: Node3D) -> void:
 		body.take_damage(999999)
 
 func start_wave() -> void:
+	var boom_scene = load("res://chapter2/item/Boom_projectile/Boom_projectile.tscn")
+	if boom_scene:
+		var boom_instance = boom_scene.instantiate()
+		get_tree().root.add_child(boom_instance)
+		boom_instance.global_position = $BulletSpawn.global_position
 	if !SpawnAudio and sound:
 		$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
 		$AudioStreamPlayer3D.play()
@@ -60,4 +65,9 @@ func _on_timer_timeout() -> void:
 	print("enemy_wale: ", enemy_nodes.size())
 	if enemy_nodes.size() == 0:
 		current_wave += 1
+		var boom_scene = load("res://chapter2/item/Boom_projectile/Boom_projectile.tscn")
+		if boom_scene:
+			var boom_instance = boom_scene.instantiate()
+			get_tree().root.add_child(boom_instance)
+			boom_instance.global_position = $BulletSpawn.global_position
 		start_wave()

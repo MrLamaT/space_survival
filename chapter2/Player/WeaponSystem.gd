@@ -26,13 +26,13 @@ var weapons: Dictionary = {
 		"visible_node": "Taser",
 		"pitch_scale": [1.4, 1.6]
 	},
-	"EngineersCleaver": {
-		"scene": preload("res://chapter2/item/EngineersCleaver_projectile/EngineersCleaver_projectile.tscn"),
+	"Knife": {
+		"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
 		"fire_rate": 0.75,
 		"bullet_speed": 0.0,
 		"stamina_cost": 2.0,
 		"shoot_animation": "shoot",
-		"visible_node": "EngineersCleaver",
+		"visible_node": "Knife",
 		"pitch_scale": [1.4, 1.6]
 	},
 	"Move": {
@@ -40,6 +40,7 @@ var weapons: Dictionary = {
 		"fire_rate": 0.5,
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
+		"shoot_animation": "shoot",
 		"visible_node": "Move"
 	},
 	"Delete": {
