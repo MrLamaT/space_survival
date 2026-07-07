@@ -15,6 +15,7 @@ func spawn(type):
 		"giantStingray": "res://chapter2/enemy/giantStingray.tscn",
 		"stingray": "res://chapter2/enemy/stingray.tscn",
 		"infantryman": "res://chapter2/enemy/infantryman.tscn",
+		"destroyercik": "res://chapter2/enemy/destroyercik.tscn",
 		"cockroach": "res://chapter2/enemy/cockroach.tscn",
 		"nextbot": "res://chapter2/enemy/nextbot.tscn",
 		"shooter": "res://chapter2/enemy/shooter.tscn",

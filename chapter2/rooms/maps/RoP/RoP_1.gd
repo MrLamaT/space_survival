@@ -8,5 +8,7 @@ func _ready() -> void:
 	add_child(env_instance)
 	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
+	$Player.weapon_system.weapon_slots[1] = "Knife"
+	$Player.weapon_system.equip_weapon($Player.weapon_system.weapon_slots.get(1, ""))
 	Global.game_settings["step"] = 1
 	$Player._check_and_play_custom_music()

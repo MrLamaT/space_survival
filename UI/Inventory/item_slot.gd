@@ -5,10 +5,10 @@ class_name ItemSlot
 @export var slot_index: int = 0
 @export var panel_id: String = "inventory"
 
-signal right_clicked(panel_id, slot_index)
-
 var item_name: String = ""
 var item_count: int = 0
+
+@onready var count_label: Label = $CountLabel
 
 func _ready():
 	update_slot()
@@ -27,6 +27,7 @@ func update_slot():
 			print("Иконка не найдена: ", icon_path)
 		tooltip_text = item_name
 		modulate = Color(1, 1, 1, 1)
+		count_label.text = str(item_count)
 
 func set_item(new_item_name: String, new_count: int = 1):
 	item_name = new_item_name
@@ -37,12 +38,6 @@ func clear_slot():
 	item_name = ""
 	item_count = 0
 	update_slot()
-
-func _gui_input(event: InputEvent):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			right_clicked.emit(panel_id, slot_index)
-			get_viewport().set_input_as_handled()
 
 func _on_mouse_entered():
 	if item_name != "":

@@ -282,85 +282,52 @@ func _input(event: InputEvent): #повороты мышкой
 		is_shooting = false
 	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
 		if weapon_scroll_cooldown <= 0:
-			var world = Global.get_world(Global.game_settings.word)
 			release_build()
-			if world["mode"] != 1:
-				current_weapon_slot += 1
-				if current_weapon_slot > 5:
-					current_weapon_slot = 1
-				weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			else:
-				current_weapon_slot += 1
-				if current_weapon_slot > 8:
-					current_weapon_slot = 1
-				match current_weapon_slot:
-					6:
-						weapon_system.equip_weapon("Move")
-					7:
-						weapon_system.equip_weapon("Delete")
-					8:
-						weapon_system.equip_weapon("Summon")
-					_:
-						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			current_weapon_slot += 1
+			if current_weapon_slot > 5:
+				current_weapon_slot = 1
+			weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
 			weapon_scroll_cooldown = weapon_scroll_delay
 	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
 		if weapon_scroll_cooldown <= 0:
-			var world = Global.get_world(Global.game_settings.word)
 			release_build()
-			if world["mode"] != 1:
-				current_weapon_slot -= 1
-				if current_weapon_slot < 1:
-					current_weapon_slot = 5
-					weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-			else:
-				current_weapon_slot -= 1
-				if current_weapon_slot < 1:
-					current_weapon_slot = 8
-				match current_weapon_slot:
-					6:
-						weapon_system.equip_weapon("Move")
-					7:
-						weapon_system.equip_weapon("Delete")
-					8:
-						weapon_system.equip_weapon("Summon")
-					_:
-						weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+			current_weapon_slot -= 1
+			if current_weapon_slot < 1:
+				current_weapon_slot = 5
+				weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
 			weapon_scroll_cooldown = weapon_scroll_delay
 	if Input.is_action_just_pressed("+1"):
 		release_build()
 		current_weapon_slot = 1
-		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(1, ""))
 	if Input.is_action_just_pressed("+2"):
 		release_build()
 		current_weapon_slot = 2
-		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(2, ""))
 	if Input.is_action_just_pressed("+3"):
 		release_build()
 		current_weapon_slot = 3
-		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(3, ""))
 	if Input.is_action_just_pressed("+4"):
 		release_build()
 		current_weapon_slot = 4
-		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(4, ""))
 	if Input.is_action_just_pressed("+5"):
 		release_build()
 		current_weapon_slot = 5
-		weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(5, ""))
 	if Input.is_action_just_pressed("+6"):
 		release_build()
-		var world = Global.get_world(Global.game_settings.word)
-		if world["mode"] == 1:
-			weapon_system.equip_weapon("Move")
+		current_weapon_slot = 6
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(6, ""))
 	if Input.is_action_just_pressed("+7"):
 		release_build()
-		var world = Global.get_world(Global.game_settings.word)
-		if world["mode"] == 1:
-			weapon_system.equip_weapon("Delete")
+		current_weapon_slot = 7
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(7, ""))
 	if Input.is_action_just_pressed("+8"):
 		release_build()
-		var world = Global.get_world(Global.game_settings.word)
-		if world["mode"] == 1:
-			weapon_system.equip_weapon("Summon")
+		current_weapon_slot = 8
+		weapon_system.equip_weapon(weapon_system.weapon_slots.get(8, ""))
 	if Input.is_action_just_pressed("+q"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -789,12 +756,6 @@ func recipe(required_resources, required_label, required_description):
 	recipeMenu.position = final_pos
 	recipeMenu.visible = true
 	recipeMenu.recipe(required_resources, required_label, required_description)
-
-func add_weapon_to_slot(slot: int, weapon_name: String):
-	var world = Global.get_world(Global.game_settings.word)
-	world["weapon"][str(slot)] = weapon_name
-	if slot == current_weapon_slot:
-		weapon_system.equip_weapon(weapon_name)
 
 func MoveBuild(build):
 	if held_build == build:

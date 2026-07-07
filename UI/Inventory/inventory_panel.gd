@@ -6,8 +6,6 @@ class_name InventoryPanel
 @export var grid_width: int = 10
 @export var grid_height: int = 5
 
-signal slot_right_clicked(panel_id, slot_index)
-
 @onready var grid_container: GridContainer = $GridContainer
 var slots: Array[ItemSlot] = []
 
@@ -22,7 +20,6 @@ func ensure_slots(needed_count: int):
 		var slot: ItemSlot = slot_scene.instantiate()
 		slot.slot_index = slots.size()
 		slot.panel_id = panel_id
-		slot.right_clicked.connect(_on_slot_right_clicked)
 		grid_container.add_child(slot)
 		slots.append(slot)
 
@@ -31,17 +28,24 @@ func update_display():
 	if not world.has("inventory") or not world["inventory"].has(panel_id):
 		return
 	var items: Array = world["inventory"][panel_id]
-	ensure_slots(items.size())
+	var grouped_items = {}
+	for item_name in items:
+		if item_name in grouped_items:
+			grouped_items[item_name] += 1
+		else:
+			grouped_items[item_name] = 1
+	var grouped_list = []
+	for item_name in grouped_items:
+		grouped_list.append({
+			"name": item_name,
+			"count": grouped_items[item_name]
+		})
 	for slot in slots:
 		slot.clear_slot()
 	var slot_index = 0
-	for item_name in items:
+	for item_data in grouped_list:
 		if slot_index < slots.size():
-			slots[slot_index].set_item(item_name)
+			slots[slot_index].set_item(item_data["name"], item_data["count"])
 			slot_index += 1
 	for i in range(slots.size()):
-		slots[i].visible = (i < items.size())
-
-func _on_slot_right_clicked(clicked_panel_id: String, slot_index: int):
-	if clicked_panel_id == panel_id:
-		slot_right_clicked.emit(panel_id, slot_index)
+		slots[i].visible = (i < grouped_list.size())

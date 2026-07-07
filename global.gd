@@ -162,13 +162,6 @@ func reset_world_to_default(world_num: int) -> void:
 		"build": [],
 		"inventory": {
 			"inventory": []
-		},
-		"weapon": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": ""
 		}
 	}
 	match world_num:
