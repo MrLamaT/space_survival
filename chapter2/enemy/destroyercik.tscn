@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="4_ixixp"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="5_ix157"]
 [ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="5_o0y48"]
-[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="6_ugkfb"]
-[ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="7_fs6mm"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="8_k31tw"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="9_qqcu6"]
 
@@ -474,17 +472,6 @@ skeleton = NodePath("../../..")
 
 [node name="Taser" type="Node3D" parent="body/hand1" unique_id=1568200044]
 transform = Transform3D(-4.371139e-08, -0.99999994, 0, 1, -4.371139e-08, 0, 3.5527137e-15, 5.646419e-23, 1, -0.325, -0.75, -0.45)
-
-[node name="handItem" parent="body/hand1/Taser" unique_id=837608605 instance=ExtResource("6_ugkfb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.2)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="body/hand1/Taser" unique_id=1315853578]
-stream = ExtResource("7_fs6mm")
-volume_db = -20.0
-pitch_scale = 1.5
-
-[node name="BulletSpawn" type="Marker3D" parent="body/hand1" unique_id=1802774342]
-transform = Transform3D(0.9999998, -2.4868996e-14, -1.7375203e-15, 1.4210855e-14, 1, -1.7763568e-14, -1.7375213e-15, 1.4210855e-14, 0.99999976, -0.25, -1.1, -0.25)
 
 [node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14999998, 0)

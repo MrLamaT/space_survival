@@ -18,15 +18,9 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
-#стрельба
-var SHOOT_DISTANCE_MIN: float = 3.0  # минимальная дистанция для стрельбы
-var SHOOT_DISTANCE_MAX: float = 12.0 # максимальная дистанция для стрельбы
-var shoot_timer: float = 0.0
-var SHOOT_COOLDOWN: float = 3.5
-var is_shooting_mode: bool = false
-var bullet_scene = preload("res://chapter2/item/Enemy_projectile/Enemy_projectile.tscn")
-
 var previous_position: Vector3
+
+@export var place = false
 
 func _ready():
 	super._ready()
@@ -34,7 +28,6 @@ func _ready():
 	health = 60
 	health *= int(speed_multiplier)
 	SPEED *= speed_multiplier
-	SHOOT_COOLDOWN /= speed_multiplier
 	if is_boss:
 		health = 190
 		$body/body/Sprite3D.visible = true
@@ -46,12 +39,10 @@ func _ready():
 	_setup_boss_bar()
 	if player:
 		start_chasing_player()
-		shoot_timer = 2.0
 
 func _disable_combat_states():
 	is_chasing_player = false
 	is_attacking = false
-	is_shooting_mode = false
 
 func _get_boss_id() -> String:
 	return "infantryman"
@@ -63,6 +54,8 @@ func _physics_process(delta):
 		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	if place:
+		return
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
 	if not is_chasing_player:
@@ -73,26 +66,6 @@ func _physics_process(delta):
 		if is_attacking:
 			move_and_slide()
 			return
-		var distance_to_player = global_position.distance_to(player.global_position)
-		if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
-			is_shooting_mode = true
-			if last_animation_state != "shoot_mode":
-				$body/run.play_backwards("run")
-				$body/AnimationPlayer.play("weapon")
-				last_animation_state = "shoot_mode"
-			var direction_to_player = (player.global_position - global_position).normalized()
-			if direction_to_player.length() > 0.1:
-				var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
-				rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-			if shoot_timer <= 0:
-				shoot_at_player()
-				shoot_timer = SHOOT_COOLDOWN
-			else:
-				shoot_timer -= delta
-			velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
-			move_and_slide()
-			return
-		is_shooting_mode = false
 		if last_animation_state != "move_mode":
 			$body/run.play("run")
 			$body/AnimationPlayer.play("RESET")
@@ -143,23 +116,6 @@ func attack_player():
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 			await get_tree().create_timer(0.5).timeout
 			is_attacking = false
-
-func shoot_at_player():
-	if not player:
-		return
-	var bullet_spawn = $body/hand1/BulletSpawn
-	if not bullet_spawn:
-		return
-	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
-	bullet.global_position = bullet_spawn.global_position
-	var target_pos = player.global_position
-	target_pos.y = bullet_spawn.global_position.y
-	var shoot_direction = (target_pos - bullet_spawn.global_position).normalized()
-	bullet.shoot(shoot_direction, 10.0)
-	var audio = $body/hand1/Taser/AudioStreamPlayer3D
-	if audio:
-		audio.play()
 
 func die():
 	if is_dying or is_dead:
