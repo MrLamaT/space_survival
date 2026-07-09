@@ -9,6 +9,7 @@ func _ready() -> void:
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	Global.game_settings["step"] = 3
 	$Panel.visible = false
+	Global.game_settings["checkpoint"] = $Player.global_position
 
 var door1 = true
 var door2 = true
@@ -141,7 +142,7 @@ func _on_timer_timeout() -> void:
 			elif enemy_room == 7: 
 				enemy_room = 8
 				$NavigationRegion3D/destroyercik8.visible = true
-	if sec % 90 == 0:
+	if sec % 70 == 0:
 		AM += 1
 		$Time.text = str(AM) + " AM"
 

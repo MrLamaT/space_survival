@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
 [ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="12_r6r0m"]
 [ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
-[ext_resource type="PackedScene" uid="uid://jhjnghqbt63y" path="res://UI/recipe/recipe.tscn" id="13_hold0"]
 [ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/sound/step2.wav" id="13_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="14_uckl1"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
@@ -613,25 +612,6 @@ modulate = Color(0.39215687, 1, 0.85490197, 1)
 position = Vector2(1067, 281)
 scale = Vector2(2, 2)
 texture = ExtResource("12_r6r0m")
-
-[node name="sercilist" type="Sprite2D" parent="head/Camera3D" unique_id=1086853619]
-visible = false
-modulate = Color(0.38039216, 0.3882353, 0.5019608, 1)
-position = Vector2(202, 430)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="neutronium" type="Sprite2D" parent="head/Camera3D" unique_id=551991757]
-visible = false
-modulate = Color(0.25882354, 0.25882354, 0.25882354, 1)
-position = Vector2(564, 421)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="recipe" parent="head/Camera3D" unique_id=709397907 instance=ExtResource("13_hold0")]
-visible = false
-z_index = 1
-scale = Vector2(0.75, 0.75)
 
 [node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
 libraries/ = SubResource("AnimationLibrary_0pv45")

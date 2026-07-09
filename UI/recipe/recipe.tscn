@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://di7ymaen5vvw0" path="res://UI/recipe/recipe.gd" id="1_7c627"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_7c627"]
+[ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="3_1ds0b"]
+[ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="3_im2ad"]
+[ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="4_ae162"]
+[ext_resource type="Texture2D" uid="uid://b0sgfy3s5y52e" path="res://assets/item/dark_sercilist.png" id="5_ae162"]
+[ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="5_im2ad"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,8 +20,9 @@ border_color = Color(1, 1, 1, 1)
 script = ExtResource("1_7c627")
 
 [node name="Panel" type="Panel" parent="." unique_id=1405108526]
+z_index = -1
 offset_right = 600.0
-offset_bottom = 500.0
+offset_bottom = 350.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
@@ -29,16 +35,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -162.0
-offset_top = -223.0
+offset_top = -148.0
 offset_right = 162.0
-offset_bottom = -187.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_7c627")
 theme_override_font_sizes/font_size = 32
-text = "storage 1"
+text = "text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -51,9 +57,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -261.0
-offset_top = -183.0
+offset_top = -108.0
 offset_right = 261.0
-offset_bottom = -147.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
@@ -64,17 +70,23 @@ text = "text text text text text text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control1" type="Control" parent="Panel" unique_id=327747006]
-anchors_preset = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=384742301]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 350.0
 offset_right = 340.0
 offset_bottom = 390.0
+theme_override_constants/separation = 50
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control1" unique_id=500915557]
+[node name="Credits" type="Control" parent="Panel/VBoxContainer" unique_id=327747006]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/Credits" unique_id=500915557]
 position = Vector2(-240, -175)
+texture = ExtResource("3_im2ad")
 
-[node name="Label" type="Label" parent="Panel/Control1" unique_id=1787985642]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Credits" unique_id=1787985642]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -83,19 +95,18 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="Panel" unique_id=1564162954]
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 400.0
-offset_right = 340.0
-offset_bottom = 440.0
+[node name="Sercilist" type="Control" parent="Panel/VBoxContainer" unique_id=1564162954]
+visible = false
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control2" unique_id=11391209]
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/Sercilist" unique_id=11391209]
 position = Vector2(-240, -175)
+texture = ExtResource("4_ae162")
 
-[node name="Label" type="Label" parent="Panel/Control2" unique_id=1678976740]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Sercilist" unique_id=1678976740]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -104,19 +115,18 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1
 
-[node name="Control3" type="Control" parent="Panel" unique_id=1170682194]
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 450.0
-offset_right = 340.0
-offset_bottom = 490.0
+[node name="DarkSercilist" type="Control" parent="Panel/VBoxContainer" unique_id=426954874]
+visible = false
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control3" unique_id=66542029]
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/DarkSercilist" unique_id=2005665819]
 position = Vector2(-240, -175)
+texture = ExtResource("5_ae162")
 
-[node name="Label" type="Label" parent="Panel/Control3" unique_id=715718419]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/DarkSercilist" unique_id=1348092958]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -125,82 +135,26 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1
 
-[node name="Control4" type="Control" parent="Panel" unique_id=1721189787]
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 500.0
-offset_right = 340.0
-offset_bottom = 540.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control4" unique_id=1459227550]
-position = Vector2(-240, -175)
-
-[node name="Label" type="Label" parent="Panel/Control4" unique_id=1996655291]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel" unique_id=1251501277]
 layout_mode = 0
-offset_left = -204.0
-offset_top = -187.0
-offset_right = -164.0
-offset_bottom = -164.0
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0, 0.5)
-theme_override_fonts/font = ExtResource("2_7c627")
-vertical_alignment = 1
-
-[node name="Control5" type="Control" parent="Panel" unique_id=1095180072]
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 550.0
-offset_right = 340.0
-offset_bottom = 590.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control5" unique_id=4885825]
-position = Vector2(-240, -175)
-
-[node name="Label" type="Label" parent="Panel/Control5" unique_id=521887880]
-layout_mode = 0
-offset_left = -204.0
-offset_top = -187.0
-offset_right = -164.0
-offset_bottom = -164.0
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0, 0.5)
-theme_override_fonts/font = ExtResource("2_7c627")
-vertical_alignment = 1
-
-[node name="Control6" type="Control" parent="Panel" unique_id=857121584]
-anchors_preset = 0
-offset_left = 300.0
-offset_top = 600.0
-offset_right = 340.0
-offset_bottom = 640.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control6" unique_id=695061124]
-position = Vector2(-240, -175)
-
-[node name="Label" type="Label" parent="Panel/Control6" unique_id=1742521175]
-layout_mode = 0
-offset_left = -204.0
-offset_top = -187.0
-offset_right = -164.0
-offset_bottom = -164.0
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0, 0.5)
-theme_override_fonts/font = ExtResource("2_7c627")
-vertical_alignment = 1
-
-[node name="Control7" type="Control" parent="Panel" unique_id=361399012]
-anchors_preset = 0
-offset_left = 580.0
+offset_left = 600.0
 offset_top = 350.0
-offset_right = 620.0
+offset_right = 640.0
 offset_bottom = 390.0
+theme_override_constants/separation = 50
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control7" unique_id=924415544]
+[node name="Control4" type="Control" parent="Panel/VBoxContainer2" unique_id=1721189787]
+visible = false
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer2/Control4" unique_id=1459227550]
 position = Vector2(-240, -175)
+texture = ExtResource("3_1ds0b")
 
-[node name="Label" type="Label" parent="Panel/Control7" unique_id=1086819593]
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/Control4" unique_id=1996655291]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -209,19 +163,18 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1
 
-[node name="Control8" type="Control" parent="Panel" unique_id=1049191137]
-anchors_preset = 0
-offset_left = 580.0
-offset_top = 400.0
-offset_right = 620.0
-offset_bottom = 440.0
+[node name="Control5" type="Control" parent="Panel/VBoxContainer2" unique_id=1095180072]
+visible = false
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control8" unique_id=1535879956]
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer2/Control5" unique_id=4885825]
 position = Vector2(-240, -175)
+texture = ExtResource("4_ae162")
 
-[node name="Label" type="Label" parent="Panel/Control8" unique_id=1981397539]
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/Control5" unique_id=521887880]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -230,19 +183,18 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1
 
-[node name="Control9" type="Control" parent="Panel" unique_id=613059677]
-anchors_preset = 0
-offset_left = 580.0
-offset_top = 450.0
-offset_right = 620.0
-offset_bottom = 490.0
+[node name="Control6" type="Control" parent="Panel/VBoxContainer2" unique_id=857121584]
+visible = false
+layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel/Control9" unique_id=1036839220]
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer2/Control6" unique_id=695061124]
 position = Vector2(-240, -175)
+texture = ExtResource("5_im2ad")
 
-[node name="Label" type="Label" parent="Panel/Control9" unique_id=283110377]
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/Control6" unique_id=1742521175]
 layout_mode = 0
 offset_left = -204.0
 offset_top = -187.0
@@ -251,4 +203,5 @@ offset_bottom = -164.0
 scale = Vector2(1.5, 1.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_fonts/font = ExtResource("2_7c627")
+text = "0"
 vertical_alignment = 1

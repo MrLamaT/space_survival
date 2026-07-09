@@ -1,59 +1,162 @@
 extends Area3D
 
 @export var stage_random: int = 1
-@export var fixed_items: Array[String] = []
 
 var stage_items = {
+	0: {
+		"common": {
+			"Credits": {"min": 10, "max": 10}
+		},      
+		"rare": {}
+	},
 	1: {
-		"common": ["iron", "copper", "coal"],      
-		"rare": ["quartz"]                      
+		"common": {
+			"Credits": {"min": 10, "max": 15}
+		},      
+		"rare": {}
 	},
 	2: {
-		"common": ["sercilist", "sercilist", "sercilist"],
-		"rare": ["sercilist"]
+		"common": {
+			"Credits": {"min": 15, "max": 20}
+		},      
+		"rare": {}
+	},
+	3: {
+		"common": {
+			"Credits": {"min": 100, "max": 110}
+		},      
+		"rare": {}
+	},
+	4: {
+		"common": {
+			"Credits": {"min": 200, "max": 250}
+		},      
+		"rare": {}
+	},
+	5: {
+		"common": {
+			"Credits": {"min": 500, "max": 550}
+		},      
+		"rare": {}
+	},
+	6: {
+		"common": {
+			"Credits": {"min": 600, "max": 750}
+		},      
+		"rare": {}
+	},
+	7: {
+		"common": {
+			"Credits": {"min": 750, "max": 800}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.1, "min": 1, "max": 1}
+		}
+	},
+	8: {
+		"common": {
+			"Credits": {"min": 900, "max": 1000}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.2, "min": 1, "max": 1}
+		}
+	},
+	9: {
+		"common": {
+			"Credits": {"min": 1000, "max": 1500}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.2, "min": 1, "max": 1}
+		}
+	},
+	10: {
+		"common": {
+			"Credits": {"min": 2000, "max": 2250}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.2, "min": 1, "max": 1}
+		}
+	},
+	11: {
+		"common": {
+			"Credits": {"min": 2500, "max": 2750}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.3, "min": 1, "max": 1}
+		}
+	},
+	12: {
+		"common": {
+			"Credits": {"min": 3000, "max": 3250}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.3, "min": 1, "max": 1}
+		}
+	},
+	13: {
+		"common": {
+			"Credits": {"min": 3500, "max": 3750}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.3, "min": 1, "max": 1}
+		}
+	},
+	14: {
+		"common": {
+			"Credits": {"min": 4000, "max": 4250}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.4, "min": 1, "max": 1},
+			"Dark Sercilist": {"chance": 0.1, "min": 1, "max": 1},
+		}
+	},
+	15: {
+		"common": {
+			"Credits": {"min": 4500, "max": 4750}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.4, "min": 1, "max": 1},
+			"Dark Sercilist": {"chance": 0.1, "min": 1, "max": 1},
+		}
+	},
+	16: {
+		"common": {
+			"Credits": {"min": 4800, "max": 5000}
+		},
+		"rare": {
+			"Sercilist": {"chance": 0.5, "min": 1, "max": 3},
+			"Dark Sercilist": {"chance": 0.1, "min": 1, "max": 1},
+		}
 	}
 }
 
-var chance_settings = {
-	"common": 0.8, 
-	"rare": 0.2
-}
-
 var item_icons = {
-	"iron": preload("res://assets/item/iron.png"),
-	"iron plate": preload("res://assets/item/iron_plate.png"),
-	"copper": preload("res://assets/item/copper.png"),
-	"copper cable": preload("res://assets/item/copper_cable.png"),
-	"glass panel": preload("res://assets/item/glass_panel.png"),
-	"coal": preload("res://assets/item/coal.png"),
-	"quartz": preload("res://assets/item/quartz.png"),
 	"schematic": preload("res://assets/item/schematic.png"),
-	"sercilist": preload("res://assets/item/sercilist.png")
+	"Credits": preload("res://assets/item/credits.png"),
+	"Sercilist": preload("res://assets/item/sercilist.png"),
+	"Dark Sercilist": preload("res://assets/item/dark_sercilist.png")
 }
 
 var _secondary_color: Color
-var _chest_items: Array = []
+var _chest_items: Dictionary = {}
 
 func _ready() -> void:
-	if fixed_items.size() > 0:
-		_chest_items = fixed_items.duplicate()
-	else:
-		_chest_items = generate_random_inventory(stage_random)
+	_chest_items = generate_random_inventory(stage_random)
 	_secondary_color = Color("82594e").darkened(0.1)
 
-func generate_random_inventory(stage: int) -> Array:
-	var inventory = []
-	var items = stage_items.get(stage, stage_items[1])  # по умолчанию stage1
-	for i in range(4):
-		var random_value = randf()
-		var selected_item = ""
-		if random_value < chance_settings["rare"]:
-			if items["rare"].size() > 0:
-				selected_item = items["rare"][randi() % items["rare"].size()]
-		elif random_value < chance_settings["rare"] + chance_settings["common"]:
-			if items["common"].size() > 0:
-				selected_item = items["common"][randi() % items["common"].size()]
-		inventory.append(selected_item)
+func generate_random_inventory(stage: int) -> Dictionary:
+	var inventory = {}
+	var items = stage_items.get(stage, stage_items[1])
+	for item_name in items["common"]:
+		var item_data = items["common"][item_name]
+		var count = randi() % (item_data["max"] - item_data["min"] + 1) + item_data["min"]
+		inventory[item_name] = count
+	for item_name in items["rare"]:
+		var item_data = items["rare"][item_name]
+		var chance = item_data["chance"]
+		if randf() < chance:
+			var count = randi() % (item_data["max"] - item_data["min"] + 1) + item_data["min"]
+			inventory[item_name] = count
 	return inventory
 
 func trigger_interaction():
@@ -62,13 +165,17 @@ func trigger_interaction():
 	$Sprite3D.modulate = _secondary_color
 	$Sprite3D.shaded = true
 	$Sprite3D/OmniLight3D.queue_free()
+	$AnimationPlayer.play("open")
 	remove_from_group("interactive_objects")
 
 func _add_items_to_player_inventory():
 	var world_data = Global.get_world(Global.game_settings.word)
-	for item in _chest_items:
-		if item != "":
-			world_data.inventory["inventory"].append(item)
+	for item_name in _chest_items:
+		var count = _chest_items[item_name]
+		if world_data.inventory.has(item_name):
+			world_data.inventory[item_name] += count
+		else:
+			world_data.inventory[item_name] = count
 
 func _on_mouse_entered() -> void:
 	pass
@@ -79,22 +186,22 @@ func _on_mouse_exited() -> void:
 func _show_chest_content():
 	var vbox = $CanvasLayer/VBoxContainer
 	var font = load("res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata")
-	for item in _chest_items:
-		if item != "":
-			var hbox = HBoxContainer.new()
-			hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			var icon = TextureRect.new()
-			icon.texture = _get_item_texture(item)
-			hbox.add_child(icon)
-			var label = Label.new()
-			label.text = "+ " + item.capitalize()
-			label.add_theme_font_override("font", font)
-			label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			hbox.add_child(label)
-			var spacer = Control.new()
-			spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			hbox.add_child(spacer)
-			vbox.add_child(hbox)
+	for item_name in _chest_items:
+		var count = _chest_items[item_name]
+		var hbox = HBoxContainer.new()
+		hbox.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var icon = TextureRect.new()
+		icon.texture = _get_item_texture(item_name)
+		hbox.add_child(icon)
+		var label = Label.new()
+		label.text = "+ " + str(count) + " " + item_name.capitalize()
+		label.add_theme_font_override("font", font)
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		hbox.add_child(label)
+		var spacer = Control.new()
+		spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		hbox.add_child(spacer)
+		vbox.add_child(hbox)
 	$CanvasLayer/AnimationPlayer.play("show")
 
 func _get_item_texture(item_name: String) -> Texture2D:

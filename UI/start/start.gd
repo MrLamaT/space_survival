@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var typing_speed: float = 0.05
+@export var typing_speed: float = 0.025
 
 func _ready() -> void:
 	start_typing_effect("Select language")
@@ -20,14 +20,12 @@ func _on_En_pressed() -> void:
 	Global.game_settings["gui_settings"]["Language"] = "English"
 	$language.visible = false
 	$Panel.visible = true
-	await type_text($Panel/Label, "Welcome aboard, Purifier.
-
-Mission Objective: Infiltrate the level via portal, neutralize all threats, and 
-evacuate before the portal closes.
-
-Protocol: Tactical flexibility and freedom of route choice are permitted. Survey 
-your surroundings, gather resources for crafting and gear upgrades. Utilize 
-discovered weapons and tools to complete your objectives.")
+	await type_text($Panel/Label, "STATUS: Cleaner
+Objective: Infiltrate through the portal, neutralize all hostiles that have lost 
+control, reach the activation point, and initiate the object's detonation.
+Assets: Any found on-site. Weapon acquisition, resource gathering, and equipment 
+modification are encouraged.
+Outcome: In the event of death — written off without debriefing.")
 	$Panel/LabelButton.visible = true
 	
 
@@ -35,14 +33,12 @@ func _on_Ru_pressed() -> void:
 	Global.game_settings["gui_settings"]["Language"] = "русский"
 	$language.visible = false
 	$Panel.visible = true
-	await type_text($Panel/Label, "Добро пожаловать на борт, Чистильщик.
-
-Цель миссии: Проникнуть на уровень через портал, нейтрализовать угрозы и 
-эвакуироваться до закрытия портала.
-
-Протокол: Вам доступны тактическая гибкость и свобода выбора маршрута. 
-Изучайте окружение, собирайте ресурсы для крафта и улучшения экипировки. Для 
-прохождения используйте найденное оружие и инструменты.")
+	await type_text($Panel/Label, "СТАТУС: Чистильщик
+Задача: Проникнуть через портал, нейтрализовать все цели, утратившие контроль, 
+добраться до точки активации и инициировать подрыв объекта.
+Средства: Любые, найденные на месте. Сбор вооружения, ресурсов и модификация 
+экипировки поощряются.
+Итог: В случае гибели — списание без отчёта.")
 	$Panel/LabelButton.visible = true
 	
 func _on_En_mouse_entered() -> void:

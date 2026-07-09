@@ -7,7 +7,9 @@ var current_wave = 0
 var SpawnAudio = false
 
 func _ready() -> void:
-	$CSGBox3D.queue_free()
+	$MeshInstance3D.queue_free()
+	$MeshInstance3D2.queue_free()
+	$MeshInstance3D3.queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and is_active:

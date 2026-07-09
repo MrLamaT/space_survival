@@ -6,7 +6,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_bxb8p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_or0xf"]
-albedo_color = Color(1, 0, 0, 1)
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0, 0, 0.39215687)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cslfb"]
+material = SubResource("StandardMaterial3D_or0xf")
+size = Vector3(10, 0.25, 1)
 
 [node name="Wave" type="Area3D" unique_id=956278609]
 collision_layer = 4
@@ -24,9 +30,19 @@ pitch_scale = 2.0
 
 [node name="Timer" type="Timer" parent="." unique_id=448245641]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=155225655]
-size = Vector3(10, 1, 1)
-material = SubResource("StandardMaterial3D_or0xf")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=322828679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.375, 0)
+mesh = SubResource("BoxMesh_cslfb")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=353001599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.375, 0)
+mesh = SubResource("BoxMesh_cslfb")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1053003710]
+mesh = SubResource("BoxMesh_cslfb")
+skeleton = NodePath("")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

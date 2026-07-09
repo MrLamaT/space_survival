@@ -1,45 +1,58 @@
 [gd_scene format=3 uid="uid://cpt6gk55sdf5v"]
 
-[ext_resource type="Script" uid="uid://cwvvb6kjp60lh" path="res://UI/Inventory/inventory_ui.gd" id="1_uo64e"]
-[ext_resource type="PackedScene" uid="uid://dm38fx5etd3oi" path="res://UI/Inventory/InventoryPanel.tscn" id="2_sv8nv"]
-[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_2prv4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2prv4"]
-bg_color = Color(0, 0, 0, 0.5882353)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
+[ext_resource type="Script" uid="uid://bjt1rijib4o3p" path="res://UI/Inventory/inventory.gd" id="1_2prv4"]
+[ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="2_sv8nv"]
+[ext_resource type="PackedScene" uid="uid://c5vyb1ge0awtj" path="res://UI/Inventory/ItemSlot.tscn" id="2_uo64e"]
+[ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="3_s7jmw"]
+[ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="3_sv8nv"]
+[ext_resource type="Texture2D" uid="uid://b0sgfy3s5y52e" path="res://assets/item/dark_sercilist.png" id="4_gvl8j"]
 
 [node name="InventoryUi" type="Control" unique_id=1942951996]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_uo64e")
+script = ExtResource("1_2prv4")
 
-[node name="InventoryPanel" parent="." unique_id=171753026 instance=ExtResource("2_sv8nv")]
-z_index = 1
-layout_mode = 0
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1202.0
-offset_bottom = 450.0
-scale = Vector2(1.5, 1.5)
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1071164662]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_constants/separation = 50
 
-[node name="load" type="Panel" parent="." unique_id=1177339579]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2prv4")
+[node name="ItemSlot" parent="HBoxContainer" unique_id=1606255390 instance=ExtResource("2_uo64e")]
+layout_mode = 2
+item_name = "Credits"
+icon = ExtResource("3_s7jmw")
 
-[node name="Label" type="Label" parent="." unique_id=247466407]
-layout_mode = 0
-offset_left = 50.0
-offset_right = 131.0
-offset_bottom = 23.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("4_2prv4")
-text = "inventory"
+[node name="ItemSlot2" parent="HBoxContainer" unique_id=233688217 instance=ExtResource("2_uo64e")]
+layout_mode = 2
+item_name = "Sercilist"
+icon = ExtResource("2_sv8nv")
 
-[connection signal="slot_right_clicked" from="InventoryPanel" to="." method="_on_slot_right_clicked"]
+[node name="ItemSlot3" parent="HBoxContainer" unique_id=1857050261 instance=ExtResource("2_uo64e")]
+layout_mode = 2
+item_name = "Dark Sercilist"
+icon = ExtResource("4_gvl8j")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1018010080]
+layout_mode = 1
+offset_top = 70.0
+offset_right = 200.0
+offset_bottom = 110.0
+theme_override_constants/separation = 50
+
+[node name="ItemSlot" parent="HBoxContainer2" unique_id=137613502 instance=ExtResource("2_uo64e")]
+visible = false
+layout_mode = 2
+item_name = "Credits"
+
+[node name="ItemSlot2" parent="HBoxContainer2" unique_id=829632290 instance=ExtResource("2_uo64e")]
+visible = false
+layout_mode = 2
+item_name = "Sercilist"
+icon = ExtResource("2_sv8nv")
+
+[node name="ItemSlot3" parent="HBoxContainer2" unique_id=1511417002 instance=ExtResource("2_uo64e")]
+visible = false
+layout_mode = 2
+item_name = "Dark Sercilist"
+icon = ExtResource("3_sv8nv")

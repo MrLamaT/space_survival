@@ -944,35 +944,34 @@ transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.70710
 transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, -28.106, 20, -32)
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -23.19358, 0.5, 22.542156)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23.19358, 0.5, 22.542156)
 
 [node name="chest4" parent="." unique_id=1531722338 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 10.809747, 0.5, 30.08938)
-fixed_items = Array[String](["copper cable", "iron", "iron"])
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.809747, 0.5, 30.08938)
 
 [node name="chest6" parent="." unique_id=1612025126 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-2.8428876, 0, 0.9581181, 0, 2.9999998, 0, -0.9581181, 0, -2.8428876, -23.19358, 0.5, 13.469546)
+transform = Transform3D(-0.9476292, 0, 0.31937268, 0, 1, 0, -0.31937268, 0, -0.9476292, -23.19358, 0.5, 13.469546)
 
 [node name="chest2" parent="." unique_id=1195173486 instance=ExtResource("14_0vstr")]
-transform = Transform3D(1.0231076, 0, -2.8201509, 0, 3, 0, 2.8201509, 0, 1.0231076, 23.713743, 0.5, -23.482143)
+transform = Transform3D(0.34103587, 0, -0.9400503, 0, 1, 0, 0.9400503, 0, 0.34103587, 23.713743, 0.5, -23.482143)
 
 [node name="chest7" parent="." unique_id=180679170 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-2.9841185, 0, -0.30827326, 0, 2.9999993, 0, 0.30827326, 0, -2.9841185, -14.953699, 0.5, -5.4712505)
+transform = Transform3D(-0.9947064, 0, -0.10275781, 0, 1, 0, 0.10275781, 0, -0.9947064, -14.953699, 0.5, -5.4712505)
 
 [node name="chest3" parent="." unique_id=1645804995 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -22.359814, 10.5, -57.954754)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -22.359814, 10.5, -57.954754)
 
 [node name="chest8" parent="." unique_id=289253706 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 26.773037, 10.5, -31.954048)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 26.773037, 10.5, -31.954048)
 
 [node name="chest5" parent="." unique_id=601947172 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 1.0099909, 15.5, 35.12487)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0099909, 15.5, 35.12487)
 
 [node name="chest9" parent="." unique_id=576266016 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-2.5383842, 0, 1.5989391, 0, 3, 0, -1.5989391, 0, -2.5383842, -36.129925, 20, 36.13705)
+transform = Transform3D(-0.84612805, 0, 0.53297967, 0, 1, 0, -0.53297967, 0, -0.84612805, -36.129925, 20, 36.13705)
 
 [node name="chest10" parent="." unique_id=1655865386 instance=ExtResource("14_0vstr")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -24.329111, 10.5, 15.805)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.329111, 10.5, 15.805)
 
 [node name="dirt" parent="." unique_id=712079705 instance=ExtResource("6_8dok3")]
 transform = Transform3D(5, 0, 0, 0, 25, 0, 0, 0, 40, -43.75, 13.016, -12.5)

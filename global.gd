@@ -37,7 +37,8 @@ var game_settings: Dictionary = {
 	"word": 0,
 	"step": 1,
 	"UI": false,
-	"GhostMod": false
+	"GhostMod": false,
+	"checkpoint": Vector3(0.0, 0.0, 0.0)
 }
 var saved_portal_data: Dictionary = {}
 
@@ -160,9 +161,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"HP": 100,
 		"equipment": [],
 		"build": [],
-		"inventory": {
-			"inventory": []
-		}
+		"inventory": {}
 	}
 	match world_num:
 		1: world_1 = default_world

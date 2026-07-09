@@ -12,7 +12,6 @@ extends CharacterBody3D
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
 @onready var bullet_spawn_point = $head/Camera3D/BulletSpawn
-@onready var recipeMenu = $head/Camera3D/recipe
 @onready var music_player = $music
 
 var interaction_manager: InteractionManager
@@ -175,8 +174,6 @@ func PlayerDeath():
 	Global.game_settings["IsDying"] = true
 	release_build()
 	var world = Global.get_world(Global.game_settings.word)
-	var inventory = world["inventory"]["inventory"]
-	inventory.clear()
 	$screem.play()
 	throw_camera_out()
 	movement_enabled = false
@@ -214,21 +211,16 @@ func HP(hp):
 
 func respawn_player():
 	save()
-	var main_scene = get_tree().current_scene
-	if main_scene.has_method("get_checkpoint") and main_scene.get_checkpoint() != null:
-		var checkpoint_pos = main_scene.get_checkpoint()
-		global_position = checkpoint_pos
-		velocity = Vector3.ZERO
-		Global.game_settings["IsDying"] = false
-		movement_enabled = true
-		$head/Camera3D/UI.visible = true
-		$hand_position.visible = true
-		cam.current = true
-		if Global.game_settings["ThrownCamera"]:
-			Global.game_settings["ThrownCamera"].queue_free()
-			Global.game_settings["ThrownCamera"] = null
-	else:
-		SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
+	global_position = Global.game_settings["checkpoint"]
+	velocity = Vector3.ZERO
+	Global.game_settings["IsDying"] = false
+	movement_enabled = true
+	$head/Camera3D/UI.visible = true
+	$hand_position.visible = true
+	cam.current = true
+	if Global.game_settings["ThrownCamera"]:
+		Global.game_settings["ThrownCamera"].queue_free()
+		Global.game_settings["ThrownCamera"] = null
 
 func throw_camera_out():
 	var cam_scene = load("res://chapter2/item/cam.tscn")
@@ -370,7 +362,7 @@ func _input(event: InputEvent): #повороты мышкой
 			update_running_speed()
 	if Input.is_action_just_pressed("+f"):
 		var world = Global.get_world(Global.game_settings.word)
-		if "flashlight 1" in world["equipment"]:
+		if "flashlight 1" in world["equipment"] or "flashlight 2" in world["equipment"]:
 			toggle_flashlight()
 		else:
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
@@ -388,31 +380,35 @@ func _input(event: InputEvent): #повороты мышкой
 		interaction_manager.process_interaction_input()
 
 func toggle_flashlight():
+	var world = Global.get_world(Global.game_settings.word)
+	var has_flashlight_2 = "flashlight 2" in world["equipment"]
 	if flashlight_enabled:
 		flashlight_enabled = false
 		$head/Camera3D/flashlight/AnimationPlayer.play("burnout")
 		$head/Camera3D/flashlight/SpotLight3D.visible = false
 		$head/Camera3D/flashlight/SpotLight3D2.visible = false
 	else:
-		if stamina > 0:
-			flashlight_enabled = true
-			$head/Camera3D/flashlight/AnimationPlayer.play("on")
-			$head/Camera3D/flashlight/SpotLight3D.visible = true
-			$head/Camera3D/flashlight/SpotLight3D2.visible = true
-		else:
+		if not has_flashlight_2 and stamina <= 0:
 			return
+		flashlight_enabled = true
+		$head/Camera3D/flashlight/AnimationPlayer.play("on")
+		$head/Camera3D/flashlight/SpotLight3D.visible = true
+		$head/Camera3D/flashlight/SpotLight3D2.visible = true
 	$beep.play()
 
 func update_flashlight(delta):
+	var world = Global.get_world(Global.game_settings.word)
+	var has_flashlight_2 = "flashlight 2" in world["equipment"]
 	if flashlight_enabled and movement_enabled:
-		stamina = max(0, stamina - flashlight_stamina_cost * delta)
-		can_regenerate = false
-		regen_timer = 0.0
-		if stamina <= 0:
-			flashlight_enabled = false
-			$head/Camera3D/flashlight/AnimationPlayer.play("burnout")
-			$head/Camera3D/flashlight/SpotLight3D2.visible = false
-		update_stamina_display()
+		if not has_flashlight_2:
+			stamina = max(0, stamina - flashlight_stamina_cost * delta)
+			can_regenerate = false
+			regen_timer = 0.0
+			if stamina <= 0:
+				flashlight_enabled = false
+				$head/Camera3D/flashlight/AnimationPlayer.play("burnout")
+				$head/Camera3D/flashlight/SpotLight3D2.visible = false
+			update_stamina_display()
 
 func ghost_cheat():
 	cheat_f3 = !cheat_f3
@@ -733,29 +729,6 @@ func warning(text):
 		await get_tree().create_timer(5).timeout
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
 		$head/Camera3D/label.visible = false
-
-func recipe(required_resources, required_label, required_description):
-	if required_resources == []:
-		recipeMenu.visible = false
-		return false
-	var mouse_pos = get_viewport().get_mouse_position()
-	var menu_size = recipeMenu.get_node("Panel").size * 0.5
-	var viewport_size = get_viewport().get_visible_rect().size
-	var final_pos = mouse_pos
-	var offset = Vector2(10, 10)
-	if mouse_pos.x + menu_size.x + offset.x > viewport_size.x:
-		final_pos.x = mouse_pos.x - menu_size.x - offset.x
-	else:
-		final_pos.x = mouse_pos.x + offset.x
-	if mouse_pos.y + menu_size.y + offset.y > viewport_size.y:
-		final_pos.y = mouse_pos.y - menu_size.y - offset.y
-	else:
-		final_pos.y = mouse_pos.y + offset.y
-	final_pos.x = max(0, min(final_pos.x, viewport_size.x - menu_size.x))
-	final_pos.y = max(0, min(final_pos.y, viewport_size.y - menu_size.y))
-	recipeMenu.position = final_pos
-	recipeMenu.visible = true
-	recipeMenu.recipe(required_resources, required_label, required_description)
 
 func MoveBuild(build):
 	if held_build == build:

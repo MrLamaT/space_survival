@@ -19,13 +19,14 @@ func teleport_contents():
 	if Global.saved_portal_data.is_empty():
 		print("Нет данных для телепортации")
 		player.global_position = self.global_position
+		Global.game_settings["checkpoint"] = player.global_position
 		return
 	print("Телепортируем игрока...")
 	var new_position = self.global_transform * Global.saved_portal_data["relative_position"]
-	
 	player.global_position = new_position
 	print("Игрок телепортирован на: ", player.global_position)
 	Global.saved_portal_data.clear()
+	Global.game_settings["checkpoint"] = player.global_position
 
 func execute_save_and_teleport_to(target_cube: TeleportCube):
 	save_contents()

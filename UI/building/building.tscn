@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/recipe/RecipeButton.tscn" id="2_1ckwh"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_o8pnx"]
 [ext_resource type="Texture2D" uid="uid://3m36cyf4hxul" path="res://assets/icon/equipment/flashlight.png" id="4_wx25n"]
-[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="6_0ihfv"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="7_ldvkj"]
-[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="8_q6t7t"]
+[ext_resource type="PackedScene" uid="uid://jhjnghqbt63y" path="res://UI/recipe/recipe.tscn" id="7_o8pnx"]
+[ext_resource type="PackedScene" uid="uid://cpt6gk55sdf5v" path="res://UI/Inventory/Inventory.tscn" id="8_atb7m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -15,92 +15,6 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="Animation" id="Animation_27jd1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_r6kyn"]
-resource_name = "logo"
-length = 15.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10, 11, 14, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 10, 11, 14, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(10, 11, 14, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.5707963267948966, 1.5707963267948966, 3.141592653589793]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_msvbn"]
-_data = {
-&"RESET": SubResource("Animation_27jd1"),
-&"logo": SubResource("Animation_r6kyn")
-}
 
 [node name="building" type="Node2D" unique_id=38368963]
 script = ExtResource("1_sq32p")
@@ -148,33 +62,44 @@ columns = 9
 layout_mode = 2
 sprite_texture = ExtResource("4_wx25n")
 sprite_label = "flashlight 1"
-required_resources = Array[String](["iron", "copper cable", "coal"])
 required_description = "flashlight for F support"
+Credits = 150
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=488008546]
-z_index = 1
-position = Vector2(40, 40)
-scale = Vector2(2, 2)
-texture = ExtResource("6_0ihfv")
+[node name="Control2" parent="Panel/equipment" unique_id=194519816 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("4_wx25n")
+sprite_label = "flashlight 2"
+required_description = "flashlight for F support"
+Credits = 400
 
 [node name="equipmentLabel" type="Label" parent="Panel" unique_id=1108057269]
-layout_mode = 0
-offset_left = 78.0
-offset_top = 23.0
-offset_right = 118.0
-offset_bottom = 46.0
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0, 0.5)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -294.0
+offset_right = 20.0
+offset_bottom = -271.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("7_ldvkj")
+text = "SHOP"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D2" type="Sprite2D" parent="Panel" unique_id=1764378791]
-modulate = Color(1, 1, 1, 0)
+[node name="InventoryUi" parent="." unique_id=1942951996 instance=ExtResource("8_atb7m")]
 z_index = 1
-position = Vector2(40, 40)
-scale = Vector2(10, 10)
-texture = ExtResource("8_q6t7t")
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 40.0
+offset_bottom = 20.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1573796745]
-libraries/ = SubResource("AnimationLibrary_msvbn")
-autoplay = &"logo"
+[node name="recipe" parent="." unique_id=709397907 instance=ExtResource("7_o8pnx")]
+visible = false
+z_index = 1
+scale = Vector2(0.75, 0.75)

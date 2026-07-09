@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfnnalh7ewjsu" path="res://UI/recipe/recipe_button.gd" id="1_a2mfu"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_a08ub"]
+[ext_resource type="Texture2D" uid="uid://bt8o2xrg7gjg0" path="res://assets/select.png" id="3_n4gn4"]
 
 [node name="Control1" type="Control" unique_id=923352174]
 layout_mode = 3
@@ -20,6 +21,14 @@ layout_mode = 1
 offset_right = 64.0
 offset_bottom = 64.0
 scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1245302651]
+visible = false
+modulate = Color(0, 1, 0, 1)
+z_index = 1
+position = Vector2(50, 50)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("3_n4gn4")
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

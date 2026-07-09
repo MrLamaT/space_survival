@@ -1,7 +1,6 @@
 extends Node3D
 
 var world = Global.get_world(Global.game_settings.word)
-var checkpoint = Vector3(100.0, 0.656, 7.75)
 
 func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skyboxBlue.tscn")
@@ -9,6 +8,7 @@ func _ready() -> void:
 	add_child(env_instance)
 	Global.game_settings["step"] = 1
 	$Player.openUI("simulation_intro")
+	Global.game_settings["checkpoint"] = $Player.global_position
 
 func handle_interaction(object_name: String):
 	match object_name:
@@ -17,9 +17,3 @@ func handle_interaction(object_name: String):
 			player.get_node("head/Camera3D/Teleport").teleport()
 			await get_tree().create_timer(3).timeout
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/GlobalMain.tscn")
-
-func get_checkpoint():
-	return checkpoint
-
-func _on_spawnpoint_6_body_entered(_body: Node3D) -> void:
-	checkpoint = $"6/spawnpoint".global_position
