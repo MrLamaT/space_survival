@@ -13,3 +13,7 @@ func _ready() -> void:
 	$Player.weapon_system.equip_weapon($Player.weapon_system.weapon_slots.get(1, ""))
 	Global.game_settings["step"] = 1
 	$Player._check_and_play_custom_music()
+
+func _on_secret_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")

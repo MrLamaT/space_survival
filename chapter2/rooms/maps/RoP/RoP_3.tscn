@@ -27,6 +27,7 @@
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="25_dth03"]
 [ext_resource type="PackedScene" uid="uid://d2kp3ovym1413" path="res://chapter2/rooms/decoration/PC2.tscn" id="27_5oi54"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="27_rlohk"]
+[ext_resource type="PackedScene" uid="uid://dlaw3kuosj36h" path="res://chapter2/wave/TeleportPortal.tscn" id="28_dth03"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_g8lgq"]
 [ext_resource type="PackedScene" uid="uid://bwf5obhlhsolk" path="res://chapter2/rooms/decoration/wall/MineWall.tscn" id="28_tnkuj"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="31_tnkuj"]
@@ -60,6 +61,9 @@ size = Vector3(40, 0.5, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vsbb"]
 size = Vector3(2.5, 1.5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dth03"]
+size = Vector3(10, 8, 10)
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_7vsbb")
@@ -100,6 +104,9 @@ transform = Transform3D(-4.371139e-08, 0, 9, 0, 20, 0, -1, 0, -3.934025e-07, 29.
 
 [node name="dirt5" parent="NavigationRegion3D/floor_ceiling" unique_id=1727098924 instance=ExtResource("5_8jqej")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 32.5, 5.5, 25)
+
+[node name="dirt13" parent="NavigationRegion3D/floor_ceiling" unique_id=1875101636 instance=ExtResource("5_8jqej")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 43.75, 5.5, 30)
 
 [node name="dirt34" parent="NavigationRegion3D/floor_ceiling" unique_id=1290659752 instance=ExtResource("5_8jqej")]
 transform = Transform3D(9, 0, 0, 0, 20, 0, 0, 0, 1, 33.75, 10.5, 27.5)
@@ -1325,6 +1332,13 @@ nameUI = "messages"
 messages = 2
 notificationVar = true
 
+[node name="TeleportPortal" parent="NavigationRegion3D" unique_id=625728084 instance=ExtResource("28_dth03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 12, 30)
+skeleton = NodePath("../..")
+
+[node name="Marker3D" type="Marker3D" parent="NavigationRegion3D/TeleportPortal" unique_id=1686654271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 45)
+
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("14_kipaj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.2, 0.5, 17.75)
 
@@ -1393,3 +1407,13 @@ visible = false
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("31_tnkuj")]
 transform = Transform3D(4.5, 0, 0, 0, 2.75, 0, 0, 0, 0.90000004, -46.15, 13, -45.5)
+
+[node name="secret" type="Area3D" parent="." unique_id=1901399767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 12, 75)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="secret" unique_id=722996791]
+shape = SubResource("BoxShape3D_dth03")
+
+[connection signal="body_entered" from="secret" to="." method="_on_secret_body_entered"]
