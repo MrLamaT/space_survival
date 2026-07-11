@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cg4yye27hj3ps" path="res://UI/spawn/spawn.gd" id="1_7wgfo"]
 [ext_resource type="PackedScene" uid="uid://whn8plkartqb" path="res://UI/spawn/card.tscn" id="2_2pp8e"]
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="3_3aff4"]
+[ext_resource type="Texture2D" uid="uid://cpbilemb7savo" path="res://assets/level/planet1.png" id="4_a1nv8"]
 [ext_resource type="Texture2D" uid="uid://t2816lwakjs1" path="res://assets/skybox/light.png" id="5_eod37"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_d3066"]
 [ext_resource type="Texture2D" uid="uid://c5nwuqqpajs21" path="res://assets/skybox/toxic.png" id="6_sdvxd"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cb05tr8vveabo" path="res://assets/skybox/rust.png" id="8_a1nv8"]
 [ext_resource type="Texture2D" uid="uid://dafwutn5rbso" path="res://assets/skybox/pale.png" id="9_t7lqh"]
 [ext_resource type="Texture2D" uid="uid://2vv5e6r8wogf" path="res://assets/skybox/dusk.png" id="10_4owxg"]
+[ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://assets/weapon/move.png" id="12_hcli3"]
+[ext_resource type="Texture2D" uid="uid://ecpjbyqy1nup" path="res://assets/weapon/summon.png" id="13_7nag5"]
+[ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://assets/weapon/delete.png" id="14_bj30i"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="15_oo6k4"]
+[ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="16_5tetk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -49,69 +55,134 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 50
-text = "skybox"
+text = "gravity"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2095388520]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=936864837]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/separation = 195
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "terra"
+img = ExtResource("4_a1nv8")
+type = "gravity"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1686819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "RoP-856"
+img = ExtResource("4_a1nv8")
+type = "gravity"
+target_node = NodePath("../../../../..")
+
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=638934176]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 50
+text = "skybox"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2095388520]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=648612558 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
 text = "Void"
 img = ExtResource("3_3aff4")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2008723740 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=2008723740 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Clear Sky"
 img = ExtResource("5_eod37")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=535133645 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=535133645 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Toxic Haze"
 img = ExtResource("6_sdvxd")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1679619271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1679619271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Crimson Dawn"
 img = ExtResource("7_hx65u")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=688616403 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=688616403 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Rust Storm"
 img = ExtResource("8_a1nv8")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=341172952 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=341172952 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Pale Dawn"
 img = ExtResource("9_t7lqh")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1471782367]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1471782367]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/separation = 195
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=173135000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=173135000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Dusk"
 img = ExtResource("10_4owxg")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="Label2" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=656674531]
+[node name="Label3" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1959699563]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 50
-text = "skybox"
+text = "weapon"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=800849904]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=380265890 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "move"
+img = ExtResource("12_hcli3")
+type = "skybox"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=855588505 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "summon"
+img = ExtResource("13_7nag5")
+type = "skybox"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=868529016 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "delete"
+img = ExtResource("14_bj30i")
+type = "skybox"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "vibro spike"
+img = ExtResource("15_oo6k4")
+type = "skybox"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "taser"
+img = ExtResource("16_5tetk")
+type = "skybox"
+target_node = NodePath("../../../../..")

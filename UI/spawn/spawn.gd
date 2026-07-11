@@ -2,6 +2,14 @@ extends Node2D
 
 func handle_card_pressed(type, id):
 	match type:
+		"gravity":
+			match id:
+				"terra":
+					var player = get_tree().get_first_node_in_group("player")
+					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+				"RoP-856":
+					var player = get_tree().get_first_node_in_group("player")
+					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 		"skybox":
 			match id:
 				"Void":

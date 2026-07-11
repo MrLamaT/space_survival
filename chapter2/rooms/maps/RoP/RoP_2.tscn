@@ -1729,5 +1729,17 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14, 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("39_u77an")]
 transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 1.5, 15.5)
 
+[node name="spawnpoint2" parent="." unique_id=321646580 instance=ExtResource("39_u77an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.75, -3, 1.5, -22.5)
+
+[node name="spawnpoint3" parent="." unique_id=1102305859 instance=ExtResource("39_u77an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.75, -10, 1.5, -36.5)
+
+[node name="spawnpoint4" parent="." unique_id=1576955608 instance=ExtResource("39_u77an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.75, 28, 1.5, -36.5)
+
+[node name="spawnpoint5" parent="." unique_id=887122962 instance=ExtResource("39_u77an")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.75, -3, 1.5, -7.5)
+
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/room5/Area3D" to="." method="_on_area_3d_body_entered_room5"]
 [connection signal="body_entered" from="NavigationRegion3D/floor_ceiling/room10/Area3D" to="." method="_on_area_3d_body_entered_room10"]

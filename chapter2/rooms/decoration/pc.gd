@@ -17,11 +17,10 @@ func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
 	if nameUI != "":
 		if nameUI == "messages":
-			player.openMessage(messages)
+			Global.game_settings["UI_argument"] = messages
 		elif nameUI == "hacking":
-			player.openHack(get_parent())
-		else:
-			player.openUI(nameUI)
+			Global.game_settings["UI_argument"] = get_parent()
+		player.openUI(nameUI)
 
 func _on_mouse_entered() -> void:
 	if nameUI != "":

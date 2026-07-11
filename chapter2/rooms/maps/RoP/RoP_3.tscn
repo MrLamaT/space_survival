@@ -1407,6 +1407,10 @@ visible = false
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("31_tnkuj")]
 transform = Transform3D(4.5, 0, 0, 0, 2.75, 0, 0, 0, 0.90000004, -46.15, 13, -45.5)
+new_min_y = true
+
+[node name="spawnpoint2" parent="." unique_id=1260757438 instance=ExtResource("31_tnkuj")]
+transform = Transform3D(-4.371139e-07, 0, 0.9, 0, 2.75, 0, -10, 0, -3.934025e-08, -2.1500015, 13, 18.5)
 
 [node name="secret" type="Area3D" parent="." unique_id=1901399767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5, 12, 75)

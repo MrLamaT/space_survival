@@ -9,7 +9,7 @@ var can_input = false
 	$password/Button1, $password/Button2, $password/Button3, $password/Button4,
 	$password/Button5, $password/Button6, $password/Button7, $password/Button8, $password/Button9
 ]
-@export var node_hack: Node3D
+var node_hack = Global.game_settings["UI_argument"]
 
 func _ready() -> void:
 	randomize()

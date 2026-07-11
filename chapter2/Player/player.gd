@@ -336,8 +336,6 @@ func _input(event: InputEvent): #повороты мышкой
 				for enemy in enemies:
 					if enemy.has_method("take_damage"):
 						enemy.take_damage(999999)
-	if Input.is_action_just_pressed("UI_focus_next"):
-		handle_ui_action("Inventory")
 	if Input.is_action_just_pressed("ui_cancel"):
 		release_build()
 		handle_ui_action("pause")
@@ -394,6 +392,11 @@ func toggle_flashlight():
 		$head/Camera3D/flashlight/AnimationPlayer.play("on")
 		$head/Camera3D/flashlight/SpotLight3D.visible = true
 		$head/Camera3D/flashlight/SpotLight3D2.visible = true
+		if has_flashlight_2:
+			$head/Camera3D/flashlight/SpotLight3D.light_energy = 5.0
+		else:
+			$head/Camera3D/flashlight/SpotLight3D.light_energy = 2.0
+		$head/Camera3D/flashlight/SpotLight3D2.light_energy = $head/Camera3D/flashlight/SpotLight3D.light_energy / 2
 	$beep.play()
 
 func update_flashlight(delta):
@@ -498,9 +501,13 @@ func message(Mtext):
 
 func _physics_process(delta):
 	var world = Global.get_world(Global.game_settings.word)
-	if global_position.y < -5000:
+	if global_position.y < Global.game_settings["min_y"]:
 		print("killZona!!!")
-		global_position = Vector3(0, 0, 0)
+		var new_hp = world["HP"] - world["HP"] * 0.5
+		if new_hp < 1:
+			new_hp = 1
+		HP(world["HP"] - new_hp)
+		global_position = Global.game_settings["checkpoint"]
 		velocity.y = 0
 	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
@@ -675,44 +682,6 @@ func openUI(nameUI):
 			var ui_scene = load(ui_scene_path)
 			node = ui_scene.instantiate()
 			node.name = nameUI
-			get_node("head/Camera3D").add_child(node)
-			node.add_to_group("UI")
-			Global.game_settings["UI"] = true
-	node.visible = true
-	$beep.play()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	update_gui_visibility()
-
-func openMessage(MessageID):
-	var node_name = "messages"
-	var path = "head/Camera3D/" + node_name
-	var node = get_node_or_null(path)
-	if not node:
-		var ui_scene_path = "res://UI/messages/messages.tscn"
-		if ResourceLoader.exists(ui_scene_path):
-			var ui_scene = load(ui_scene_path)
-			node = ui_scene.instantiate()
-			node.name = node_name
-			node.set("MessageID", MessageID)
-			get_node("head/Camera3D").add_child(node)
-			node.add_to_group("UI")
-			Global.game_settings["UI"] = true
-	node.visible = true
-	$beep.play()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	update_gui_visibility()
-	
-func openHack(nodeHack):
-	var node_name = "hacking"
-	var path = "head/Camera3D/" + node_name
-	var node = get_node_or_null(path)
-	if not node:
-		var ui_scene_path = "res://UI/hacking/hacking.tscn"
-		if ResourceLoader.exists(ui_scene_path):
-			var ui_scene = load(ui_scene_path)
-			node = ui_scene.instantiate()
-			node.name = node_name
-			node.set("node_hack", nodeHack)
 			get_node("head/Camera3D").add_child(node)
 			node.add_to_group("UI")
 			Global.game_settings["UI"] = true

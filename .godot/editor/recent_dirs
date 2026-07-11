@@ -1,3 +1,5 @@
+res://assets/weapon/
+res://assets/level/
 res://assets/sound/fnaf/
 res://assets/
 res://chapter2/spawnpoint/
@@ -10,7 +12,6 @@ C:/Users/anaga/OneDrive/Документы/
 res://chapter2/item/Summon_projectile/
 res://chapter2/item/Delete_projectile/
 res://chapter2/item/Move_projectile/
-res://assets/level/
 res://chapter2/item/
 res://assets/sound/
 res://assets/hand/
@@ -20,5 +21,4 @@ res://UI/spawn/
 res://assets/icon/
 res://assets/paintings/
 res://chapter2/build/
-res://assets/shaders/
 E:/

@@ -9,7 +9,7 @@ var error_color := Color("ff0000")
 
 var player: CharacterBody3D
 var world = Global.get_world(Global.game_settings.word)
-var MessageID = 1
+var MessageID = Global.game_settings["UI_argument"]
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")

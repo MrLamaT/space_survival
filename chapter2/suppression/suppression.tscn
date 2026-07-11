@@ -416,7 +416,7 @@ texture = ExtResource("6_bxxb3")
 [node name="attack" type="Area3D" parent="." unique_id=102826565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 0
-collision_mask = 16
+collision_mask = 17
 
 [node name="Sprite3D" type="Sprite3D" parent="attack" unique_id=660713634]
 transform = Transform3D(16, 0, 0, 0, 2.5, 0, 0, 0, 10, 0, 0.5, 4)
