@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d4liqo5dw0o7c"]
+
+[ext_resource type="Script" uid="uid://b1a0o50y47wsn" path="res://chapter2/item/Hornet_projectile/taser_projectile.gd" id="1_qtogm"]
+
+[sub_resource type="Gradient" id="Gradient_li1c4"]
+colors = PackedColorArray(0.5, 0.5, 0.5, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1d722"]
+gradient = SubResource("Gradient_li1c4")
+width = 250
+height = 250
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iexmd"]
+
+[node name="HornetProjectile" type="Node3D" unique_id=1211004102]
+script = ExtResource("1_qtogm")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2053283637]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+modulate = Color(0.54509807, 0.44313726, 0.14901961, 1)
+billboard = 1
+texture = SubResource("GradientTexture2D_1d722")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=939888304]
+light_color = Color(0.54509807, 0.44313726, 0.14901961, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=656076559]
+collision_layer = 4
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1064732246]
+shape = SubResource("SphereShape3D_iexmd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

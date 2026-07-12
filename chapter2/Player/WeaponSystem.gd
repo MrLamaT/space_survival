@@ -28,6 +28,16 @@ var weapon_slots: Dictionary = {
 }
 
 var weapons: Dictionary = {
+	"Vibro Spike": {
+		"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
+		"weapon_scene": preload("res://chapter2/item/Knife_projectile/Knife.tscn"),
+		"fire_rate": 0.75,
+		"bullet_speed": 0.0,
+		"stamina_cost": 2.0,
+		"shoot_animation": "shoot",
+		"visible_node": "Knife",
+		"pitch_scale": [1.4, 1.6]
+	},
 	"Taser": {
 		"scene": preload("res://chapter2/item/Taser_projectile/Taser_projectile.tscn"),
 		"weapon_scene": preload("res://chapter2/item/Taser_projectile/Taser.tscn"),
@@ -38,14 +48,14 @@ var weapons: Dictionary = {
 		"visible_node": "Taser",
 		"pitch_scale": [1.4, 1.6]
 	},
-	"Knife": {
-		"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
-		"weapon_scene": preload("res://chapter2/item/Knife_projectile/Knife.tscn"),
-		"fire_rate": 0.75,
-		"bullet_speed": 0.0,
-		"stamina_cost": 2.0,
-		"shoot_animation": "shoot",
-		"visible_node": "Knife",
+	"Hornet": {
+		"scene": preload("res://chapter2/item/Hornet_projectile/Hornet_projectile.tscn"),
+		"weapon_scene": preload("res://chapter2/item/Hornet_projectile/Hornet.tscn"),
+		"fire_rate": 0.06,
+		"bullet_speed": 35.0,
+		"stamina_cost": 1.5,
+		"reload_animation": "r",
+		"visible_node": "Hornet",
 		"pitch_scale": [1.4, 1.6]
 	},
 	"Move": {
@@ -129,7 +139,7 @@ func shoot():
 			current_weapon.get_node("AnimationPlayer").play(weapon_data["shoot_animation"])
 	
 	is_reloading = false
-	if player.stamina < weapon_data["stamina_cost"] and !is_reloading:
+	if player.stamina < weapon_data["stamina_cost"] + 5.0 and !is_reloading:
 		is_reloading = true
 		if weapon_data.has("reload_animation") and weapon_data["reload_animation"] != "":
 			if current_weapon and current_weapon.has_node("AnimationPlayer"):
@@ -157,6 +167,11 @@ func shoot():
 		var pitch_range = weapon_data.get("pitch_scale", [1.4, 1.6])
 		shooting_sound.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
 		shooting_sound.play()
+	if current_weapon and current_weapon.has_node("shootingSound2") and randf() < 0.25:
+		var shooting_sound2 = current_weapon.get_node("shootingSound2")
+		var pitch_range = weapon_data.get("pitch_scale", [1.4, 1.6])
+		shooting_sound2.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
+		shooting_sound2.play()
 	add_recoil()
 
 func add_recoil():

@@ -1,7 +1,8 @@
+res://assets/sound/
 res://assets/weapon/
+res://assets/
 res://assets/level/
 res://assets/sound/fnaf/
-res://assets/
 res://chapter2/spawnpoint/
 res://assets/item/
 res://assets/models/
@@ -13,7 +14,6 @@ res://chapter2/item/Summon_projectile/
 res://chapter2/item/Delete_projectile/
 res://chapter2/item/Move_projectile/
 res://chapter2/item/
-res://assets/sound/
 res://assets/hand/
 res://chapter2/item/Taser_projectile/
 res://assets/skybox/

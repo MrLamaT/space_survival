@@ -25,12 +25,9 @@ var previous_position: Vector3
 func _ready():
 	super._ready()
 	previous_position = global_position
-	health = 60
+	health = 180
 	health *= int(speed_multiplier)
 	SPEED *= speed_multiplier
-	if is_boss:
-		health = 190
-		$body/body/Sprite3D.visible = true
 	shatter_parts = [
 		$body/body,
 		$body/hand1,
@@ -45,7 +42,7 @@ func _disable_combat_states():
 	is_attacking = false
 
 func _get_boss_id() -> String:
-	return "infantryman"
+	return "destroyercik"
 
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
@@ -105,9 +102,9 @@ func attack_player():
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
 			if player.has_method("HP"):
-				player.HP(20)
+				player.HP(40)
 			if player.has_method("take_damage"):
-				player.take_damage(20)
+				player.take_damage(40)
 			if player is CharacterBody3D:
 				var knockback_direction = (player.global_position - global_position).normalized()
 				player.velocity.x = knockback_direction.x * KNOCKBACK_FORCE

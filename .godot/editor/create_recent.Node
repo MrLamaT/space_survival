@@ -1,3 +1,6 @@
+AudioStreamPlayer3D
+HBoxContainer
+Button
 MeshInstance3D
 CollisionShape3D
 Area3D
@@ -10,5 +13,3 @@ Panel
 Label3D
 Sprite2D
 VBoxContainer
-Node3D
-HBoxContainer

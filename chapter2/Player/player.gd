@@ -152,7 +152,7 @@ func _ready():
 	movement_enabled = true
 	Global.game_settings["GodMod"] = false 
 	Global.game_settings["WeaponProtection"] = false
-	Global.game_settings["affected_by_gravity"] = true
+	Global.game_settings["affected_by_gravity"] = true 
 	base_camera_position = cam.position
 	update_stamina_display()
 	stamina_bar.visible = false  
@@ -286,7 +286,7 @@ func _input(event: InputEvent): #повороты мышкой
 			current_weapon_slot -= 1
 			if current_weapon_slot < 1:
 				current_weapon_slot = 5
-				weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
+			weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
 			weapon_scroll_cooldown = weapon_scroll_delay
 	if Input.is_action_just_pressed("+1"):
 		release_build()

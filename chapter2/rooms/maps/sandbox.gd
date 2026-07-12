@@ -6,14 +6,16 @@ func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skyboxBlue.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
-	$Player.weapon_system.weapon_slots[1] = "Knife"
+	$Player.weapon_system.weapon_slots[1] = "Vibro Spike"
 	$Player.weapon_system.weapon_slots[2] = "Taser"
+	$Player.weapon_system.weapon_slots[3] = "Hornet"
 	$Player.weapon_system.weapon_slots[6] = "Move"
 	$Player.weapon_system.weapon_slots[7] = "Delete"
 	$Player.weapon_system.weapon_slots[8] = "Summon"
 	$Player.weapon_system.equip_weapon($Player.weapon_system.weapon_slots.get(1, ""))
 	Global.game_settings["step"] = 1
 	Global.game_settings["checkpoint"] = $Player.global_position
+	Global.game_settings["min_y"] = -5.0
 
 func handle_interaction(object_name: String):
 	match object_name:

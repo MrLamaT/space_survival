@@ -40,7 +40,7 @@ var game_settings: Dictionary = {
 	"UI_argument": null,
 	"GhostMod": false,
 	"checkpoint": Vector3(0.0, 0.0, 0.0),
-	"min_y": 0.0
+	"min_y": -5.0
 }
 var saved_portal_data: Dictionary = {}
 

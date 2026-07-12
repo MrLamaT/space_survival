@@ -1354,6 +1354,17 @@ text = "-CAMERA DISABLED-"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ErrorCam" type="Panel" parent="Panel" unique_id=691189185]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
 [node name="Panel2" type="Panel" parent="." unique_id=359835860]
 visible = false
 z_index = 1
