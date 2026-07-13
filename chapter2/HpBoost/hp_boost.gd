@@ -16,6 +16,7 @@ func trigger_interaction():
 		remove_from_group("interactive_objects")
 		var player = get_tree().get_first_node_in_group("player")
 		player.HP(-100)
+		Global.game_settings["checkpoint"] = player.global_position
 
 func _on_mouse_entered() -> void:
 	if has_node("Sprite3D2"):

@@ -175,15 +175,13 @@ func shoot():
 	add_recoil()
 
 func add_recoil():
-	var recoil_rotation = Vector2(
-		randf_range(-0.5, 0.5),
-		randf_range(1.0, 2.0)
-	) * 0.01
-	cam.rotate_x(recoil_rotation.y)
-	player.head.rotate_y(recoil_rotation.x)
+	var recoil_up = randf_range(1.0, 2.0) * 0.01
+	cam.rotate_x(recoil_up)
 	var camera_x_rotation = cam.rotation.x
-	if camera_x_rotation < deg_to_rad(-89) or camera_x_rotation > deg_to_rad(89):
-		cam.rotation.x = clamp(camera_x_rotation, deg_to_rad(-89), deg_to_rad(89))
+	if camera_x_rotation < deg_to_rad(-89):
+		cam.rotation.x = deg_to_rad(-89)
+	elif camera_x_rotation > deg_to_rad(89):
+		cam.rotation.x = deg_to_rad(89)
 
 func has_weapon_in_slot(slot: int) -> bool:
 	return weapon_slots.get(slot, "") != ""

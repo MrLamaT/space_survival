@@ -105,7 +105,7 @@ shaded = true
 texture = ExtResource("5_v4pss")
 
 [node name="Timer" type="Timer" parent="." unique_id=705013263]
-wait_time = 4.0
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

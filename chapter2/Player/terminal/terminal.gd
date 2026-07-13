@@ -123,9 +123,6 @@ func parse_command(text: String):
 				SystemPrint("No enemies found")
 		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
-		"give":
-			player.openUI("cheat_give")
-			SystemPrint("Opening the item issue menu")
 		"save":
 			player.save()
 			SystemPrint("World saved successfully")

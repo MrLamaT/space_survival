@@ -1,9 +1,10 @@
+Camera3D
+Area3D
 AudioStreamPlayer3D
 HBoxContainer
 Button
 MeshInstance3D
 CollisionShape3D
-Area3D
 AudioStreamPlayer2D
 AnimationPlayer
 ColorRect
@@ -12,4 +13,3 @@ ProgressBar
 Panel
 Label3D
 Sprite2D
-VBoxContainer
