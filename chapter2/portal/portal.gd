@@ -37,7 +37,6 @@ func teleport(map):
 	if skin != 0:
 		casing(1)
 		await get_tree().create_timer(2).timeout
-	$AudioStreamPlayer3D.play()
 	var tween1 = create_tween()
 	tween1.tween_method(
 		update_cube_colors.bind(Color.WHITE, Color("9f009f")),
@@ -49,7 +48,7 @@ func teleport(map):
 		var player = get_tree().get_first_node_in_group("player")
 		player.get_node("head/Camera3D/Teleport").teleport()
 		await get_tree().create_timer(2).timeout
-		$AudioStreamPlayer3D2.play()
+		$AudioStreamPlayer2D2.play()
 		await get_tree().create_timer(1).timeout
 		print("бум")
 		$TeleportCube.save_contents()

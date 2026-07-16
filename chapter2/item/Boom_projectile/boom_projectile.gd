@@ -6,7 +6,6 @@ func shoot(_dir: Vector3, _spd: float):
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body)
 	if body.is_in_group("player"):
 		var knockback_direction = (body.global_position - global_position).normalized()
 		if body is CharacterBody3D:

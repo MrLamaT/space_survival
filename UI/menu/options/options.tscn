@@ -83,4 +83,4 @@ texture = ExtResource("3_6jmmj")
 [node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=1697329386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
 stream = ExtResource("3_6ga17")
-volume_db = -20.0
+volume_db = -25.0

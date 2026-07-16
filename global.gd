@@ -33,7 +33,6 @@ var game_settings: Dictionary = {
 	"ThrownCamera": null,
 	"can_jump": true,
 	"affected_by_gravity": true,
-	"FloatHeight": 0,
 	"word": 0,
 	"step": 1,
 	"UI": false,

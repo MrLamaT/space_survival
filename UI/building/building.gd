@@ -24,6 +24,7 @@ func create(sprite_label):
 	var world = Global.get_world(Global.game_settings.word)
 	var player = get_tree().get_first_node_in_group("player")
 	world["equipment"].append(sprite_label)
+	player.update_max_stamina()
 	player.save()
 	player.get_node("craft").play()
 	$InventoryUi.update()

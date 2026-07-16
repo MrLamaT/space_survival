@@ -7,7 +7,6 @@ func shoot(_dir: Vector3, _spd: float):
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(body)
 	if body.is_in_group("player"):
 		print("УЗРИ МОЩЬ АНГЕЛА!")
 		body.HP(damage)

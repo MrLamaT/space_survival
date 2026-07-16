@@ -13,4 +13,6 @@ func die():
 	queue_free()
 
 func take_damage(_damage):
-	die()
+	var world = Global.get_world(Global.game_settings.word)
+	if "path-breaker" in world["equipment"]:
+		die()

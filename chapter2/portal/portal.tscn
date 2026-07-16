@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
-[ext_resource type="AudioStream" uid="uid://cav0g4fhsohr2" path="res://assets/sound/teleport1.wav" id="7_nwwir"]
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
@@ -488,14 +487,8 @@ libraries/ = SubResource("AnimationLibrary_nwwir")
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1337899138]
 libraries/ = SubResource("AnimationLibrary_bguse")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1192623370]
-stream = ExtResource("7_nwwir")
-volume_db = -15.0
-pitch_scale = 0.5
-
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=1615355909]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1465785673]
 stream = ExtResource("8_nwwir")
-volume_db = -15.0
 pitch_scale = 0.75
 
 [node name="PC1" parent="." unique_id=1029461300 instance=ExtResource("8_syhg2")]

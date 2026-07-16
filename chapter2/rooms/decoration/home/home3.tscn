@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://co5j1wfw85gt6"]
+
+[ext_resource type="Texture2D" uid="uid://crjpq6n0ckqta" path="res://assets/textures/home1.png" id="2_hp3lh"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="3_4c1ka"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcqaw"]
+albedo_texture = ExtResource("2_hp3lh")
+uv1_scale = Vector3(0.12, 0.167, 0.12)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_xj8qm"]
+material = SubResource("StandardMaterial3D_tcqaw")
+size = Vector3(25, 30, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eir4t"]
+size = Vector3(25, 30.5, 25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eir4t"]
+material = ExtResource("3_4c1ka")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="home" type="Node3D" unique_id=79975982]
+
+[node name="wall" type="StaticBody3D" parent="." unique_id=353121964]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall" unique_id=559690425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+mesh = SubResource("BoxMesh_xj8qm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall" unique_id=1050262336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.25, 0)
+shape = SubResource("BoxShape3D_eir4t")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="wall" unique_id=1619270207]
+transform = Transform3D(5.9624415e-07, 0, 50, 0, 1, 0, -50, 0, 5.9624415e-07, 0, 30.25, 0)
+mesh = SubResource("BoxMesh_eir4t")
+skeleton = NodePath("../..")

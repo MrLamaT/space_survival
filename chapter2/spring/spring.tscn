@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yvqi7l0xilg4" path="res://chapter2/spring/spring.gd" id="1_k0uii"]
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="2_geiqc"]
+[ext_resource type="Texture2D" uid="uid://cmifafoarn4a3" path="res://assets/textures/ring.png" id="3_vkhkv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_geiqc"]
 shading_mode = 0
@@ -11,109 +12,8 @@ albedo_color = Color(0, 0.7490196, 1, 1)
 material = SubResource("StandardMaterial3D_geiqc")
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5hyq"]
-shading_mode = 0
-albedo_color = Color(1, 0.27058825, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_gfhe0"]
-material = SubResource("StandardMaterial3D_q5hyq")
-size = Vector3(1, 0.1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt7su"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_s7jlg"]
-material = SubResource("StandardMaterial3D_tt7su")
-size = Vector3(1, 0.1, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkhkv"]
 size = Vector3(2, 0.1, 2)
-
-[sub_resource type="Animation" id="Animation_a7g13"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Expectation:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cooldown:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cooldown2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_fuw37"]
-resource_name = "cooldown"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Expectation:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cooldown:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cooldown2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gg7xd"]
-_data = {
-&"RESET": SubResource("Animation_a7g13"),
-&"cooldown": SubResource("Animation_fuw37")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0uii"]
 albedo_color = Color(0.38039216, 0.3882353, 0.5019608, 1)
@@ -150,6 +50,109 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iwn2h")
 
+[sub_resource type="Animation" id="Animation_q5po7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("effect/Sprite3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("effect/Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.5, 12.5, 12.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("effect/Sprite3D:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_q5hyq"]
+resource_name = "ring"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("effect/Sprite3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("effect/Sprite3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(11, 11, 11), Vector3(12.5, 12.5, 12.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("effect/Sprite3D:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gfhe0"]
+_data = {
+&"RESET": SubResource("Animation_q5po7"),
+&"ring": SubResource("Animation_q5hyq")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vkhkv"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 2, 0)
+initial_velocity_max = 2.0
+gravity = Vector3(0, 1, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5po7"]
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_q5hyq"]
+material = SubResource("StandardMaterial3D_q5po7")
+size = Vector2(0.1, 0.1)
+
 [node name="Spring" type="Area3D" unique_id=1428768737]
 collision_mask = 17
 script = ExtResource("1_k0uii")
@@ -162,20 +165,6 @@ mesh = SubResource("BoxMesh_k0uii")
 light_color = Color(0, 0.7490196, 1, 1)
 omni_range = 1.0
 
-[node name="Cooldown" type="MeshInstance3D" parent="." unique_id=508024559]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.05008182, 0)
-visible = false
-mesh = SubResource("BoxMesh_gfhe0")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Cooldown" unique_id=2144628477]
-light_color = Color(1, 0.27058825, 0, 1)
-omni_range = 1.0
-
-[node name="Cooldown2" type="MeshInstance3D" parent="." unique_id=887668708]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.05008182, 0)
-visible = false
-mesh = SubResource("BoxMesh_s7jlg")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=611596467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("BoxShape3D_vkhkv")
@@ -184,12 +173,28 @@ shape = SubResource("BoxShape3D_vkhkv")
 stream = ExtResource("2_geiqc")
 volume_db = -20.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=290773618]
-libraries/ = SubResource("AnimationLibrary_gg7xd")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663022037]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_geiqc")
+
+[node name="effect" type="Node3D" parent="." unique_id=867976397]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="effect" unique_id=117221677]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_gfhe0")
+autoplay = &"ring"
+
+[node name="Sprite3D" type="Sprite3D" parent="effect" unique_id=1728812895]
+transform = Transform3D(12.5, 0, 0, 0, -5.4639236e-07, -12.5, 0, 12.5, -5.4639236e-07, 0, 0, 0)
+modulate = Color(0, 0.7490196, 1, 1)
+texture_filter = 0
+texture = ExtResource("3_vkhkv")
+
+[node name="spark" type="GPUParticles3D" parent="effect" unique_id=1253088892]
+cast_shadow = 0
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_vkhkv")
+draw_pass_1 = SubResource("QuadMesh_q5hyq")
 
 [connection signal="body_entered" from="." to="." method="_on_top_detection_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

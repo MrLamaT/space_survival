@@ -66,13 +66,6 @@ direction_A_and_D = "D"
 target_node = NodePath("../../..")
 button_id = "kill"
 
-[node name="LabelButton5" parent="Panel/VBoxContainer" unique_id=1628158943 instance=ExtResource("2_flat7")]
-layout_mode = 2
-text = "give"
-direction_A_and_D = "D"
-target_node = NodePath("../../..")
-button_id = "give"
-
 [node name="Terminal" parent="Panel" unique_id=1056533094 instance=ExtResource("3_yybou")]
 position = Vector2(446, 137)
 

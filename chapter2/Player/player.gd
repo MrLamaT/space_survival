@@ -90,14 +90,9 @@ var jump_velocity = 4.5
 var is_jumping = false
 var jump_cooldown = 0.2
 var jump_cooldown_timer = 0.0
+var has_used_double_jump: bool = false
 
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
-
-#полёт
-var is_floating: bool = false
-var float_start_height: float = 0.0
-var float_target_height: float = 0.0
-var float_speed: float = 3.0 # скорость подъема/спуска при парении
 
 # инерция руки
 var hand_follow_speed = 15.0  # Скорость следования руки (чем больше, тем быстрее)
@@ -167,6 +162,8 @@ func _ready():
 	weapon_system.cam = cam
 	add_child(weapon_system)
 	weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
+	HP(-100)
+	update_max_stamina()
 
 func PlayerDeath():
 	if Global.game_settings["IsDying"]:
@@ -511,38 +508,29 @@ func _physics_process(delta):
 		velocity.y = 0
 	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
-	if not Global.game_settings["affected_by_gravity"]:
-		is_floating = false
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
-		if Input.is_action_just_pressed("+space") and is_on_floor() and Global.game_settings["can_jump"] and movement_enabled and !crouched:
-			if jump_cooldown_timer <= 0:
-				velocity.y = jump_velocity
-				is_jumping = true
-				jump_cooldown_timer = jump_cooldown
-		if Global.game_settings["FloatHeight"] > 0:
-			if Input.is_action_pressed("+space") and not is_on_floor() and movement_enabled and not crouched:
-				if not is_floating:
-					is_floating = true
-					float_start_height = global_position.y
-					float_target_height = float_start_height + Global.game_settings["FloatHeight"]
-					velocity.y = 0
-				else:
-					if global_position.y < float_target_height:
-						velocity.y = float_speed
-					else:
-						velocity.y = 0
-			if Input.is_action_just_released("+space") and is_floating:
-				is_floating = false
+			has_used_double_jump = false
+		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and movement_enabled and !crouched:
 			if is_on_floor():
-				is_floating = false
+				if jump_cooldown_timer <= 0:
+					velocity.y = jump_velocity
+					is_jumping = true
+					jump_cooldown_timer = jump_cooldown
+					has_used_double_jump = false
+			else:
+				if "jump booster" in world["equipment"] and not has_used_double_jump:
+					velocity.y = jump_velocity
+					has_used_double_jump = true
+					is_jumping = true
+					$spring.play()
 		if jump_cooldown_timer > 0:
 			jump_cooldown_timer -= delta
 		if is_on_floor():
 			is_jumping = false
-		if not is_on_floor() and not is_floating:
+		if not is_on_floor():
 			if falling_fast and movement_enabled:
 				velocity.y -= gravity * delta * 10
 			else:
@@ -599,6 +587,16 @@ func _physics_process(delta):
 	interaction_manager.check_interactable()
 	if is_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
 		weapon_system.shoot()
+
+func update_max_stamina():
+	var world = Global.get_world(Global.game_settings.word)
+	if "exoskeleton 3" in world["equipment"]:
+		max_stamina = 175.0
+	if "exoskeleton 2" in world["equipment"]:
+		max_stamina = 150.0
+	if "exoskeleton 1" in world["equipment"]:
+		max_stamina = 125.0
+	$head/Camera3D/staminaProgressBar.max_value = max_stamina
 
 func force_stand_up():
 	if crouched:

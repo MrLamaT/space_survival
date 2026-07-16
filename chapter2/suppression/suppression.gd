@@ -21,8 +21,6 @@ func handle_interaction(object_name: String):
 	match object_name:
 		"start":
 			if ImpenetrableField and is_active:
-				var player = get_tree().get_first_node_in_group("player")
-				Global.game_settings["checkpoint"] = player.global_position
 				start_wave()
 				$Timer.start()
 				is_active = false
@@ -30,8 +28,6 @@ func handle_interaction(object_name: String):
 func _on_attack_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage") and body.is_in_group("phantom"):
 		body.take_damage(999999)
-	if body.is_in_group("player"):
-		Global.game_settings["checkpoint"] = body.global_position
 
 func start_wave() -> void:
 	var boom_scene = load("res://chapter2/item/Boom_projectile/Boom_projectile.tscn")

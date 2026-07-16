@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4liqo5dw0o7c"]
 
-[ext_resource type="Script" uid="uid://b1a0o50y47wsn" path="res://chapter2/item/Hornet_projectile/taser_projectile.gd" id="1_qtogm"]
+[ext_resource type="Script" uid="uid://b1a0o50y47wsn" path="res://chapter2/item/Hornet_projectile/hornet_projectile.gd" id="1_qtogm"]
 
 [sub_resource type="Gradient" id="Gradient_li1c4"]
 colors = PackedColorArray(0.5, 0.5, 0.5, 1, 1, 1, 1, 1)

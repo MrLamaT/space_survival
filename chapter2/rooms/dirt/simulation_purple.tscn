@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://exr4e1tjsb2j"]
+
+[ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="1_ur83x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wot7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr5s2"]
+albedo_color = Color(0.8901961, 0, 0.91764706, 1)
+albedo_texture = ExtResource("1_ur83x")
+uv1_scale = Vector3(0.75, 0.75, 0.75)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[node name="dirt" type="StaticBody3D" unique_id=341057132]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=813702531]
+shape = SubResource("BoxShape3D_wot7y")
+debug_fill = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1458177999]
+material = SubResource("StandardMaterial3D_jr5s2")
