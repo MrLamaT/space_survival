@@ -55,6 +55,7 @@ func stop_chasing():
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
+	super._physics_process(delta)
 	if is_dead:
 		return
 	if is_dying:

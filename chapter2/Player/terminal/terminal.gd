@@ -136,12 +136,6 @@ func parse_command(text: String):
 		"stoptimer", "stoptime", "timerstop", "timestop":
 			player.timerBoost(0)
 			SystemPrint("Timer stopped")
-		"summon_name", "setname":
-			if argument == "":
-				ErrorPrint("Usage: summon_name <entity_name>")
-			else:
-				Global.game_settings["summon"]["name"] = argument
-				SystemPrint("Summon entity name set to: " + argument)
 		"summon_aura", "setaura":
 			if argument == "":
 				ErrorPrint("Usage: summon_aura <value> (example: summon_aura 1)")
@@ -162,6 +156,12 @@ func parse_command(text: String):
 				SystemPrint("Summon boss mode set to: false")
 			else:
 				ErrorPrint("Invalid argument: use true/false or 1/0")
+		"summon_tags", "settags":
+			if argument == "":
+				ErrorPrint("Usage: summon_name <entity_name>")
+			else:
+				Global.game_settings["summon"]["enemyTags"] = argument
+				SystemPrint("Summon entity name set to: " + argument)
 		"summon_info", "summonstatus":
 			var summon = Global.game_settings["summon"]
 			SystemPrint("Current summon settings:")

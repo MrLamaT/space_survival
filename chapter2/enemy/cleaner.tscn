@@ -136,7 +136,7 @@ _data = {
 height = 0.025
 radius = 0.4
 
-[node name="cleaner" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="cleaner" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "machine"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_8nadw")

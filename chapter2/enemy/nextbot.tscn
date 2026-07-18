@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bbnoxi1tcr3a6" path="res://chapter2/enemy/nextbot.gd" id="1_bpc6b"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_1p1qd"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_1p1qd"]
-[ext_resource type="Texture2D" uid="uid://d2w1kgeitdcsf" path="res://assets/Nextbot/bot1.jpg" id="3_bpc6b"]
+[ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="4_1p1qd"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="4_4n213"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
@@ -134,12 +134,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="Sprite3D" type="Sprite3D" parent="body" unique_id=2075416521]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 billboard = 2
-shaded = true
-texture = ExtResource("3_bpc6b")
+texture = ExtResource("4_1p1qd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(1, 0.060000002, 0.07566643, 1)
-light_energy = 2.0
+light_energy = 3.0
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1179688890]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)

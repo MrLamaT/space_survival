@@ -18,7 +18,7 @@ func  _ready() -> void:
 	else:
 		$Label2.modulate = Color("ff0000")
 		$Label2.text = "Locked"
-		$TextureRect.texture = preload("res://assets/delete.png")
+		$TextureRect.texture = preload("res://assets/icon/delete.png")
 	if level == -1 and world["mode"] != 1:
 		visible = false
 		

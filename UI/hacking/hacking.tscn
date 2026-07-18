@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://20gqgjr0wata" path="res://assets/icon/hack_player.png" id="1_0w633"]
 [ext_resource type="Script" uid="uid://bd0y0f7cph0nj" path="res://UI/hacking/hacking.gd" id="1_b5mh0"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_lcaau"]
-[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="7_wbnmh"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="7_wbnmh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc67h"]
 bg_color = Color(0, 0, 0, 0.78431374)

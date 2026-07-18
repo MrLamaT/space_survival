@@ -20,6 +20,7 @@ func _ready() -> void:
 	wave_marker.set("enemy", Global.game_settings["summon"]["name"])
 	wave_marker.set("is_boss", Global.game_settings["summon"]["boss"])
 	wave_marker.set("aura", Global.game_settings["summon"]["aura"])
+	wave_marker.set("enemyTags", Global.game_settings["summon"]["enemyTags"])
 	wave_marker.spawn("none")
 	queue_free()
 

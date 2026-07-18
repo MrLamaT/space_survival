@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://dyqkb52rhy3h7" path="res://chapter2/rooms/decoration/antenna.tscn" id="18_j158y"]
 [ext_resource type="PackedScene" uid="uid://cmggski320s00" path="res://chapter2/rooms/decoration/flora/tree.tscn" id="18_tusxh"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="20_0mg8l"]
-[ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1.tscn" id="20_rdpyo"]
 [ext_resource type="PackedScene" uid="uid://vclsdpwcxpcl" path="res://chapter2/rooms/decoration/home/home2.tscn" id="20_uu4at"]
 [ext_resource type="PackedScene" uid="uid://co5j1wfw85gt6" path="res://chapter2/rooms/decoration/home/home3.tscn" id="20_weu5r"]
 [ext_resource type="AudioStream" uid="uid://dynvn6ry0rbjr" path="res://assets/sound/nature.wav" id="38_80gio"]
@@ -915,10 +914,6 @@ navigation_region = NodePath("../../NavigationRegion3D2")
 
 [node name="Entry" type="Marker3D" parent="NavigationRegion3D" unique_id=1215804157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.756, -30)
-
-[node name="observer1" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("20_rdpyo")]
-transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.81915206, -33.5, 36, 38.25)
-watch = true
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("16_ujcsl")]
 visible = false

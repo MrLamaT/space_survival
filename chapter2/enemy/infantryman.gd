@@ -59,6 +59,7 @@ func _get_boss_id() -> String:
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
+	super._physics_process(delta)
 	if is_dead or is_dying:
 		return
 	if not is_on_floor():
@@ -147,7 +148,7 @@ func attack_player():
 func shoot_at_player():
 	if not player:
 		return
-	var bullet_spawn = $body/hand1/BulletSpawn
+	var bullet_spawn = $body/BulletSpawn
 	if not bullet_spawn:
 		return
 	var bullet = bullet_scene.instantiate()

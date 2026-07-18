@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @export var is_boss: bool = false
 @export var aura: int = 0
+@export var enemyTags: String = "player"
 
 var double_damage_in_air: bool = true
 var should_shatter: bool = false
@@ -18,15 +19,24 @@ const DEATH_DELAY: float = 1.0
 
 var health: int = 1
 var player: Node3D = null
+var _search_cooldown: float = 0.0
+const SEARCH_DELAY: float = 0.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed_multiplier: float = 1.0 
 
 func _ready():
-	player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group(enemyTags)
 	if aura > 0:
 		speed_multiplier = aura + 1
 		_apply_aura()
+
+func _physics_process(delta):
+	if not player:
+		_search_cooldown -= delta
+		if _search_cooldown <= 0:
+			player = get_tree().get_first_node_in_group(enemyTags)
+			_search_cooldown = SEARCH_DELAY
 
 func _setup_boss_bar():
 	if is_boss:

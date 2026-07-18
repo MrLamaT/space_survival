@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cb05tr8vveabo" path="res://assets/skybox/rust.png" id="8_a1nv8"]
 [ext_resource type="Texture2D" uid="uid://dafwutn5rbso" path="res://assets/skybox/pale.png" id="9_t7lqh"]
 [ext_resource type="Texture2D" uid="uid://2vv5e6r8wogf" path="res://assets/skybox/dusk.png" id="10_4owxg"]
-[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="12_7nag5"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="12_7nag5"]
 [ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://assets/weapon/move.png" id="12_hcli3"]
 [ext_resource type="Texture2D" uid="uid://ecpjbyqy1nup" path="res://assets/weapon/summon.png" id="13_7nag5"]
 [ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://assets/weapon/delete.png" id="14_bj30i"]
@@ -21,7 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="19_lx0oo"]
 [ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="20_o0w04"]
 [ext_resource type="Texture2D" uid="uid://b0sgfy3s5y52e" path="res://assets/item/dark_sercilist.png" id="21_4ib5f"]
+[ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
+[ext_resource type="Texture2D" uid="uid://da6t4vfq68acd" path="res://assets/icon/enemyEgg/Egg_stingray.png" id="23_4g2gr"]
+[ext_resource type="Texture2D" uid="uid://cytujp0panmgm" path="res://assets/icon/enemyEgg/Egg_cockroach.png" id="24_ssy0r"]
+[ext_resource type="Texture2D" uid="uid://ba47gfu4rtp31" path="res://assets/icon/enemyEgg/Egg_shooter.png" id="25_b68df"]
+[ext_resource type="Texture2D" uid="uid://bwcwe6nl7eqfb" path="res://assets/icon/enemyEgg/Egg_cleaner.png" id="26_gudhd"]
+[ext_resource type="Texture2D" uid="uid://dhqbm1f7ak0b" path="res://assets/icon/enemyEgg/Egg_observer1.png" id="27_c4wer"]
+[ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
+[ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
+[ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="30_ssy0r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -92,9 +101,16 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/separation = 195
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "terra"
+text = "None"
+img = ExtResource("12_7nag5")
+type = "gravity"
+target_node = NodePath("../../../../..")
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1469697271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Terra"
 img = ExtResource("4_a1nv8")
 type = "gravity"
 target_node = NodePath("../../../../..")
@@ -102,6 +118,13 @@ target_node = NodePath("../../../../..")
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1686819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "RoP-856"
+img = ExtResource("4_a1nv8")
+type = "gravity"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2023203451 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Supermass"
 img = ExtResource("4_a1nv8")
 type = "gravity"
 target_node = NodePath("../../../../..")
@@ -266,6 +289,92 @@ layout_mode = 2
 text = "Dark Sercilist"
 img = ExtResource("21_4ib5f")
 type = "item"
+target_node = NodePath("../../../../..")
+
+[node name="Label5" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2138392283]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 50
+text = "enemies"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=910106451]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=571474721 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "phantom"
+img = ExtResource("22_6btrt")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=749460535 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "giantStingray"
+img = ExtResource("23_4g2gr")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=885521053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "cockroach"
+img = ExtResource("24_ssy0r")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1329909716 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "shooter"
+img = ExtResource("25_b68df")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=275797464 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "cleaner"
+img = ExtResource("26_gudhd")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1009663333 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "observer1"
+img = ExtResource("27_c4wer")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=302337536]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=700337335 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "infantryman"
+img = ExtResource("28_4g2gr")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1721067528 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "destroyercik"
+img = ExtResource("29_k6u5q")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=489753368 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "stingray"
+img = ExtResource("23_4g2gr")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=969219958 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "nextbot"
+img = ExtResource("30_ssy0r")
+type = "enemies"
 target_node = NodePath("../../../../..")
 
 [node name="weapon_slot" type="Panel" parent="." unique_id=1856984672]

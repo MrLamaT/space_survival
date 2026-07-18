@@ -25,6 +25,7 @@ var game_settings: Dictionary = {
 	"summon": {
 		"name": "phantom",
 		"aura": 0,
+		"enemyTags": "player",
 		"boss": false
 	},
 	"CanStandUp": true,

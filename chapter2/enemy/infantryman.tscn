@@ -340,12 +340,10 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="infantryman" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="infantryman" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "machine"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_cr145")
-is_boss = null
-aura = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=132772523]
 shape = SubResource("CapsuleShape3D_7kklp")
@@ -456,9 +454,6 @@ stream = ExtResource("9_o20w3")
 volume_db = -20.0
 pitch_scale = 1.5
 
-[node name="BulletSpawn" type="Marker3D" parent="body/hand1" unique_id=1802774342]
-transform = Transform3D(0.9999998, -2.4868996e-14, -1.7375203e-15, 1.4210855e-14, 1, -1.7763568e-14, -1.7375213e-15, 1.4210855e-14, 0.99999976, -0.25, -1.1, -0.25)
-
 [node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14999998, 0)
 
@@ -544,6 +539,9 @@ libraries/ = SubResource("AnimationLibrary_bwta7")
 
 [node name="run" type="AnimationPlayer" parent="body" unique_id=1700002240]
 libraries/ = SubResource("AnimationLibrary_kwygx")
+
+[node name="BulletSpawn" type="Marker3D" parent="body" unique_id=1802774342]
+transform = Transform3D(-4.371136e-08, 1, -1.7763568e-14, -0.9961945, -4.354503e-08, 0.0871557, 0.087155715, 3.80971e-09, 0.9961943, -1.1, 0.37725976, -0.27083758)
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)

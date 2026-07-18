@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_a3adk"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="4_ixixp"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="5_ix157"]
-[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/delete.png" id="5_o0y48"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="5_o0y48"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="9_qqcu6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kklp"]
@@ -368,7 +368,7 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="destroyercik" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="destroyercik" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "machine"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_7lcul")

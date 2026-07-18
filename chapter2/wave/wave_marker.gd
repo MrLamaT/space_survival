@@ -4,6 +4,7 @@ extends Marker3D
 @export var numberWave = 0
 @export var is_boss = false
 @export var aura = 0
+@export var enemyTags: String = "player"
 var enemy_scene
 
 func _ready() -> void:
@@ -34,6 +35,7 @@ func spawn(type):
 	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.is_boss = is_boss
 	enemy_instance.aura = final_aura
+	enemy_instance.enemyTags = enemyTags
 	var area = get_parent()
 	var navigation_region = null
 	if !(area is NavigationRegion3D):

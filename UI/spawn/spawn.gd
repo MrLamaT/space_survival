@@ -5,13 +5,19 @@ var current_item_id: String = ""
 func handle_card_pressed(type, id):
 	match type:
 		"gravity":
+			Global.game_settings["affected_by_gravity"] = true
 			match id:
-				"terra":
+				"None":
+					Global.game_settings["affected_by_gravity"] = false
+				"Terra":
 					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 				"RoP-856":
 					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
+				"Supermass":
+					var player = get_tree().get_first_node_in_group("player")
+					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
 		"skybox":
 			match id:
 				"Void":
@@ -41,6 +47,12 @@ func handle_card_pressed(type, id):
 			$item_slot.visible = true
 			current_item_id = id
 			_update_item_display()
+		"enemies":
+			Global.game_settings["summon"]["name"] = id
+			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

@@ -7,9 +7,11 @@ func shoot(_dir: Vector3, _spd: float):
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		print("УЗРИ МОЩЬ АНГЕЛА!")
-		body.HP(damage)
+	if body.is_in_group("player") or (body.is_in_group("enemy") and not body.is_in_group("phantom")):
+		if body.has_method("HP"):
+			body.HP(damage)
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
 		var knockback_direction = (body.global_position - global_position).normalized()
 		if body is CharacterBody3D:
 			body.velocity.x = knockback_direction.x * KNOCKBACK_FORCE

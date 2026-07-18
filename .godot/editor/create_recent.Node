@@ -1,9 +1,9 @@
+Area3D
 Node3D
 AnimationPlayer
 Sprite3D
 AudioStreamPlayer2D
 CollisionShape3D
-Area3D
 Camera3D
 AudioStreamPlayer3D
 HBoxContainer
@@ -12,4 +12,3 @@ MeshInstance3D
 ColorRect
 ProgressBar
 Panel
-Label3D

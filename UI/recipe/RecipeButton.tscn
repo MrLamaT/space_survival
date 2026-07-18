@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfnnalh7ewjsu" path="res://UI/recipe/recipe_button.gd" id="1_a2mfu"]
 [ext_resource type="Texture2D" uid="uid://bflx8bly6oy8x" path="res://assets/item/schematic.png" id="2_a08ub"]
-[ext_resource type="Texture2D" uid="uid://bt8o2xrg7gjg0" path="res://assets/select.png" id="3_n4gn4"]
+[ext_resource type="Texture2D" uid="uid://bt8o2xrg7gjg0" path="res://assets/icon/select.png" id="3_n4gn4"]
 
 [node name="Control1" type="Control" unique_id=923352174]
 layout_mode = 3

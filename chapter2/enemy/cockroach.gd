@@ -29,6 +29,7 @@ func _get_boss_id() -> String:
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
+	super._physics_process(delta)
 	if is_dead or is_dying:
 		_handle_death_process(delta)
 		return

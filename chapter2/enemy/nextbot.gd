@@ -18,16 +18,6 @@ func _ready():
 	health *= int(speed_multiplier)
 	SPEED *= speed_multiplier
 	_setup_boss_bar()
-	var bot_images = [
-		"res://assets/Nextbot/bot1.jpg",
-		"res://assets/Nextbot/bot2.jpg",
-		"res://assets/Nextbot/bot3.jpg",
-		"res://assets/Nextbot/bot4.jpg",
-		"res://assets/Nextbot/bot5.jpg"
-	]
-	var random_bot = bot_images[randi() % bot_images.size()]
-	var bot_texture = load(random_bot)
-	$body/Sprite3D.texture = bot_texture
 	if player:
 		start_chasing_player()
 
@@ -40,6 +30,7 @@ func _get_boss_id() -> String:
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
 		return
+	super._physics_process(delta)
 	if is_dead:
 		return
 	if is_dying:
