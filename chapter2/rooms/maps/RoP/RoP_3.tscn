@@ -744,15 +744,15 @@ new_min_y = true
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("17_ik10i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.875225, 27.97446, 14.678194)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=822617844 instance=ExtResource("17_ik10i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.375227, 22.97446, 24.678183)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=2118759576 instance=ExtResource("17_ik10i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.37521, 22.97446, 24.678183)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="Wave14" parent="NavigationRegion3D" unique_id=1733532594 instance=ExtResource("16_8tc7e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40, 13, 4.5)

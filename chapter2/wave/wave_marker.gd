@@ -13,15 +13,16 @@ func _ready() -> void:
 func spawn(type):
 	var enemies = {
 		"phantom": "res://chapter2/enemy/phantom.tscn",
-		"giantStingray": "res://chapter2/enemy/giantStingray.tscn",
+		"giant stingray": "res://chapter2/enemy/giantStingray.tscn",
 		"stingray": "res://chapter2/enemy/stingray.tscn",
 		"infantryman": "res://chapter2/enemy/infantryman.tscn",
 		"destroyercik": "res://chapter2/enemy/destroyercik.tscn",
-		"cockroach": "res://chapter2/enemy/cockroach.tscn",
+		"spark": "res://chapter2/enemy/cockroach.tscn",
 		"nextbot": "res://chapter2/enemy/nextbot.tscn",
 		"shooter": "res://chapter2/enemy/shooter.tscn",
 		"cleaner": "res://chapter2/enemy/cleaner.tscn",
-		"observer1": "res://chapter2/enemy/observer1.tscn"
+		"observer 1": "res://chapter2/enemy/observer1.tscn",
+		"siren head": "res://chapter2/enemy/siren_head.tscn"
 	}
 	if not enemies.has(enemy):
 		print("ERROR: Unknown enemy type: " + enemy)

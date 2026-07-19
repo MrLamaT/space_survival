@@ -162,8 +162,9 @@ func _ready():
 	weapon_system.cam = cam
 	add_child(weapon_system)
 	weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
-	HP(-100)
 	update_max_stamina()
+	var world = Global.get_world(Global.game_settings.word)
+	world["HP"] = 100
 
 func PlayerDeath():
 	if Global.game_settings["IsDying"]:

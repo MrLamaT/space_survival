@@ -49,10 +49,11 @@ func handle_card_pressed(type, id):
 			_update_item_display()
 		"enemies":
 			Global.game_settings["summon"]["name"] = id
-			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			$Panel.visible = false
+			$Enemy_slot.visible = true
+			$Enemy_slot/CheckBox.button_pressed = Global.game_settings["summon"]["boss"]
+			if int(Global.game_settings["summon"]["aura"]) > 0:
+				$Enemy_slot/LineEdit.text = str(int(Global.game_settings["summon"]["aura"]))
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
@@ -67,7 +68,7 @@ func _on_label_button_pressed(id: String) -> void:
 			if new_value < 0:
 				new_value = 0
 			if new_value > 999999:
-				new_value = 0
+				new_value = 999999
 			var inventory = Global.get_world(Global.game_settings.word)["inventory"]
 			if new_value == 0:
 				if current_item_id in inventory:
@@ -77,7 +78,24 @@ func _on_label_button_pressed(id: String) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
-
+		"set_enemy":
+			var line_edit = $Enemy_slot/LineEdit
+			var input_text = line_edit.text.strip_edges()
+			var new_value: int = 0
+			if input_text.is_valid_int():
+				new_value = input_text.to_int()
+			else:
+				new_value = 0
+			if new_value < 0:
+				new_value = 0
+			if new_value > 10:
+				new_value = 10
+			Global.game_settings["summon"]["boss"] = $Enemy_slot/CheckBox.button_pressed
+			Global.game_settings["summon"]["aura"] = new_value
+			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 
 func _update_item_display() -> void:
 	var line_edit = $item_slot/LineEdit

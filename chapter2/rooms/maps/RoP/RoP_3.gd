@@ -17,4 +17,5 @@ func _ready() -> void:
 
 func _on_secret_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
+		world["level"] = 4
 		SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")

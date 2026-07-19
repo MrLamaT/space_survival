@@ -798,15 +798,15 @@ transform = Transform3D(-0.64018434, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.
 
 [node name="WaveMarker3" parent="NavigationRegion3D/Wave4" unique_id=908569059 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -34.958084, 0.9744606, -2.6551304)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="WaveMarker2" parent="NavigationRegion3D/Wave4" unique_id=1340579531 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -47.458084, -4.0255394, 7.3448734)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave4" unique_id=1200258617 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6401844, -22.458097, -4.0255394, 7.3448734)
-enemy = "giantStingray"
+enemy = "giant stingray"
 
 [node name="Wave7" parent="NavigationRegion3D" unique_id=603881001 instance=ExtResource("21_7st0v")]
 transform = Transform3D(-5.2453668e-08, 0, 1, 0, 1, 0, -1.2, 0, -4.371139e-08, 3.871, 3, -31.5)

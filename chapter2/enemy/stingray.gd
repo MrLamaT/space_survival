@@ -5,7 +5,7 @@ extends "res://chapter2/enemy/BaseEnemy.gd"
 @onready var bullet_spawn: Node3D = $BulletSpawn
 
 var death_rotation: float = 0.0
-var SPEED: float = 10.0
+var SPEED: float = 15.0
 var ACCELERATION: float = 5.0
 var ROTATION_SPEED: float = 8.0
 var FLY_HEIGHT_OFFSET: float = 1.5 # Высота над головой игрока

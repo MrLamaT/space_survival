@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
 [ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="30_ssy0r"]
+[ext_resource type="Texture2D" uid="uid://bmk4l3rn8vtaa" path="res://assets/icon/enemyEgg/Egg_siren_head.png" id="31_b68df"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -311,14 +312,14 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=749460535 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "giantStingray"
+text = "giant stingray"
 img = ExtResource("23_4g2gr")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=885521053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "cockroach"
+text = "spark"
 img = ExtResource("24_ssy0r")
 type = "enemies"
 target_node = NodePath("../../../../..")
@@ -339,7 +340,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1009663333 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "observer1"
+text = "observer 1"
 img = ExtResource("27_c4wer")
 type = "enemies"
 target_node = NodePath("../../../../..")
@@ -374,6 +375,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "nextbot"
 img = ExtResource("30_ssy0r")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1660793000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "siren head"
+img = ExtResource("31_b68df")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
@@ -563,3 +571,91 @@ text = "set"
 direction_A_and_D = "D"
 target_node = NodePath("../..")
 button_id = "set_item"
+
+[node name="Enemy_slot" type="Panel" parent="." unique_id=554933736]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 276.0
+offset_top = 174.0
+offset_right = 876.0
+offset_bottom = 474.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcli3")
+
+[node name="Label" type="Label" parent="Enemy_slot" unique_id=992162068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -120.0
+offset_right = 162.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 32
+text = "Enemy data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Enemy_slot" unique_id=1795717338]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -20.0
+offset_right = 225.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ib5f")
+placeholder_text = "Aura"
+
+[node name="LabelButton" parent="Enemy_slot" unique_id=2104878985 instance=ExtResource("22_o0w04")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "set"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "set_enemy"
+
+[node name="CheckBox" type="CheckBox" parent="Enemy_slot" unique_id=1765128471]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -75.0
+offset_right = 32.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("6_d3066")
+text = "boss"
