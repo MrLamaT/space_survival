@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="19_80dxx"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="22_r0400"]
 [ext_resource type="Texture2D" uid="uid://bdk6oofju7aui" path="res://assets/teaching/teaching3.png" id="24_s1abu"]
+[ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="27_gdhw4"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="27_s1abu"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/HpBoost/HpBoostCitadel.tscn" id="27_u1pd6"]
 
@@ -105,6 +106,15 @@ size = Vector3(20, 0.5, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_umkvn"]
 size = Vector3(20, 10, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1pd6"]
+shading_mode = 0
+albedo_texture = ExtResource("27_gdhw4")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_u1pd6")
 
 [node name="training" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_wgrq1")
@@ -721,3 +731,8 @@ visible = false
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("17_u1pd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.5, 7.5)
+
+[node name="secretLama" type="MeshInstance3D" parent="." unique_id=1868186032]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 200, -1, 10)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_g4v7s")

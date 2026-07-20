@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://gqyvaooawkdd" path="res://assets/sound/fnaf/Ambience.wav" id="30_jxvpw"]
 [ext_resource type="AudioStream" uid="uid://bt36vo6b3fhlg" path="res://assets/sound/fnaf/Blip.wav" id="31_r7v48"]
 [ext_resource type="AudioStream" uid="uid://t7r44c2yr7ci" path="res://assets/sound/fnaf/CrowdSmallChil.wav" id="32_gxagf"]
+[ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="33_r7v48"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="40_bhlcq"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="42_vu41m"]
 
@@ -297,6 +298,15 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(10, 8, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_texture = ExtResource("33_r7v48")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gxagf"]
+material = SubResource("StandardMaterial3D_yf5fn")
 
 [node name="fnaf" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_ns6pj")
@@ -1509,6 +1519,11 @@ debug_fill = false
 [node name="CSGBox3D" type="CSGBox3D" parent="dirt/CSGCombiner3D" unique_id=359836161]
 size = Vector3(2, 1, 2.5)
 material = SubResource("StandardMaterial3D_7xivn")
+
+[node name="secretLama" type="MeshInstance3D" parent="." unique_id=32741796]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -12, 2, -34)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_gxagf")
 
 [connection signal="pressed" from="Panel/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]

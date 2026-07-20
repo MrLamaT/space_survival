@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dlaw3kuosj36h" path="res://chapter2/wave/TeleportPortal.tscn" id="28_dth03"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_g8lgq"]
 [ext_resource type="PackedScene" uid="uid://bwf5obhlhsolk" path="res://chapter2/rooms/decoration/wall/MineWall.tscn" id="28_tnkuj"]
+[ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="32_dth03"]
 [ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="32_mom7b"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -63,6 +64,15 @@ size = Vector3(2.5, 1.5, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dth03"]
 size = Vector3(10, 8, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_texture = ExtResource("32_dth03")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_7k7ao"]
+material = SubResource("StandardMaterial3D_yf5fn")
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_7vsbb")
@@ -1388,5 +1398,10 @@ collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="secret" unique_id=722996791]
 shape = SubResource("BoxShape3D_dth03")
+
+[node name="secretLama" type="MeshInstance3D" parent="." unique_id=1461929936]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -45, 13, 50)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7k7ao")
 
 [connection signal="body_entered" from="secret" to="." method="_on_secret_body_entered"]

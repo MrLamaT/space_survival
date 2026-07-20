@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="4_b2rwk"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="5_scqdy"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="6_scqdy"]
+[ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="6_weu5r"]
 [ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="7_jsqbf"]
 [ext_resource type="PackedScene" uid="uid://6qqfosos2685" path="res://chapter2/rooms/decoration/home/home1.tscn" id="7_sem0l"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/brick.png" id="8_q03qg"]
@@ -302,6 +303,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, -0.9, -0.575)
 operation = 2
 size = Vector3(0.8, 3, 1.15)
 material = SubResource("StandardMaterial3D_gj1nt")
+
+[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/dirt/CSGCombiner3D/CSGBox3D3" unique_id=875266312]
+transform = Transform3D(0.001, 0, 1.7484555e-10, 0, 0.05, 0, -1.7484555e-10, 0, 0.001, 0, 0.25, -0.574)
+texture = ExtResource("6_weu5r")
+
+[node name="Label3D" type="Label3D" parent="NavigationRegion3D/floor_ceiling/dirt/CSGCombiner3D/CSGBox3D3" unique_id=806468218]
+transform = Transform3D(0.035, 0, 6.1195946e-09, 0, 1.75, 0, -6.1195946e-09, 0, 0.035, 0, 0.85, -0.574)
+texture_filter = 0
+text = "MrLamaT"
+font = ExtResource("11_xrkd4")
 
 [node name="water" type="MeshInstance3D" parent="NavigationRegion3D/floor_ceiling/dirt/CSGCombiner3D" unique_id=271364464]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -0.75000006, 0.35, -0.53822345)
@@ -666,26 +677,23 @@ transform = Transform3D(-0.26723108, 0, -0.9636326, 0, 1, 0, 0.9636326, 0, -0.26
 [node name="StreetLamp" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=1550972398 instance=ExtResource("14_pko4f")]
 transform = Transform3D(-0.12155371, 0, -0.68936527, 0, 0.7, 0, 0.68936527, 0, -0.12155371, 5.8, 1, 6.5)
 
-[node name="Barrel" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=868428457 instance=ExtResource("15_0nck4")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1, -5.5)
-
-[node name="Barrel2" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=1158297055 instance=ExtResource("15_0nck4")]
+[node name="Barrel" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=1158297055 instance=ExtResource("15_0nck4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 1, -5.5)
 skin = 2
 
-[node name="Barrel3" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=759676299 instance=ExtResource("15_0nck4")]
+[node name="Barrel2" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=759676299 instance=ExtResource("15_0nck4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 1, -5.5)
 skin = 3
 
-[node name="Barrel4" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=1117557401 instance=ExtResource("15_0nck4")]
+[node name="Barrel3" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=1117557401 instance=ExtResource("15_0nck4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6, 1, -5.5)
 skin = 4
 
-[node name="Barrel5" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=909776557 instance=ExtResource("15_0nck4")]
+[node name="Barrel4" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=909776557 instance=ExtResource("15_0nck4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 1, -5.5)
 skin = 5
 
-[node name="Barrel6" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=755186286 instance=ExtResource("15_0nck4")]
+[node name="Barrel5" parent="NavigationRegion3D/floor_ceiling/home3" unique_id=755186286 instance=ExtResource("15_0nck4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 1, -5.5)
 skin = 6
 
@@ -914,6 +922,9 @@ navigation_region = NodePath("../../NavigationRegion3D2")
 
 [node name="Entry" type="Marker3D" parent="NavigationRegion3D" unique_id=1215804157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.756, -30)
+
+[node name="Table" parent="NavigationRegion3D" unique_id=1114139850 instance=ExtResource("10_rhwpt")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 37.5, -2.4, 56.85)
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("16_ujcsl")]
 visible = false

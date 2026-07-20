@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bwjj2dluv2b4l"]
+
+[ext_resource type="Script" uid="uid://cnfdngg3dmbhn" path="res://chapter2/rooms/prop/balloon.gd" id="1_lk3ba"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14o0h"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iacyy"]
+blend_mode = 4
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_14o0h"]
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+top_radius = 0.1
+bottom_radius = 0.1
+radial_segments = 16
+rings = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[node name="balloon" type="RigidBody3D" unique_id=3309552 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+gravity_scale = -0.5
+lock_rotation = true
+script = ExtResource("1_lk3ba")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1132573152]
+material_override = SubResource("StandardMaterial3D_14o0h")
+material_overlay = SubResource("StandardMaterial3D_iacyy")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_14o0h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1234934003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.45, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=996807580]
+shape = SubResource("SphereShape3D_g4v7s")

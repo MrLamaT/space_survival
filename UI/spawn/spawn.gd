@@ -54,6 +54,12 @@ func handle_card_pressed(type, id):
 			$Enemy_slot/CheckBox.button_pressed = Global.game_settings["summon"]["boss"]
 			if int(Global.game_settings["summon"]["aura"]) > 0:
 				$Enemy_slot/LineEdit.text = str(int(Global.game_settings["summon"]["aura"]))
+		"props":
+			Global.game_settings["summon"]["name"] = id
+			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
@@ -97,23 +103,6 @@ func _on_label_button_pressed(id: String) -> void:
 			Global.game_settings["UI"] = false
 			queue_free()
 
-func _update_item_display() -> void:
-	var line_edit = $item_slot/LineEdit
-	var inventory = Global.get_world(Global.game_settings.word)["inventory"]
-	if current_item_id in inventory:
-		line_edit.text = str(int(inventory[current_item_id]))
-	else:
-		line_edit.text = "0"
-
-func _on_weapon_slot_selected(slot_index: int, weapon_name: String) -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	player.weapon_system.weapon_slots[slot_index] = weapon_name
-	player.weapon_system.equip_weapon(player.weapon_system.weapon_slots.get(slot_index, ""))
-	print("Оружие ", weapon_name, " установлено в слот ", slot_index)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.game_settings["UI"] = false
-	queue_free()
-
 func _replace_skybox(new_skybox_scene: PackedScene) -> void:
 	var world_environment = get_tree().get_first_node_in_group("skybox")
 	if not world_environment:
@@ -124,3 +113,20 @@ func _replace_skybox(new_skybox_scene: PackedScene) -> void:
 	var env_instance = new_skybox_scene.instantiate()
 	parent.add_child(env_instance)
 	parent.move_child(env_instance, index)
+
+func _on_weapon_slot_selected(slot_index: int, weapon_name: String) -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	player.weapon_system.weapon_slots[slot_index] = weapon_name
+	player.weapon_system.equip_weapon(player.weapon_system.weapon_slots.get(slot_index, ""))
+	print("Оружие ", weapon_name, " установлено в слот ", slot_index)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.game_settings["UI"] = false
+	queue_free()
+
+func _update_item_display() -> void:
+	var line_edit = $item_slot/LineEdit
+	var inventory = Global.get_world(Global.game_settings.word)["inventory"]
+	if current_item_id in inventory:
+		line_edit.text = str(int(inventory[current_item_id]))
+	else:
+		line_edit.text = "0"

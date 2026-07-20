@@ -1,9 +1,12 @@
+res://assets/shaders/
+res://chapter2/rooms/prop/
+res://assets/icon/prop/
+res://assets/
+res://
+res://assets/textures/
 res://assets/sound/
 res://assets/icon/enemyEgg/
 res://chapter2/enemy/
-res://assets/textures/
-res://
-res://assets/
 res://assets/icon/
 res://assets/icon/equipment/
 res://chapter2/rooms/dirt/
@@ -18,7 +21,4 @@ res://chapter2/item/Summon_projectile/
 res://chapter2/item/Delete_projectile/
 res://chapter2/item/Move_projectile/
 res://chapter2/item/
-res://assets/hand/
-res://chapter2/item/Taser_projectile/
-res://assets/skybox/
 E:/

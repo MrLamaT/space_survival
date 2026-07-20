@@ -32,6 +32,12 @@
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
 [ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="30_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://bmk4l3rn8vtaa" path="res://assets/icon/enemyEgg/Egg_siren_head.png" id="31_b68df"]
+[ext_resource type="Texture2D" uid="uid://b057av3jfqeaa" path="res://assets/icon/prop/barrel.png" id="32_08bs1"]
+[ext_resource type="Texture2D" uid="uid://dsrnapipi82iq" path="res://assets/icon/prop/bed.png" id="35_8vdw8"]
+[ext_resource type="Texture2D" uid="uid://dk8qmuj2ngw7e" path="res://assets/icon/prop/sofa.png" id="36_08bs1"]
+[ext_resource type="Texture2D" uid="uid://cc6fw35n3e4tb" path="res://assets/icon/prop/sofa2.png" id="37_1rgpu"]
+[ext_resource type="Texture2D" uid="uid://c3j4k4opqjvjn" path="res://assets/icon/prop/StorageBox.png" id="38_fyfm7"]
+[ext_resource type="Texture2D" uid="uid://c3kdrymk320vg" path="res://assets/icon/prop/toilet.png" id="39_muxdo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -103,6 +109,7 @@ layout_mode = 2
 theme_override_constants/separation = 195
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
 img = ExtResource("12_7nag5")
@@ -199,7 +206,7 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 50
-text = "weapon"
+text = "weapons"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=800849904]
 custom_minimum_size = Vector2(0, 200)
@@ -207,6 +214,7 @@ layout_mode = 2
 theme_override_constants/separation = 195
 
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
 img = ExtResource("12_7nag5")
@@ -296,7 +304,7 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 50
-text = "enemies"
+text = "characters"
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=910106451]
 custom_minimum_size = Vector2(0, 200)
@@ -383,6 +391,70 @@ layout_mode = 2
 text = "siren head"
 img = ExtResource("31_b68df")
 type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="Label6" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=474560396]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 50
+text = "props"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=342151371]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1428221295 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "barrel"
+img = ExtResource("32_08bs1")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=275937163 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "bed"
+img = ExtResource("35_8vdw8")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=601502442 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "sofa 1"
+img = ExtResource("36_08bs1")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=2090496925 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "sofa 2"
+img = ExtResource("37_1rgpu")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1657976309 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "storage box"
+img = ExtResource("38_fyfm7")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=23858781 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "toilet"
+img = ExtResource("39_muxdo")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1890583687]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=523525659 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "balloon"
+type = "props"
 target_node = NodePath("../../../../..")
 
 [node name="weapon_slot" type="Panel" parent="." unique_id=1856984672]
