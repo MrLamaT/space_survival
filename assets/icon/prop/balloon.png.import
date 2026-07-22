@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrlbptcgwp6q"
-path="res://.godot/imported/workbench.png-a6dbad3a9a1c564e083aa84f4cecb49c.ctex"
+uid="uid://buph5o37h2vg5"
+path="res://.godot/imported/balloon.png-57ac5d2549273582cf23b274786f1002.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/buildings/workbench.png"
-dest_files=["res://.godot/imported/workbench.png-a6dbad3a9a1c564e083aa84f4cecb49c.ctex"]
+source_file="res://assets/icon/prop/balloon.png"
+dest_files=["res://.godot/imported/balloon.png-57ac5d2549273582cf23b274786f1002.ctex"]
 
 [params]
 

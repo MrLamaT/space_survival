@@ -25,7 +25,8 @@ const PROPS = {
 	"sofa 2": "res://chapter2/rooms/prop/sofa2.tscn",
 	"storage box": "res://chapter2/rooms/prop/storageBox.tscn",
 	"toilet": "res://chapter2/rooms/prop/toilet.tscn",
-	"balloon": "res://chapter2/rooms/prop/balloon.tscn"
+	"balloon": "res://chapter2/rooms/prop/balloon.tscn",
+	"workbench": "res://chapter2/rooms/prop/workbench.tscn"
 }
 var scene
 

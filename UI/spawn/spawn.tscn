@@ -37,6 +37,8 @@
 [ext_resource type="Texture2D" uid="uid://dk8qmuj2ngw7e" path="res://assets/icon/prop/sofa.png" id="36_08bs1"]
 [ext_resource type="Texture2D" uid="uid://cc6fw35n3e4tb" path="res://assets/icon/prop/sofa2.png" id="37_1rgpu"]
 [ext_resource type="Texture2D" uid="uid://c3j4k4opqjvjn" path="res://assets/icon/prop/StorageBox.png" id="38_fyfm7"]
+[ext_resource type="Texture2D" uid="uid://buph5o37h2vg5" path="res://assets/icon/prop/balloon.png" id="38_muxdo"]
+[ext_resource type="Texture2D" uid="uid://dcrlbptcgwp6q" path="res://assets/icon/prop/workbench.png" id="39_2xvln"]
 [ext_resource type="Texture2D" uid="uid://c3kdrymk320vg" path="res://assets/icon/prop/toilet.png" id="39_muxdo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
@@ -454,6 +456,14 @@ theme_override_constants/separation = 195
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=523525659 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "balloon"
+img = ExtResource("38_muxdo")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1733642648 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "workbench"
+img = ExtResource("39_2xvln")
 type = "props"
 target_node = NodePath("../../../../..")
 

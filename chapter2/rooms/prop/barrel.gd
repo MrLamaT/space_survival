@@ -1,12 +1,14 @@
 extends RigidBody3D
 
 ## красный, синий, серый, жёлтый, огнеопасная, радиация
-@export var skin = 1
+@export var skin = 0
 
 func _ready() -> void:
 	_setup_material()
 
 func _setup_material() -> void:
+	if skin == 0:
+		skin = randi_range(1, 6)
 	var material = StandardMaterial3D.new()
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	material.uv1_scale = Vector3(2.0, 2.0, 1.0)
