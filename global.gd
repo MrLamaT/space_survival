@@ -28,6 +28,13 @@ var game_settings: Dictionary = {
 		"enemyTags": "player",
 		"boss": false
 	},
+	"summon_block": {
+		"texture": "",
+		"scale_x": 0,
+		"scale_y": 0,
+		"scale_z": 0,
+		"color": ""
+	},
 	"CanStandUp": true,
 	"GodMod": false,
 	"IsDying": false,
@@ -40,7 +47,8 @@ var game_settings: Dictionary = {
 	"UI_argument": null,
 	"GhostMod": false,
 	"checkpoint": Vector3(0.0, 0.0, 0.0),
-	"min_y": -5.0
+	"min_y": -5.0,
+	"spawn_scroll_position": 0
 }
 var saved_portal_data: Dictionary = {}
 

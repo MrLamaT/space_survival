@@ -60,6 +60,13 @@ func handle_card_pressed(type, id):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
+		"block":
+			Global.game_settings["summon"]["name"] = "block"
+			Global.game_settings["summon_block"]["texture"] = "res://assets/Aura.png"
+			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
@@ -130,3 +137,9 @@ func _update_item_display() -> void:
 		line_edit.text = str(int(inventory[current_item_id]))
 	else:
 		line_edit.text = "0"
+
+func _ready() -> void:
+	$Panel/ScrollContainer.scroll_vertical = int(Global.game_settings["spawn_scroll_position"])
+
+func _exit_tree():
+	Global.game_settings["spawn_scroll_position"] = $Panel/ScrollContainer.scroll_vertical

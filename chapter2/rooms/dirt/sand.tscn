@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0hhqw8ob5yj8"]
+
+[ext_resource type="Material" uid="uid://cu7k37i4rl2d8" path="res://assets/material/sand.tres" id="1_6swaw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_11g11"]
+material = ExtResource("1_6swaw")
+
+[node name="sand" type="StaticBody3D" unique_id=1357790181]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1866620565]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631]
+mesh = SubResource("BoxMesh_11g11")

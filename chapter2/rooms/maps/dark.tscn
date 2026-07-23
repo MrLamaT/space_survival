@@ -1,32 +1,12 @@
 [gd_scene format=3 uid="uid://dphennbkhj08u"]
 
 [ext_resource type="Script" uid="uid://dskrh33upbvom" path="res://chapter2/rooms/maps/sky_removal.gd" id="1_dko67"]
+[ext_resource type="PackedScene" uid="uid://c2yyywgpuuaup" path="res://chapter2/rooms/dirt/plank.tscn" id="2_0ylfe"]
 [ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="2_dko67"]
-[ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="3_d80o7"]
-[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/brick.png" id="6_7y8mx"]
+[ext_resource type="PackedScene" uid="uid://dhc5u82un6grn" path="res://chapter2/rooms/dirt/grid.tscn" id="5_0ylfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k8cl"]
 size = Vector3(0.5, 0.5, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1kh3a"]
-size = Vector3(0.5, 4, 0.01)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67diu"]
-albedo_color = Color(0.4392157, 0.28235295, 0.21960784, 1)
-albedo_texture = ExtResource("6_7y8mx")
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ofeke"]
-size = Vector3(0.75, 5, 0.75)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4rx6"]
-albedo_texture = ExtResource("3_d80o7")
-uv1_scale = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-uv1_world_triplanar = true
-texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dko67"]
 size = Vector3(25, 25, 25)
@@ -34,6 +14,18 @@ size = Vector3(25, 25, 25)
 [node name="Dark" type="Area3D" unique_id=255388417]
 collision_layer = 4
 script = ExtResource("1_dko67")
+
+[node name="plank" parent="." unique_id=1357790181 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(0.5, 0, 1.7337242e-13, 0, 4, 0, -3.5527137e-15, 0, 24.4, 12, 2.516, 3.8143807e-07)
+
+[node name="plank2" parent="." unique_id=553810750 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(0.5, 0, 1.7337242e-13, 0, 4, 0, -3.5527137e-15, 0, 24.4, -12, 2.516, 0)
+
+[node name="plank3" parent="." unique_id=200331311 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(-2.1855694e-08, 0, 24.4, 0, 4, 0, -0.5, 0, -1.0665578e-06, 0, 2.516, -12)
+
+[node name="plank4" parent="." unique_id=1265915641 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(-2.1855694e-08, 0, 24.4, 0, 4, 0, -0.5, 0, -1.0665578e-06, 0, 2.516, 12)
 
 [node name="wall" type="StaticBody3D" parent="." unique_id=973870043]
 transform = Transform3D(-1, 0, 3.1786506e-08, 0, 1, 0, -3.1786506e-08, 0, -1, 0, 0.016, 0)
@@ -44,22 +36,6 @@ collision_mask = 3
 transform = Transform3D(-2.1855694e-06, 0, 50, 0, 1, 0, -50, 0, -2.1855694e-06, 0, 4.75, 0)
 shape = SubResource("BoxShape3D_3k8cl")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="wall" unique_id=1554147523]
-transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, -12, 2.5, 0)
-shape = SubResource("BoxShape3D_1kh3a")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="wall" unique_id=1630268228]
-transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 12, 2.5, 0)
-shape = SubResource("BoxShape3D_1kh3a")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="wall" unique_id=314717687]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 2.5, 12)
-shape = SubResource("BoxShape3D_1kh3a")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="wall" unique_id=1275602923]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 2.5, -12)
-shape = SubResource("BoxShape3D_1kh3a")
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="wall" unique_id=1446548344]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=1573242658]
@@ -67,45 +43,11 @@ transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 
 size = Vector3(0.5, 0.5, 0.5)
 material = ExtResource("2_dko67")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=53517414]
-transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, -12, 2.5, 0)
-size = Vector3(0.5, 4, 0.01)
-material = SubResource("StandardMaterial3D_67diu")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=1040290368]
-transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 12, 2.5, 0)
-size = Vector3(0.5, 4, 0.01)
-material = SubResource("StandardMaterial3D_67diu")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=796230409]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 2.5, 12)
-size = Vector3(0.5, 4, 0.01)
-material = SubResource("StandardMaterial3D_67diu")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=394432418]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 2.5, -12)
-size = Vector3(0.5, 4, 0.01)
-material = SubResource("StandardMaterial3D_67diu")
-
-[node name="dirt" type="StaticBody3D" parent="." unique_id=115527791]
-transform = Transform3D(-50, 0, 4.371139e-06, 0, 1, 0, -4.371139e-06, 0, -50, 0, 0, 0)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dirt" unique_id=1715897585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-shape = SubResource("BoxShape3D_ofeke")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="dirt" unique_id=542106296]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="dirt/CSGCombiner3D" unique_id=1922723977]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-size = Vector3(0.75, 5, 0.75)
-material = SubResource("StandardMaterial3D_b4rx6")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1372167891]
 shape = SubResource("BoxShape3D_dko67")
+
+[node name="grid" parent="." unique_id=1315845667 instance=ExtResource("5_0ylfe")]
+transform = Transform3D(37.5, 0, -2.2737368e-13, 0, 5, 0, 2.2737368e-13, 0, 37.5, 0, -2, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

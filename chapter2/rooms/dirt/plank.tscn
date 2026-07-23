@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c2yyywgpuuaup"]
+
+[ext_resource type="Material" uid="uid://btvvbjo13xi21" path="res://assets/material/plank.tres" id="1_avu2o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_11g11"]
+material = ExtResource("1_avu2o")
+
+[node name="plank" type="StaticBody3D" unique_id=1357790181]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1866620565]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631]
+mesh = SubResource("BoxMesh_11g11")

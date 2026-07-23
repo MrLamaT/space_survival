@@ -76,6 +76,7 @@ func _build_block() -> void:
 	var box_mesh = BoxMesh.new()
 	box_mesh.size = Vector3(1, 1, 1)
 	var material = StandardMaterial3D.new()
+	material.albedo_texture = load(Global.game_settings["summon_block"]["texture"])
 	material.albedo_color = Color(0.6, 0.4, 0.2)
 	box_mesh.material = material
 	mesh_instance.mesh = box_mesh
