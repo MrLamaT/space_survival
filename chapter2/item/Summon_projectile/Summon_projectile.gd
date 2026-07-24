@@ -75,9 +75,13 @@ func _build_block() -> void:
 	var mesh_instance = MeshInstance3D.new()
 	var box_mesh = BoxMesh.new()
 	box_mesh.size = Vector3(1, 1, 1)
-	var material = StandardMaterial3D.new()
-	material.albedo_texture = load(Global.game_settings["summon_block"]["texture"])
-	material.albedo_color = Color(0.6, 0.4, 0.2)
+	var material
+	if Global.game_settings["summon_block"]["texture"] != "":
+		var material_path = Global.game_settings["summon_block"]["texture"]
+		material = load(material_path)
+	else:
+		material = StandardMaterial3D.new()
+		material.albedo_color = Color(Global.game_settings["summon_block"]["color"])
 	box_mesh.material = material
 	mesh_instance.mesh = box_mesh
 	var collision_shape = CollisionShape3D.new()

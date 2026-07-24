@@ -477,7 +477,7 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 50
-text = "block"
+text = "blocks"
 
 [node name="HBoxContainer11" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=591491229]
 custom_minimum_size = Vector2(0, 200)
@@ -486,6 +486,7 @@ theme_override_constants/separation = 195
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=2074499900 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "white"
 img = ExtResource("40_xnmou")
 color_img = Color(0.8117647, 0.8352941, 0.8392157, 1)
 type = "block"
@@ -493,6 +494,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=926636962 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "orange"
 img = ExtResource("40_xnmou")
 color_img = Color(0.8784314, 0.38039216, 0.003921569, 1)
 type = "block"
@@ -500,6 +502,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=2002996037 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "purple"
 img = ExtResource("40_xnmou")
 color_img = Color(0.6627451, 0.1882353, 0.62352943, 1)
 type = "block"
@@ -507,6 +510,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=802823888 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "light blue"
 img = ExtResource("40_xnmou")
 color_img = Color(0.14117648, 0.5372549, 0.78039217, 1)
 type = "block"
@@ -514,6 +518,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=1170914200 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "yellow"
 img = ExtResource("40_xnmou")
 color_img = Color(0.94509804, 0.6862745, 0.08235294, 1)
 type = "block"
@@ -521,6 +526,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=1867798300 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "lime"
 img = ExtResource("40_xnmou")
 color_img = Color(0.36862746, 0.6627451, 0.09803922, 1)
 type = "block"
@@ -533,6 +539,7 @@ theme_override_constants/separation = 195
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=676125172 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "pink"
 img = ExtResource("40_xnmou")
 color_img = Color(0.8392157, 0.39607844, 0.56078434, 1)
 type = "block"
@@ -540,6 +547,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=742879254 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "grey"
 img = ExtResource("40_xnmou")
 color_img = Color(0.21568628, 0.22745098, 0.24313726, 1)
 type = "block"
@@ -547,6 +555,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=1663323678 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "light gray"
 img = ExtResource("40_xnmou")
 color_img = Color(0.49019608, 0.49019608, 0.4509804, 1)
 type = "block"
@@ -554,6 +563,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=153262051 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "turquoise"
 img = ExtResource("40_xnmou")
 color_img = Color(0.08235294, 0.46666667, 0.53333336, 1)
 type = "block"
@@ -561,6 +571,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=1158905174 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "violet"
 img = ExtResource("40_xnmou")
 color_img = Color(0.39215687, 0.1254902, 0.6117647, 1)
 type = "block"
@@ -568,6 +579,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=254742294 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "blue"
 img = ExtResource("40_xnmou")
 color_img = Color(0.1764706, 0.18431373, 0.56078434, 1)
 type = "block"
@@ -580,6 +592,7 @@ theme_override_constants/separation = 195
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1362407685 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "brown"
 img = ExtResource("40_xnmou")
 color_img = Color(0.3764706, 0.23529412, 0.1254902, 1)
 type = "block"
@@ -587,6 +600,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=386836053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "green"
 img = ExtResource("40_xnmou")
 color_img = Color(0.28627452, 0.35686275, 0.14117648, 1)
 type = "block"
@@ -594,6 +608,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1708429627 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "red"
 img = ExtResource("40_xnmou")
 color_img = Color(0.5568628, 0.12941177, 0.12941177, 1)
 type = "block"
@@ -601,6 +616,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1285082142 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "black"
 img = ExtResource("40_xnmou")
 color_img = Color(0.03137255, 0.039215688, 0.05882353, 1)
 type = "block"
@@ -608,6 +624,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1309197062 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "plank"
 img = ExtResource("42_rmstl")
 color_img = Color(0.4392157, 0.28235295, 0.21960784, 1)
 type = "block"
@@ -615,6 +632,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=428569480 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "grass"
 img = ExtResource("43_l5m7m")
 color_img = Color(0.19607843, 0.24705882, 0.09411765, 1)
 type = "block"
@@ -627,12 +645,14 @@ theme_override_constants/separation = 195
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=2059141521 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "grid"
 img = ExtResource("44_neoys")
 type = "block"
 target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=1932075213 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "sand"
 img = ExtResource("50_fw3wd")
 color_img = Color(0.9019608, 0.73333335, 0.39607844, 1)
 type = "block"
@@ -640,6 +660,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=496653606 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
+text = "stone"
 img = ExtResource("51_csqvi")
 color_img = Color(0.6509804, 0.65882355, 0.654902, 1)
 type = "block"

@@ -12,4 +12,4 @@ func _ready() -> void:
 	$Panel/card.modulate = color_img
 
 func _on_button_pressed() -> void:
-	target_node.handle_card_pressed(type, text)
+	target_node.handle_card_pressed(type, text, color_img)

@@ -30,9 +30,6 @@ var game_settings: Dictionary = {
 	},
 	"summon_block": {
 		"texture": "",
-		"scale_x": 0,
-		"scale_y": 0,
-		"scale_z": 0,
 		"color": ""
 	},
 	"CanStandUp": true,

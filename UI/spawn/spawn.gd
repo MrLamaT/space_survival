@@ -2,7 +2,7 @@ extends Node2D
 
 var current_item_id: String = ""
 
-func handle_card_pressed(type, id):
+func handle_card_pressed(type, id, color_img):
 	match type:
 		"gravity":
 			Global.game_settings["affected_by_gravity"] = true
@@ -62,7 +62,19 @@ func handle_card_pressed(type, id):
 			queue_free()
 		"block":
 			Global.game_settings["summon"]["name"] = "block"
-			Global.game_settings["summon_block"]["texture"] = "res://assets/Aura.png"
+			Global.game_settings["summon_block"]["texture"] = ""
+			match id:
+				"plank": 
+					Global.game_settings["summon_block"]["texture"] = "res://assets/material/plank.tres"
+				"grass": 
+					Global.game_settings["summon_block"]["texture"] = "res://assets/material/earth.tres"
+				"grid": 
+					Global.game_settings["summon_block"]["texture"] = "res://assets/material/grid.tres"
+				"sand": 
+					Global.game_settings["summon_block"]["texture"] = "res://assets/material/sand.tres"
+				"stone": 
+					Global.game_settings["summon_block"]["texture"] = "res://assets/material/RoPstone.tres"
+			Global.game_settings["summon_block"]["color"] = str(color_img.to_html())
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
