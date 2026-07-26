@@ -82,7 +82,7 @@ shader_parameter/scanline_intensity = 0.35
 [sub_resource type="BoxShape3D" id="BoxShape3D_frdbb"]
 size = Vector3(2.1, 2.1, 2.1)
 
-[node name="workbench" type="RigidBody3D" unique_id=285561631]
+[node name="workbench" type="RigidBody3D" unique_id=285561631 groups=["prop"]]
 collision_layer = 4
 collision_mask = 7
 

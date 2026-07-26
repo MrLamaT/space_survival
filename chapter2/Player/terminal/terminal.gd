@@ -112,6 +112,15 @@ func parse_command(text: String):
 					player.HP(damage_value)
 				else:
 					ErrorPrint("Invalid argument: must be an integer number")
+		"poison":
+			if argument == "":
+				player.apply_poison(100)
+			else:
+				if argument.is_valid_int():
+					var damage_value = argument.to_int()
+					player.apply_poison(damage_value)
+				else:
+					ErrorPrint("Invalid argument: must be an integer number")
 		"kill":
 			var enemies = get_tree().get_nodes_in_group("enemy")
 			if enemies.size() > 0:
@@ -136,26 +145,6 @@ func parse_command(text: String):
 		"stoptimer", "stoptime", "timerstop", "timestop":
 			player.timerBoost(0)
 			SystemPrint("Timer stopped")
-		"summon_aura", "setaura":
-			if argument == "":
-				ErrorPrint("Usage: summon_aura <value> (example: summon_aura 1)")
-			elif argument.is_valid_int():
-				Global.game_settings["summon"]["aura"] = argument.to_int()
-				SystemPrint("Summon aura multiplier set to: " + argument)
-			else:
-				ErrorPrint("Invalid argument: must be a number")
-		"summon_boss", "setboss":
-			if argument == "":
-				Global.game_settings["summon"]["boss"] = not Global.game_settings["summon"]["boss"]
-				SystemPrint("Summon boss mode toggled to: " + str(Global.game_settings["summon"]["boss"]))
-			elif argument.to_lower() == "true" or argument == "1":
-				Global.game_settings["summon"]["boss"] = true
-				SystemPrint("Summon boss mode set to: true")
-			elif argument.to_lower() == "false" or argument == "0":
-				Global.game_settings["summon"]["boss"] = false
-				SystemPrint("Summon boss mode set to: false")
-			else:
-				ErrorPrint("Invalid argument: use true/false or 1/0")
 		"summon_tags", "settags":
 			if argument == "":
 				ErrorPrint("Usage: summon_name <entity_name>")

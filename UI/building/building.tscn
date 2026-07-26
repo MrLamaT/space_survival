@@ -66,14 +66,16 @@ columns = 9
 layout_mode = 2
 sprite_texture = ExtResource("4_wx25n")
 sprite_label = "flashlight 1"
-required_description = "flashlight for F support"
+required_description = "flashlight on the F key"
+required_description_ru = "фонарик на клавишу F"
 Credits = 150
 
 [node name="Control2" parent="Panel/equipment" unique_id=194519816 instance=ExtResource("2_1ckwh")]
 layout_mode = 2
 sprite_texture = ExtResource("4_wx25n")
 sprite_label = "flashlight 2"
-required_description = "flashlight for F support"
+required_description = "flashlight on the F key"
+required_description_ru = "фонарик на клавишу F"
 Credits = 400
 
 [node name="Control4" parent="Panel/equipment" unique_id=1248142975 instance=ExtResource("2_1ckwh")]
@@ -81,6 +83,7 @@ layout_mode = 2
 sprite_texture = ExtResource("6_wx25n")
 sprite_label = "jump booster"
 required_description = "second mid-air jump"
+required_description_ru = "второй прыжок в воздухе"
 Credits = 650
 
 [node name="Control5" parent="Panel/equipment" unique_id=1102693193 instance=ExtResource("2_1ckwh")]
@@ -88,6 +91,7 @@ layout_mode = 2
 sprite_texture = ExtResource("7_xb7i8")
 sprite_label = "exoskeleton 1"
 required_description = "increases energy reserves"
+required_description_ru = "увеличивает запасы энергии"
 Credits = 400
 
 [node name="Control6" parent="Panel/equipment" unique_id=509364588 instance=ExtResource("2_1ckwh")]
@@ -95,6 +99,7 @@ layout_mode = 2
 sprite_texture = ExtResource("7_xb7i8")
 sprite_label = "exoskeleton 2"
 required_description = "increases energy reserves"
+required_description_ru = "увеличивает запасы энергии"
 Credits = 900
 Sercilist = 3
 
@@ -103,15 +108,16 @@ layout_mode = 2
 sprite_texture = ExtResource("7_xb7i8")
 sprite_label = "exoskeleton 3"
 required_description = "increases energy reserves"
+required_description_ru = "увеличивает запасы энергии"
 Credits = 1600
 Sercilist = 8
 
 [node name="Control8" parent="Panel/equipment" unique_id=1968762164 instance=ExtResource("2_1ckwh")]
-visible = false
 layout_mode = 2
 sprite_texture = ExtResource("5_atb7m")
 sprite_label = "metabolic booster"
 required_description = "flushes toxins from the body"
+required_description_ru = "выводит токсины из организма"
 Credits = 800
 
 [node name="Control9" parent="Panel/equipment" unique_id=1876287995 instance=ExtResource("2_1ckwh")]
@@ -119,7 +125,16 @@ layout_mode = 2
 sprite_texture = ExtResource("8_xb7i8")
 sprite_label = "path-breaker"
 required_description = "destroys debris"
+required_description_ru = "уничтожает обломки"
 Credits = 250
+
+[node name="Control10" parent="Panel/equipment" unique_id=1810554501 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("7_xb7i8")
+sprite_label = "inertia boots"
+required_description = "running without energy loss"
+required_description_ru = "бег без потери энергии"
+Credits = 500
 
 [node name="equipmentLabel" type="Label" parent="Panel" unique_id=1108057269]
 layout_mode = 1

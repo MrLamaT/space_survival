@@ -103,6 +103,13 @@ var max_hand_offset = Vector3(0.1, 0.1, 0.1)
 var held_build: Node = null
 var hold_distance: float = 2.0
 
+# Система яда
+var poison_damage: float = 0.0        # Урон от яда за тик
+var poison_duration: float = 0.0      # Оставшаяся длительность действия яда
+var poison_tick_timer: float = 0.0    # Таймер для тиков урона
+var poison_tick_interval: float = 1.0 # Интервал между тиками урона (1 секунда)
+var is_poisoned: bool = false         # Флаг отравления
+
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -207,6 +214,40 @@ func HP(hp):
 	if world["HP"] > 100:
 		world["HP"] = 100
 
+func apply_poison(damage: float) -> void:
+	if Global.game_settings["IsDying"]:
+		return
+	if Global.game_settings["GodMod"]:
+		return
+	poison_damage = damage
+	var world = Global.get_world(Global.game_settings.word)
+	if "metabolic booster" in world["equipment"]:
+		poison_duration = 4.0
+	else:
+		poison_duration = 8.0
+	poison_tick_timer = 0.0
+	is_poisoned = true
+
+func _process_poison(delta: float) -> void:
+	if not is_poisoned or Global.game_settings["IsDying"]:
+		return
+	if poison_duration > 0:
+		poison_duration -= delta
+		poison_tick_timer += delta
+		if poison_tick_timer >= poison_tick_interval:
+			poison_tick_timer = 0.0
+			var world = Global.get_world(Global.game_settings.word)
+			if !Global.game_settings["GodMod"]:
+				world["HP"] -= poison_damage
+			$head/Camera3D/blood2.modulate = Color("4CAF50")
+			$head/Camera3D/damage.play("damage")
+			if world["HP"] <= 0:
+				PlayerDeath()
+				is_poisoned = false
+	else:
+		is_poisoned = false
+		poison_damage = 0.0
+
 func respawn_player():
 	save()
 	global_position = Global.game_settings["checkpoint"]
@@ -216,6 +257,10 @@ func respawn_player():
 	$head/Camera3D/UI.visible = true
 	$hand_position.visible = true
 	cam.current = true
+	is_poisoned = false
+	poison_damage = 0.0
+	poison_duration = 0.0
+	poison_tick_timer = 0.0
 	if Global.game_settings["ThrownCamera"]:
 		Global.game_settings["ThrownCamera"].queue_free()
 		Global.game_settings["ThrownCamera"] = null
@@ -322,7 +367,7 @@ func _input(event: InputEvent): #повороты мышкой
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			openUI("spawn")
-	if Input.is_action_just_pressed("+v"):
+	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			ghost_cheat()
@@ -345,7 +390,7 @@ func _input(event: InputEvent): #повороты мышкой
 			if new_camera_rotation < deg_to_rad(-89) or new_camera_rotation > deg_to_rad(89):
 				vertical_rotation = 0
 			cam.rotate_x(vertical_rotation)
-	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"]:
+	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"] and not Global.game_settings["UI"]:
 		if not is_on_floor():
 			falling_fast = true
 			$leg_damage/CollisionShape3D.disabled = false
@@ -417,6 +462,8 @@ func ghost_cheat():
 		crouched = false
 		collision_mask = 1
 		Global.game_settings["affected_by_gravity"] = false
+		is_running = false
+		update_running_speed()
 	else:
 		collision_mask = (1 << 2) | (1 << 3) | (1 << 5)
 		Global.game_settings["affected_by_gravity"] = true
@@ -431,6 +478,7 @@ func _process(delta):
 	update_flashlight(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
+	_process_poison(delta)
 	interaction_manager.update_interaction(delta)
 	if held_build and is_instance_valid(held_build):
 		update_held_build()
@@ -440,15 +488,18 @@ func _process(delta):
 		damage_cooldown -= delta
 
 func _update_stamina(delta):
+	var world = Global.get_world(Global.game_settings.word)
 	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
 	var is_actually_moving = horizontal_speed > 0.5
+	var has_inertia_boots = "inertia boots" in world["equipment"]
 	if is_running and is_actually_moving and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
-		stamina = max(0, stamina - stamina_depletion_rate * delta)
-		can_regenerate = false
-		regen_timer = 0.0
-		if stamina <= 0:
-			is_running = false
-			update_running_speed()
+		if not has_inertia_boots:
+			stamina = max(0, stamina - stamina_depletion_rate * delta)
+			can_regenerate = false
+			regen_timer = 0.0
+			if stamina <= 0:
+				is_running = false
+				update_running_speed()
 	else:
 		if not can_regenerate:
 			regen_timer += delta
@@ -492,11 +543,6 @@ func _update_camera_dynamics(delta):
 		if input_dir.length() > 0.1:
 			breathing_time = 0.0
 
-func message(Mtext):
-	$AnimationPlayer.stop()
-	$head/Camera3D/message.text = Mtext
-	$AnimationPlayer.play("message")
-
 func _physics_process(delta):
 	var world = Global.get_world(Global.game_settings.word)
 	if global_position.y < Global.game_settings["min_y"]:
@@ -514,7 +560,7 @@ func _physics_process(delta):
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
 			has_used_double_jump = false
-		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and movement_enabled and !crouched:
+		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and movement_enabled and !crouched and not Global.game_settings["UI"]:
 			if is_on_floor():
 				if jump_cooldown_timer <= 0:
 					velocity.y = jump_velocity

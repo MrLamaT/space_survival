@@ -3,6 +3,7 @@ extends Control
 @export var sprite_texture: Texture
 @export var sprite_label: String = ""
 @export var required_description: String = ""
+@export var required_description_ru: String = ""
 @onready var billboard_sprite: Sprite2D = $Sprite2D
 @export var Credits: int = 0
 @export var Sercilist: int = 0
@@ -80,7 +81,7 @@ func _on_button_mouse_entered() -> void:
 	final_pos.y = max(0, min(final_pos.y, viewport_size.y - menu_size.y))
 	recipeMenu.position = final_pos
 	recipeMenu.visible = true
-	recipeMenu.recipe({"Credits": Credits, "Sercilist": Sercilist, "Dark Sercilist": Dark_Sercilist}, sprite_label, required_description)
+	recipeMenu.recipe({"Credits": Credits, "Sercilist": Sercilist, "Dark Sercilist": Dark_Sercilist}, sprite_label, required_description, required_description_ru)
 
 func _on_button_mouse_exited() -> void:
 	var recipeMenu = get_parent().get_parent().get_parent().get_node("recipe")

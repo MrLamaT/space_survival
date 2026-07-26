@@ -3,9 +3,12 @@ extends Node2D
 var texture_cache = {}
 var world = Global.get_world(Global.game_settings.word)
 
-func recipe(required_resources, required_label, required_description):
+func recipe(required_resources, required_label, required_description, required_description_ru):
 	$Panel/Label.text = required_label
-	$Panel/Label2.text = required_description
+	if Global.game_settings["gui_settings"]["Language"] == "русский":
+		$Panel/Label2.text = required_description_ru
+	else:
+		$Panel/Label2.text = required_description
 	var inventory = world["inventory"]
 	var resource_nodes = {
 		"Credits": $Panel/VBoxContainer/Credits,

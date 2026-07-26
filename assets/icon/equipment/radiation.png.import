@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr5ul5pdj6va4"
-path="res://.godot/imported/vomitMushroom.png-b68bcc88517e5a21013a864b27c8aee8.ctex"
+uid="uid://birvf6vmexn7p"
+path="res://.godot/imported/radiation.png-bf1ed438ee2454873cd62dcdb9b9ced1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flora/vomitMushroom.png"
-dest_files=["res://.godot/imported/vomitMushroom.png-b68bcc88517e5a21013a864b27c8aee8.ctex"]
+source_file="res://assets/icon/equipment/radiation.png"
+dest_files=["res://.godot/imported/radiation.png-bf1ed438ee2454873cd62dcdb9b9ced1.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d2c5hb3abt5gl" path="res://chapter2/HpBoost/hp_boost.gd" id="1_0q1sy"]
 [ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/flora/HpBoost.png" id="2_p5toj"]
 [ext_resource type="AudioStream" uid="uid://c3mkme4l36ksb" path="res://assets/sound/liana.wav" id="3_vinhs"]
-[ext_resource type="Material" uid="uid://5v8lo6h71e3q" path="res://assets/material/earth.tres" id="4_p5toj"]
+[ext_resource type="Material" uid="uid://cdkmjh4hac4fs" path="res://assets/material/wild_earth.tres" id="4_p5toj"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="5_p5toj"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yap75"]
