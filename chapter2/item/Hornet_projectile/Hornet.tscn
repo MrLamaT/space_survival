@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="2_yrpy8"]
 [ext_resource type="AudioStream" uid="uid://cli5gkjgxo25n" path="res://assets/sound/fly_buzzing.wav" id="3_ftu2p"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://chapter2/item/hand.tscn" id="3_g5sil"]
+[ext_resource type="Texture2D" uid="uid://du51io0upot4g" path="res://assets/textures/flash.png" id="6_h75wn"]
 
 [sub_resource type="Animation" id="Animation_6ecff"]
 length = 0.001
@@ -218,7 +219,7 @@ _data = {
 [node name="Hornet" type="Node3D" unique_id=1688804302]
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_hb7q2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0.25)
 visible = false
 texture = ExtResource("2_yrpy8")
 
@@ -235,3 +236,17 @@ pitch_scale = 1.5
 libraries/ = SubResource("AnimationLibrary_g5fsn")
 
 [node name="hand" parent="." unique_id=1885934729 instance=ExtResource("3_g5sil")]
+
+[node name="BulletSpawn" type="Marker3D" parent="." unique_id=1983465359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.05, 0)
+
+[node name="flash" type="Sprite3D" parent="BulletSpawn" unique_id=899645417]
+transform = Transform3D(-1.2363448e-07, 1.2363448e-07, 4, 2.828427, 2.828427, 0, -2.828427, 2.828427, -1.7484555e-07, 0, 0, 0)
+visible = false
+modulate = Color(0.55, 0.44962502, 0.1485, 0.039215688)
+texture_filter = 0
+texture = ExtResource("6_h75wn")
+
+[node name="flash" type="OmniLight3D" parent="BulletSpawn/flash" unique_id=1323766885]
+light_color = Color(0.54509807, 0.44313726, 0.14901961, 1)
+light_energy = 2.0

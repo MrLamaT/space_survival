@@ -47,7 +47,7 @@ func check_and_consume_resources() -> bool:
 	if Sercilist > 0:
 		inventory["Sercilist"] -= Sercilist
 	if Dark_Sercilist > 0:
-		inventory["DarkSercilist"] -= Dark_Sercilist
+		inventory["Dark Sercilist"] -= Dark_Sercilist
 	return true
 
 func _on_button_pressed() -> void:

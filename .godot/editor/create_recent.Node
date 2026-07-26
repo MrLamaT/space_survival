@@ -1,3 +1,6 @@
+GPUParticles3D
+Sprite3D
+OmniLight3D
 MeshInstance3D
 Node3D
 AudioStreamPlayer2D
@@ -6,9 +9,7 @@ GridMap
 CollisionShape3D
 Camera3D
 Label3D
-Sprite3D
 CheckBox
 AnimationPlayer
 AudioStreamPlayer3D
 HBoxContainer
-Button

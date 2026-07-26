@@ -13,15 +13,9 @@ func shoot(dir: Vector3, spd: float):
 func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		global_translate(direction * speed * delta)
-	
 	timer += delta
 	if timer >= lifetime:
 		queue_free()
-
-func on_hit(collider: Object):
-	# Эффекты попадания
-	if collider.has_method("take_damage"):
-		collider.take_damage(damage)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):

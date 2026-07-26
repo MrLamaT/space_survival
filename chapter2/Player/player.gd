@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var head = $head
 @onready var cam = $head/Camera3D
 @onready var stamina_bar = $head/Camera3D/staminaProgressBar
-@onready var blood_overlay = $head/Camera3D/blood1
+@onready var blood_overlay = $head/Camera3D/blood
 @onready var footstep_player = $FootstepPlayer
 @onready var footstep_player2 = $FootstepPlayer2
 @onready var footstep_player3 = $FootstepPlayer3
@@ -11,15 +11,10 @@ extends CharacterBody3D
 @onready var hand_position = $hand_position
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
-@onready var bullet_spawn_point = $head/Camera3D/BulletSpawn
 @onready var music_player = $music
 
 var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
-
-var current_weapon_slot: int = 1
-var weapon_scroll_cooldown: float = 0.0
-var weapon_scroll_delay: float = 0.15
 
 var is_shooting: bool = false
 
@@ -164,11 +159,9 @@ func _ready():
 	weapon_system = WeaponSystem.new()
 	weapon_system.player = self
 	weapon_system.hand_position = hand_position
-	weapon_system.bullet_spawn_point = bullet_spawn_point
 	weapon_system.raycast = raycast
 	weapon_system.cam = cam
 	add_child(weapon_system)
-	weapon_system.equip_weapon(weapon_system.get_weapon_in_slot(current_weapon_slot))
 	update_max_stamina()
 	var world = Global.get_world(Global.game_settings.word)
 	world["HP"] = 100
@@ -205,9 +198,9 @@ func HP(hp):
 		world["HP"] -= hp
 		damage_cooldown = damage_cooldown_duration
 	if hp > 0:
-		$head/Camera3D/blood2.modulate = Color("830000BD")
+		blood_overlay.modulate = Color("830000BD")
 	else:
-		$head/Camera3D/blood2.modulate = Color("E8D6C2FF")
+		blood_overlay.modulate = Color("E8D6C2FF")
 	$head/Camera3D/damage.play("damage")
 	if world["HP"] <= 0:
 		PlayerDeath()
@@ -239,7 +232,7 @@ func _process_poison(delta: float) -> void:
 			var world = Global.get_world(Global.game_settings.word)
 			if !Global.game_settings["GodMod"]:
 				world["HP"] -= poison_damage
-			$head/Camera3D/blood2.modulate = Color("4CAF50")
+			blood_overlay.modulate = Color("4CAF50")
 			$head/Camera3D/damage.play("damage")
 			if world["HP"] <= 0:
 				PlayerDeath()
@@ -296,13 +289,6 @@ func set_movement_enabled(enabled: bool):
 		velocity.x = 0
 		velocity.z = 0
 
-func show_blood_overlay():
-	blood_overlay.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	blood_overlay.visible = true
-
-func play_blood_animation():
-	$AnimationPlayer.play("blood")
-
 func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
 	$head/Camera3D/UI/coordinates.visible = gui_settings["Coords"]
@@ -315,54 +301,6 @@ func _input(event: InputEvent): #повороты мышкой
 		weapon_system.shoot()
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
-	if event.is_action_pressed("NextWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
-		if weapon_scroll_cooldown <= 0:
-			release_build()
-			current_weapon_slot += 1
-			if current_weapon_slot > 5:
-				current_weapon_slot = 1
-			weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
-			weapon_scroll_cooldown = weapon_scroll_delay
-	if event.is_action_pressed("PreviousWeapon") and not Global.game_settings["IsDying"] and not Global.game_settings["UI"]:
-		if weapon_scroll_cooldown <= 0:
-			release_build()
-			current_weapon_slot -= 1
-			if current_weapon_slot < 1:
-				current_weapon_slot = 5
-			weapon_system.equip_weapon(weapon_system.weapon_slots.get(current_weapon_slot, ""))
-			weapon_scroll_cooldown = weapon_scroll_delay
-	if Input.is_action_just_pressed("+1"):
-		release_build()
-		current_weapon_slot = 1
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(1, ""))
-	if Input.is_action_just_pressed("+2"):
-		release_build()
-		current_weapon_slot = 2
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(2, ""))
-	if Input.is_action_just_pressed("+3"):
-		release_build()
-		current_weapon_slot = 3
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(3, ""))
-	if Input.is_action_just_pressed("+4"):
-		release_build()
-		current_weapon_slot = 4
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(4, ""))
-	if Input.is_action_just_pressed("+5"):
-		release_build()
-		current_weapon_slot = 5
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(5, ""))
-	if Input.is_action_just_pressed("+6"):
-		release_build()
-		current_weapon_slot = 6
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(6, ""))
-	if Input.is_action_just_pressed("+7"):
-		release_build()
-		current_weapon_slot = 7
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(7, ""))
-	if Input.is_action_just_pressed("+8"):
-		release_build()
-		current_weapon_slot = 8
-		weapon_system.equip_weapon(weapon_system.weapon_slots.get(8, ""))
 	if Input.is_action_just_pressed("+q"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -482,8 +420,6 @@ func _process(delta):
 	interaction_manager.update_interaction(delta)
 	if held_build and is_instance_valid(held_build):
 		update_held_build()
-	if weapon_scroll_cooldown > 0:
-		weapon_scroll_cooldown -= delta
 	if damage_cooldown > 0:
 		damage_cooldown -= delta
 
@@ -677,15 +613,6 @@ func update_running_speed():
 		SPEED = base_speed
 		footstep_delay = 0.5   # Обычная частота шагов
 
-func AnimationPlayPlayer(Anim):
-	if not is_instance_valid(self) or not is_inside_tree():
-		return
-	var anim_player = $AnimationPlayer
-	if anim_player and anim_player.has_animation(Anim):
-		anim_player.play(Anim)
-	else:
-		push_error("AnimationPlayer или анимация не найдены: " + str(Anim))
-
 func play_footstep():
 	if movement_enabled:
 		if Global.game_settings["step"] == 1:
@@ -783,9 +710,6 @@ func update_held_build():
 
 func release_build():
 	held_build = null
-
-func timerBoost(boost):
-	$head/Camera3D/timer.boost(boost)
 	
 func _check_and_play_custom_music():
 	var music_file_path = "user://ost"

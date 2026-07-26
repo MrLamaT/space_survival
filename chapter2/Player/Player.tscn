@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://chapter2/Player/player.gd" id="1_3dlvw"]
 [ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
-[ext_resource type="Texture2D" uid="uid://cri4cpqd7yh2" path="res://assets/blood1.png" id="4_3lojj"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="5_r6r0m"]
-[ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood2.png" id="5_xng4x"]
+[ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood.png" id="5_xng4x"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/icon/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
@@ -211,7 +210,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("blood2:modulate:a")
+tracks/0/path = NodePath("blood:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -226,7 +225,7 @@ resource_name = "damage"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("blood2:modulate:a")
+tracks/0/path = NodePath("blood:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -240,119 +239,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_1c5wy"),
 &"damage": SubResource("Animation_uqqn0")
-}
-
-[sub_resource type="Animation" id="Animation_3lojj"]
-resource_name = "BlackOut"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/black:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_qr0cu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/black:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("head/Camera3D/blood1:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("head/Camera3D/blood1:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_n1vqc"]
-resource_name = "blood"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head/Camera3D/blood1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("head/Camera3D/blood1:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3lojj"]
-_data = {
-&"BlackOut": SubResource("Animation_3lojj"),
-&"RESET": SubResource("Animation_qr0cu"),
-&"blood": SubResource("Animation_n1vqc")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eafwc"]
@@ -452,14 +338,7 @@ text = "E - USE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="blood1" type="Sprite2D" parent="head/Camera3D" unique_id=1813390469]
-visible = false
-z_index = -1
-scale = Vector2(18, 20.25)
-texture = ExtResource("4_3lojj")
-offset = Vector2(32, 16)
-
-[node name="blood2" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
+[node name="blood" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
 modulate = Color(0.5137255, 0, 0, 0)
 z_index = -1
 scale = Vector2(18, 20.25)
@@ -568,9 +447,6 @@ libraries/ = SubResource("AnimationLibrary_s8fo2")
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)
 
-[node name="BulletSpawn" type="Marker3D" parent="head/Camera3D" unique_id=1917553546]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.15, -0.85)
-
 [node name="uranium" type="Sprite2D" parent="head/Camera3D" unique_id=1022742011]
 visible = false
 modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
@@ -627,9 +503,6 @@ volume_db = -25.0
 [node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="." unique_id=1239327092]
 stream = ExtResource("11_8e3ni")
 volume_db = -20.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1010058049]
-libraries/ = SubResource("AnimationLibrary_3lojj")
 
 [node name="screem" type="AudioStreamPlayer2D" parent="." unique_id=544180724]
 stream = ExtResource("16_s8fo2")

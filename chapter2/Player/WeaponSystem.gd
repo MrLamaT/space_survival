@@ -3,7 +3,6 @@ class_name WeaponSystem
 
 @export var player: CharacterBody3D
 @export var hand_position: Node3D
-@export var bullet_spawn_point: Node3D
 @export var raycast: RayCast3D
 @export var cam: Camera3D
 
@@ -85,19 +84,95 @@ var weapons: Dictionary = {
 	}
 }
 
+var weapon_scroll_cooldown: float = 0.0
+var weapon_scroll_delay: float = 0.15
+var current_weapon_slot: int = 1
+
 func _ready():
 	if not player:
 		player = get_parent()
+	equip_weapon(weapon_slots.get(current_weapon_slot, ""))
+
+func _process(delta):
+	if weapon_scroll_cooldown > 0:
+		weapon_scroll_cooldown -= delta
+	handle_weapon_input()
+
+func handle_weapon_input():
+	if Global.game_settings["IsDying"] or Global.game_settings["UI"]:
+		return
+	if player and not player.movement_enabled:
+		return
+	if Input.is_action_just_pressed("NextWeapon"):
+		_switch_to_next_weapon()
+	if Input.is_action_just_pressed("PreviousWeapon"):
+		_switch_to_previous_weapon()
+	if Input.is_action_just_pressed("+1"):
+		_switch_to_slot(1)
+	if Input.is_action_just_pressed("+2"):
+		_switch_to_slot(2)
+	if Input.is_action_just_pressed("+3"):
+		_switch_to_slot(3)
+	if Input.is_action_just_pressed("+4"):
+		_switch_to_slot(4)
+	if Input.is_action_just_pressed("+5"):
+		_switch_to_slot(5)
+	if Input.is_action_just_pressed("+6"):
+		_switch_to_slot(6)
+	if Input.is_action_just_pressed("+7"):
+		_switch_to_slot(7)
+	if Input.is_action_just_pressed("+8"):
+		_switch_to_slot(8)
+
+func _switch_to_next_weapon():
+	if weapon_scroll_cooldown <= 0:
+		if player:
+			player.release_build()
+		var start_slot = current_weapon_slot
+		var next_slot = start_slot
+		for i in range(1, 9):
+			var test_slot = start_slot + i
+			if test_slot > 8:
+				test_slot = test_slot - 8
+			if weapon_slots.get(test_slot, "") != "":
+				next_slot = test_slot
+				_switch_to_slot(next_slot)
+				weapon_scroll_cooldown = weapon_scroll_delay
+				return
+		print("No next weapon found, staying on current")
+
+func _switch_to_previous_weapon():
+	if weapon_scroll_cooldown <= 0:
+		if player:
+			player.release_build()
+		var start_slot = current_weapon_slot
+		for i in range(1, 9):
+			var test_slot = start_slot - i
+			if test_slot < 1:
+				test_slot = test_slot + 8
+			if weapon_slots.get(test_slot, "") != "":
+				_switch_to_slot(test_slot)
+				weapon_scroll_cooldown = weapon_scroll_delay
+				return
+		print("No prev weapon found, staying on current")
+
+func _switch_to_slot(slot: int):
+	if slot < 1 or slot > 8:
+		return
+	if player:
+		player.release_build()
+	var weapon_name = weapon_slots.get(slot, "")
+	if weapon_name == "":
+		return
+	current_weapon_slot = slot
+	equip_weapon(weapon_name)
 
 func equip_weapon(weapon_name: String):
-	if current_weapon:
+	if current_weapon and weapon_name != "" and weapons.has(weapon_name):
 		current_weapon.visible = false
-	
 	current_weapon_name = weapon_name
 	if weapon_name == "" or not weapons.has(weapon_name):
-		current_weapon = null
 		return
-	
 	var weapon_data = weapons[weapon_name]
 	if hand_position.has_node(weapon_data["visible_node"]):
 		current_weapon = hand_position.get_node(weapon_data["visible_node"])
@@ -107,6 +182,8 @@ func equip_weapon(weapon_name: String):
 	else:
 		var weapon_scene = weapon_data.get("weapon_scene")
 		if weapon_scene:
+			for child in hand_position.get_children():
+				child.visible = false
 			current_weapon = weapon_scene.instantiate()
 			current_weapon.name = weapon_data["visible_node"]
 			hand_position.add_child(current_weapon)
@@ -118,6 +195,8 @@ func shoot():
 	if Global.game_settings["UI"]:
 		return
 	if not current_weapon:
+		return
+	if current_weapon_name == "" or not weapons.has(current_weapon_name):
 		return
 	if not player.movement_enabled or Global.game_settings["IsDying"]:
 		return
@@ -145,14 +224,16 @@ func shoot():
 			if current_weapon and current_weapon.has_node("AnimationPlayer"):
 				current_weapon.get_node("AnimationPlayer").play(weapon_data["reload_animation"])
 	
+	var weapon_bullet_spawn = current_weapon.get_node("BulletSpawn")
+	_show_muzzle_flash(weapon_bullet_spawn)
 	var bullet = weapon_data["scene"].instantiate()
 	player.get_parent().add_child(bullet)
-	bullet.global_transform = bullet_spawn_point.global_transform
+	bullet.global_transform = weapon_bullet_spawn.global_transform
 	
 	var shoot_direction = -cam.global_transform.basis.z.normalized()
 	if raycast and raycast.is_colliding():
 		var hit_point = raycast.get_collision_point()
-		shoot_direction = (hit_point - bullet_spawn_point.global_position).normalized()
+		shoot_direction = (hit_point - weapon_bullet_spawn.global_position).normalized()
 	
 	if bullet.has_method("shoot"):
 		bullet.shoot(shoot_direction, weapon_data["bullet_speed"])
@@ -173,6 +254,17 @@ func shoot():
 		shooting_sound2.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
 		shooting_sound2.play()
 	add_recoil()
+
+func _show_muzzle_flash(bullet_spawn: Node3D):
+	if bullet_spawn.has_node("flash"):
+		var flash = bullet_spawn.get_node("flash")
+		flash.visible = true
+		flash.rotation.z = randi_range(0, 90)
+		var scale_value = float(randi_range(1, 4))
+		flash.scale = Vector3(scale_value, scale_value, scale_value)
+		get_tree().create_timer(0.05).timeout.connect(func():
+			flash.visible = false
+		)
 
 func add_recoil():
 	var recoil_up = randf_range(1.0, 2.0) * 0.01

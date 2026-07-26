@@ -8,7 +8,6 @@ func _ready():
 	if texture == null:
 		push_error("Texture not assigned")
 		return
-
 	var image := texture.get_image()
 	image.convert(Image.FORMAT_RGBA8)
 
@@ -72,7 +71,7 @@ func _ready():
 
 	mi.material_override = mat
 	add_child(mi)
-	$MeshInstance3D2.queue_free()
+	$Sprite3D.queue_free()
 
 func _add_voxel(
 	vertices: PackedVector3Array,

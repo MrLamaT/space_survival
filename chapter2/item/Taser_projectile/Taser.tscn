@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="1_yweyb"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="2_tij6w"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://chapter2/item/hand.tscn" id="4_i5vkf"]
+[ext_resource type="Texture2D" uid="uid://du51io0upot4g" path="res://assets/textures/flash.png" id="4_no0jb"]
 
 [sub_resource type="Animation" id="Animation_6ecff"]
 length = 0.001
@@ -228,3 +229,17 @@ pitch_scale = 1.5
 libraries/ = SubResource("AnimationLibrary_g5fsn")
 
 [node name="hand" parent="." unique_id=1885934729 instance=ExtResource("4_i5vkf")]
+
+[node name="BulletSpawn" type="Marker3D" parent="." unique_id=1796749755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+
+[node name="flash" type="Sprite3D" parent="BulletSpawn" unique_id=1307887671]
+transform = Transform3D(-1.2363448e-07, 1.2363448e-07, 4, 2.828427, 2.828427, 0, -2.828427, 2.828427, -1.7484555e-07, 0, 0, 0)
+visible = false
+modulate = Color(0.04000002, 0.8399999, 1, 0.039215688)
+texture_filter = 0
+texture = ExtResource("4_no0jb")
+
+[node name="flash" type="OmniLight3D" parent="BulletSpawn/flash" unique_id=860776694]
+light_color = Color(0.039215688, 0.8392157, 1, 1)
+light_energy = 2.0

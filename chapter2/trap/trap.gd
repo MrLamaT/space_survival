@@ -20,8 +20,6 @@ func trigger_interaction():
 func free_player():
 	if trapped_player:
 		trapped_player.set_movement_enabled(true)
-		if trapped_player.has_method("play_blood_animation"):
-			trapped_player.play_blood_animation()
 		player_trapped = false
 		trapped_player = null
 
@@ -51,12 +49,8 @@ func trap_player(player: Node3D):
 		var current_target = targets[0]
 		current_target.global_position = global_position
 		current_target.timeStart()
-	
 	if player.has_method("set_movement_enabled"):
 		player.set_movement_enabled(false)
-	
-	if player.has_method("show_blood_overlay"):
-		player.show_blood_overlay()
 
 func _on_mouse_entered() -> void:
 	pass

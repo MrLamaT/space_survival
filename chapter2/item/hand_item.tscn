@@ -2,22 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cb0qf1nq444x8" path="res://chapter2/item/handItem.gd" id="1_6euei"]
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="2_xd7bl"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xd7bl"]
-radius = 0.1
-height = 0.5
+[ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="3_u2v0h"]
 
 [node name="handItem" type="Node3D" unique_id=837608605]
 script = ExtResource("1_6euei")
 texture = ExtResource("2_xd7bl")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1512269873]
-mesh = SubResource("CapsuleMesh_xd7bl")
-skeleton = NodePath("../MeshInstance3D")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=310867146]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.15, 0.15, 0)
-mesh = SubResource("CapsuleMesh_xd7bl")
-skeleton = NodePath("../../MeshInstance3D")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437667083]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=903337758]
+texture_filter = 0
+texture = ExtResource("3_u2v0h")

@@ -64,12 +64,18 @@ func update_global_radiation():
 		if all_radiation_levels[key] > max_radiation:
 			max_radiation = all_radiation_levels[key]
 	global_radiation_level = max_radiation
-	print("Уровень радиации: ", "%.2f" % global_radiation_level)
 
 func update_accumulation(delta):
 	if current_radiation > 0:
 		accumulated_radiation += current_radiation * delta * accumulation_speed
-		if accumulated_radiation >= damage_threshold:
+		print(accumulated_radiation)
+		var final_damage_threshold = damage_threshold
+		var world = Global.get_world(Global.game_settings.word)
+		if "radiation protection 1" in world["equipment"]:
+			final_damage_threshold *= 2 
+		if "radiation protection 2" in world["equipment"]:
+			final_damage_threshold *= 2
+		if accumulated_radiation >= final_damage_threshold:
 			player.HP(damage_amount)
 			accumulated_radiation = 0.0
 	else:

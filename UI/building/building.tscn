@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/equipment/energy.png" id="7_xb7i8"]
 [ext_resource type="PackedScene" uid="uid://cpt6gk55sdf5v" path="res://UI/Inventory/Inventory.tscn" id="8_atb7m"]
 [ext_resource type="Texture2D" uid="uid://d0pqt7eot2gxv" path="res://assets/icon/equipment/chip.png" id="8_xb7i8"]
+[ext_resource type="Texture2D" uid="uid://birvf6vmexn7p" path="res://assets/icon/equipment/radiation.png" id="9_q8f5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -135,6 +136,20 @@ sprite_label = "inertia boots"
 required_description = "running without energy loss"
 required_description_ru = "бег без потери энергии"
 Credits = 500
+
+[node name="Control13" parent="Panel/equipment" unique_id=1823236523 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("9_q8f5a")
+sprite_label = "radiation protection 1"
+Credits = 1000
+Sercilist = 2
+
+[node name="Control16" parent="Panel/equipment" unique_id=1337503674 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("9_q8f5a")
+sprite_label = "radiation protection 2"
+Credits = 5000
+Dark_Sercilist = 1
 
 [node name="equipmentLabel" type="Label" parent="Panel" unique_id=1108057269]
 layout_mode = 1
