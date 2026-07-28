@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dhft6b4r38kjk" path="res://assets/icon/USA.png" id="3_p7atd"]
 [ext_resource type="Texture2D" uid="uid://djotj0lsuuykf" path="res://assets/icon/RU.png" id="4_03dfm"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="5_03dfm"]
+[ext_resource type="Texture2D" uid="uid://bv00cbkqn6i5d" path="res://assets/portrait2.png" id="6_5mk0y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
 bg_color = Color(0, 0, 0, 1)
@@ -257,6 +258,12 @@ text = "continue"
 direction_A_and_D = "D"
 target_node = NodePath("../..")
 button_id = "continue"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=769051573]
+visible = false
+position = Vector2(576, 125)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_5mk0y")
 
 [connection signal="mouse_entered" from="language/usa/Button" to="." method="_on_En_mouse_entered"]
 [connection signal="mouse_exited" from="language/usa/Button" to="." method="_on_En_mouse_exited"]

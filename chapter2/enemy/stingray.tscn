@@ -32,44 +32,6 @@ height = 0.1
 radial_segments = 16
 rings = 16
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jx2a"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 1, 0)
-scale_min = 2.0
-scale_max = 4.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8srr2"]
-albedo_color = Color(0, 0.84313726, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_bwb0x"]
-material = SubResource("StandardMaterial3D_8srr2")
-size = Vector2(0.1, 0.2)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_54la3"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 1, 0)
-scale_min = 2.0
-scale_max = 4.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
-albedo_color = Color(0, 0.84313726, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_0jx2a"]
-material = SubResource("StandardMaterial3D_shb46")
-size = Vector2(0.1, 0.2)
-
 [sub_resource type="Animation" id="Animation_y5ww8"]
 length = 0.001
 tracks/0/type = "value"
@@ -385,24 +347,6 @@ light_energy = 0.1
 [node name="OmniLight3D" type="OmniLight3D" parent="body" unique_id=1772971923]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -2.1855695e-07)
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
-
-[node name="spark" type="GPUParticles3D" parent="." unique_id=1651181164]
-cast_shadow = 0
-emitting = false
-amount = 5
-lifetime = 0.4
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_0jx2a")
-draw_pass_1 = SubResource("QuadMesh_bwb0x")
-
-[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=705797583]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.371139e-08, 0, 1.9106855e-15)
-cast_shadow = 0
-emitting = false
-amount = 15
-lifetime = 0.4
-process_material = SubResource("ParticleProcessMaterial_54la3")
-draw_pass_1 = SubResource("QuadMesh_0jx2a")
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1449631541]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.3711385e-08, 0, -1.5)

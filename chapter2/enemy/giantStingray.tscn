@@ -117,25 +117,6 @@ _data = {
 &"fly": SubResource("Animation_msqjr")
 }
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aouct"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(5, 5, 5)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 1, 0)
-scale_min = 2.0
-scale_max = 4.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
-albedo_color = Color(0, 0.84313726, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_pya71"]
-material = SubResource("StandardMaterial3D_shb46")
-size = Vector2(0.1, 0.2)
-
 [sub_resource type="Animation" id="Animation_y5ww8"]
 length = 0.001
 tracks/0/type = "value"
@@ -300,14 +281,6 @@ light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=350018585]
 libraries/ = SubResource("AnimationLibrary_aouct")
 autoplay = &"fly"
-
-[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=1236345209]
-cast_shadow = 0
-emitting = false
-amount = 15
-lifetime = 0.4
-process_material = SubResource("ParticleProcessMaterial_aouct")
-draw_pass_1 = SubResource("QuadMesh_pya71")
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1449631541]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.5)

@@ -42,6 +42,7 @@ Assets: Any found on-site. Weapon acquisition, resource gathering, and equipment
 modification are encouraged.
 Outcome: In the event of death — written off without debriefing.")
 	$Panel/LabelButton.visible = true
+	$Panel/Sprite2D.visible = true
 	
 
 func _on_Ru_pressed() -> void:
@@ -55,6 +56,7 @@ func _on_Ru_pressed() -> void:
 экипировки поощряются.
 Итог: В случае гибели — списание без отчёта.")
 	$Panel/LabelButton.visible = true
+	$Panel/Sprite2D.visible = true
 	
 func _on_En_mouse_entered() -> void:
 	$language/usa.scale = Vector2(1.25, 1.25)
@@ -73,6 +75,7 @@ var page = 0
 func _on_label_button_pressed(_id: String) -> void:
 	page += 1
 	$Panel/Label.text = ""
+	$Panel/Sprite2D.visible = false
 	if page == 1:
 		if Global.game_settings["gui_settings"]["Language"] == "русский":
 			await type_text($Panel/Label, "Движение

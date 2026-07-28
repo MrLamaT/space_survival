@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 @onready var shock_sound: AudioStreamPlayer3D = $shock
-@onready var spark_dead: GPUParticles3D = $sparkDead if has_node("sparkDead") else null
-@onready var spark_hit: GPUParticles3D = $spark if has_node("spark") else null
+@onready var spark_dead: GPUParticles3D
+@onready var spark_hit: GPUParticles3D
 
 @export var is_boss: bool = false
 @export var aura: int = 0
@@ -26,6 +26,14 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var speed_multiplier: float = 1.0 
 
 func _ready():
+	var spark_scene = load("res://chapter2/enemy/SparkEnemy.tscn")
+	var spark_instance = spark_scene.instantiate()
+	add_child(spark_instance)
+	spark_hit = spark_instance
+	var spark_dead_scene = load("res://chapter2/enemy/SparkDeadEnemy.tscn")
+	var spark_dead_instance = spark_dead_scene.instantiate()
+	add_child(spark_dead_instance)
+	spark_dead = spark_dead_instance
 	player = get_tree().get_first_node_in_group(enemyTags)
 	if aura > 0:
 		speed_multiplier = aura + 1

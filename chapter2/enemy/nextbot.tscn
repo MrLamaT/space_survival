@@ -9,40 +9,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
 size = Vector3(2.5, 2.5, 2.5)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1p1qd"]
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, 1, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-scale_min = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5epb"]
-albedo_color = Color(0, 0.84313726, 1, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_4n213"]
-material = SubResource("StandardMaterial3D_v5epb")
-size = Vector2(0.1, 0.2)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bpc6b"]
-lifetime_randomness = 0.5
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 5.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 1, 0)
-scale_min = 2.0
-scale_max = 4.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
-albedo_color = Color(0, 0.84313726, 1, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_1p1qd"]
-material = SubResource("StandardMaterial3D_shb46")
-size = Vector2(0.1, 0.2)
-
 [sub_resource type="Animation" id="Animation_y5ww8"]
 length = 0.001
 tracks/0/type = "value"
@@ -125,24 +91,6 @@ volume_db = -25.0
 stream = ExtResource("3_1p1qd")
 volume_db = -15.0
 pitch_scale = 5.0
-
-[node name="spark" type="GPUParticles3D" parent="." unique_id=1136469630]
-cast_shadow = 0
-emitting = false
-amount = 5
-lifetime = 0.4
-one_shot = true
-transform_align = 2
-process_material = SubResource("ParticleProcessMaterial_1p1qd")
-draw_pass_1 = SubResource("QuadMesh_4n213")
-
-[node name="sparkDead" type="GPUParticles3D" parent="." unique_id=1807803748]
-cast_shadow = 0
-emitting = false
-amount = 15
-lifetime = 0.4
-process_material = SubResource("ParticleProcessMaterial_bpc6b")
-draw_pass_1 = SubResource("QuadMesh_1p1qd")
 
 [node name="body" type="Node3D" parent="." unique_id=718440528]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
