@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byu1oycacw6cl"]
 
 [ext_resource type="Script" uid="uid://rs0osc4el4m6" path="res://chapter2/poison/poison_smok.gd" id="1_n7uk0"]
-[ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="1_v1nsv"]
+[ext_resource type="Texture2D" uid="uid://cxahxohsw2khc" path="res://assets/textures/poison.png" id="2_n7uk0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1nsv"]
 lifetime_randomness = 0.5
@@ -14,13 +14,13 @@ gravity = Vector3(0, 2, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq0nl"]
 transparency = 1
-albedo_color = Color(0.85, 0.08500002, 0.08500002, 0.11764706)
-albedo_texture = ExtResource("1_v1nsv")
+albedo_color = Color(1, 1, 1, 0.39215687)
+albedo_texture = ExtResource("2_n7uk0")
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_n7uk0"]
 material = SubResource("StandardMaterial3D_iq0nl")
-size = Vector2(10, 10)
+size = Vector2(12, 12)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1nsv"]
 size = Vector3(7.5, 7.5, 7.5)
@@ -28,7 +28,7 @@ size = Vector3(7.5, 7.5, 7.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7uk0"]
 transparency = 1
 cull_mode = 2
-albedo_color = Color(0.8509804, 0.7490196, 0.08627451, 0.11764706)
+albedo_color = Color(0.85, 0.748, 0.08500002, 0.23529412)
 metallic = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_3w8em"]
@@ -76,11 +76,12 @@ _data = {
 }
 
 [node name="smoke" type="Area3D" unique_id=339924212]
+collision_mask = 17
 script = ExtResource("1_n7uk0")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1061507287]
 cast_shadow = 0
-amount = 5
+amount = 7
 process_material = SubResource("ParticleProcessMaterial_v1nsv")
 draw_pass_1 = SubResource("QuadMesh_n7uk0")
 

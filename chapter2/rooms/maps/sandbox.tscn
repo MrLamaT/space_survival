@@ -879,7 +879,7 @@ stream = ExtResource("38_80gio")
 autoplay = true
 
 [node name="RadioactiveMushroom8" parent="." unique_id=1625545542 instance=ExtResource("38_vr0kc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.5, 0)
 
 [node name="RadioactiveMushroom3" parent="." unique_id=213156384 instance=ExtResource("38_jsqbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -19)
