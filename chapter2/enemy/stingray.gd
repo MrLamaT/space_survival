@@ -160,17 +160,3 @@ func die():
 	is_attacking = false
 	if beam_animation:
 		beam_animation.stop()
-
-func take_damage(damage: int):
-	if is_dying or is_dead:
-		return
-	health -= damage
-	$spark.emitting = true
-	if is_boss:
-		var boss_bars = get_tree().get_nodes_in_group("BossBar")
-		if boss_bars.size() > 0:
-			boss_bars[0]._on_health_changed(health)
-	if health <= 0:
-		if spark_dead:
-			spark_dead.emitting = true
-		die()

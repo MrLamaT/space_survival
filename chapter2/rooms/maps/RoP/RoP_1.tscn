@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://chapter2/suppression/suppression.tscn" id="26_sajrh"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_56evf"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://chapter2/rooms/decoration/container.tscn" id="30_22wtc"]
-[ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="30_88l7r"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="32_56evf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -759,7 +758,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1.5, 5.196024)
 
 [node name="Wave5" parent="NavigationRegion3D" unique_id=2019108878 node_paths=PackedStringArray("Gates") instance=ExtResource("21_7st0v")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3.7, 16.786089)
-Gates = NodePath("../Citadel/wallGates")
+Gates = [NodePath("../Citadel/wallGates")]
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave5" unique_id=160361242 instance=ExtResource("22_ccvf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.187, -2, 4.685)
@@ -1054,9 +1053,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.521797, 15.486, -29.014624
 
 [node name="Spring3" parent="." unique_id=415764733 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.215, 15.5, 31.18865)
-
-[node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("30_88l7r")]
-visible = false
 
 [node name="secretLama" type="MeshInstance3D" parent="." unique_id=154420875]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 2, 42)

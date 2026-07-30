@@ -79,6 +79,10 @@ func handle_card_pressed(type, id, color_img):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
+		"other":
+			var player = get_tree().get_first_node_in_group("player")
+			player.openUI("cheat")
+			queue_free()
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

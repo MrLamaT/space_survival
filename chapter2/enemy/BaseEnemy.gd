@@ -25,6 +25,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed_multiplier: float = 1.0 
 
+var boss_bars: CanvasLayer = null
+
 func _ready():
 	var spark_scene = load("res://chapter2/enemy/SparkEnemy.tscn")
 	var spark_instance = spark_scene.instantiate()
@@ -48,9 +50,11 @@ func _physics_process(delta):
 
 func _setup_boss_bar():
 	if is_boss:
-		var boss_bars = get_tree().get_nodes_in_group("BossBar")
-		if boss_bars.size() > 0:
-			boss_bars[0].setup_boss(health, _get_boss_id())
+		var boss_bars_scene = load("res://UI/BossBar/BossBar.tscn")
+		var boss_bars_instance = boss_bars_scene.instantiate()
+		add_child(boss_bars_instance)
+		boss_bars_instance.setup_boss(health, _get_boss_id())
+		boss_bars = boss_bars_instance
 
 func _apply_aura():
 	if has_node("Aura/AnimationPlayer"):
@@ -68,9 +72,7 @@ func take_damage(damage: int):
 	if spark_hit:
 		spark_hit.emitting = true
 	if is_boss:
-		var boss_bars = get_tree().get_nodes_in_group("BossBar")
-		if boss_bars.size() > 0:
-			boss_bars[0]._on_health_changed(health)
+		boss_bars._on_health_changed(health)
 	if health <= 0:
 		if spark_dead:
 			spark_dead.emitting = true

@@ -10,29 +10,24 @@ func _ready() -> void:
 	else:
 		if emergency_light:
 				$Light.update_torch_color(Color("ff0000ff"))
-	if !unlocked:
-		$detect/CollisionShape3D.disabled = true
-		$StaticBody3D/CollisionShape3DDoor.disabled = false
+	$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", unlocked)
+	if unlocked:
+		$AnimationPlayer.play("open")
 
 func lightOn():
 	if has_node("Light"):
 		$Light.update_torch_color(Color("f3f1c5"))
 
-func unlocking():
-	BlockSpawn(false)
-	unlocked = true
-	$detect/CollisionShape3D.disabled = false
-
-func _on_detect_body_entered(_body: Node3D) -> void:
-	if unlocked:
-		$AnimationPlayer.play("open")
-		$AudioStreamPlayer3D.play()
-		$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", true)
-
-func _on_detect_body_exited(_body: Node3D) -> void:
+func blocking():
 	if unlocked:
 		$AnimationPlayer.play_backwards("open", -1)
-		$AudioStreamPlayer3D.play()
+	$SpriteBlock.visible = true
+	$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", false)
+	unlocked = false
 
-func BlockSpawn(check):
-	$SpriteBlock.visible = check
+func unlocking():
+	$AnimationPlayer.play("open")
+	$SpriteBlock.visible = false
+	$StaticBody3D/CollisionShape3DDoor.set_deferred("disabled", true)
+	$AudioStreamPlayer3D.play()
+	unlocked = true

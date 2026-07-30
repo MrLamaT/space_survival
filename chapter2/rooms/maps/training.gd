@@ -6,6 +6,8 @@ func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skyboxBlue.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
+	$Player.weapon_system.weapon_slots[1] = world["weapon"][0]
+	$Player.weapon_system.weapon_slots[2] = world["weapon"][1]
 	Global.game_settings["step"] = 1
 	$Player.openUI("simulation_intro")
 	Global.game_settings["checkpoint"] = $Player.global_position

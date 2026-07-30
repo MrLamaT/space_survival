@@ -247,6 +247,3 @@ visible = false
 modulate = Color(1, 0, 0, 1)
 texture_filter = 0
 texture = ExtResource("8_rqbg7")
-
-[connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
-[connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]

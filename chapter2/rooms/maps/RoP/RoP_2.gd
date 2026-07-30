@@ -22,7 +22,6 @@ func handle_interaction(object_name: String):
 				$Player.warning("The Impenetrable Field has opened")
 		"room10":
 			$NavigationRegion3D/ImpenetrableField5.on(true)
-			$NavigationRegion3D/ImpenetrableField6.on(true)
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Непробиваемое поле открылось")
 			else:
@@ -31,7 +30,6 @@ func handle_interaction(object_name: String):
 func activate_trigger(object_name: String):
 	match object_name:
 		"boss":
-			$NavigationRegion3D/ImpenetrableField6.on(false)
 			$NavigationRegion3D/ImpenetrableField4.on(false)
 			$NavigationRegion3D/floor_ceiling/room10/RisingRing.on()
 			$NavigationRegion3D/floor_ceiling/room10/RisingRing2.on()

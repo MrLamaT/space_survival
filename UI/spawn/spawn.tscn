@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="42_rmstl"]
 [ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/grass.png" id="43_l5m7m"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="44_neoys"]
+[ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/icon/Eanim2.png" id="46_0xjbb"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="51_csqvi"]
 
@@ -664,6 +665,24 @@ text = "stone"
 img = ExtResource("51_csqvi")
 color_img = Color(0.6509804, 0.65882355, 0.654902, 1)
 type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="Label8" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1243539663]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 50
+text = "other"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=620364227]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1478598728 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "console"
+img = ExtResource("46_0xjbb")
+type = "other"
 target_node = NodePath("../../../../..")
 
 [node name="weapon_slot" type="Panel" parent="." unique_id=1856984672]

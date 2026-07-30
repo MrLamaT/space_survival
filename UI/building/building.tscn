@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cpt6gk55sdf5v" path="res://UI/Inventory/Inventory.tscn" id="8_atb7m"]
 [ext_resource type="Texture2D" uid="uid://d0pqt7eot2gxv" path="res://assets/icon/equipment/chip.png" id="8_xb7i8"]
 [ext_resource type="Texture2D" uid="uid://birvf6vmexn7p" path="res://assets/icon/equipment/radiation.png" id="9_q8f5a"]
+[ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/equipment/shield.png" id="10_5aton"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -150,6 +151,15 @@ sprite_texture = ExtResource("9_q8f5a")
 sprite_label = "radiation protection 2"
 Credits = 5000
 Dark_Sercilist = 1
+
+[node name="Control17" parent="Panel/equipment" unique_id=1770357911 instance=ExtResource("2_1ckwh")]
+layout_mode = 2
+sprite_texture = ExtResource("10_5aton")
+sprite_label = "kinetic shield"
+required_description = "reflects 50% of incoming damage"
+required_description_ru = "отражает 50% входящего урона"
+Credits = 2000
+Sercilist = 5
 
 [node name="equipmentLabel" type="Label" parent="Panel" unique_id=1108057269]
 layout_mode = 1

@@ -1,6 +1,6 @@
 extends Area3D
 
-@export var Gates: Node3D
+@export var Gates: Array[Node3D]
 @export var sound = true
 @export var checkpoint = true
 @export var new_min_y = false
@@ -18,8 +18,9 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and is_active:
 		start_wave()
-		if Gates:
-			Gates.BlockSpawn(true)
+		if Gates.size() > 0:
+			for gate in Gates:
+				gate.blocking()
 			$Timer.start()
 		if checkpoint:
 			Global.game_settings["checkpoint"] = global_position
@@ -40,7 +41,7 @@ func start_wave() -> void:
 	var wave_started = false
 	for marker in markers:
 		if marker.has_method("spawn") and marker["numberWave"] == current_wave:
-			if Gates:
+			if Gates.size() > 0:
 				# Режим с воротами: враги с ключом (обязательные для победы)
 				marker.spawn("key")
 				wave_started = true
@@ -53,7 +54,8 @@ func start_wave() -> void:
 
 func _on_wave_complete() -> void:
 	$Timer.stop()
-	Gates.unlocking()
+	for gate in Gates:
+		gate.unlocking()
 
 func _on_timer_timeout() -> void:
 	var enemy_nodes = get_tree().get_nodes_in_group("enemy_wave")

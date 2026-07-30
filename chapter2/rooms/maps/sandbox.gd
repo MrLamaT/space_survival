@@ -7,8 +7,8 @@ func _ready() -> void:
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
 	$Player.weapon_system.weapon_slots[1] = "Summon"
-	$Player.weapon_system.weapon_slots[2] = "Move"
-	$Player.weapon_system.weapon_slots[3] = "Delete"
+	$Player.weapon_system.weapon_slots[2] = "Taser"
+	$Player.weapon_system.weapon_slots[3] = "Hornet"
 	$Player.weapon_system.equip_weapon($Player.weapon_system.weapon_slots.get(1, ""))
 	Global.game_settings["step"] = 1
 	Global.game_settings["checkpoint"] = $Player.global_position

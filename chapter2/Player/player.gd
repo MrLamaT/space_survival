@@ -206,6 +206,11 @@ func HP(hp):
 		PlayerDeath()
 	if world["HP"] > 100:
 		world["HP"] = 100
+	if hp > 0 and "kinetic shield" in world["equipment"]:
+		var enemies = get_tree().get_nodes_in_group("enemy")
+		for enemy in enemies:
+			if enemy.has_method("take_damage"):
+				enemy.take_damage(hp * 0.5)
 
 func apply_poison(damage: float) -> void:
 	if Global.game_settings["IsDying"]:
@@ -351,10 +356,6 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+f1"):
 		$head/Camera3D/UI.visible = !$head/Camera3D/UI.visible
 		$head/Camera3D/crosshair.visible = $head/Camera3D/UI.visible
-	if Input.is_action_just_pressed("+~"):
-		var world = Global.get_world(Global.game_settings.word)
-		if world["mode"] == 1:
-			openUI("cheat")
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
 

@@ -53,19 +53,6 @@ func die():
 	super.die()
 	death_rotation = 0.0
 
-func take_damage(damage: int):
-	if is_dying or is_dead:
-		return
-	health -= damage
-	if is_boss:
-		var boss_bars = get_tree().get_nodes_in_group("BossBar")
-		if boss_bars.size() > 0:
-			boss_bars[0]._on_health_changed(health)
-	if health <= 0:
-		if spark_dead:
-			spark_dead.emitting = true
-		die()
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fly":
 		queue_free()

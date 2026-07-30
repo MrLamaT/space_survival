@@ -16,16 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://chapter2/hide/invisible_trigger.tscn" id="14_c8tpk"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="14_cs7s5"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_hwhbs"]
-[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="14_tgjbi"]
-[ext_resource type="Texture2D" uid="uid://by8v4d3vbkwbx" path="res://assets/teaching/teaching4.png" id="16_0u77i"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="17_u1pd6"]
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://chapter2/laser/laser.tscn" id="18_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://chapter2/rooms/decoration/wall/impenetrableField.tscn" id="18_uo004"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="19_80dxx"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="22_r0400"]
-[ext_resource type="Texture2D" uid="uid://bdk6oofju7aui" path="res://assets/teaching/teaching3.png" id="24_s1abu"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="27_gdhw4"]
-[ext_resource type="PackedScene" uid="uid://cbpb3y3qa4m5y" path="res://UI/BossBar/BossBar.tscn" id="27_s1abu"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/HpBoost/HpBoostCitadel.tscn" id="27_u1pd6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_vp57u"]
@@ -177,7 +173,7 @@ omni_range = 10.0
 
 [node name="Wave" parent="1" unique_id=956278609 node_paths=PackedStringArray("Gates") instance=ExtResource("7_dv7yx")]
 transform = Transform3D(0.12, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, 3, 3)
-Gates = NodePath("../wallGates")
+Gates = [NodePath("../wallGates")]
 
 [node name="WaveMarker" parent="1/Wave" unique_id=378935040 instance=ExtResource("8_vp57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -4.5)
@@ -220,11 +216,6 @@ transform = Transform3D(20, 0, 0, 0, -4.371139e-08, -10, 0, 1, -4.371139e-07, 0,
 [node name="wall5" parent="2" unique_id=289263216 instance=ExtResource("4_gdhw4")]
 transform = Transform3D(20, 0, 0, 0, -4.371139e-08, -7.5, 0, 1, -3.278354e-07, 0, 5.75, 0)
 
-[node name="Label3D" type="Label3D" parent="2/wall5" unique_id=1310406379]
-transform = Transform3D(0.25, 0, 0, 0, -3.2783532e-08, 0.75, 0, -0.7500001, -3.2783547e-08, 0, 0.51, 0.4)
-text = "Press C"
-font = ExtResource("14_tgjbi")
-
 [node name="InvisibleTrigger" parent="2/wall5" unique_id=865226849 instance=ExtResource("14_c8tpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
 can_stand_up = false
@@ -252,6 +243,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 visible = false
 omni_range = 10.0
+
+[node name="hologramText" parent="2" unique_id=866615671 instance=ExtResource("4_wot7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.997)
+textLabel_ru = "Нажмите C, чтобы ползти"
+textLabel_en = "Press C to crawl"
 
 [node name="3" type="NavigationRegion3D" parent="." unique_id=920126422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
@@ -306,14 +302,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 visible = false
 omni_range = 10.0
 
-[node name="Label3D" type="Label3D" parent="3" unique_id=1594120015]
-transform = Transform3D(5, 0, 0, 0, 5, -2.8412416e-08, 0, 1.8941611e-07, 0.75, 0, 2.75, 0)
-text = "Press shift + jump"
-font = ExtResource("14_tgjbi")
-
 [node name="Spring" parent="3" unique_id=1428768737 instance=ExtResource("14_cs7s5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
 jump_force = 9.0
+
+[node name="hologramText" parent="3" unique_id=565329897 instance=ExtResource("4_wot7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
+textLabel_ru = "Нажмите Shift + прыжок."
+textLabel_en = "Press shift + jump"
 
 [node name="7" type="NavigationRegion3D" parent="." unique_id=838318162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 0)
@@ -407,11 +403,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 7.75)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, -7.75)
 
 [node name="hologramText" parent="7" unique_id=305081892 instance=ExtResource("4_wot7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -4)
 textLabel_ru = "Обесточить замок можно 
 через терминал управления."
 textLabel_en = "You can de-energize the lock
 via the control terminal."
-img = ExtResource("16_0u77i")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="7" unique_id=1395968060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -693,9 +689,8 @@ OnDefault = true
 [node name="wall7" parent="9" unique_id=1876982493 instance=ExtResource("19_80dxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 2.7, 14.5, 2)
 
-[node name="Wave" parent="9" unique_id=1824738436 node_paths=PackedStringArray("Gates") instance=ExtResource("7_dv7yx")]
+[node name="Wave" parent="9" unique_id=1824738436 instance=ExtResource("7_dv7yx")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.5780001)
-Gates = NodePath("../wallGates")
 
 [node name="WaveMarker" parent="9/Wave" unique_id=1317326421 instance=ExtResource("8_vp57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.5, -6)
@@ -713,21 +708,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1.5, 0)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 14.5, 8.75)
 
 [node name="hologramText" parent="9" unique_id=1412646924 instance=ExtResource("4_wot7y")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 14, 5.1)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5, 14.5, 8.5)
 textLabel_ru = "Используйте Медицинскую станцию, 
 чтобы восстановить здоровье 
 и снять повреждения."
 textLabel_en = "Use the Medical Station to 
 restore health 
 and remove injuries."
-img = ExtResource("24_s1abu")
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 350, 0.5, -2)
 stage_random = 0
-
-[node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("27_s1abu")]
-visible = false
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("17_u1pd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.5, 7.5)
