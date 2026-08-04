@@ -80,9 +80,15 @@ func handle_card_pressed(type, id, color_img):
 			Global.game_settings["UI"] = false
 			queue_free()
 		"other":
-			var player = get_tree().get_first_node_in_group("player")
-			player.openUI("cheat")
-			queue_free()
+			match id:
+				"console": 
+					var player = get_tree().get_first_node_in_group("player")
+					player.openUI("cheat")
+					queue_free()
+				"sandbox":
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
+				"FNaD":
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

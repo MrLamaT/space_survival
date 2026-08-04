@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c0l1hm333wk6c"]
 
-[ext_resource type="Script" uid="uid://yvqi7l0xilg4" path="res://chapter2/spring/spring.gd" id="1_k0uii"]
+[ext_resource type="Script" uid="uid://yvqi7l0xilg4" path="res://chapter2/rooms/prop/spring.gd" id="1_k0uii"]
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="2_geiqc"]
 [ext_resource type="Texture2D" uid="uid://cmifafoarn4a3" path="res://assets/textures/ring.png" id="3_vkhkv"]
 
@@ -12,8 +12,8 @@ albedo_color = Color(0, 0.7490196, 1, 1)
 material = SubResource("StandardMaterial3D_geiqc")
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vkhkv"]
-size = Vector3(2, 0.1, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkn5v"]
+size = Vector3(2, 0.05, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0uii"]
 albedo_color = Color(0.38039216, 0.3882353, 0.5019608, 1)
@@ -153,8 +153,12 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_q5po7")
 size = Vector2(0.1, 0.1)
 
-[node name="Spring" type="Area3D" unique_id=1428768737]
-collision_mask = 17
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkhkv"]
+size = Vector3(2, 0.1, 2)
+
+[node name="Spring" type="RigidBody3D" unique_id=247486340 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_k0uii")
 
 [node name="Expectation" type="MeshInstance3D" parent="." unique_id=1314820801]
@@ -166,8 +170,8 @@ light_color = Color(0, 0.7490196, 1, 1)
 omni_range = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=611596467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-shape = SubResource("BoxShape3D_vkhkv")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("BoxShape3D_pkn5v")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1545664642]
 stream = ExtResource("2_geiqc")
@@ -196,5 +200,13 @@ amount = 5
 process_material = SubResource("ParticleProcessMaterial_vkhkv")
 draw_pass_1 = SubResource("QuadMesh_q5hyq")
 
-[connection signal="body_entered" from="." to="." method="_on_top_detection_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Area3D" type="Area3D" parent="." unique_id=1160372828]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=362900367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_vkhkv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_top_detection_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]

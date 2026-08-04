@@ -409,7 +409,7 @@ func ghost_cheat():
 
 func _process(delta):
 	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
-	$head/Camera3D/UI/speed.text = "Speed: %d" % velocity.length()
+	$head/Camera3D/UI/speed.text = "Speed: %.2f" % velocity.length()
 	_update_hand_position(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)

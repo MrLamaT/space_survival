@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fe8fesd61yv7"
-path="res://.godot/imported/tree2.png-ff7e1a9fea6a4b99799c23441c5f059c.ctex"
+uid="uid://c1i8srqcd1ee8"
+path="res://.godot/imported/planetFnaf.png-8c683e00436a83289af997889a7b7191.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flora/tree2.png"
-dest_files=["res://.godot/imported/tree2.png-ff7e1a9fea6a4b99799c23441c5f059c.ctex"]
+source_file="res://assets/level/planetFnaf.png"
+dest_files=["res://.godot/imported/planetFnaf.png-8c683e00436a83289af997889a7b7191.ctex"]
 
 [params]
 

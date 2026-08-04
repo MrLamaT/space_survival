@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="9_huk7k"]
 [ext_resource type="PackedScene" uid="uid://dukni03dmr573" path="res://chapter2/rooms/decoration/lighthouse.tscn" id="11_2lrxp"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://chapter2/rooms/decoration/wall/wall_pillar.tscn" id="12_2wc74"]
-[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="12_dfycd"]
+[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/rooms/prop/spring.tscn" id="12_dfycd"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://chapter2/rooms/decoration/feronLL505.tscn" id="13_0m8kx"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="14_0vstr"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_u33f0"]
@@ -1040,19 +1040,24 @@ material = SubResource("StandardMaterial3D_kmrdn")
 
 [node name="Spring2" parent="." unique_id=1626194758 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.402298, 5.4864545, -51.612144)
+freeze = true
 
 [node name="Spring5" parent="." unique_id=1428768737 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.123, 0.486, 23.7955)
+freeze = true
 jump_force = 15.0
 
 [node name="Spring" parent="." unique_id=301584675 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.76787, 10.486, -35.82549)
+freeze = true
 
 [node name="Spring4" parent="." unique_id=1887141575 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.521797, 15.486, -29.014624)
+freeze = true
 
 [node name="Spring3" parent="." unique_id=415764733 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.215, 15.5, 31.18865)
+freeze = true
 
 [node name="secretLama" type="MeshInstance3D" parent="." unique_id=154420875]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 2, 42)

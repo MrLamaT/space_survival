@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://chapter2/rooms/decoration/wall/wallGlass.tscn" id="10_oblyh"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="11_vp57u"]
 [ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://chapter2/hide/invisible_trigger.tscn" id="14_c8tpk"]
-[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="14_cs7s5"]
+[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/rooms/prop/spring.tscn" id="14_cs7s5"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="14_hwhbs"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="17_u1pd6"]
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://chapter2/laser/laser.tscn" id="18_ik7v6"]
@@ -304,6 +304,7 @@ omni_range = 10.0
 
 [node name="Spring" parent="3" unique_id=1428768737 instance=ExtResource("14_cs7s5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
+freeze = true
 jump_force = 9.0
 
 [node name="hologramText" parent="3" unique_id=565329897 instance=ExtResource("4_wot7y")]
@@ -670,10 +671,12 @@ omni_range = 10.0
 
 [node name="Spring" parent="9" unique_id=1889657694 instance=ExtResource("14_cs7s5")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 8, 7.75, -8.5)
+freeze = true
 jump_force = 15.0
 
 [node name="Spring2" parent="9" unique_id=647861332 instance=ExtResource("14_cs7s5")]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.5, -5)
+freeze = true
 jump_force = 15.0
 
 [node name="wallGates" parent="9" unique_id=1500400015 instance=ExtResource("9_6a2e5")]
@@ -689,8 +692,9 @@ OnDefault = true
 [node name="wall7" parent="9" unique_id=1876982493 instance=ExtResource("19_80dxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 2.7, 14.5, 2)
 
-[node name="Wave" parent="9" unique_id=1824738436 instance=ExtResource("7_dv7yx")]
+[node name="Wave" parent="9" unique_id=1824738436 node_paths=PackedStringArray("Gates") instance=ExtResource("7_dv7yx")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -1.5780001)
+Gates = [NodePath("../wallGates")]
 
 [node name="WaveMarker" parent="9/Wave" unique_id=1317326421 instance=ExtResource("8_vp57u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -1.5, -6)

@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="27_wh3vd"]
 [ext_resource type="PackedScene" uid="uid://cxf02h3jh5uew" path="res://chapter2/rooms/decoration/work_table.tscn" id="28_yuibf"]
 [ext_resource type="PackedScene" uid="uid://c6k2aqcjse4xp" path="res://chapter2/rooms/decoration/server.tscn" id="29_tdhdp"]
-[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/spring/spring.tscn" id="30_41m8e"]
+[ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://chapter2/rooms/prop/spring.tscn" id="30_41m8e"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://chapter2/laser/tesla.tscn" id="32_qp8hd"]
 [ext_resource type="Texture2D" uid="uid://53y16vswyp5o" path="res://assets/paintings/picture1.png" id="35_u77an"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="39_u77an"]
@@ -1084,9 +1084,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.35, 0, 0, 0, 0.5, 12, 7.26, 30.5)
 
 [node name="Spring" parent="NavigationRegion3D/floor_ceiling/room10" unique_id=1428768737 instance=ExtResource("30_41m8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5, 0.5, 27.75)
+freeze = true
 
 [node name="Spring2" parent="NavigationRegion3D/floor_ceiling/room10" unique_id=210418982 instance=ExtResource("30_41m8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.49999997, 27.75)
+freeze = true
 
 [node name="dirt" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling/room10" unique_id=615694072]
 transform = Transform3D(-50, 0, 7.54979e-06, 0, 1, 0, -7.54979e-06, 0, -50, 11.75, 5.75, 42.5)

@@ -1,9 +1,10 @@
+RigidBody3D
+Area3D
 OmniLight3D
 Sprite3D
 MeshInstance3D
 AnimationPlayer
 Timer
-Area3D
 GPUParticles3D
 Panel
 Sprite2D
@@ -11,4 +12,3 @@ Node3D
 AudioStreamPlayer2D
 GridMap
 CollisionShape3D
-Camera3D
