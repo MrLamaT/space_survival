@@ -81,7 +81,17 @@ var weapons: Dictionary = {
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
 		"visible_node": "Summon"
-	}
+	},
+	"Aggro Swapping": {
+		"scene": preload("res://chapter2/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn"),
+		"weapon_scene": preload("res://chapter2/item/Taser_projectile/Taser.tscn"),
+		"fire_rate": 0.2,
+		"bullet_speed": 50.0,
+		"stamina_cost": 8.0,
+		"reload_animation": "r",
+		"visible_node": "Taser",
+		"pitch_scale": [1.4, 1.6]
+	},
 }
 
 var weapon_scroll_cooldown: float = 0.0
@@ -180,6 +190,7 @@ func equip_weapon(weapon_name: String):
 		if current_weapon.has_node("AnimationPlayer"):
 			current_weapon.get_node("AnimationPlayer").play("take")
 	else:
+		_cleanup_dead_weapons()
 		var weapon_scene = weapon_data.get("weapon_scene")
 		if weapon_scene:
 			for child in hand_position.get_children():
@@ -190,6 +201,31 @@ func equip_weapon(weapon_name: String):
 			current_weapon.visible = true
 			if current_weapon.has_node("AnimationPlayer"):
 				current_weapon.get_node("AnimationPlayer").play("take")
+
+func _cleanup_dead_weapons():
+	var active_weapon_names = []
+	for slot in range(1, 9):
+		var weapon_name = weapon_slots.get(slot, "")
+		if weapon_name != "":
+			active_weapon_names.append(weapon_name)
+	var children_to_remove = []
+	for child in hand_position.get_children():
+		var is_weapon = false
+		var weapon_name = ""
+		for key in weapons.keys():
+			var weapon_data = weapons[key]
+			if weapon_data.has("visible_node") and weapon_data["visible_node"] == child.name:
+				is_weapon = true
+				weapon_name = key
+				break
+		if is_weapon and weapon_name not in active_weapon_names:
+			if child == current_weapon:
+				current_weapon = null
+			children_to_remove.append(child)
+	for child in children_to_remove:
+		child.queue_free()
+		print("Removed dead weapon: ", child.name)
+
 
 func shoot():
 	if Global.game_settings["UI"]:

@@ -227,7 +227,7 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/separation = 195
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
@@ -235,38 +235,38 @@ img = ExtResource("12_7nag5")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=380265890 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=380265890 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Move"
 img = ExtResource("12_hcli3")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=855588505 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=855588505 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Summon"
 img = ExtResource("13_7nag5")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=868529016 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=868529016 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Delete"
 img = ExtResource("14_bj30i")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "Vibro Spike"
-img = ExtResource("15_oo6k4")
+text = "Aggro Swapping"
+img = ExtResource("16_5tetk")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1513308190 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "Taser"
-img = ExtResource("16_5tetk")
+text = "Vibro Spike"
+img = ExtResource("15_oo6k4")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
@@ -275,7 +275,14 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_constants/separation = 195
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1658971598 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Taser"
+img = ExtResource("16_5tetk")
+type = "weapon"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1658971598 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Hornet"
 img = ExtResource("18_bj30i")
