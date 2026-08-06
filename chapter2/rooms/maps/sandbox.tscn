@@ -35,8 +35,6 @@
 [ext_resource type="PackedScene" uid="uid://vclsdpwcxpcl" path="res://chapter2/rooms/decoration/home/home2.tscn" id="20_uu4at"]
 [ext_resource type="PackedScene" uid="uid://co5j1wfw85gt6" path="res://chapter2/rooms/decoration/home/home3.tscn" id="20_weu5r"]
 [ext_resource type="Material" uid="uid://btvvbjo13xi21" path="res://assets/material/plank.tres" id="22_qt861"]
-[ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="32_vr0kc"]
-[ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="33_y2qdx"]
 [ext_resource type="AudioStream" uid="uid://dynvn6ry0rbjr" path="res://assets/sound/nature.wav" id="38_80gio"]
 [ext_resource type="PackedScene" uid="uid://cuqa0xqye7em1" path="res://chapter2/radiation/radioactiveMushroom.tscn" id="38_jsqbf"]
 [ext_resource type="PackedScene" uid="uid://70gt78v86hpg" path="res://chapter2/poison/poisonMushroom.tscn" id="38_vr0kc"]
@@ -836,57 +834,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0.756, -30)
 
 [node name="Table" parent="NavigationRegion3D" unique_id=1114139850 instance=ExtResource("10_rhwpt")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 37.5, -2.4, 56.85)
-
-[node name="Wave" parent="NavigationRegion3D" unique_id=956278609 instance=ExtResource("32_vr0kc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 32)
-
-[node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -6)
-enemy = "random"
-
-[node name="WaveMarker2" parent="NavigationRegion3D/Wave" unique_id=573310085 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -6)
-enemy = "random"
-
-[node name="WaveMarker3" parent="NavigationRegion3D/Wave" unique_id=363369535 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -10)
-enemy = "random"
-
-[node name="WaveMarker4" parent="NavigationRegion3D/Wave" unique_id=1613544030 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -10)
-enemy = "random"
-
-[node name="WaveMarker5" parent="NavigationRegion3D/Wave" unique_id=1783009733 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -14)
-enemy = "random"
-
-[node name="WaveMarker6" parent="NavigationRegion3D/Wave" unique_id=1226038091 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -14)
-enemy = "random"
-
-[node name="WaveMarker7" parent="NavigationRegion3D/Wave" unique_id=1248842224 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -18)
-enemy = "random"
-
-[node name="WaveMarker8" parent="NavigationRegion3D/Wave" unique_id=1015067739 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -18)
-enemy = "random"
-
-[node name="WaveMarker9" parent="NavigationRegion3D/Wave" unique_id=1988906298 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -23)
-enemy = "random"
-
-[node name="WaveMarker10" parent="NavigationRegion3D/Wave" unique_id=608680354 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -23)
-enemy = "random"
-
-[node name="WaveMarker11" parent="NavigationRegion3D/Wave" unique_id=682773691 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.5, -27)
-enemy = "random"
-
-[node name="WaveMarker12" parent="NavigationRegion3D/Wave" unique_id=1429946023 instance=ExtResource("33_y2qdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.5, -27)
-enemy = "random"
 
 [node name="BossBar" parent="." unique_id=1451968511 instance=ExtResource("16_ujcsl")]
 visible = false

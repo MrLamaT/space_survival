@@ -17,6 +17,7 @@ const ENEMIES = {
 	"cleaner": "res://chapter2/enemy/cleaner.tscn",
 	"observer 1": "res://chapter2/enemy/observer1.tscn",
 	"siren head": "res://chapter2/enemy/siren_head.tscn",
+	"SCP": "res://chapter2/enemy/scp.tscn"
 }
 const RANDOM_ENEMIES_BY_AURA = {
 	0: ["phantom", "stingray"],

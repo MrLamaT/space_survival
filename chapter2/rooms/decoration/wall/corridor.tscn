@@ -43,6 +43,7 @@ material = SubResource("StandardMaterial3D_7xivn")
 
 [node name="Pipe" parent="." unique_id=42658265 instance=ExtResource("3_2fnfe")]
 transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+smoke = true
 
 [node name="Pipe3" parent="." unique_id=178373593 instance=ExtResource("3_2fnfe")]
 transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)

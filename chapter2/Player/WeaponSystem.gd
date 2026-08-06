@@ -84,12 +84,12 @@ var weapons: Dictionary = {
 	},
 	"Aggro Swapping": {
 		"scene": preload("res://chapter2/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn"),
-		"weapon_scene": preload("res://chapter2/item/Taser_projectile/Taser.tscn"),
+		"weapon_scene": preload("res://chapter2/item/AggroSwapping_projectile/AggroSwapping.tscn"),
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
 		"stamina_cost": 8.0,
 		"reload_animation": "r",
-		"visible_node": "Taser",
+		"visible_node": "AggroSwapping",
 		"pitch_scale": [1.4, 1.6]
 	},
 }

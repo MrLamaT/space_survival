@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://assets/weapon/delete.png" id="14_bj30i"]
 [ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="15_oo6k4"]
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="16_5tetk"]
+[ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="16_d71kh"]
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="18_bj30i"]
 [ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="19_lx0oo"]
 [ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="20_o0w04"]
@@ -33,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="30_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://bmk4l3rn8vtaa" path="res://assets/icon/enemyEgg/Egg_siren_head.png" id="31_b68df"]
 [ext_resource type="Texture2D" uid="uid://b057av3jfqeaa" path="res://assets/icon/prop/barrel.png" id="32_08bs1"]
+[ext_resource type="Texture2D" uid="uid://8h523mx5nc1d" path="res://assets/icon/enemyEgg/Egg_scp.png" id="33_vwlru"]
 [ext_resource type="Texture2D" uid="uid://dsrnapipi82iq" path="res://assets/icon/prop/bed.png" id="35_8vdw8"]
 [ext_resource type="Texture2D" uid="uid://dk8qmuj2ngw7e" path="res://assets/icon/prop/sofa.png" id="36_08bs1"]
 [ext_resource type="Texture2D" uid="uid://cc6fw35n3e4tb" path="res://assets/icon/prop/sofa2.png" id="37_1rgpu"]
@@ -259,7 +261,7 @@ target_node = NodePath("../../../../..")
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Aggro Swapping"
-img = ExtResource("16_5tetk")
+img = ExtResource("16_d71kh")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
@@ -411,6 +413,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "siren head"
 img = ExtResource("31_b68df")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=156416211 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "SCP"
+img = ExtResource("33_vwlru")
 type = "enemies"
 target_node = NodePath("../../../../..")
 

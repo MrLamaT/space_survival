@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brimn5y3pn3ss"]
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="1_horck"]
+[ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="2_ahv2k"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="2_pri5j"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://chapter2/item/hand.tscn" id="3_veh1i"]
 [ext_resource type="Texture2D" uid="uid://du51io0upot4g" path="res://assets/textures/flash.png" id="4_te4dv"]
@@ -214,11 +215,12 @@ _data = {
 &"take": SubResource("Animation_8y5eb")
 }
 
-[node name="Taser" type="Node3D" unique_id=1688804302]
+[node name="AggroSwapping" type="Node3D" unique_id=1688804302]
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_horck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 visible = false
+texture = ExtResource("2_ahv2k")
 
 [node name="shootingSound" type="AudioStreamPlayer2D" parent="." unique_id=218668677]
 stream = ExtResource("2_pri5j")

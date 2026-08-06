@@ -15,11 +15,12 @@ func _ready() -> void:
 func handle_interaction(object_name: String):
 	match object_name:
 		"room1":
-			$NavigationRegion3D/ImpenetrableField.on(true)
+			$NavigationRegion3D/floor_ceiling/room1/wallGates3.unlocking()
+			$NavigationRegion3D/floor_ceiling/room3/wallGates.unlocking()
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				$Player.warning("Непробиваемое поле открылось")
+				$Player.warning("Проход открыт")
 			else:
-				$Player.warning("The Impenetrable Field has opened")
+				$Player.warning("The passage is open")
 		"room10":
 			$NavigationRegion3D/ImpenetrableField5.on(true)
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
