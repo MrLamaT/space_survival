@@ -178,7 +178,7 @@ func _switch_to_slot(slot: int):
 	equip_weapon(weapon_name)
 
 func equip_weapon(weapon_name: String):
-	if current_weapon and weapon_name != "" and weapons.has(weapon_name):
+	if current_weapon and weapon_name != "" and (weapons.has(weapon_name) or weapon_name == "None"):
 		current_weapon.visible = false
 	current_weapon_name = weapon_name
 	if weapon_name == "" or not weapons.has(weapon_name):

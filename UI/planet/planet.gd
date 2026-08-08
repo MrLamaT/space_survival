@@ -82,9 +82,12 @@ func update_page_elements():
 
 func teleport(res):
 	var portal_nodes = get_tree().get_nodes_in_group("portal")
-	for portal_node in portal_nodes:
-		if portal_node.has_method("teleport"):
-			portal_node.teleport(res)
+	if portal_nodes.size() > 0:
+		for portal_node in portal_nodes:
+			if portal_node.has_method("teleport"):
+				portal_node.teleport(res)
+	else:
+		SceneManager.load_scene_with_loading(res)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	queue_free()

@@ -49,11 +49,16 @@
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="42_rmstl"]
 [ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/grass.png" id="43_l5m7m"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="44_neoys"]
+[ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/icon/prop/HpBoost.png" id="45_itu7d"]
 [ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/icon/Eanim2.png" id="46_0xjbb"]
+[ext_resource type="Texture2D" uid="uid://c56dbv80c06rm" path="res://assets/icon/prop/HpBoost2.png" id="46_6bg5j"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://c1i8srqcd1ee8" path="res://assets/level/planetFnaf.png" id="50_v7lph"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="51_csqvi"]
 [ext_resource type="Texture2D" uid="uid://bbmgd8elw5a28" path="res://assets/level/planet00.png" id="51_v7lph"]
+[ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/icon/sort.png" id="54_nv0ie"]
+[ext_resource type="Texture2D" uid="uid://lt1nu8xyef00" path="res://assets/level/planetFlat.png" id="56_xnmou"]
+[ext_resource type="Texture2D" uid="uid://5tq8i4luthta" path="res://assets/level/planetParkour.png" id="58_rmstl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -516,6 +521,25 @@ img = ExtResource("42_qhjgh")
 type = "props"
 target_node = NodePath("../../../../..")
 
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1517327066 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "sanitary fungus 1"
+img = ExtResource("45_itu7d")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1846436257]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/separation = 195
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1604753171 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "sanitary fungus 2"
+img = ExtResource("46_6bg5j")
+type = "props"
+target_node = NodePath("../../../../..")
+
 [node name="Label7" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=582002411]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_d3066")
@@ -727,6 +751,13 @@ img = ExtResource("46_0xjbb")
 type = "other"
 target_node = NodePath("../../../../..")
 
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "level list"
+img = ExtResource("54_nv0ie")
+type = "other"
+target_node = NodePath("../../../../..")
+
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sandbox"
@@ -738,6 +769,20 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "FNaD"
 img = ExtResource("50_v7lph")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "flat"
+img = ExtResource("56_xnmou")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "parkour"
+img = ExtResource("58_rmstl")
 type = "other"
 target_node = NodePath("../../../../..")
 

@@ -85,10 +85,18 @@ func handle_card_pressed(type, id, color_img):
 					var player = get_tree().get_first_node_in_group("player")
 					player.openUI("cheat")
 					queue_free()
+				"level list":
+					var player = get_tree().get_first_node_in_group("player")
+					player.openUI("planet")
+					queue_free()
 				"sandbox":
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
 				"FNaD":
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")
+				"flat":
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/flat.tscn")
+				"parkour":
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn")
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

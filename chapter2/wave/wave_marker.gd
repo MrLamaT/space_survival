@@ -34,7 +34,9 @@ const PROPS = {
 	"workbench": "res://chapter2/rooms/prop/workbench.tscn",
 	"spring": "res://chapter2/rooms/prop/spring.tscn",
 	"tree1": "res://chapter2/rooms/prop/tree.tscn",
-	"tree2": "res://chapter2/rooms/prop/tree2.tscn"
+	"tree2": "res://chapter2/rooms/prop/tree2.tscn",
+	"sanitary fungus 1": "res://chapter2/rooms/prop/HpBoost.tscn",
+	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn"
 }
 var scene
 

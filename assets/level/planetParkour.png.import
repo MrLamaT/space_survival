@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2l7vw6lkc1tx"
-path="res://.godot/imported/HpBoost.png-a8fabe945eba93a997a4824fc52a779d.ctex"
+uid="uid://5tq8i4luthta"
+path="res://.godot/imported/planetParkour.png-4e12d263d570a8e9dde0cf6e282eafa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flora/HpBoost.png"
-dest_files=["res://.godot/imported/HpBoost.png-a8fabe945eba93a997a4824fc52a779d.ctex"]
+source_file="res://assets/level/planetParkour.png"
+dest_files=["res://.godot/imported/planetParkour.png-4e12d263d570a8e9dde0cf6e282eafa4.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
