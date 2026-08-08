@@ -20,7 +20,7 @@ func handle_interaction(object_name: String):
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Проход открыт")
 			else:
-				$Player.warning("The passage is open")
+				$Player.warning("A door opens")
 		"room10":
 			$NavigationRegion3D/ImpenetrableField5.on(true)
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
@@ -31,7 +31,6 @@ func handle_interaction(object_name: String):
 func activate_trigger(object_name: String):
 	match object_name:
 		"boss":
-			$NavigationRegion3D/ImpenetrableField4.on(false)
 			$NavigationRegion3D/floor_ceiling/room10/RisingRing.on()
 			$NavigationRegion3D/floor_ceiling/room10/RisingRing2.on()
 			$NavigationRegion3D/floor_ceiling/room10/RisingRing3.on()

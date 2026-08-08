@@ -8,9 +8,7 @@
 render_priority = 0
 shader = ExtResource("1_bmhvf")
 shader_parameter/portal_color = Color(0.6235, 0, 0.6235, 1)
-shader_parameter/distortion_strength = 0.15
 shader_parameter/spin_speed = 1.5
-shader_parameter/tunnel_depth = 4.0
 shader_parameter/glow_intensity = 1.2
 shader_parameter/ripple_frequency = 8.0
 shader_parameter/ripple_speed = 2.0

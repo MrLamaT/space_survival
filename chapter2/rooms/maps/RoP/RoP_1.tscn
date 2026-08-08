@@ -77,6 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)
 
 [node name="TeleportPortal" parent="." unique_id=1114056743 instance=ExtResource("4_sajrh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.898369, 18, 2.92)
+scene = null
 
 [node name="Marker3D" type="Marker3D" parent="TeleportPortal" unique_id=999905202]
 
@@ -546,118 +547,147 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.926, 20.5, -51.061)
 
 [node name="Barrel" parent="NavigationRegion3D" unique_id=868428457 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.636189, 11.066, -50.541615)
+freeze = true
 skin = 1
 
 [node name="Barrel7" parent="NavigationRegion3D" unique_id=456400763 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.589151, 11.066, -50.541615)
+freeze = true
 skin = 2
 
 [node name="Barrel8" parent="NavigationRegion3D" unique_id=1196733658 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.589, 12.066, -50.542)
+freeze = true
 skin = 2
 
 [node name="Barrel2" parent="NavigationRegion3D" unique_id=1730828090 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.85853, 11.066, -31.86435)
+freeze = true
 skin = 3
 
 [node name="Barrel11" parent="NavigationRegion3D" unique_id=1013284160 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.95435506, 0, 0.29867443, 0, 1, 0, -0.29867443, 0, -0.95435506, 36.85853, 11.066, -32.991844)
+freeze = true
 skin = 5
 
 [node name="Barrel22" parent="NavigationRegion3D" unique_id=617852147 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.95435506, 0, 0.29867443, 0, 1, 0, -0.29867443, 0, -0.95435506, 33.838715, 11.066, -47.065605)
+freeze = true
 skin = 2
 
 [node name="Barrel25" parent="NavigationRegion3D" unique_id=209800818 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.13735807, 0, 0.99052143, 0, 1, 0, -0.99052143, 0, -0.13735807, 28.943636, 20.5, -24.49218)
+freeze = true
 skin = 3
 
 [node name="Barrel28" parent="NavigationRegion3D" unique_id=607538886 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.3941505, 0, -0.91904587, 0, 1, 0, 0.91904587, 0, 0.3941505, 31.959929, 20.5, -17.858343)
+freeze = true
 skin = 4
 
 [node name="Barrel26" parent="NavigationRegion3D" unique_id=1000192962 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.30070585, 0, 0.9537169, 0, 1, 0, -0.9537169, 0, 0.30070585, 30.400862, 20.5, -24.682373)
+freeze = true
 skin = 1
 
 [node name="Barrel27" parent="NavigationRegion3D" unique_id=553439347 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.30070585, 0, 0.9537169, 0, 1, 0, -0.9537169, 0, 0.30070585, 30.401, 21.5, -24.682)
+freeze = true
 skin = 1
 
 [node name="Barrel23" parent="NavigationRegion3D" unique_id=1001013687 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.95435506, 0, 0.29867443, 0, 1, 0, -0.29867443, 0, -0.95435506, 35.001797, 11.066, -47.065605)
+freeze = true
 skin = 1
 
 [node name="Barrel14" parent="NavigationRegion3D" unique_id=1144684503 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.10851976, 0, -0.9940943, 0, 1, 0, 0.9940943, 0, 0.10851976, 30.722488, 11.066, -36.979473)
+freeze = true
 skin = 6
 
 [node name="Barrel18" parent="NavigationRegion3D" unique_id=1288613849 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.5982967, 0, -0.80127466, 0, 1, 0, 0.80127466, 0, -0.5982967, 30.722, 12.066, -36.979)
+freeze = true
 skin = 5
 
 [node name="Barrel3" parent="NavigationRegion3D" unique_id=1305974153 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.8041371, 0, -0.5944439, 0, 1, 0, 0.5944439, 0, 0.8041371, -11.800869, 6.066, -59.32845)
+freeze = true
 skin = 5
 
 [node name="Barrel12" parent="NavigationRegion3D" unique_id=668436597 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.4094932, 0, -0.9123132, 0, 1, 0, 0.9123132, 0, 0.4094932, -11.801, 7.066, -59.32822)
+freeze = true
 skin = 5
 
 [node name="Barrel13" parent="NavigationRegion3D" unique_id=1153310354 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.9367516, 0, -0.3499948, 0, 1, 0, 0.3499948, 0, 0.9367516, -11.801, 6.066, -58.269913)
+freeze = true
 skin = 1
 
 [node name="Barrel4" parent="NavigationRegion3D" unique_id=482539203 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.44810236, 0, 0.89398223, 0, 1, 0, -0.89398223, 0, 0.44810236, -11.249368, 1.066, 14.746969)
+freeze = true
 skin = 5
 
 [node name="Barrel32" parent="NavigationRegion3D" unique_id=1383127142 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.80591804, 0, -0.5920273, 0, 1, 0, 0.5920273, 0, 0.80591804, -23.81446, 1.066, -20.396559)
+freeze = true
 skin = 1
 
 [node name="Barrel41" parent="NavigationRegion3D" unique_id=458123596 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.4200857, 0, 0.90748453, 0, 1, 0, -0.90748453, 0, -0.4200857, 2.4864135, 1.066, -7.4637794)
+freeze = true
 skin = 1
 
 [node name="Barrel43" parent="NavigationRegion3D" unique_id=1970732465 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.7485045, 0, 0.6631298, 0, 1, 0, -0.6631298, 0, -0.7485045, 1.4548733, 1.066, -7.4637794)
+freeze = true
 skin = 1
 
 [node name="Barrel42" parent="NavigationRegion3D" unique_id=1406300177 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.002565682, 0, 0.9999968, 0, 1, 0, -0.9999968, 0, 0.002565682, 2.4864135, 2.066, -7.4637794)
+freeze = true
 skin = 5
 
 [node name="Barrel34" parent="NavigationRegion3D" unique_id=1569880187 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.9896289, 0, -0.14364809, 0, 1, 0, 0.14364809, 0, 0.9896289, -24.431854, 1.066, -19.413193)
+freeze = true
 skin = 1
 
 [node name="Barrel44" parent="NavigationRegion3D" unique_id=1369361249 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.9896289, 0, -0.14364809, 0, 1, 0, 0.14364809, 0, 0.9896289, -20.685333, 1.066, -4.4941483)
+freeze = true
 skin = 1
 
 [node name="Barrel33" parent="NavigationRegion3D" unique_id=1404987897 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.80591804, 0, -0.5920273, 0, 1, 0, 0.5920273, 0, 0.80591804, -23.814, 2.066, -20.397)
+freeze = true
 skin = 1
 
 [node name="Barrel5" parent="NavigationRegion3D" unique_id=203980153 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.2946742, 0, 0.95559776, 0, 1, 0, -0.95559776, 0, 0.2946742, 12.302125, 1.066, 15.164314)
+freeze = true
 skin = 5
 
 [node name="Barrel15" parent="NavigationRegion3D" unique_id=1158586362 instance=ExtResource("16_s50sf")]
 transform = Transform3D(-0.19036353, 0, 0.98171383, 0, 1, 0, -0.98171383, 0, -0.19036353, 13.531521, 1.066, 15.164314)
+freeze = true
 skin = 5
 
 [node name="Barrel16" parent="NavigationRegion3D" unique_id=68797223 instance=ExtResource("16_s50sf")]
 transform = Transform3D(0.44566667, 0, 0.89519906, 0, 1, 0, -0.89519906, 0, 0.44566667, 14.79961, 1.066, 15.164314)
+freeze = true
 skin = 6
 
 [node name="Barrel6" parent="NavigationRegion3D" unique_id=1885108583 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.987309, 1.066, 17.605247)
+freeze = true
 skin = 1
 
 [node name="Barrel17" parent="NavigationRegion3D" unique_id=1568332601 instance=ExtResource("16_s50sf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.987, 2.066, 17.605)
+freeze = true
 skin = 1
 
 [node name="Barrel9" parent="NavigationRegion3D" unique_id=410707771 instance=ExtResource("17_sb4lb")]

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1mvab705xu7u"]
+
+[ext_resource type="Texture2D" uid="uid://cv1e412bb5bia" path="res://assets/textures/wallpaper5.png" id="1_wpk3p"]
+
+[resource]
+albedo_color = Color(0.61960787, 0.60784316, 0.34509805, 1)
+albedo_texture = ExtResource("1_wpk3p")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

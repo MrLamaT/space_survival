@@ -216,7 +216,7 @@ func _on_reload_pressed() -> void:
 
 func _on_kill_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		SceneManager.load_scene_with_loading(Global.level.get(3))
+		SceneManager.load_scene_with_loading(Global.level.get(2))
 
 func _on_ambience_finished() -> void:
 	if AM < 6:

@@ -36,7 +36,9 @@ const PROPS = {
 	"tree1": "res://chapter2/rooms/prop/tree.tscn",
 	"tree2": "res://chapter2/rooms/prop/tree2.tscn",
 	"sanitary fungus 1": "res://chapter2/rooms/prop/HpBoost.tscn",
-	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn"
+	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn",
+	"ERROR": "res://chapter2/rooms/prop/error.tscn",
+	"watermelon": "res://chapter2/rooms/prop/watermelon.tscn"
 }
 var scene
 
@@ -57,6 +59,8 @@ func spawn(type):
 		scene = load(ENEMIES[enemy])
 	if PROPS.has(enemy): 
 		scene = load(PROPS[enemy])
+	if scene == null:
+		scene = load(PROPS["ERROR"])
 	var instance = scene.instantiate()
 	if ENEMIES.has(enemy):
 		instance.is_boss = is_boss
