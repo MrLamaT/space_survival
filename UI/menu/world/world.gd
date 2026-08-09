@@ -92,10 +92,14 @@ func _on_label_button_pressed(id: String) -> void:
 				Global.save(int(select_world[-1]))
 			else:
 				var world_index = int(select_world[-1])
-				var level_path = Global.level.get(int(Global.get_world(world_index)["level"]))
-				if level_path == null:
-					level_path = Global.level[1]
-				SceneManager.load_scene_with_loading(level_path)
+				
+				if Global.get_world(world_index)["level"] == 0:
+					var level_path = Global.level.get(int(Global.get_world(world_index)["level"]))
+					if level_path == null:
+						level_path = Global.level[1]
+					SceneManager.load_scene_with_loading(level_path)
+				else:
+					SceneManager.load_scene_with_loading("res://UI/planet/planet.tscn")
 				Global.game_settings["word"] = world_index
 				print(Global.game_settings["word"])
 

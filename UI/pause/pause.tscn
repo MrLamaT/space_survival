@@ -22,59 +22,83 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -150.0
-offset_right = 300.0
-offset_bottom = 150.0
+offset_left = -150.0
+offset_top = -275.0
+offset_right = 150.0
+offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
 
-[node name="LabelButton" parent="." unique_id=21224137 instance=ExtResource("1_00hl7")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_right = -150.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "YES"
-direction_A_and_D = "D"
-target_node = NodePath("..")
-button_id = "exit"
-
-[node name="LabelButton2" parent="." unique_id=1790547767 instance=ExtResource("1_00hl7")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 150.0
-offset_right = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "NO"
-direction_A_and_D = "D"
-target_node = NodePath("..")
-button_id = "back"
-
-[node name="Label" type="Label" parent="." unique_id=751106219]
+[node name="Label" type="Label" parent="Panel" unique_id=751106219]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -162.0
-offset_top = -120.0
+offset_top = -255.0
 offset_right = 162.0
-offset_bottom = -84.0
+offset_bottom = -219.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_4uepe")
 theme_override_font_sizes/font_size = 32
-text = "Quit to Main Menu?"
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=147835671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 90
+
+[node name="LabelButton" parent="Panel/VBoxContainer" unique_id=1790547767 instance=ExtResource("1_00hl7")]
+layout_mode = 2
+text = "RESUME"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "back"
+
+[node name="LabelButton3" parent="Panel/VBoxContainer" unique_id=1811368051 instance=ExtResource("1_00hl7")]
+layout_mode = 2
+text = "CHECKPOINT"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "checkpoint"
+
+[node name="LabelButton4" parent="Panel/VBoxContainer" unique_id=2106875067 instance=ExtResource("1_00hl7")]
+layout_mode = 2
+text = "MUSIC"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "music"
+
+[node name="LabelButton2" parent="Panel/VBoxContainer" unique_id=21224137 instance=ExtResource("1_00hl7")]
+layout_mode = 2
+text = "MISSIONS"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "miss"
+
+[node name="LabelButton5" parent="Panel/VBoxContainer" unique_id=617591187 instance=ExtResource("1_00hl7")]
+layout_mode = 2
+text = "QUIT TO MENU"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "exit"

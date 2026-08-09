@@ -45,7 +45,8 @@ var game_settings: Dictionary = {
 	"GhostMod": false,
 	"checkpoint": Vector3(0.0, 0.0, 0.0),
 	"min_y": -5.0,
-	"spawn_scroll_position": 0
+	"spawn_scroll_position": 0,
+	"music": ""
 }
 var saved_portal_data: Dictionary = {}
 

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b8fbpiv7pqimy"]
+
+[ext_resource type="Texture2D" uid="uid://c03673qs51cla" path="res://assets/textures/TV.png" id="1_pwnvr"]
+[ext_resource type="Script" uid="uid://b2myhmke054c5" path="res://UI/music/music_slot.gd" id="1_vmro2"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_vmro2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5l6f"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Control" unique_id=171085447]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vmro2")
+
+[node name="Panel" type="Panel" parent="." unique_id=761978108]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n5l6f")
+
+[node name="card" type="TextureRect" parent="Panel" unique_id=996459139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -45.0
+offset_right = -400.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pwnvr")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Panel" unique_id=184356310]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -11.0
+offset_right = 310.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_fonts/font = ExtResource("2_vmro2")
+text = "name"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel" unique_id=1552558618]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 100.0
+
+[connection signal="mouse_entered" from="Panel/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/Button" to="." method="_on_button_mouse_exited"]

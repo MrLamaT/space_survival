@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
+[ext_resource type="PackedScene" uid="uid://pxde681k2c4w" path="res://chapter2/rooms/prop/column.tscn" id="8_bguse"]
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
@@ -494,6 +495,10 @@ pitch_scale = 0.75
 [node name="PC1" parent="." unique_id=1029461300 instance=ExtResource("8_syhg2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6, 1.5, 0)
 nameUI = "building"
+
+[node name="column" parent="." unique_id=1828673876 instance=ExtResource("8_bguse")]
+transform = Transform3D(0.664463, -0.664463, -0.34202012, 0.70710677, 0.70710677, 0, 0.24184474, -0.24184474, 0.9396926, -2, 0.25, -1)
+freeze = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1529036532]
 collision_layer = 4

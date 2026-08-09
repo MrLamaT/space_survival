@@ -38,7 +38,8 @@ const PROPS = {
 	"sanitary fungus 1": "res://chapter2/rooms/prop/HpBoost.tscn",
 	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn",
 	"ERROR": "res://chapter2/rooms/prop/error.tscn",
-	"watermelon": "res://chapter2/rooms/prop/watermelon.tscn"
+	"watermelon": "res://chapter2/rooms/prop/watermelon.tscn",
+	"music box": "res://chapter2/rooms/prop/column.tscn"
 }
 var scene
 

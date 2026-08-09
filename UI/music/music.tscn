@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://ceaqplv14i21a"]
+
+[ext_resource type="Script" uid="uid://dyqfnutlexq7c" path="res://UI/music/music.gd" id="1_pqc3q"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_37mlq"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="11_w5kud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3omhx"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="music" type="Node2D" unique_id=38368963]
+script = ExtResource("1_pqc3q")
+
+[node name="Panel" type="Panel" parent="." unique_id=1949862155]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1108057269]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -304.0
+offset_right = -312.0
+offset_bottom = -286.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme_override_fonts/font = ExtResource("11_w5kud")
+text = "path: "
+vertical_alignment = 1
+
+[node name="path" type="LineEdit" parent="Panel" unique_id=1439687569]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -304.0
+offset_right = 225.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_w5kud")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3omhx")
+
+[node name="updateButton" parent="Panel" unique_id=1811368051 instance=ExtResource("2_37mlq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 266.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "update"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "update"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1392584805]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -212.5
+offset_right = 500.0
+offset_bottom = 212.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1866217973]
+layout_mode = 2
+theme_override_constants/separation = 110
+
+[connection signal="text_changed" from="Panel/path" to="." method="_on_path_text_changed"]

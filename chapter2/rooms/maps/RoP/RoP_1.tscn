@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://chapter2/suppression/suppression.tscn" id="26_sajrh"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_56evf"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://chapter2/rooms/decoration/container.tscn" id="30_22wtc"]
+[ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://chapter2/rooms/decoration/hologram_text.tscn" id="32_8dok3"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="32_56evf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -1095,3 +1096,8 @@ freeze = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 2, 42)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_8dok3")
+
+[node name="hologramText" parent="." unique_id=866615671 instance=ExtResource("32_8dok3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.75, 5.5, -53.65)
+textLabel_ru = "Здесь можно покупать экипировку."
+textLabel_en = "You can buy gear here."

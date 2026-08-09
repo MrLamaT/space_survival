@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://5g46eulbojb6" path="res://UI/building/building.gd" id="1_sq32p"]
 [ext_resource type="PackedScene" uid="uid://62jhviqg3mdm" path="res://UI/recipe/RecipeButton.tscn" id="2_1ckwh"]
-[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_o8pnx"]
 [ext_resource type="Texture2D" uid="uid://3m36cyf4hxul" path="res://assets/icon/equipment/flashlight.png" id="4_wx25n"]
 [ext_resource type="Texture2D" uid="uid://cwb0orjfe183g" path="res://assets/icon/equipment/hp.png" id="5_atb7m"]
 [ext_resource type="Texture2D" uid="uid://dtqsfimpmq50t" path="res://assets/icon/equipment/jump.png" id="6_wx25n"]
@@ -29,22 +28,6 @@ script = ExtResource("1_sq32p")
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_do17e")
-
-[node name="equipmentButton" parent="Panel" unique_id=1811368051 instance=ExtResource("2_o8pnx")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = 266.0
-offset_bottom = 266.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "continue"
-direction_A_and_D = "D"
-target_node = NodePath("../..")
-button_id = "continue"
 
 [node name="equipment" type="GridContainer" parent="Panel" unique_id=1284506618]
 layout_mode = 1

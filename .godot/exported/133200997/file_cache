@@ -2,7 +2,7 @@ res://chapter2/hide/invisible_trigger.tscn::8a5bc2984fa54a03f7de3082ff1ece49::17
 res://chapter2/load/LoadingScreen.tscn::c04dc7f06387cb37443de6ad6dd551b8::1774135783::res://.godot/exported/133200997/export-9d013409d886f636fc7294e34f6afcc7-LoadingScreen.scn
 res://chapter2/load/splash_screen.tscn::d503d3e6fb38ab269833e2f6fe492111::1780413274::res://.godot/exported/133200997/export-2c6dbb1474d6b17249941f0e5758d540-splash_screen.scn
 res://chapter2/Player/terminal/terminal.tscn::37c7b623427cc49b90d31b3c7caad55f::1776706440::res://.godot/exported/133200997/export-8deda84afc9abab1dc996ccf34302985-terminal.scn
-res://chapter2/Player/Player.tscn::b3910a7e5f8500a11b6479fa9c7199e9::1786036476::res://.godot/exported/133200997/export-f55a3d48c61e002f5fa09c996ad1ba41-Player.scn
+res://chapter2/Player/Player.tscn::b3910a7e5f8500a11b6479fa9c7199e9::1786271413::res://.godot/exported/133200997/export-f55a3d48c61e002f5fa09c996ad1ba41-Player.scn
 res://chapter2/rooms/decoration/board.tscn::8273af2f829886ae05f911719e7f0b00::1777562447::res://.godot/exported/133200997/export-42b01def3803815f50fbb484e3cb6273-board.scn
 res://chapter2/rooms/decoration/Bookshelf.tscn::dd8ae7012e5f0f435ea89c52a4694ab5::1778626457::res://.godot/exported/133200997/export-4b4bb3969d6c8e1ebb09c5032c90f79c-Bookshelf.scn
 res://chapter2/rooms/decoration/light.tscn::e442f208a6aa0133f11478a0933fd8ce::1768083312::res://.godot/exported/133200997/export-c818b45d8ea0ef4f308ac856b50796d6-light.scn
@@ -23,7 +23,7 @@ res://chapter2/teleport_cube/teleport_cube.tscn::5913e3fc22ab206e7be43fad0d58580
 res://chapter2/rooms/decoration/wall/wall.tscn::bc595c596b5f9b68cf921530afa0151e::1780761250::res://.godot/exported/133200997/export-a49a3cdabea3c31903657d8c5524dda3-wall.scn
 res://chapter2/rooms/decoration/lightTable.tscn::764497be0db84486fa296fa4e379d35c::1780757524::res://.godot/exported/133200997/export-4cfb16d3094b7d060fef06224f72728d-lightTable.scn
 res://chapter2/rooms/decoration/menu.tscn::000d44d8d26dc4bd8061423cb5168a72::1777847936::res://.godot/exported/133200997/export-d40122f412cf3457ce9975c6d6a5fa6b-menu.scn
-res://chapter2/portal/portal.tscn::2f78753da9da8cabcf742daf7b574f5c::1784238025::res://.godot/exported/133200997/export-7a2ecd054d4d77af18f2b3e8cd6ade2a-portal.scn
+res://chapter2/portal/portal.tscn::8f3c23dc5561a81b0f18d83c7b118125::1786267313::res://.godot/exported/133200997/export-7a2ecd054d4d77af18f2b3e8cd6ade2a-portal.scn
 res://chapter2/rooms/decoration/wall/wallGlass.tscn::aac372331e6b86071e6d9945c87c0c8b::1777562539::res://.godot/exported/133200997/export-e34db2e2461b912ab24fef1d512bd8cc-wallGlass.scn
 res://chapter2/rooms/decoration/wall/wall_pillar.tscn::a5f1c4278e3b42d4f5094d78e8bf88f3::1777562539::res://.godot/exported/133200997/export-1db2a3dc4d8bfbc0d2a3e718c6f0a760-wall_pillar.scn
 res://chapter2/rooms/decoration/button.tscn::c290e2cfc3ea5171fcee853f340cc0c3::1777562539::res://.godot/exported/133200997/export-746818bea168f4047400d903677f5027-button.scn
@@ -48,8 +48,8 @@ res://chapter2/rooms/decoration/barrel2.tscn::1b1ab26c9cd05c673849df4655be0b40::
 res://chapter2/rooms/decoration/crane.tscn::c61335d14af112fdb9de91fb40c3e92c::1782095223::res://.godot/exported/133200997/export-d6b0a4a6ee4525d67e6507f647a3e5cf-crane.scn
 res://chapter2/rooms/decoration/lighthouse.tscn::a7939b39f892bbe6735f7085f42441da::1781460512::res://.godot/exported/133200997/export-c044477f49a65f909d2c8888826f7a4c-lighthouse.scn
 res://chapter2/rooms/decoration/solarPanels.tscn::68474ff10f324b2acfbae1d3eb55c5b1::1777562391::res://.godot/exported/133200997/export-35c2ace369b8a2377fb632477b89e370-solarPanels.scn
-res://chapter2/rooms/maps/RoP/RoP_1.tscn::f9902216d003d48cd047d4d2176f1aa0::1786224562::res://.godot/exported/133200997/export-7b7d9c9fb964850a4bc8e2cfd62b3a7b-RoP_1.scn
-res://chapter2/rooms/maps/sandbox.tscn::99955652162a4e7d1db164b0bccd06ff::1786224121::res://.godot/exported/133200997/export-4e29d6088330bb003345efa20c164d63-sandbox.scn
+res://chapter2/rooms/maps/RoP/RoP_1.tscn::f9902216d003d48cd047d4d2176f1aa0::1786267302::res://.godot/exported/133200997/export-7b7d9c9fb964850a4bc8e2cfd62b3a7b-RoP_1.scn
+res://chapter2/rooms/maps/sandbox.tscn::99955652162a4e7d1db164b0bccd06ff::1786266603::res://.godot/exported/133200997/export-4e29d6088330bb003345efa20c164d63-sandbox.scn
 res://UI/messages/messages.tscn::7d6ab9a66f619fbb2c7bd4cd27276388::1783161652::res://.godot/exported/133200997/export-7f393d65bb40f32c7e3dfd71713c59fc-messages.scn
 res://chapter2/enemy/phantom.tscn::4d29673d3803a45bb08d01c8318c4e96::1785213186::res://.godot/exported/133200997/export-5453f5f8843dfd98e9b6cd2692a6d37d-phantom.scn
 res://chapter2/item/Taser_projectile/Taser_give.tscn::529748b4db45a6e7ee3db1e59f31baef::1779310364::res://.godot/exported/133200997/export-3941f0a6a5f578fb39a145aadf321d57-Taser_give.scn
@@ -89,8 +89,8 @@ res://chapter2/rooms/decoration/serverBlock.tscn::a9bde51624318111d86cc29137a1d3
 res://chapter2/rooms/decoration/ventilation_block2.tscn::31db0a8d55771e5809846daf5588c900::1779231345::res://.godot/exported/133200997/export-58daa94da9e9f7a92246fc2a65f5b412-ventilation_block2.scn
 res://chapter2/rooms/decoration/ventilation_block.tscn::13b9da46e0148b2ebcc8d9b6718881bb::1779231239::res://.godot/exported/133200997/export-188f1dbcd1429bfeda75dbc9f9df7c0d-ventilation_block.scn
 res://chapter2/rooms/decoration/work_table.tscn::565f090e4926fa6596f7290d1a67d99b::1781818936::res://.godot/exported/133200997/export-4f3faa3c6e09ae4fe4b89941cd9329da-work_table.scn
-res://chapter2/rooms/maps/RoP/RoP_2.tscn::9149f09e0cc5f80baace51f0eb2c07d0::1786225033::res://.godot/exported/133200997/export-039416f0176131daef6c7a4bed9de8d0-RoP_2.scn
-res://chapter2/rooms/maps/RoP/RoP_3.tscn::d9f8b5544e959b7b14edca68ea87e848::1786225629::res://.godot/exported/133200997/export-0724fad68e2a596922f6a1986cc5e100-RoP_3.scn
+res://chapter2/rooms/maps/RoP/RoP_2.tscn::9149f09e0cc5f80baace51f0eb2c07d0::1786226192::res://.godot/exported/133200997/export-039416f0176131daef6c7a4bed9de8d0-RoP_2.scn
+res://chapter2/rooms/maps/RoP/RoP_3.tscn::b1450818668fcc51f91766e596094bff::1786225733::res://.godot/exported/133200997/export-0724fad68e2a596922f6a1986cc5e100-RoP_3.scn
 res://chapter2/rooms/maps/black.tscn::52063256c569ccf0a0af968aa68aad7e::1777160255::res://.godot/exported/133200997/export-548d4232047141afa0777fa9c7d1fc3f-black.scn
 res://chapter2/rooms/maps/dark.tscn::faa760feaaffb1f425e85a6c523b4534::1784842893::res://.godot/exported/133200997/export-7f932440ca6c216ef7ffffcc391e9d07-dark.scn
 res://chapter2/rooms/maps/white.tscn::f65632216b2126250c7421d501477920::1777148194::res://.godot/exported/133200997/export-702a5c4af60f1dbc06c318f67e83977c-white.scn
@@ -109,7 +109,7 @@ res://UI/recipe/RecipeButton.tscn::a4cf5e24ca222ce9b7a35a6f59c3f943::1784413407:
 res://assets/material/earth.tres::652c36e6d77c0a31b149fe1bc8b7abb3::1784841440::res://.godot/exported/133200997/export-d0fc8102cbd29dcb561fe2a3535d3e38-earth.res
 res://assets/material/materialPhantom.tres::6800d5a29e1f91e51a9c34e2192e6f27::1784403994::res://.godot/exported/133200997/export-6a02606f4ee7fa5746e9be7147b2ca23-materialPhantom.res
 res://assets/material/roof.tres::0191cec15307c8a5607f9bda0028b610::1784841597::res://.godot/exported/133200997/export-c58a0c41633130dcf28f399dc9560f51-roof.res
-res://chapter2/chest/chest.tscn::20da66379fde9ed513cfbbc8dfd2df1a::1784214082::res://.godot/exported/133200997/export-7ba6cff6c859dd5be54f343d7533aa7e-chest.scn
+res://chapter2/chest/chest.tscn::c137e79811b90a840f87782617852680::1786266941::res://.godot/exported/133200997/export-7ba6cff6c859dd5be54f343d7533aa7e-chest.scn
 res://chapter2/rooms/decoration/container2.tscn::e3fd3e5bd5cb5e8fd901eb6294727a46::1783158059::res://.godot/exported/133200997/export-c3b372ae3d3e6705f4dffcf0ad3c4e1a-container2.scn
 res://chapter2/rooms/decoration/container.tscn::4fa3fd04c97a2175b0bd3222e9bbb955::1781820594::res://.godot/exported/133200997/export-48e69ec84cc5cd763e80c2c92622b407-container.scn
 res://chapter2/rooms/dirt/RoPstone.tscn::ada16fcd920b0046f1c43defdf6da63b::1784845290::res://.godot/exported/133200997/export-11176d5f0ab05287ba4f5ba4887f0f75-RoPstone.scn
@@ -126,7 +126,7 @@ res://chapter2/sky/skyboxPale.tscn::05c7eecb7a6d97d207daf82eb720d201::1782640821
 res://chapter2/sky/skyboxRust.tscn::1b47d87372a51aea3e08cf059f0a1c50::1782640844::res://.godot/exported/133200997/export-086f780e2d1bf48e11a1578343f8632c-skyboxRust.scn
 res://chapter2/sky/skyboxToxic.tscn::5b1ae54d6d58ec72bac76c1088188cfd::1782639389::res://.godot/exported/133200997/export-0787a0aacca873d9de9bc84fa0774ebb-skyboxToxic.scn
 res://UI/spawn/card.tscn::da8652f0e634b9cc2d4f2cd1d492fccc::1784561778::res://.godot/exported/133200997/export-1b3adb9aab0f3020189049ed8cf0feac-card.scn
-res://UI/spawn/spawn.tscn::ca8ce2de1b54a8bd6bceb2ccfa77288f::1786199014::res://.godot/exported/133200997/export-5947a10b28bf9896b92da0ac791b7dc1-spawn.scn
+res://UI/spawn/spawn.tscn::6db62a2072c3b3667b3cdda79260bf81::1786271461::res://.godot/exported/133200997/export-5947a10b28bf9896b92da0ac791b7dc1-spawn.scn
 res://UI/start/start.tscn::abe078f2a80aaa15122083f5a7b5a620::1785274492::res://.godot/exported/133200997/export-6a709ea960aeeff59e84e4f3859a6589-start.scn
 res://chapter2/enemy/stingray.tscn::42580e4473fc93267a50a1deb11cb98b::1785213266::res://.godot/exported/133200997/export-27ada1db083ac080dc30849b28e1ccf8-stingray.scn
 res://chapter2/item/beam_projectile/Beam_projectile.tscn::95a93722ae7d2c0c3349c72cf9bf3193::1784408117::res://.godot/exported/133200997/export-c7d9701e8e7e58ecafd605f6a6c80dbc-Beam_projectile.scn
@@ -146,9 +146,9 @@ res://chapter2/item/Hornet_projectile/Hornet_projectile.tscn::b888c8e877d4974e55
 res://chapter2/rooms/decoration/home/home3.tscn::a8f3356bc41a8e42f47969053aae037f::1784843633::res://.godot/exported/133200997/export-7856d8776d5eb1dab7074a24f2e0b2dc-home3.scn
 res://chapter2/rooms/dirt/simulation_blue.tscn::d979fa36e184fc89d969d17ae9d08e94::1784209703::res://.godot/exported/133200997/export-3139ba1190c5cc0bcc8e577379353418-simulation_blue.scn
 res://chapter2/rooms/dirt/simulation_purple.tscn::de73029c8f77efca45559135b2962d9b::1784209110::res://.godot/exported/133200997/export-49863ee5e5c5315f678dd486a5f98da5-simulation_purple.scn
-res://chapter2/rooms/maps/RoP/fnaf.tscn::d31859d653bc57498086d95cde16c1c9::1786224443::res://.godot/exported/133200997/export-f274642194689201c2f3db0a146ed963-fnaf.scn
+res://chapter2/rooms/maps/RoP/fnaf.tscn::7af7826e3d84343febfc1c1eff43fe87::1786225820::res://.godot/exported/133200997/export-f274642194689201c2f3db0a146ed963-fnaf.scn
 res://chapter2/rooms/prop/balloon.tscn::dfd0233fc3970608b5a5a99163ced70d::1784587262::res://.godot/exported/133200997/export-0571e8606152578c12741b9289f7dad8-balloon.scn
-res://chapter2/rooms/prop/workbench.tscn::35c7c7634f44e19f82dacb287b00680c::1786046297::res://.godot/exported/133200997/export-7f00a650c522d835b85acff585bd72b9-workbench.scn
+res://chapter2/rooms/prop/workbench.tscn::c66871a1bcec4a2b2af6345442bc7f65::1786266850::res://.godot/exported/133200997/export-7f00a650c522d835b85acff585bd72b9-workbench.scn
 res://chapter2/spawnpoint/spawnpoint.tscn::e05f906e2be1c84d781c4e4bb2cee204::1783634993::res://.godot/exported/133200997/export-92cf13c4d7dd6fa2209190b12b969422-spawnpoint.scn
 res://assets/material/grid.tres::3610aada3292987b3b31b6d65d492908::1784842682::res://.godot/exported/133200997/export-0a44e140e662a2e964e8e8d9d41ca4b2-grid.res
 res://assets/material/home1.tres::0cd9842ba8973f51cc268f3e4141b8ba::1784843734::res://.godot/exported/133200997/export-dc484d083a061a731754b59f0fec24c3-home1.res
@@ -176,11 +176,14 @@ res://chapter2/enemy/scp.tscn::733ea4ed85e3c8fe483d32bd1a18784f::1786036258::res
 res://chapter2/item/AggroSwapping_projectile/AggroSwapping.tscn::caf39aeb587bb55bc658d1caf24a874e::1786022082::res://.godot/exported/133200997/export-04da8563760551d14ccb2f6effb99c02-AggroSwapping.scn
 res://chapter2/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn::2a713d1d605703a63284cb0352dd8d63::1785968581::res://.godot/exported/133200997/export-8c372cb92b33e5c33afc2da6c45bce91-AggroSwapping_projectile.scn
 res://chapter2/rooms/dirt/backroomsWall.tscn::2af48ff1416d6c27f503d79fc7c4839c::1786206620::res://.godot/exported/133200997/export-ade6aa34feb62a49961cfab1090e9880-backroomsWall.scn
-res://chapter2/rooms/maps/backrooms/backrooms.tscn::dba01aeb3af2758f5c3731aeeddfede6::1786224127::res://.godot/exported/133200997/export-e607b205dd1e14d09fed20671a41a142-backrooms.scn
+res://chapter2/rooms/maps/backrooms/backrooms.tscn::8f9f234cf7abaf18f5e50972cc3d507e::1786226786::res://.godot/exported/133200997/export-e607b205dd1e14d09fed20671a41a142-backrooms.scn
 res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn::4690c15871fb616b5dc8f03bdc622d91::1786147094::res://.godot/exported/133200997/export-f25dd136a47da8c63df0558112bcd9bc-endless_parkour.scn
 res://chapter2/rooms/maps/endless_parkour/endless_parkour_block.tscn::a478096f488810e430d31e55c1158c43::1786146761::res://.godot/exported/133200997/export-6868b6e25a60c0eb544bd1166fe60c63-endless_parkour_block.scn
 res://chapter2/rooms/maps/flat.tscn::3fb8a41d82f222459c15d33fda36d27e::1786147332::res://.godot/exported/133200997/export-b35e23e329d6867091ed9a9605205287-flat.scn
 res://chapter2/rooms/prop/error.tscn::c2b29b65f58338155d99b6723864c2e2::1786197335::res://.godot/exported/133200997/export-94a9fdb99393a94a76deb1d668c75bd8-error.scn
 res://chapter2/rooms/prop/HpBoost.tscn::be07a611b67c391f3328ed3e5b674bc0::1786131375::res://.godot/exported/133200997/export-e47220cc265120f703251ca3000492d3-HpBoost.scn
-res://chapter2/rooms/prop/HpBoostCitadel.tscn::55639351a47d91ce0508b32b74b715ad::1786107297::res://.godot/exported/133200997/export-2a40938821dabbc5972606a98631cde1-HpBoostCitadel.scn
+res://chapter2/rooms/prop/HpBoostCitadel.tscn::4ee5806c273e5e61c83e2075c41fc58f::1786266898::res://.godot/exported/133200997/export-2a40938821dabbc5972606a98631cde1-HpBoostCitadel.scn
 res://chapter2/rooms/prop/watermelon.tscn::d0d138dcc211919ddf076971793032c9::1786205873::res://.godot/exported/133200997/export-876afb005aa751978713f3256165485f-watermelon.scn
+res://chapter2/rooms/prop/column.tscn::0dabc3d38f896843d996eae283594474::1786266700::res://.godot/exported/133200997/export-637623123faf8db0070f8cfd2db109fa-column.scn
+res://UI/music/music.tscn::8a19319090052f1ff2c1a92eb0c81422::1786301431::res://.godot/exported/133200997/export-74e864ec08b49318b7caa09cdf05cc4b-music.scn
+res://UI/music/music_slot.tscn::4eaf3267950bd4f75c2585f4be8b9f20::1786300892::res://.godot/exported/133200997/export-a2949f2e34349900076d859fc8331627-music_slot.scn

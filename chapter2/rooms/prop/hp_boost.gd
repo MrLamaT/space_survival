@@ -4,7 +4,7 @@ var _secondary_color: Color
 
 func _ready() -> void:
 	if has_node("../Sprite3D2"):
-		_secondary_color = Color("c0c6cd").darkened(0.1)
+		_secondary_color = Color("ffffffff").darkened(0.1)
 		get_node("../Sprite3D2").modulate = _secondary_color
 		get_node("../Sprite3D3").modulate = _secondary_color
 
@@ -22,16 +22,12 @@ func _on_mouse_entered() -> void:
 	if has_node("../Sprite3D2"):
 		get_node("../Sprite3D2").modulate = Color("ffffffff")
 		get_node("../Sprite3D2").shaded = false
-		get_node("../Sprite3D2/OmniLight3D").visible = true
 		get_node("../Sprite3D3").modulate = Color("ffffffff")
 		get_node("../Sprite3D3").shaded = false
-		get_node("../Sprite3D3/OmniLight3D").visible = true
 
 func _on_mouse_exited() -> void:
 	if has_node("../Sprite3D2"):
 		get_node("../Sprite3D2").modulate = _secondary_color
 		get_node("../Sprite3D2").shaded = true
-		get_node("../Sprite3D2/OmniLight3D").visible = false
 		get_node("../Sprite3D3").modulate = _secondary_color
 		get_node("../Sprite3D3").shaded = true
-		get_node("../Sprite3D3/OmniLight3D").visible = false

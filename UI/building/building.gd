@@ -15,11 +15,6 @@ func _ready() -> void:
 		if sprite_label_value != null and sprite_label_value in world["equipment"]:
 			child.get_node("Sprite2D2").visible = true
 
-func _on_label_button_pressed(_id: String) -> void:
-	var player = get_tree().get_first_node_in_group("player")
-	player.openUI("planet")
-	queue_free()
-
 func create(sprite_label):
 	var world = Global.get_world(Global.game_settings.word)
 	var player = get_tree().get_first_node_in_group("player")

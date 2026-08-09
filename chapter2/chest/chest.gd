@@ -164,7 +164,6 @@ func trigger_interaction():
 	_show_chest_content()
 	$Sprite3D.modulate = _secondary_color
 	$Sprite3D.shaded = true
-	$Sprite3D/OmniLight3D.queue_free()
 	$AnimationPlayer.play("open")
 	remove_from_group("interactive_objects")
 

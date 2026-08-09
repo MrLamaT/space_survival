@@ -100,10 +100,6 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("1_l7xkg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Sprite3D" unique_id=1657582105]
-visible = false
-omni_range = 0.5
-
 [node name="Node3D" type="Node3D" parent="." unique_id=1346090347]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1624778610]

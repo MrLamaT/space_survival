@@ -10,7 +10,6 @@ func _ready() -> void:
 	$Player.weapon_system.equip_weapon($Player.weapon_system.weapon_slots.get(1, ""))
 	Global.game_settings["step"] = 3
 	Global.game_settings["min_y"] = -5.0
-	$Player._check_and_play_custom_music()
 
 func handle_interaction(object_name: String):
 	match object_name:

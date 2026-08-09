@@ -11,7 +11,6 @@ extends CharacterBody3D
 @onready var hand_position = $hand_position
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var raycast: RayCast3D = $head/Camera3D/RayCast
-@onready var music_player = $music
 
 var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
@@ -711,35 +710,3 @@ func update_held_build():
 
 func release_build():
 	held_build = null
-	
-func _check_and_play_custom_music():
-	var music_file_path = "user://ost"
-	var audio_extensions = [".mp3", ".ogg"]
-	var found_music = null
-	var found_ext = ""
-	for ext in audio_extensions:
-		var test_path = music_file_path + ext
-		if FileAccess.file_exists(test_path):
-			found_music = test_path
-			found_ext = ext
-			break
-	if found_music:
-		print("Музыка найдена: ", found_music)
-		var file = FileAccess.open(found_music, FileAccess.READ)
-		if file:
-			var audio_data = file.get_buffer(file.get_length())
-			file.close()
-			var audio_stream = null
-			match found_ext:
-				".mp3":
-					audio_stream = AudioStreamMP3.new()
-					audio_stream.data = audio_data
-				".ogg":
-					audio_stream = AudioStreamOggVorbis.new()
-					audio_stream.data = audio_data
-			if audio_stream and music_player:
-				music_player.stream = audio_stream
-				music_player.play()
-				return true
-	else:
-		return false

@@ -17,6 +17,9 @@ func _ready():
 		$Cube2/MeshInstance3D2.queue_free()
 		$Cube3/MeshInstance3D2.queue_free()
 		$Cube4/MeshInstance3D2.queue_free()
+	else:
+		$column.queue_free()
+		$PC1.nameUI = ""
 	cubes = [
 		$Cube/MeshInstance3D,
 		$Cube2/MeshInstance3D, 
@@ -78,3 +81,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if world["stage"] < stade:
 			world["stage"] = stade
 		body.save()
+		body.set_movement_enabled(false)
+		body.global_position = global_position
+		teleport(Global.level.get(level + 1))

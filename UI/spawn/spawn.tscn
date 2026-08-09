@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/icon/Eanim2.png" id="46_0xjbb"]
 [ext_resource type="Texture2D" uid="uid://c56dbv80c06rm" path="res://assets/icon/prop/HpBoost2.png" id="46_6bg5j"]
 [ext_resource type="Texture2D" uid="uid://caoe8eleslsc5" path="res://assets/icon/prop/watermelon.png" id="47_l5m7m"]
+[ext_resource type="Texture2D" uid="uid://cftht8vvono6h" path="res://assets/icon/prop/column.png" id="48_neoys"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://c1i8srqcd1ee8" path="res://assets/level/planetFnaf.png" id="50_v7lph"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="51_csqvi"]
@@ -553,6 +554,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "watermelon"
 img = ExtResource("47_l5m7m")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1230558093 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "music box"
+img = ExtResource("48_neoys")
 type = "props"
 target_node = NodePath("../../../../..")
 

@@ -515,8 +515,6 @@ volume_db = -15.0
 [node name="save" type="Timer" parent="." unique_id=246559202]
 wait_time = 60.0
 
-[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1773773453]
-
 [node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
 stream = ExtResource("24_278cu")
 
