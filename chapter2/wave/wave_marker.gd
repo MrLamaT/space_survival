@@ -39,7 +39,9 @@ const PROPS = {
 	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn",
 	"ERROR": "res://chapter2/rooms/prop/error.tscn",
 	"watermelon": "res://chapter2/rooms/prop/watermelon.tscn",
-	"music box": "res://chapter2/rooms/prop/column.tscn"
+	"music box": "res://chapter2/rooms/prop/column.tscn",
+	"light ball": "res://chapter2/rooms/prop/lightball.tscn",
+	"beach ball": "res://chapter2/rooms/prop/beachball.tscn"
 }
 var scene
 

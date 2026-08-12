@@ -4,5 +4,11 @@ res://assets/shaders/force_field.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
 res://assets/shaders/laser.gdshader
-res://UI/spawn/spawn.gd
-res://global.gd
+res://assets/shaders/filterBWR.gdshader
+res://chapter2/Player/Player.tscn
+res://chapter2/rooms/prop/watermelon.tscn
+res://chapter2/rooms/prop/watermelon.gd
+res://chapter2/rooms/prop/lightball.tscn
+res://chapter2/rooms/prop/beachball.tscn
+res://chapter2/wave/wave_marker.gd
+res://chapter2/rooms/prop/ball.gd

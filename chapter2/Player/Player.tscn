@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="5_r6r0m"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood.png" id="5_xng4x"]
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/icon/HPIcon.png" id="8_u8yn7"]
+[ext_resource type="Shader" uid="uid://dpbtp8edyg6rs" path="res://assets/shaders/filterBWR.gdshader" id="9_s8fo2"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
 [ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="12_r6r0m"]
@@ -240,6 +241,19 @@ _data = {
 &"RESET": SubResource("Animation_1c5wy"),
 &"damage": SubResource("Animation_uqqn0")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+render_priority = -10
+shader = ExtResource("9_s8fo2")
+shader_parameter/target_color = Color(1, 0.49803922, 0, 1)
+shader_parameter/hue_threshold = 0.10000000475
+shader_parameter/softness = 0.05
+shader_parameter/min_saturation = 0.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+material = SubResource("ShaderMaterial_yf5fn")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eafwc"]
 size = Vector3(1.5, 1, 1.5)
@@ -492,6 +506,11 @@ texture = ExtResource("12_r6r0m")
 
 [node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
 libraries/ = SubResource("AnimationLibrary_0pv45")
+
+[node name="filter" type="MeshInstance3D" parent="head/Camera3D" unique_id=542380019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+mesh = SubResource("QuadMesh_g4v7s")
 
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
 stream = ExtResource("12_y13tn")

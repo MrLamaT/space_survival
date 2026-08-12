@@ -1,11 +1,10 @@
-[gd_scene format=3 uid="uid://djrrnkyp3h8r2"]
+[gd_scene format=3 uid="uid://dt7qsh1kdjody"]
 
-[ext_resource type="Texture2D" uid="uid://cdduhgsgob65a" path="res://assets/textures/wallpaper3.png" id="1_1gwot"]
-[ext_resource type="Script" uid="uid://cdsulxtd2bq6n" path="res://chapter2/rooms/prop/ball.gd" id="1_eww8m"]
+[ext_resource type="Script" uid="uid://cdsulxtd2bq6n" path="res://chapter2/rooms/prop/ball.gd" id="1_kviu6"]
+[ext_resource type="Texture2D" uid="uid://cjqxh65mfaq6g" path="res://assets/textures/beachball.png" id="2_kviu6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm52u"]
-albedo_color = Color(0, 1, 0, 1)
-albedo_texture = ExtResource("1_1gwot")
+albedo_texture = ExtResource("2_kviu6")
 texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_eww8m"]
@@ -18,12 +17,12 @@ rings = 8
 [sub_resource type="SphereShape3D" id="SphereShape3D_eww8m"]
 radius = 0.6
 
-[node name="watermelon" type="RigidBody3D" unique_id=1828673876 groups=["prop"]]
+[node name="beachball" type="RigidBody3D" unique_id=1828673876 groups=["prop"]]
 collision_layer = 2
 collision_mask = 7
 linear_damp = 1.0
 angular_damp = 1.0
-script = ExtResource("1_eww8m")
+script = ExtResource("1_kviu6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=661131766]
 mesh = SubResource("SphereMesh_eww8m")
