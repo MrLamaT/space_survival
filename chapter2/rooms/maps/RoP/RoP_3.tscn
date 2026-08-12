@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://chapter2/rooms/decoration/wall/latticeWall.tscn" id="16_kk8ka"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="17_ik10i"]
 [ext_resource type="PackedScene" uid="uid://pubyo4baeluy" path="res://chapter2/rooms/decoration/crane.tscn" id="18_u11jv"]
-[ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1.tscn" id="19_8tc7e"]
+[ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1/observer1.tscn" id="19_8tc7e"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/rooms/prop/HpBoostCitadel.tscn" id="20_ik10i"]
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://chapter2/suppression/suppression.tscn" id="21_mwmxd"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://chapter2/rooms/decoration/container.tscn" id="22_e8b04"]

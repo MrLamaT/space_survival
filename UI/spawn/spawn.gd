@@ -167,9 +167,3 @@ func _update_item_display() -> void:
 		line_edit.text = str(int(inventory[current_item_id]))
 	else:
 		line_edit.text = "0"
-
-func _ready() -> void:
-	$Panel/ScrollContainer.scroll_vertical = int(Global.game_settings["spawn_scroll_position"])
-
-func _exit_tree():
-	Global.game_settings["spawn_scroll_position"] = $Panel/ScrollContainer.scroll_vertical

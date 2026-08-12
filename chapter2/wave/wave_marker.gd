@@ -6,18 +6,18 @@ extends Marker3D
 @export var aura = 0
 @export var enemyTags: String = "player"
 const ENEMIES = {
-	"phantom": "res://chapter2/enemy/phantom.tscn",
-	"giant stingray": "res://chapter2/enemy/giantStingray.tscn",
-	"stingray": "res://chapter2/enemy/stingray.tscn",
-	"infantryman": "res://chapter2/enemy/infantryman.tscn",
-	"destroyercik": "res://chapter2/enemy/destroyercik.tscn",
-	"spark": "res://chapter2/enemy/cockroach.tscn",
-	"nextbot": "res://chapter2/enemy/nextbot.tscn",
-	"shooter": "res://chapter2/enemy/shooter.tscn",
-	"cleaner": "res://chapter2/enemy/cleaner.tscn",
-	"observer 1": "res://chapter2/enemy/observer1.tscn",
-	"siren head": "res://chapter2/enemy/siren_head.tscn",
-	"SCP": "res://chapter2/enemy/scp.tscn"
+	"phantom": "res://chapter2/enemy/phantom/phantom.tscn",
+	"giant stingray": "res://chapter2/enemy/giantStingray/giantStingray.tscn",
+	"stingray": "res://chapter2/enemy/stingray/stingray.tscn",
+	"infantryman": "res://chapter2/enemy/infantryman/infantryman.tscn",
+	"destroyercik": "res://chapter2/enemy/destroyercik/destroyercik.tscn",
+	"spark": "res://chapter2/enemy/cockroach/cockroach.tscn",
+	"nextbot": "res://chapter2/enemy/nextbot/nextbot.tscn",
+	"shooter": "res://chapter2/enemy/shooter/shooter.tscn",
+	"cleaner": "res://chapter2/enemy/cleaner/cleaner.tscn",
+	"observer 1": "res://chapter2/enemy/observer1/observer1.tscn",
+	"siren head": "res://chapter2/enemy/siren_head/siren_head.tscn",
+	"SCP": "res://chapter2/enemy/scp/scp.tscn"
 }
 const RANDOM_ENEMIES_BY_AURA = {
 	0: ["phantom", "stingray"],

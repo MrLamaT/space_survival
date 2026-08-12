@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="23_54uxv"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="25_n81jb"]
 [ext_resource type="Texture2D" uid="uid://6noyyqqreptn" path="res://assets/textures/crack.png" id="25_p25oc"]
-[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_wuovg"]
+[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach/cockroach.tscn" id="25_wuovg"]
 [ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="26_g05cb"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="27_wh3vd"]
 [ext_resource type="PackedScene" uid="uid://cxf02h3jh5uew" path="res://chapter2/rooms/decoration/work_table.tscn" id="28_yuibf"]
@@ -43,7 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://53y16vswyp5o" path="res://assets/paintings/picture1.png" id="35_u77an"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="39_u77an"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://chapter2/chest/chest.tscn" id="41_uxpe4"]
-[ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1.tscn" id="44_yuibf"]
+[ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://chapter2/enemy/observer1/observer1.tscn" id="44_yuibf"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="45_w52mc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]

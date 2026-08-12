@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://clpcb81ae6lxr"]
+
+[ext_resource type="Script" uid="uid://dl8y2xy4hyflq" path="res://chapter2/enemy/shatter.gd" id="1_bdvap"]
+
+[node name="Shatter" type="RigidBody3D" unique_id=1572507426 groups=["prop"]]
+collision_layer = 2
+collision_mask = 7
+mass = 8.0
+linear_damp = 0.3
+angular_damp = 0.3
+script = ExtResource("1_bdvap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1505550078]
+
+[node name="Timer" type="Timer" parent="." unique_id=303183245]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg4yye27hj3ps" path="res://UI/spawn/spawn.gd" id="1_7wgfo"]
 [ext_resource type="PackedScene" uid="uid://whn8plkartqb" path="res://UI/spawn/card.tscn" id="2_2pp8e"]
+[ext_resource type="PackedScene" uid="uid://eo4hiu3dlkdc" path="res://UI/spawn/category.tscn" id="2_6jgxq"]
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="3_3aff4"]
 [ext_resource type="Texture2D" uid="uid://cpbilemb7savo" path="res://assets/level/planet1.png" id="4_a1nv8"]
 [ext_resource type="Texture2D" uid="uid://t2816lwakjs1" path="res://assets/skybox/light.png" id="5_eod37"]
@@ -120,18 +121,20 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1247874281]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=575128497]
+[node name="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1068136377 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "gravity"
+title = "gravity"
+cat_node = NodePath("../GridContainer")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=936864837]
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=172450969]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
@@ -139,104 +142,103 @@ img = ExtResource("12_7nag5")
 type = "gravity"
 target_node = NodePath("../../../../..")
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1469697271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1469697271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Terra"
 img = ExtResource("4_a1nv8")
 type = "gravity"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1686819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1686819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "RoP-856"
 img = ExtResource("4_a1nv8")
 type = "gravity"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2023203451 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=2023203451 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Supermass"
 img = ExtResource("4_a1nv8")
 type = "gravity"
 target_node = NodePath("../../../../..")
 
-[node name="Label2" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=638934176]
+[node name="Label2" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1277372189 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "skybox"
+title = "skybox"
+cat_node = NodePath("../GridContainer2")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2095388520]
+[node name="GridContainer2" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=853416233]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=648612558 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=648612558 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Void"
 img = ExtResource("3_3aff4")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=2008723740 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=2008723740 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Clear Sky"
 img = ExtResource("5_eod37")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=535133645 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=535133645 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Toxic Haze"
 img = ExtResource("6_sdvxd")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1679619271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1679619271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Crimson Dawn"
 img = ExtResource("7_hx65u")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=688616403 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=688616403 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Rust Storm"
 img = ExtResource("8_a1nv8")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=341172952 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=341172952 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Pale Dawn"
 img = ExtResource("9_t7lqh")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1471782367]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=173135000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer2" unique_id=173135000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Dusk"
 img = ExtResource("10_4owxg")
 type = "skybox"
 target_node = NodePath("../../../../..")
 
-[node name="Label3" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1959699563]
+[node name="Label3" parent="Panel/ScrollContainer/VBoxContainer" unique_id=855489432 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "weapons"
+title = "weapons"
+cat_node = NodePath("../GridContainer3")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=800849904]
+[node name="GridContainer3" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=359057676]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
@@ -244,305 +246,291 @@ img = ExtResource("12_7nag5")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=380265890 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=380265890 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Move"
 img = ExtResource("12_hcli3")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=855588505 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=855588505 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Summon"
 img = ExtResource("13_7nag5")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=868529016 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=868529016 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Delete"
 img = ExtResource("14_bj30i")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=1647301007 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Aggro Swapping"
 img = ExtResource("16_d71kh")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1513308190 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=1513308190 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Vibro Spike"
 img = ExtResource("15_oo6k4")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1156013683]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Taser"
 img = ExtResource("16_5tetk")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1658971598 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=1658971598 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Hornet"
 img = ExtResource("18_bj30i")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="Label4" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=404848694]
+[node name="Label4" parent="Panel/ScrollContainer/VBoxContainer" unique_id=708912042 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "resources"
+title = "resources"
+cat_node = NodePath("../GridContainer4")
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1228898555]
+[node name="GridContainer4" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1616580173]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=391552539 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=391552539 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Credits"
 img = ExtResource("19_lx0oo")
 type = "item"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1289413339 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=1289413339 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Sercilist"
 img = ExtResource("20_o0w04")
 type = "item"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1294181185 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=1294181185 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Dark Sercilist"
 img = ExtResource("21_4ib5f")
 type = "item"
 target_node = NodePath("../../../../..")
 
-[node name="Label5" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2138392283]
+[node name="Label5" parent="Panel/ScrollContainer/VBoxContainer" unique_id=722710920 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "characters"
+title = "characters"
+cat_node = NodePath("../GridContainer5")
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=910106451]
+[node name="GridContainer5" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=985791628]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=571474721 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=571474721 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "phantom"
 img = ExtResource("22_6btrt")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=749460535 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=749460535 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "giant stingray"
 img = ExtResource("23_4g2gr")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=885521053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=885521053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "spark"
 img = ExtResource("24_ssy0r")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1329909716 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=1329909716 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "shooter"
 img = ExtResource("25_b68df")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=275797464 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=275797464 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "cleaner"
 img = ExtResource("26_gudhd")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=1009663333 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=1009663333 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "observer 1"
 img = ExtResource("27_c4wer")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=302337536]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=700337335 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=700337335 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "infantryman"
 img = ExtResource("28_4g2gr")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1721067528 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=1721067528 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "destroyercik"
 img = ExtResource("29_k6u5q")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=489753368 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card9" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=489753368 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "stingray"
 img = ExtResource("23_4g2gr")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=969219958 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=969219958 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "nextbot"
 img = ExtResource("30_ssy0r")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1660793000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card11" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=1660793000 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "siren head"
 img = ExtResource("31_b68df")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=156416211 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card12" parent="Panel/ScrollContainer/VBoxContainer/GridContainer5" unique_id=156416211 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "SCP"
 img = ExtResource("33_vwlru")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
-[node name="Label6" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=474560396]
+[node name="Label6" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1151993677 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "props"
+title = "props"
+cat_node = NodePath("../GridContainer6")
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=342151371]
+[node name="GridContainer6" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1172754100]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1428221295 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1428221295 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "barrel"
 img = ExtResource("32_08bs1")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=275937163 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=275937163 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "bed"
 img = ExtResource("35_8vdw8")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=601502442 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=601502442 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sofa 1"
 img = ExtResource("36_08bs1")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=2090496925 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=2090496925 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sofa 2"
 img = ExtResource("37_1rgpu")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=1657976309 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1657976309 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "storage box"
 img = ExtResource("38_fyfm7")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer9" unique_id=23858781 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=23858781 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "toilet"
 img = ExtResource("39_muxdo")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer10" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1890583687]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=523525659 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=523525659 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "balloon"
 img = ExtResource("38_muxdo")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1733642648 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1733642648 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "workbench"
 img = ExtResource("39_2xvln")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1183681882 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card9" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1183681882 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "spring"
 img = ExtResource("40_e3pou")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1848335106 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1848335106 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "tree1"
 img = ExtResource("41_rq4f4")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1860055891 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card11" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1860055891 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "tree2"
 img = ExtResource("42_qhjgh")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer10" unique_id=1517327066 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card12" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1517327066 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sanitary fungus 1"
 img = ExtResource("45_itu7d")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer16" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1846436257]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1604753171 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card13" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1604753171 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sanitary fungus 2"
 img = ExtResource("46_6bg5j")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1117201538 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card14" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1117201538 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "ERROR"
 img = ExtResource("12_7nag5")
@@ -550,32 +538,47 @@ color_img = Color(1, 0, 0, 1)
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1122233366 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "watermelon"
-img = ExtResource("47_l5m7m")
-type = "props"
-target_node = NodePath("../../../../..")
-
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer16" unique_id=1230558093 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card15" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1230558093 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "music box"
 img = ExtResource("48_neoys")
 type = "props"
 target_node = NodePath("../../../../..")
 
-[node name="Label7" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=582002411]
+[node name="Label9" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1987295434 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "blocks"
+title = "props (ball)"
+cat_node = NodePath("../GridContainer9")
 
-[node name="HBoxContainer11" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=591491229]
+[node name="GridContainer9" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=224854188]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=2074499900 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer9" unique_id=596237780 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "watermelon"
+img = ExtResource("47_l5m7m")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="Label7" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1160350475 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
+layout_mode = 2
+title = "blocks"
+cat_node = NodePath("../GridContainer7")
+
+[node name="GridContainer7" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1452836812]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=2074499900 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "white"
 img = ExtResource("40_xnmou")
@@ -583,7 +586,7 @@ color_img = Color(0.8117647, 0.8352941, 0.8392157, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=926636962 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=926636962 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "orange"
 img = ExtResource("40_xnmou")
@@ -591,7 +594,7 @@ color_img = Color(0.8784314, 0.38039216, 0.003921569, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=2002996037 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=2002996037 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "purple"
 img = ExtResource("40_xnmou")
@@ -599,7 +602,7 @@ color_img = Color(0.6627451, 0.1882353, 0.62352943, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=802823888 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=802823888 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "light blue"
 img = ExtResource("40_xnmou")
@@ -607,7 +610,7 @@ color_img = Color(0.14117648, 0.5372549, 0.78039217, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=1170914200 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1170914200 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "yellow"
 img = ExtResource("40_xnmou")
@@ -615,7 +618,7 @@ color_img = Color(0.94509804, 0.6862745, 0.08235294, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer11" unique_id=1867798300 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1867798300 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "lime"
 img = ExtResource("40_xnmou")
@@ -623,12 +626,7 @@ color_img = Color(0.36862746, 0.6627451, 0.09803922, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer13" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=99888572]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=676125172 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=676125172 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "pink"
 img = ExtResource("40_xnmou")
@@ -636,7 +634,7 @@ color_img = Color(0.8392157, 0.39607844, 0.56078434, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=742879254 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=742879254 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grey"
 img = ExtResource("40_xnmou")
@@ -644,7 +642,7 @@ color_img = Color(0.21568628, 0.22745098, 0.24313726, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=1663323678 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card9" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1663323678 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "light gray"
 img = ExtResource("40_xnmou")
@@ -652,7 +650,7 @@ color_img = Color(0.49019608, 0.49019608, 0.4509804, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=153262051 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=153262051 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "turquoise"
 img = ExtResource("40_xnmou")
@@ -660,7 +658,7 @@ color_img = Color(0.08235294, 0.46666667, 0.53333336, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=1158905174 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card11" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1158905174 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "violet"
 img = ExtResource("40_xnmou")
@@ -668,7 +666,7 @@ color_img = Color(0.39215687, 0.1254902, 0.6117647, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer13" unique_id=254742294 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card12" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=254742294 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "blue"
 img = ExtResource("40_xnmou")
@@ -676,12 +674,7 @@ color_img = Color(0.1764706, 0.18431373, 0.56078434, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer14" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=873554947]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1362407685 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card13" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1362407685 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "brown"
 img = ExtResource("40_xnmou")
@@ -689,7 +682,7 @@ color_img = Color(0.3764706, 0.23529412, 0.1254902, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=386836053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card14" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=386836053 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "green"
 img = ExtResource("40_xnmou")
@@ -697,7 +690,7 @@ color_img = Color(0.28627452, 0.35686275, 0.14117648, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1708429627 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card15" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1708429627 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "red"
 img = ExtResource("40_xnmou")
@@ -705,7 +698,7 @@ color_img = Color(0.5568628, 0.12941177, 0.12941177, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1285082142 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card16" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1285082142 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "black"
 img = ExtResource("40_xnmou")
@@ -713,7 +706,7 @@ color_img = Color(0.03137255, 0.039215688, 0.05882353, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=1309197062 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card17" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1309197062 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "plank"
 img = ExtResource("42_rmstl")
@@ -721,7 +714,7 @@ color_img = Color(0.4392157, 0.28235295, 0.21960784, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer14" unique_id=428569480 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card18" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=428569480 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grass"
 img = ExtResource("43_l5m7m")
@@ -729,19 +722,14 @@ color_img = Color(0.19607843, 0.24705882, 0.09411765, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="HBoxContainer15" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1619944145]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/separation = 195
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=2059141521 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card19" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=2059141521 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grid"
 img = ExtResource("44_neoys")
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=1932075213 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card20" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1932075213 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sand"
 img = ExtResource("50_fw3wd")
@@ -749,7 +737,7 @@ color_img = Color(0.9019608, 0.73333335, 0.39607844, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer15" unique_id=496653606 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card21" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=496653606 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "stone"
 img = ExtResource("51_csqvi")
@@ -757,53 +745,55 @@ color_img = Color(0.6509804, 0.65882355, 0.654902, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="Label8" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1243539663]
+[node name="Label8" parent="Panel/ScrollContainer/VBoxContainer" unique_id=171996419 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 50
-text = "other"
+title = "other"
+cat_node = NodePath("../GridContainer8")
 
-[node name="HBoxContainer12" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=620364227]
+[node name="GridContainer8" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1413667671]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-theme_override_constants/separation = 195
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1478598728 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1478598728 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "console"
 img = ExtResource("46_0xjbb")
 type = "other"
 target_node = NodePath("../../../../..")
 
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "level list"
 img = ExtResource("54_nv0ie")
 type = "other"
 target_node = NodePath("../../../../..")
 
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sandbox"
 img = ExtResource("51_v7lph")
 type = "other"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "FNaD"
 img = ExtResource("50_v7lph")
 type = "other"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "flat"
 img = ExtResource("56_xnmou")
 type = "other"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/HBoxContainer12" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "parkour"
 img = ExtResource("58_rmstl")

@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://tjy8ry250xol" path="res://chapter2/rooms/decoration/solarPanels.tscn" id="21_pd54a"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="22_ccvf0"]
 [ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://chapter2/item/Taser_projectile/Taser_give.tscn" id="23_w2f0a"]
-[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach.tscn" id="25_yu35j"]
+[ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://chapter2/enemy/cockroach/cockroach.tscn" id="25_yu35j"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://chapter2/rooms/prop/HpBoostCitadel.tscn" id="26_88l7r"]
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://chapter2/suppression/suppression.tscn" id="26_sajrh"]
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://chapter2/debris/debris.tscn" id="28_56evf"]

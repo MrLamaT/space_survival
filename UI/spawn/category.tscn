@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://eo4hiu3dlkdc"]
+
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_wbt4o"]
+[ext_resource type="Script" uid="uid://duvvtkbcm62rs" path="res://UI/spawn/category.gd" id="2_cwffd"]
+[ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/icon/sort.png" id="2_d8vr6"]
+
+[node name="Label" type="Label" unique_id=1068136377]
+theme_override_fonts/font = ExtResource("1_wbt4o")
+theme_override_font_sizes/font_size = 50
+text = "text"
+script = ExtResource("2_cwffd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=953837987]
+position = Vector2(1000, 25)
+scale = Vector2(3, 3)
+texture = ExtResource("2_d8vr6")
+
+[node name="Button" type="Button" parent="." unique_id=442763812]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 0
+offset_right = 1025.0
+offset_bottom = 50.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

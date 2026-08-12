@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dwoyychcj82aq" path="res://chapter2/rooms/decoration/ventilation_block.tscn" id="15_edpd3"]
 [ext_resource type="PackedScene" uid="uid://35wxdachd6tm" path="res://chapter2/rooms/decoration/ventilation_block2.tscn" id="16_6xplk"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="17_u1qun"]
-[ext_resource type="PackedScene" uid="uid://dp6s7koysj4t1" path="res://chapter2/enemy/destroyercik.tscn" id="18_6xplk"]
+[ext_resource type="PackedScene" uid="uid://dp6s7koysj4t1" path="res://chapter2/enemy/destroyercik/destroyercik.tscn" id="18_6xplk"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://chapter2/wave/wave.tscn" id="20_wyr1c"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://chapter2/wave/waveMarker.tscn" id="21_bmx76"]
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="21_j5lng"]

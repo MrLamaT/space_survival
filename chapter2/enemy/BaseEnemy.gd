@@ -9,7 +9,6 @@ extends CharacterBody3D
 @export var enemyTags: String = "player"
 
 var double_damage_in_air: bool = true
-var should_shatter: bool = false
 var shatter_parts: Array[Node3D] = []
 
 var is_dead: bool = false
@@ -27,6 +26,8 @@ var speed_multiplier: float = 1.0
 
 var boss_bars: CanvasLayer = null
 
+var shatter_scene = preload("res://chapter2/enemy/shatter.tscn")
+
 func _ready():
 	var spark_scene = load("res://chapter2/enemy/SparkEnemy.tscn")
 	var spark_instance = spark_scene.instantiate()
@@ -42,11 +43,22 @@ func _ready():
 		_apply_aura()
 
 func _physics_process(delta):
+	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
+		return
+	if is_dead:
+		return
+	if is_dying:
+		_handle_death_process(delta)
+		return
+	_process_enemy_behavior(delta)
 	if not player:
 		_search_cooldown -= delta
 		if _search_cooldown <= 0:
 			player = get_tree().get_first_node_in_group(enemyTags)
 			_search_cooldown = SEARCH_DELAY
+
+func _process_enemy_behavior(_delta):
+	pass
 
 func _setup_boss_bar():
 	if is_boss:
@@ -90,16 +102,7 @@ func die():
 		$body/AnimationPlayer.stop()
 		$body/AnimationPlayer.play("RESET")
 	_disable_combat_states()
-	if should_shatter:
-		await get_tree().create_timer(1.0).timeout
-		if not is_dead and is_dying:
-			_shatter_into_parts()
-			visible = false
-			await get_tree().create_timer(3.0).timeout
-			if self and is_instance_valid(self):
-				queue_free()
-	else:
-		death_timer = 0.0
+	death_timer = 0.0
 
 func _shatter_into_parts():
 	if shatter_parts.is_empty():
@@ -112,22 +115,12 @@ func _shatter_into_parts():
 func create_physical_copy(original_node: Node3D, collision_size: Vector3, _local_offset: Vector3):
 	if not original_node:
 		return
-	var rigid = RigidBody3D.new()
-	rigid.name = "shatter_" + original_node.name
+	var rigid = shatter_scene.instantiate()
 	rigid.global_transform = original_node.global_transform
-	rigid.mass = 8.0
-	rigid.gravity_scale = 1.0
-	rigid.linear_damp = 0.3
-	rigid.angular_damp = 0.3
-	rigid.collision_layer = 0 
-	rigid.collision_layer |= (1 << 1)
-	rigid.collision_mask = 0
-	rigid.collision_mask |= (1 << 2)
-	var collision = CollisionShape3D.new()
+	var collision = rigid.get_node("CollisionShape3D")
 	var box_shape = BoxShape3D.new()
 	box_shape.size = collision_size
 	collision.shape = box_shape
-	rigid.add_child(collision)
 	for child in original_node.get_children():
 		if child is MeshInstance3D or child is Sprite3D or child is GPUParticles3D:
 			var copy = _duplicate_node_recursive(child)
@@ -144,9 +137,6 @@ func create_physical_copy(original_node: Node3D, collision_size: Vector3, _local
 		randf_range(-5, 5),
 		randf_range(-5, 5)
 	)
-	await get_tree().create_timer(3.0).timeout
-	if rigid and is_instance_valid(rigid):
-		rigid.queue_free()
 
 func _duplicate_node_recursive(node: Node) -> Node:
 	var copy = node.duplicate(Node.DUPLICATE_USE_INSTANTIATION | Node.DUPLICATE_SIGNALS)
@@ -169,11 +159,6 @@ func _get_boss_id() -> String:
 	return "enemy"
 
 func _handle_death_process(delta):
-	if should_shatter:
-		death_timer += delta
-		if death_timer >= DEATH_DELAY:
-			is_dead = true
-		return
 	death_timer += delta
 	var shake_intensity = 0.05 * (1.0 - death_timer / DEATH_DELAY)
 	var shake_offset = Vector3(
@@ -186,4 +171,6 @@ func _handle_death_process(delta):
 	move_and_slide()
 	if death_timer >= DEATH_DELAY:
 		is_dead = true
+		if not shatter_parts.is_empty():
+			_shatter_into_parts()
 		queue_free()

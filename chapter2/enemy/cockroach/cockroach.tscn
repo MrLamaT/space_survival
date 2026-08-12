@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://bfnt2r04vbgom"]
+
+[ext_resource type="Script" uid="uid://dh0v4wos4c0b1" path="res://chapter2/enemy/cockroach/cockroach.gd" id="1_e015f"]
+[ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_460sa"]
+[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="3_vugxl"]
+[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="4_vugxl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="PrismMesh" id="PrismMesh_460sa"]
+material = ExtResource("3_vugxl")
+size = Vector3(0.25, 0.05, 0.25)
+
+[sub_resource type="Animation" id="Animation_ju8ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vugxl"]
+resource_name = "tail"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.17453292, 0), Vector3(0, 0.17453292, 0), Vector3(0, -0.17453292, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e015f"]
+_data = {
+&"RESET": SubResource("Animation_ju8ud"),
+&"tail": SubResource("Animation_vugxl")
+}
+
+[sub_resource type="PrismMesh" id="PrismMesh_e015f"]
+material = ExtResource("3_vugxl")
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="Animation" id="Animation_y5ww8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jcinp"]
+resource_name = "aura"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_460sa"]
+_data = {
+&"RESET": SubResource("Animation_y5ww8"),
+&"aura": SubResource("Animation_jcinp")
+}
+
+[node name="cockroach" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
+collision_layer = 16
+collision_mask = 21
+script = ExtResource("1_e015f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+shape = SubResource("BoxShape3D_e015f")
+debug_color = Color(0, 0.59607846, 0.7019608, 1)
+
+[node name="ResurrectionTimer" type="Timer" parent="." unique_id=930393129]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1229316032]
+navigation_layers = 7
+
+[node name="shock" type="AudioStreamPlayer3D" parent="." unique_id=1347125222]
+stream = ExtResource("2_460sa")
+volume_db = -25.0
+
+[node name="body" type="Node3D" parent="." unique_id=718440528]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body" unique_id=77054682]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, -0.15, 0, 0)
+mesh = SubResource("PrismMesh_460sa")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=1470456982]
+libraries/ = SubResource("AnimationLibrary_e015f")
+autoplay = &"tail"
+
+[node name="Node3D" type="Node3D" parent="body" unique_id=2051955864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/Node3D" unique_id=767566586]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.125, 0, 0)
+mesh = SubResource("PrismMesh_e015f")
+skeleton = NodePath("../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
+light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
+
+[node name="Aura" type="Sprite3D" parent="." unique_id=1179688890]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.5)
+visible = false
+texture_filter = 0
+texture = ExtResource("4_vugxl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=2052705925]
+libraries/ = SubResource("AnimationLibrary_460sa")

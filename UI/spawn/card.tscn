@@ -13,8 +13,10 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
 [node name="card" type="Control" unique_id=1698169042]
+custom_minimum_size = Vector2(160, 200)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 158.925
 script = ExtResource("1_f1yc5")
 
 [node name="Panel" type="Panel" parent="." unique_id=927867249]
