@@ -1,11 +1,5 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
-var SPEED: float = 3
-var ACCELERATION: float = 3.0
-var ROTATION_SPEED: float = 2.0
-
 var current_target_angle: float = 0.0
 var start_position: Vector3 = Vector3.ZERO  # Позиция, с которой начал движение
 var is_moving_to_target: bool = false
@@ -25,15 +19,10 @@ var spring = false
 func _ready():
 	super._ready()
 	previous_position = global_position
-	health = 40
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
-	ROTATION_SPEED *= speed_multiplier
 	shatter_parts = [
 		$body/Node3D,
 		$body/Node3D2
 	]
-	_setup_boss_bar()
 	choose_new_direction()
 
 func _disable_combat_states():

@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var shock_sound: AudioStreamPlayer3D = $shock
 @onready var spark_dead: GPUParticles3D
 @onready var spark_hit: GPUParticles3D
@@ -7,6 +8,11 @@ extends CharacterBody3D
 @export var is_boss: bool = false
 @export var aura: int = 0
 @export var enemyTags: String = "player"
+@export var health: int = 1
+@export var boss_health: int = 1
+@export var SPEED: float = 1
+@export var ACCELERATION: float = 1
+@export var ROTATION_SPEED: float = 10.0
 
 var double_damage_in_air: bool = true
 var shatter_parts: Array[Node3D] = []
@@ -16,7 +22,6 @@ var is_dying: bool = false
 var death_timer: float = 0.0
 const DEATH_DELAY: float = 1.0
 
-var health: int = 1
 var player: Node3D = null
 var _search_cooldown: float = 0.0
 const SEARCH_DELAY: float = 0.5
@@ -41,6 +46,12 @@ func _ready():
 	if aura > 0:
 		speed_multiplier = aura + 1
 		_apply_aura()
+	if is_boss and boss_health > health:
+		health = boss_health
+	health *= int(speed_multiplier)
+	SPEED *= speed_multiplier
+	ROTATION_SPEED *= speed_multiplier
+	_setup_boss_bar()
 
 func _physics_process(delta):
 	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
@@ -75,7 +86,7 @@ func _apply_aura():
 	if has_node("Aura"):
 		$Aura.modulate = aura_color
 
-func take_damage(damage: int):
+func take_damage(damage: int): #получение урона
 	if is_dying or is_dead:
 		return
 	health -= damage
@@ -90,7 +101,7 @@ func take_damage(damage: int):
 			spark_dead.emitting = true
 		die()
 
-func die():
+func die(): #смерть
 	if is_dying or is_dead:
 		return
 	is_dying = true
@@ -104,7 +115,7 @@ func die():
 	_disable_combat_states()
 	death_timer = 0.0
 
-func _shatter_into_parts():
+func _shatter_into_parts(): #физ смерть
 	if shatter_parts.is_empty():
 		return
 	for part in shatter_parts:
@@ -152,7 +163,7 @@ func _duplicate_node_recursive(node: Node) -> Node:
 		copy.add_child(child_copy)
 	return copy
 
-func _disable_combat_states():
+func _disable_combat_states(): 
 	pass
 
 func _get_boss_id() -> String:
@@ -174,3 +185,20 @@ func _handle_death_process(delta):
 		if not shatter_parts.is_empty():
 			_shatter_into_parts()
 		queue_free()
+
+## Основной метод перемещения с использованием навигации
+## target_pos — конечная цель (обычно позиция игрока)
+## delta — дельта времени
+## speed — переопределение скорости (по умолчанию SPEED)
+## rot_speed — переопределение скорости поворота (по умолчанию ROTATION_SPEED)
+func move_with_navigation(target_pos: Vector3, delta: float, speed: float = SPEED, rot_speed: float = ROTATION_SPEED) -> void:
+	if not navigation_agent:
+		return
+	navigation_agent.target_position = target_pos
+	var direction = (navigation_agent.get_next_path_position() - global_position).normalized()
+	if direction.length() > 0.1:
+		var target_rotation = atan2(direction.x, direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, rot_speed * delta)
+	var target_velocity = direction * speed
+	target_velocity.y = velocity.y
+	velocity = velocity.lerp(target_velocity, ACCELERATION * delta)

@@ -1,11 +1,6 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
 var is_chasing_player: bool = false
-var SPEED: float = 6
-var ACCELERATION: float = 5.0
-var ROTATION_SPEED: float = 10.0
 var last_animation_state: String = ""
 
 var ATTACK_DISTANCE: float = 2.0 
@@ -23,24 +18,16 @@ var SHOOT_COOLDOWN: float = 3.5
 var is_shooting_mode: bool = false
 var bullet_scene = preload("res://chapter2/item/Enemy_projectile/Enemy_projectile.tscn")
 
-var previous_position: Vector3
-
 func _ready():
 	super._ready()
-	previous_position = global_position
-	health = 60
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
 	SHOOT_COOLDOWN /= speed_multiplier
 	if is_boss:
-		health = 190
 		$body/body/Sprite3D.visible = true
 	shatter_parts = [
 		$body/body,
 		$body/hand1,
 		$body/hand2
 	]
-	_setup_boss_bar()
 	if player:
 		start_chasing_player()
 		shoot_timer = 2.0
@@ -62,46 +49,40 @@ func _process_enemy_behavior(delta):
 		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
 		move_and_slide()
 		return
-	if player:
-		if is_attacking:
-			move_and_slide()
-			return
-		var distance_to_player = global_position.distance_to(player.global_position)
-		if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
-			is_shooting_mode = true
-			if last_animation_state != "shoot_mode":
-				$body/run.play_backwards("run")
-				$body/AnimationPlayer.play("weapon")
-				last_animation_state = "shoot_mode"
-			var direction_to_player = (player.global_position - global_position).normalized()
-			if direction_to_player.length() > 0.1:
-				var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
-				rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-			if shoot_timer <= 0:
-				shoot_at_player()
-				shoot_timer = SHOOT_COOLDOWN
-			else:
-				shoot_timer -= delta
-			velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
-			move_and_slide()
-			return
-		is_shooting_mode = false
-		if last_animation_state != "move_mode":
-			$body/run.play("run")
-			$body/AnimationPlayer.play("RESET")
-			last_animation_state = "move_mode"
-		navigation_agent.target_position = player.global_position
-		if can_attack_player():
-			attack_player()
-		var next_position = navigation_agent.get_next_path_position()
-		var direction = (next_position - global_position).normalized()
-		if direction.length() > 0.1:
-			var target_rotation = atan2(direction.x, direction.z)
+	if not player:
+		return
+	if is_attacking:
+		move_and_slide()
+		return
+	var distance_to_player = global_position.distance_to(player.global_position)
+	if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
+		is_shooting_mode = true
+		if last_animation_state != "shoot_mode":
+			$body/run.play_backwards("run")
+			$body/AnimationPlayer.play("weapon")
+			last_animation_state = "shoot_mode"
+		var direction_to_player = (player.global_position - global_position).normalized()
+		if direction_to_player.length() > 0.1:
+			var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
 			rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-		var target_velocity = direction * SPEED
-		target_velocity.y = velocity.y
-		velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
-	previous_position = global_position
+		if shoot_timer <= 0:
+			shoot_at_player()
+			shoot_timer = SHOOT_COOLDOWN
+		else:
+			shoot_timer -= delta
+		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
+		move_and_slide()
+		return
+	is_shooting_mode = false
+	if last_animation_state != "move_mode":
+		$body/run.play("run")
+		$body/AnimationPlayer.play("RESET")
+		last_animation_state = "move_mode"
+	if can_attack_player():
+		attack_player()
+		move_and_slide()
+		return
+	move_with_navigation(player.global_position, delta)
 	move_and_slide()
 
 func can_attack_player() -> bool:

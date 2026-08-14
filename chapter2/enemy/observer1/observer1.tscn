@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://x8vx3lltl35v"]
 
-[ext_resource type="Script" uid="uid://dw3s6pb1wc0lt" path="res://chapter2/enemy/observer1/observer_1.gd" id="1_rohrf"]
+[ext_resource type="Script" uid="uid://dw3s6pb1wc0lt" path="res://chapter2/enemy/observer1/observer1.gd" id="1_rohrf"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_vgi0l"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_wesqi"]
 [ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_rohrf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="7_6gql8"]
 [ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://assets/weapon/spear.png" id="7_rohrf"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="11_2rsbs"]
+[ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://chapter2/item/beam_projectile/Beam_spawn.tscn" id="12_aj6pu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
@@ -279,6 +280,7 @@ _data = {
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_rohrf")
+health = 200
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
 shape = SubResource("CapsuleShape3D_se8os")
@@ -417,3 +419,15 @@ texture = ExtResource("6_rohrf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
 libraries/ = SubResource("AnimationLibrary_itf4h")
+
+[node name="BeamSpawn" parent="." unique_id=1685857646 instance=ExtResource("12_aj6pu")]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)
+
+[node name="BeamSpawn2" parent="." unique_id=364889270 instance=ExtResource("12_aj6pu")]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)
+
+[node name="BeamSpawn3" parent="." unique_id=1969806647 instance=ExtResource("12_aj6pu")]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)
+
+[node name="BeamSpawn4" parent="." unique_id=1058734960 instance=ExtResource("12_aj6pu")]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)

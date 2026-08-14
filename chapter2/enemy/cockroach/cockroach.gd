@@ -1,23 +1,10 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
 var is_running_away: bool = false
-var SPEED: float = 8
-var ACCELERATION: float = 8.0
 var run_away_timer: float = 0.0
 var RUN_AWAY_TIME: float = 1.5 # Убегает 1.5 секунды, потом телепортируется
 var DETECTION_DISTANCE: float = 10.0
 var is_teleporting: bool = false
-var previous_position: Vector3
-
-func _ready():
-	super._ready()
-	previous_position = global_position
-	health = 1
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
-	_setup_boss_bar()
 
 func _disable_combat_states():
 	is_running_away = false
@@ -42,19 +29,10 @@ func _process_enemy_behavior(delta):
 			var direction_to_player = (player.global_position - global_position).normalized()
 			var flee_direction = -direction_to_player
 			var flee_position = global_position + flee_direction * 10.0
-			navigation_agent.target_position = flee_position
-			var next_position = navigation_agent.get_next_path_position()
-			var direction = (next_position - global_position).normalized()
-			if direction.length() > 0.1:
-				var target_rotation = atan2(direction.x, direction.z)
-				rotation.y = lerp_angle(rotation.y, target_rotation, 10.0 * delta)
-			var target_velocity = direction * SPEED
-			target_velocity.y = velocity.y
-			velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
+			move_with_navigation(flee_position, delta)
 			var current_distance = global_position.distance_to(player.global_position)
 			if current_distance > DETECTION_DISTANCE * 2:
 				start_teleportation()
-	previous_position = global_position
 	move_and_slide()
 
 func _handle_death_process(delta):

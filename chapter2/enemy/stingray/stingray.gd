@@ -1,13 +1,9 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var beam_animation: AnimationPlayer = $BulletSpawn/AnimationPlayer
-@onready var bullet_spawn: Node3D = $BulletSpawn
+@onready var beam_animation: AnimationPlayer = $BeamSpawn/AnimationPlayer
+@onready var bullet_spawn: Node3D = $BeamSpawn
 
 var death_rotation: float = 0.0
-var SPEED: float = 15.0
-var ACCELERATION: float = 5.0
-var ROTATION_SPEED: float = 8.0
 var FLY_HEIGHT_OFFSET: float = 1.5 # Высота над головой игрока
 var TARGET_UPDATE_INTERVAL: float = 0.3
 var target_update_timer: float = 0.0
@@ -29,13 +25,9 @@ var bullet_scene = load("res://chapter2/item/beam_projectile/Beam_projectile.tsc
 func _ready():
 	double_damage_in_air = false
 	super._ready()
-	health = 200
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
 	IDLE_DURATION /= speed_multiplier
 	CHARGE_DURATION /= speed_multiplier
 	SHOOT_DURATION /= speed_multiplier
-	_setup_boss_bar()
 	gravity = 0.0
 	if player:
 		start_chasing()

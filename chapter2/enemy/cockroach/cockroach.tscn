@@ -144,6 +144,8 @@ _data = {
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_e015f")
+SPEED = 8.0
+ACCELERATION = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
 shape = SubResource("BoxShape3D_e015f")

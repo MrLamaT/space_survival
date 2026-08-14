@@ -1,7 +1,4 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
-var ROTATION_SPEED: float = 10.0
 
 # Дистанция атаки
 var ATTACK_DISTANCE: float = 2.0 
@@ -33,10 +30,7 @@ var CHASE_TIMEOUT: float = 2.0
 
 func _ready():
 	super._ready()
-	health = 40
-	health *= int(speed_multiplier)
 	BURST_COOLDOWN_TIME /= speed_multiplier
-	_setup_boss_bar()
 	if player:
 		burst_shots_left = BURST_SHOTS
 		burst_cooldown = 2.0

@@ -1,16 +1,10 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
 var death_rotation: float = 0.0
-var SPEED: float = 6
-var ACCELERATION: float = 5.0
 
 func _ready():
 	double_damage_in_air = false
 	super._ready()
-	health = 100000
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
-	_setup_boss_bar()
 	gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 5
 
 func _get_boss_id() -> String:

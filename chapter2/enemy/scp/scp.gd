@@ -1,11 +1,6 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
 var is_chasing_player: bool = false
-var SPEED: float = 25
-var ACCELERATION: float = 5.0
-var ROTATION_SPEED: float = 10.0
 
 var ATTACK_DISTANCE: float = 2.0
 var is_attacking: bool = false
@@ -13,19 +8,12 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
-var previous_position: Vector3
-
 var is_in_player_view: bool = false
 var VIEW_ANGLE_THRESHOLD: float = 0.5  # Порог угла между направлением взгляда игрока и направлением на босса
 var VIEW_DISTANCE_THRESHOLD: float = 50.0  # Максимальная дистанция, на которой проверяется взгляд
 
 func _ready():
 	super._ready()
-	previous_position = global_position
-	health = 400
-	health *= int(speed_multiplier)
-	SPEED *= speed_multiplier
-	_setup_boss_bar()
 	if player:
 		start_chasing_player()
 
@@ -53,22 +41,10 @@ func _process_enemy_behavior(delta):
 		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
 		move_and_slide()
 		return
-	if player:
-		if is_attacking:
-			move_and_slide()
-			return
-		navigation_agent.target_position = player.global_position
+	if player and not is_attacking:
 		if can_attack_player():
 			attack_player()
-		var next_position = navigation_agent.get_next_path_position()
-		var direction = (next_position - global_position).normalized()
-		if direction.length() > 0.1:
-			var target_rotation = atan2(direction.x, direction.z)
-			rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-		var target_velocity = direction * SPEED
-		target_velocity.y = velocity.y
-		velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
-	previous_position = global_position
+		move_with_navigation(player.global_position, delta)
 	move_and_slide()
 
 func can_attack_player() -> bool:
