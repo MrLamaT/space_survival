@@ -32,4 +32,4 @@ func _check_and_play_custom_music() -> bool:
 	return false
 
 func _on_finished() -> void:
-	$music.play()
+	play()

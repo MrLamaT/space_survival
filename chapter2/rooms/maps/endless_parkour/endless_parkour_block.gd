@@ -20,4 +20,5 @@ func change_materials(node: Node) -> void:
 	var white_material = StandardMaterial3D.new()
 	white_material.albedo_color = Color.GREEN
 	node.get_node("MeshInstance3D").material_override = red_material
+	node.get_node("AudioStreamPlayer3D").pitch_scale = randf_range(0.8, 1.2)
 	$MeshInstance3D.material_override = white_material

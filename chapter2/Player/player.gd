@@ -16,6 +16,7 @@ var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
 
 var is_shooting: bool = false
+var is_alt_shooting: bool = false
 
 var accel = 6
 var SPEED = 5.0
@@ -302,9 +303,14 @@ func update_gui_visibility():
 func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("UI_click") and not is_paused:
 		is_shooting = true
-		weapon_system.shoot()
+		weapon_system.shoot(false)
 	if Input.is_action_just_released("UI_click"):
 		is_shooting = false
+	if Input.is_action_just_pressed("UI_alt_click") and not is_paused:
+		is_alt_shooting = true
+		weapon_system.shoot(true)
+	if Input.is_action_just_released("UI_alt_click"):
+		is_alt_shooting = false
 	if Input.is_action_just_pressed("+q"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -569,7 +575,9 @@ func _physics_process(delta):
 	move_and_slide()
 	interaction_manager.check_interactable()
 	if is_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
-		weapon_system.shoot()
+		weapon_system.shoot(false) 
+	if is_alt_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
+		weapon_system.shoot(true)
 
 func update_max_stamina():
 	var world = Global.get_world(Global.game_settings.word)

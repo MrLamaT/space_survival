@@ -3,46 +3,53 @@ extends "res://chapter2/enemy/BaseEnemy.gd"
 
 # Стрельба
 var bullet_scene = preload("res://chapter2/item/Homing_projectile/Homing_projectile.tscn")
-var can_shoot: bool = true
 var BURST_SHOTS: int = 3
 var BURST_INTERVAL: float = 0.4
-var BURST_COOLDOWN_TIME: float = 2.0
 
-# Прыжок
-var is_jumping: bool = false
-var jump_target_position: Vector3
-var jump_timeout: float = 0.0
-var JUMP_MAX_TIME: float = 2.0
-var JUMP_LAUNCH_SPEED: float = 5.0
-var JUMP_SPEED: float = 12.0
+#луч
+@onready var beam_spawns: Array = [
+	$BeamSpawn1,
+	$BeamSpawn2,
+	$BeamSpawn3,
+	$BeamSpawn4
+]
+var beam_charge_duration: float = 2.0
+var beam_shoot_duration: float = 1.5
+var is_shooting_beam: bool = false
+
+# Подъём в воздух
+var is_ascending: bool = false
+var ascend_timer: float = 0.0
+var ASCEND_DURATION: float = 5.0  # 15 секунд в воздухе
+var ASCEND_SPEED: float = 3.0      # Скорость подъёма
+var ASCEND_HEIGHT: float = 2.5     # Высота подъёма от текущей позиции
+var start_y: float = 0.0           # Начальная высота перед подъёмом
+var target_y: float = 0.0          # Целевая высота
 
 # Телепорт
 var is_teleporting: bool = false
-var DISTANCE_IDEAL = 5.0  # Идеальная дистанция
-var DISTANCE_MIN = 3.0    # Минимальная дистанция (слишком близко)
-var DISTANCE_MAX = 12.0   # Максимальная дистанция (слишком далеко)
 var portal_scene = preload("res://chapter2/wave/WavePortal.tscn")
 
 # Система атак
-enum AttackType { SHOOT, JUMP, TELEPORT }
+enum AttackType { SHOOT, BEAM , ASCEND, TELEPORT }
 
 var can_act: bool = true  # Может ли враг выполнять действия
 var spawn_protection: float = 1.5  # Защита после появления
 
-var attack_queue: Array = [AttackType.SHOOT, AttackType.JUMP, AttackType.TELEPORT]  # Очередь атак
+var attack_queue: Array = [AttackType.SHOOT, AttackType.BEAM, AttackType.ASCEND, AttackType.TELEPORT]  # Очередь атак
 var current_attack_index: int = 0
 var is_attacking: bool = false
 
 func _ready():
 	super._ready()
-	BURST_COOLDOWN_TIME /= speed_multiplier
 	can_act = false
 	await get_tree().create_timer(spawn_protection).timeout
 	can_act = true
 
 func _disable_combat_states():
-	is_jumping = false
+	is_ascending = false
 	is_teleporting = false
+	is_shooting_beam = false
 
 func _get_boss_id() -> String:
 	return "phantom observer"
@@ -54,10 +61,14 @@ func _process_enemy_behavior(delta):
 			queue_free()
 		move_and_slide()
 		return
-	if is_jumping:
-		handle_jump(delta)
+	if is_ascending:
+		handle_ascend(delta)
 		return
 	if is_teleporting:
+		move_and_slide()
+		return
+	if is_shooting_beam:
+		velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
 		move_and_slide()
 		return
 	# Физика
@@ -70,7 +81,7 @@ func _process_enemy_behavior(delta):
 	if direction_to_player.length() > 0.1:
 		var target_rotation = atan2(direction_to_player.x, direction_to_player.z)
 		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta)
-	if can_act and not is_jumping and not is_teleporting and not is_attacking:
+	if can_act and not is_ascending and not is_teleporting and not is_attacking:
 		perform_next_attack()
 	velocity = velocity.lerp(Vector3.ZERO, 5.0 * delta)
 	move_and_slide()
@@ -87,13 +98,15 @@ func start_attack_by_type(attack_type: AttackType):
 	match attack_type:
 		AttackType.SHOOT:
 			start_shoot_attack()
-		AttackType.JUMP:
-			start_jump_attack()
+		AttackType.ASCEND:
+			start_ascend_attack()
 		AttackType.TELEPORT:
 			start_teleport_attack()
+		AttackType.BEAM:
+			start_beam_attack()
 
 func start_shoot_attack():
-	if not can_act or is_jumping or is_teleporting:
+	if not can_act or is_ascending or is_teleporting:
 		is_attacking = false
 		return
 	print("стрельба!")
@@ -113,22 +126,66 @@ func shoot_burst():
 			await get_tree().create_timer(BURST_INTERVAL).timeout
 	await get_tree().create_timer(0.2).timeout
 
-func start_jump_attack():
-	if not can_act or is_jumping or is_teleporting:
+func start_beam_attack():
+	if not can_act or is_ascending or is_teleporting:
 		is_attacking = false
 		return
-	print("прыжок!")
+	print("луч!")
+	can_act = false
+	$body/AnimationPlayer.play("charge")
+	if player:
+		var player_pos = player.global_position
+		var distance = 5.0
+		var spawn_positions = [
+			player_pos + Vector3(0, 10.0, distance), 
+			player_pos + Vector3(distance, 10.0, 0), 
+			player_pos + Vector3(0, 10.0, -distance), 
+			player_pos + Vector3(-distance, 10.0, 0) 
+		]
+		for i in range(beam_spawns.size()):
+			if i < spawn_positions.size() and beam_spawns[i]:
+				beam_spawns[i].global_position = spawn_positions[i]
+	for spawn in beam_spawns:
+		spawn.start_charge()
+	await get_tree().create_timer(beam_charge_duration).timeout
+	if is_dead or not is_instance_valid(self):
+		is_attacking = false
+		can_act = true
+		return
+	is_shooting_beam = true
+	$body/AnimationPlayer.play("charge_shoot")
+	for spawn in beam_spawns:
+		spawn.shoot()
+	await get_tree().create_timer(beam_shoot_duration).timeout
+	is_shooting_beam = false
+	for spawn in beam_spawns:
+		spawn.reset()
+	$body/AnimationPlayer.play("RESET")
+	can_act = true
+	is_attacking = false
+
+func start_ascend_attack():
+	if not can_act or is_ascending or is_teleporting:
+		is_attacking = false
+		return
+	print("лазеры!")
 	can_act = false
 	$body/AnimationPlayer.play("jump")
-	await get_tree().create_timer(0.2).timeout 
-	start_jump_to_player()
-	while is_jumping and is_instance_valid(self) and not is_dead:
+	await get_tree().create_timer(0.3).timeout
+	$laser/AnimationPlayer.play("laser")
+	is_ascending = true
+	ascend_timer = 0.0
+	start_y = global_position.y
+	target_y = start_y + ASCEND_HEIGHT
+	while is_ascending and is_instance_valid(self) and not is_dead:
 		await get_tree().process_frame
+	$laser/AnimationPlayer.play("RESET")
+	$body/AnimationPlayer.play("RESET")
 	can_act = true
 	is_attacking = false
 
 func start_teleport_attack():
-	if not can_act or is_jumping or is_teleporting:
+	if not can_act or is_ascending or is_teleporting:
 		is_attacking = false
 		return
 	print("телепорт!")
@@ -139,31 +196,6 @@ func start_teleport_attack():
 	can_act = true
 	is_attacking = false
 
-func emergency_teleport():
-	if not player or is_teleporting:
-		return
-	print("экстренный телепорт!")
-	is_teleporting = true
-	is_jumping = false
-	create_portal(global_position)
-	var random_angle = randf_range(0, TAU)
-	var offset = Vector3(cos(random_angle), 0, sin(random_angle)) * DISTANCE_IDEAL
-	var teleport_pos = player.global_position + offset
-	teleport_pos.y = global_position.y
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(global_position, teleport_pos)
-	var result = space_state.intersect_ray(query)
-	if not result.is_empty():
-		random_angle = randf_range(0, TAU)
-		offset = Vector3(cos(random_angle), 0, sin(random_angle)) * DISTANCE_IDEAL
-		teleport_pos = player.global_position + offset
-		teleport_pos.y = global_position.y
-	global_position = teleport_pos
-	create_portal(global_position)
-	$body/AnimationPlayer.play("RESET")
-	await get_tree().create_timer(0.2).timeout
-	is_teleporting = false
-
 func create_portal(pos: Vector3):
 	var portal = portal_scene.instantiate()
 	get_tree().root.add_child(portal)
@@ -173,13 +205,13 @@ func teleport_near_player():
 	if not player or is_teleporting:
 		return
 	is_teleporting = true
-	is_jumping = false
+	is_ascending = false
 	create_portal(global_position)
 	var random_angle = randf_range(0, TAU)
 	var random_distance = randf_range(2.5, 4.0)  
 	var offset = Vector3(cos(random_angle), 0, sin(random_angle)) * random_distance
 	var teleport_pos = player.global_position + offset
-	teleport_pos.y = global_position.y
+	teleport_pos.y = player.global_position.y
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(global_position, teleport_pos)
 	var result = space_state.intersect_ray(query)
@@ -188,7 +220,7 @@ func teleport_near_player():
 		random_distance = randf_range(4.0, 6.0)
 		offset = Vector3(cos(random_angle), 0, sin(random_angle)) * random_distance
 		teleport_pos = player.global_position + offset
-		teleport_pos.y = global_position.y
+		teleport_pos.y = player.global_position.y
 	global_position = teleport_pos
 	create_portal(global_position)
 	$body/AnimationPlayer.play("RESET")
@@ -198,65 +230,34 @@ func teleport_near_player():
 func shoot_at_player():
 	if not player:
 		return
-	var bullet_spawn1 = $body/BulletSpawn
-	if bullet_spawn1:
-		var bullet1 = bullet_scene.instantiate()
-		get_tree().root.add_child(bullet1)
-		bullet1.global_position = bullet_spawn1.global_position
-		var target_pos1 = player.global_position
-		target_pos1.y = bullet_spawn1.global_position.y
-		var shoot_direction1 = (target_pos1 - bullet_spawn1.global_position).normalized()
-		bullet1.shoot(shoot_direction1, 5.0)
-	var bullet_spawn2 = $body/BulletSpawn2
-	if bullet_spawn2:
-		var bullet2 = bullet_scene.instantiate()
-		get_tree().root.add_child(bullet2)
-		bullet2.global_position = bullet_spawn2.global_position
-		var target_pos2 = player.global_position
-		target_pos2.y = bullet_spawn2.global_position.y
-		var shoot_direction2 = (target_pos2 - bullet_spawn2.global_position).normalized()
-		bullet2.shoot(shoot_direction2, 5.0)
+	var spawns = [$body/BulletSpawn, $body/BulletSpawn2]
+	for spawn in spawns:
+		if spawn:
+			create_bullet(spawn.global_position, player.global_position, bullet_scene, 5.0)
 	var audio = $body/AudioStreamPlayer3D
 	if audio:
 		audio.play()
 
-func start_jump_to_player():
-	if not player:
+func handle_ascend(delta):
+	ascend_timer += delta
+	if ascend_timer >= ASCEND_DURATION:
+		is_ascending = false
+		velocity.y = -2.0 
+		move_and_slide()
 		return
-	is_jumping = true
-	jump_target_position = player.global_position
-	jump_timeout = 0.0
-	velocity.y = JUMP_LAUNCH_SPEED
-
-func land_from_jump():
-	velocity.x = 0
-	velocity.z = 0
-	is_jumping = false
-
-func handle_jump(delta):
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	jump_timeout += delta
-	if jump_timeout >= JUMP_MAX_TIME:
-		land_from_jump()
-		return
-	var horizontal_direction = (jump_target_position - global_position).normalized()
-	horizontal_direction.y = 0
-	if horizontal_direction.length() > 0.1:
-		horizontal_direction = horizontal_direction.normalized()
-		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
-		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
-		velocity.x = horizontal_direction.x * JUMP_SPEED
-		velocity.z = horizontal_direction.z * JUMP_SPEED
-	var distance_to_target = global_position.distance_to(jump_target_position)
-	var height_difference = abs(global_position.y - jump_target_position.y)
-	if distance_to_target < 1.5 and (is_on_floor() or height_difference < 1.0):
-		land_from_jump()
+	var current_y = global_position.y
+	if current_y < target_y:
+		velocity.y = ASCEND_SPEED
+	else:
+		velocity.y = 0.0
+		global_position.y = target_y + sin(ascend_timer * 0.5) * 0.1
+	velocity.x = lerp(velocity.x, 0.0, 5.0 * delta)
+	velocity.z = lerp(velocity.z, 0.0, 5.0 * delta)
 	move_and_slide()
 
 func die():
 	if is_dying or is_dead:
 		return
 	super.die()
-	is_jumping = false
+	is_ascending = false
 	is_teleporting = false

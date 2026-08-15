@@ -1,3 +1,5 @@
+AnimationPlayer
+Node3D
 OmniLight3D
 CollisionShape3D
 Area3D
@@ -11,4 +13,3 @@ RigidBody3D
 AudioStreamPlayer2D
 Control
 TextureRect
-Sprite3D

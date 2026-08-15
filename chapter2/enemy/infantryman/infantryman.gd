@@ -124,13 +124,7 @@ func shoot_at_player():
 	var bullet_spawn = $body/BulletSpawn
 	if not bullet_spawn:
 		return
-	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
-	bullet.global_position = bullet_spawn.global_position
-	var target_pos = player.global_position
-	target_pos.y = bullet_spawn.global_position.y
-	var shoot_direction = (target_pos - bullet_spawn.global_position).normalized()
-	bullet.shoot(shoot_direction, 10.0)
+	create_bullet(bullet_spawn.global_position, player.global_position, bullet_scene, 10.0)
 	var audio = $body/hand1/Taser/AudioStreamPlayer3D
 	if audio:
 		audio.play()

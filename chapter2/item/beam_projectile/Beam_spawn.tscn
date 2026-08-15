@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cbs2lefp3fx4w"]
 
+[ext_resource type="Script" uid="uid://dyqtongng6qwc" path="res://chapter2/item/beam_projectile/beam_spawn.gd" id="1_v1j78"]
 [ext_resource type="AudioStream" uid="uid://bdktyolepse0e" path="res://assets/sound/whate3.wav" id="2_hcu1m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54la3"]
@@ -163,6 +164,7 @@ _data = {
 
 [node name="BeamSpawn" type="Marker3D" unique_id=1685857646]
 transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 0, 0)
+script = ExtResource("1_v1j78")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=626987669]
 transform = Transform3D(0.1, -2.1565224e-36, 3.5527137e-16, 0, 1, 6.070071e-23, -3.5527137e-16, -6.070071e-22, 0.1, 0, -7.55, 0)

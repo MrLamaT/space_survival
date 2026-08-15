@@ -202,3 +202,25 @@ func move_with_navigation(target_pos: Vector3, delta: float, speed: float = SPEE
 	var target_velocity = direction * speed
 	target_velocity.y = velocity.y
 	velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
+
+## Создает и запускает пулю из указанной позиции в направлении цели
+## spawn_position: Vector3 - позиция появления пули
+## target_position: Vector3 - целевая позиция (обычно позиция игрока)
+## bullet_scene: PackedScene - сцена пули
+## speed: float - скорость пули (по умолчанию 10.0)
+## y_offset: float - вертикальное смещение для выравнивания (по умолчанию 0.0)
+func create_bullet(spawn_position: Vector3, target_position: Vector3, bullet_scene: PackedScene, speed: float = 10.0, y_offset: float = 0.0) -> Node:
+	if not bullet_scene:
+		return null
+	var bullet = bullet_scene.instantiate()
+	get_tree().root.add_child(bullet)
+	bullet.global_position = spawn_position
+	var target_pos = target_position
+	if y_offset != 0:
+		target_pos.y = spawn_position.y + y_offset
+	else:
+		target_pos.y = spawn_position.y
+	var shoot_direction = (target_pos - spawn_position).normalized()
+	if bullet.has_method("shoot"):
+		bullet.shoot(shoot_direction, speed)
+	return bullet

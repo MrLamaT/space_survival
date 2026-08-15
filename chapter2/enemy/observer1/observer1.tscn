@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://assets/weapon/spear.png" id="7_rohrf"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="11_2rsbs"]
 [ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://chapter2/item/beam_projectile/Beam_spawn.tscn" id="12_aj6pu"]
+[ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://chapter2/laser/laser.tscn" id="13_3n64p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
@@ -126,6 +127,98 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand1/MeshInstance3D/handItem:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-6.169226e-16, -3.4987407e-15, 1.3962634)]
+}
+
+[sub_resource type="Animation" id="Animation_aj6pu"]
+resource_name = "charge"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.43633232, -1.3089969), Vector3(0, 0, -1.3089969), Vector3(0, 0, -1.3089969)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.43633232, -1.3089969), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand1/MeshInstance3D/handItem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-6.169226e-16, -3.4987407e-15, 1.3962634), Vector3(-6.169226e-16, -3.4987407e-15, 1.3962634), Vector3(0, 6.2831855, 1.3962634)]
+}
+
+[sub_resource type="Animation" id="Animation_3n64p"]
+resource_name = "charge_shoot"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.3089969), Vector3(0, 0, -2.3561945)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand1/MeshInstance3D/handItem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-6.169226e-16, -3.4987407e-15, 1.3962634), Vector3(0, 0, 2.443461)]
+}
 
 [sub_resource type="Animation" id="Animation_86h4e"]
 resource_name = "jump"
@@ -210,6 +303,8 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_86h4e"]
 _data = {
 &"RESET": SubResource("Animation_2rsbs"),
+&"charge": SubResource("Animation_aj6pu"),
+&"charge_shoot": SubResource("Animation_3n64p"),
 &"jump": SubResource("Animation_86h4e"),
 &"weapon": SubResource("Animation_j2xgt")
 }
@@ -276,11 +371,193 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
+[sub_resource type="Animation" id="Animation_s7v7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Laser6:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Laser1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Laser2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Laser3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Laser4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Laser5:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pyykn"]
+resource_name = "laser"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Laser1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Laser2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Laser3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Laser4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Laser5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Laser6:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eak4d"]
+_data = {
+&"RESET": SubResource("Animation_s7v7n"),
+&"laser": SubResource("Animation_pyykn")
+}
+
 [node name="observer1" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_rohrf")
-health = 200
+health = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
 shape = SubResource("CapsuleShape3D_se8os")
@@ -337,7 +614,7 @@ mesh = SubResource("BoxMesh_smhvd")
 skeleton = NodePath("../../..")
 
 [node name="handItem" parent="body/hand1/MeshInstance3D" unique_id=837608605 instance=ExtResource("6_xf6sc")]
-transform = Transform3D(0.1736482, -0.9848076, -3.5527137e-15, 0.9848076, 0.17364821, 0, 0, -3.5527137e-15, 0.99999976, 0, -0.25, 0)
+transform = Transform3D(0.17364818, -0.9848075, -3.4987399e-15, 0.9848075, 0.17364818, 6.169224e-16, 0, -3.5527137e-15, 0.99999976, 0, -0.25, 0)
 texture = ExtResource("7_rohrf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand1" unique_id=459883218]
@@ -420,7 +697,7 @@ texture = ExtResource("6_rohrf")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
 libraries/ = SubResource("AnimationLibrary_itf4h")
 
-[node name="BeamSpawn" parent="." unique_id=1685857646 instance=ExtResource("12_aj6pu")]
+[node name="BeamSpawn1" parent="." unique_id=1685857646 instance=ExtResource("12_aj6pu")]
 transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)
 
 [node name="BeamSpawn2" parent="." unique_id=364889270 instance=ExtResource("12_aj6pu")]
@@ -431,3 +708,45 @@ transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14
 
 [node name="BeamSpawn4" parent="." unique_id=1058734960 instance=ExtResource("12_aj6pu")]
 transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 5, 0)
+
+[node name="laser" type="Node3D" parent="." unique_id=348836551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+
+[node name="Laser1" parent="laser" unique_id=1325278627 instance=ExtResource("13_3n64p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.5, 0)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="Laser2" parent="laser" unique_id=1603201004 instance=ExtResource("13_3n64p")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.6)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="Laser3" parent="laser" unique_id=1471557071 instance=ExtResource("13_3n64p")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.6, 1, 0)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="Laser4" parent="laser" unique_id=1952580976 instance=ExtResource("13_3n64p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0.6)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="Laser5" parent="laser" unique_id=1476040582 instance=ExtResource("13_3n64p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1, 0)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="Laser6" parent="laser" unique_id=205492293 instance=ExtResource("13_3n64p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.5, 0)
+visible = false
+size_laser = 50.0
+damage = 25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="laser" unique_id=1450999003]
+libraries/ = SubResource("AnimationLibrary_eak4d")

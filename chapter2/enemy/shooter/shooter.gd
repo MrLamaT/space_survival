@@ -117,22 +117,10 @@ func shoot_at_player():
 		return
 	var bullet_spawn1 = $body/BulletSpawn
 	if bullet_spawn1:
-		var bullet1 = bullet_scene.instantiate()
-		get_tree().root.add_child(bullet1)
-		bullet1.global_position = bullet_spawn1.global_position
-		var target_pos1 = player.global_position
-		target_pos1.y = bullet_spawn1.global_position.y
-		var shoot_direction1 = (target_pos1 - bullet_spawn1.global_position).normalized()
-		bullet1.shoot(shoot_direction1, 10.0)
+		create_bullet(bullet_spawn1.global_position, player.global_position, bullet_scene, 10.0)
 	var bullet_spawn2 = $body/BulletSpawn2
 	if bullet_spawn2:
-		var bullet2 = bullet_scene.instantiate()
-		get_tree().root.add_child(bullet2)
-		bullet2.global_position = bullet_spawn2.global_position
-		var target_pos2 = player.global_position
-		target_pos2.y = bullet_spawn2.global_position.y
-		var shoot_direction2 = (target_pos2 - bullet_spawn2.global_position).normalized()
-		bullet2.shoot(shoot_direction2, 10.0)
+		create_bullet(bullet_spawn2.global_position, player.global_position, bullet_scene, 10.0)
 	var audio = $body/AudioStreamPlayer3D
 	if audio:
 		audio.play()

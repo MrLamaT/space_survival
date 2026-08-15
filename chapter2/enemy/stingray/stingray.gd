@@ -1,6 +1,5 @@
 extends "res://chapter2/enemy/BaseEnemy.gd"
 
-@onready var beam_animation: AnimationPlayer = $BeamSpawn/AnimationPlayer
 @onready var bullet_spawn: Node3D = $BeamSpawn
 
 var death_rotation: float = 0.0
@@ -20,8 +19,6 @@ var CHARGE_DURATION: float = 5.0
 var SHOOT_DURATION: float = 4.0
 var is_attacking: bool = false
 
-var bullet_scene = load("res://chapter2/item/beam_projectile/Beam_projectile.tscn")
-
 func _ready():
 	double_damage_in_air = false
 	super._ready()
@@ -33,6 +30,7 @@ func _ready():
 		start_chasing()
 	attack_state = AttackState.IDLE
 	state_timer = 0.0
+	bullet_spawn.set_charge_duration(CHARGE_DURATION)
 
 func _get_boss_id() -> String:
 	return "stingray"
@@ -93,24 +91,21 @@ func _handle_attack_cycle(delta):
 			if state_timer >= IDLE_DURATION:
 				attack_state = AttackState.CHARGING
 				state_timer = 0.0
-				beam_animation.play("beam")
+				bullet_spawn.start_charge()
 				_update_target_position()
 		AttackState.CHARGING:
-			if state_timer >= CHARGE_DURATION and not is_attacking:
-				is_attacking = true
-				velocity = Vector3.ZERO
 			if state_timer >= CHARGE_DURATION:
 				attack_state = AttackState.SHOOTING
 				state_timer = 0.0
-				beam_animation.play("RESET")
-				var bullet_instance = bullet_scene.instantiate()
-				get_tree().root.add_child(bullet_instance)
-				bullet_instance.global_position = bullet_spawn.global_position
+				is_attacking = true
+				velocity = Vector3.ZERO
+				bullet_spawn.shoot()
 		AttackState.SHOOTING:
 			if state_timer >= SHOOT_DURATION:
 				attack_state = AttackState.IDLE
 				state_timer = 0.0
 				is_attacking = false
+				bullet_spawn.reset()
 				if player:
 					_update_target_position()
 
@@ -142,5 +137,4 @@ func die():
 	super.die()
 	death_rotation = 0.0
 	is_attacking = false
-	if beam_animation:
-		beam_animation.stop()
+	bullet_spawn.reset()
