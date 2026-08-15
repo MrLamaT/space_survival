@@ -79,12 +79,8 @@ func handle_card_pressed(type, id, color_img):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
-		"other":
+		"maps":
 			match id:
-				"console": 
-					var player = get_tree().get_first_node_in_group("player")
-					player.openUI("cheat")
-					queue_free()
 				"level list":
 					var player = get_tree().get_first_node_in_group("player")
 					player.openUI("planet")
@@ -97,6 +93,28 @@ func handle_card_pressed(type, id, color_img):
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/flat.tscn")
 				"parkour":
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn")
+		"other":
+			match id:
+				"console": 
+					var player = get_tree().get_first_node_in_group("player")
+					player.openUI("cheat")
+					queue_free()
+				"clear characters": 
+					_clear_group("enemy")
+				"clear props": 
+					_clear_group("prop")
+				"clear blocks": 
+					_clear_group("block")
+
+func _clear_group(group_name: String) -> void:
+	var nodes = get_tree().get_nodes_in_group(group_name)
+	for node in nodes:
+		if node and is_instance_valid(node):
+			node.queue_free()
+	print("Удалено ", nodes.size(), " объектов из группы: ", group_name)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Global.game_settings["UI"] = false
+	queue_free()
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

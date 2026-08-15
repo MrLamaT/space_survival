@@ -75,7 +75,14 @@ var weapons: Dictionary = {
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
 		"shoot_animation": "shoot",
-		"visible_node": "Move"
+		"visible_node": "Move",
+		"alt": {
+			"scene": preload("res://chapter2/item/Move_projectile/AltMove_projectile.tscn"),
+			"fire_rate": 0.5,
+			"bullet_speed": 0.0,
+			"stamina_cost": 0.0,
+			"shoot_animation": "shoot"
+		}
 	},
 	"Delete": {
 		"scene": preload("res://chapter2/item/Delete_projectile/Delete_projectile.tscn"),
@@ -91,7 +98,10 @@ var weapons: Dictionary = {
 		"fire_rate": 0.5,
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
-		"visible_node": "Summon"
+		"visible_node": "Summon",
+		"alt": {
+			"UI": "spawn"
+		}
 	},
 	"Aggro Swapping": {
 		"scene": preload("res://chapter2/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn"),
@@ -101,7 +111,10 @@ var weapons: Dictionary = {
 		"stamina_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "AggroSwapping",
-		"pitch_scale": [1.4, 1.6]
+		"pitch_scale": [1.4, 1.6],
+		"alt": {
+			"UI": "aggression"
+		}
 	},
 }
 
@@ -249,12 +262,16 @@ func shoot(is_alt: bool = false):
 		return
 	if player.stamina < min_stamina_to_shoot:
 		return
-	
 	var weapon_data = weapons[current_weapon_name]
 	var alt_data = weapon_data.get("alt")
 	if is_alt and alt_data == null:
 		return
 	var data_to_use = alt_data if is_alt else weapon_data
+	if data_to_use.has("UI"):
+		player.openUI(data_to_use["UI"])
+		return
+	if not data_to_use.has("scene"):
+		return
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if is_alt:
 		if current_time - last_alt_fire_time < data_to_use.get("fire_rate", 0.2):
@@ -325,6 +342,10 @@ func _show_muzzle_flash(bullet_spawn: Node3D):
 		)
 
 func add_recoil(is_alt: bool = false):
+	var max_angle_for_recoil_degrees = 45.0
+	var max_angle_for_recoil = deg_to_rad(max_angle_for_recoil_degrees)
+	if abs(cam.rotation.x) > max_angle_for_recoil:
+		return
 	var recoil_multiplier = 1.5 if is_alt else 1.0
 	var recoil_up = randf_range(1.0, 2.0) * 0.01 * recoil_multiplier
 	cam.rotate_x(recoil_up)

@@ -71,7 +71,7 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="nextbot" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "nextbot"]]
+[node name="nextbot" type="CharacterBody3D" unique_id=1538922931 groups=["backrooms_entity", "enemy", "nextbot"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_bpc6b")

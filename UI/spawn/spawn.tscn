@@ -229,7 +229,7 @@ target_node = NodePath("../../../../..")
 
 [node name="Label3" parent="Panel/ScrollContainer/VBoxContainer" unique_id=855489432 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-title = "weapons"
+title = "weapons (tools)"
 cat_node = NodePath("../GridContainer3")
 
 [node name="GridContainer3" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=359057676]
@@ -276,21 +276,34 @@ img = ExtResource("16_d71kh")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=1513308190 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="Label12" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2116868023 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
+layout_mode = 2
+title = "weapons (basic)"
+cat_node = NodePath("../GridContainer12")
+
+[node name="GridContainer12" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2028928624]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer12" unique_id=1229107466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Vibro Spike"
 img = ExtResource("15_oo6k4")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=710843011 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer12" unique_id=2122741767 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Taser"
 img = ExtResource("16_5tetk")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
-[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=1658971598 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer12" unique_id=784716943 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Hornet"
 img = ExtResource("18_bj30i")
@@ -789,7 +802,7 @@ target_node = NodePath("../../../../..")
 
 [node name="Label8" parent="Panel/ScrollContainer/VBoxContainer" unique_id=171996419 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-title = "other"
+title = "maps"
 cat_node = NodePath("../GridContainer8")
 
 [node name="GridContainer8" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1413667671]
@@ -800,45 +813,79 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 15
 columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1478598728 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "console"
-img = ExtResource("46_0xjbb")
-type = "other"
-target_node = NodePath("../../../../..")
-
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "level list"
 img = ExtResource("54_nv0ie")
-type = "other"
+type = "maps"
 target_node = NodePath("../../../../..")
 
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sandbox"
 img = ExtResource("51_v7lph")
-type = "other"
+type = "maps"
 target_node = NodePath("../../../../..")
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "FNaD"
 img = ExtResource("50_v7lph")
-type = "other"
+type = "maps"
 target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "flat"
 img = ExtResource("56_xnmou")
-type = "other"
+type = "maps"
 target_node = NodePath("../../../../..")
 
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "parkour"
 img = ExtResource("58_rmstl")
+type = "maps"
+target_node = NodePath("../../../../..")
+
+[node name="Label13" parent="Panel/ScrollContainer/VBoxContainer" unique_id=505603551 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
+layout_mode = 2
+title = "other"
+cat_node = NodePath("../GridContainer13")
+
+[node name="GridContainer13" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1326554912]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=1445718925 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "console"
+img = ExtResource("46_0xjbb")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=90873310 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "clear characters"
+img = ExtResource("14_bj30i")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=1310286442 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "clear props"
+img = ExtResource("14_bj30i")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=1417555956 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "clear blocks"
+img = ExtResource("14_bj30i")
 type = "other"
 target_node = NodePath("../../../../..")
 

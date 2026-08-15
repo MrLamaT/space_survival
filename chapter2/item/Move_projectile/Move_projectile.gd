@@ -1,6 +1,5 @@
 extends Node3D
 
-var world = Global.get_world(Global.game_settings.word)
 var _already_triggered: bool = false
 
 func shoot(_dir: Vector3, _spd: float):
@@ -9,7 +8,7 @@ func shoot(_dir: Vector3, _spd: float):
 func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player["held_build"]:
-		player.release_build()
+		player.release_build(true)
 		queue_free()
 	else:
 		$Area3D/CollisionShape3D.disabled = false

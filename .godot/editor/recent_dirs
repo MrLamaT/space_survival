@@ -1,4 +1,6 @@
 res://assets/weapon/
+res://chapter2/item/Summon_projectile/
+res://chapter2/item/Move_projectile/
 res://assets/sound/
 res://chapter2/enemy/stingray/
 res://assets/icon/prop/
@@ -19,5 +21,3 @@ res://assets/
 res://assets/icon/equipment/
 res://chapter2/poison/
 res://chapter2/item/Taser_projectile/
-res://chapter2/radiation/
-res://chapter2/rooms/prop/

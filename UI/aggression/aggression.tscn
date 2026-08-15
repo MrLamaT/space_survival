@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bd6es8uc7hh46"]
+
+[ext_resource type="Script" uid="uid://cftmr5aoyvop" path="res://UI/aggression/aggression.gd" id="1_sumob"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_5ihx8"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="3_m6rji"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="aggression" type="Node2D" unique_id=709397907 groups=["UI"]]
+position = Vector2(575, 323)
+script = ExtResource("1_sumob")
+
+[node name="Panel" type="Panel" parent="." unique_id=1405108526]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -275.0
+offset_right = 150.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="Label" type="Label" parent="Panel" unique_id=751106219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -255.0
+offset_right = 162.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_5ihx8")
+theme_override_font_sizes/font_size = 25
+text = "PROVOKE AGAINST..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=147835671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 90
+
+[node name="LabelButton" parent="Panel/VBoxContainer" unique_id=1790547767 instance=ExtResource("3_m6rji")]
+layout_mode = 2
+text = "player"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "player"
+
+[node name="LabelButton3" parent="Panel/VBoxContainer" unique_id=1811368051 instance=ExtResource("3_m6rji")]
+layout_mode = 2
+text = "phantom"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "phantom"
+
+[node name="LabelButton4" parent="Panel/VBoxContainer" unique_id=2106875067 instance=ExtResource("3_m6rji")]
+layout_mode = 2
+text = "machine"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "machine"
+
+[node name="LabelButton2" parent="Panel/VBoxContainer" unique_id=21224137 instance=ExtResource("3_m6rji")]
+layout_mode = 2
+text = "fauna"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "fauna"
+
+[node name="LabelButton5" parent="Panel/VBoxContainer" unique_id=617591187 instance=ExtResource("3_m6rji")]
+layout_mode = 2
+text = "backrooms"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "backrooms_entity"

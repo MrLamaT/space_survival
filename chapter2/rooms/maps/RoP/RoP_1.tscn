@@ -78,7 +78,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)
 
 [node name="TeleportPortal" parent="." unique_id=1114056743 instance=ExtResource("4_sajrh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.898369, 18, 2.92)
-scene = null
+scene = "res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn"
 
 [node name="Marker3D" type="Marker3D" parent="TeleportPortal" unique_id=999905202]
 

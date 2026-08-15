@@ -170,7 +170,7 @@ func PlayerDeath():
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["IsDying"] = true
-	release_build()
+	release_build(false)
 	var world = Global.get_world(Global.game_settings.word)
 	$screem.play()
 	throw_camera_out()
@@ -328,7 +328,7 @@ func _input(event: InputEvent): #повороты мышкой
 					if enemy.has_method("take_damage"):
 						enemy.take_damage(999999)
 	if Input.is_action_just_pressed("ui_cancel"):
-		release_build()
+		release_build(false)
 		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
@@ -716,5 +716,16 @@ func update_held_build():
 	target_rotation.z = 0
 	held_build.global_rotation = target_rotation
 
-func release_build():
+func release_build(throw_force: bool = false):
+	if not held_build:
+		return
+	if throw_force and held_build is RigidBody3D:
+		var throw_dir = -cam.global_transform.basis.z  
+		var throw_strength = 15.0 
+		held_build.linear_velocity = throw_dir * throw_strength + Vector3.UP * 2.0
+		held_build.angular_velocity = Vector3(
+			randf_range(-2, 2),
+			randf_range(-2, 2),
+			randf_range(-2, 2)
+		)
 	held_build = null

@@ -72,6 +72,7 @@ func _build_block() -> void:
 	var static_body = StaticBody3D.new()
 	static_body.collision_layer = 4  
 	static_body.collision_mask = 0
+	static_body.add_to_group("block")
 	var mesh_instance = MeshInstance3D.new()
 	var box_mesh = BoxMesh.new()
 	box_mesh.size = Vector3(1, 1, 1)
