@@ -1,3 +1,5 @@
+res://chapter2/rooms/maps/
+res://assets/shaders/filter/
 res://assets/weapon/
 res://chapter2/item/Summon_projectile/
 res://chapter2/item/Move_projectile/
@@ -19,5 +21,3 @@ res://assets/icon/enemyEgg/
 res://chapter2/enemy/
 res://assets/
 res://assets/icon/equipment/
-res://chapter2/poison/
-res://chapter2/item/Taser_projectile/

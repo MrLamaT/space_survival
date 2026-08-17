@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b5mmlyf1hk3tt"]
+
+[ext_resource type="Shader" uid="uid://cpp7x8t3ca8ni" path="res://assets/shaders/filter/gamma.gdshader" id="1_4chau"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_4chau")
+shader_parameter/intensity = 2.000000095
+shader_parameter/shadow_threshold = 25.0
+shader_parameter/softness = 25.0

@@ -63,6 +63,8 @@ skybox=""
 machine=""
 music=""
 backrooms_entity=""
+filter=""
+balls=""
 
 [input]
 

@@ -1,3 +1,5 @@
+LightmapGI
+VoxelGI
 AnimationPlayer
 Node3D
 OmniLight3D
@@ -11,5 +13,3 @@ GridContainer
 Timer
 RigidBody3D
 AudioStreamPlayer2D
-Control
-TextureRect

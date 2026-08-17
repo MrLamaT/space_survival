@@ -142,22 +142,18 @@ func parse_command(text: String):
 		"message", "msg":
 			var message_text = argument.replace("_", " ")
 			player.warning(message_text)
-		"stoptimer", "stoptime", "timerstop", "timestop":
-			player.timerBoost(0)
-			SystemPrint("Timer stopped")
-		"summon_tags", "settags":
+		"scale", "size":
 			if argument == "":
-				ErrorPrint("Usage: summon_name <entity_name>")
+				SystemPrint("Current player scale: " + str(player.scale))
 			else:
-				Global.game_settings["summon"]["enemyTags"] = argument
-				SystemPrint("Summon entity name set to: " + argument)
-		"summon_info", "summonstatus":
-			var summon = Global.game_settings["summon"]
-			SystemPrint("Current summon settings:")
-			SystemPrint("  Name: " + summon["name"])
-			SystemPrint("  Aura: " + str(summon["aura"]))
-			SystemPrint("  Boss: " + str(summon["boss"]))
-		"spawn":
-			player.openUI("spawn")
+				if argument.is_valid_float():
+					var scale_value = argument.to_float()
+					if scale_value > 0:
+						player.scale = Vector3(scale_value, scale_value, scale_value)
+						SystemPrint("Player scale set to: " + str(scale_value))
+					else:
+						ErrorPrint("Scale must be greater than 0")
+				else:
+					ErrorPrint("Invalid argument: must be a number (e.g., 1.5, 2, 0.5)")
 		_:
 			ErrorPrint("Unknown command: " + command)

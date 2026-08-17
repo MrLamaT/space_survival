@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://co78nlhifks7m"]
+
+[ext_resource type="Shader" uid="uid://csrnf0kyiwbq8" path="res://assets/shaders/filter/bit8.gdshader" id="1_xphvp"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_xphvp")
+shader_parameter/levels = 8.000000284999999

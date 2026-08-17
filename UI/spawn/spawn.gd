@@ -34,6 +34,27 @@ func handle_card_pressed(type, id, color_img):
 					_replace_skybox(preload("res://chapter2/sky/skyboxPale.tscn"))
 				"Dusk":
 					_replace_skybox(preload("res://chapter2/sky/skyboxDusk.tscn"))
+		"filters":
+			var filter = get_tree().get_first_node_in_group("filter")
+			if id == "None":
+				filter.visible = false
+				return
+			filter.visible = true
+			match id:
+				"BAW":
+					filter.material_override = preload("res://assets/shaders/filter/BWR.tres")
+				"except orange":
+					filter.material_override = preload("res://assets/shaders/filter/BWR_orange.tres")
+				"8-bit colors":
+					filter.material_override = preload("res://assets/shaders/filter/bit8.tres")
+				"Fisheye":
+					filter.material_override = preload("res://assets/shaders/filter/flisheye.tres")
+				"Blur":
+					filter.material_override = preload("res://assets/shaders/filter/blur.tres")
+				"Negative":
+					filter.material_override = preload("res://assets/shaders/filter/negative.tres")
+				"Gamma":
+					filter.material_override = preload("res://assets/shaders/filter/gamma.tres")
 		"weapon":
 			$Panel.visible = false
 			$weapon_slot.visible = true
@@ -103,6 +124,8 @@ func handle_card_pressed(type, id, color_img):
 					_clear_group("enemy")
 				"clear props": 
 					_clear_group("prop")
+				"clear balls": 
+					_clear_group("balls")
 				"clear blocks": 
 					_clear_group("block")
 

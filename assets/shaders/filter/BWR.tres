@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://br11pn6rra35f"]
+
+[ext_resource type="Shader" uid="uid://c6xlh73fds4a1" path="res://assets/shaders/filter/BWR.gdshader" id="1_5mn6x"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_5mn6x")

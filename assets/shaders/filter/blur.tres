@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bdvq3jfh236p4"]
+
+[ext_resource type="Shader" uid="uid://djehwh6c6koc1" path="res://assets/shaders/filter/blur.gdshader" id="1_bd1u6"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_bd1u6")
+shader_parameter/blur_strength = 5.0000002375

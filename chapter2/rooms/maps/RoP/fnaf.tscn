@@ -978,6 +978,7 @@ place = true
 
 [node name="Wave" parent="NavigationRegion3D" unique_id=956278609 instance=ExtResource("20_wyr1c")]
 transform = Transform3D(-4.371139e-08, 0, 7.5, 0, 1, 0, -1, 0, -3.278354e-07, 30, 3, -51.25)
+checkpoint = false
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave" unique_id=378935040 instance=ExtResource("21_bmx76")]
 transform = Transform3D(1, 0, -1.7053026e-13, 0, 1, 0, 0, 0, 1, 2, -1.5, 1.1656368e-08)
@@ -985,6 +986,7 @@ enemy = "destroyercik"
 
 [node name="Wave2" parent="NavigationRegion3D" unique_id=41343684 instance=ExtResource("20_wyr1c")]
 transform = Transform3D(-4.371139e-08, 0, 7.5, 0, 1, 0, -1, 0, -3.278354e-07, 30, 3, -51.25)
+checkpoint = false
 
 [node name="WaveMarker" parent="NavigationRegion3D/Wave2" unique_id=11290057 instance=ExtResource("21_bmx76")]
 transform = Transform3D(1, 0, -1.7053026e-13, 0, 1, 0, 0, 0, 1, 2, -1.5, 1.1656368e-08)

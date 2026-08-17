@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cdhytww60cvms"]
+
+[ext_resource type="Shader" uid="uid://b1vf5dtj66avj" path="res://assets/shaders/filter/negative.gdshader" id="1_t6x4a"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_t6x4a")

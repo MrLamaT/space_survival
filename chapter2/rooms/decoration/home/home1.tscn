@@ -105,11 +105,5 @@ skeleton = NodePath("../..")
 [node name="Light" parent="." unique_id=313223431 instance=ExtResource("2_xj8qm")]
 transform = Transform3D(-9.934766e-08, 0, 8, 0, 1, 0, -1, 0, -7.947813e-07, 7.5, 4.15, 7.5)
 
-[node name="Light2" parent="." unique_id=1289009710 instance=ExtResource("2_xj8qm")]
-transform = Transform3D(-9.934766e-08, 0, 8, 0, 1, 0, -1, 0, -7.947813e-07, 7.5, 4.15, -7.5)
-
-[node name="Light3" parent="." unique_id=1383433133 instance=ExtResource("2_xj8qm")]
+[node name="Light2" parent="." unique_id=1383433133 instance=ExtResource("2_xj8qm")]
 transform = Transform3D(-9.934766e-08, 0, 8, 0, 1, 0, -1, 0, -7.947813e-07, -7.5, 4.15, 7.5)
-
-[node name="Light4" parent="." unique_id=1211329040 instance=ExtResource("2_xj8qm")]
-transform = Transform3D(-9.934766e-08, 0, 8, 0, 1, 0, -1, 0, -7.947813e-07, -7.5, 4.15, -7.5)

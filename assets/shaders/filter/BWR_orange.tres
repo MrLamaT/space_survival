@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dk6ypn7181kfa"]
+
+[ext_resource type="Shader" uid="uid://dpbtp8edyg6rs" path="res://assets/shaders/filter/BWR_orange.gdshader" id="1_j6i0e"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_j6i0e")
+shader_parameter/target_color = Color(1, 0.49803922, 0, 1)
+shader_parameter/hue_threshold = 0.10000000475
+shader_parameter/softness = 0.05
+shader_parameter/min_saturation = 0.1

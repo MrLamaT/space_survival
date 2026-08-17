@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://csjo1drvr45h7"]
+
+[ext_resource type="Shader" uid="uid://dpdf7wtp415c6" path="res://assets/shaders/filter/flisheye.gdshader" id="1_0pldi"]
+
+[resource]
+render_priority = -10
+shader = ExtResource("1_0pldi")
+shader_parameter/distortion = 0.5
