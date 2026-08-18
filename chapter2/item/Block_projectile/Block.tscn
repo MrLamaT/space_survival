@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dr5ruuu3hmlm6"]
+
+[ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/grass.png" id="1_fmr54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ai5f"]
+albedo_color = Color(0.19607843, 0.24705882, 0.09411765, 1)
+albedo_texture = ExtResource("1_fmr54")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_3ai5f")
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="Block" type="Node3D" unique_id=1429431744]
+
+[node name="BulletSpawn" type="Marker3D" parent="." unique_id=251631248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=61218353]
+transform = Transform3D(0.90630776, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, 0.90630776, 0, -0.15, -0.175)
+mesh = SubResource("BoxMesh_g4v7s")

@@ -55,6 +55,9 @@ func handle_card_pressed(type, id, color_img):
 					filter.material_override = preload("res://assets/shaders/filter/negative.tres")
 				"Gamma":
 					filter.material_override = preload("res://assets/shaders/filter/gamma.tres")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 		"weapon":
 			$Panel.visible = false
 			$weapon_slot.visible = true

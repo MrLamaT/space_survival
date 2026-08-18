@@ -118,7 +118,7 @@ script = ExtResource("1_wgrq1")
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_c8tpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.656, 9)
 
-[node name="1" type="NavigationRegion3D" parent="." unique_id=1059001852]
+[node name="1" type="NavigationRegion3D" parent="." unique_id=1059001852 groups=["ANavigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_vp57u")
 navigation_layers = 4

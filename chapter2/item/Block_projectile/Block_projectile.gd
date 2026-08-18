@@ -10,7 +10,7 @@ func _ready() -> void:
 	if Global.game_settings["summon"]["name"] == "block":
 		call_deferred("_build_block")
 		return
-	var nav_region = get_tree().get_first_node_in_group("ANavigation")
+	var nav_region = get_tree().current_scene.get_node_or_null("NavigationRegion3D")
 	if not nav_region:
 		return
 	var wave_marker_scene = load("res://chapter2/wave/waveMarker.tscn")

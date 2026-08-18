@@ -82,7 +82,7 @@ scene = "res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn"
 
 [node name="Marker3D" type="Marker3D" parent="TeleportPortal" unique_id=999905202]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371 groups=["ANavigation"]]
 navigation_mesh = SubResource("NavigationMesh_o4e3a")
 navigation_layers = 4
 

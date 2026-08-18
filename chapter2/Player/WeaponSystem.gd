@@ -38,15 +38,7 @@ var weapons: Dictionary = {
 		"stamina_cost": 2.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Knife",
-		"pitch_scale": [1.4, 1.6],
-		"alt": {
-			"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
-			"fire_rate": 0.75,
-			"bullet_speed": 50.0,
-			"stamina_cost": 4.0,
-			"shoot_animation": "magnet",
-			"pitch_scale": [1.2, 1.4]
-		}
+		"pitch_scale": [1.4, 1.6]
 	},
 	"Taser": {
 		"scene": preload("res://chapter2/item/Taser_projectile/Taser_projectile.tscn"),
@@ -56,7 +48,15 @@ var weapons: Dictionary = {
 		"stamina_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "Taser",
-		"pitch_scale": [1.4, 1.6]
+		"pitch_scale": [1.4, 1.6],
+		"alt": {
+			"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
+			"fire_rate": 0.75,
+			"bullet_speed": 50.0,
+			"stamina_cost": 4.0,
+			"shoot_animation": "magnet",
+			"pitch_scale": [1.2, 1.4]
+		}
 	},
 	"Hornet": {
 		"scene": preload("res://chapter2/item/Hornet_projectile/Hornet_projectile.tscn"),
@@ -87,7 +87,7 @@ var weapons: Dictionary = {
 	"Delete": {
 		"scene": preload("res://chapter2/item/Delete_projectile/Delete_projectile.tscn"),
 		"weapon_scene": preload("res://chapter2/item/Delete_projectile/Delete.tscn"),
-		"fire_rate": 0.5,
+		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
 		"visible_node": "Delete"
@@ -95,10 +95,21 @@ var weapons: Dictionary = {
 	"Summon": {
 		"scene": preload("res://chapter2/item/Summon_projectile/Summon_projectile.tscn"),
 		"weapon_scene": preload("res://chapter2/item/Summon_projectile/Summon.tscn"),
-		"fire_rate": 0.5,
+		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
 		"visible_node": "Summon",
+		"alt": {
+			"UI": "spawn"
+		}
+	},
+	"Block": {
+		"scene": preload("res://chapter2/item/Summon_projectile/Summon_projectile.tscn"),
+		"weapon_scene": preload("res://chapter2/item/Block_projectile/Block.tscn"),
+		"fire_rate": 0.25,
+		"bullet_speed": 0.0,
+		"stamina_cost": 0.0,
+		"visible_node": "Block",
 		"alt": {
 			"UI": "spawn"
 		}

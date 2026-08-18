@@ -1,3 +1,5 @@
+MeshInstance3D
+RayCast3D
 LightmapGI
 VoxelGI
 AnimationPlayer
@@ -5,11 +7,8 @@ Node3D
 OmniLight3D
 CollisionShape3D
 Area3D
-MeshInstance3D
 Button
 Sprite2D
 VBoxContainer
 GridContainer
 Timer
-RigidBody3D
-AudioStreamPlayer2D

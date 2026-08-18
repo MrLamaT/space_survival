@@ -12,23 +12,17 @@ func spawn_delete_portal(Pposition: Vector3):
 	get_tree().root.add_child(portal)
 	portal.global_position = Pposition
 
-func _on_area_3d_body_entered(_body: Node3D) -> void:
-	if _already_triggered: 
-		return
-	var overlapping_bodies = $Area3D.get_overlapping_bodies()
-	var target_body = null
-	for potential_body in overlapping_bodies:
-		if potential_body.is_in_group("enemy") or potential_body.is_in_group("prop") or potential_body.is_in_group("block"):
-			target_body = potential_body
-			break
-	if target_body:
-		_already_triggered = true
-		var delete_position = target_body.global_position
-		spawn_delete_portal(delete_position)
-		target_body.queue_free()
-		queue_free()
-	else:
-		pass
+@onready var ray_cast = $RayCast3D
+
+func _physics_process(_delta: float) -> void:
+	if ray_cast.is_colliding() and not _already_triggered:
+		var collider = ray_cast.get_collider()
+		if collider is Node3D and (collider.is_in_group("enemy") or collider.is_in_group("prop") or collider.is_in_group("block")):
+			_already_triggered = true
+			var delete_position = collider.global_position
+			spawn_delete_portal(delete_position)
+			collider.queue_free()
+			queue_free()
 
 func _on_timer_timeout() -> void:
 	queue_free() 

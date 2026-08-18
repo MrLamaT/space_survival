@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 1.75, -22.5)
 scene = "res://chapter2/rooms/maps/RoP/fnaf.tscn"
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371 groups=["ANavigation"]]
 navigation_mesh = SubResource("NavigationMesh_o4e3a")
 navigation_layers = 4
 

@@ -5,9 +5,6 @@
 [sub_resource type="BoxMesh" id="BoxMesh_jsfy0"]
 size = Vector3(1, 0.1, 3)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jsfy0"]
-size = Vector3(0.25, 1, 3)
-
 [node name="Delete_projectile" type="Node3D" unique_id=1211004102]
 script = ExtResource("1_w10fa")
 
@@ -16,16 +13,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5
 visible = false
 mesh = SubResource("BoxMesh_jsfy0")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=871601751]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 0, 0)
-collision_layer = 4
-collision_mask = 20
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1446185592]
-shape = SubResource("BoxShape3D_jsfy0")
-
 [node name="Timer" type="Timer" parent="." unique_id=875543017]
 autostart = true
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=436513133]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(0, -3.5, 0)
+collision_mask = 20
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
