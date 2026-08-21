@@ -69,22 +69,14 @@ func spawn(type):
 		instance.is_boss = is_boss
 		instance.aura = final_aura
 		instance.enemyTags = enemyTags
-	var area = get_parent()
-	var navigation_region = null
-	if !(area is NavigationRegion3D):
-		navigation_region = area.get_parent()
-	else:
-		navigation_region = area
-	if navigation_region is NavigationRegion3D:
-		navigation_region.add_child(instance)
-		instance.global_position = global_position
-		if type == "key":
-			instance.add_to_group("enemy_wave")
+	get_tree().root.add_child(instance)
+	instance.global_position = global_position
+	if type == "key":
+		instance.add_to_group("enemy_wave")
 	var portal_scene = preload("res://chapter2/wave/WavePortal.tscn")
 	var portal_instance = portal_scene.instantiate()
-	if navigation_region is NavigationRegion3D:
-		navigation_region.add_child(portal_instance)
-		portal_instance.global_position = global_position
+	get_tree().root.add_child(portal_instance)
+	portal_instance.global_position = global_position
 
 func get_random_enemies_by_aura(aura_level: int) -> Array:
 	if RANDOM_ENEMIES_BY_AURA.has(aura_level):

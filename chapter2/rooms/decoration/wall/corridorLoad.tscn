@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://flwlje7qhs1"]
+
+[ext_resource type="Script" uid="uid://b8vcefva1l136" path="res://chapter2/rooms/decoration/wall/corridor_load.gd" id="1_joa0t"]
+[ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="2_joa0t"]
+[ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://chapter2/rooms/dirt/metal.tscn" id="3_hn745"]
+[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="4_8syrj"]
+[ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://chapter2/rooms/decoration/pipe.tscn" id="4_tnopv"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_ewj4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2, 3.75, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hf1ik"]
+albedo_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+albedo_texture = ExtResource("6_ewj4q")
+uv1_offset = Vector3(1, 0.5, 0)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_hf1ik")
+size = Vector3(1, 0.15, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4bh5p"]
+lifetime_randomness = 0.5
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq0nl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.019607844)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_nmt1q"]
+material = SubResource("StandardMaterial3D_iq0nl")
+size = Vector2(0.25, 0.25)
+
+[node name="corridorLoad" type="Node3D" unique_id=2055780126]
+script = ExtResource("1_joa0t")
+
+[node name="wall" parent="." unique_id=1533157946 instance=ExtResource("2_joa0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75)
+emergency_light = true
+
+[node name="wall2" parent="." unique_id=2056749451 instance=ExtResource("2_joa0t")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3.75)
+emergency_light = true
+
+[node name="metal" parent="." unique_id=1357790181 instance=ExtResource("3_hn745")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 5.75, 0)
+
+[node name="metal2" parent="." unique_id=1214972913 instance=ExtResource("3_hn745")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+
+[node name="Pipe" parent="." unique_id=42658265 instance=ExtResource("4_tnopv")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+
+[node name="Pipe3" parent="." unique_id=178373593 instance=ExtResource("4_tnopv")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+handle = true
+
+[node name="Pipe2" parent="." unique_id=243487056 instance=ExtResource("4_tnopv")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="." unique_id=846831106 instance=ExtResource("4_tnopv")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true
+
+[node name="wallGates" parent="." unique_id=1992864570 instance=ExtResource("4_8syrj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, 0)
+unlocked = true
+
+[node name="wallGates2" parent="." unique_id=426026042 instance=ExtResource("4_8syrj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.75, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=769642887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1154566144]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1474838786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, 5.2, -1.5)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="smoke" type="GPUParticles3D" parent="MeshInstance3D" unique_id=1020325255]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+amount = 100
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_4bh5p")
+draw_pass_1 = SubResource("QuadMesh_nmt1q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1651087391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85, 5.2, 1.5)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="smoke" type="GPUParticles3D" parent="MeshInstance3D2" unique_id=1416254729]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+amount = 100
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_4bh5p")
+draw_pass_1 = SubResource("QuadMesh_nmt1q")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=667688458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, -1.5)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="smoke" type="GPUParticles3D" parent="MeshInstance3D3" unique_id=2124691303]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+amount = 100
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_4bh5p")
+draw_pass_1 = SubResource("QuadMesh_nmt1q")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1244775143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2, 1.5)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="smoke" type="GPUParticles3D" parent="MeshInstance3D4" unique_id=2063190762]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+cast_shadow = 0
+emitting = false
+amount = 100
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_4bh5p")
+draw_pass_1 = SubResource("QuadMesh_nmt1q")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

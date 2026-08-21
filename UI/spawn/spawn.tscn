@@ -905,17 +905,17 @@ img = ExtResource("51_v7lph")
 type = "maps"
 target_node = NodePath("../../../../..")
 
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "FNaD"
-img = ExtResource("50_v7lph")
-type = "maps"
-target_node = NodePath("../../../../..")
-
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "flat"
 img = ExtResource("56_xnmou")
+type = "maps"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "FNaD"
+img = ExtResource("50_v7lph")
 type = "maps"
 target_node = NodePath("../../../../..")
 

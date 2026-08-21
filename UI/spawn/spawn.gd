@@ -85,7 +85,6 @@ func handle_card_pressed(type, id, color_img):
 			Global.game_settings["UI"] = false
 			queue_free()
 		"block":
-			Global.game_settings["summon"]["name"] = "block"
 			Global.game_settings["summon_block"]["texture"] = ""
 			match id:
 				"plank": 
@@ -99,7 +98,7 @@ func handle_card_pressed(type, id, color_img):
 				"stone": 
 					Global.game_settings["summon_block"]["texture"] = "res://assets/material/RoPstone.tres"
 			Global.game_settings["summon_block"]["color"] = str(color_img.to_html())
-			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Block")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
@@ -110,11 +109,11 @@ func handle_card_pressed(type, id, color_img):
 					player.openUI("planet")
 					queue_free()
 				"sandbox":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/sandbox.tscn")
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/simulation/sandbox.tscn")
 				"FNaD":
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")
 				"flat":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/flat.tscn")
+					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/simulation/flat.tscn")
 				"parkour":
 					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn")
 		"other":

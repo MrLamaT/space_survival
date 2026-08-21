@@ -4,9 +4,6 @@
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_bksgl"]
 [ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="3_bksgl"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bksgl"]
-viewport_path = NodePath("Sprite3D/SubViewport")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bksgl"]
 bg_color = Color(0.39215687, 0, 1, 0.5882353)
 border_width_left = 1
@@ -40,7 +37,6 @@ Unlike you, I'm in no hurry."
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1665229479]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-texture = SubResource("ViewportTexture_bksgl")
 
 [node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=155084450]
 transparent_bg = true

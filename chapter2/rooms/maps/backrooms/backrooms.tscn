@@ -49,7 +49,7 @@ script = ExtResource("1_5sxko")
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_64ddb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 22)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371 groups=["ANavigation"]]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1739088371]
 navigation_mesh = SubResource("NavigationMesh_o4e3a")
 navigation_layers = 4
 

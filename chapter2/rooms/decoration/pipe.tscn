@@ -59,6 +59,7 @@ mesh = SubResource("CylinderMesh_iq0nl")
 
 [node name="smoke" type="GPUParticles3D" parent="MeshInstance3D2" unique_id=1122825854]
 cast_shadow = 0
+emitting = false
 amount = 100
 lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_53xqy")

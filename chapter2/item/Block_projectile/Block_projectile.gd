@@ -7,22 +7,7 @@ func shoot(_dir: Vector3, _spd: float):
 
 func _ready() -> void:
 	await get_tree().process_frame
-	if Global.game_settings["summon"]["name"] == "block":
-		call_deferred("_build_block")
-		return
-	var nav_region = get_tree().current_scene.get_node_or_null("NavigationRegion3D")
-	if not nav_region:
-		return
-	var wave_marker_scene = load("res://chapter2/wave/waveMarker.tscn")
-	var wave_marker = wave_marker_scene.instantiate()
-	nav_region.add_child(wave_marker)
-	wave_marker.global_position = $MeshInstance3D/Marker3D.global_position
-	wave_marker.set("enemy", Global.game_settings["summon"]["name"])
-	wave_marker.set("is_boss", Global.game_settings["summon"]["boss"])
-	wave_marker.set("aura", Global.game_settings["summon"]["aura"])
-	wave_marker.set("enemyTags", Global.game_settings["summon"]["enemyTags"])
-	wave_marker.spawn("none")
-	queue_free()
+	call_deferred("_build_block")
 
 func _build_block() -> void:
 	var player = get_tree().get_first_node_in_group("player")

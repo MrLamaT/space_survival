@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
+[ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="10_bguse"]
 [ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/warningTape.png" id="12_q66jv"]
@@ -375,6 +376,15 @@ _data = {
 &"vis": SubResource("Animation_mqc6g")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w52mc"]
+shading_mode = 0
+albedo_texture = ExtResource("10_bguse")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mqc6g"]
+material = SubResource("StandardMaterial3D_w52mc")
+
 [node name="portal" type="StaticBody3D" unique_id=2061914237 groups=["portal"]]
 collision_layer = 4
 collision_mask = 3
@@ -529,5 +539,11 @@ text = "mission complete!"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label" unique_id=1827632291]
 libraries/ = SubResource("AnimationLibrary_w3ide")
+
+[node name="secretLama" type="MeshInstance3D" parent="." unique_id=1712991297]
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -3, 1, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_mqc6g")
+skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

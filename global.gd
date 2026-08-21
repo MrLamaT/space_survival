@@ -7,7 +7,8 @@ var world_4: Dictionary
 var world_5: Dictionary
 
 var level: Dictionary = {
-	-1: "res://chapter2/rooms/maps/sandbox.tscn",
+	-2: "res://chapter2/rooms/maps/simulation/flat.tscn",
+	-1: "res://chapter2/rooms/maps/simulation/sandbox.tscn",
 	0: "res://UI/start/start.tscn",
 	1: "res://chapter2/rooms/maps/RoP/RoP_1.tscn",
 	2: "res://chapter2/rooms/maps/RoP/RoP_2.tscn",

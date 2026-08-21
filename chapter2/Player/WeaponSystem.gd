@@ -48,15 +48,7 @@ var weapons: Dictionary = {
 		"stamina_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "Taser",
-		"pitch_scale": [1.4, 1.6],
-		"alt": {
-			"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
-			"fire_rate": 0.75,
-			"bullet_speed": 50.0,
-			"stamina_cost": 4.0,
-			"shoot_animation": "magnet",
-			"pitch_scale": [1.2, 1.4]
-		}
+		"pitch_scale": [1.4, 1.6]
 	},
 	"Hornet": {
 		"scene": preload("res://chapter2/item/Hornet_projectile/Hornet_projectile.tscn"),
@@ -66,7 +58,15 @@ var weapons: Dictionary = {
 		"stamina_cost": 1.5,
 		"reload_animation": "r",
 		"visible_node": "Hornet",
-		"pitch_scale": [1.4, 1.6]
+		"pitch_scale": [1.4, 1.6],
+		"alt": {
+			"scene": preload("res://chapter2/item/Knife_projectile/Knife_projectile.tscn"),
+			"fire_rate": 0.75,
+			"bullet_speed": 50.0,
+			"stamina_cost": 4.0,
+			"shoot_animation": "magnet",
+			"pitch_scale": [1.2, 1.4]
+		}
 	},
 	"Move": {
 		"scene": preload("res://chapter2/item/Move_projectile/Move_projectile.tscn"),
@@ -104,7 +104,7 @@ var weapons: Dictionary = {
 		}
 	},
 	"Block": {
-		"scene": preload("res://chapter2/item/Summon_projectile/Summon_projectile.tscn"),
+		"scene": preload("res://chapter2/item/Block_projectile/Block_projectile.tscn"),
 		"weapon_scene": preload("res://chapter2/item/Block_projectile/Block.tscn"),
 		"fire_rate": 0.25,
 		"bullet_speed": 0.0,

@@ -65,7 +65,7 @@ music=""
 backrooms_entity=""
 filter=""
 balls=""
-ANavigation=""
+corridorLoad_exit=""
 
 [input]
 
