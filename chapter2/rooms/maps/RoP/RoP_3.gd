@@ -6,7 +6,7 @@ func _ready() -> void:
 	var env_scene = preload("res://chapter2/sky/skybox.tscn")
 	var env_instance = env_scene.instantiate()
 	add_child(env_instance)
-	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
+	$NavigationRegion3D/portal.teleport_contents()
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	$Player.weapon_system.weapon_slots[1] = "Vibro Spike"
 	$Player.weapon_system.weapon_slots[2] = "Taser"

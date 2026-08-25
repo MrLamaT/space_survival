@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
 [ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/sound/step2.wav" id="13_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="14_uckl1"]
+[ext_resource type="PackedScene" uid="uid://dmi02cwgjhplq" path="res://UI/music/music_audio.tscn" id="15_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="17_s8fo2"]
 [ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://chapter2/Player/leg_damage.gd" id="23_q4qd6"]
@@ -526,6 +527,8 @@ wait_time = 60.0
 
 [node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
 stream = ExtResource("24_278cu")
+
+[node name="music" parent="." unique_id=615568374 instance=ExtResource("15_s8fo2")]
 
 [node name="leg_damage" type="Area3D" parent="." unique_id=2019060207]
 collision_layer = 0

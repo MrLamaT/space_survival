@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="4_8syrj"]
 [ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://chapter2/rooms/decoration/pipe.tscn" id="4_tnopv"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_ewj4q"]
+[ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://chapter2/spawnpoint/spawnpoint.tscn" id="7_4bh5p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(2, 3.75, 6)
@@ -135,5 +136,8 @@ amount = 100
 lifetime = 0.4
 process_material = SubResource("ParticleProcessMaterial_4bh5p")
 draw_pass_1 = SubResource("QuadMesh_nmt1q")
+
+[node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("7_4bh5p")]
+transform = Transform3D(-1.09278474e-07, 0, 1, 0, 1, 0, -2.5, 0, -4.371139e-08, 0, 1.5, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

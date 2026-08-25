@@ -33,6 +33,11 @@ func casing(cont):
 	else:
 		$AnimationPlayer2.play("downC", -1, -1.0, true)
 
+func teleport_contents():
+	var player = get_tree().get_first_node_in_group("player")
+	player.global_position = self.global_position
+	Global.game_settings["checkpoint"] = player.global_position
+
 func teleport(map):
 	if is_animating:
 		return
@@ -54,7 +59,6 @@ func teleport(map):
 		$AudioStreamPlayer2D2.play()
 		await get_tree().create_timer(1).timeout
 		print("бум")
-		$TeleportCube.save_contents()
 		SceneManager.load_scene_with_loading(map)
 
 func update_cube_colors(value: float, from_color: Color, to_color: Color):

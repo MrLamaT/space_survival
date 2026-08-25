@@ -3,9 +3,9 @@ extends Area3D
 var _secondary_color: Color
 
 func _ready() -> void:
-	var music_scene = preload("res://UI/music/music_audio.tscn")
-	var music_instance = music_scene.instantiate()
-	add_child(music_instance)
+	await get_tree().process_frame
+	var music_node = get_tree().get_first_node_in_group("music")
+	music_node._check_and_play_custom_music()
 	_secondary_color = Color("ffffffff").darkened(0.1)
 	get_node("../Sprite3D").modulate = _secondary_color
 	get_node("../Sprite3D2").modulate = _secondary_color

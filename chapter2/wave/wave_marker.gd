@@ -77,6 +77,7 @@ func spawn(type):
 	var portal_instance = portal_scene.instantiate()
 	get_tree().root.add_child(portal_instance)
 	portal_instance.global_position = global_position
+	queue_free()
 
 func get_random_enemies_by_aura(aura_level: int) -> Array:
 	if RANDOM_ENEMIES_BY_AURA.has(aura_level):

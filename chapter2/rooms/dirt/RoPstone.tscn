@@ -3,11 +3,11 @@
 [ext_resource type="Material" uid="uid://bjo6fn2swtg20" path="res://assets/material/RoPstone.tres" id="1_kxnsr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
-size = Vector3(2.5, 1, 2.5)
+size = Vector3(1, 1, 2.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_11g11"]
 material = ExtResource("1_kxnsr")
-size = Vector3(2.5, 1, 2.5)
+size = Vector3(1, 1, 2.5)
 
 [node name="dirt" type="StaticBody3D" unique_id=1357790181]
 collision_layer = 36

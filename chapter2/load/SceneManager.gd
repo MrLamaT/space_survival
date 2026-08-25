@@ -43,17 +43,23 @@ func check_loading_progress(scene_path: String):
 			break
 
 func switch_to_scene(scene: PackedScene):
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	for enemy in enemies:
+		if is_instance_valid(enemy):
+			enemy.queue_free()
+	var props = get_tree().get_nodes_in_group("prop")
+	for prop in props:
+		if is_instance_valid(prop):
+			prop.queue_free()
+	#await get_tree().process_frame
+	#for child in get_tree().root.get_children():
+	#	print("  - ", child.name)
 	var new_scene = scene.instantiate()
-	
 	var root = get_tree().root
-	
 	if current_scene:
 		root.remove_child(current_scene)
 		current_scene.queue_free()
-	
 	root.add_child(new_scene)
 	current_scene = new_scene
-
 	get_tree().current_scene = new_scene
-	
 	hide_loading_screen()

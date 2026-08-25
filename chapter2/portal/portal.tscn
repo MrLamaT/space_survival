@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="10_bguse"]
-[ext_resource type="PackedScene" uid="uid://ndlne2lgksdk" path="res://chapter2/teleport_cube/teleport_cube.tscn" id="11_cukvh"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="12_4ie0m"]
 [ext_resource type="Texture2D" uid="uid://c7pexrp31h77" path="res://assets/textures/warningTape.png" id="12_q66jv"]
 [ext_resource type="Texture2D" uid="uid://dxq20ahvutywr" path="res://assets/textures/portalBase.png" id="13_4ie0m"]
@@ -389,9 +388,6 @@ material = SubResource("StandardMaterial3D_w52mc")
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_6pdco")
-
-[node name="TeleportCube" parent="." unique_id=304554480 instance=ExtResource("11_cukvh")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0, 2, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=1311910108]
 transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 0.25, 2.5, 0, 2.5)

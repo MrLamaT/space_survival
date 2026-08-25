@@ -24,9 +24,11 @@ func _ready():
 	if is_boss:
 		$body/body/Sprite3D.visible = true
 	shatter_parts = [
+		$body/head,
 		$body/body,
 		$body/hand1,
-		$body/hand2
+		$body/legs1,
+		$body/legs2
 	]
 	if player:
 		start_chasing_player()
@@ -58,7 +60,8 @@ func _process_enemy_behavior(delta):
 	if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
 		is_shooting_mode = true
 		if last_animation_state != "shoot_mode":
-			$body/run.play_backwards("run")
+			$body/run.stop()
+			$body/run.play("RESET")
 			$body/AnimationPlayer.play("weapon")
 			last_animation_state = "shoot_mode"
 		var direction_to_player = (player.global_position - global_position).normalized()

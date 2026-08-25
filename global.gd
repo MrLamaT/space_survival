@@ -6,6 +6,12 @@ var world_3: Dictionary
 var world_4: Dictionary
 var world_5: Dictionary
 
+var bonus_level: Dictionary = {
+	1: "res://chapter2/rooms/maps/backrooms/backrooms.tscn",
+	2: "res://chapter2/rooms/maps/RoP/fnaf.tscn",
+	3: "res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn"
+}
+
 var level: Dictionary = {
 	-2: "res://chapter2/rooms/maps/simulation/flat.tscn",
 	-1: "res://chapter2/rooms/maps/simulation/sandbox.tscn",
@@ -48,7 +54,6 @@ var game_settings: Dictionary = {
 	"min_y": -5.0,
 	"music": ""
 }
-var saved_portal_data: Dictionary = {}
 
 func _ready():
 	reset_world_to_default(1)

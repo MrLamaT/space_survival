@@ -3,7 +3,7 @@ extends Node3D
 var world = Global.get_world(Global.game_settings.word)
 
 func _ready() -> void:
-	$NavigationRegion3D/portal/TeleportCube.teleport_contents()
+	$NavigationRegion3D/portal.teleport_contents()
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	$Player.weapon_system.weapon_slots[1] = "Vibro Spike"
 	$Player.weapon_system.weapon_slots[2] = "Taser"

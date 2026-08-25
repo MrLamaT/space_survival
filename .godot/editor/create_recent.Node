@@ -1,14 +1,14 @@
+MeshInstance3D
+Node3D
+Sprite3D
 AnimationPlayer
 CollisionShape3D
 Area3D
-MeshInstance3D
 NavigationRegion3D
 RayCast3D
 LightmapGI
 VoxelGI
-Node3D
 OmniLight3D
 Button
 Sprite2D
 VBoxContainer
-GridContainer

@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://35wxdachd6tm" path="res://chapter2/rooms/decoration/ventilation_block2.tscn" id="22_uvpay"]
 [ext_resource type="Texture2D" uid="uid://6noyyqqreptn" path="res://assets/textures/crack.png" id="23_dhxen"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://chapter2/rooms/decoration/table.tscn" id="24_0p34u"]
+[ext_resource type="PackedScene" uid="uid://des3uqpu6rvbh" path="res://chapter2/rooms/decoration/wall/corridor_angle.tscn" id="24_w2ovn"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://chapter2/item/hand_item.tscn" id="25_qm3sd"]
 [ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="26_fq48x"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://chapter2/rooms/decoration/light.tscn" id="27_3xpv1"]
@@ -63,16 +64,6 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kttm5"]
 size = Vector3(1, 2, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_egfux"]
-size = Vector3(0.14, 1, 0.15)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lu87s"]
-albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
-albedo_texture = ExtResource("30_f5lqg")
-uv1_scale = Vector3(15, 1, 15)
-uv1_triplanar = true
-texture_filter = 0
 
 [node name="RoP22" type="NavigationRegion3D" unique_id=953575263]
 navigation_mesh = SubResource("NavigationMesh_3j5e6")
@@ -610,31 +601,11 @@ mesh = SubResource("BoxMesh_0tc4e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_kttm5")
 
+[node name="corridor15" parent="floor_ceiling" unique_id=2055780126 instance=ExtResource("24_w2ovn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5, 0, -7.25)
+
 [node name="corridor1" parent="floor_ceiling" unique_id=1267702935 instance=ExtResource("31_8v18c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 0, -7.25)
-
-[node name="wall3" parent="floor_ceiling/corridor1" unique_id=1421814407 instance=ExtResource("2_t6aqw")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7, 0, 3.75)
-emergency_light = true
-
-[node name="wall4" parent="floor_ceiling/corridor1" unique_id=12778624 instance=ExtResource("2_t6aqw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.75, 0, -0.5)
-emergency_light = true
-
-[node name="dirt3" type="StaticBody3D" parent="floor_ceiling/corridor1" unique_id=1457597896]
-transform = Transform3D(-50, 0, 7.54979e-06, 0, 1, 0, -7.54979e-06, 0, -50, 7, 5.75, 0)
-collision_layer = 36
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_ceiling/corridor1/dirt3" unique_id=1237526865]
-shape = SubResource("BoxShape3D_egfux")
-debug_fill = false
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="floor_ceiling/corridor1/dirt3" unique_id=60436351]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="floor_ceiling/corridor1/dirt3/CSGCombiner3D" unique_id=2057162836]
-size = Vector3(0.14, 1, 0.15)
-material = SubResource("StandardMaterial3D_lu87s")
 
 [node name="corridor2" parent="floor_ceiling" unique_id=1188935729 instance=ExtResource("31_8v18c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 0, -7.25)

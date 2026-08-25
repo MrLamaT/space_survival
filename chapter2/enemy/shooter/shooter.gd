@@ -30,6 +30,10 @@ var CHASE_TIMEOUT: float = 2.0
 
 func _ready():
 	super._ready()
+	shatter_parts = [
+		$body/hand1/Node3D,
+		$body/hand2/Node3D
+	]
 	BURST_COOLDOWN_TIME /= speed_multiplier
 	if player:
 		burst_shots_left = BURST_SHOTS

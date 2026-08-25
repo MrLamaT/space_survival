@@ -109,9 +109,14 @@ var weapons: Dictionary = {
 		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
 		"stamina_cost": 0.0,
+		"shoot_animation": "shoot",
 		"visible_node": "Block",
 		"alt": {
-			"UI": "spawn"
+			"scene": preload("res://chapter2/item/Delete_projectile/Delete_projectile.tscn"),
+			"fire_rate": 0.25,
+			"bullet_speed": 0.0,
+			"stamina_cost": 0.0,
+			"shoot_animation": "shoot"
 		}
 	},
 	"Aggro Swapping": {

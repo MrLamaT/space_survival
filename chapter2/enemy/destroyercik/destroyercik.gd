@@ -15,9 +15,12 @@ var ATTACK_COOLDOWN_TIME: float = 1.5
 func _ready():
 	super._ready()
 	shatter_parts = [
+		$body/head,
 		$body/body,
 		$body/hand1,
-		$body/hand2
+		$body/hand2,
+		$body/legs1,
+		$body/legs2
 	]
 	if player:
 		start_chasing_player()

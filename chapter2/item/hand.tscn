@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crey1ruj463ih"]
 
-[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/hand1.png" id="1_rt87g"]
+[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="1_rt87g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5vkf"]
 shading_mode = 0
@@ -14,9 +14,26 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_i5vkf")
 size = Vector3(0.15, 0.45, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rt87g"]
+shading_mode = 0
+albedo_texture = ExtResource("1_rt87g")
+uv1_scale = Vector3(2, 2, -1.5)
+uv1_offset = Vector3(0.65, 0.5, 0.6)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_rt87g")
+size = Vector3(0.15, 0.45, 0.1)
+
 [node name="hand" type="MeshInstance3D" unique_id=1885934729]
 transform = Transform3D(3.0551252e-08, 1, -1.504212e-07, 0.9961947, -4.3545054e-08, -0.08715564, -0.08715565, -1.4718611e-07, -0.9961946, 0, 0, 0)
 visible = false
 cast_shadow = 0
 mesh = SubResource("BoxMesh_857ox")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1106379733]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_g4v7s")

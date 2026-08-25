@@ -48,4 +48,4 @@ size = Vector3(1, 5, 1.5)
 material = SubResource("StandardMaterial3D_u83kx")
 
 [node name="dirt" parent="StaticBody3D/wall" unique_id=1357790181 instance=ExtResource("2_6w42t")]
-transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 0.5, 0, 2.5, 0)
+transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 0.5, 0, 2.5, 0)

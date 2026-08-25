@@ -58,6 +58,10 @@ func _physics_process(delta):
 		return
 	if is_dead:
 		return
+	if abs(global_position.y) > 1000.0:
+		print("KillZona - ", name, " (удалён)")
+		queue_free()
+		return
 	if is_dying:
 		_handle_death_process(delta)
 		return
