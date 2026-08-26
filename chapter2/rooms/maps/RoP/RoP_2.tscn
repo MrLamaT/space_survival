@@ -414,7 +414,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.
 freeze = true
 
 [node name="dirt2" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=1357790181 instance=ExtResource("17_w52mc")]
-transform = Transform3D(-7.5, 0, 5.284853e-07, 0, 1, 0, -1.1324685e-06, 0, -3.5, -30, 0.183, -36)
+transform = Transform3D(-7.5, 0, 1.3212133e-06, 0, 1, 0, -1.1324685e-06, 0, -8.75, -30, 0.183, -36)
 
 [node name="StreetLamp" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=1550972398 instance=ExtResource("19_w52mc")]
 transform = Transform3D(0.6060772, 0, -0.3502433, 0, 0.70000005, 0, 0.3502433, 0, 0.6060772, -27.5, 1.15, -33.5)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5fmtmyv17w3x"]
 
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://chapter2/portal/portal.tscn" id="1_5rcor"]
-[ext_resource type="Script" uid="uid://da2v6ymqglmku" path="res://chapter2/rooms/maps/RoP/ro_p_2_2.gd" id="1_fm0dx"]
+[ext_resource type="Script" uid="uid://da2v6ymqglmku" path="res://chapter2/rooms/maps/RoP/RoP_2_2.gd" id="1_fm0dx"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://chapter2/rooms/decoration/wall/wall.tscn" id="2_t6aqw"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="3_ujd3p"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="4_w5r8j"]

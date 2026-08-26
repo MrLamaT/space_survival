@@ -66,6 +66,8 @@ backrooms_entity=""
 filter=""
 balls=""
 corridorLoad_exit=""
+metal=""
+grass=""
 
 [input]
 

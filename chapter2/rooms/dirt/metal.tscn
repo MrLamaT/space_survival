@@ -15,7 +15,7 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_11g11"]
 material = SubResource("StandardMaterial3D_i0i8p")
 
-[node name="metal" type="StaticBody3D" unique_id=1357790181]
+[node name="metal" type="StaticBody3D" unique_id=1357790181 groups=["metal"]]
 collision_layer = 36
 collision_mask = 3
 

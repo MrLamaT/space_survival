@@ -10,7 +10,9 @@ extends CharacterBody3D
 @onready var crosshair = $head/Camera3D/crosshair
 @onready var hand_position = $hand_position
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
-@onready var raycast: RayCast3D = $head/Camera3D/RayCast
+@onready var ground_ray = $GroundRay
+
+var current_ground_type = "default"
 
 var interaction_manager: InteractionManager
 var weapon_system: WeaponSystem
@@ -159,7 +161,6 @@ func _ready():
 	weapon_system = WeaponSystem.new()
 	weapon_system.player = self
 	weapon_system.hand_position = hand_position
-	weapon_system.raycast = raycast
 	weapon_system.cam = cam
 	add_child(weapon_system)
 	update_max_stamina()
@@ -622,11 +623,13 @@ func update_running_speed():
 		footstep_delay = 0.5   # Обычная частота шагов
 
 func play_footstep():
+	detect_ground_material()
+	var step = detect_ground_material()
 	if movement_enabled:
-		if Global.game_settings["step"] == 1:
+		if step == 1:
 			footstep_player.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player.play()
-		elif Global.game_settings["step"] == 2:
+		elif step == 2:
 			footstep_player2.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player2.play()
 		else:
@@ -729,3 +732,15 @@ func release_build(throw_force: bool = false):
 			randf_range(-2, 2)
 		)
 	held_build = null
+
+func detect_ground_material():
+	if not ground_ray.is_colliding():
+		return 1
+	var collider = ground_ray.get_collider()
+	if not collider:
+		return 1
+	if collider.is_in_group("grass"):
+		return 2
+	elif collider.is_in_group("metal"):
+		return 3
+	return 1

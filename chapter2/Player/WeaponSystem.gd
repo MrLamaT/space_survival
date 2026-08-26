@@ -3,7 +3,6 @@ class_name WeaponSystem
 
 @export var player: CharacterBody3D
 @export var hand_position: Node3D
-@export var raycast: RayCast3D
 @export var cam: Camera3D
 
 var current_weapon: Node3D = null
@@ -319,9 +318,6 @@ func shoot(is_alt: bool = false):
 	bullet.global_transform = weapon_bullet_spawn.global_transform
 	
 	var shoot_direction = -cam.global_transform.basis.z.normalized()
-	if raycast and raycast.is_colliding():
-		var hit_point = raycast.get_collision_point()
-		shoot_direction = (hit_point - weapon_bullet_spawn.global_position).normalized()
 	
 	if bullet.has_method("shoot"):
 		bullet.shoot(shoot_direction, data_to_use.get("bullet_speed", 50.0))

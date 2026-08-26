@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/icon/HPIcon.png" id="8_u8yn7"]
 [ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
-[ext_resource type="Texture2D" uid="uid://dq6db8b2dlaom" path="res://assets/item/MATiron.png" id="12_r6r0m"]
 [ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
 [ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/sound/step2.wav" id="13_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="14_uckl1"]
@@ -386,10 +385,6 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
 show_percentage = false
 
-[node name="RayCast" type="RayCast3D" parent="head/Camera3D" unique_id=498664006]
-target_position = Vector3(0, 0, -2.5)
-collision_mask = 4
-
 [node name="UI" type="Node2D" parent="head/Camera3D" unique_id=823880279]
 
 [node name="HP" type="Node2D" parent="head/Camera3D/UI" unique_id=152171685]
@@ -453,48 +448,6 @@ libraries/ = SubResource("AnimationLibrary_s8fo2")
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)
 
-[node name="uranium" type="Sprite2D" parent="head/Camera3D" unique_id=1022742011]
-visible = false
-modulate = Color(0.29803923, 0.6862745, 0.3137255, 1)
-position = Vector2(1071, 161)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="cryo_crystal" type="Sprite2D" parent="head/Camera3D" unique_id=921759084]
-visible = false
-modulate = Color(0.5647059, 0.89411765, 0.9607843, 1)
-position = Vector2(76, 309)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="ion_crystal" type="Sprite2D" parent="head/Camera3D" unique_id=1612096303]
-visible = false
-modulate = Color(0.7019608, 0.53333336, 0.92156863, 1)
-position = Vector2(206, 309)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="nanotube" type="Sprite2D" parent="head/Camera3D" unique_id=1515803090]
-visible = false
-modulate = Color(0.101960786, 0.101960786, 0.101960786, 1)
-position = Vector2(335, 312)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="ice" type="Sprite2D" parent="head/Camera3D" unique_id=1731397970]
-visible = false
-modulate = Color(0.6666667, 0.85882354, 0.91764706, 1)
-position = Vector2(450, 305)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
-[node name="bioluminophore" type="Sprite2D" parent="head/Camera3D" unique_id=566318145]
-visible = false
-modulate = Color(0.39215687, 1, 0.85490197, 1)
-position = Vector2(1067, 281)
-scale = Vector2(2, 2)
-texture = ExtResource("12_r6r0m")
-
 [node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
 libraries/ = SubResource("AnimationLibrary_0pv45")
 
@@ -542,6 +495,11 @@ disabled = true
 [node name="spring" type="AudioStreamPlayer3D" parent="." unique_id=1221830442]
 stream = ExtResource("17_s8fo2")
 volume_db = -30.0
+
+[node name="GroundRay" type="RayCast3D" parent="." unique_id=1679817050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, -2, 0)
+collision_mask = 4
 
 [connection signal="timeout" from="save" to="." method="_on_save_timeout"]
 [connection signal="body_entered" from="leg_damage" to="leg_damage" method="_on_body_entered"]

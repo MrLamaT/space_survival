@@ -4,7 +4,6 @@ var world = Global.get_world(Global.game_settings.word)
 
 func _ready() -> void:
 	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
-	Global.game_settings["step"] = 3
 	$Panel.visible = false
 	Global.game_settings["checkpoint"] = $kill.global_position
 	Global.game_settings["min_y"] = -5.0

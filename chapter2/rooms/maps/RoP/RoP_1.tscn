@@ -55,7 +55,7 @@ uv1_world_triplanar = true
 texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8dok3"]
-size = Vector3(1, 1.5, 2.5)
+size = Vector3(1, 1.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_le6ex"]
 size = Vector3(2.5, 2.5, 2.5)
@@ -83,28 +83,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5120525, -54.93608)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
 
 [node name="dirt" parent="NavigationRegion3D/floor_ceiling" unique_id=1357790181 instance=ExtResource("6_8dok3")]
-transform = Transform3D(75, 0, 0, 0, 1, 0, 0, 0, 42, 0, 0, -10)
+transform = Transform3D(75, 0, 0, 0, 1, 0, 0, 0, 105, 0, 0, -10)
 
 [node name="dirt2" parent="NavigationRegion3D/floor_ceiling" unique_id=1028968104 instance=ExtResource("6_8dok3")]
-transform = Transform3D(25, 0, 0, 0, 5, 0, 0, 0, 10, 0, 3, -50)
+transform = Transform3D(25, 0, 0, 0, 5, 0, 0, 0, 25, 0, 3, -50)
 
 [node name="dirt3" parent="NavigationRegion3D/floor_ceiling" unique_id=1063983502 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 10, -18.75, 5.5, -50)
+transform = Transform3D(12.5, 0, 0, 0, 10, 0, 0, 0, 25, -18.75, 5.5, -50)
 
 [node name="dirt4" parent="NavigationRegion3D/floor_ceiling" unique_id=744323973 instance=ExtResource("6_8dok3")]
-transform = Transform3D(25, 0, 0, 0, 5, 0, 0, 0, 1, 0, 8, -61.25)
+transform = Transform3D(25, 0, 0, 0, 5, 0, 0, 0, 2.5, 0, 8, -61.25)
 
 [node name="dirt5" parent="NavigationRegion3D/floor_ceiling" unique_id=1155792400 instance=ExtResource("6_8dok3")]
-transform = Transform3D(-1.09278474e-07, 0, 5, 0, 10, 0, -2.5, 0, -2.1855695e-07, -19.215, 5.5, 15.796)
+transform = Transform3D(-1.09278474e-07, 0, 12.5, 0, 10, 0, -2.5, 0, -5.4639236e-07, -19.215, 5.5, 15.796)
 
 [node name="dirt6" parent="NavigationRegion3D/floor_ceiling" unique_id=1596019705 instance=ExtResource("6_8dok3")]
-transform = Transform3D(25, 0, 0, 0, 10, 0, 0, 0, 15, 25, 5.5, -43.75)
+transform = Transform3D(25, 0, 0, 0, 10, 0, 0, 0, 37.5, 25, 5.5, -43.75)
 
 [node name="dirt7" parent="NavigationRegion3D/floor_ceiling" unique_id=1901204013 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 15, 0, 0, 0, 10.25, 31.25, 8, 12.2)
+transform = Transform3D(12.5, 0, 0, 0, 15, 0, 0, 0, 25.625, 31.25, 8, 12.2)
 
 [node name="dirt8" parent="NavigationRegion3D/floor_ceiling" unique_id=294137349 instance=ExtResource("6_8dok3")]
-transform = Transform3D(37.5, 0, 0, 0, 20, 0, 0, 0, 5, -18.75, 10, 31.25)
+transform = Transform3D(37.5, 0, 0, 0, 20, 0, 0, 0, 12.5, -18.75, 10, 31.25)
 
 [node name="dirt9" type="StaticBody3D" parent="NavigationRegion3D/floor_ceiling" unique_id=826105166]
 transform = Transform3D(-15, 0, 7.54979e-07, 0, 15, 0, -2.264937e-06, 0, -5, 18.75, 8, 31.25)
@@ -134,25 +134,25 @@ size = Vector3(1.2632523, 0.35088348, 3.0214996)
 material = SubResource("StandardMaterial3D_kmrdn")
 
 [node name="dirt10" parent="NavigationRegion3D/floor_ceiling" unique_id=2089631958 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 20, 0, 0, 0, 35, -31.25, 10, -18.75)
+transform = Transform3D(12.5, 0, 0, 0, 20, 0, 0, 0, 87.5, -31.25, 10, -18.75)
 
 [node name="dirt11" parent="NavigationRegion3D/floor_ceiling" unique_id=1913613826 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 20, 0, 0, 0, 10, 31.25, 10, -18.75)
+transform = Transform3D(12.5, 0, 0, 0, 20, 0, 0, 0, 25, 31.25, 10, -18.75)
 
 [node name="dirt12" parent="NavigationRegion3D/floor_ceiling" unique_id=433794557 instance=ExtResource("6_8dok3")]
-transform = Transform3D(37.5, 0, 0, 0, 25, 0, 0, 0, 2.5, 18.75, 13, -3.5)
+transform = Transform3D(37.5, 0, 0, 0, 25, 0, 0, 0, 6.25, 18.75, 13, -3.5)
 
 [node name="dirt13" parent="NavigationRegion3D/floor_ceiling" unique_id=1681825003 instance=ExtResource("6_8dok3")]
-transform = Transform3D(-5.4639236e-07, 0, 7.5, 0, 20, 0, -12.5, 0, -3.278354e-07, -15.625, 10, -31.25)
+transform = Transform3D(-5.4639236e-07, 0, 18.75, 0, 20, 0, -12.5, 0, -8.1958854e-07, -15.625, 10, -31.25)
 
 [node name="dirt14" parent="NavigationRegion3D/floor_ceiling" unique_id=491441712 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 5, 0, 0, 0, 10, 18.75, 13, -37.5)
+transform = Transform3D(12.5, 0, 0, 0, 5, 0, 0, 0, 25, 18.75, 13, -37.5)
 
 [node name="dirt15" parent="NavigationRegion3D/floor_ceiling" unique_id=208402303 instance=ExtResource("6_8dok3")]
-transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 5, 18.75, 15, -56.25)
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 12.5, 18.75, 15, -56.25)
 
 [node name="dirt16" parent="NavigationRegion3D/floor_ceiling" unique_id=1252250747 instance=ExtResource("6_8dok3")]
-transform = Transform3D(-1.09278474e-07, 0, 7.5, 0, 3, 0, -2.5, 0, -3.278354e-07, 3, 12, -36.086)
+transform = Transform3D(-1.09278474e-07, 0, 18.75, 0, 3, 0, -2.5, 0, -8.1958854e-07, 3, 12, -36.086)
 
 [node name="Citadel" type="Node3D" parent="NavigationRegion3D" unique_id=1100427397]
 
@@ -1016,7 +1016,7 @@ transform = Transform3D(-0.84612805, 0, 0.53297967, 0, 1, 0, -0.53297967, 0, -0.
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -24.329111, 10.5, 15.805)
 
 [node name="dirt" parent="." unique_id=712079705 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 25, 0, 0, 0, 40, -43.75, 13.016, -12.5)
+transform = Transform3D(12.5, 0, 0, 0, 25, 0, 0, 0, 100, -43.75, 13.016, -12.5)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt" unique_id=1425015706]
 transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
@@ -1024,7 +1024,7 @@ shape = SubResource("BoxShape3D_8dok3")
 debug_fill = false
 
 [node name="dirt2" parent="." unique_id=296601033 instance=ExtResource("6_8dok3")]
-transform = Transform3D(12.5, 0, 0, 0, 25, 0, 0, 0, 40, 43.75, 13.016, -12.5)
+transform = Transform3D(12.5, 0, 0, 0, 25, 0, 0, 0, 100, 43.75, 13.016, -12.5)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt2" unique_id=2022288192]
 transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)
@@ -1032,7 +1032,7 @@ shape = SubResource("BoxShape3D_8dok3")
 debug_fill = false
 
 [node name="dirt4" parent="." unique_id=1835557578 instance=ExtResource("6_8dok3")]
-transform = Transform3D(-5.4639236e-07, 0, 40, 0, 25, 0, -12.5, 0, -1.7484556e-06, 0, 13.016, -68.75)
+transform = Transform3D(-5.4639236e-07, 0, 100, 0, 25, 0, -12.5, 0, -4.371139e-06, 0, 13.016, -68.75)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="dirt4" unique_id=2043251619]
 transform = Transform3D(-0.99999976, 0, 1.2079657e-06, 0, 1, 0, -1.8874692e-08, 0, -0.99999976, 0, 1.25, 0)

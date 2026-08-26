@@ -1,3 +1,4 @@
+RayCast3D
 MeshInstance3D
 Node3D
 Sprite3D
@@ -5,7 +6,6 @@ AnimationPlayer
 CollisionShape3D
 Area3D
 NavigationRegion3D
-RayCast3D
 LightmapGI
 VoxelGI
 OmniLight3D

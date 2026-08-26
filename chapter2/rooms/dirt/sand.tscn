@@ -7,7 +7,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_11g11"]
 material = ExtResource("1_6swaw")
 
-[node name="sand" type="StaticBody3D" unique_id=1357790181]
+[node name="sand" type="StaticBody3D" unique_id=1357790181 groups=["grass"]]
 collision_layer = 36
 collision_mask = 3
 
@@ -15,5 +15,5 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_6dbuq")
 debug_fill = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631 groups=["grass"]]
 mesh = SubResource("BoxMesh_11g11")
