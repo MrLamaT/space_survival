@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds3dtc7v0xerw"]
 
-[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/rooms/decoration/wall/wallGates.tscn" id="1_shxsj"]
-[ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://chapter2/rooms/decoration/wall/corridorLoad.tscn" id="4_3bpnc"]
+[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://chapter2/decoration/wall/wallGates.tscn" id="1_shxsj"]
+[ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://chapter2/decoration/wall/corridorLoad.tscn" id="4_3bpnc"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="10_exsrb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_htu6x"]

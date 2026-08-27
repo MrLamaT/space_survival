@@ -14,6 +14,7 @@ background_mode = 2
 sky = SubResource("Sky_0i6hk")
 ambient_light_sky_contribution = 0.25
 ambient_light_energy = 0.0
+reflected_light_source = 1
 
 [node name="Skybox" type="WorldEnvironment" unique_id=1322581983 groups=["skybox"]]
 environment = SubResource("Environment_tf2ut")

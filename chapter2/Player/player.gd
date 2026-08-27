@@ -107,6 +107,11 @@ var poison_tick_timer: float = 0.0    # Таймер для тиков урон�
 var poison_tick_interval: float = 1.0 # Интервал между тиками урона (1 секунда)
 var is_poisoned: bool = false         # Флаг отравления
 
+# Скольжение по льду
+var is_on_ice: bool = false
+var ice_friction: float = 1.0  # Коэффициент сохранения скорости (чем меньше, тем быстрее тормозит)
+var ice_accel_multiplier: float = 1.0  # Множитель ускорения на льду
+
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -551,9 +556,20 @@ func _physics_process(delta):
 		if Global.game_settings["affected_by_gravity"]:
 			input_dir = Input.get_vector("+a", "+d", "+w", "+s")
 			direction = ($head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-			if movement_enabled: 
-				velocity.x = lerp(velocity.x ,direction.x * SPEED, accel * delta)
-				velocity.z = lerp(velocity.z ,direction.z * SPEED, accel * delta)
+			if movement_enabled:
+				if is_on_ice and is_on_floor():
+					var current_accel = accel * ice_accel_multiplier
+					var target_vel_x = direction.x * SPEED
+					var target_vel_z = direction.z * SPEED
+					if input_dir.length() == 0:
+						velocity.x *= ice_friction
+						velocity.z *= ice_friction
+					else:
+						velocity.x = lerp(velocity.x, target_vel_x, current_accel * delta)
+						velocity.z = lerp(velocity.z, target_vel_z, current_accel * delta)
+				else:
+					velocity.x = lerp(velocity.x ,direction.x * SPEED, accel * delta)
+					velocity.z = lerp(velocity.z ,direction.z * SPEED, accel * delta)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, accel * delta)
 		velocity.z = lerp(velocity.z, 0.0, accel * delta)
@@ -623,16 +639,15 @@ func update_running_speed():
 		footstep_delay = 0.5   # Обычная частота шагов
 
 func play_footstep():
-	detect_ground_material()
 	var step = detect_ground_material()
 	if movement_enabled:
-		if step == 1:
+		if step == "default":
 			footstep_player.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player.play()
-		elif step == 2:
+		elif step == "grass":
 			footstep_player2.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player2.play()
-		else:
+		elif step == "metal":
 			footstep_player3.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player3.play()
 
@@ -735,12 +750,19 @@ func release_build(throw_force: bool = false):
 
 func detect_ground_material():
 	if not ground_ray.is_colliding():
-		return 1
+		is_on_ice = false
+		return "default"
 	var collider = ground_ray.get_collider()
 	if not collider:
-		return 1
+		is_on_ice = false
+		return "default"
+	if collider.is_in_group("ice"):
+		is_on_ice = true
+		return "default"
+	else:
+		is_on_ice = false
 	if collider.is_in_group("grass"):
-		return 2
+		return "grass"
 	elif collider.is_in_group("metal"):
-		return 3
-	return 1
+		return "metal"
+	return "default"

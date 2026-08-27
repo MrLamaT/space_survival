@@ -63,7 +63,10 @@
 [ext_resource type="Texture2D" uid="uid://bbmgd8elw5a28" path="res://assets/level/planet00.png" id="51_v7lph"]
 [ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/icon/sort.png" id="54_nv0ie"]
 [ext_resource type="Texture2D" uid="uid://lt1nu8xyef00" path="res://assets/level/planetFlat.png" id="56_xnmou"]
+[ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="57_jk6ju"]
+[ext_resource type="Texture2D" uid="uid://562f1kinp4yi" path="res://assets/textures/wallpaper1.png" id="58_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://5tq8i4luthta" path="res://assets/level/planetParkour.png" id="58_rmstl"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -700,7 +703,7 @@ target_node = NodePath("../../../../..")
 
 [node name="Label7" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1160350475 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
-title = "blocks"
+title = "blocks (color)"
 cat_node = NodePath("../GridContainer7")
 
 [node name="GridContainer7" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1452836812]
@@ -737,7 +740,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=802823888 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "light blue"
+text = "aqua"
 img = ExtResource("40_xnmou")
 color_img = Color(0.14117648, 0.5372549, 0.78039217, 1)
 type = "block"
@@ -839,7 +842,20 @@ color_img = Color(0.03137255, 0.039215688, 0.05882353, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card17" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1309197062 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="Label15" parent="Panel/ScrollContainer/VBoxContainer" unique_id=524249786 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
+layout_mode = 2
+title = "blocks (material)"
+cat_node = NodePath("../GridContainer15")
+
+[node name="GridContainer15" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1960350509]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=922487872 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "plank"
 img = ExtResource("42_rmstl")
@@ -847,7 +863,7 @@ color_img = Color(0.4392157, 0.28235295, 0.21960784, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card18" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=428569480 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=45072703 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grass"
 img = ExtResource("43_l5m7m")
@@ -855,14 +871,14 @@ color_img = Color(0.19607843, 0.24705882, 0.09411765, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card19" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=2059141521 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1329741633 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grid"
 img = ExtResource("44_neoys")
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card20" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=1932075213 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1880169461 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sand"
 img = ExtResource("50_fw3wd")
@@ -870,11 +886,67 @@ color_img = Color(0.9019608, 0.73333335, 0.39607844, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card21" parent="Panel/ScrollContainer/VBoxContainer/GridContainer7" unique_id=496653606 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=621495817 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "stone"
 img = ExtResource("51_csqvi")
 color_img = Color(0.6509804, 0.65882355, 0.654902, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=434617635 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "simulation blue"
+img = ExtResource("57_jk6ju")
+color_img = Color(0.38431373, 0.54901963, 0.9411765, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1470301195 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "simulation purple"
+img = ExtResource("57_jk6ju")
+color_img = Color(0.8901961, 0, 0.91764706, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1899541862 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "backrooms"
+img = ExtResource("58_fw3wd")
+color_img = Color(0.61960787, 0.60784316, 0.34509805, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card9" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1356152677 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "metal"
+img = ExtResource("59_csqvi")
+color_img = Color(0.40784314, 0.40784314, 0.40784314, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=388631924 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "glass"
+img = ExtResource("40_xnmou")
+color_img = Color(0, 0.6156863, 0.99607843, 0.09803922)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card11" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1971222924 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "sercilist"
+img = ExtResource("40_xnmou")
+color_img = Color(0.38039216, 0.3882353, 0.5019608, 1)
+type = "block"
+target_node = NodePath("../../../../..")
+
+[node name="card12" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=736038907 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "ice"
+img = ExtResource("40_xnmou")
+color_img = Color(0.5254902, 0.6784314, 0.96862745, 0.19607843)
 type = "block"
 target_node = NodePath("../../../../..")
 

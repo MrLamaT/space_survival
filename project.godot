@@ -68,6 +68,7 @@ balls=""
 corridorLoad_exit=""
 metal=""
 grass=""
+ice=""
 
 [input]
 

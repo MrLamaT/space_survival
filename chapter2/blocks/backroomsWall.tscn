@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cxgas37renvkr"]
+
+[ext_resource type="Script" uid="uid://ca7743m31bov7" path="res://chapter2/blocks/backrooms_wall.gd" id="1_y1n2w"]
+[ext_resource type="Material" uid="uid://crjw2vnrke5ak" path="res://assets/material/backrooms_wall3.tres" id="2_y1n2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1yh3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = ExtResource("2_y1n2w")
+
+[node name="wall" type="StaticBody3D" unique_id=1133980759]
+collision_layer = 36
+collision_mask = 3
+script = ExtResource("1_y1n2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1522522858]
+shape = SubResource("BoxShape3D_m1yh3")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1193554154]
+mesh = SubResource("BoxMesh_g4v7s")

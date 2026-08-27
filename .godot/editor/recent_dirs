@@ -1,9 +1,10 @@
+res://assets/material/
+res://assets/textures/
 res://assets/weapon/
 res://assets/
 res://chapter2/rooms/maps/RoP/
 res://chapter2/rooms/maps/MTR/
 res://assets/level/
-res://assets/textures/
 res://chapter2/rooms/maps/
 res://assets/shaders/filter/
 res://chapter2/item/Summon_projectile/
@@ -16,8 +17,6 @@ res://assets/icon/
 res://UI/spawn/
 res://UI/music/
 C:/Users/anaga/OneDrive/Документы/
-res://assets/material/
-res://chapter2/rooms/dirt/
 res://chapter2/rooms/maps/endless_parkour/
 res://assets/flora/
 res://assets/icon/enemyEgg/

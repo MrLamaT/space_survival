@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bpglrkg3gng2c"]
+
+[ext_resource type="Script" uid="uid://btiol67pqxj7q" path="res://chapter2/decoration/light_table.gd" id="1_2367s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eul1"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2367s"]
+material = SubResource("StandardMaterial3D_6eul1")
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m70t"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_loemu"]
+material = SubResource("StandardMaterial3D_6m70t")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.1
+radial_segments = 6
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jd7uf"]
+material = SubResource("StandardMaterial3D_6m70t")
+top_radius = 0.15
+bottom_radius = 0.1
+height = 0.4
+radial_segments = 6
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+shading_mode = 0
+albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2367s"]
+material = SubResource("StandardMaterial3D_4hct6")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+radial_segments = 6
+rings = 1
+
+[node name="Light" type="Area3D" unique_id=648830743]
+script = ExtResource("1_2367s")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=510062170]
+transform = Transform3D(1.0552863e-07, 1, 6.181724e-08, -0.6971901, 1.1788945e-07, -0.71688634, -0.71688634, 3.2553647e-08, 0.6971901, 0, -0.28175378, -1.219624)
+mesh = SubResource("BoxMesh_2367s")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=949818771]
+transform = Transform3D(1.0552862e-07, 1, -6.181723e-08, 0.7168863, -1.1875039e-07, -0.69719005, -0.69719005, 2.9257588e-08, -0.7168863, 0, -0.5717256, -1.223663)
+mesh = SubResource("BoxMesh_2367s")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="." unique_id=1755314788]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, -0.73386896, -1.0709064)
+mesh = SubResource("CylinderMesh_loemu")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="." unique_id=1277818000]
+transform = Transform3D(0.9761421, -0.21669197, -0.013802644, -0.11462278, -0.46027103, -0.88034767, 0.18441138, 0.860927, -0.47412798, 0, -0.08680352, -0.9915479)
+mesh = SubResource("CylinderMesh_jd7uf")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="MeshInstance3D10" unique_id=1453053513]
+transform = Transform3D(1.0000001, 0, 1.4901161e-08, 1.4901161e-08, 1, 5.9604645e-08, -1.4901161e-08, 0, 1, 0, 0.175, 0)
+mesh = SubResource("CylinderMesh_2367s")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D10/MeshInstance3D11" unique_id=210560407]
+transform = Transform3D(0.9487344, -0.21598375, -0.23076974, -0.24395084, -0.036123633, -0.96911466, 0.20097676, 0.97572863, -0.08696115, 0, 0, 0)
+light_color = Color(0.95429546, 0.9464331, 0.773347, 1)

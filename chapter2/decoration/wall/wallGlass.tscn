@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dxhy42mlkocj0"]
+
+[ext_resource type="Script" uid="uid://cxpxdvjudj7fy" path="res://chapter2/decoration/wall/wall.gd" id="1_67vyf"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="3_cy0wf"]
+[ext_resource type="PackedScene" uid="uid://df3lij1od1phs" path="res://chapter2/blocks/glass.tscn" id="3_ixtdj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wqm1"]
+size = Vector3(1, 10, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]
+size = Vector3(5, 6, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u83kx"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+albedo_texture = ExtResource("3_cy0wf")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t1nx"]
+albedo_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+albedo_texture = ExtResource("3_cy0wf")
+metallic = 1.0
+texture_filter = 0
+
+[node name="wall" type="Node3D" unique_id=1000846582]
+script = ExtResource("1_67vyf")
+light = null
+emergency_light = null
+glass = null
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2004481998]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=51250971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5.4, 0.5)
+shape = SubResource("BoxShape3D_5wqm1")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=2104295484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5.4, 0.5)
+shape = SubResource("BoxShape3D_5wqm1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1321864573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0.7)
+shape = SubResource("BoxShape3D_aeb8l")
+
+[node name="wall" type="CSGCombiner3D" parent="StaticBody3D" unique_id=929296706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="box4" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1367946400 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box5" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=624680339 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box8" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1686850949 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box9" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=495313795 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box3" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1823300072 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2, 0.355)
+size = Vector3(5, 1, 1.5)
+material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="box7" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1748337275 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 5.75, 0.355)
+size = Vector3(5, 1, 1.5)
+material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="glass" parent="StaticBody3D/wall" unique_id=1357790181 instance=ExtResource("3_ixtdj")]
+transform = Transform3D(4.9, 0, 0, 0, 3.75, 0, 0, 0, 1, 0, -0.6251221, 0.355)
+
+[node name="glass2" parent="StaticBody3D/wall" unique_id=1312094908 instance=ExtResource("3_ixtdj")]
+transform = Transform3D(4.9, 0, 0, 0, 2.128, 0, 0, 0, 1, 0, 3.911326, 0.355)

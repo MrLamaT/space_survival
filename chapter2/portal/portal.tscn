@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://baf8dlttmni7"]
 
 [ext_resource type="Script" uid="uid://c1rm15pa0qodi" path="res://chapter2/portal/portal.gd" id="1_6pdco"]
-[ext_resource type="PackedScene" uid="uid://pxde681k2c4w" path="res://chapter2/rooms/prop/column.tscn" id="8_bguse"]
+[ext_resource type="PackedScene" uid="uid://pxde681k2c4w" path="res://chapter2/prop/column.tscn" id="8_bguse"]
 [ext_resource type="AudioStream" uid="uid://dvxp7ogrjepae" path="res://assets/sound/teleport2.wav" id="8_nwwir"]
-[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/rooms/decoration/PC1.tscn" id="8_syhg2"]
+[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://chapter2/decoration/PC1.tscn" id="8_syhg2"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="9_syhg2"]
 [ext_resource type="Texture2D" uid="uid://qqhtat72gma3" path="res://assets/portrait.png" id="10_bguse"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="12_4ie0m"]

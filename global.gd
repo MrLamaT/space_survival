@@ -36,8 +36,7 @@ var game_settings: Dictionary = {
 		"boss": false
 	},
 	"summon_block": {
-		"texture": "",
-		"color": ""
+		"name": ""
 	},
 	"CanStandUp": true,
 	"GodMod": false,

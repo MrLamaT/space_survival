@@ -483,6 +483,10 @@ stream = ExtResource("24_278cu")
 
 [node name="music" parent="." unique_id=615568374 instance=ExtResource("15_s8fo2")]
 
+[node name="spring" type="AudioStreamPlayer2D" parent="." unique_id=1174528615]
+stream = ExtResource("17_s8fo2")
+volume_db = -20.0
+
 [node name="leg_damage" type="Area3D" parent="." unique_id=2019060207]
 collision_layer = 0
 collision_mask = 16
@@ -491,10 +495,6 @@ script = ExtResource("23_q4qd6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="leg_damage" unique_id=900643489]
 shape = SubResource("BoxShape3D_eafwc")
 disabled = true
-
-[node name="spring" type="AudioStreamPlayer3D" parent="." unique_id=1221830442]
-stream = ExtResource("17_s8fo2")
-volume_db = -30.0
 
 [node name="GroundRay" type="RayCast3D" parent="." unique_id=1679817050]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

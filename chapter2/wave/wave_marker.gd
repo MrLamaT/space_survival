@@ -24,24 +24,24 @@ const RANDOM_ENEMIES_BY_AURA = {
 	1: ["spark", "infantryman"]
 }
 const PROPS = {
-	"barrel": "res://chapter2/rooms/prop/barrel.tscn",
-	"bed": "res://chapter2/rooms/prop/bed.tscn",
-	"sofa 1": "res://chapter2/rooms/prop/sofa.tscn",
-	"sofa 2": "res://chapter2/rooms/prop/sofa2.tscn",
-	"storage box": "res://chapter2/rooms/prop/storageBox.tscn",
-	"toilet": "res://chapter2/rooms/prop/toilet.tscn",
-	"balloon": "res://chapter2/rooms/prop/balloon.tscn",
-	"workbench": "res://chapter2/rooms/prop/workbench.tscn",
-	"spring": "res://chapter2/rooms/prop/spring.tscn",
-	"tree1": "res://chapter2/rooms/prop/tree.tscn",
-	"tree2": "res://chapter2/rooms/prop/tree2.tscn",
-	"sanitary fungus 1": "res://chapter2/rooms/prop/HpBoost.tscn",
-	"sanitary fungus 2": "res://chapter2/rooms/prop/HpBoostCitadel.tscn",
-	"ERROR": "res://chapter2/rooms/prop/error.tscn",
-	"watermelon": "res://chapter2/rooms/prop/watermelon.tscn",
-	"music box": "res://chapter2/rooms/prop/column.tscn",
-	"light ball": "res://chapter2/rooms/prop/lightball.tscn",
-	"beach ball": "res://chapter2/rooms/prop/beachball.tscn"
+	"barrel": "res://chapter2/prop/barrel.tscn",
+	"bed": "res://chapter2/prop/bed.tscn",
+	"sofa 1": "res://chapter2/prop/sofa.tscn",
+	"sofa 2": "res://chapter2/prop/sofa2.tscn",
+	"storage box": "res://chapter2/prop/storageBox.tscn",
+	"toilet": "res://chapter2/prop/toilet.tscn",
+	"balloon": "res://chapter2/prop/balloon.tscn",
+	"workbench": "res://chapter2/prop/workbench.tscn",
+	"spring": "res://chapter2/prop/spring.tscn",
+	"tree1": "res://chapter2/prop/tree.tscn",
+	"tree2": "res://chapter2/prop/tree2.tscn",
+	"sanitary fungus 1": "res://chapter2/prop/HpBoost.tscn",
+	"sanitary fungus 2": "res://chapter2/prop/HpBoostCitadel.tscn",
+	"ERROR": "res://chapter2/prop/error.tscn",
+	"watermelon": "res://chapter2/prop/watermelon.tscn",
+	"music box": "res://chapter2/prop/column.tscn",
+	"light ball": "res://chapter2/prop/lightball.tscn",
+	"beach ball": "res://chapter2/prop/beachball.tscn"
 }
 var scene
 
