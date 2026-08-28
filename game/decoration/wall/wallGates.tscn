@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://ch5k162ylg5lq"]
+
+[ext_resource type="Script" uid="uid://bb42v8c7yubek" path="res://game/decoration/wall/wallGates.gd" id="1_eeqvj"]
+[ext_resource type="Texture2D" uid="uid://dmrqjs1x8rsb0" path="res://assets/textures/metalDoor2.png" id="2_p33jc"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_q7qqn"]
+[ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="3_p33jc"]
+[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://game/decoration/light.tscn" id="4_eeqvj"]
+[ext_resource type="Texture2D" uid="uid://ow0mi8mycgk2" path="res://assets/textures/metalDoor1.png" id="5_eeqvj"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="8_rqbg7"]
+[ext_resource type="AudioStream" uid="uid://db36x7ae34y27" path="res://assets/sound/door.ogg" id="8_yahcm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p33jc"]
+size = Vector3(5, 1.4209516, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yahcm"]
+size = Vector3(5, 3.25, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqbg7"]
+size = Vector3(1, 9, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qhtw2"]
+size = Vector3(1, 1, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wqm1"]
+size = Vector3(1, 10, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]
+size = Vector3(5, 5.8974533, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vabq7"]
+size = Vector3(5, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vabq7"]
+albedo_color = Color(0.53303695, 0.53303665, 0.53303677, 1)
+albedo_texture = ExtResource("3_p33jc")
+metallic = 1.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u83kx"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+albedo_texture = ExtResource("2_q7qqn")
+metallic = 1.0
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1t1nx"]
+albedo_color = Color(0.581033, 0.58103293, 0.5810329, 1)
+albedo_texture = ExtResource("2_q7qqn")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_eeqvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/wall/Sprite3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/wall/Sprite3D2:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D/wall/Sprite3D3:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yahcm"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/wall/Sprite3D:position:x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -2.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/wall/Sprite3D2:position:x")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -2.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody3D/wall/Sprite3D3:position:x")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqbg7"]
+_data = {
+&"RESET": SubResource("Animation_eeqvj"),
+&"open": SubResource("Animation_yahcm")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eeqvj"]
+size = Vector3(7, 5, 4)
+
+[node name="wallGates" type="Node3D" unique_id=1533157946]
+script = ExtResource("1_eeqvj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1794776523]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=730469359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8656564, 0)
+shape = SubResource("BoxShape3D_p33jc")
+
+[node name="CollisionShape3DDoor" type="CollisionShape3D" parent="StaticBody3D" unique_id=441199242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+shape = SubResource("BoxShape3D_yahcm")
+disabled = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=2085836420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5.9, 0.5)
+shape = SubResource("BoxShape3D_rqbg7")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=193657713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.9, 1.1)
+shape = SubResource("BoxShape3D_qhtw2")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1656552027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5.4, 0.5)
+shape = SubResource("BoxShape3D_5wqm1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=881264544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.212274, 0.7)
+shape = SubResource("BoxShape3D_aeb8l")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" unique_id=744138954]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 4.9, 0.355)
+shape = SubResource("BoxShape3D_vabq7")
+
+[node name="wall" type="CSGCombiner3D" parent="StaticBody3D" unique_id=1747058434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="box6" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1465980329 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65, 0.66)
+size = Vector3(5, 2.5, 1)
+material = SubResource("StandardMaterial3D_vabq7")
+
+[node name="box4" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1780049836 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box5" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1789897739 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box8" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=790097158 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 5, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box9" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=961692981 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0.5)
+size = Vector3(1, 5, 1.5)
+material = SubResource("StandardMaterial3D_u83kx")
+
+[node name="box3" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1753776253 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 2, 0.355)
+size = Vector3(5, 1, 1.5)
+material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="box10" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=1395090447 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2, -0.00544551)
+size = Vector3(5, 1, 1.5)
+material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="box7" type="CSGBox3D" parent="StaticBody3D/wall" unique_id=863393762 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 5.75, 1.1)
+size = Vector3(5, 1, 1.5)
+material = SubResource("StandardMaterial3D_1t1nx")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D/wall" unique_id=568475954]
+transform = Transform3D(16, 0, 0, 0, 12, 0, 0, 0, 15, 0, -0.6, 0)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_p33jc")
+
+[node name="Sprite3D2" type="Sprite3D" parent="StaticBody3D/wall" unique_id=1928724724]
+transform = Transform3D(16, 0, 0, 0, 12, 0, 0, 0, 15, 0, -0.6, -0.1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_p33jc")
+
+[node name="Sprite3D3" type="Sprite3D" parent="StaticBody3D/wall" unique_id=1806459281]
+transform = Transform3D(16, 0, 0, 0, 12, 0, 0, 0, 15, 0, -0.6, -0.05)
+shaded = true
+texture_filter = 0
+texture = ExtResource("5_eeqvj")
+
+[node name="Light" parent="." unique_id=1381863763 instance=ExtResource("4_eeqvj")]
+transform = Transform3D(1, 0, 0, 0, 0.4999999, 0.8660253, 0, -0.8660253, 0.4999999, 0, 4.4, 0.675)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=91420227]
+libraries/ = SubResource("AnimationLibrary_rqbg7")
+
+[node name="detect" type="Area3D" parent="." unique_id=922113953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detect" unique_id=844724063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.5)
+shape = SubResource("BoxShape3D_eeqvj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1035230465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+stream = ExtResource("8_yahcm")
+max_db = -5.0
+
+[node name="SpriteBlock" type="Sprite3D" parent="." unique_id=1122259994]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 2, 0.3)
+visible = false
+modulate = Color(1, 0, 0, 1)
+texture_filter = 0
+texture = ExtResource("8_rqbg7")

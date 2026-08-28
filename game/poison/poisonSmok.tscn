@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://byu1oycacw6cl"]
+
+[ext_resource type="Script" uid="uid://rs0osc4el4m6" path="res://game/poison/poison_smok.gd" id="1_n7uk0"]
+[ext_resource type="Texture2D" uid="uid://cxahxohsw2khc" path="res://assets/textures/poison.png" id="2_n7uk0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1nsv"]
+lifetime_randomness = 0.5
+emission_shape_scale = Vector3(4, 4, 4)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 20.0
+gravity = Vector3(0, 2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq0nl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.39215687)
+albedo_texture = ExtResource("2_n7uk0")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_n7uk0"]
+material = SubResource("StandardMaterial3D_iq0nl")
+size = Vector2(12, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1nsv"]
+size = Vector3(7.5, 7.5, 7.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7uk0"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.85, 0.748, 0.08500002, 0.23529412)
+metallic = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_3w8em"]
+material = SubResource("StandardMaterial3D_n7uk0")
+radius = 1.0
+height = 2.0
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Animation" id="Animation_ii1qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.5, 6.5, 6.5)]
+}
+
+[sub_resource type="Animation" id="Animation_awbqm"]
+resource_name = "smok"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(6.5, 6.5, 6.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sqeh"]
+_data = {
+&"RESET": SubResource("Animation_ii1qj"),
+&"smok": SubResource("Animation_awbqm")
+}
+
+[node name="smoke" type="Area3D" unique_id=339924212]
+collision_mask = 17
+script = ExtResource("1_n7uk0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1061507287]
+cast_shadow = 0
+amount = 7
+process_material = SubResource("ParticleProcessMaterial_v1nsv")
+draw_pass_1 = SubResource("QuadMesh_n7uk0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1916006617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_v1nsv")
+
+[node name="Timer" type="Timer" parent="." unique_id=902628671]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=948427637]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_3w8em")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1361987045]
+libraries/ = SubResource("AnimationLibrary_6sqeh")
+autoplay = &"smok"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

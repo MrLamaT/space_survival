@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://bev0pwjmn8sk3"]
+
+[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_udn4a"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="2_iyb0i"]
+[ext_resource type="AudioStream" uid="uid://bpjw5ktpagcdq" path="res://assets/sound/sword.wav" id="3_857ox"]
+[ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="4_fl0d8"]
+
+[sub_resource type="Animation" id="Animation_278cu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("handItem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.25, -0.2, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hand:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.08726637, -3.1415925, 1.5707964)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("hand:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7fx2g"]
+resource_name = "shoot"
+length = 0.5
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.25, -0.25), Vector3(-0.15, 0.02, 0.2), Vector3(0, -0.3, 0.25), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.5235988, 0), Vector3(0.08726646, -0.17453292, 0.87266463), Vector3(-0.2617994, 0.2617994, 0.08726646), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.25, -0.2, 0), Vector3(0.25, 0.05, -0.25), Vector3(0.1, -0.18, 0.2), Vector3(0.25, -0.5, 0.25), Vector3(0.25, -0.2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bsm05"]
+resource_name = "take"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.3, 0.1), Vector3(0, 0.05, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hand:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.08726637, -3.1415925, 1.5707964)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hand:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.25, -0.5, 0), Vector3(0.25, -0.2, 0), Vector3(0.25, -0.2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fx2g"]
+_data = {
+&"RESET": SubResource("Animation_278cu"),
+&"shoot": SubResource("Animation_7fx2g"),
+&"take": SubResource("Animation_bsm05")
+}
+
+[node name="Knife" type="Node3D" unique_id=1598003082]
+
+[node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_udn4a")]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.2, 0.2)
+visible = false
+texture = ExtResource("2_iyb0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=906229592]
+libraries/ = SubResource("AnimationLibrary_7fx2g")
+
+[node name="shootingSound" type="AudioStreamPlayer2D" parent="." unique_id=591957949]
+stream = ExtResource("3_857ox")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="hand" parent="." unique_id=1885934729 instance=ExtResource("4_fl0d8")]
+transform = Transform3D(3.0551252e-08, 1, -1.504212e-07, 0.9961947, -4.3545054e-08, -0.08715564, -0.08715565, -1.4718611e-07, -0.9961946, 0.25, -0.2, 0)
+
+[node name="BulletSpawn" type="Marker3D" parent="." unique_id=1981150485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)

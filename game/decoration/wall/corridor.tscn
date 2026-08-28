@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://3wierofwxkw1"]
+
+[ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="1_oqja3"]
+[ext_resource type="Script" uid="uid://43q0u5pvw81m" path="res://game/decoration/wall/corridor.gd" id="1_wd2jw"]
+[ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://game/decoration/pipe.tscn" id="3_2fnfe"]
+[ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="3_wd2jw"]
+
+[node name="corridor1" type="Node3D" unique_id=2055780126]
+script = ExtResource("1_wd2jw")
+
+[node name="wall" parent="." unique_id=1533157946 instance=ExtResource("1_oqja3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75)
+emergency_light = true
+
+[node name="wall2" parent="." unique_id=2056749451 instance=ExtResource("1_oqja3")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3.75)
+emergency_light = true
+
+[node name="metal" parent="." unique_id=1357790181 instance=ExtResource("3_wd2jw")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 5.75, 0)
+
+[node name="metal2" parent="." unique_id=1214972913 instance=ExtResource("3_wd2jw")]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+
+[node name="Pipe" parent="." unique_id=42658265 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, 3.1)
+smoke = true
+
+[node name="Pipe3" parent="." unique_id=178373593 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, 3.1)
+handle = true
+
+[node name="Pipe2" parent="." unique_id=243487056 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-1.5944605e-07, -0.5, 2.440189e-08, -0.2791251, 1.0536679e-08, -0.9602547, 0.9602547, -7.9959996e-08, -0.2791251, 0, 2.5, -3.1)
+
+[node name="Pipe4" parent="." unique_id=846831106 instance=ExtResource("3_2fnfe")]
+transform = Transform3D(-2.1855692e-08, -0.5, 0, 0.086824104, -3.7952024e-09, -0.49240384, 0.49240384, -2.1523656e-08, 0.086824104, 0, 1.5, -3.1)
+handle = true

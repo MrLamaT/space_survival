@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://66f66cwy6tfc"]
+
+[ext_resource type="Script" uid="uid://dommb2huw2mr" path="res://game/decoration/table.gd" id="1_n615g"]
+[ext_resource type="Texture2D" uid="uid://c7sxd52l7icsr" path="res://assets/textures/panel.png" id="2_n615g"]
+[ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://game/hide/invisible_trigger.tscn" id="3_xtuly"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjmea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n615g"]
+albedo_color = Color(0.15487596, 0.154876, 0.1548759, 1)
+metallic = 1.0
+
+[node name="Table" type="Node3D" unique_id=191175265]
+script = ExtResource("1_n615g")
+
+[node name="StaticBody" type="StaticBody3D" parent="." unique_id=1610316682]
+transform = Transform3D(-4.37114e-08, 0, -2, 0, 0.25, 0, 1, 0, -8.74228e-08, 0, 1, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody" unique_id=1396533847]
+shape = SubResource("BoxShape3D_cjmea")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=832908140]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1023981363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+size = Vector3(2, 0.25, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=928577928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.8, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=609070726]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1285975040]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, -0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=46853290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.1, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=763318767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.8, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1345008416]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=334973579]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0.85, 0.45, 0)
+size = Vector3(0.1, 0.1, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=355970991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.1, 0)
+size = Vector3(0.2, 0.2, 1)
+material = SubResource("StandardMaterial3D_n615g")
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D" unique_id=1793916116]
+transform = Transform3D(3, 0, 0, 0, -6.797121e-08, -1, 0, 1.555, -4.371139e-08, 0, 1.13, 0)
+modulate = Color(0.53333336, 0.53333336, 0.53333336, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_n615g")
+
+[node name="InvisibleTrigger" parent="." unique_id=374643449 instance=ExtResource("3_xtuly")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.6374208, 0)
+can_stand_up = false

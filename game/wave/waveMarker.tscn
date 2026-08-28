@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dm3440epbqcd3"]
+
+[ext_resource type="Script" uid="uid://w00i0m8kuvo8" path="res://game/wave/wave_marker.gd" id="1_6ty8n"]
+[ext_resource type="Texture2D" uid="uid://b3kkenrrr1s08" path="res://assets/player.png" id="2_rm1n0"]
+
+[node name="WaveMarker" type="Marker3D" unique_id=378935040]
+script = ExtResource("1_6ty8n")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1192540882]
+transform = Transform3D(6.5, 0, 0, 0, 6.5, 0, 0, 0, 6.5, 0, 0, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("2_rm1n0")

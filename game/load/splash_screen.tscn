@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://2b46d713lssn"]
+
+[ext_resource type="Script" uid="uid://c23egdnmpri5b" path="res://game/load/splash_screen.gd" id="1_2pka5"]
+[ext_resource type="Texture2D" uid="uid://cdevl5t5ma0wh" path="res://assets/level/planet1_1.png" id="2_drjrb"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_h8fj8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gh1dh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="SplashScreen" type="Control" unique_id=2090609547]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2pka5")
+
+[node name="Panel" type="Panel" parent="." unique_id=876205190]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=48019250]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("2_drjrb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="Panel" unique_id=1874006941]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -550.0
+offset_top = -100.0
+offset_right = 550.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_gh1dh")
+
+[node name="Label" type="Label" parent="Panel/Panel" unique_id=1676036536]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -11.5
+offset_right = 31.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_h8fj8")
+text = "loading"
+horizontal_alignment = 1
+vertical_alignment = 1

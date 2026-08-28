@@ -1,0 +1,354 @@
+[gd_scene format=3 uid="uid://cn5qxioc77162"]
+
+[ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://game/Player/player.gd" id="1_3dlvw"]
+[ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
+[ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="5_r6r0m"]
+[ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood.png" id="5_xng4x"]
+[ext_resource type="Texture2D" uid="uid://cig2qcepajnwh" path="res://assets/icon/HPIcon.png" id="8_u8yn7"]
+[ext_resource type="PackedScene" uid="uid://cvr5dxnv8nkql" path="res://UI/teleport/teleport.tscn" id="9_y13tn"]
+[ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
+[ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
+[ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/sound/step2.wav" id="13_s8fo2"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="14_uckl1"]
+[ext_resource type="PackedScene" uid="uid://dmi02cwgjhplq" path="res://UI/music/music_audio.tscn" id="15_s8fo2"]
+[ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
+[ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="17_s8fo2"]
+[ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://game/Player/leg_damage.gd" id="23_q4qd6"]
+[ext_resource type="AudioStream" uid="uid://bbdfyp7jsu3lq" path="res://assets/sound/craft.wav" id="24_278cu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lojj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xng4x"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_8e3ni"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1166.0]
+}
+
+[sub_resource type="Animation" id="Animation_y13tn"]
+resource_name = "warning"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1166.0, -41.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8fo2"]
+_data = {
+&"RESET": SubResource("Animation_8e3ni"),
+&"warning": SubResource("Animation_y13tn")
+}
+
+[sub_resource type="Animation" id="Animation_1c5wy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uqqn0"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pv45"]
+_data = {
+&"RESET": SubResource("Animation_1c5wy"),
+&"damage": SubResource("Animation_uqqn0")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eafwc"]
+size = Vector3(1.5, 1, 1.5)
+
+[node name="Player" type="CharacterBody3D" unique_id=1744104925 groups=["player"]]
+collision_mask = 44
+floor_constant_speed = true
+script = ExtResource("1_3dlvw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1704773250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_al2fp")
+debug_color = Color(0, 0.576471, 0.701961, 1)
+
+[node name="hand_position" type="Node3D" parent="." unique_id=1280255816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
+
+[node name="head" type="Node3D" parent="." unique_id=1394368950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=2117932246]
+current = true
+
+[node name="flashlight" type="Node3D" parent="head/Camera3D" unique_id=1438072815]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=592302959]
+visible = false
+spot_range = 15.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=1939203437]
+visible = false
+spot_angle = 90.0
+
+[node name="black" type="ColorRect" parent="head/Camera3D" unique_id=629452091]
+visible = false
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(29.000002, 16.48)
+color = Color(0, 0, 0, 1)
+
+[node name="crosshair" type="TextureRect" parent="head/Camera3D" unique_id=538462597]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -16.5
+offset_right = 32.5
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+pivot_offset = Vector2(32.6, 16.6)
+texture = ExtResource("3_lmkso")
+
+[node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]
+visible = false
+offset_left = 1166.0
+offset_top = 542.0
+offset_right = 1652.0012
+offset_bottom = 560.0
+scale = Vector2(2.25, 2.25)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "text"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/label" unique_id=440266418]
+position = Vector2(507.55554, 7.111111)
+texture = ExtResource("5_r6r0m")
+
+[node name="Use" type="Label" parent="head/Camera3D" unique_id=1586412216]
+visible = false
+offset_left = 32.0
+offset_top = 481.0
+offset_right = 518.0
+offset_bottom = 504.0
+scale = Vector2(2.25, 2.25)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "E - USE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="blood" type="Sprite2D" parent="head/Camera3D" unique_id=592982485]
+modulate = Color(0.5137255, 0, 0, 0)
+z_index = -1
+scale = Vector2(18, 20.25)
+texture = ExtResource("5_xng4x")
+offset = Vector2(32, 16)
+
+[node name="InteractionProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=311574927]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 11.0
+offset_right = 50.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sfgwg")
+theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
+show_percentage = false
+
+[node name="staminaProgressBar" type="ProgressBar" parent="head/Camera3D" unique_id=667892664]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -558.0
+offset_top = 203.0
+offset_right = -358.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sfgwg")
+theme_override_styles/background = SubResource("StyleBoxFlat_3lojj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xng4x")
+show_percentage = false
+
+[node name="UI" type="Node2D" parent="head/Camera3D" unique_id=823880279]
+
+[node name="HP" type="Node2D" parent="head/Camera3D/UI" unique_id=152171685]
+
+[node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/UI/HP" unique_id=663250395]
+texture_filter = 1
+position = Vector2(50, 600)
+texture = ExtResource("8_u8yn7")
+
+[node name="Label" type="Label" parent="head/Camera3D/UI/HP" unique_id=639042209]
+offset_left = 86.0
+offset_top = 587.0
+offset_right = 126.0
+offset_bottom = 610.0
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "100"
+vertical_alignment = 1
+
+[node name="coordinates" type="Label" parent="head/Camera3D/UI" unique_id=1054782826]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 864.0
+offset_top = 599.0
+offset_right = 1008.0
+offset_bottom = 622.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="speed" type="Label" parent="head/Camera3D/UI" unique_id=1511421361]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 864.0
+offset_top = 553.0
+offset_right = 1008.0
+offset_bottom = 576.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "speed: 0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fps" type="Label" parent="head/Camera3D/UI" unique_id=942679321]
+modulate = Color(1, 1, 1, 0.5019608)
+offset_left = 868.0
+offset_top = 5.0
+offset_right = 1012.0
+offset_bottom = 28.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_sfgwg")
+text = "FPS:60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Teleport" parent="head/Camera3D" unique_id=959803594 instance=ExtResource("9_y13tn")]
+position = Vector2(575, 509)
+
+[node name="warning" type="AnimationPlayer" parent="head/Camera3D" unique_id=542201009]
+libraries/ = SubResource("AnimationLibrary_s8fo2")
+
+[node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)
+
+[node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
+libraries/ = SubResource("AnimationLibrary_0pv45")
+
+[node name="filter" type="MeshInstance3D" parent="head/Camera3D" unique_id=542380019 groups=["filter"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+visible = false
+mesh = SubResource("QuadMesh_g4v7s")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1391353782]
+stream = ExtResource("12_y13tn")
+volume_db = -25.0
+
+[node name="FootstepPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=718981928]
+stream = ExtResource("13_s8fo2")
+volume_db = -25.0
+
+[node name="FootstepPlayer3" type="AudioStreamPlayer3D" parent="." unique_id=1239327092]
+stream = ExtResource("11_8e3ni")
+volume_db = -20.0
+
+[node name="screem" type="AudioStreamPlayer2D" parent="." unique_id=544180724]
+stream = ExtResource("16_s8fo2")
+
+[node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
+stream = ExtResource("14_uckl1")
+volume_db = -15.0
+
+[node name="save" type="Timer" parent="." unique_id=246559202]
+wait_time = 60.0
+
+[node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
+stream = ExtResource("24_278cu")
+
+[node name="music" parent="." unique_id=615568374 instance=ExtResource("15_s8fo2")]
+
+[node name="spring" type="AudioStreamPlayer2D" parent="." unique_id=1174528615]
+stream = ExtResource("17_s8fo2")
+volume_db = -20.0
+
+[node name="leg_damage" type="Area3D" parent="." unique_id=2019060207]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("23_q4qd6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="leg_damage" unique_id=900643489]
+shape = SubResource("BoxShape3D_eafwc")
+disabled = true
+
+[node name="GroundRay" type="RayCast3D" parent="." unique_id=1679817050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+target_position = Vector3(0, -2, 0)
+collision_mask = 4
+
+[connection signal="timeout" from="save" to="." method="_on_save_timeout"]
+[connection signal="body_entered" from="leg_damage" to="leg_damage" method="_on_body_entered"]

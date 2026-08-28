@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://dvyormlmcnr8r"]
+
+[ext_resource type="Script" uid="uid://cu01v74yppo1" path="res://game/rooms/main.gd" id="1_rukgg"]
+[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="2_nx5a4"]
+[ext_resource type="PackedScene" uid="uid://b2tpuf62megqf" path="res://game/decoration/menu.tscn" id="5_q48q2"]
+[ext_resource type="PackedScene" uid="uid://cky5ax2dk354d" path="res://UI/menu/load/load.tscn" id="5_vy737"]
+[ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://game/decoration/lightTable.tscn" id="6_4kqoq"]
+[ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="6_7o45e"]
+[ext_resource type="PackedScene" uid="uid://bjxdu0c8o6rrf" path="res://UI/menu/menu/menu.tscn" id="6_8lup6"]
+[ext_resource type="PackedScene" uid="uid://wkycjb503jb1" path="res://UI/menu/world/world.tscn" id="7_1u0l2"]
+[ext_resource type="PackedScene" uid="uid://c8ije0jsd8354" path="res://UI/menu/options/options.tscn" id="7_4kqoq"]
+[ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://game/decoration/table.tscn" id="8_vy737"]
+
+[sub_resource type="Animation" id="Animation_7o45e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q48q2"]
+resource_name = "light"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4kqoq"]
+_data = {
+&"RESET": SubResource("Animation_7o45e"),
+&"light": SubResource("Animation_q48q2")
+}
+
+[sub_resource type="Animation" id="Animation_4kqoq"]
+resource_name = "OnSystem"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vy737"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vy737"]
+_data = {
+&"OnSystem": SubResource("Animation_4kqoq"),
+&"RESET": SubResource("Animation_vy737")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q48q2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q48q2"]
+material = SubResource("StandardMaterial3D_q48q2")
+size = Vector3(0.25, 0.1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy737"]
+albedo_texture = ExtResource("2_nx5a4")
+uv1_scale = Vector3(50, 1, 50)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7o45e"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Main" type="Node3D" unique_id=1607140273]
+script = ExtResource("1_rukgg")
+
+[node name="Table" parent="." unique_id=2066539064 instance=ExtResource("8_vy737")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0.5, -4.145)
+
+[node name="menu" parent="." unique_id=1861537908 instance=ExtResource("5_q48q2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2.831, -3.52)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1072168480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3679899, 2.378475, -1.9542058)
+
+[node name="options" parent="Camera3D" unique_id=517620797 instance=ExtResource("7_4kqoq")]
+visible = false
+
+[node name="load" parent="Camera3D" unique_id=2135560590 instance=ExtResource("5_vy737")]
+visible = false
+
+[node name="menu" parent="Camera3D" unique_id=1618934113 instance=ExtResource("6_8lup6")]
+visible = false
+
+[node name="world" parent="Camera3D" unique_id=966059859 instance=ExtResource("7_1u0l2")]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=194896446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6980104, -3.377)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 2.0
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 7.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1922123084]
+libraries/ = SubResource("AnimationLibrary_4kqoq")
+autoplay = &"light"
+
+[node name="On" type="AnimationPlayer" parent="." unique_id=1538011985]
+libraries/ = SubResource("AnimationLibrary_vy737")
+autoplay = &"OnSystem"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1260801008 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 5.427377, -3.1325755)
+mesh = SubResource("BoxMesh_q48q2")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1830637542]
+transform = Transform3D(-50, 0, 4.371139e-06, 0, 1, 0, -4.371139e-06, 0, -50, 0, 0, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="floor" unique_id=1184593793]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="floor/CSGCombiner3D" unique_id=346016756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0065307617, 0, -0.18161036)
+size = Vector3(1.0130615, 1, 0.6367798)
+material = SubResource("StandardMaterial3D_vy737")
+
+[node name="wall" parent="." unique_id=1092426163 instance=ExtResource("6_7o45e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5)
+light = false
+
+[node name="Light2" parent="." unique_id=1753787402 instance=ExtResource("6_4kqoq")]
+transform = Transform3D(0.39796466, 0, 0.9174007, 0, 1, 0, -0.9174007, 0, 0.39796466, -0.91872525, 2.3906944, -4.060623)
+on = false
+
+[node name="AreaLight" type="Area3D" parent="." unique_id=2099628218]
+transform = Transform3D(-1.8474118e-07, 0, 7.937516, 0, 8.890741, 0, -4.2263856, 0, -3.4695987e-07, -1.8676317, 2.0615518, -4.393621)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaLight" unique_id=167207935]
+shape = SubResource("BoxShape3D_7o45e")
+
+[connection signal="animation_finished" from="On" to="." method="_on_on_animation_finished"]
+[connection signal="mouse_entered" from="AreaLight" to="." method="_on_area_light_mouse_entered"]
+[connection signal="mouse_exited" from="AreaLight" to="." method="_on_area_light_mouse_exited"]

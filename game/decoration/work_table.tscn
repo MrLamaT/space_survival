@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxf02h3jh5uew"]
+
+[ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://game/decoration/table.tscn" id="1_15gjt"]
+[ext_resource type="Script" uid="uid://6a4jt1c4tl8l" path="res://game/decoration/work_table.gd" id="1_dgkms"]
+[ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://game/decoration/lightTable.tscn" id="2_dgkms"]
+[ext_resource type="PackedScene" uid="uid://b4stfemrbiggl" path="res://game/decoration/chair.tscn" id="3_rtu3v"]
+
+[node name="workTable" type="Node3D" unique_id=746575549]
+script = ExtResource("1_dgkms")
+
+[node name="Table" parent="." unique_id=191175265 instance=ExtResource("1_15gjt")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, 0.5, 0)
+
+[node name="Light" parent="." unique_id=648830743 instance=ExtResource("2_dgkms")]
+transform = Transform3D(-0.5251598, 0, -0.8510037, 0, 1, 0, 0.8510037, 0, -0.5251598, 0.41531086, 2.4024546, -0.5118027)
+
+[node name="chair" parent="." unique_id=169179891 instance=ExtResource("3_rtu3v")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.75, -1.8)

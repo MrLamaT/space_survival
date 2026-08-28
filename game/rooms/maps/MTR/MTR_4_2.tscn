@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ds3dtc7v0xerw"]
+
+[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="1_shxsj"]
+[ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://game/decoration/wall/corridorLoad.tscn" id="4_3bpnc"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="10_exsrb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_htu6x"]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 4294967268
+cell_size = 0.1
+agent_radius = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n2w0x"]
+height = 1.0
+radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bpnc"]
+albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+albedo_texture = ExtResource("10_exsrb")
+uv1_scale = Vector3(0.5, 1, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_3bpnc")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+radial_segments = 32
+
+[node name="Mtr42" type="NavigationRegion3D" unique_id=573822879]
+navigation_mesh = SubResource("NavigationMesh_htu6x")
+navigation_layers = 4
+
+[node name="floor_ceiling" type="Node3D" parent="." unique_id=232667335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.016, 0)
+
+[node name="room1" type="Node3D" parent="floor_ceiling" unique_id=1788240855]
+
+[node name="wallGates" parent="floor_ceiling/room1" unique_id=1533157946 instance=ExtResource("1_shxsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.75)
+unlocked = true
+
+[node name="wallGates2" parent="floor_ceiling/room1" unique_id=1193036467 instance=ExtResource("1_shxsj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 25)
+
+[node name="dirt" type="StaticBody3D" parent="floor_ceiling" unique_id=494042561]
+transform = Transform3D(-50, 0, 7.54979e-06, 0, 1, 0, -7.54979e-06, 0, -50, 0, 0, 0)
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_ceiling/dirt" unique_id=2021869518]
+shape = SubResource("CylinderShape3D_n2w0x")
+debug_fill = false
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="floor_ceiling/dirt" unique_id=680157396]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor_ceiling/dirt/CSGCombiner3D" unique_id=277667665]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="corridorLoad" parent="." unique_id=1705691794 groups=["corridorLoad_exit"] instance=ExtResource("4_3bpnc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -25)

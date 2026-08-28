@@ -7,18 +7,19 @@ var world_4: Dictionary
 var world_5: Dictionary
 
 var bonus_level: Dictionary = {
-	1: "res://chapter2/rooms/maps/backrooms/backrooms.tscn",
-	2: "res://chapter2/rooms/maps/RoP/fnaf.tscn",
-	3: "res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn"
+	1: "res://game/rooms/maps/backrooms/backrooms.tscn",
+	2: "res://game/rooms/maps/RoP/fnaf.tscn",
+	3: "res://game/rooms/maps/endless_parkour/endless_parkour.tscn"
 }
 
 var level: Dictionary = {
-	-2: "res://chapter2/rooms/maps/simulation/flat.tscn",
-	-1: "res://chapter2/rooms/maps/simulation/sandbox.tscn",
+	-2: "res://game/rooms/maps/simulation/flat.tscn",
+	-1: "res://game/rooms/maps/simulation/sandbox.tscn",
 	0: "res://UI/start/start.tscn",
-	1: "res://chapter2/rooms/maps/RoP/RoP_1.tscn",
-	2: "res://chapter2/rooms/maps/RoP/RoP_2.tscn",
-	3: "res://chapter2/rooms/maps/RoP/RoP_3.tscn"
+	1: "res://game/rooms/maps/RoP/RoP_1.tscn",
+	2: "res://game/rooms/maps/RoP/RoP_2.tscn",
+	3: "res://game/rooms/maps/RoP/RoP_3.tscn",
+	4: "res://game/rooms/maps/RoP/RoP_4.tscn"
 }
 
 var game_settings: Dictionary = {

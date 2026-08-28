@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cammn4h6l61of"]
+
+[ext_resource type="Script" uid="uid://cv7uis0y0h8f" path="res://game/item/Boom_projectile/boom_projectile.gd" id="1_r13ts"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iexmd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxxb3"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.54509807, 0, 1, 0.39215687)
+metallic = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_bxxb3")
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Animation" id="Animation_d2d6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1bxr"]
+resource_name = "boom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(6, 6, 6), Vector3(6.5, 6.5, 6.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(6, 6, 6), Vector3(6.5, 6.5, 6.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_run6c"]
+_data = {
+&"RESET": SubResource("Animation_d2d6q"),
+&"boom": SubResource("Animation_f1bxr")
+}
+
+[node name="BoomProjectile" type="Node3D" unique_id=1211004102]
+script = ExtResource("1_r13ts")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=939888304]
+light_color = Color(0.54509807, 0, 1, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=656076559]
+collision_layer = 4
+collision_mask = 21
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1064732246]
+shape = SubResource("SphereShape3D_iexmd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=993389259]
+mesh = SubResource("SphereMesh_yf5fn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1461231180]
+libraries/ = SubResource("AnimationLibrary_run6c")
+autoplay = &"boom"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

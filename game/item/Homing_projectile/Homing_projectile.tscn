@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://gareptr4v42c"]
+
+[ext_resource type="Script" uid="uid://l2x3awvafslb" path="res://game/item/Homing_projectile/homing_projectile.gd" id="1_h2ykb"]
+[ext_resource type="Texture2D" uid="uid://w67krk4gafpj" path="res://assets/charge.png" id="2_lcr8v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iexmd"]
+
+[node name="HomingProjectile" type="Node3D" unique_id=1211004102]
+script = ExtResource("1_h2ykb")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2053283637]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0, 0, 0)
+modulate = Color(1, 0.5882353, 1, 1)
+billboard = 1
+texture = ExtResource("2_lcr8v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=939888304]
+light_color = Color(1, 0.5882353, 1, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=656076559]
+collision_layer = 4
+collision_mask = 21
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1064732246]
+shape = SubResource("SphereShape3D_iexmd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

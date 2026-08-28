@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdrhprd8i3g4q"]
+
+[ext_resource type="Script" uid="uid://d1ir82tmhk5a5" path="res://game/decoration/light.gd" id="1_vnnpa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+shading_mode = 0
+albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnnpa"]
+material = SubResource("StandardMaterial3D_4hct6")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4hct6"]
+size = Vector3(8, 0.25, 1)
+
+[node name="Light" type="Area3D"]
+script = ExtResource("1_vnnpa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_vnnpa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+light_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+light_bake_mode = 1
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_4hct6")

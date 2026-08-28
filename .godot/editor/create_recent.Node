@@ -1,7 +1,8 @@
+StaticBody3D
+Node3D
 AudioStreamPlayer2D
 RayCast3D
 MeshInstance3D
-Node3D
 Sprite3D
 AnimationPlayer
 CollisionShape3D
@@ -11,5 +12,3 @@ LightmapGI
 VoxelGI
 OmniLight3D
 Button
-Sprite2D
-VBoxContainer

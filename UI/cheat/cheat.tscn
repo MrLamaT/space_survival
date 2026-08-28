@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://onbxjxxra1ds" path="res://UI/cheat/cheat.gd" id="1_fcqwc"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="2_flat7"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_gq4dh"]
-[ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://chapter2/Player/terminal/terminal.tscn" id="3_yybou"]
+[ext_resource type="PackedScene" uid="uid://dt32mdlwj8ff5" path="res://game/Player/terminal/terminal.tscn" id="3_yybou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1m7c"]
 bg_color = Color(0, 0, 0, 0.5882353)

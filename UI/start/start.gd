@@ -105,4 +105,4 @@ Weapons
 1–5 — weapon slots
 LMB — shoot")
 	if page >= 2:
-		SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/simulation/training.tscn")
+		SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/training.tscn")

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dod24ouleti6"]
+
+[ext_resource type="Script" uid="uid://fyfdd5uhb2dt" path="res://game/decoration/pc.gd" id="1_lq2wg"]
+[ext_resource type="Texture2D" uid="uid://bopx18mm06xvw" path="res://assets/textures/envelope.png" id="3_3ti70"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="6_1dcqe"]
+[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="7_xhikc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnnrj"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lq2r2"]
+material = SubResource("StandardMaterial3D_bnnrj")
+size = Vector3(0.1, 1.1, 1.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f845c"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f845c"]
+material = SubResource("StandardMaterial3D_f845c")
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m70t"]
+albedo_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_40pl7"]
+material = SubResource("StandardMaterial3D_6m70t")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.1
+radial_segments = 6
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxmwg"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6w7je"]
+material = SubResource("StandardMaterial3D_fxmwg")
+size = Vector3(0.1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ti70"]
+size = Vector3(1, 1, 0.16748047)
+
+[node name="PC1" type="Area3D" unique_id=1029461300 groups=["interactive_objects"]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_lq2wg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1149358277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1856535362]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.85)
+mesh = SubResource("BoxMesh_lq2r2")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="StaticBody3D" unique_id=1229743829]
+transform = Transform3D(1.0552863e-07, 1, 6.181724e-08, 0.70710677, -3.090862e-08, -0.70710677, -0.70710677, 1.183314e-07, -0.70710677, 0, -0.40391642, -1)
+mesh = SubResource("BoxMesh_f845c")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="StaticBody3D" unique_id=917524750]
+transform = Transform3D(1.0552862e-07, 1, -6.181723e-08, 0.7071067, -3.090862e-08, 0.7071067, 0.7071067, -1.183314e-07, -0.7071067, 0, -0.40391642, -1.29)
+mesh = SubResource("BoxMesh_f845c")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="StaticBody3D" unique_id=982979360]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.5589164, -1.45)
+mesh = SubResource("CylinderMesh_40pl7")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="StaticBody3D" unique_id=1530820814]
+transform = Transform3D(0.9999999, 0, 0, 0, -4.371139e-08, -0.9999999, 0, 1, -4.3711385e-08, 0, -0.45, -0.947)
+mesh = SubResource("CylinderMesh_40pl7")
+skeleton = NodePath("")
+
+[node name="monitor" type="MeshInstance3D" parent="StaticBody3D" unique_id=1368797372]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.5, -0.83692783)
+mesh = SubResource("BoxMesh_6w7je")
+skeleton = NodePath("")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D" unique_id=25780454]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, -0.75, -0.91)
+modulate = Color(0.33660746, 0.3366077, 0.33660752, 1)
+texture_filter = 0
+texture = ExtResource("6_1dcqe")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1224462702]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
+visible = false
+texture_filter = 0
+texture = ExtResource("3_3ti70")
+
+[node name="monitor" type="Node3D" parent="." unique_id=901060355]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="monitor" unique_id=250247947]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
+texture_filter = 0
+texture = ExtResource("6_1dcqe")
+
+[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=852692284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
+stream = ExtResource("7_xhikc")
+volume_db = -20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1256404457 groups=["interactive_objects"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.810791)
+shape = SubResource("BoxShape3D_3ti70")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

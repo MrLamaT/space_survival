@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dphennbkhj08u"]
+
+[ext_resource type="Script" uid="uid://dskrh33upbvom" path="res://game/rooms/maps/simulation/sky_removal.gd" id="1_dko67"]
+[ext_resource type="PackedScene" uid="uid://c2yyywgpuuaup" path="res://game/blocks/plank.tscn" id="2_0ylfe"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="2_dko67"]
+[ext_resource type="PackedScene" uid="uid://dhc5u82un6grn" path="res://game/blocks/grid.tscn" id="5_0ylfe"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_fe8xy"]
+vertices = PackedVector3Array(-18.45, 1, -11.85, -12.549999, 1, -11.75, -12.549999, 1, -12.35, -12.35, 1, -12.549999, -11.75, 1, -12.549999, -11.85, 1, -18.45, -18.45, 1, -18.45, 12.25, 1, -12.65, 12.25, 1, -18.45, 12.65, 1, -12.35, 12.65, 1, -11.549999, 18.45, 1, -11.549999, 18.45, 1, -18.45, -12.25, 5.5, -12.25, -12.25, 5.5, 12.25, 12.25, 5.5, 12.25, 12.25, 5.5, -12.25, -18.45, 1, 11.950001, -12.549999, 1, 11.85, 12.65, 1, 11.550001, 18.45, 1, 11.550001, -11.35, 1, -11.35, -11.35, 1, 11.450001, 11.450001, 1, 11.450001, 11.450001, 1, -11.45, 12.35, 1, 12.65, 11.550001, 1, 12.65, 11.550001, 1, 18.45, 12.65, 1, 12.35, 18.45, 1, 18.45, -11.549999, 1, 18.45, -11.549999, 1, 12.65, -12.35, 1, 12.65, -12.549999, 1, 12.450001, -18.45, 1, 18.45)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 5, 4), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 6), PackedInt32Array(3, 6, 5), PackedInt32Array(7, 4, 8), PackedInt32Array(8, 4, 5), PackedInt32Array(11, 10, 9), PackedInt32Array(7, 8, 9), PackedInt32Array(9, 8, 12), PackedInt32Array(9, 12, 11), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(18, 17, 1), PackedInt32Array(1, 17, 0), PackedInt32Array(10, 11, 19), PackedInt32Array(19, 11, 20), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(27, 26, 25), PackedInt32Array(28, 19, 20), PackedInt32Array(28, 20, 25), PackedInt32Array(25, 20, 29), PackedInt32Array(25, 29, 27), PackedInt32Array(32, 31, 30), PackedInt32Array(17, 18, 33), PackedInt32Array(32, 30, 33), PackedInt32Array(33, 30, 34), PackedInt32Array(33, 34, 17), PackedInt32Array(31, 26, 30), PackedInt32Array(30, 26, 27)]
+geometry_parsed_geometry_type = 1
+geometry_collision_mask = 4294967268
+cell_size = 0.1
+agent_radius = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3k8cl"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dko67"]
+size = Vector3(25, 25, 25)
+
+[node name="Dark" type="NavigationRegion3D" unique_id=1655437883]
+navigation_mesh = SubResource("NavigationMesh_fe8xy")
+navigation_layers = 4
+
+[node name="plank" parent="." unique_id=1357790181 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(0.5, 0, 1.7337242e-13, 0, 4, 0, -3.5527137e-15, 0, 24.4, 12, 2.516, 3.8143807e-07)
+
+[node name="plank2" parent="." unique_id=553810750 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(0.5, 0, 1.7337242e-13, 0, 4, 0, -3.5527137e-15, 0, 24.4, -12, 2.516, 0)
+
+[node name="plank3" parent="." unique_id=200331311 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(-2.1855694e-08, 0, 24.4, 0, 4, 0, -0.5, 0, -1.0665578e-06, 0, 2.516, -12)
+
+[node name="plank4" parent="." unique_id=1265915641 instance=ExtResource("2_0ylfe")]
+transform = Transform3D(-2.1855694e-08, 0, 24.4, 0, 4, 0, -0.5, 0, -1.0665578e-06, 0, 2.516, 12)
+
+[node name="wall" type="StaticBody3D" parent="." unique_id=973870043]
+transform = Transform3D(-1, 0, 3.1786506e-08, 0, 1, 0, -3.1786506e-08, 0, -1, 0, 0.016, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall" unique_id=386927429]
+transform = Transform3D(-2.1855694e-06, 0, 50, 0, 1, 0, -50, 0, -2.1855694e-06, 0, 4.75, 0)
+shape = SubResource("BoxShape3D_3k8cl")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="wall" unique_id=1446548344]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="wall/CSGCombiner3D" unique_id=1573242658]
+transform = Transform3D(-2.1855694e-06, 0, -50, 0, 1, 0, 50, 0, -2.1855694e-06, 0, 4.75, 0)
+size = Vector3(0.5, 0.5, 0.5)
+material = ExtResource("2_dko67")
+
+[node name="grid" parent="." unique_id=1315845667 instance=ExtResource("5_0ylfe")]
+transform = Transform3D(37.5, 0, -2.2737368e-13, 0, 5, 0, 2.2737368e-13, 0, 37.5, 0, -2, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1655761062]
+collision_layer = 4
+script = ExtResource("1_dko67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1372167891]
+shape = SubResource("BoxShape3D_dko67")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

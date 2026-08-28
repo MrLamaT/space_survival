@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dc2ophfdpgcj"]
+
+[ext_resource type="Script" uid="uid://36m1mn3ovx3e" path="res://game/spawnpoint/spawnpoint.gd" id="1_7vw7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0400"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0, 1, 0.19607843)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+size = Vector3(2, 0.25, 2)
+
+[node name="spawnpoint" type="Area3D" unique_id=1018967805]
+script = ExtResource("1_7vw7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=136739849]
+shape = SubResource("BoxShape3D_r0400")
+debug_color = Color(1, 0, 1, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1051617741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.875, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1549944559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1873854406]
+billboard = 2
+text = "spawnpoint"
+font_size = 75
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

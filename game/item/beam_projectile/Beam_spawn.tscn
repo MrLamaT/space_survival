@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://cbs2lefp3fx4w"]
+
+[ext_resource type="Script" uid="uid://dyqtongng6qwc" path="res://game/item/beam_projectile/beam_spawn.gd" id="1_v1j78"]
+[ext_resource type="AudioStream" uid="uid://bdktyolepse0e" path="res://assets/sound/whate3.wav" id="2_hcu1m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54la3"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.39215687)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_54la3")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 15.0
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jx2a"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.54509807, 0, 1, 0.39215687)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0jx2a"]
+material = SubResource("StandardMaterial3D_0jx2a")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 15.0
+radial_segments = 16
+
+[sub_resource type="Animation" id="Animation_54la3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("whate:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0jx2a"]
+resource_name = "beam"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(2, 1, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(2, 1, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("whate:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8srr2"]
+_data = {
+&"RESET": SubResource("Animation_54la3"),
+&"beam": SubResource("Animation_0jx2a")
+}
+
+[node name="BeamSpawn" type="Marker3D" unique_id=1685857646]
+transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 0, 0)
+script = ExtResource("1_v1j78")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=626987669]
+transform = Transform3D(0.1, -2.1565224e-36, 3.5527137e-16, 0, 1, 6.070071e-23, -3.5527137e-16, -6.070071e-22, 0.1, 0, -7.55, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1833173367]
+transform = Transform3D(0.1, -2.1565224e-36, 3.5527137e-16, 0, 1, 6.070071e-23, -3.5527137e-16, -6.070071e-22, 0.1, 0, -7.55, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0jx2a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=325394305]
+libraries/ = SubResource("AnimationLibrary_8srr2")
+
+[node name="whate" type="AudioStreamPlayer3D" parent="." unique_id=770040907]
+stream = ExtResource("2_hcu1m")
+pitch_scale = 2.0

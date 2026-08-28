@@ -22,7 +22,7 @@ config/icon="uid://c644es5qjluwt"
 [autoload]
 
 Global="*res://global.gd"
-SceneManager="*res://chapter2/load/SceneManager.gd"
+SceneManager="*res://game/load/SceneManager.gd"
 BaseProp="*uid://brbx55qomurrh"
 
 [display]
@@ -41,7 +41,7 @@ enabled=PackedStringArray()
 folder_colors={
 "res://UI/": "purple",
 "res://assets/": "green",
-"res://chapter2/": "orange"
+"res://game/": "red"
 }
 
 [global_group]

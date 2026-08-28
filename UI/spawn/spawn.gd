@@ -21,19 +21,19 @@ func handle_card_pressed(type, id, _color_img):
 		"skybox":
 			match id:
 				"Void":
-					_replace_skybox(preload("res://chapter2/sky/skybox.tscn"))
+					_replace_skybox(preload("res://game/sky/skybox.tscn"))
 				"Clear Sky":
-					_replace_skybox(preload("res://chapter2/sky/skyboxBlue.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxBlue.tscn"))
 				"Toxic Haze":
-					_replace_skybox(preload("res://chapter2/sky/skyboxToxic.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxToxic.tscn"))
 				"Crimson Dawn":
-					_replace_skybox(preload("res://chapter2/sky/skyboxBlood.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxBlood.tscn"))
 				"Rust Storm":
-					_replace_skybox(preload("res://chapter2/sky/skyboxRust.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxRust.tscn"))
 				"Pale Dawn":
-					_replace_skybox(preload("res://chapter2/sky/skyboxPale.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxPale.tscn"))
 				"Dusk":
-					_replace_skybox(preload("res://chapter2/sky/skyboxDusk.tscn"))
+					_replace_skybox(preload("res://game/sky/skyboxDusk.tscn"))
 		"filters":
 			var filter = get_tree().get_first_node_in_group("filter")
 			if id == "None":
@@ -97,13 +97,13 @@ func handle_card_pressed(type, id, _color_img):
 					player.openUI("planet")
 					queue_free()
 				"sandbox":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/simulation/sandbox.tscn")
+					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/sandbox.tscn")
 				"FNaD":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/RoP/fnaf.tscn")
+					SceneManager.load_scene_with_loading("res://game/rooms/maps/RoP/fnaf.tscn")
 				"flat":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/simulation/flat.tscn")
+					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/flat.tscn")
 				"parkour":
-					SceneManager.load_scene_with_loading("res://chapter2/rooms/maps/endless_parkour/endless_parkour.tscn")
+					SceneManager.load_scene_with_loading("res://game/rooms/maps/endless_parkour/endless_parkour.tscn")
 		"other":
 			match id:
 				"console": 

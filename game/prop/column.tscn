@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://pxde681k2c4w"]
+
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="1_emmhm"]
+[ext_resource type="Texture2D" uid="uid://bpkr8m8lkt4m8" path="res://assets/icon/note.png" id="1_yhobw"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="2_hcn56"]
+[ext_resource type="Script" uid="uid://csah8atsnlw6f" path="res://game/prop/column.gd" id="3_hcn56"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w53tm"]
+material = ExtResource("1_emmhm")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5spey"]
+albedo_color = Color(1, 0.11372549, 0.25490198, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dapkd"]
+material = SubResource("StandardMaterial3D_5spey")
+size = Vector3(0.5, 0.4, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7umy6"]
+shading_mode = 0
+albedo_color = Color(0.9882353, 1, 0.7137255, 1)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iiyfn"]
+material = SubResource("StandardMaterial3D_7umy6")
+top_radius = 0.2
+bottom_radius = 0.25
+height = 0.1
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rbw5n"]
+material = SubResource("StandardMaterial3D_7umy6")
+top_radius = 0.25
+bottom_radius = 0.2
+height = 0.1
+radial_segments = 16
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhobw"]
+size = Vector3(0.5, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.6, 0.6, 1.1)
+
+[node name="column" type="RigidBody3D" unique_id=1828673876 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=661131766]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_w53tm")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=439704790]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_dapkd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1381494998]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+mesh = SubResource("CylinderMesh_iiyfn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=810571726]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_rbw5n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1446710806]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_yhobw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1556963614]
+transform = Transform3D(-3.278354e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.278354e-08, 0.251, 0, 0)
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_yhobw")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=642970424]
+transform = Transform3D(-2.1855695e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855695e-07, -0.251, 0, 0)
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_hcn56")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1041963473 groups=["interactive_objects"]]
+collision_layer = 4
+script = ExtResource("3_hcn56")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1581465455]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[connection signal="mouse_entered" from="Area3D" to="Area3D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="Area3D" method="_on_mouse_exited"]

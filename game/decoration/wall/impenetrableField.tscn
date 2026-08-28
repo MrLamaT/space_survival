@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://c6vhj6o1e6kgl"]
+
+[ext_resource type="Script" uid="uid://brsixyrg23tcu" path="res://game/decoration/wall/impenetrable_field.gd" id="1_bv5rj"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="3_gashk"]
+[ext_resource type="PackedScene" uid="uid://dod24ouleti6" path="res://game/decoration/PC1.tscn" id="4_6q4hf"]
+[ext_resource type="Shader" uid="uid://cylo07nm4bmaj" path="res://assets/shaders/force_field.gdshader" id="4_pqpdn"]
+[ext_resource type="Texture2D" uid="uid://bbf2tymhi67xo" path="res://assets/hexagon_grid.png" id="5_nh1gh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icml4"]
+render_priority = 0
+shader = ExtResource("4_pqpdn")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/pattern_scroll_speed = 0.025
+shader_parameter/pattern_uv_scale = Vector2(2, 1)
+shader_parameter/pattern_texture = ExtResource("5_nh1gh")
+shader_parameter/fresnel_power = 4.0
+shader_parameter/edge_intensity = 2.0
+shader_parameter/center_intensity = 0.1
+shader_parameter/pulsing_strength = 0.25
+shader_parameter/pulsing_speed = 1.0
+shader_parameter/scanline_frequency = 0.5
+shader_parameter/scanline_width = 0.1
+shader_parameter/scanline_intensity = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q4hf"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+albedo_texture = ExtResource("3_gashk")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqpdn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nh1gh"]
+material = SubResource("StandardMaterial3D_pqpdn")
+size = Vector3(5, 3.75, 0.1)
+
+[sub_resource type="Animation" id="Animation_bv5rj"]
+resource_name = "On"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall/box4:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wall/box4:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gashk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("wall/box4:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody3D/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("wall/box4:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6q4hf"]
+_data = {
+&"On": SubResource("Animation_bv5rj"),
+&"RESET": SubResource("Animation_gashk")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pqpdn"]
+size = Vector3(5.75, 3.75, 0.2)
+
+[node name="ImpenetrableField" type="Node3D" unique_id=1337111662]
+script = ExtResource("1_bv5rj")
+
+[node name="wall" type="CSGCombiner3D" parent="." unique_id=591739501]
+collision_layer = 4
+collision_mask = 3
+
+[node name="box" type="CSGBox3D" parent="wall" unique_id=84395701 groups=["wall"]]
+size = Vector3(5, 3.75, 0.1)
+material = SubResource("ShaderMaterial_icml4")
+
+[node name="box4" type="CSGBox3D" parent="wall" unique_id=2124404460 groups=["wall"]]
+operation = 2
+size = Vector3(5, 3.75, 0.2)
+material = SubResource("ShaderMaterial_icml4")
+
+[node name="box6" type="CSGBox3D" parent="wall" unique_id=1752821713 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, 0.125, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
+
+[node name="box7" type="CSGBox3D" parent="wall" unique_id=714562113 groups=["wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75, 0.125, 0)
+size = Vector3(0.5, 4, 0.25)
+material = SubResource("StandardMaterial3D_6q4hf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall" unique_id=1378536024]
+visible = false
+mesh = SubResource("BoxMesh_nh1gh")
+surface_material_override/0 = SubResource("ShaderMaterial_icml4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=459517786]
+libraries/ = SubResource("AnimationLibrary_6q4hf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=844559820]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=539931473]
+shape = SubResource("BoxShape3D_pqpdn")
+disabled = true
+
+[node name="PC1" parent="." unique_id=1029461300 instance=ExtResource("4_6q4hf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75, 0, 1.624)
+nameUI = "hacking"
