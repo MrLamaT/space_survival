@@ -110,24 +110,24 @@ bottom_radius = 0.175
 height = 0.2
 radial_segments = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fs6mm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ncm7"]
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 uv1_triplanar = true
 texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_k31tw"]
-material = SubResource("StandardMaterial3D_fs6mm")
+material = SubResource("StandardMaterial3D_0ncm7")
 radius = 0.05
 height = 0.1
 radial_segments = 16
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1byr"]
 albedo_color = Color(0.44313726, 0.33333334, 0.32941177, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
-material = SubResource("StandardMaterial3D_yf5fn")
+material = SubResource("StandardMaterial3D_i1byr")
 top_radius = 0.05
 bottom_radius = 0.05
 height = 0.02
