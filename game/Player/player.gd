@@ -2,7 +2,10 @@ extends CharacterBody3D
  
 @onready var head = $head
 @onready var cam = $head/Camera3D
-@onready var stamina_bar = $head/Camera3D/staminaProgressBar
+@onready var stamina_bar = $head/Camera3D/UI/stamina/ProgressBar
+@onready var energy_bar = $head/Camera3D/UI/energy/ProgressBar
+@onready var HP_bar = $head/Camera3D/UI/HP/ProgressBar
+@onready var HP_label = $head/Camera3D/UI/HP/ProgressBar/Label
 @onready var blood_overlay = $head/Camera3D/blood
 @onready var footstep_player = $FootstepPlayer
 @onready var footstep_player2 = $FootstepPlayer2
@@ -66,7 +69,7 @@ var running_fov: float = 80.0  # FOV при беге
 var fov_transition_speed: float = 8.0  # скорость изменения FOV
 var current_fov: float = base_fov
 
-# энергия
+# стамина
 var is_running = false
 var stamina = 100.0
 var max_stamina = 100.0
@@ -76,9 +79,17 @@ var can_regenerate = true
 var regen_delay = 0.5  # Задержка перед восстановлением после бега
 var regen_timer = 0.0
 
+# Энергия для оружия
+var energy: float = 100.0
+var max_energy: float = 100.0
+var energy_depletion_rate: float = 25.0  # Скорость расходования энергии в секунду (для будущего использования, если понадобится)
+var energy_regen_rate: float = 25.0      # Скорость восстановления энергии в секунду
+var can_regenerate_energy: bool = true
+var regen_energy_timer: float = 0.0
+var regen_energy_delay: float = 0.5      # Задержка перед восстановлением после стрельбы
+
 # Фонарик
 var flashlight_enabled: bool = false
-var flashlight_stamina_cost: float = 10.0  # Расход стамины в секунду при включенном фонарике
 
 var is_paused = false
 
@@ -158,8 +169,8 @@ func _ready():
 	Global.game_settings["WeaponProtection"] = false
 	Global.game_settings["affected_by_gravity"] = true 
 	base_camera_position = cam.position
-	update_stamina_display()
-	stamina_bar.visible = false  
+	stamina_bar.value = stamina
+	update_energy_display()
 	update_gui_visibility()
 	if Global.game_settings["gui_settings"]["Autosave"]:
 		$save.start()
@@ -393,6 +404,7 @@ func _process(delta):
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	_update_stamina(delta)
+	_update_energy(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
 	_process_poison(delta)
@@ -422,18 +434,26 @@ func _update_stamina(delta):
 				can_regenerate = true
 		if can_regenerate and stamina < max_stamina:
 			stamina = min(max_stamina, stamina + stamina_regen_rate * delta)
-	update_stamina_display()
-
-func update_stamina_display():
 	stamina_bar.value = stamina
-	if stamina < max_stamina or not can_regenerate:
-		stamina_bar.visible = true
-	else:
-		stamina_bar.visible = false
-	if stamina > 20:
-		stamina_bar.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	else:
-		stamina_bar.modulate = Color(1.0, 0.26, 0.26, 1.0)
+
+func _update_energy(delta):
+	if not can_regenerate_energy:
+		regen_energy_timer += delta
+		if regen_energy_timer >= regen_energy_delay:
+			can_regenerate_energy = true
+	if can_regenerate_energy and energy < max_energy:
+		energy = min(max_energy, energy + energy_regen_rate * delta)
+	update_energy_display()
+
+func update_energy_display():
+	if energy_bar:
+		energy_bar.value = energy
+		if energy > 75:
+			energy_bar.modulate = Color("00bfff")
+		elif energy > 25:
+			energy_bar.modulate = Color("ffff00ff")
+		else:
+			energy_bar.modulate = Color(1.0, 0.0, 0.0, 1.0)
 
 func _update_fov_effects(delta):
 	var target_fov = base_fov
@@ -468,7 +488,8 @@ func _physics_process(delta):
 		HP(world["HP"] - new_hp)
 		global_position = Global.game_settings["checkpoint"]
 		velocity.y = 0
-	$head/Camera3D/UI/HP/Label.text = str(int(world["HP"]))
+	HP_label.text = str(int(world["HP"]))
+	HP_bar.value = int(world["HP"])
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
@@ -571,7 +592,7 @@ func update_max_stamina():
 		max_stamina = 150.0
 	if "exoskeleton 1" in world["equipment"]:
 		max_stamina = 125.0
-	$head/Camera3D/staminaProgressBar.max_value = max_stamina
+	stamina_bar.max_value = max_stamina
 
 func force_stand_up():
 	if crouched:

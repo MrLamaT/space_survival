@@ -19,7 +19,6 @@ var vertical_oscillation: float = 0.3
 
 var last_velocity: Vector3 = Vector3.ZERO
 var is_flying_away: bool = false
-var has_dealt_damage: bool = false
 
 func shoot(dir: Vector3, spd: float):
 	direction = dir
@@ -78,11 +77,8 @@ func on_hit(collider: Object):
 		collider.take_damage(damage)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if has_dealt_damage:
-		return
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
-		has_dealt_damage = true
 		is_hit = true
 		speed = 0.0
 		target_body = body

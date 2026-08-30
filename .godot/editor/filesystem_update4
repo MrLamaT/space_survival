@@ -1,4 +1,4 @@
-res://game/prop/toilet.tscn
+res://UI/spawn/spawn.tscn
 res://assets/shaders/filter/BWR.gdshader
 res://assets/shaders/filter/BWR_orange.gdshader
 res://assets/shaders/filter/bit8.gdshader
@@ -6,20 +6,9 @@ res://assets/shaders/filter/flisheye.gdshader
 res://assets/shaders/filter/blur.gdshader
 res://assets/shaders/filter/negative.gdshader
 res://assets/shaders/filter/gamma.gdshader
+res://assets/shaders/filter/f_water.gdshader
 res://assets/shaders/portal.gdshader
 res://assets/shaders/laser.gdshader
 res://assets/shaders/force_field.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
-res://game/decoration/wall/wallGates.tscn
-res://game/rooms/maps/RoP/RoP_4.tscn
-res://game/prop/сrystalCitadel.tscn
-res://game/suppression/suppression.tscn
-res://UI/messages/messages.gd
-res://game/enemy/smasher/infantryman.gd
-res://game/enemy/smasher/infantryman.tscn
-res://game/enemy/smasher/smasher.tscn
-res://game/enemy/destroyercik/destroyercik.tscn
-res://game/rooms/maps/RoP/RoP_2.tscn
-res://game/rooms/maps/RoP/fnaf.tscn
-res://UI/pause/pause.gd

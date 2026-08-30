@@ -12,7 +12,7 @@ var fire_rate: float = 0.2
 var last_fire_time: float = 0.0
 var bullet_speed: float = 50.0
 var stamina_cost_per_shot: float = 8.0
-var min_stamina_to_shoot: float = 5.0
+var min_energy_to_shoot: float = 5.0
 
 var is_alt_shooting: bool = false
 var last_alt_fire_time: float = 0.0
@@ -34,7 +34,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Knife_projectile/Knife.tscn"),
 		"fire_rate": 0.75,
 		"bullet_speed": 0.0,
-		"stamina_cost": 2.0,
+		"energy_cost": 2.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Knife",
 		"pitch_scale": [1.4, 1.6]
@@ -44,7 +44,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Taser_projectile/Taser.tscn"),
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
-		"stamina_cost": 8.0,
+		"energy_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "Taser",
 		"pitch_scale": [1.4, 1.6]
@@ -54,7 +54,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Hornet_projectile/Hornet.tscn"),
 		"fire_rate": 0.06,
 		"bullet_speed": 35.0,
-		"stamina_cost": 1.5,
+		"energy_cost": 1.5,
 		"reload_animation": "r",
 		"visible_node": "Hornet",
 		"pitch_scale": [1.4, 1.6],
@@ -62,7 +62,7 @@ var weapons: Dictionary = {
 			"scene": preload("res://game/item/Knife_projectile/Knife_projectile.tscn"),
 			"fire_rate": 0.75,
 			"bullet_speed": 50.0,
-			"stamina_cost": 4.0,
+			"energy_cost": 4.0,
 			"shoot_animation": "magnet",
 			"pitch_scale": [1.2, 1.4]
 		}
@@ -72,14 +72,14 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Move_projectile/Move.tscn"),
 		"fire_rate": 0.5,
 		"bullet_speed": 0.0,
-		"stamina_cost": 0.0,
+		"energy_cost": 0.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Move",
 		"alt": {
 			"scene": preload("res://game/item/Move_projectile/AltMove_projectile.tscn"),
 			"fire_rate": 0.5,
 			"bullet_speed": 0.0,
-			"stamina_cost": 0.0,
+			"energy_cost": 0.0,
 			"shoot_animation": "shoot"
 		}
 	},
@@ -88,7 +88,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Delete_projectile/Delete.tscn"),
 		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
-		"stamina_cost": 0.0,
+		"energy_cost": 0.0,
 		"visible_node": "Delete"
 	},
 	"Summon": {
@@ -96,7 +96,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Summon_projectile/Summon.tscn"),
 		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
-		"stamina_cost": 0.0,
+		"energy_cost": 0.0,
 		"visible_node": "Summon",
 		"alt": {
 			"UI": "spawn"
@@ -107,14 +107,14 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Block_projectile/Block.tscn"),
 		"fire_rate": 0.25,
 		"bullet_speed": 0.0,
-		"stamina_cost": 0.0,
+		"energy_cost": 0.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Block",
 		"alt": {
 			"scene": preload("res://game/item/Delete_projectile/Delete_projectile.tscn"),
 			"fire_rate": 0.25,
 			"bullet_speed": 0.0,
-			"stamina_cost": 0.0,
+			"energy_cost": 0.0,
 			"shoot_animation": "shoot"
 		}
 	},
@@ -123,7 +123,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/AggroSwapping.tscn"),
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
-		"stamina_cost": 8.0,
+		"energy_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "AggroSwapping",
 		"pitch_scale": [1.4, 1.6],
@@ -275,7 +275,7 @@ func shoot(is_alt: bool = false):
 		return
 	if not player.movement_enabled or Global.game_settings["IsDying"]:
 		return
-	if player.stamina < min_stamina_to_shoot:
+	if player.energy < min_energy_to_shoot:
 		return
 	var weapon_data = weapons[current_weapon_name]
 	var alt_data = weapon_data.get("alt")
@@ -295,17 +295,17 @@ func shoot(is_alt: bool = false):
 		if current_time - last_fire_time < weapon_data["fire_rate"]:
 			return
 	
-	player.stamina = max(0, player.stamina - data_to_use.get("stamina_cost", 0))
-	player.can_regenerate = false
-	player.regen_timer = 0.0
-	player.update_stamina_display()
+	player.energy = max(0, player.energy - data_to_use.get("energy_cost", 0))
+	player.can_regenerate_energy = false
+	player.regen_energy_timer = 0.0
+	player.update_energy_display()
 	
 	if data_to_use.has("shoot_animation") and data_to_use["shoot_animation"] != "":
 		if current_weapon and current_weapon.has_node("AnimationPlayer"):
 			current_weapon.get_node("AnimationPlayer").play(data_to_use["shoot_animation"])
 	
 	is_reloading = false
-	if player.stamina < weapon_data["stamina_cost"] + 5.0 and !is_reloading:
+	if player.energy < weapon_data["energy_cost"] + 5.0 and !is_reloading:
 		is_reloading = true
 		if weapon_data.has("reload_animation") and weapon_data["reload_animation"] != "":
 			if current_weapon and current_weapon.has_node("AnimationPlayer"):

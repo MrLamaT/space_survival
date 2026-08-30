@@ -12,7 +12,7 @@ func handle_card_pressed(type, id, _color_img):
 				"Terra":
 					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-				"RoP-856":
+				"Weak":
 					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 				"Supermass":
@@ -55,9 +55,8 @@ func handle_card_pressed(type, id, _color_img):
 					filter.material_override = preload("res://assets/shaders/filter/negative.tres")
 				"Gamma":
 					filter.material_override = preload("res://assets/shaders/filter/gamma.tres")
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+				"Water":
+					filter.material_override = preload("res://assets/shaders/filter/f_water.tres")
 		"weapon":
 			$Panel.visible = false
 			$weapon_slot.visible = true
@@ -118,6 +117,13 @@ func handle_card_pressed(type, id, _color_img):
 					_clear_group("balls")
 				"clear blocks": 
 					_clear_group("block")
+				"unlock levels": 
+					var world = Global.get_world(Global.game_settings.word)
+					world["level"] = 5
+					world["stage"] = 2
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
 
 func _clear_group(group_name: String) -> void:
 	var nodes = get_tree().get_nodes_in_group(group_name)

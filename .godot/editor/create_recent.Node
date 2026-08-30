@@ -1,8 +1,9 @@
+Panel
+RayCast3D
 MeshInstance3D
 StaticBody3D
 Node3D
 AudioStreamPlayer2D
-RayCast3D
 Sprite3D
 AnimationPlayer
 CollisionShape3D
@@ -11,4 +12,3 @@ NavigationRegion3D
 LightmapGI
 VoxelGI
 OmniLight3D
-Button
