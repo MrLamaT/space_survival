@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b4r0q64axq1tq"]
+
+[ext_resource type="Script" uid="uid://da8qxsllyvxqo" path="res://UI/demo/demo.gd" id="1_x2ym1"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_4le4f"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="5_pf26r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="Pause" type="Node2D" unique_id=709397907 groups=["UI"]]
+script = ExtResource("1_x2ym1")
+
+[node name="Panel" type="Panel" parent="." unique_id=541691378]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=779101066]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -536.0
+offset_top = -171.5
+offset_right = 175.0
+offset_bottom = 171.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_fonts/normal_font = ExtResource("2_4le4f")
+bbcode_enabled = true
+text = "You have completed the demo version of the
+game!
+
+Try Sandbox Mode — select \"Creative Mode\" in
+the level menu and build anything you want!
+
+Stay tuned — follow for new versions and 
+updates!
+
+Follow us:
+
+[url=https://gamejolt.com/@MrLamaT]GameJolt[/url]
+
+[url=https://www.youtube.com/@%D0%9B%D0%B0%D0%BC%D0%B0-%D0%B89%D1%8E]YouTube[/url]
+
+[url=https://www.tiktok.com/@mrlamat]TikTok[/url]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelButton" parent="Panel" unique_id=1811368051 instance=ExtResource("5_pf26r")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 274.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT TO MENU"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "exit"
+
+[connection signal="meta_clicked" from="Panel/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

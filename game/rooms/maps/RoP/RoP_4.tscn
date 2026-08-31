@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://game/decoration/barrel2.tscn" id="8_lrqp0"]
 [ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://game/decoration/wall/corridorLoad.tscn" id="9_40c1g"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://game/prop/barrel.tscn" id="9_qn6o2"]
-[ext_resource type="PackedScene" uid="uid://c5fmtmyv17w3x" path="res://game/rooms/maps/RoP/RoP_2_2.tscn" id="10_6eq70"]
 [ext_resource type="PackedScene" uid="uid://cb1bxcrcvs0gn" path="res://game/prop/storageBox.tscn" id="10_553gl"]
 [ext_resource type="PackedScene" uid="uid://d2kp3ovym1413" path="res://game/decoration/PC2.tscn" id="11_0rxj5"]
 [ext_resource type="PackedScene" uid="uid://cxf02h3jh5uew" path="res://game/decoration/work_table.tscn" id="12_x3jtn"]
@@ -24,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dcqw41odbu4my" path="res://game/prop/сrystalCitadel.tscn" id="16_otutm"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://game/enemy/cockroach/cockroach.tscn" id="17_fj61y"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://game/chest/chest.tscn" id="20_x3jtn"]
+[ext_resource type="PackedScene" uid="uid://ds3dtc7v0xerw" path="res://game/rooms/maps/MTR/MTR_4_2.tscn" id="21_otutm"]
 [ext_resource type="PackedScene" uid="uid://3wierofwxkw1" path="res://game/decoration/wall/corridor.tscn" id="26_udvrq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -430,7 +430,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3.5,
 
 [node name="corridorLoad" parent="NavigationRegion3D" unique_id=1949690047 instance=ExtResource("9_40c1g")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.5, 0, 61.25)
-next_corridor_scene = ExtResource("10_6eq70")
+next_corridor_scene = ExtResource("21_otutm")
 
 [node name="Wave" parent="NavigationRegion3D" unique_id=956278609 node_paths=PackedStringArray("Gates") instance=ExtResource("14_e2amk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, -18)

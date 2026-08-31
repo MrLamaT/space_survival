@@ -92,7 +92,8 @@ F — включить/выключить фонарик
 1–5 — слоты оружия
 ЛКМ — стрельба")
 		else:
-			await type_text($Panel/Label, "W, A, S, D — movement
+			await type_text($Panel/Label, "Movement
+W, A, S, D — movement
 Shift — sprint
 Space — jump
 C, Ctrl — crouch

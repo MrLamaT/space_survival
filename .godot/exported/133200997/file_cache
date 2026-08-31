@@ -2,7 +2,7 @@ res://default_env.tres::6353b5d2a7072d44dffdf5d637f0889a::1763216573::res://.god
 res://UI/LabelButton/LabelButton.tscn::a9214d6174dfe33f32deaa457126a161::1771989886::res://.godot/exported/133200997/export-300c2ae839a76baa79de849724c27b1c-LabelButton.scn
 res://UI/pause/pause.tscn::d38ddd3f0b0ddf045a3eb7dac3a5ea38::1786318376::res://.godot/exported/133200997/export-59a932d1eed48273d4b350ec9c1df812-pause.scn
 res://UI/planet/planet.tscn::e6205f7841918b977e56c88a0b344945::1787312102::res://.godot/exported/133200997/export-d3ec1b4aa6a9cb9573a9e3061f5418a4-planet.scn
-res://UI/teleport/teleport.tscn::48eb6bc04aaca6aed6816371848d6ceb::1784237982::res://.godot/exported/133200997/export-ece774f494b0615e9eb2cd6415f02b12-teleport.scn
+res://UI/teleport/teleport.tscn::48eb6bc04aaca6aed6816371848d6ceb::1788096395::res://.godot/exported/133200997/export-ece774f494b0615e9eb2cd6415f02b12-teleport.scn
 res://UI/Inventory/Inventory.tscn::c45d4fbb1adc46c55b1ce206aa9960a5::1783617632::res://.godot/exported/133200997/export-05c791b56d19d7aa7cf8d06c09aaafc5-Inventory.scn
 res://UI/Inventory/ItemSlot.tscn::f1a1df011c1c91d04dd2e5aeb836bf99::1783615657::res://.godot/exported/133200997/export-3dfc7c587018c5d440040d0d096dbef6-ItemSlot.scn
 res://UI/recipe/recipe.tscn::7b61e4f21e2c3f474d5d8c12ea3fea92::1783618821::res://.godot/exported/133200997/export-d11e50d185fb7debee07eb9ad65b3a3f-recipe.scn
@@ -23,8 +23,8 @@ res://assets/material/earth.tres::652c36e6d77c0a31b149fe1bc8b7abb3::1787091839::
 res://assets/material/materialPhantom.tres::6800d5a29e1f91e51a9c34e2192e6f27::1784403994::res://.godot/exported/133200997/export-6a02606f4ee7fa5746e9be7147b2ca23-materialPhantom.res
 res://assets/material/roof.tres::0191cec15307c8a5607f9bda0028b610::1784841597::res://.godot/exported/133200997/export-c58a0c41633130dcf28f399dc9560f51-roof.res
 res://UI/spawn/card.tscn::82ecf933e3ba15d44142c60ff9e20515::1786489073::res://.godot/exported/133200997/export-1b3adb9aab0f3020189049ed8cf0feac-card.scn
-res://UI/spawn/spawn.tscn::d09924df3bb7cbee0800f90a54243083::1787841848::res://.godot/exported/133200997/export-5947a10b28bf9896b92da0ac791b7dc1-spawn.scn
-res://UI/start/start.tscn::abe078f2a80aaa15122083f5a7b5a620::1785274492::res://.godot/exported/133200997/export-6a709ea960aeeff59e84e4f3859a6589-start.scn
+res://UI/spawn/spawn.tscn::d4e5b7842b7404993f0862fdccd9c6e3::1788166877::res://.godot/exported/133200997/export-5947a10b28bf9896b92da0ac791b7dc1-spawn.scn
+res://UI/start/start.tscn::abe078f2a80aaa15122083f5a7b5a620::1788164164::res://.godot/exported/133200997/export-6a709ea960aeeff59e84e4f3859a6589-start.scn
 res://assets/material/grid.tres::3610aada3292987b3b31b6d65d492908::1784842682::res://.godot/exported/133200997/export-0a44e140e662a2e964e8e8d9d41ca4b2-grid.res
 res://assets/material/home1.tres::0cd9842ba8973f51cc268f3e4141b8ba::1784843734::res://.godot/exported/133200997/export-dc484d083a061a731754b59f0fec24c3-home1.res
 res://assets/material/plank.tres::6131ad5c738ea1a43d6264fcc1106d16::1784842375::res://.godot/exported/133200997/export-6f8d84b3ced0dd53b15ed2d74ecb3bc2-plank.res
@@ -70,7 +70,7 @@ res://game/decoration/wall/impenetrableField.tscn::2a83060c38184ca793bbc3a3f6b8f
 res://game/decoration/wall/latticeWall.tscn::d54c402aa53b2388a57080e5a61e5088::1777562539::res://.godot/exported/133200997/export-de0b29f64de07ea774a301b438e424bd-latticeWall.scn
 res://game/decoration/wall/MineWall.tscn::04354c07820e2a42a7690deb1899c0a7::1787910709::res://.godot/exported/133200997/export-7cb49394f016272efbd5370d6ff19bf9-MineWall.scn
 res://game/decoration/wall/wall.tscn::1bc4b28c1e68865a251ebcaf0157d656::1787910709::res://.godot/exported/133200997/export-6d1c248c20623471fe24cc46c1446a6a-wall.scn
-res://game/decoration/wall/wallGates.tscn::c81c22a6d940d782eab396fb7de441ac::1787910709::res://.godot/exported/133200997/export-87b8a8f3a7a31c07cb5861f950613925-wallGates.scn
+res://game/decoration/wall/wallGates.tscn::f4195a2338bdea0fd19a06edc62ed701::1787987550::res://.godot/exported/133200997/export-87b8a8f3a7a31c07cb5861f950613925-wallGates.scn
 res://game/decoration/wall/wallGlass.tscn::5aab58de972ca109b0d5f0485e75b527::1787910709::res://.godot/exported/133200997/export-4c2dc6c9bb00911e8ef1fb6e2096b5f1-wallGlass.scn
 res://game/decoration/wall/wall_pillar.tscn::a5f1c4278e3b42d4f5094d78e8bf88f3::1777562539::res://.godot/exported/133200997/export-5d4e84b75c1c49e3b18062a3a678fb06-wall_pillar.scn
 res://game/decoration/antenna.tscn::88ce550a22fabce94d2529433bdd5672::1781371880::res://.godot/exported/133200997/export-6f38beb73d3afb0b851c3654eedbefe7-antenna.scn
@@ -109,7 +109,7 @@ res://game/decoration/web.tscn::841359b7238d8b45c97fd25777d79157::1777562481::re
 res://game/decoration/work_table.tscn::d364fe1b24829a10a0b54f7c0e06a7ce::1787910709::res://.godot/exported/133200997/export-aa41e2a0dcd6a97380f0e4ea97956032-work_table.scn
 res://game/enemy/cleaner/cleaner.tscn::a30bf15cb42181243d5dfccd23328751::1787910709::res://.godot/exported/133200997/export-60924d68ae7b8aa36082a6ad06787d1e-cleaner.scn
 res://game/enemy/cockroach/cockroach.tscn::d19691beb883697cc73b28c1e7bb4209::1787910709::res://.godot/exported/133200997/export-ea7f254676a124975730f8bbade35739-cockroach.scn
-res://game/enemy/destroyercik/destroyercik.tscn::0189aed4f66746f8fbf3aa29fe46c083::1787910709::res://.godot/exported/133200997/export-721742ae0fdbcf180900dd5810bb8cf1-destroyercik.scn
+res://game/enemy/destroyercik/destroyercik.tscn::87a963fd38fd9853f2ee8b3062353284::1788003795::res://.godot/exported/133200997/export-721742ae0fdbcf180900dd5810bb8cf1-destroyercik.scn
 res://game/enemy/giantStingray/giantStingray.tscn::5d9d481da99eb8c43d669d8cb7391e52::1787910709::res://.godot/exported/133200997/export-c003d867d78155d79a7a8c9829753dd1-giantStingray.scn
 res://game/enemy/infantryman/infantryman.tscn::91a0b2f9d2d1496a0da14890773a16db::1787910709::res://.godot/exported/133200997/export-16e07b1ad28df095bc648e77c1d03b1a-infantryman.scn
 res://game/enemy/nextbot/nextbot.tscn::f0dcffd7bbef7eedd0829c6ed2819d38::1787910709::res://.godot/exported/133200997/export-4b7578e92caf648415a48683f0db71b1-nextbot.scn
@@ -117,7 +117,7 @@ res://game/enemy/observer1/observer1.tscn::aa75b54f9f622a89331a5d393f88a0f5::178
 res://game/enemy/phantom/phantom.tscn::513d495649488df788d3c70e0b3386b4::1787910709::res://.godot/exported/133200997/export-59f6e137479c1c853d90533acdc2f376-phantom.scn
 res://game/enemy/scp/scp.tscn::cca11a97384b6fe34effe2d1e28e007d::1787910709::res://.godot/exported/133200997/export-f3906d9832f6455fa9f3c4a5b92adcce-scp.scn
 res://game/enemy/shooter/shooter.tscn::7d04112cf916c688d14f0efa65c0896c::1787910709::res://.godot/exported/133200997/export-e518075eefa3d8e8057c58f255335d6d-shooter.scn
-res://game/enemy/siren_head/siren_head.tscn::f233d37fc0f70585b8330680bb18a112::1787910709::res://.godot/exported/133200997/export-adce4edbd8d7b265d2b585cae33c54b1-siren_head.scn
+res://game/enemy/siren_head/siren_head.tscn::4f451cdd22f0e3d3b1f49a5ba12f2b30::1788069892::res://.godot/exported/133200997/export-adce4edbd8d7b265d2b585cae33c54b1-siren_head.scn
 res://game/enemy/stingray/stingray.tscn::97a5699046c3cd678f71065f563e1290::1787910709::res://.godot/exported/133200997/export-9c6959610c277223d96c339d97efbad5-stingray.scn
 res://game/enemy/shatter.tscn::1b1e38052b4d865a4a5172b01a60560d::1787910709::res://.godot/exported/133200997/export-8ff736616b87c4627b98f37e4ae0f3c7-shatter.scn
 res://game/enemy/SparkDeadEnemy.tscn::d7460f68861ecab176c8e03c24d2af45::1785213100::res://.godot/exported/133200997/export-03e6edd7d894da29921c22c7e01d85aa-SparkDeadEnemy.scn
@@ -125,7 +125,7 @@ res://game/enemy/SparkEnemy.tscn::96c3f7f1da15ea088610bb261182db8d::1785212441::
 res://game/hide/invisible_trigger.tscn::e976165ee97d4f3f408a68b030424d64::1787910709::res://.godot/exported/133200997/export-57fce54eb53776322fdbc1bbceb40871-invisible_trigger.scn
 res://game/item/AggroSwapping_projectile/AggroSwapping.tscn::8bea0d9149ae00c79d545009b6567334::1787910709::res://.godot/exported/133200997/export-5e500f162528ef6a52ec5669a618dd08-AggroSwapping.scn
 res://game/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn::c3627faa097b8ef6197800e812228a49::1787910709::res://.godot/exported/133200997/export-8ccbd5bb0ac244d42128bb5b4bfbd74e-AggroSwapping_projectile.scn
-res://game/item/beam_projectile/Beam_projectile.tscn::4f22b75bee66a1c6ce3e03a04b6cd025::1787910709::res://.godot/exported/133200997/export-d6aa2d46ec8d37fb7b3888bc213af728-Beam_projectile.scn
+res://game/item/beam_projectile/Beam_projectile.tscn::8200e9139ca54fae54a3d2336661f8ae::1788104063::res://.godot/exported/133200997/export-d6aa2d46ec8d37fb7b3888bc213af728-Beam_projectile.scn
 res://game/item/beam_projectile/Beam_spawn.tscn::723dd6679bcf7cad5b93dde336b3b2df::1787910709::res://.godot/exported/133200997/export-dcd8beb0c1209fbc480a37751988d52d-Beam_spawn.scn
 res://game/item/Block_projectile/Block.tscn::ed1cf0b6c0bd855a232ea12f392b4cde::1787736963::res://.godot/exported/133200997/export-aa867932666d0203325e285f41f8c1bc-Block.scn
 res://game/item/Block_projectile/Block_projectile.tscn::0b5369c6da67cf8263224d3371ff8c19::1787910709::res://.godot/exported/133200997/export-61fd05666d19ac4f7e866458e04d3157-Block_projectile.scn
@@ -151,12 +151,12 @@ res://game/item/Taser_projectile/Taser_projectile.tscn::65db4e6a9d3071b8d20d83a6
 res://game/item/cam.tscn::72c9a6ff19a2b13cc338998fb5fcb1a0::1779869275::res://.godot/exported/133200997/export-8bbfec596d05f74aeb5acdf7f83f6353-cam.scn
 res://game/item/hand.tscn::0376188c46d9a00dab64b1a3fb0b22c2::1787660883::res://.godot/exported/133200997/export-4f98858e9c6239f5cfdf24e4be38819e-hand.scn
 res://game/item/hand_item.tscn::74e50e6a26b87ce8c5249800b5c72a5c::1787910710::res://.godot/exported/133200997/export-04d0fe46f85c340e6cabf23bfcd3b750-hand_item.scn
-res://game/laser/laser.tscn::b3ed7459c8738d7415f38e226fe088de::1787910710::res://.godot/exported/133200997/export-252eacf1a1ecd6b9bc88cd0ef8e936da-laser.scn
+res://game/laser/laser.tscn::7207108da906c901f97f5ad57ca5ba26::1788167429::res://.godot/exported/133200997/export-252eacf1a1ecd6b9bc88cd0ef8e936da-laser.scn
 res://game/laser/tesla.tscn::de955ac106561746ddf9e8cbbbf7c800::1787910710::res://.godot/exported/133200997/export-d502c1ed4e90c8d41e1d01c5f738423d-tesla.scn
 res://game/load/LoadingScreen.tscn::65f3152a87078c59c0920ff0945fbd38::1787912113::res://.godot/exported/133200997/export-f344c1c7dccc68fbd1631a1ea982cd83-LoadingScreen.scn
 res://game/load/splash_screen.tscn::52cf156b9414e3e1c69e89fb4b3ed3e6::1787910710::res://.godot/exported/133200997/export-d6b4d01a4c1adac02d542a37b2fba6d0-splash_screen.scn
 res://game/Player/terminal/terminal.tscn::843c715e1c4b5988c89659360eae96cb::1787910710::res://.godot/exported/133200997/export-85284eb7ccf0359fadd6297763e5d80b-terminal.scn
-res://game/Player/Player.tscn::71d22346eca052ebbccab126ad1a68d2::1787932609::res://.godot/exported/133200997/export-5c24436130884fa8a70141639b93603b-Player.scn
+res://game/Player/Player.tscn::0e5f8c46d6c5b32ef77c843e94751c1f::1788166715::res://.godot/exported/133200997/export-5c24436130884fa8a70141639b93603b-Player.scn
 res://game/poison/poisonMushroom.tscn::38131127f7c32bd35291b975c99d1af3::1787910710::res://.godot/exported/133200997/export-0eececc11d3efa7ee3ab9d17631e176a-poisonMushroom.scn
 res://game/poison/poisonSmok.tscn::996196fa7ec2f126a3ac6dc335a69053::1787910710::res://.godot/exported/133200997/export-e1e34f67eebb38eab6600a8cd86c26e5-poisonSmok.scn
 res://game/portal/portal.tscn::cf4f79baeb3018990ee92bd6d7347208::1787910710::res://.godot/exported/133200997/export-33f01058118bb1b565c54a2a08b70867-portal.scn
@@ -173,7 +173,7 @@ res://game/prop/sofa2.tscn::9f5597506b1df745a5938ff10faee139::1784586037::res://
 res://game/prop/sofa.tscn::f8837808772c770b5e7819cea07d80c1::1784586038::res://.godot/exported/133200997/export-371d269f4533f4df58efb60f1481e225-sofa.scn
 res://game/prop/spring.tscn::d27b69a9d3f63ed0d2dc091c9e4c47f4::1787910710::res://.godot/exported/133200997/export-ab0ca0f27a3aa00bb0c5005d712cf528-spring.scn
 res://game/prop/storageBox.tscn::52f1be6f077be190bb7756cae53aa6ed::1784586038::res://.godot/exported/133200997/export-2db4703209284531e4960a8508fa28f9-storageBox.scn
-res://game/prop/toilet.tscn::280868202ff03a98f777897381e86112::1784586038::res://.godot/exported/133200997/export-9b065eb5982265a5ce042cf09068c4c9-toilet.scn
+res://game/prop/toilet.tscn::280868202ff03a98f777897381e86112::1787986927::res://.godot/exported/133200997/export-9b065eb5982265a5ce042cf09068c4c9-toilet.scn
 res://game/prop/tree2.tscn::a0ec697041a668dc49414f964de89a1d::1785862448::res://.godot/exported/133200997/export-1e34968d4666d8521cea317e8f174f37-tree2.scn
 res://game/prop/tree.tscn::bfba1094f6b637b1ea56f93a2f96f3c5::1785862448::res://.godot/exported/133200997/export-8a8fbb334df3d4d2a9d67698948bdae6-tree.scn
 res://game/prop/watermelon.tscn::e362ca2dd5bdbf695a9c5de542459f97::1787910710::res://.godot/exported/133200997/export-3de3aad01c8217c21698499fecc0a7d8-watermelon.scn
@@ -183,13 +183,13 @@ res://game/radiation/radioactiveMushroom.tscn::885c8d2908d6f24dd0c48472b7cfcfde:
 res://game/rooms/maps/backrooms/backrooms.tscn::d46b6d0cba56612b054942932273e212::1787910710::res://.godot/exported/133200997/export-06605bebc03ff6d93f4ee8b3943722d2-backrooms.scn
 res://game/rooms/maps/endless_parkour/endless_parkour.tscn::bdbb23145a92637308df81f151c351ab::1787910710::res://.godot/exported/133200997/export-a1c5506690c839b1614996b9634f5229-endless_parkour.scn
 res://game/rooms/maps/endless_parkour/endless_parkour_block.tscn::932c8820fd90e14ec5043b3109f1b40d::1787910710::res://.godot/exported/133200997/export-1cdc905252c062a0e13743e0b275c9b9-endless_parkour_block.scn
-res://game/rooms/maps/MTR/MTR_4_2.tscn::2dd51a130b9a0aca78d793143b6d6257::1787910710::res://.godot/exported/133200997/export-879ac2b88759231e05a2f63ce650419b-MTR_4_2.scn
-res://game/rooms/maps/RoP/fnaf.tscn::e3aaa7bcb486c8bb531e488d0313df72::1787932862::res://.godot/exported/133200997/export-7e62f83f09c33cd6b9ebf2b4bd23f67d-fnaf.scn
-res://game/rooms/maps/RoP/RoP_1.tscn::cfa58b46f3ff9ab8c20e2b7c1c915281::1787910710::res://.godot/exported/133200997/export-4691c149725ca3b67026fef88d7c764d-RoP_1.scn
-res://game/rooms/maps/RoP/RoP_2.tscn::364db218497eaa14716b485e4006fc92::1787910711::res://.godot/exported/133200997/export-cdc5d1c72ef314f0751ad2154545d3a4-RoP_2.scn
+res://game/rooms/maps/MTR/MTR_4_2.tscn::d13764ad45832579d6ec840513929854::1788170613::res://.godot/exported/133200997/export-879ac2b88759231e05a2f63ce650419b-MTR_4_2.scn
+res://game/rooms/maps/RoP/fnaf.tscn::e3aaa7bcb486c8bb531e488d0313df72::1788018863::res://.godot/exported/133200997/export-7e62f83f09c33cd6b9ebf2b4bd23f67d-fnaf.scn
+res://game/rooms/maps/RoP/RoP_1.tscn::36481f46110e94c8bdece700ba4f1bbe::1788166786::res://.godot/exported/133200997/export-4691c149725ca3b67026fef88d7c764d-RoP_1.scn
+res://game/rooms/maps/RoP/RoP_2.tscn::fc0daa869390e50009746c569f27ec56::1788004598::res://.godot/exported/133200997/export-cdc5d1c72ef314f0751ad2154545d3a4-RoP_2.scn
 res://game/rooms/maps/RoP/RoP_2_2.tscn::04573edb09bfed23872e039021e52fda::1787910711::res://.godot/exported/133200997/export-cd925eda1325d6446a28a616682c93be-RoP_2_2.scn
-res://game/rooms/maps/RoP/RoP_3.tscn::66b5789a578e1f0a03cebeca5e9cbb07::1787910711::res://.godot/exported/133200997/export-c99a9a94c764f12b7df7e1f986556203-RoP_3.scn
-res://game/rooms/maps/RoP/RoP_4.tscn::822604195395d0fbe17394ee7f84e3cd::1787932875::res://.godot/exported/133200997/export-338665ffbcbd2275c94514e3ea94a6ed-RoP_4.scn
+res://game/rooms/maps/RoP/RoP_3.tscn::ffefe784f7602359d3fca78ecafbd569::1788166818::res://.godot/exported/133200997/export-c99a9a94c764f12b7df7e1f986556203-RoP_3.scn
+res://game/rooms/maps/RoP/RoP_4.tscn::0154d4cb65216919e2feb4024aeedf12::1788166859::res://.godot/exported/133200997/export-338665ffbcbd2275c94514e3ea94a6ed-RoP_4.scn
 res://game/rooms/maps/simulation/black.tscn::9441febdb902c241eb4adcc87a4312a0::1787910711::res://.godot/exported/133200997/export-214d244264e2c74ef44881c4e291f430-black.scn
 res://game/rooms/maps/simulation/dark.tscn::8ad89ce9dcc34e8c211567d22686dcad::1787910711::res://.godot/exported/133200997/export-ab98f1cf32e89f50539c9898f09ba72b-dark.scn
 res://game/rooms/maps/simulation/flat.tscn::acdb27e06068a68c106d7589d9130d43::1787910711::res://.godot/exported/133200997/export-3a642d2a8de507c995921fb2cd81c756-flat.scn
@@ -205,7 +205,7 @@ res://game/sky/skyboxPale.tscn::28f4a0196c3214cf3b7d9c83b236337b::1787835770::re
 res://game/sky/skyboxRust.tscn::222ea3e5d92ea23c8d3451cf2e7a08dd::1787835770::res://.godot/exported/133200997/export-7d84008be0313bf321cdb5f233f58064-skyboxRust.scn
 res://game/sky/skyboxToxic.tscn::1c703a51629fecd3e78c4a865d2b34d6::1787835770::res://.godot/exported/133200997/export-94a2994ed329a1bd2554173f65734d08-skyboxToxic.scn
 res://game/spawnpoint/spawnpoint.tscn::2a5842614d426726a76f132bab71ec6a::1787910711::res://.godot/exported/133200997/export-5ef8b26635fcc78e0a832fb019dd1e82-spawnpoint.scn
-res://game/suppression/suppression.tscn::7cea82f265e2148d29ed330376f94094::1787910711::res://.godot/exported/133200997/export-b4baa744c1d2d59755fac0253414eb77-suppression.scn
+res://game/suppression/suppression.tscn::b8613f15bfe976f2108f527af53d66f2::1787988948::res://.godot/exported/133200997/export-b4baa744c1d2d59755fac0253414eb77-suppression.scn
 res://game/ventilation/ventilation.tscn::29f793ebd45e6a7a445d5258e7c8794e::1787910711::res://.godot/exported/133200997/export-d6883d605cc39e6e893b2adbb0890aa6-ventilation.scn
 res://game/wave/DeletePortal.tscn::cf080b8f4c313695055db37326b2dbdc::1787910711::res://.godot/exported/133200997/export-d7d2920b25aa5c01a06c608ce7aecf40-DeletePortal.scn
 res://game/wave/TeleportPortal.tscn::c071346108a16433c3a324a2f35853ad::1787910711::res://.godot/exported/133200997/export-52914e5925e932f07f2f0d620c6ba239-TeleportPortal.scn
@@ -215,3 +215,7 @@ res://game/wave/WavePortal.tscn::cc5ab34c27c53436e2c93fb04f1d60d8::1787910711::r
 res://UI/aggression/aggression.tscn::b6adffeba53eba391fd364a1fef9a1d3::1786833207::res://.godot/exported/133200997/export-66ccee1dfe1fe1e644d9bf81290acd96-aggression.scn
 res://UI/music/music_audio.tscn::10026ca057fbbbc7e8081ebec4c615c4::1786306950::res://.godot/exported/133200997/export-64f607f3f23e2ce5c1562f8fde1ee37b-music_audio.scn
 res://UI/spawn/category.tscn::ebba50e1c28396c1fba5186c8cf77e20::1786490283::res://.godot/exported/133200997/export-868c9423b640e69f63e2a68c4fcdcf93-category.scn
+res://assets/shaders/filter/f_water.tres::861a49ed21337c3999c74a97a6887b81::1788107173::res://.godot/exported/133200997/export-54e61427d5f34370f601830d4106224a-f_water.res
+res://game/prop/сrystalCitadel.tscn::735404b247e4400b31c4843d81b7c0a7::1787989015::res://.godot/exported/133200997/export-809c257f7762d1d31a9e18b9076c1e09-сrystalCitadel.scn
+res://game/item/Hornet_projectile/Hornet_give.tscn::0a5c06200f0e82072affe47152054790::1788168795::res://.godot/exported/133200997/export-9a7ca0c7d96d2cef983a029828a28111-Hornet_give.scn
+res://UI/demo/demo.tscn::45c767a6cd99fd024e855e5f12d65500::1788170578::res://.godot/exported/133200997/export-2a54b0d9e9a64c2513b280c36bb2f928-demo.scn

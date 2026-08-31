@@ -1,3 +1,5 @@
+RichTextLabel
+OmniLight3D
 Panel
 RayCast3D
 MeshInstance3D
@@ -11,4 +13,3 @@ Area3D
 NavigationRegion3D
 LightmapGI
 VoxelGI
-OmniLight3D

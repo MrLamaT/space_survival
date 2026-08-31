@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="space_survival"
+config/name="Project Cleaner"
 run/main_scene="uid://2b46d713lssn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://c644es5qjluwt"

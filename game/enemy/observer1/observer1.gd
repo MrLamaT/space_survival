@@ -29,6 +29,7 @@ var target_y: float = 0.0          # Целевая высота
 # Телепорт
 var is_teleporting: bool = false
 var portal_scene = preload("res://game/wave/WavePortal.tscn")
+var spawn_position: Vector3 = Vector3.ZERO
 
 # Система атак
 enum AttackType { SHOOT, BEAM , ASCEND, TELEPORT }
@@ -42,6 +43,7 @@ var is_attacking: bool = false
 
 func _ready():
 	super._ready()
+	spawn_position = global_position
 	can_act = false
 	await get_tree().create_timer(spawn_protection).timeout
 	can_act = true
@@ -190,7 +192,7 @@ func start_teleport_attack():
 		return
 	print("телепорт!")
 	can_act = false
-	teleport_near_player()
+	teleport_to_spawn()
 	while is_teleporting and is_instance_valid(self) and not is_dead:
 		await get_tree().process_frame
 	can_act = true
@@ -201,26 +203,16 @@ func create_portal(pos: Vector3):
 	get_tree().root.add_child(portal)
 	portal.global_position = pos
 
-func teleport_near_player():
-	if not player or is_teleporting:
+func teleport_to_spawn():
+	if is_teleporting:
 		return
 	is_teleporting = true
 	is_ascending = false
 	create_portal(global_position)
-	var random_angle = randf_range(0, TAU)
-	var random_distance = randf_range(2.5, 4.0)  
-	var offset = Vector3(cos(random_angle), 0, sin(random_angle)) * random_distance
-	var teleport_pos = player.global_position + offset
-	teleport_pos.y = player.global_position.y
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(global_position, teleport_pos)
-	var result = space_state.intersect_ray(query)
-	if not result.is_empty():
-		random_angle = randf_range(0, TAU)
-		random_distance = randf_range(4.0, 6.0)
-		offset = Vector3(cos(random_angle), 0, sin(random_angle)) * random_distance
-		teleport_pos = player.global_position + offset
-		teleport_pos.y = player.global_position.y
+	var offset_values = [-2.5, 0, 2.5]
+	var random_x = offset_values[randi() % offset_values.size()]
+	var random_z = offset_values[randi() % offset_values.size()]
+	var teleport_pos = spawn_position + Vector3(random_x, 1.0, random_z)
 	global_position = teleport_pos
 	create_portal(global_position)
 	$body/AnimationPlayer.play("RESET")
