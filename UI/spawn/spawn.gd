@@ -41,10 +41,10 @@ func handle_card_pressed(type, id, _color_img):
 				return
 			filter.visible = true
 			match id:
-				"BAW":
-					filter.material_override = preload("res://assets/shaders/filter/BWR.tres")
+				"noir":
+					filter.material_override = preload("res://assets/shaders/filter/noir.tres")
 				"except orange":
-					filter.material_override = preload("res://assets/shaders/filter/BWR_orange.tres")
+					filter.material_override = preload("res://assets/shaders/filter/noir_orange.tres")
 				"8-bit colors":
 					filter.material_override = preload("res://assets/shaders/filter/bit8.tres")
 				"Fisheye":
@@ -95,6 +95,18 @@ func handle_card_pressed(type, id, _color_img):
 					var player = get_tree().get_first_node_in_group("player")
 					player.openUI("planet")
 					queue_free()
+				"unlock levels": 
+					var world = Global.get_world(Global.game_settings.word)
+					world["level"] = 5
+					world["stage"] = 2
+					var player = get_tree().get_first_node_in_group("player")
+					Global.save(Global.game_settings["word"])
+					if Global.game_settings["gui_settings"]["Language"] == "русский":
+						player.warning("Все уровни открыты!")
+					else:
+						player.warning("All levels are unlocked!")
+					player.openUI("planet")
+					queue_free()
 				"sandbox":
 					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/sandbox.tscn")
 				"FNaD":
@@ -109,6 +121,40 @@ func handle_card_pressed(type, id, _color_img):
 					var player = get_tree().get_first_node_in_group("player")
 					player.openUI("cheat")
 					queue_free()
+				"god": 
+					var player = get_tree().get_first_node_in_group("player")
+					player.GodMod = !player.GodMod
+					player.warning("God mode changed [" + str(player.GodMod) + "]")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
+				"noclip [V]":
+					var player = get_tree().get_first_node_in_group("player")
+					player.noclip_cheat()
+					player.warning("Noclip toggled")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
+				"ghost":
+					var player = get_tree().get_first_node_in_group("player")
+					Global.game_settings["GhostMod"] = !Global.game_settings["GhostMod"]
+					player.warning("Ghost mode changed [" + str(Global.game_settings["GhostMod"]) + "]")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
+				"kill All":
+					var player = get_tree().get_first_node_in_group("player")
+					var enemies = get_tree().get_nodes_in_group("enemy")
+					if enemies.size() > 0:
+						for enemy in enemies:
+							if enemy.has_method("take_damage"):
+								enemy.take_damage(999999)
+						player.warning("Killed " + str(enemies.size()) + " enemy/enemies")
+					else:
+						player.warning("No enemies found")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
 				"clear characters": 
 					_clear_group("enemy")
 				"clear props": 
@@ -117,15 +163,6 @@ func handle_card_pressed(type, id, _color_img):
 					_clear_group("balls")
 				"clear blocks": 
 					_clear_group("block")
-				"unlock levels": 
-					var world = Global.get_world(Global.game_settings.word)
-					world["level"] = 5
-					world["stage"] = 2
-					var player = get_tree().get_first_node_in_group("player")
-					player.save()
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
 
 func _clear_group(group_name: String) -> void:
 	var nodes = get_tree().get_nodes_in_group(group_name)

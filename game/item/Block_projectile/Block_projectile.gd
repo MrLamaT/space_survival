@@ -34,6 +34,9 @@ const BLOCK_SCENES = {
 	"glass": "res://game/blocks/glass.tscn",
 	"sercilist": "res://game/blocks/sercilist.tscn",
 	"ice": "res://game/blocks/ice.tscn",
+	"roof": "res://game/blocks/roof.tscn",
+	"water": "res://game/blocks/water.tscn",
+	"scheme": "res://game/blocks/scheme.tscn",
 }
 
 const BLOCK_SIZE = 1.2  # Размер блока
@@ -149,8 +152,25 @@ func _create_scene_block(block_position: Vector3, block_name: String) -> void:
 	block_instance.add_to_group("block")
 	get_tree().current_scene.add_child(block_instance)
 	block_instance.global_position = block_position
-	
 	var scale_factor = BLOCK_SIZE / 1.0 
+	var scheme = get_tree().get_first_node_in_group("block_scheme")
+	if scheme:
+		var start_position = scheme.global_position
+		var direction = block_position - start_position
+		var block_x = max(1, round(abs(direction.x) / BLOCK_SIZE) + 1)
+		var block_y = max(1, round(abs(direction.y) / BLOCK_SIZE) + 1)
+		var block_z = max(1, round(abs(direction.z) / BLOCK_SIZE) + 1)
+		var size_x = block_x * BLOCK_SIZE
+		var size_y = block_y * BLOCK_SIZE
+		var size_z = block_z * BLOCK_SIZE
+		var center = Vector3(
+			(start_position.x + block_position.x) / 2.0,
+			(start_position.y + block_position.y) / 2.0,
+			(start_position.z + block_position.z) / 2.0,
+		)
+		block_instance.global_position = center
+		block_instance.scale = Vector3(size_x,size_y,size_z)
+		print("Блок растянут от block_scheme до ", block_position)
+		return
 	block_instance.scale = Vector3(scale_factor, scale_factor, scale_factor)
-	
 	print("Сцена блока ", block_name, " поставлена на позиции: ", block_position)

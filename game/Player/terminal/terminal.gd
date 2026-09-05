@@ -54,18 +54,9 @@ func parse_command(text: String):
 	command_args[command] = argument
 
 	match command:
-		"noclip", "fly":
-			SystemPrint("Noclip toggled")
-			player.ghost_cheat()
-		"ghost":
-			SystemPrint("Ghost mode has been changed")
-			Global.game_settings["GhostMod"] = !Global.game_settings["GhostMod"]
 		"teleport", "home":
 			player.global_position = Vector3(0, 0, 0)
 			SystemPrint("Teleported to coordinates 0, 0, 0")
-		"godmode", "god":
-			Global.game_settings["GodMod"] = !Global.game_settings["GodMod"]
-			SystemPrint("God mode changed")
 		"info":
 			if argument == "":
 				for key in Global.game_settings.keys():
@@ -80,15 +71,6 @@ func parse_command(text: String):
 		"restart", "respawn":
 			player.respawn_player()
 			SystemPrint("Player respawned")
-		"HP", "hp":
-			if argument == "":
-				player.HP(100)
-			else:
-				if argument.is_valid_int():
-					var damage_value = argument.to_int()
-					player.HP(damage_value)
-				else:
-					ErrorPrint("Invalid argument: must be an integer number")
 		"poison":
 			if argument == "":
 				player.apply_poison(100)

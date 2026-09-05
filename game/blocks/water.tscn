@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://qmghvrdd1mbh"]
+
+[ext_resource type="Script" uid="uid://cw5snievlihae" path="res://game/blocks/water.gd" id="1_3wr8p"]
+[ext_resource type="Material" uid="uid://cumb8wm41opyu" path="res://assets/material/water.tres" id="2_78ym6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_11g11"]
+material = ExtResource("2_78ym6")
+
+[node name="water" type="Area3D" unique_id=314631086]
+script = ExtResource("1_3wr8p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1866620565]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621387631]
+cast_shadow = 0
+mesh = SubResource("BoxMesh_11g11")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

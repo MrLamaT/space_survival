@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://byxw0favkbuw6"]
+
+[ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://assets/weapon/move.png" id="1_npg7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+
+[node name="scheme" type="StaticBody3D" unique_id=1357790181 groups=["block_scheme"]]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1866620565]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=457193033]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_npg7l")

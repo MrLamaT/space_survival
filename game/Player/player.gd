@@ -47,8 +47,6 @@ var was_under_obstacle = false
 
 var movement_enabled: bool = true
 
-var cheat_f3: bool = false
-
 var damage_cooldown: float = 0.0
 var damage_cooldown_duration: float = 1.0 
 
@@ -123,6 +121,10 @@ var is_on_ice: bool = false
 var ice_friction: float = 1.0  # Коэффициент сохранения скорости (чем меньше, тем быстрее тормозит)
 var ice_accel_multiplier: float = 1.0  # Множитель ускорения на льду
 
+#читы
+var GodMod: bool = false
+var noclip: bool = false
+
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -164,8 +166,8 @@ func _ready():
 	)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
+	Global.game_settings["GhostMod"] = false
 	movement_enabled = true
-	Global.game_settings["GodMod"] = false 
 	Global.game_settings["WeaponProtection"] = false
 	Global.game_settings["affected_by_gravity"] = true 
 	base_camera_position = cam.position
@@ -211,7 +213,7 @@ func HP(hp):
 	if damage_cooldown > 0:
 		return
 	var world = Global.get_world(Global.game_settings.word)
-	if !Global.game_settings["GodMod"]:
+	if !GodMod:
 		world["HP"] -= hp
 		damage_cooldown = damage_cooldown_duration
 	if hp > 0:
@@ -232,7 +234,7 @@ func HP(hp):
 func apply_poison(damage: float) -> void:
 	if Global.game_settings["IsDying"]:
 		return
-	if Global.game_settings["GodMod"]:
+	if GodMod:
 		return
 	poison_damage = damage
 	var world = Global.get_world(Global.game_settings.word)
@@ -252,7 +254,7 @@ func _process_poison(delta: float) -> void:
 		if poison_tick_timer >= poison_tick_interval:
 			poison_tick_timer = 0.0
 			var world = Global.get_world(Global.game_settings.word)
-			if !Global.game_settings["GodMod"]:
+			if !GodMod:
 				world["HP"] -= poison_damage
 			blood_overlay.modulate = Color("4CAF50")
 			$head/Camera3D/damage.play("damage")
@@ -335,7 +337,7 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
-			ghost_cheat()
+			noclip_cheat()
 	if Input.is_action_just_pressed("+delete"):
 		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
@@ -385,9 +387,9 @@ func toggle_flashlight():
 		$head/Camera3D/flashlight/SpotLight3D2.visible = true
 	$beep.play()
 
-func ghost_cheat():
-	cheat_f3 = !cheat_f3
-	if cheat_f3:
+func noclip_cheat():
+	noclip = !noclip
+	if noclip:
 		crouched = false
 		collision_mask = 1
 		Global.game_settings["affected_by_gravity"] = false

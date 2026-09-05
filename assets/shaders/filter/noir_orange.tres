@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dk6ypn7181kfa"]
 
-[ext_resource type="Shader" uid="uid://dpbtp8edyg6rs" path="res://assets/shaders/filter/BWR_orange.gdshader" id="1_j6i0e"]
+[ext_resource type="Shader" uid="uid://dpbtp8edyg6rs" path="res://assets/shaders/filter/noir_orange.gdshader" id="1_j6i0e"]
 
 [resource]
 render_priority = -10

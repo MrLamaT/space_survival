@@ -41,7 +41,8 @@ enabled=PackedStringArray()
 folder_colors={
 "res://UI/": "purple",
 "res://assets/": "green",
-"res://game/": "red"
+"res://game/": "red",
+"res://screen/": "gray"
 }
 
 [global_group]
@@ -69,6 +70,7 @@ corridorLoad_exit=""
 metal=""
 grass=""
 ice=""
+block_scheme=""
 
 [input]
 

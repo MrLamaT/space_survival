@@ -40,7 +40,6 @@ var game_settings: Dictionary = {
 		"name": ""
 	},
 	"CanStandUp": true,
-	"GodMod": false,
 	"IsDying": false,
 	"ThrownCamera": null,
 	"can_jump": true,
