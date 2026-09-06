@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by0xaas2p3ink"
-path="res://.godot/imported/christmas_tree.png-69b408c9a836f68bc12f503af3d53951.ctex"
+uid="uid://b8r2t6kd1kgf8"
+path="res://.godot/imported/eye.png-e5f68961593194978b2dc3953ba6d8f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flora/christmas_tree.png"
-dest_files=["res://.godot/imported/christmas_tree.png-69b408c9a836f68bc12f503af3d53951.ctex"]
+source_file="res://assets/icon/eye.png"
+dest_files=["res://.godot/imported/eye.png-e5f68961593194978b2dc3953ba6d8f4.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

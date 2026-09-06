@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://d4eaarjrbqqra"]
+
+[ext_resource type="Material" uid="uid://cc86t5yn5vrfh" path="res://assets/material/snow.tres" id="1_algg5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plsy4"]
+albedo_color = Color(0.39215687, 0.2901961, 0.2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_udo1o"]
+material = SubResource("StandardMaterial3D_plsy4")
+radial_segments = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4bgu3"]
+material = ExtResource("1_algg5")
+top_radius = 0.0
+bottom_radius = 1.5
+radial_segments = 6
+rings = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_seeeu"]
+material = ExtResource("1_algg5")
+top_radius = 0.0
+bottom_radius = 1.25
+radial_segments = 6
+rings = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x0ra3"]
+material = ExtResource("1_algg5")
+top_radius = 0.0
+bottom_radius = 1.15
+radial_segments = 6
+rings = 6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_plsy4"]
+material = SubResource("StandardMaterial3D_plsy4")
+bottom_radius = 1.0
+height = 0.5
+radial_segments = 6
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_80m31"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hsux3"]
+height = 0.25
+radius = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_engxk"]
+height = 4.0
+radius = 1.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_color = Color(0.6627451, 0.043137256, 0.03137255, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+radius = 0.25
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57qmd"]
+shading_mode = 0
+albedo_color = Color(1, 0.7882353, 0.4627451, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_57qmd")
+
+[node name="Tree5" type="RigidBody3D" unique_id=858121998 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1882891578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_udo1o")
+
+[node name="leaf" type="MeshInstance3D" parent="." unique_id=875833355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+mesh = SubResource("CylinderMesh_4bgu3")
+
+[node name="leaf3" type="MeshInstance3D" parent="." unique_id=676521850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+mesh = SubResource("CylinderMesh_seeeu")
+
+[node name="leaf4" type="MeshInstance3D" parent="." unique_id=317516892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, 0)
+mesh = SubResource("CylinderMesh_x0ra3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=148975417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_plsy4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=594587183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_80m31")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1738476939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("CylinderShape3D_hsux3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=971178425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.25, 0)
+shape = SubResource("CylinderShape3D_engxk")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1826700689]
+
+[node name="Node3D" type="Node3D" parent="Node3D" unique_id=1879951202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D" unique_id=399088819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.8)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D2" type="Node3D" parent="Node3D" unique_id=1555762862]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D2" unique_id=1026121738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.8)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D3" type="Node3D" parent="Node3D" unique_id=653421733]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D3" unique_id=809758236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.8)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D4" type="Node3D" parent="Node3D" unique_id=852891194]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D4" unique_id=252077623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.8)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=5455985]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 1, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D2" unique_id=1296982201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2/Node3D" unique_id=39798878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0.7)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D2" type="Node3D" parent="Node3D2" unique_id=62706504]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2/Node3D2" unique_id=1920608948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0.7)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D3" type="Node3D" parent="Node3D2" unique_id=1996548819]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2/Node3D3" unique_id=1419290782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0.7)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D4" type="Node3D" parent="Node3D2" unique_id=300546914]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2/Node3D4" unique_id=779574677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0.7)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D3" type="Node3D" parent="." unique_id=1290958731]
+transform = Transform3D(0.98480767, 0, 0.17364816, 0, 1, 0, -0.17364816, 0, 0.98480767, 0, 2, 0)
+
+[node name="Node3D" type="Node3D" parent="Node3D3" unique_id=1287795423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3/Node3D" unique_id=1836951585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.6)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D2" type="Node3D" parent="Node3D3" unique_id=1871234471]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3/Node3D2" unique_id=865273335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.6)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D3" type="Node3D" parent="Node3D3" unique_id=332226452]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3/Node3D3" unique_id=439085985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.6)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="Node3D4" type="Node3D" parent="Node3D3" unique_id=1101330388]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.7, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3/Node3D4" unique_id=1720295353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0.6)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_g4v7s")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1990085539]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, 0, 5, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D3" unique_id=134193672]
+light_color = Color(1, 0.7882353, 0.4627451, 1)

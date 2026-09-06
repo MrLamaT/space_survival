@@ -71,6 +71,7 @@ metal=""
 grass=""
 ice=""
 block_scheme=""
+hand=""
 
 [input]
 

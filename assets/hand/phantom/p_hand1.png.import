@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm852wntnoh7e"
-path="res://.godot/imported/tree1_snow.png-244d02f02950d1347bfc58ad39ca60bf.ctex"
+uid="uid://cploxr7hvuo6w"
+path="res://.godot/imported/p_hand1.png-c5591ed2c75ec64c84a33c5defa9c75e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flora/tree1_snow.png"
-dest_files=["res://.godot/imported/tree1_snow.png-244d02f02950d1347bfc58ad39ca60bf.ctex"]
+source_file="res://assets/hand/phantom/p_hand1.png"
+dest_files=["res://.godot/imported/p_hand1.png-c5591ed2c75ec64c84a33c5defa9c75e.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

@@ -173,6 +173,7 @@ func reset_world_to_default(world_num: int) -> void:
 		"HP": 100,
 		"equipment": [],
 		"weapon": ["", "", "", "", ""],
+		"costumes": "Classic",
 		"inventory": {}
 	}
 	match world_num:

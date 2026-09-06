@@ -23,12 +23,19 @@
 [ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="19_lx0oo"]
 [ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="20_o0w04"]
 [ext_resource type="Texture2D" uid="uid://b0sgfy3s5y52e" path="res://assets/item/dark_sercilist.png" id="21_4ib5f"]
+[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="21_rp21u"]
 [ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="22_qmh17"]
 [ext_resource type="Texture2D" uid="uid://da6t4vfq68acd" path="res://assets/icon/enemyEgg/Egg_stingray.png" id="23_4g2gr"]
+[ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/hand/knight/k_hand1.png" id="23_kwbp6"]
+[ext_resource type="Texture2D" uid="uid://cploxr7hvuo6w" path="res://assets/hand/phantom/p_hand1.png" id="24_h60il"]
 [ext_resource type="Texture2D" uid="uid://cytujp0panmgm" path="res://assets/icon/enemyEgg/Egg_cockroach.png" id="24_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://ba47gfu4rtp31" path="res://assets/icon/enemyEgg/Egg_shooter.png" id="25_b68df"]
+[ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/hand/snow/s_hand1.png" id="25_r5g20"]
+[ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/hand/white/w_hand1.png" id="26_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bwcwe6nl7eqfb" path="res://assets/icon/enemyEgg/Egg_cleaner.png" id="26_gudhd"]
+[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/zenith/z_hand1.png" id="27_5vwum"]
 [ext_resource type="Texture2D" uid="uid://dhqbm1f7ak0b" path="res://assets/icon/enemyEgg/Egg_observer1.png" id="27_c4wer"]
 [ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
@@ -53,7 +60,10 @@
 [ext_resource type="Texture2D" uid="uid://c2l7vw6lkc1tx" path="res://assets/icon/prop/HpBoost.png" id="45_itu7d"]
 [ext_resource type="Texture2D" uid="uid://d3ci5vnfgnyw1" path="res://assets/icon/Eanim2.png" id="46_0xjbb"]
 [ext_resource type="Texture2D" uid="uid://c56dbv80c06rm" path="res://assets/icon/prop/HpBoost2.png" id="46_6bg5j"]
+[ext_resource type="Texture2D" uid="uid://dm852wntnoh7e" path="res://assets/icon/prop/tree1_snow.png" id="46_a2hvj"]
 [ext_resource type="Texture2D" uid="uid://caoe8eleslsc5" path="res://assets/icon/prop/watermelon.png" id="47_l5m7m"]
+[ext_resource type="Texture2D" uid="uid://bst5uuas4yjvj" path="res://assets/icon/prop/tree2_snow.png" id="47_lsa26"]
+[ext_resource type="Texture2D" uid="uid://by0xaas2p3ink" path="res://assets/icon/prop/christmas_tree.png" id="48_lsa26"]
 [ext_resource type="Texture2D" uid="uid://cftht8vvono6h" path="res://assets/icon/prop/column.png" id="48_neoys"]
 [ext_resource type="Texture2D" uid="uid://c414e63cmdhns" path="res://assets/icon/prop/lightball.png" id="49_f11xb"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
@@ -72,6 +82,8 @@
 [ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/equipment/shield.png" id="66_63tcv"]
 [ext_resource type="Texture2D" uid="uid://dtqsfimpmq50t" path="res://assets/icon/equipment/jump.png" id="66_csqvi"]
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/icon/LogoDeath.png" id="67_5txe2"]
+[ext_resource type="Texture2D" uid="uid://djy4wxotwfx1m" path="res://assets/icon/noclip.png" id="80_qmh17"]
+[ext_resource type="Texture2D" uid="uid://b8r2t6kd1kgf8" path="res://assets/icon/eye.png" id="81_kwbp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -272,7 +284,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer14" unique_id=2122886508 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "8-bit colors"
+text = "VHS"
 img = ExtResource("12_7nag5")
 type = "filters"
 target_node = NodePath("../../../../..")
@@ -293,7 +305,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer14" unique_id=1817806765 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "Negative"
+text = "Shuffle"
 img = ExtResource("12_7nag5")
 type = "filters"
 target_node = NodePath("../../../../..")
@@ -401,6 +413,68 @@ layout_mode = 2
 text = "Hornet"
 img = ExtResource("18_bj30i")
 type = "weapon"
+target_node = NodePath("../../../../..")
+
+[node name="Label16" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1716358675 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
+layout_mode = 2
+title = "costumes"
+cat_node = NodePath("../GridContainer16")
+
+[node name="GridContainer16" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=929527173]
+visible = false
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=1889123243 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Classic"
+img = ExtResource("21_rp21u")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=1042684786 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Home"
+img = ExtResource("22_qmh17")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=278901324 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Knight"
+img = ExtResource("23_kwbp6")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=571819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Phantom"
+img = ExtResource("24_h60il")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=2145137430 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Snow"
+img = ExtResource("25_r5g20")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=1143150561 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "White"
+img = ExtResource("26_d6vnn")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=131668887 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Zenith"
+img = ExtResource("27_5vwum")
+type = "costumes"
 target_node = NodePath("../../../../..")
 
 [node name="Label4" parent="Panel/ScrollContainer/VBoxContainer" unique_id=708912042 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
@@ -647,6 +721,27 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "tree2"
 img = ExtResource("42_qhjgh")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card16" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1038170066 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "tree3"
+img = ExtResource("46_a2hvj")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card17" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1239675805 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "tree4"
+img = ExtResource("47_lsa26")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card18" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1672407435 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "tree5"
+img = ExtResource("48_lsa26")
 type = "props"
 target_node = NodePath("../../../../..")
 
@@ -1070,14 +1165,14 @@ target_node = NodePath("../../../../..")
 [node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=37204063 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "noclip [V]"
-img = ExtResource("46_0xjbb")
+img = ExtResource("80_qmh17")
 type = "other"
 target_node = NodePath("../../../../..")
 
 [node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=79765106 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "ghost"
-img = ExtResource("46_0xjbb")
+img = ExtResource("81_kwbp6")
 type = "other"
 target_node = NodePath("../../../../..")
 

@@ -45,14 +45,14 @@ func handle_card_pressed(type, id, _color_img):
 					filter.material_override = preload("res://assets/shaders/filter/noir.tres")
 				"except orange":
 					filter.material_override = preload("res://assets/shaders/filter/noir_orange.tres")
-				"8-bit colors":
-					filter.material_override = preload("res://assets/shaders/filter/bit8.tres")
+				"VHS":
+					filter.material_override = preload("res://assets/shaders/filter/VHS.tres")
 				"Fisheye":
 					filter.material_override = preload("res://assets/shaders/filter/flisheye.tres")
 				"Blur":
 					filter.material_override = preload("res://assets/shaders/filter/blur.tres")
-				"Negative":
-					filter.material_override = preload("res://assets/shaders/filter/negative.tres")
+				"Shuffle":
+					filter.material_override = preload("res://assets/shaders/filter/shuffle.tres")
 				"Gamma":
 					filter.material_override = preload("res://assets/shaders/filter/gamma.tres")
 				"Water":
@@ -65,6 +65,16 @@ func handle_card_pressed(type, id, _color_img):
 				var button = hbox.get_node("Button" + str(i + 1))
 				if button and not button.is_connected("pressed", Callable(self, "_on_weapon_slot_selected").bind(i)):
 					button.pressed.connect(_on_weapon_slot_selected.bind(i + 1, id))
+		"costumes":
+			var world = Global.get_world(Global.game_settings.word)
+			world["costumes"] = id
+			var hand_nodes = get_tree().get_nodes_in_group("hand")
+			for node in hand_nodes:
+				node.create_custom_material()
+			Global.save(Global.game_settings["word"])
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
 		"item":
 			$Panel.visible = false
 			$item_slot.visible = true
@@ -155,7 +165,7 @@ func handle_card_pressed(type, id, _color_img):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					Global.game_settings["UI"] = false
 					queue_free()
-				"clear characters": 
+				"clear charact": 
 					_clear_group("enemy")
 				"clear props": 
 					_clear_group("prop")
