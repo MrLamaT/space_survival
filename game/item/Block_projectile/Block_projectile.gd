@@ -110,32 +110,62 @@ func _build_block() -> void:
 	queue_free()
 
 func _create_colored_block(block_position: Vector3, color_name: String) -> void:
-	var static_body = StaticBody3D.new()
-	static_body.collision_layer = 4  
-	static_body.collision_mask = 0
-	static_body.add_to_group("block")
-	
-	var mesh_instance = MeshInstance3D.new()
-	var box_mesh = BoxMesh.new()
-	box_mesh.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-	
-	var material = StandardMaterial3D.new()
-	material.albedo_color = COLORS[color_name]
-	box_mesh.material = material
-	
-	mesh_instance.mesh = box_mesh
-	
-	var collision_shape = CollisionShape3D.new()
-	var box_shape = BoxShape3D.new()
-	box_shape.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-	collision_shape.shape = box_shape
-	
-	static_body.add_child(mesh_instance)
-	static_body.add_child(collision_shape)
-	
-	get_tree().current_scene.add_child(static_body)
-	static_body.global_position = block_position
-	print("Цветной блок ", color_name, " поставлен на позиции: ", block_position)
+	var scheme = get_tree().get_first_node_in_group("block_scheme")
+	if scheme:
+		var start_position = scheme.global_position
+		var direction = block_position - start_position
+		var block_x = max(1, round(abs(direction.x) / BLOCK_SIZE) + 1)
+		var block_y = max(1, round(abs(direction.y) / BLOCK_SIZE) + 1)
+		var block_z = max(1, round(abs(direction.z) / BLOCK_SIZE) + 1)
+		var size_x = block_x * BLOCK_SIZE
+		var size_y = block_y * BLOCK_SIZE
+		var size_z = block_z * BLOCK_SIZE
+		var center = Vector3(
+			(start_position.x + block_position.x) / 2.0,
+			(start_position.y + block_position.y) / 2.0,
+			(start_position.z + block_position.z) / 2.0,
+		)
+		var static_body = StaticBody3D.new()
+		static_body.collision_layer = 4  
+		static_body.collision_mask = 0
+		static_body.add_to_group("block")
+		var mesh_instance = MeshInstance3D.new()
+		var box_mesh = BoxMesh.new()
+		box_mesh.size = Vector3(size_x, size_y, size_z)
+		var material = StandardMaterial3D.new()
+		material.albedo_color = COLORS[color_name]
+		box_mesh.material = material
+		mesh_instance.mesh = box_mesh
+		var collision_shape = CollisionShape3D.new()
+		var box_shape = BoxShape3D.new()
+		box_shape.size = Vector3(size_x, size_y, size_z)
+		collision_shape.shape = box_shape
+		static_body.add_child(mesh_instance)
+		static_body.add_child(collision_shape)
+		get_tree().current_scene.add_child(static_body)
+		static_body.global_position = center
+		print("Цветной блок ", color_name, " растянут от block_scheme до ", block_position)
+	else:
+		var static_body = StaticBody3D.new()
+		static_body.collision_layer = 4  
+		static_body.collision_mask = 0
+		static_body.add_to_group("block")
+		var mesh_instance = MeshInstance3D.new()
+		var box_mesh = BoxMesh.new()
+		box_mesh.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+		var material = StandardMaterial3D.new()
+		material.albedo_color = COLORS[color_name]
+		box_mesh.material = material
+		mesh_instance.mesh = box_mesh
+		var collision_shape = CollisionShape3D.new()
+		var box_shape = BoxShape3D.new()
+		box_shape.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
+		collision_shape.shape = box_shape
+		static_body.add_child(mesh_instance)
+		static_body.add_child(collision_shape)
+		get_tree().current_scene.add_child(static_body)
+		static_body.global_position = block_position
+		print("Цветной блок ", color_name, " поставлен на позиции: ", block_position)
 
 func _create_scene_block(block_position: Vector3, block_name: String) -> void:
 	var scene_path = BLOCK_SCENES.get(block_name)

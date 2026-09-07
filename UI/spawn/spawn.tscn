@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://whn8plkartqb" path="res://UI/spawn/card.tscn" id="2_2pp8e"]
 [ext_resource type="PackedScene" uid="uid://eo4hiu3dlkdc" path="res://UI/spawn/category.tscn" id="2_6jgxq"]
 [ext_resource type="Texture2D" uid="uid://dr8hllvffgsk7" path="res://assets/skybox/void.png" id="3_3aff4"]
-[ext_resource type="Texture2D" uid="uid://cpbilemb7savo" path="res://assets/level/planet1.png" id="4_a1nv8"]
+[ext_resource type="Texture2D" uid="uid://cpbilemb7savo" path="res://assets/icon/planet/planet1.png" id="4_a1nv8"]
 [ext_resource type="Texture2D" uid="uid://t2816lwakjs1" path="res://assets/skybox/light.png" id="5_eod37"]
+[ext_resource type="Texture2D" uid="uid://nylivsld8485" path="res://assets/icon/planet/planet4.png" id="5_h60il"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_d3066"]
 [ext_resource type="Texture2D" uid="uid://c5nwuqqpajs21" path="res://assets/skybox/toxic.png" id="6_sdvxd"]
 [ext_resource type="Texture2D" uid="uid://bb3666nf0owbg" path="res://assets/skybox/blood.png" id="7_hx65u"]
@@ -167,7 +168,7 @@ target_node = NodePath("../../../../..")
 [node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1469697271 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Terra"
-img = ExtResource("4_a1nv8")
+img = ExtResource("5_h60il")
 type = "gravity"
 target_node = NodePath("../../../../..")
 

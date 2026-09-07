@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpbilemb7savo"
-path="res://.godot/imported/planet1.png-eefb2c40eba4224a2a2946dd3824856f.ctex"
+uid="uid://vo3twuxofbcb"
+path="res://.godot/imported/planet3.png-65698a3ccf3053ff594ed3592308df93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level/planet1.png"
-dest_files=["res://.godot/imported/planet1.png-eefb2c40eba4224a2a2946dd3824856f.ctex"]
+source_file="res://assets/icon/planet/planet3.png"
+dest_files=["res://.godot/imported/planet3.png-65698a3ccf3053ff594ed3592308df93.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
