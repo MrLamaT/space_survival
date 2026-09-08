@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bynw7v4jpr3ha"]
 
-[ext_resource type="Script" uid="uid://bae7e5xvf0tnk" path="res://game/rooms/maps/RoP/RoP_2.gd" id="1_iwi37"]
+[ext_resource type="Script" uid="uid://bg22hp6hri5p8" path="res://game/rooms/maps/RoP/RoP_4.gd" id="1_otutm"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="2_o65g5"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://game/portal/portal.tscn" id="4_fifca"]
 [ext_resource type="PackedScene" uid="uid://bwf5obhlhsolk" path="res://game/decoration/wall/MineWall.tscn" id="5_4rm82"]
@@ -35,7 +35,7 @@ cell_size = 0.1
 agent_radius = 0.3
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
-script = ExtResource("1_iwi37")
+script = ExtResource("1_otutm")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_o65g5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

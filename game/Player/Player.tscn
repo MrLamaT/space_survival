@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn5qxioc77162"]
 
 [ext_resource type="Script" uid="uid://bl04fl8vcqlgm" path="res://game/Player/player.gd" id="1_3dlvw"]
-[ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair1.png" id="3_lmkso"]
+[ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair/crosshair1.png" id="3_lmkso"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="3_sfgwg"]
 [ext_resource type="Texture2D" uid="uid://djh8750mv5q1y" path="res://assets/icon/citadelAI.png" id="5_r6r0m"]
 [ext_resource type="Texture2D" uid="uid://l6d7ofh7ucs6" path="res://assets/blood.png" id="5_xng4x"]
@@ -159,14 +159,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.5
-offset_top = -16.5
-offset_right = 32.5
-offset_bottom = 16.5
+offset_left = -3.5
+offset_top = -3.5
+offset_right = 3.5
+offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
-pivot_offset = Vector2(32.6, 16.6)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("3_lmkso")
 
 [node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]

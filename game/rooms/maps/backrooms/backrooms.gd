@@ -1,8 +1,7 @@
-extends Node3D
-
-var world = Global.get_world(Global.game_settings.word)
+extends "res://game/rooms/BaseMaps.gd"
 
 func _ready() -> void:
+	super._ready()
 	$Player.weapon_system.weapon_slots[1] = "Vibro Spike"
 	$Player.weapon_system.weapon_slots[2] = "Taser"
 	$Player.weapon_system.weapon_slots[3] = "Hornet"

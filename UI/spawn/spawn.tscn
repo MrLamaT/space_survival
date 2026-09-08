@@ -85,6 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/icon/LogoDeath.png" id="67_5txe2"]
 [ext_resource type="Texture2D" uid="uid://djy4wxotwfx1m" path="res://assets/icon/noclip.png" id="80_qmh17"]
 [ext_resource type="Texture2D" uid="uid://b8r2t6kd1kgf8" path="res://assets/icon/eye.png" id="81_kwbp6"]
+[ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/equipment/energy.png" id="81_r5g20"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -1160,6 +1161,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "god"
 img = ExtResource("66_63tcv")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=509613145 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "infE"
+img = ExtResource("81_r5g20")
 type = "other"
 target_node = NodePath("../../../../..")
 

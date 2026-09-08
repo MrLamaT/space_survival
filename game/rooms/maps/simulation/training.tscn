@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b7uovntued3dp"]
 
 [ext_resource type="Script" uid="uid://cs5hxtwdsgn5l" path="res://game/rooms/maps/simulation/training.gd" id="1_wgrq1"]
+[ext_resource type="PackedScene" uid="uid://bdps5mw06litg" path="res://game/sky/skyboxBlue.tscn" id="2_fs7wu"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="3_c8tpk"]
 [ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="3_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://exr4e1tjsb2j" path="res://game/blocks/simulation_purple.tscn" id="3_s1abu"]
@@ -104,6 +105,7 @@ agent_radius = 0.3
 
 [node name="training" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_wgrq1")
+env_scene = ExtResource("2_fs7wu")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_c8tpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.656, 9)

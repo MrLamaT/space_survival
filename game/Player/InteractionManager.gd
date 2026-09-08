@@ -11,6 +11,14 @@ var interaction_progress: float = 0.0
 var interaction_time_required: float = 2.0
 var interaction_target: Node3D = null
 
+const CROSSHAIR_PATHS = {
+	1: preload("res://assets/crosshair/crosshair1.png"),
+	2: preload("res://assets/crosshair/crosshair2.png"),
+	3: preload("res://assets/crosshair/crosshair3.png"),
+	4: preload("res://assets/crosshair/crosshair4.png"),
+	5: preload("res://assets/crosshair/crosshair5.png")
+}
+
 func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, progress_bar: ProgressBar):
 	_player = player
 	_camera = camera
@@ -93,11 +101,15 @@ func complete_interaction():
 		hide_interaction_progress_bar()
 
 func _update_crosshair():
+	var crosshair_id = Global.game_settings.get("gui_settings", {}).get("crosshair", 0)
 	if current_interactable:
-		_crosshair.texture = preload("res://assets/crosshair2.png")
+		_crosshair.texture = preload("res://assets/crosshair/crosshairInt.png")
+		_crosshair.scale = Vector2(5.0, 5.0)
 		_player.get_node("head/Camera3D/Use").visible = true
 	else:
-		_crosshair.texture = preload("res://assets/crosshair1.png")
+		var texture_path = CROSSHAIR_PATHS.get(int(crosshair_id))
+		_crosshair.texture = texture_path
+		_crosshair.scale = Vector2(float(Global.game_settings["gui_settings"]["ch_scale"]), float(Global.game_settings["gui_settings"]["ch_scale"]))
 		_player.get_node("head/Camera3D/Use").visible = false
 
 func update_interaction_progress_bar():

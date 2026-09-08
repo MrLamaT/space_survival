@@ -295,10 +295,11 @@ func shoot(is_alt: bool = false):
 		if current_time - last_fire_time < weapon_data["fire_rate"]:
 			return
 	
-	player.energy = max(0, player.energy - data_to_use.get("energy_cost", 0))
-	player.can_regenerate_energy = false
-	player.regen_energy_timer = 0.0
-	player.update_energy_display()
+	if !player.infE:
+		player.energy = max(0, player.energy - data_to_use.get("energy_cost", 0))
+		player.can_regenerate_energy = false
+		player.regen_energy_timer = 0.0
+		player.update_energy_display()
 	
 	if data_to_use.has("shoot_animation") and data_to_use["shoot_animation"] != "":
 		if current_weapon and current_weapon.has_node("AnimationPlayer"):

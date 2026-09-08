@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4wfsi8bnjbll" path="res://game/rooms/maps/endless_parkour/endless_parkour.gd" id="1_jgjwa"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="2_bqhy8"]
+[ext_resource type="PackedScene" uid="uid://bdps5mw06litg" path="res://game/sky/skyboxBlue.tscn" id="2_xygor"]
 [ext_resource type="PackedScene" uid="uid://b64nyr8lmr3b" path="res://game/blocks/grass.tscn" id="3_jgjwa"]
 [ext_resource type="PackedScene" uid="uid://covtgdy1lfs3l" path="res://game/rooms/maps/endless_parkour/endless_parkour_block.tscn" id="4_6n15x"]
 
@@ -18,6 +19,7 @@ size = Vector3(0.5, 1, 0.5)
 
 [node name="endless_parkour" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_jgjwa")
+env_scene = ExtResource("2_xygor")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_bqhy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

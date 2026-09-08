@@ -124,6 +124,7 @@ var ice_accel_multiplier: float = 1.0  # Множитель ускорения �
 #читы
 var GodMod: bool = false
 var noclip: bool = false
+var infE: bool = false
 
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
@@ -190,6 +191,11 @@ func PlayerDeath():
 		return
 	Global.game_settings["IsDying"] = true
 	release_build(false)
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	if enemies.size() > 0:
+		for enemy in enemies:
+			if enemy.has_method("ResetHealth"):
+				enemy.ResetHealth()
 	var world = Global.get_world(Global.game_settings.word)
 	$screem.play()
 	throw_camera_out()
@@ -498,7 +504,9 @@ func _physics_process(delta):
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
 			has_used_double_jump = false
-		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and movement_enabled and !crouched and not Global.game_settings["UI"]:
+		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and Global.game_settings["CanStandUp"] and movement_enabled and not Global.game_settings["UI"]:
+			crouched = false
+			update_running_speed()
 			if is_on_floor():
 				if jump_cooldown_timer <= 0:
 					velocity.y = jump_velocity

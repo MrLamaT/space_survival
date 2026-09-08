@@ -1,11 +1,7 @@
-extends Node3D
-
-var world = Global.get_world(Global.game_settings.word)
+extends "res://game/rooms/BaseMaps.gd"
 
 func _ready() -> void:
-	var env_scene = preload("res://game/sky/skyboxBlue.tscn")
-	var env_instance = env_scene.instantiate()
-	add_child(env_instance)
+	super._ready()
 	$Player.weapon_system.weapon_slots[1] = "Summon"
 	$Player.weapon_system.weapon_slots[2] = "Taser"
 	$Player.weapon_system.weapon_slots[3] = "Hornet"

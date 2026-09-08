@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bl4p478twk51"]
 
-[ext_resource type="Script" uid="uid://demjd4vwk02kg" path="res://game/rooms/maps/simulation/sandbox.gd" id="1_e03j2"]
+[ext_resource type="Script" uid="uid://bfjnw3hvo7d2h" path="res://game/rooms/maps/simulation/flat.gd" id="1_dbyl4"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="2_jng7s"]
+[ext_resource type="PackedScene" uid="uid://bdps5mw06litg" path="res://game/sky/skyboxBlue.tscn" id="2_wpae3"]
 [ext_resource type="PackedScene" uid="uid://b64nyr8lmr3b" path="res://game/blocks/grass.tscn" id="3_8l8yc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -13,7 +14,8 @@ cell_size = 0.1
 agent_radius = 0.3
 
 [node name="flat" type="Node3D" unique_id=1913855422]
-script = ExtResource("1_e03j2")
+script = ExtResource("1_dbyl4")
+env_scene = ExtResource("2_wpae3")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_jng7s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

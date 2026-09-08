@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dye6vfpr6npgk"]
 
 [ext_resource type="Script" uid="uid://c7v7q5hfa7htp" path="res://game/rooms/maps/RoP/RoP_3.gd" id="1_7vsbb"]
+[ext_resource type="PackedScene" uid="uid://cnapm3ml63i6a" path="res://game/sky/skybox.tscn" id="2_wablc"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="3_rlohk"]
 [ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="5_8jqej"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://game/portal/portal.tscn" id="5_d6m2o"]
@@ -61,6 +62,7 @@ size = Vector3(1, 1.5, 2.5)
 
 [node name="RoP" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_7vsbb")
+env_scene = ExtResource("2_wablc")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_rlohk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

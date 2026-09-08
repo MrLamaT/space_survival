@@ -17,6 +17,7 @@ extends CharacterBody3D
 var double_damage_in_air: bool = true
 var shatter_parts: Array[Node3D] = []
 
+var max_health: int = 1
 var is_dead: bool = false
 var is_dying: bool = false
 var death_timer: float = 0.0
@@ -49,6 +50,7 @@ func _ready():
 	if is_boss and boss_health > health:
 		health = boss_health
 	health *= int(speed_multiplier)
+	max_health = health
 	SPEED *= speed_multiplier
 	ROTATION_SPEED *= speed_multiplier
 	_setup_boss_bar()
@@ -82,6 +84,9 @@ func _setup_boss_bar():
 		add_child(boss_bars_instance)
 		boss_bars_instance.setup_boss(health, _get_boss_id())
 		boss_bars = boss_bars_instance
+
+func ResetHealth():
+	health = max_health
 
 func _apply_aura():
 	if has_node("Aura/AnimationPlayer"):

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0y18wkgt66ch"]
 
 [ext_resource type="Script" uid="uid://demjd4vwk02kg" path="res://game/rooms/maps/simulation/sandbox.gd" id="1_pcht1"]
+[ext_resource type="PackedScene" uid="uid://bdps5mw06litg" path="res://game/sky/skyboxBlue.tscn" id="2_kogva"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="2_ok3dl"]
 [ext_resource type="Material" uid="uid://5v8lo6h71e3q" path="res://assets/material/earth.tres" id="3_jsqbf"]
 [ext_resource type="Texture2D" uid="uid://bd832m7qavblv" path="res://assets/textures/grid.png" id="4_b2rwk"]
@@ -163,6 +164,7 @@ size = Vector2(0.05, 0.05)
 
 [node name="sandbox" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_pcht1")
+env_scene = ExtResource("2_kogva")
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_ok3dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 40)
