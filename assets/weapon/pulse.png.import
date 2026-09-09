@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bst5uuas4yjvj"
-path="res://.godot/imported/tree2_snow.png-cda610f6386f4215760e3cd56b7f2e3b.ctex"
+uid="uid://bcnxmdp8038cg"
+path="res://.godot/imported/pulse.png-6eeaa64333e544315196e2da27a2ffdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/prop/tree2_snow.png"
-dest_files=["res://.godot/imported/tree2_snow.png-cda610f6386f4215760e3cd56b7f2e3b.ctex"]
+source_file="res://assets/weapon/pulse.png"
+dest_files=["res://.godot/imported/pulse.png-6eeaa64333e544315196e2da27a2ffdc.ctex"]
 
 [params]
 

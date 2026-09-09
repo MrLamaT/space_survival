@@ -2,10 +2,8 @@ extends "res://game/rooms/BaseMaps.gd"
 
 func _ready() -> void:
 	super._ready()
-	$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	$Panel.visible = false
 	Global.game_settings["checkpoint"] = $kill.global_position
-	Global.game_settings["min_y"] = -5.0
 
 var door = [true, true, false] # door[0] - левая дверь, door[1] - правая дверь, door[2] - третья дверь
 

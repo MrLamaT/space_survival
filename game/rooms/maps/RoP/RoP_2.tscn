@@ -68,8 +68,13 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_kt463"]
 material = SubResource("StandardMaterial3D_800fd")
 
-[node name="RoP" type="Node3D" unique_id=1913855422]
+[node name="RoP" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
 script = ExtResource("1_and26")
+gravity = 0
+portal = NodePath("NavigationRegion3D/portal")
+weapons = Array[String](["Vibro Spike", "Taser", "inv", "inv", "inv"])
+earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
+stone_color = Color(0.6509804, 0.65882355, 0.654902, 1)
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_n81jb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)

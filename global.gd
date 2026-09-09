@@ -47,7 +47,6 @@ var game_settings: Dictionary = {
 	"can_jump": true,
 	"affected_by_gravity": true,
 	"word": 0,
-	"step": 1,
 	"UI": false,
 	"UI_argument": null,
 	"GhostMod": false,

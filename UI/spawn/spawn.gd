@@ -2,7 +2,7 @@ extends Node2D
 
 var current_item_id: String = ""
 
-func handle_card_pressed(type, id, _color_img):
+func handle_card_pressed(type, id, color_img):
 	match type:
 		"gravity":
 			Global.game_settings["affected_by_gravity"] = true
@@ -90,6 +90,22 @@ func handle_card_pressed(type, id, _color_img):
 		"props":
 			Global.game_settings["summon"]["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Global.game_settings["UI"] = false
+			queue_free()
+		"style_block":
+			if id == "plank":
+				var plank = preload("res://assets/material/plank.tres")
+				plank.albedo_color = color_img
+			if id == "grass":
+				var earth = preload("res://assets/material/earth.tres")
+				earth.albedo_color = color_img
+			if id == "stone":
+				var stone = preload("res://assets/material/stone.tres")
+				stone.albedo_color = color_img
+			if id == "water":
+				var water = preload("res://assets/material/water.tres")
+				water.albedo_color = color_img
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pa17wvlety3k"]
 
-[ext_resource type="Material" uid="uid://bjo6fn2swtg20" path="res://assets/material/RoPstone.tres" id="1_kxnsr"]
+[ext_resource type="Material" uid="uid://bjo6fn2swtg20" path="res://assets/material/stone.tres" id="1_kxnsr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
 

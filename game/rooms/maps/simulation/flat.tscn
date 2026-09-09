@@ -16,6 +16,8 @@ agent_radius = 0.3
 [node name="flat" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_dbyl4")
 env_scene = ExtResource("2_wpae3")
+weapons = Array[String](["Summon", "Taser", "Hornet", "inv", "inv"])
+player_checkpoint = true
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_jng7s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656, 0)
