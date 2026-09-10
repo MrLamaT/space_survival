@@ -1,6 +1,5 @@
-res://UI/options/options.tscn
+res://game/rooms/maps/simulation/training.tscn
 res://assets/shaders/portal.gdshader
-res://assets/shaders/filter/f_water.gdshader
 res://assets/shaders/filter/noir.gdshader
 res://assets/shaders/filter/noir_orange.gdshader
 res://assets/shaders/filter/VHS.gdshader
@@ -8,17 +7,9 @@ res://assets/shaders/filter/flisheye.gdshader
 res://assets/shaders/filter/blur.gdshader
 res://assets/shaders/filter/shuffle.gdshader
 res://assets/shaders/filter/gamma.gdshader
+res://assets/shaders/filter/f_water.gdshader
 res://assets/shaders/force_field.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
 res://assets/shaders/laser.gdshader
-res://UI/spawn/spawn.tscn
 res://UI/options/options.gd
-res://UI/spawn/spawn.gd
-res://game/decoration/wall/impenetrable_field.gd
-res://game/rooms/main.tscn
-res://UI/menu/menu/menu.tscn
-res://global.gd
-res://game/Player/Player.tscn
-res://game/Player/player.gd
-res://game/Player/terminal/terminal.gd

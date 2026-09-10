@@ -52,3 +52,4 @@ func _on_crosshair_size_selected(index: int) -> void:
 		Global.game_settings["gui_settings"]["ch_scale"] = 5.0
 	if index == 2:
 		Global.game_settings["gui_settings"]["ch_scale"] = 7.5
+	Global.save(0)
