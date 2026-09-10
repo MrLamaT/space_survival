@@ -114,34 +114,5 @@ func parse_command(text: String):
 						ErrorPrint("Scale must be greater than 0")
 				else:
 					ErrorPrint("Invalid argument: must be a number (e.g., 1.5, 2, 0.5)")
-		"crosshair", "ch":
-			if argument == "":
-				var current = Global.game_settings.get("gui_settings", {}).get("crosshair", 1)
-				SystemPrint("Current crosshair ID: " + str(current))
-				SystemPrint("Available: 1, 2, 3, 4, 5")
-				return
-			if argument.is_valid_int():
-				var crosshair_id = argument.to_int()
-				Global.game_settings["gui_settings"]["crosshair"] = crosshair_id
-				SystemPrint("Crosshair changed to ID: " + str(crosshair_id))
-			else:
-				ErrorPrint("Invalid crosshair ID. Must be between 1 and 5")
-		"chscale", "crosshairscale":
-			if argument == "":
-				var current_scale = Global.game_settings.get("gui_settings", {}).get("ch_scale", 1.0)
-				SystemPrint("Current crosshair scale: " + str(current_scale))
-				SystemPrint("Usage: chscale <number> (e.g., 0.5, 1.0, 1.5, 2.0)")
-				return
-			if argument.is_valid_float():
-				var scale_value = argument.to_float()
-				if scale_value > 0:
-					if not Global.game_settings.has("gui_settings"):
-						Global.game_settings["gui_settings"] = {}
-					Global.game_settings["gui_settings"]["ch_scale"] = scale_value
-					SystemPrint("Crosshair scale set to: " + str(scale_value))
-				else:
-					ErrorPrint("Scale must be greater than 0")
-			else:
-				ErrorPrint("Invalid argument: must be a number (e.g., 0.5, 1.0, 1.5, 2.0)")
 		_:
 			ErrorPrint("Unknown command: " + command)

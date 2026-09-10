@@ -175,8 +175,6 @@ func _ready():
 	stamina_bar.value = stamina
 	update_energy_display()
 	update_gui_visibility()
-	if Global.game_settings["gui_settings"]["Autosave"]:
-		$save.start()
 	weapon_system = WeaponSystem.new()
 	weapon_system.player = self
 	weapon_system.hand_position = hand_position
@@ -654,9 +652,6 @@ func _on_end_exit_pressed() -> void:
 	
 func save():
 	Global.save(Global.game_settings["word"])
-
-func _on_save_timeout() -> void:
-	save()
 
 func handle_ui_action(ui_name: String) -> void:
 	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()

@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://c7a6mmmmikx2w"]
+
+[ext_resource type="Script" uid="uid://0gs2dlu6g2q6" path="res://UI/options/options.gd" id="1_v5g2b"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_awjio"]
+[ext_resource type="Texture2D" uid="uid://bt8o2xrg7gjg0" path="res://assets/icon/select.png" id="4_4g1b4"]
+[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="4_ufaa7"]
+[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="6_4gm0h"]
+[ext_resource type="Texture2D" uid="uid://dpk6fqumtvd3y" path="res://assets/crosshair/crosshair1.png" id="6_dkgfw"]
+[ext_resource type="Texture2D" uid="uid://b3aggbvkm3fmi" path="res://assets/crosshair/crosshair2.png" id="7_smngk"]
+[ext_resource type="Texture2D" uid="uid://46ju7703oje5" path="res://assets/crosshair/crosshair3.png" id="8_y1ca6"]
+[ext_resource type="Texture2D" uid="uid://djqxmhnrgxb8j" path="res://assets/crosshair/crosshair4.png" id="9_47bef"]
+[ext_resource type="Texture2D" uid="uid://2xnchbn3oflb" path="res://assets/crosshair/crosshair5.png" id="10_mnhfn"]
+[ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/icon/sort.png" id="71_jsp16"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4y3xh"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lf5q0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awjio"]
+content_margin_left = 18.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g1b4"]
+content_margin_left = 18.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[node name="options" type="Node2D" unique_id=38368963 groups=["UI"]]
+script = ExtResource("1_v5g2b")
+
+[node name="Panel" type="Panel" parent="." unique_id=1625101169]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4y3xh")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1952444633]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -299.0
+offset_right = 474.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1947106530]
+layout_mode = 2
+
+[node name="Language" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2103395969]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Language" unique_id=1025777119]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/Language" unique_id=923022423]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+theme_override_icons/arrow = ExtResource("71_jsp16")
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "русский"
+popup/item_1/id = 1
+
+[node name="Speedometer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1021724252]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Speedometer" unique_id=1294438110]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "Speedometer"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/Speedometer" unique_id=552329853]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/focus = SubResource("StyleBoxFlat_awjio")
+theme_override_icons/checked = ExtResource("4_4g1b4")
+theme_override_icons/unchecked = ExtResource("4_ufaa7")
+
+[node name="Coords" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1143921132]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Coords" unique_id=627686732]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "Coords"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/Coords" unique_id=1139073735]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/focus = SubResource("StyleBoxFlat_awjio")
+theme_override_icons/checked = ExtResource("4_4g1b4")
+theme_override_icons/unchecked = ExtResource("4_ufaa7")
+
+[node name="FPS" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=68646583]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/FPS" unique_id=881778445]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "FPS"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/ScrollContainer/VBoxContainer/FPS" unique_id=1670666220]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_awjio")
+theme_override_styles/focus = SubResource("StyleBoxFlat_awjio")
+theme_override_icons/checked = ExtResource("4_4g1b4")
+theme_override_icons/unchecked = ExtResource("4_ufaa7")
+
+[node name="CrosshairType" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=166324889]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/CrosshairType" unique_id=1905738170]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "Crosshair 
+Type"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/CrosshairType" unique_id=1638399226]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+theme_override_icons/arrow = ExtResource("71_jsp16")
+icon_alignment = 1
+expand_icon = true
+selected = 0
+item_count = 5
+popup/item_0/icon = ExtResource("6_dkgfw")
+popup/item_0/id = 0
+popup/item_1/icon = ExtResource("7_smngk")
+popup/item_1/id = 1
+popup/item_2/icon = ExtResource("8_y1ca6")
+popup/item_2/id = 2
+popup/item_3/icon = ExtResource("9_47bef")
+popup/item_3/id = 3
+popup/item_4/icon = ExtResource("10_mnhfn")
+popup/item_4/id = 4
+
+[node name="CrosshairSize" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1923867943]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/CrosshairSize" unique_id=2064079170]
+custom_minimum_size = Vector2(310, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+text = "Crosshair 
+Size"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/CrosshairSize" unique_id=250234411]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+theme_override_icons/arrow = ExtResource("71_jsp16")
+icon_alignment = 1
+expand_icon = true
+selected = 0
+item_count = 3
+popup/item_0/text = "small"
+popup/item_0/id = 0
+popup/item_1/text = "medium"
+popup/item_1/id = 1
+popup/item_2/text = "max"
+popup/item_2/id = 2
+
+[node name="updateButton" parent="Panel" unique_id=1811368051 instance=ExtResource("6_4gm0h")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -431.0
+offset_top = -274.0
+offset_right = -431.0
+offset_bottom = -274.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+direction_A_and_D = "A"
+target_node = NodePath("../..")
+button_id = "back"
+
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/Language/OptionButton" to="." method="_on_language_selected"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Speedometer/CheckBox" to="." method="_on_Speed_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Coords/CheckBox" to="." method="_on_Coords_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/FPS/CheckBox" to="." method="_on_FPS_pressed"]
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/CrosshairType/OptionButton" to="." method="_on_crosshair_selected"]
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton" to="." method="_on_crosshair_size_selected"]

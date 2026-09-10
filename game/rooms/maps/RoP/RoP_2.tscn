@@ -444,6 +444,11 @@ transform = Transform3D(0.96375626, 0, 0.26678425, 0, 1, 0, -0.26678425, 0, 0.96
 
 [node name="room5" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=644738194]
 
+[node name="ImpenetrableField" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1522416536 instance=ExtResource("20_6xomq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.3339999, -19.5)
+OnDefault = true
+hacking = false
+
 [node name="wallGates" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=794107596 instance=ExtResource("8_tdhdp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 0, -22.25)
 emergency_light = true
@@ -566,6 +571,11 @@ transform = Transform3D(-1, 0, -1.4570462e-07, 0, 1, 0, 5.2453668e-08, 0, -1, 8.
 [node name="workTable" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1282687584 instance=ExtResource("28_yuibf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25, 0, -12.9)
 light = true
+
+[node name="button" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1335858922 instance=ExtResource("13_8l84i")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.5, 2.25, -18.9)
+interaction_name = "room5"
+handler_node = NodePath("../../../..")
 
 [node name="corridor1" parent="NavigationRegion3D/floor_ceiling" unique_id=1955337328 instance=ExtResource("16_cnhd8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0, -57.25)
@@ -857,10 +867,6 @@ transform = Transform3D(0.13144329, 0, -0.9913238, 0, 1, 0, 0.9913238, 0, 0.1314
 
 [node name="cockroach3" parent="NavigationRegion3D" unique_id=166073401 instance=ExtResource("25_wuovg")]
 transform = Transform3D(0.6708281, 0, -0.7416131, 0, 1, 0, 0.7416131, 0, 0.6708281, -15.290691, 0.949, -57.556362)
-
-[node name="ImpenetrableField3" parent="NavigationRegion3D" unique_id=1522416536 instance=ExtResource("20_6xomq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.35, -19.5)
-OnDefault = true
 
 [node name="observer1" parent="NavigationRegion3D" unique_id=2011579486 instance=ExtResource("44_yuibf")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -29, 1.6, -35.75)

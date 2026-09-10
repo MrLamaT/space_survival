@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cu01v74yppo1" path="res://game/rooms/main.gd" id="1_rukgg"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="2_nx5a4"]
+[ext_resource type="PackedScene" uid="uid://c7a6mmmmikx2w" path="res://UI/options/options.tscn" id="4_xmdg8"]
 [ext_resource type="PackedScene" uid="uid://b2tpuf62megqf" path="res://game/decoration/menu.tscn" id="5_q48q2"]
 [ext_resource type="PackedScene" uid="uid://cky5ax2dk354d" path="res://UI/menu/load/load.tscn" id="5_vy737"]
 [ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://game/decoration/lightTable.tscn" id="6_4kqoq"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="6_7o45e"]
 [ext_resource type="PackedScene" uid="uid://bjxdu0c8o6rrf" path="res://UI/menu/menu/menu.tscn" id="6_8lup6"]
 [ext_resource type="PackedScene" uid="uid://wkycjb503jb1" path="res://UI/menu/world/world.tscn" id="7_1u0l2"]
-[ext_resource type="PackedScene" uid="uid://c8ije0jsd8354" path="res://UI/menu/options/options.tscn" id="7_4kqoq"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://game/decoration/table.tscn" id="8_vy737"]
 
 [sub_resource type="Animation" id="Animation_7o45e"]
@@ -112,7 +112,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2.831, -3.52)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1072168480]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3679899, 2.378475, -1.9542058)
 
-[node name="options" parent="Camera3D" unique_id=517620797 instance=ExtResource("7_4kqoq")]
+[node name="options" parent="Camera3D" unique_id=38368963 instance=ExtResource("4_xmdg8")]
 visible = false
 
 [node name="load" parent="Camera3D" unique_id=2135560590 instance=ExtResource("5_vy737")]

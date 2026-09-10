@@ -381,9 +381,6 @@ stream = ExtResource("16_s8fo2")
 stream = ExtResource("14_uckl1")
 volume_db = -15.0
 
-[node name="save" type="Timer" parent="." unique_id=246559202]
-wait_time = 60.0
-
 [node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
 stream = ExtResource("24_278cu")
 
@@ -407,5 +404,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 target_position = Vector3(0, -2, 0)
 collision_mask = 4
 
-[connection signal="timeout" from="save" to="." method="_on_save_timeout"]
 [connection signal="body_entered" from="leg_damage" to="leg_damage" method="_on_body_entered"]

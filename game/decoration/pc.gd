@@ -18,8 +18,6 @@ func trigger_interaction():
 	if nameUI != "":
 		if nameUI == "messages":
 			Global.game_settings["UI_argument"] = messages
-		elif nameUI == "hacking":
-			Global.game_settings["UI_argument"] = get_parent()
 		player.openUI(nameUI)
 
 func _on_mouse_entered() -> void:

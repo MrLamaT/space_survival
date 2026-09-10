@@ -9,8 +9,8 @@ func handle_interaction(object_name: String):
 				$Player.warning("Проход открыт")
 			else:
 				$Player.warning("A door opens")
-		"room10":
-			$NavigationRegion3D/ImpenetrableField5.on(true)
+		"room5":
+			$NavigationRegion3D/floor_ceiling/room5/ImpenetrableField.on(true)
 			if Global.game_settings["gui_settings"]["Language"] == "русский":
 				$Player.warning("Непробиваемое поле открылось")
 			else:

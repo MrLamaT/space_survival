@@ -1,3 +1,7 @@
+CheckBox
+OptionButton
+HBoxContainer
+Label
 OmniLight3D
 MeshInstance3D
 Node3D
@@ -9,6 +13,3 @@ RayCast3D
 StaticBody3D
 AudioStreamPlayer2D
 AnimationPlayer
-CollisionShape3D
-NavigationRegion3D
-LightmapGI
