@@ -1,5 +1,6 @@
-res://game/rooms/maps/simulation/training.tscn
+res://game/enemy/destroyercik/destroyercik.tscn
 res://assets/shaders/portal.gdshader
+res://assets/shaders/laser.gdshader
 res://assets/shaders/filter/noir.gdshader
 res://assets/shaders/filter/noir_orange.gdshader
 res://assets/shaders/filter/VHS.gdshader
@@ -11,5 +12,17 @@ res://assets/shaders/filter/f_water.gdshader
 res://assets/shaders/force_field.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
-res://assets/shaders/laser.gdshader
-res://UI/options/options.gd
+res://game/item/hand.tscn
+res://game/Player/Player.tscn
+res://game/item/AggroSwapping_projectile/AggroSwapping.tscn
+res://game/item/Taser_projectile/Taser.tscn
+res://game/item/Hornet_projectile/Hornet.tscn
+res://game/item/Knife_projectile/Knife.tscn
+res://game/item/hand_item.tscn
+res://game/item/Summon_projectile/Summon.tscn
+res://game/item/Move_projectile/Move.tscn
+res://game/item/Delete_projectile/Delete.tscn
+res://game/prop/workbench.tscn
+res://game/chest/chest.tscn
+res://assets/material/sercilist.tres
+res://game/chest/chest.gd

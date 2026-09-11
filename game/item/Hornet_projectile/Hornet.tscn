@@ -219,7 +219,7 @@ _data = {
 [node name="Hornet" type="Node3D" unique_id=1688804302]
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_hb7q2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0)
 visible = false
 texture = ExtResource("2_yrpy8")
 

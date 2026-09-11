@@ -142,7 +142,7 @@ var _chest_items: Dictionary = {}
 
 func _ready() -> void:
 	_chest_items = generate_random_inventory(stage_random)
-	_secondary_color = Color("82594e").darkened(0.1)
+	_secondary_color = Color("616380").darkened(0.1)
 
 func generate_random_inventory(stage: int) -> Dictionary:
 	var inventory = {}

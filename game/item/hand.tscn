@@ -28,7 +28,7 @@ texture_filter = 0
 size = Vector3(0.15, 0.45, 0.1)
 
 [node name="hand" type="MeshInstance3D" unique_id=1885934729 groups=["hand"]]
-transform = Transform3D(3.0551252e-08, 1, -1.504212e-07, 0.9961947, -4.3545054e-08, -0.08715564, -0.08715565, -1.4718611e-07, -0.9961946, 0, 0, 0)
+transform = Transform3D(4.582688e-08, 1.5, -2.2563182e-07, 1.494292, -6.531758e-08, -0.13073348, -0.13073348, -2.2077917e-07, -1.494292, 0, 0, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_i5vkf")
 cast_shadow = 0

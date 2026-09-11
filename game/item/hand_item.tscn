@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb0qf1nq444x8" path="res://game/item/handItem.gd" id="1_6euei"]
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="2_xd7bl"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="3_slfv4"]
 
 [node name="handItem" type="Node3D" unique_id=837608605]
 script = ExtResource("1_6euei")
@@ -11,4 +12,4 @@ texture = ExtResource("2_xd7bl")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=903337758]
 texture_filter = 0
-texture = ExtResource("2_xd7bl")
+texture = ExtResource("3_slfv4")

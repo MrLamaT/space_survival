@@ -39,7 +39,7 @@ border_color = Color(1, 1, 1, 1)
 bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcbty"]
-bg_color = Color(0, 0.7490196, 1, 1)
+bg_color = Color(0.85490197, 0.4745098, 0.12156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qjw8"]
 bg_color = Color(1, 1, 1, 1)
@@ -301,7 +301,7 @@ vertical_alignment = 1
 [node name="stamina" type="Node2D" parent="head/Camera3D/UI" unique_id=856174707]
 
 [node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/UI/stamina" unique_id=32380913]
-modulate = Color(0, 0.7490196, 1, 1)
+modulate = Color(0.85490197, 0.4745098, 0.12156863, 1)
 texture_filter = 1
 position = Vector2(50, 550)
 scale = Vector2(1.5, 1.5)
@@ -352,7 +352,7 @@ position = Vector2(575, 509)
 libraries/ = SubResource("AnimationLibrary_s8fo2")
 
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.2, -0.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.25, -0.6)
 
 [node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
 libraries/ = SubResource("AnimationLibrary_0pv45")

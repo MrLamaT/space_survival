@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://shv1pkwlbix4" path="res://game/chest/chest.gd" id="1_hgs8r"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="1_x83hx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dr8xf"]
-albedo_color = Color(0.50980395, 0.34901962, 0.30588236, 1)
-metallic = 1.0
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="2_fc1dj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_eh6u4"]
 _surfaces = [{
@@ -28,7 +25,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 96,
 "index_data": PackedByteArray("AAABAAIAAQADAAIAAAAEAAEAAwAFAAIAAAAGAAQABgAFAAMAAAAHAAYABgAHAAUACAAJAAoACgAJAAsACAAKAAwACwAJAA0ACAAMAA4ADgALAA0ACAAOAA8ADgANAA8AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAAqACsALAAtAC4ALAAuAC8A"),
-"material": SubResource("StandardMaterial3D_dr8xf"),
+"material": ExtResource("2_fc1dj"),
 "name": "palette",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -67,7 +64,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 228,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABTAFEAVABVAFYAVgBVAFcAVwBVAFgAVABWAFkAWgBXAFgAWwBZAFoAVABZAFsAWwBaAFwAXABaAFgAVABbAF0AXgBcAFgAXwBdAF4AVABdAF8AXwBeAGAAYABeAFgAVABfAGEAYgBgAFgAVABhAGMAYwBhAGIAVABjAGQAYwBiAGUAZQBiAFgAVABkAGYAZgBlAFgAVABmAGcAZgBYAGcAaABpAGoAaABqAGsAbABtAG4AbABuAG8AcABxAHIAcAByAHMAdAB1AHYAdAB2AHcA"),
-"material": SubResource("StandardMaterial3D_dr8xf"),
+"material": ExtResource("2_fc1dj"),
 "name": "palette",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
