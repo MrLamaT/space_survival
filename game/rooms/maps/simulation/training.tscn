@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://game/spawnpoint/spawnpoint.tscn" id="17_u1pd6"]
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://game/laser/laser.tscn" id="18_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://game/decoration/wall/wall_pillar.tscn" id="19_80dxx"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="21_ud5jo"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://game/portal/portal.tscn" id="22_r0400"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="27_u1pd6"]
 
@@ -519,7 +520,9 @@ stade = 1
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 300, 0.5, -2)
-stage_random = 0
+img = ExtResource("21_ud5jo")
+global_key = "Home"
+id = 10
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("17_u1pd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.5, 7.5)

@@ -135,7 +135,7 @@ shape = SubResource("CapsuleShape3D_al2fp")
 debug_color = Color(0, 0.576471, 0.701961, 1)
 
 [node name="hand_position" type="Node3D" parent="." unique_id=1280255816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.4, -0.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, 1.325, -0.6)
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -352,7 +352,7 @@ position = Vector2(575, 509)
 libraries/ = SubResource("AnimationLibrary_s8fo2")
 
 [node name="HandTarget" type="Marker3D" parent="head/Camera3D" unique_id=1238838993]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.25, -0.6)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, -0.275, -0.6)
 
 [node name="damage" type="AnimationPlayer" parent="head/Camera3D" unique_id=1811717650]
 libraries/ = SubResource("AnimationLibrary_0pv45")

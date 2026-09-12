@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/hand/snow/s_hand1.png" id="25_r5g20"]
 [ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/hand/white/w_hand1.png" id="26_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bwcwe6nl7eqfb" path="res://assets/icon/enemyEgg/Egg_cleaner.png" id="26_gudhd"]
-[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/zenith/z_hand1.png" id="27_5vwum"]
+[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/prisoner/p_hand1.png" id="27_5vwum"]
 [ext_resource type="Texture2D" uid="uid://dhqbm1f7ak0b" path="res://assets/icon/enemyEgg/Egg_observer1.png" id="27_c4wer"]
 [ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
@@ -175,7 +175,6 @@ theme_override_constants/v_separation = 15
 columns = 6
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
 img = ExtResource("12_7nag5")
@@ -279,7 +278,6 @@ theme_override_constants/v_separation = 15
 columns = 6
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer14" unique_id=921276576 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
 img = ExtResource("12_7nag5")
@@ -356,7 +354,6 @@ theme_override_constants/v_separation = 15
 columns = 6
 
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=2074403564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 text = "None"
 img = ExtResource("12_7nag5")
@@ -459,6 +456,7 @@ text = "Home"
 img = ExtResource("22_qmh17")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 10
 
 [node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=278901324 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
@@ -466,6 +464,7 @@ text = "Knight"
 img = ExtResource("23_kwbp6")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 8
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=571819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
@@ -473,6 +472,7 @@ text = "Phantom"
 img = ExtResource("24_h60il")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 8
 
 [node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=2145137430 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
@@ -480,6 +480,7 @@ text = "Snow"
 img = ExtResource("25_r5g20")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 8
 
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=1143150561 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
@@ -487,13 +488,15 @@ text = "White"
 img = ExtResource("26_d6vnn")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 8
 
 [node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=131668887 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "Zenith"
+text = "Prisoner"
 img = ExtResource("27_5vwum")
 type = "costumes"
 target_node = NodePath("../../../../..")
+price = 8
 
 [node name="Label4" parent="Panel/ScrollContainer/VBoxContainer" unique_id=708912042 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
