@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ccsi7m41872cs"]
+
+[ext_resource type="ArrayMesh" uid="uid://4bgfjrj1g5kr" path="res://assets/models/shower.obj" id="2_8q5x1"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="2_tn44k"]
+[ext_resource type="Texture2D" uid="uid://fd3385a2q1h" path="res://assets/textures/textile.png" id="3_tn44k"]
+[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://game/decoration/light.tscn" id="4_r1kl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(2, 0.15, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8q5x1"]
+size = Vector3(0.1, 2.8, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn44k"]
+size = Vector3(0.1, 2.8, 1.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1kl0"]
+size = Vector3(0.1, 2.8, 1.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1kl0"]
+albedo_color = Color(0.3137255, 0.12941177, 0.12941177, 1)
+albedo_texture = ExtResource("3_tn44k")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qj0v"]
+material = SubResource("StandardMaterial3D_r1kl0")
+size = Vector3(0.1, 9.73, 1.5)
+
+[node name="shower" type="RigidBody3D" unique_id=3309552 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=932354984]
+transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_8q5x1")
+surface_material_override/0 = ExtResource("2_tn44k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=537617352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1609825655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.925, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1696686789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.5, 0)
+shape = SubResource("BoxShape3D_8q5x1")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1519061760]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.5, 0.95)
+shape = SubResource("BoxShape3D_8q5x1")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1714037626]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.425, 1.5, -0.95)
+shape = SubResource("BoxShape3D_tn44k")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=833650258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.5, 0.425)
+shape = SubResource("BoxShape3D_r1kl0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=752939574]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, -0.845, 1.65, 0)
+mesh = SubResource("BoxMesh_0qj0v")
+skeleton = NodePath("")
+
+[node name="Light" parent="." unique_id=1618065166 instance=ExtResource("4_r1kl0")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0.7)
+
+[node name="Light2" parent="." unique_id=315400749 instance=ExtResource("4_r1kl0")]
+transform = Transform3D(-2.1855694e-08, 0, 1, 0, 1, 0, -0.5, 0, -4.371139e-08, 0.7, 2.9, 0)

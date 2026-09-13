@@ -73,6 +73,7 @@ func _on_Ru_mouse_exited() -> void:
 var page = 0
 
 func _on_label_button_pressed(_id: String) -> void:
+	$Panel/LabelButton.visible = false
 	page += 1
 	$Panel/Label.text = ""
 	$Panel/Sprite2D.visible = false
@@ -105,5 +106,6 @@ F — toggle flashlight
 Weapons
 1–5 — weapon slots
 LMB — shoot")
+		$Panel/LabelButton.visible = true
 	if page >= 2:
 		SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/training.tscn")

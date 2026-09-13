@@ -183,6 +183,7 @@ func _ready():
 	update_max_stamina()
 	var world = Global.get_world(Global.game_settings.word)
 	world["HP"] = 100
+	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
 
 func PlayerDeath():
 	if Global.game_settings["IsDying"]:

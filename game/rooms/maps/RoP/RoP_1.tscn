@@ -24,7 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="21_7st0v"]
 [ext_resource type="PackedScene" uid="uid://tjy8ry250xol" path="res://game/decoration/solarPanels.tscn" id="21_pd54a"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="22_ccvf0"]
-[ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://game/item/Taser_projectile/Taser_give.tscn" id="23_w2f0a"]
+[ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://game/item/Organizer_give.tscn" id="23_w2f0a"]
+[ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="24_nn2xw"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://game/enemy/cockroach/cockroach.tscn" id="25_yu35j"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="26_88l7r"]
 [ext_resource type="PackedScene" uid="uid://g2sob3slrcl0" path="res://game/suppression/suppression.tscn" id="26_sajrh"]
@@ -865,6 +866,8 @@ transform = Transform3D(-0.6401844, 0, -0.76822126, 0, 1, 0, 0.76822126, 0, -0.6
 
 [node name="TaserGive" parent="NavigationRegion3D" unique_id=1674257042 instance=ExtResource("23_w2f0a")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 18.813393, 11, -55.76956)
+slot = 2
+img = ExtResource("24_nn2xw")
 
 [node name="cockroach" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("25_yu35j")]
 transform = Transform3D(0.9839225, 0, 0.17859635, 0, 1, 0, -0.17859635, 0, 0.9839225, 17.494345, 0.949075, -16.546913)

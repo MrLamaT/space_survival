@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://c6veumml4l7pv" path="res://game/blocks/simulation_blue.tscn" id="4_gdhw4"]
 [ext_resource type="PackedScene" uid="uid://b4ovs2oii7bfb" path="res://game/decoration/teleport_simulation.tscn" id="4_jr5s2"]
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://game/decoration/hologram_text.tscn" id="4_wot7y"]
-[ext_resource type="PackedScene" uid="uid://b2bsxx5qxkv1a" path="res://game/item/Knife_projectile/Knife_give.tscn" id="6_wmlfu"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="7_dv7yx"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="8_vp57u"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="9_6a2e5"]
 [ext_resource type="PackedScene" uid="uid://dxhy42mlkocj0" path="res://game/decoration/wall/wallGlass.tscn" id="10_oblyh"]
+[ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://game/item/Organizer_give.tscn" id="11_fs7wu"]
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://game/chest/chest.tscn" id="11_vp57u"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="12_21q10"]
 [ext_resource type="PackedScene" uid="uid://cdrhd5io8vjva" path="res://game/hide/invisible_trigger.tscn" id="14_c8tpk"]
 [ext_resource type="PackedScene" uid="uid://c0l1hm333wk6c" path="res://game/prop/spring.tscn" id="14_cs7s5"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://game/spawnpoint/spawnpoint.tscn" id="17_u1pd6"]
@@ -161,8 +162,10 @@ numberWave = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -1.5, -2.708333)
 numberWave = 1
 
-[node name="KnifeGive" parent="1" unique_id=2030828468 instance=ExtResource("6_wmlfu")]
+[node name="OrganizerGive" parent="1" unique_id=2030828468 instance=ExtResource("11_fs7wu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+weapon = "Vibro Spike"
+img = ExtResource("12_21q10")
 
 [node name="2" type="NavigationRegion3D" parent="." unique_id=254091103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, 0)

@@ -65,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://by0xaas2p3ink" path="res://assets/icon/prop/christmas_tree.png" id="48_lsa26"]
 [ext_resource type="Texture2D" uid="uid://cftht8vvono6h" path="res://assets/icon/prop/column.png" id="48_neoys"]
 [ext_resource type="Texture2D" uid="uid://c414e63cmdhns" path="res://assets/icon/prop/lightball.png" id="49_f11xb"]
+[ext_resource type="Texture2D" uid="uid://bnnuusbf75he6" path="res://assets/icon/prop/shower.png" id="49_r5g20"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://cln0kd0pfs6go" path="res://assets/icon/prop/beachball.png" id="50_jk6ju"]
 [ext_resource type="Texture2D" uid="uid://c1i8srqcd1ee8" path="res://assets/level/planetFnaf.png" id="50_v7lph"]
@@ -707,6 +708,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "toilet"
 img = ExtResource("39_muxdo")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card16" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=613776590 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "shower"
+img = ExtResource("49_r5g20")
 type = "props"
 target_node = NodePath("../../../../..")
 

@@ -29,7 +29,8 @@ var game_settings: Dictionary = {
 		"Speed": false,
 		"Language": "English",
 		"crosshair": 1,
-		"ch_scale": 5.0
+		"ch_scale": 5.0,
+		"sensitivity": 50.0
 	},
 	"summon": {
 		"name": "phantom",

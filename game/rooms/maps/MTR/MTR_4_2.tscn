@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="4_7nagq"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="5_bhaqf"]
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="5_r8ksn"]
-[ext_resource type="PackedScene" uid="uid://b2d7hufqpxtmo" path="res://game/item/Hornet_projectile/Hornet_give.tscn" id="7_j4ahu"]
+[ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://game/item/Organizer_give.tscn" id="8_mvuij"]
+[ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="9_e5r6a"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="10_exsrb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_htu6x"]
@@ -92,5 +93,8 @@ transform = Transform3D(3.5, 0, 0, 0, 1, 0, 0, 0, 7.5, 0, 0, -16.25)
 [node name="metal2" parent="." unique_id=1562903788 instance=ExtResource("5_r8ksn")]
 transform = Transform3D(3.5, 0, 0, 0, 1, 0, 0, 0, 12.5, 0, 0, 18.75)
 
-[node name="HornetGive" parent="." unique_id=2030828468 instance=ExtResource("7_j4ahu")]
+[node name="OrganizerGive" parent="." unique_id=2030828468 instance=ExtResource("8_mvuij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -13.1)
+weapon = "Hornet"
+slot = 3
+img = ExtResource("9_e5r6a")

@@ -1,3 +1,8 @@
+OmniLight3D
+MeshInstance3D
+CollisionShape3D
+CharacterBody3D
+HSlider
 Label
 AnimationPlayer
 Panel
@@ -5,10 +10,5 @@ Sprite2D
 CheckBox
 OptionButton
 HBoxContainer
-OmniLight3D
-MeshInstance3D
 Node3D
 Sprite3D
-Area3D
-RichTextLabel
-RayCast3D

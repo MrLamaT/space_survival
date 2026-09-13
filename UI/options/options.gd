@@ -15,7 +15,8 @@ func _ready() -> void:
 		$Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton.selected = 1
 	if Global.game_settings["gui_settings"]["ch_scale"] == 7.5:
 		$Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton.selected = 2
-
+	$Panel/ScrollContainer/VBoxContainer/Sensitivity/HSlider.value = float(Global.game_settings.gui_settings.sensitivity)
+	
 func _on_label_button_pressed(id: String) -> void:
 	match id:
 		"back":
@@ -52,4 +53,8 @@ func _on_crosshair_size_selected(index: int) -> void:
 		Global.game_settings["gui_settings"]["ch_scale"] = 5.0
 	if index == 2:
 		Global.game_settings["gui_settings"]["ch_scale"] = 7.5
+	Global.save(0)
+
+func _on_sensitivity_value_changed(value: float) -> void:
+	Global.game_settings["gui_settings"]["sensitivity"] = value
 	Global.save(0)

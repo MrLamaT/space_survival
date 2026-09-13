@@ -1,8 +1,11 @@
+res://assets/weapon/
+res://assets/icon/prop/
+res://assets/models/
+res://assets/material/
 res://assets/hand/home/
 res://
 res://assets/hand/classic/
 res://assets/textures/
-res://assets/weapon/
 res://assets/crosshair/
 res://assets/icon/
 res://UI/options/
@@ -10,7 +13,6 @@ res://assets/paintings/
 res://game/sky/
 res://assets/icon/equipment/
 res://assets/icon/planet/
-res://assets/material/
 C:/Users/anaga/OneDrive/Документы/
 res://UI/demo/
 res://game/rooms/maps/MTR/
@@ -18,6 +20,4 @@ res://assets/shaders/filter/
 res://assets/
 res://assets/level/
 res://assets/sound/
-res://assets/icon/prop/
 res://assets/shaders/
-res://UI/spawn/

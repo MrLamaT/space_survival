@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://bk3onh6r0kr07"]
+
+[ext_resource type="Script" uid="uid://dggmemmq7wjan" path="res://game/item/organizer_give.gd" id="1_iq6ey"]
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="3_3hgwq"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="3_whyi2"]
+[ext_resource type="Texture2D" uid="uid://bsjj1bqwitiqy" path="res://assets/textures/wallpaper2.png" id="4_3hgwq"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="5_3hgwq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kecf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kdil"]
+albedo_texture = ExtResource("3_3hgwq")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_xugh5"]
+material = SubResource("StandardMaterial3D_6kdil")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ngvf4"]
+material = ExtResource("3_whyi2")
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7cab"]
+shading_mode = 0
+albedo_color = Color(0.9882353, 1, 0.7137255, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_whyi2"]
+material = SubResource("StandardMaterial3D_n7cab")
+top_radius = 0.15
+height = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1tjb"]
+material = ExtResource("3_whyi2")
+size = Vector3(1, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53xqy"]
+albedo_color = Color(0.22, 0.22, 0.22, 1)
+albedo_texture = ExtResource("4_3hgwq")
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tda3l"]
+material = SubResource("StandardMaterial3D_53xqy")
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_va0t2"]
+size = Vector3(1.2, 2, 1.2)
+
+[node name="OrganizerGive" type="Area3D" unique_id=2030828468]
+collision_layer = 2
+script = ExtResource("1_iq6ey")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=975060106]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1111805206]
+shape = SubResource("BoxShape3D_5kecf")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1539954326]
+visible = false
+mesh = SubResource("BoxMesh_xugh5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticBody3D" unique_id=269800298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+mesh = SubResource("CylinderMesh_ngvf4")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D" unique_id=1556446231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+mesh = SubResource("CylinderMesh_whyi2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=1218705386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_d1tjb")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="StaticBody3D" unique_id=1651798271]
+mesh = SubResource("CylinderMesh_tda3l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1932437718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_va0t2")
+debug_color = Color(0, 0.5950001, 0.7, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1814428146]
+transform = Transform3D(2.5, 0, 1.5893256e-07, 0, 2.5, 0, -1.5893256e-07, 0, 2.5, 0, 0.4, 0.251)
+modulate = Color(0.76, 0.6429601, 0.17480001, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("5_3hgwq")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=895996276]
+transform = Transform3D(2.5, 0, 1.5893256e-07, 0, 2.5, 0, -1.5893256e-07, 0, 2.5, 0, 0.4, -0.251)
+modulate = Color(0.76, 0.6429601, 0.17480001, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("5_3hgwq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
