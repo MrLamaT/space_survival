@@ -75,6 +75,16 @@ func set_cube_colors(color: Color):
 		new_mat.albedo_color = color
 		cube.set_surface_override_material(0, new_mat)
 
+func _on_label_button_pressed(id: String) -> void:
+	match id:
+		"map":
+			SceneManager.load_scene_with_loading("res://UI/planet/planet.tscn")
+		"next":
+			$Label/AnimationPlayer.play("RESET")
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			$Timer.stop()
+			teleport(Global.level.get(level + 1))
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and skin == 1:
 		if !win_anim:
@@ -86,5 +96,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			world["stage"] = stade
 		body.save()
 		body.set_movement_enabled(false)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		body.global_position = global_position
-		teleport(Global.level.get(level + 1))
+		$Timer.start()
+
+func _on_timer_timeout() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

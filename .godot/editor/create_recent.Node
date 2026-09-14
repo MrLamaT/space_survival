@@ -1,3 +1,5 @@
+Timer
+HBoxContainer
 OmniLight3D
 MeshInstance3D
 CollisionShape3D
@@ -9,6 +11,5 @@ Panel
 Sprite2D
 CheckBox
 OptionButton
-HBoxContainer
 Node3D
 Sprite3D
