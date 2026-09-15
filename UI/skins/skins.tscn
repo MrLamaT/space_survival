@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bv0i1bnmakpp3"]
+
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_0ah20"]
+[ext_resource type="Script" uid="uid://cbccuo34l0l56" path="res://UI/skins/skins.gd" id="1_pl7qy"]
+[ext_resource type="PackedScene" uid="uid://whn8plkartqb" path="res://UI/spawn/card.tscn" id="2_7o7ry"]
+[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="21_rfa7u"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="22_vdi1o"]
+[ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/hand/knight/k_hand1.png" id="23_tb0ds"]
+[ext_resource type="Texture2D" uid="uid://cploxr7hvuo6w" path="res://assets/hand/phantom/p_hand1.png" id="24_ypn77"]
+[ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/hand/snow/s_hand1.png" id="25_xvh4a"]
+[ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/hand/white/w_hand1.png" id="26_pnvfg"]
+[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/prisoner/p_hand1.png" id="27_10558"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd4jw"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="Skins" type="Node2D" unique_id=716912502]
+script = ExtResource("1_pl7qy")
+
+[node name="Panel" type="Panel" parent="." unique_id=1853719013]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pd4jw")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=646198114]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.5
+offset_top = -300.0
+offset_right = 567.5
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=256684953]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1585450098]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0ah20")
+theme_override_font_sizes/font_size = 50
+text = "costumes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1251211522]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 6
+
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1064756532 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Classic"
+img = ExtResource("21_rfa7u")
+type = "costumes"
+target_node = NodePath("../../../../..")
+
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1012288609 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Home"
+img = ExtResource("22_vdi1o")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 10
+
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=391408581 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Knight"
+img = ExtResource("23_tb0ds")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=235844553 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Phantom"
+img = ExtResource("24_ypn77")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1342306193 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Snow"
+img = ExtResource("25_xvh4a")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8
+
+[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=29856616 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "White"
+img = ExtResource("26_pnvfg")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8
+
+[node name="card7" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1713248731 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Prisoner"
+img = ExtResource("27_10558")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8

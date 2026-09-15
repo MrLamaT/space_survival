@@ -161,6 +161,13 @@ func handle_card_pressed(type, id, color_img):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					Global.game_settings["UI"] = false
 					queue_free()
+				"infS": 
+					var player = get_tree().get_first_node_in_group("player")
+					player.infS = !player.infS
+					player.warning("infS mode changed [" + str(player.infS) + "]")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
 				"noclip [V]":
 					var player = get_tree().get_first_node_in_group("player")
 					player.noclip_cheat()

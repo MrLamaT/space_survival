@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func trigger_interaction():
 	var player = get_tree().get_first_node_in_group("player")
-	player.openUI("building")
+	player.openUI("skins")
 
 func _on_mouse_entered() -> void:
 	get_node("../Sprite3D").modulate = Color("ffffffff")

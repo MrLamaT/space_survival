@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://birvf6vmexn7p"
-path="res://.godot/imported/radiation.png-bf1ed438ee2454873cd62dcdb9b9ced1.ctex"
+path="res://.godot/imported/radiation.png-2ef3c5fbb430779fa3fee253f41699ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/equipment/radiation.png"
-dest_files=["res://.godot/imported/radiation.png-bf1ed438ee2454873cd62dcdb9b9ced1.ctex"]
+source_file="res://assets/icon/radiation.png"
+dest_files=["res://.godot/imported/radiation.png-2ef3c5fbb430779fa3fee253f41699ff.ctex"]
 
 [params]
 

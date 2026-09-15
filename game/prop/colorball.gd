@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends MeshInstance3D
 
 const rarity_gray: float = 0.01 
 
@@ -7,11 +7,11 @@ func _ready():
 	apply_random_color()
 
 func apply_random_color():
-	$MeshInstance3D.material_override = StandardMaterial3D.new()
-	$MeshInstance3D.material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material_override = StandardMaterial3D.new()
+	material_override.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	var rand = randf()
 	if rand < rarity_gray:
-		$MeshInstance3D.material_override.albedo_color = Color.GRAY
+		material_override.albedo_color = Color.GRAY
 		return
 	var colors = [
 		Color.RED,
@@ -20,7 +20,7 @@ func apply_random_color():
 		Color.YELLOW
 	]
 	var random_index = randi() % colors.size()
-	$MeshInstance3D.material_override.albedo_color = colors[random_index]
+	material_override.albedo_color = colors[random_index]
 
 func refresh_color():
 	apply_random_color()

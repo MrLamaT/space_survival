@@ -78,7 +78,13 @@ func set_cube_colors(color: Color):
 func _on_label_button_pressed(id: String) -> void:
 	match id:
 		"map":
-			SceneManager.load_scene_with_loading("res://UI/planet/planet.tscn")
+			$Label/AnimationPlayer.play("RESET")
+			var player = get_tree().get_first_node_in_group("player")
+			player.openUI("planet")
+		"skin":
+			$Label/AnimationPlayer.play("RESET")
+			var player = get_tree().get_first_node_in_group("player")
+			player.openUI("skins")
 		"next":
 			$Label/AnimationPlayer.play("RESET")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -94,11 +100,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			world["level"] = level + 1
 		if world["stage"] < stade:
 			world["stage"] = stade
-		body.save()
+		Global.save(Global.game_settings["word"])
 		body.set_movement_enabled(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		body.global_position = global_position
 		$Timer.start()
 
 func _on_timer_timeout() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if !Global.game_settings["UI"]:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if !$Label.visible:
+			$Label/AnimationPlayer.play("vis")

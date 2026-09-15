@@ -22,3 +22,4 @@ func _on_body_entered(body: Node3D) -> void:
 		body.weapon_system.weapon_slots[slot] = weapon
 		body.weapon_system.equip_weapon(body.weapon_system.weapon_slots.get(slot, ""))
 		task = true
+		Global.save(Global.game_settings["word"])

@@ -19,6 +19,10 @@ func _on_label_button_pressed(id: String) -> void:
 			var player = get_tree().get_first_node_in_group("player")
 			player.openUI("music")
 			queue_free()
+		"skin":
+			var player = get_tree().get_first_node_in_group("player")
+			player.openUI("skins")
+			queue_free()
 		"miss":
 			var player = get_tree().get_first_node_in_group("player")
 			player.openUI("planet")

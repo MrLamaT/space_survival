@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0pqt7eot2gxv"
-path="res://.godot/imported/chip.png-df3507213297da405a805926a34472dc.ctex"
+uid="uid://cwb0orjfe183g"
+path="res://.godot/imported/hp.png-915e15a275a62e3745fc73b78e1a0fb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon/equipment/chip.png"
-dest_files=["res://.godot/imported/chip.png-df3507213297da405a805926a34472dc.ctex"]
+source_file="res://assets/icon/hp.png"
+dest_files=["res://.godot/imported/hp.png-915e15a275a62e3745fc73b78e1a0fb7.ctex"]
 
 [params]
 

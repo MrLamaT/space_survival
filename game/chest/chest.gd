@@ -25,6 +25,7 @@ func trigger_interaction():
 	$Sprite3D.shaded = true
 	$AnimationPlayer.play("open")
 	remove_from_group("interactive_objects")
+	Global.save(Global.game_settings["word"])
 
 func _on_mouse_entered() -> void:
 	pass

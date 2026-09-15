@@ -79,12 +79,13 @@
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 [ext_resource type="Texture2D" uid="uid://cchsbhyfsimkg" path="res://assets/textures/roof.png" id="60_5txe2"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="61_7addr"]
-[ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/equipment/shield.png" id="66_63tcv"]
+[ext_resource type="Texture2D" uid="uid://3hqnq4w7des4" path="res://assets/icon/prop/colorball.png" id="62_d6vnn"]
+[ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/shield.png" id="66_63tcv"]
 [ext_resource type="Texture2D" uid="uid://dtqsfimpmq50t" path="res://assets/icon/equipment/jump.png" id="66_csqvi"]
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/icon/LogoDeath.png" id="67_5txe2"]
 [ext_resource type="Texture2D" uid="uid://djy4wxotwfx1m" path="res://assets/icon/noclip.png" id="80_qmh17"]
 [ext_resource type="Texture2D" uid="uid://b8r2t6kd1kgf8" path="res://assets/icon/eye.png" id="81_kwbp6"]
-[ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/equipment/energy.png" id="81_r5g20"]
+[ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/energy.png" id="81_r5g20"]
 [ext_resource type="Texture2D" uid="uid://bt8o2xrg7gjg0" path="res://assets/icon/select.png" id="85_h60il"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
@@ -823,6 +824,13 @@ img = ExtResource("50_jk6ju")
 type = "props"
 target_node = NodePath("../../../../..")
 
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer9" unique_id=1851670669 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "color ball"
+img = ExtResource("62_d6vnn")
+type = "props"
+target_node = NodePath("../../../../..")
+
 [node name="Label17" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2119088587 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
 title = "block style"
@@ -1369,6 +1377,13 @@ target_node = NodePath("../../../../..")
 [node name="card10" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=509613145 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "infE"
+img = ExtResource("81_r5g20")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card11" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=988801676 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "infS"
 img = ExtResource("81_r5g20")
 type = "other"
 target_node = NodePath("../../../../..")

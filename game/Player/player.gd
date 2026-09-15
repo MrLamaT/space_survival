@@ -125,6 +125,7 @@ var ice_accel_multiplier: float = 1.0  # Множитель ускорения �
 var GodMod: bool = false
 var noclip: bool = false
 var infE: bool = false
+var infS: bool = false
 
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
@@ -230,11 +231,6 @@ func HP(hp):
 		PlayerDeath()
 	if world["HP"] > 100:
 		world["HP"] = 100
-	if hp > 0 and "kinetic shield" in world["equipment"]:
-		var enemies = get_tree().get_nodes_in_group("enemy")
-		for enemy in enemies:
-			if enemy.has_method("take_damage"):
-				enemy.take_damage(hp * 0.5)
 
 func apply_poison(damage: float) -> void:
 	if Global.game_settings["IsDying"]:
@@ -242,11 +238,7 @@ func apply_poison(damage: float) -> void:
 	if GodMod:
 		return
 	poison_damage = damage
-	var world = Global.get_world(Global.game_settings.word)
-	if "metabolic booster" in world["equipment"]:
-		poison_duration = 4.0
-	else:
-		poison_duration = 8.0
+	poison_duration = 8.0
 	poison_tick_timer = 0.0
 	is_poisoned = true
 
@@ -422,12 +414,10 @@ func _process(delta):
 		damage_cooldown -= delta
 
 func _update_stamina(delta):
-	var world = Global.get_world(Global.game_settings.word)
 	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
 	var is_actually_moving = horizontal_speed > 0.5
-	var has_inertia_boots = "inertia boots" in world["equipment"]
 	if is_running and is_actually_moving and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
-		if not has_inertia_boots:
+		if not infS:
 			stamina = max(0, stamina - stamina_depletion_rate * delta)
 			can_regenerate = false
 			regen_timer = 0.0

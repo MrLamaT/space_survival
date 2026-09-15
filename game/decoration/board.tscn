@@ -1,48 +1,36 @@
-[gd_scene format=3 uid="uid://iuthusc4lu48"]
+[gd_scene format=3 uid="uid://dexoak8kxtuye"]
 
-[ext_resource type="Script" uid="uid://coo8x3vim8gks" path="res://game/decoration/board.gd" id="1_cofpk"]
+[ext_resource type="Script" uid="uid://dc7cqja1od4hx" path="res://game/decoration/board.gd" id="1_cofpk"]
 [ext_resource type="Texture2D" uid="uid://f7113tsm5wda" path="res://assets/textures/woodenBoard.png" id="2_sd2c5"]
-[ext_resource type="Texture2D" uid="uid://bvfr60r1ey227" path="res://assets/paintings/picture11.png" id="3_uj640"]
+[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture3.png" id="3_8lekn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7w8tc"]
-albedo_color = Color(0.505882, 0.388235, 0.282353, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_vy737"]
-material = SubResource("StandardMaterial3D_7w8tc")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cofpk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+albedo_color = Color(0.43137255, 0.32941177, 0.23921569, 1)
 albedo_texture = ExtResource("2_sd2c5")
+uv1_scale = Vector3(1, 1, 0.3)
+uv1_offset = Vector3(0.5, 0.5, 0)
+uv1_triplanar = true
 texture_filter = 0
 
-[sub_resource type="QuadMesh" id="QuadMesh_uj640"]
-material = SubResource("StandardMaterial3D_cofpk")
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+size = Vector3(1, 1, 0.05)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2loi4"]
-albedo_texture = ExtResource("3_uj640")
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 1, 0.05)
 
-[sub_resource type="QuadMesh" id="QuadMesh_b2vxy"]
-material = SubResource("StandardMaterial3D_2loi4")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cjmea"]
-
-[node name="board" type="Node3D"]
-script = ExtResource("1_cofpk")
-
-[node name="StaticBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1.91069e-15, -4.37114e-09, -1, -1, -4.37114e-09, -3.59989e-21, -4.37114e-08, 0.1, -4.37114e-08, 0, 0, 0)
+[node name="Board" type="StaticBody3D" unique_id=407621352]
 collision_layer = 4
 collision_mask = 3
+script = ExtResource("1_cofpk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody"]
-mesh = SubResource("BoxMesh_vy737")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1449467940]
+mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody"]
-transform = Transform3D(1, 4.23516e-22, 0, 0, -4.37115e-08, 1, -1.05879e-22, -1, -4.37114e-08, 0, 0.55, 0)
-mesh = SubResource("QuadMesh_uj640")
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=964617256]
+transform = Transform3D(0.085, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0.03)
+shaded = true
+texture = ExtResource("3_8lekn")
 
-[node name="paintings" type="MeshInstance3D" parent="StaticBody"]
-transform = Transform3D(-3.49691e-08, -0.85, -4.37114e-08, 0, -3.71547e-08, 1, -0.8, 3.71547e-08, 1.91069e-15, 0, 0.6, 0)
-mesh = SubResource("QuadMesh_b2vxy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody"]
-shape = SubResource("BoxShape3D_cjmea")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=635406374]
+shape = SubResource("BoxShape3D_g4v7s")

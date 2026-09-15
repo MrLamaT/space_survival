@@ -523,7 +523,7 @@ pitch_scale = 0.75
 
 [node name="PC1" parent="." unique_id=1029461300 instance=ExtResource("8_syhg2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.6, 1.5, 0)
-nameUI = "building"
+nameUI = "skins"
 
 [node name="column" parent="." unique_id=1828673876 instance=ExtResource("8_bguse")]
 transform = Transform3D(0.664463, -0.664463, -0.34202012, 0.70710677, 0.70710677, 0, 0.24184474, -0.24184474, 0.9396926, -2, 0.25, -1)
@@ -573,9 +573,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
+offset_left = -400.0
 offset_top = 76.0
-offset_right = 200.0
+offset_right = 400.0
 offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -588,6 +588,13 @@ text = "Map"
 direction_A_and_D = "D"
 target_node = NodePath("../..")
 button_id = "map"
+
+[node name="LabelButton3" parent="HBoxContainer" unique_id=736383602 instance=ExtResource("11_b6rp5")]
+layout_mode = 2
+text = "Skins"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "skin"
 
 [node name="LabelButton2" parent="HBoxContainer" unique_id=2094879085 instance=ExtResource("11_b6rp5")]
 layout_mode = 2
