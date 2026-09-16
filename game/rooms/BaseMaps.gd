@@ -8,6 +8,7 @@ var world = Global.get_world(Global.game_settings.word)
 @export var weapons: Array[String] = ["Vibro Spike", "Taser", "Hornet", "inv", "inv"]
 @export var player_checkpoint: bool = false
 @export var player_min_y_checkpoint: float = -5.0
+@export var spawn_panel: bool = false
 @export var plank_color: Color = Color("4b3017")
 @export var earth_color: Color = Color("323f18")
 @export var stone_color: Color = Color("666666ff")
@@ -34,6 +35,7 @@ func _ready() -> void:
 	if player_checkpoint:
 		Global.game_settings["checkpoint"] = $Player.global_position
 	Global.game_settings["min_y"] = player_min_y_checkpoint
+	$Player.spawnPanel = spawn_panel
 	var plank = preload("res://assets/material/plank.tres")
 	plank.albedo_color = plank_color
 	var earth = preload("res://assets/material/earth.tres")

@@ -21,9 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="16_5tetk"]
 [ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="16_d71kh"]
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="18_bj30i"]
-[ext_resource type="Texture2D" uid="uid://befid2rv3o3vp" path="res://assets/item/credits.png" id="19_lx0oo"]
-[ext_resource type="Texture2D" uid="uid://bbtrplygxa47d" path="res://assets/item/sercilist.png" id="20_o0w04"]
-[ext_resource type="Texture2D" uid="uid://b0sgfy3s5y52e" path="res://assets/item/dark_sercilist.png" id="21_4ib5f"]
 [ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="21_rp21u"]
 [ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
@@ -499,40 +496,6 @@ img = ExtResource("27_5vwum")
 type = "costumes"
 target_node = NodePath("../../../../..")
 price = 8
-
-[node name="Label4" parent="Panel/ScrollContainer/VBoxContainer" unique_id=708912042 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
-layout_mode = 2
-title = "resources"
-cat_node = NodePath("../GridContainer4")
-
-[node name="GridContainer4" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1616580173]
-visible = false
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 15
-columns = 6
-
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=391552539 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "Credits"
-img = ExtResource("19_lx0oo")
-type = "item"
-target_node = NodePath("../../../../..")
-
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=1289413339 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "Sercilist"
-img = ExtResource("20_o0w04")
-type = "item"
-target_node = NodePath("../../../../..")
-
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer4" unique_id=1294181185 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "Dark Sercilist"
-img = ExtResource("21_4ib5f")
-type = "item"
-target_node = NodePath("../../../../..")
 
 [node name="Label5" parent="Panel/ScrollContainer/VBoxContainer" unique_id=722710920 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
@@ -1552,77 +1515,6 @@ theme_override_fonts/font = ExtResource("6_d3066")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_7nag5")
 text = "8"
-
-[node name="item_slot" type="Panel" parent="." unique_id=1541458606]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 276.0
-offset_top = 174.0
-offset_right = 876.0
-offset_bottom = 474.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_hcli3")
-
-[node name="Label" type="Label" parent="item_slot" unique_id=2015864165]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -162.0
-offset_top = -120.0
-offset_right = 162.0
-offset_bottom = -84.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_font_sizes/font_size = 32
-text = "Set value"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LineEdit" type="LineEdit" parent="item_slot" unique_id=1849314157]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -20.0
-offset_right = 225.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ib5f")
-text = "100"
-
-[node name="LabelButton" parent="item_slot" unique_id=1811368051 instance=ExtResource("22_o0w04")]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = 100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "set"
-direction_A_and_D = "D"
-target_node = NodePath("../..")
-button_id = "set_item"
 
 [node name="Enemy_slot" type="Panel" parent="." unique_id=554933736]
 visible = false

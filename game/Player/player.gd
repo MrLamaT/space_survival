@@ -126,6 +126,7 @@ var GodMod: bool = false
 var noclip: bool = false
 var infE: bool = false
 var infS: bool = false
+var spawnPanel: bool = false
 
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
@@ -329,7 +330,7 @@ func _input(event: InputEvent): #повороты мышкой
 		is_alt_shooting = false
 	if Input.is_action_just_pressed("+q"):
 		var world = Global.get_world(Global.game_settings.word)
-		if world["mode"] == 1:
+		if world["mode"] == 1 or spawnPanel:
 			openUI("spawn")
 	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
 		var world = Global.get_world(Global.game_settings.word)

@@ -1,7 +1,5 @@
 extends Node2D
 
-var current_item_id: String = ""
-
 func handle_card_pressed(type, id, color_img):
 	match type:
 		"gravity":
@@ -75,11 +73,6 @@ func handle_card_pressed(type, id, color_img):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
-		"item":
-			$Panel.visible = false
-			$item_slot.visible = true
-			current_item_id = id
-			_update_item_display()
 		"enemies":
 			Global.game_settings["summon"]["name"] = id
 			$Panel.visible = false
@@ -216,27 +209,6 @@ func _clear_group(group_name: String) -> void:
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
-		"set_item":
-			var line_edit = $item_slot/LineEdit
-			var input_text = line_edit.text.strip_edges()
-			var new_value: int = 0
-			if input_text.is_valid_int():
-				new_value = input_text.to_int()
-			else:
-				new_value = 0
-			if new_value < 0:
-				new_value = 0
-			if new_value > 999999:
-				new_value = 999999
-			var inventory = Global.get_world(Global.game_settings.word)["inventory"]
-			if new_value == 0:
-				if current_item_id in inventory:
-					inventory.erase(current_item_id)
-			else:
-				inventory[current_item_id] = new_value
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
 		"set_enemy":
 			var line_edit = $Enemy_slot/LineEdit
 			var input_text = line_edit.text.strip_edges()
@@ -275,11 +247,3 @@ func _on_weapon_slot_selected(slot_index: int, weapon_name: String) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Global.game_settings["UI"] = false
 	queue_free()
-
-func _update_item_display() -> void:
-	var line_edit = $item_slot/LineEdit
-	var inventory = Global.get_world(Global.game_settings.word)["inventory"]
-	if current_item_id in inventory:
-		line_edit.text = str(int(inventory[current_item_id]))
-	else:
-		line_edit.text = "0"

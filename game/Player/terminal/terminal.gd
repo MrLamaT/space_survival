@@ -71,6 +71,15 @@ func parse_command(text: String):
 		"restart", "respawn":
 			player.respawn_player()
 			SystemPrint("Player respawned")
+		"HP", "hp":
+			if argument == "":
+				player.HP(100)
+			else:
+				if argument.is_valid_int():
+					var damage_value = argument.to_int()
+					player.HP(damage_value)
+				else:
+					ErrorPrint("Invalid argument: must be an integer number")
 		"poison":
 			if argument == "":
 				player.apply_poison(100)
