@@ -47,7 +47,15 @@ var weapons: Dictionary = {
 		"energy_cost": 8.0,
 		"reload_animation": "r",
 		"visible_node": "Taser",
-		"pitch_scale": [1.4, 1.6]
+		"pitch_scale": [1.4, 1.6],
+		"alt": {
+			"scene": preload("res://game/item/Taser_projectile/Taser_projectile.tscn"),
+			"fire_rate": 0.2,
+			"bullet_speed": 50.0,
+			"energy_cost": 8.0,
+			"reload_animation": "r",
+			"pitch_scale": [1.4, 1.6]
+		}
 	},
 	"Hornet": {
 		"scene": preload("res://game/item/Hornet_projectile/Hornet_projectile.tscn"),

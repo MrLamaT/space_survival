@@ -6,6 +6,7 @@ extends Marker3D
 @export var aura = 0
 @export var enemyTags: String = "player"
 const ENEMIES = {
+	"enemy": "res://game/enemy/enemy/enemy.tscn",
 	"phantom": "res://game/enemy/phantom/phantom.tscn",
 	"giant stingray": "res://game/enemy/giantStingray/giantStingray.tscn",
 	"stingray": "res://game/enemy/stingray/stingray.tscn",

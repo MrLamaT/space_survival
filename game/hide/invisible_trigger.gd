@@ -5,8 +5,6 @@ extends Area3D
 func _ready():
 	$MeshInstance3D.visible = false
 	visible = false
-	monitoring = true
-	monitorable = false
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):  
@@ -20,7 +18,6 @@ func _on_body_exited(body):
 
 func _on_mouse_entered() -> void:
 	pass # Replace with function body.
-
 
 func _on_mouse_exited() -> void:
 	pass # Replace with function body.

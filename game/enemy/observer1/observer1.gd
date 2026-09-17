@@ -1,5 +1,4 @@
 extends "res://game/enemy/BaseEnemy.gd"
-@export var watch = false
 
 # Стрельба
 var bullet_scene = preload("res://game/item/Homing_projectile/Homing_projectile.tscn")
@@ -28,7 +27,6 @@ var target_y: float = 0.0          # Целевая высота
 
 # Телепорт
 var is_teleporting: bool = false
-var portal_scene = preload("res://game/wave/WavePortal.tscn")
 var spawn_position: Vector3 = Vector3.ZERO
 
 # Система атак
@@ -37,7 +35,7 @@ enum AttackType { SHOOT, BEAM , ASCEND, TELEPORT }
 var can_act: bool = true  # Может ли враг выполнять действия
 var spawn_protection: float = 1.5  # Защита после появления
 
-var attack_queue: Array = [AttackType.SHOOT, AttackType.BEAM, AttackType.ASCEND, AttackType.TELEPORT]  # Очередь атак
+const attack_queue: Array = [AttackType.SHOOT, AttackType.BEAM, AttackType.ASCEND, AttackType.TELEPORT]  # Очередь атак
 var current_attack_index: int = 0
 var is_attacking: bool = false
 
@@ -56,13 +54,13 @@ func _disable_combat_states():
 func _get_boss_id() -> String:
 	return "phantom observer"
 
+func _process_enemy_watch(_delta):
+	if player and global_position.distance_to(player.global_position) < 10.0:
+		create_portal(global_position)
+		queue_free()
+	move_and_slide()
+
 func _process_enemy_behavior(delta):
-	if watch:
-		if player and global_position.distance_to(player.global_position) < 10.0:
-			create_portal(global_position)
-			queue_free()
-		move_and_slide()
-		return
 	if is_ascending:
 		handle_ascend(delta)
 		return
@@ -199,7 +197,7 @@ func start_teleport_attack():
 	is_attacking = false
 
 func create_portal(pos: Vector3):
-	var portal = portal_scene.instantiate()
+	var portal = PORTAL_SCENE.instantiate()
 	get_tree().root.add_child(portal)
 	portal.global_position = pos
 

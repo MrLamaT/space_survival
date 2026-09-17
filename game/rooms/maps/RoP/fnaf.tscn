@@ -902,16 +902,13 @@ transform = Transform3D(0.8660254, -0.3535534, 0.3535534, 0, 0.70710677, 0.70710
 
 [node name="ImpenetrableField0" parent="NavigationRegion3D" unique_id=806614135 instance=ExtResource("40_bhlcq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5002003, 2.366, -51.3)
-hacking = false
 
 [node name="ImpenetrableField2" parent="NavigationRegion3D" unique_id=564409694 instance=ExtResource("40_bhlcq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.5, 2.366, -19.25)
 OnDefault = true
-hacking = false
 
 [node name="ImpenetrableField1" parent="NavigationRegion3D" unique_id=23624171 instance=ExtResource("40_bhlcq")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 2.366, -51.3)
-hacking = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=256709907]
 collision_layer = 4
@@ -928,46 +925,55 @@ shape = SubResource("BoxShape3D_g4v7s")
 [node name="destroyercik1" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.75, 1.5, 9)
 place = true
+watch = true
 
 [node name="destroyercik2" parent="NavigationRegion3D" unique_id=1258227299 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.75, 1.5, 0)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik3" parent="NavigationRegion3D" unique_id=730604739 instance=ExtResource("18_6xplk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.75, 1.5, -4.5)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik4" parent="NavigationRegion3D" unique_id=1612963440 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 1.5, -42.5)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik5" parent="NavigationRegion3D" unique_id=1995175900 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8, 1.5, -42.5)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik7" parent="NavigationRegion3D" unique_id=269656915 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 1.5, -39.5)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik6" parent="NavigationRegion3D" unique_id=277366071 instance=ExtResource("18_6xplk")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6, 1.5, -51)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik8" parent="NavigationRegion3D" unique_id=1281685167 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 1.5, -51)
 visible = false
 place = true
+watch = true
 
 [node name="destroyercik9" parent="NavigationRegion3D" unique_id=1094000952 instance=ExtResource("18_6xplk")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -22.75, 1.5, -10)
 visible = false
 place = true
+watch = true
 
 [node name="Wave" parent="NavigationRegion3D" unique_id=956278609 instance=ExtResource("20_wyr1c")]
 transform = Transform3D(-4.371139e-08, 0, 7.5, 0, 1, 0, -1, 0, -3.278354e-07, 30, 3, -51.25)

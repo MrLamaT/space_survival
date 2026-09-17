@@ -1,7 +1,8 @@
+MeshInstance3D
+Node3D
 AnimationPlayer
 CollisionShape3D
 Sprite3D
-MeshInstance3D
 StaticBody3D
 Label
 Timer
@@ -11,4 +12,3 @@ CharacterBody3D
 HSlider
 Panel
 Sprite2D
-CheckBox

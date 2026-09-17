@@ -11,7 +11,7 @@ var is_chasing: bool = false
 var current_target_position: Vector3
 var target_height: float = 0.0
 
-enum AttackState { IDLE, CHARGING, SHOOTING, COOLDOWN }
+enum AttackState { IDLE, CHARGING, SHOOTING }
 var attack_state: AttackState = AttackState.IDLE
 var state_timer: float = 0.0
 var IDLE_DURATION: float = 4.0
@@ -66,8 +66,6 @@ func _update_target_position():
 		target_height,
 		player_pos.z
 	)
-	if navigation_agent:
-		navigation_agent.target_position = current_target_position
 
 func _move_towards_target(delta):
 	var current_pos = global_position

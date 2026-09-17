@@ -15,7 +15,6 @@ var SHOOT_DISTANCE_MIN: float = 3.0  # минимальная дистанция
 var SHOOT_DISTANCE_MAX: float = 12.0 # максимальная дистанция для стрельбы
 var shoot_timer: float = 0.0
 var SHOOT_COOLDOWN: float = 3.5
-var is_shooting_mode: bool = false
 var bullet_scene = preload("res://game/item/Enemy_projectile/Enemy_projectile.tscn")
 
 func _ready():
@@ -37,7 +36,6 @@ func _ready():
 func _disable_combat_states():
 	is_chasing_player = false
 	is_attacking = false
-	is_shooting_mode = false
 
 func _get_boss_id() -> String:
 	return "infantryman"
@@ -58,7 +56,6 @@ func _process_enemy_behavior(delta):
 		return
 	var distance_to_player = global_position.distance_to(player.global_position)
 	if distance_to_player >= SHOOT_DISTANCE_MIN and distance_to_player <= SHOOT_DISTANCE_MAX:
-		is_shooting_mode = true
 		if last_animation_state != "shoot_mode":
 			$body/run.stop()
 			$body/run.play("RESET")
@@ -76,7 +73,6 @@ func _process_enemy_behavior(delta):
 		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
 		move_and_slide()
 		return
-	is_shooting_mode = false
 	if last_animation_state != "move_mode":
 		$body/run.play("run")
 		$body/AnimationPlayer.play("RESET")
@@ -131,8 +127,3 @@ func shoot_at_player():
 	var audio = $body/hand1/Taser/AudioStreamPlayer3D
 	if audio:
 		audio.play()
-
-func die():
-	if is_dying or is_dead:
-		return
-	super.die()

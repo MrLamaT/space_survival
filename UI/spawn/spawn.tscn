@@ -620,6 +620,13 @@ img = ExtResource("33_vwlru")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer11" unique_id=1590976222 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "enemy"
+img = ExtResource("12_7nag5")
+type = "enemies"
+target_node = NodePath("../../../../..")
+
 [node name="Label6" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1151993677 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
 title = "props"

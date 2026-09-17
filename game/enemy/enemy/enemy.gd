@@ -3,24 +3,22 @@ extends "res://game/enemy/BaseEnemy.gd"
 var is_chasing_player: bool = false
 var last_animation_state: String = ""
 
-var ATTACK_DISTANCE: float = 5.0 
-var KNOCKBACK_FORCE: float = 100.0  # Сила отталкивания
+var ATTACK_DISTANCE: float = 2.0 
+var KNOCKBACK_FORCE: float = 50.0  # Сила отталкивания
 var is_attacking: bool = false
 
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
-@export var place = false
-
 func _ready():
 	super._ready()
 	shatter_parts = [
+		$body/head,
 		$body/body,
 		$body/hand1,
 		$body/hand2,
 		$body/legs1,
-		$body/legs2,
-		$body/MeshInstance3D
+		$body/legs2
 	]
 	if player:
 		start_chasing_player()
@@ -30,13 +28,15 @@ func _disable_combat_states():
 	is_attacking = false
 
 func _get_boss_id() -> String:
-	return "siren head"
+	return "enemy"
+
+func _process_enemy_watch(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
 
 func _process_enemy_behavior(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if place:
-		return
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
 	if not is_chasing_player:
@@ -51,9 +51,9 @@ func _process_enemy_behavior(delta):
 			$body/run.play("run")
 			$body/AnimationPlayer.play("RESET")
 			last_animation_state = "move_mode"
-		move_with_navigation(player.global_position, delta)
 		if can_attack_player():
 			attack_player()
+		move_with_navigation(player.global_position, delta)
 	move_and_slide()
 
 func can_attack_player() -> bool:
@@ -77,9 +77,9 @@ func attack_player():
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
 			if player.has_method("HP"):
-				player.HP(100)
+				player.HP(40)
 			if player.has_method("take_damage"):
-				player.take_damage(100)
+				player.take_damage(40)
 			if player is CharacterBody3D:
 				var knockback_direction = (player.global_position - global_position).normalized()
 				player.velocity.x = knockback_direction.x * KNOCKBACK_FORCE
@@ -88,6 +88,3 @@ func attack_player():
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 			await get_tree().create_timer(0.5).timeout
 			is_attacking = false
-
-func _on_siren_finished() -> void:
-	$siren.play()

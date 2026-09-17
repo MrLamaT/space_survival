@@ -77,11 +77,6 @@ func attack_player():
 			await get_tree().create_timer(0.5).timeout
 			is_attacking = false
 
-func die():
-	if is_dying or is_dead:
-		return
-	super.die()
-
 func check_player_view():
 	if not player:
 		is_in_player_view = false

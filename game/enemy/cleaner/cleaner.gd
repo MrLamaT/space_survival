@@ -96,11 +96,6 @@ func angle_difference(angle1: float, angle2: float) -> float:
 		diff += PI * 2
 	return diff
 
-func die():
-	if is_dying or is_dead:
-		return
-	super.die()
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D:
 		_activate_spring(body)

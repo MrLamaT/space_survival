@@ -10,8 +10,6 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
-@export var place = false
-
 func _ready():
 	super._ready()
 	shatter_parts = [
@@ -32,11 +30,13 @@ func _disable_combat_states():
 func _get_boss_id() -> String:
 	return "destroyercik"
 
+func _process_enemy_watch(delta):
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
 func _process_enemy_behavior(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	if place:
-		return
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
 	if not is_chasing_player:
@@ -88,8 +88,3 @@ func attack_player():
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 			await get_tree().create_timer(0.5).timeout
 			is_attacking = false
-
-func die():
-	if is_dying or is_dead:
-		return
-	super.die()

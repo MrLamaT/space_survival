@@ -11,6 +11,7 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_7lbmc")
 
 [node name="InvisibleTrigger" type="Area3D" unique_id=1892460062]
+monitorable = false
 script = ExtResource("1_7lbmc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1107223820]

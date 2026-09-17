@@ -25,8 +25,6 @@ var jump_timeout: float = 0.0
 var JUMP_MAX_TIME: float = 2.0
 var JUMP_LAUNCH_SPEED: float = 5.0
 var JUMP_SPEED: float = 12.0
-var chase_timer: float = 0.0 
-var CHASE_TIMEOUT: float = 2.0
 
 func _ready():
 	super._ready()
@@ -78,10 +76,9 @@ func _process_enemy_behavior(delta):
 				else:
 					burst_delay -= delta
 			else:
-				if burst_cooldown <= 0:
-					start_jump_to_player()
-					burst_cooldown = BURST_COOLDOWN_TIME
-					burst_shots_left = BURST_SHOTS
+				start_jump_to_player()
+				burst_cooldown = BURST_COOLDOWN_TIME
+				burst_shots_left = BURST_SHOTS
 		else:
 			burst_cooldown -= delta
 		if not is_jumping:
@@ -136,7 +133,6 @@ func start_jump_to_player():
 	jump_target_position = player.global_position
 	jump_timeout = 0.0
 	$body/AnimationPlayer.play("jamp")
-	chase_timer = 0.0
 	velocity.y = JUMP_LAUNCH_SPEED
 
 func land_from_jump():

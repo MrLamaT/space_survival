@@ -13,6 +13,11 @@ extends CharacterBody3D
 @export var SPEED: float = 1
 @export var ACCELERATION: float = 1
 @export var ROTATION_SPEED: float = 10.0
+@export var watch = false
+
+const SPARK_SCENE = preload("res://game/enemy/SparkEnemy.tscn")
+const SPARK_DEAD_SCENE = preload("res://game/enemy/SparkDeadEnemy.tscn")
+const PORTAL_SCENE = preload("res://game/wave/WavePortal.tscn")
 
 var double_damage_in_air: bool = true
 var shatter_parts: Array[Node3D] = []
@@ -35,12 +40,10 @@ var boss_bars: CanvasLayer = null
 var shatter_scene = preload("res://game/enemy/shatter.tscn")
 
 func _ready():
-	var spark_scene = load("res://game/enemy/SparkEnemy.tscn")
-	var spark_instance = spark_scene.instantiate()
+	var spark_instance = SPARK_SCENE.instantiate()
 	add_child(spark_instance)
 	spark_hit = spark_instance
-	var spark_dead_scene = load("res://game/enemy/SparkDeadEnemy.tscn")
-	var spark_dead_instance = spark_dead_scene.instantiate()
+	var spark_dead_instance = SPARK_DEAD_SCENE.instantiate()
 	add_child(spark_dead_instance)
 	spark_dead = spark_dead_instance
 	player = get_tree().get_first_node_in_group(enemyTags)
@@ -67,12 +70,18 @@ func _physics_process(delta):
 	if is_dying:
 		_handle_death_process(delta)
 		return
-	_process_enemy_behavior(delta)
 	if not player:
 		_search_cooldown -= delta
 		if _search_cooldown <= 0:
 			player = get_tree().get_first_node_in_group(enemyTags)
 			_search_cooldown = SEARCH_DELAY
+	if watch:
+		_process_enemy_watch(delta)
+		return
+	_process_enemy_behavior(delta)
+
+func _process_enemy_watch(_delta):
+	pass
 
 func _process_enemy_behavior(_delta):
 	pass

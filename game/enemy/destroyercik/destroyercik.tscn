@@ -4,7 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_o0y48"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_a3adk"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="4_ixixp"]
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="5_ix157"]
 [ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="5_o0y48"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="9_qqcu6"]
 
@@ -95,20 +94,6 @@ size = Vector3(0.45, 0.375, 0.3)
 [sub_resource type="BoxMesh" id="BoxMesh_g63h1"]
 material = SubResource("StandardMaterial3D_v7ngb")
 size = Vector3(0.4, 0.5, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g63h1"]
-albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
-albedo_texture = ExtResource("5_ix157")
-metallic = 1.0
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7kklp"]
-material = SubResource("StandardMaterial3D_g63h1")
-top_radius = 0.15
-bottom_radius = 0.175
-height = 0.2
-radial_segments = 16
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ncm7"]
 shading_mode = 0
@@ -463,54 +448,49 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.375, 0)
 mesh = SubResource("BoxMesh_g63h1")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body" unique_id=1723786147]
-transform = Transform3D(-1.5, 2.2649371e-07, 0, -2.2649371e-07, -1.5, 0, 0, 0, 1.5, 0, -0.525, 0)
-mesh = SubResource("CylinderMesh_7kklp")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="body/body" unique_id=1369250287]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body" unique_id=1369250287]
 transform = Transform3D(2.625, 0, 0, 0, 2.625, 0, 0, 0, 2.625, -0.262, -0.225, 0)
 material_overlay = SubResource("StandardMaterial3D_g4v7s")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_k31tw")
 skeleton = NodePath("../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="body/body/MeshInstance3D3" unique_id=2143376377]
+[node name="OmniLight3D" type="OmniLight3D" parent="body/body/MeshInstance3D2" unique_id=2143376377]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_color = Color(0.6313726, 0.007843138, 0, 1)
 light_energy = 0.1
 
-[node name="SpotLight3D" type="SpotLight3D" parent="body/body/MeshInstance3D3" unique_id=445164971]
+[node name="SpotLight3D" type="SpotLight3D" parent="body/body/MeshInstance3D2" unique_id=445164971]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 visible = false
 light_color = Color(0.6313726, 0.007843138, 0, 1)
 light_energy = 0.1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body/MeshInstance3D3" unique_id=2096284513]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body/MeshInstance3D2" unique_id=2096284513]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.014285721, 0, -4.440892e-16)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_g4v7s")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="body/body" unique_id=1011968151]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="body/body" unique_id=1011968151]
 transform = Transform3D(1.875, 0, 0, 0, 1.875, 0, 0, 0, 1.875, -0.262, -0.525, 0)
 material_overlay = SubResource("StandardMaterial3D_g4v7s")
 cast_shadow = 0
 mesh = SubResource("SphereMesh_k31tw")
 skeleton = NodePath("../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="body/body/MeshInstance3D4" unique_id=50547258]
+[node name="OmniLight3D" type="OmniLight3D" parent="body/body/MeshInstance3D3" unique_id=50547258]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_color = Color(0.6313726, 0.007843138, 0, 1)
 light_energy = 0.1
 
-[node name="SpotLight3D" type="SpotLight3D" parent="body/body/MeshInstance3D4" unique_id=1122120622]
+[node name="SpotLight3D" type="SpotLight3D" parent="body/body/MeshInstance3D3" unique_id=1122120622]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 visible = false
 light_color = Color(0.6313726, 0.007843138, 0, 1)
 light_energy = 0.1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body/MeshInstance3D4" unique_id=240699505]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body/MeshInstance3D3" unique_id=240699505]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.014285721, 0, -4.440892e-16)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_g4v7s")

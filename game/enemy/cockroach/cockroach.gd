@@ -63,8 +63,7 @@ func start_teleportation():
 	velocity = Vector3.ZERO
 	$body/AnimationPlayer.stop()
 	$body/AnimationPlayer.play("RESET")
-	var portal_scene = preload("res://game/wave/WavePortal.tscn")
-	var portal_instance = portal_scene.instantiate()
+	var portal_instance = PORTAL_SCENE.instantiate()
 	get_parent().add_child(portal_instance)
 	portal_instance.global_position = global_position
 	queue_free()
