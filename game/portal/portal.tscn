@@ -291,7 +291,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HBoxContainer:visible")
+tracks/2/path = NodePath("../Panel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -303,19 +303,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../HBoxContainer:position:y")
+tracks/3/path = NodePath("../Panel:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [400.0]
+"values": [200.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../HBoxContainer:modulate:a")
+tracks/4/path = NodePath("../Panel:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -354,7 +354,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../HBoxContainer:visible")
+tracks/2/path = NodePath("../Panel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -366,19 +366,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../HBoxContainer:position:y")
+tracks/3/path = NodePath("../Panel:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [400.0, 400.0, 500.0]
+"values": [200.0, 200.0, 250.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../HBoxContainer:modulate:a")
+tracks/4/path = NodePath("../Panel:modulate:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -402,6 +402,14 @@ uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_mqc6g"]
 material = SubResource("StandardMaterial3D_w52mc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6rp5"]
+bg_color = Color(0, 0, 0, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
 
 [node name="portal" type="StaticBody3D" unique_id=2061914237 groups=["portal"]]
 collision_layer = 4
@@ -565,7 +573,9 @@ cast_shadow = 0
 mesh = SubResource("BoxMesh_mqc6g")
 skeleton = NodePath("../..")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1987348799]
+[node name="Timer" type="Timer" parent="." unique_id=1917320850]
+
+[node name="Panel" type="Panel" parent="." unique_id=1447431751]
 visible = false
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
@@ -573,37 +583,51 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = 76.0
-offset_right = 400.0
-offset_bottom = 76.0
+offset_left = -150.0
+offset_top = -124.0
+offset_right = 150.0
+offset_bottom = 175.99976
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_constants/separation = 400
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_b6rp5")
 
-[node name="LabelButton" parent="HBoxContainer" unique_id=1811368051 instance=ExtResource("11_b6rp5")]
-layout_mode = 2
-text = "Map"
-direction_A_and_D = "D"
-target_node = NodePath("../..")
-button_id = "map"
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1854821409]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 90
 
-[node name="LabelButton3" parent="HBoxContainer" unique_id=736383602 instance=ExtResource("11_b6rp5")]
-layout_mode = 2
-text = "Skins"
-direction_A_and_D = "D"
-target_node = NodePath("../..")
-button_id = "skin"
-
-[node name="LabelButton2" parent="HBoxContainer" unique_id=2094879085 instance=ExtResource("11_b6rp5")]
+[node name="LabelButton2" parent="Panel/VBoxContainer" unique_id=2094879085 instance=ExtResource("11_b6rp5")]
 layout_mode = 2
 text = "Continue"
 direction_A_and_D = "D"
-target_node = NodePath("../..")
+target_node = NodePath("../../..")
 button_id = "next"
 
-[node name="Timer" type="Timer" parent="." unique_id=1917320850]
+[node name="LabelButton3" parent="Panel/VBoxContainer" unique_id=736383602 instance=ExtResource("11_b6rp5")]
+layout_mode = 2
+text = "Skins"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "skin"
+
+[node name="LabelButton" parent="Panel/VBoxContainer" unique_id=1811368051 instance=ExtResource("11_b6rp5")]
+layout_mode = 2
+text = "Map"
+direction_A_and_D = "D"
+target_node = NodePath("../../..")
+button_id = "map"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

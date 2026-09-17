@@ -169,7 +169,6 @@ func reset_world_to_default(world_num: int) -> void:
 	var default_world = {
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
-		"stage": 0,
 		"level": 0,
 		"HP": 100,
 		"equipment": [],

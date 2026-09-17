@@ -1,4 +1,4 @@
-res://UI/planet/planet_card.tscn
+res://game/portal/portal.tscn
 res://assets/shaders/portal.gdshader
 res://assets/shaders/filter/noir.gdshader
 res://assets/shaders/filter/noir_orange.gdshader
@@ -8,10 +8,12 @@ res://assets/shaders/filter/blur.gdshader
 res://assets/shaders/filter/shuffle.gdshader
 res://assets/shaders/filter/gamma.gdshader
 res://assets/shaders/filter/f_water.gdshader
-res://assets/shaders/laser.gdshader
 res://assets/shaders/force_field.gdshader
 res://assets/shaders/phantomShaders.gdshader
 res://assets/shaders/wings.gdshader
+res://assets/shaders/laser.gdshader
+res://game/portal/portal.gd
+res://global.gd
 res://UI/planet/planet.tscn
 res://UI/planet/planet_card.gd
 res://UI/planet/planet.gd

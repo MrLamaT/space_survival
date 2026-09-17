@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://co6rxn8hamfxs" path="res://assets/level/planet1_2.png" id="7_jwuu8"]
 [ext_resource type="Texture2D" uid="uid://8cbt6snj0xr7" path="res://assets/level/planet1_3.png" id="9_cngd0"]
 [ext_resource type="PackedScene" uid="uid://c838femeic6pl" path="res://UI/planet/planet_card.tscn" id="11_gjw7v"]
-[ext_resource type="Texture2D" uid="uid://c3v0bi6l1vl1m" path="res://assets/icon/delete.png" id="12_rlm5u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_do17e"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -176,56 +175,42 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 15
 columns = 6
 
-[node name="PlanetCard" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=897229681 node_paths=PackedStringArray("planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=897229681 node_paths=PackedStringArray("Gnode") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
-img = ExtResource("12_rlm5u")
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
+Gnode = NodePath("../../../../..")
 min_level = -1
 max_level = -1
 
-[node name="PlanetCard2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1923366326 node_paths=PackedStringArray("planet_node", "planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1923366326 node_paths=PackedStringArray("Gnode", "planet_node") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
 text = "Simulation"
-img = ExtResource("12_rlm5u")
+Gnode = NodePath("../../../../..")
 planet_node = NodePath("../../../../sim")
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
 min_level = -1
 max_level = -1
 
-[node name="PlanetCard3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1222169280 node_paths=PackedStringArray("planet_node", "planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1222169280 node_paths=PackedStringArray("Gnode", "planet_node") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
 text = "RoP-856"
 img = ExtResource("2_gxkjw")
+Gnode = NodePath("../../../../..")
 planet_node = NodePath("../../../../RoP")
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
 max_level = 4
 
-[node name="PlanetCard4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=588972810 node_paths=PackedStringArray("planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=588972810 node_paths=PackedStringArray("Gnode") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
+Gnode = NodePath("../../../../..")
 min_level = 5
 max_level = 5
 
-[node name="PlanetCard5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1863271443 node_paths=PackedStringArray("planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1863271443 node_paths=PackedStringArray("Gnode") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
+Gnode = NodePath("../../../../..")
 min_level = 5
 max_level = 5
 
-[node name="PlanetCard6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1984766795 node_paths=PackedStringArray("planet_sprite", "planet_label", "map_node") instance=ExtResource("11_gjw7v")]
+[node name="PlanetCard6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1984766795 node_paths=PackedStringArray("Gnode") instance=ExtResource("11_gjw7v")]
 layout_mode = 2
-planet_sprite = NodePath("../../../../../Sprite2D")
-planet_label = NodePath("../../../../Id")
-map_node = NodePath("../../..")
+Gnode = NodePath("../../../../..")
 min_level = 5
 max_level = 5

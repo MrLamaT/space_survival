@@ -5,6 +5,7 @@ var world = Global.get_world(Global.game_settings.word)
 func _on_label_button_pressed(id: String) -> void:
 	match id:
 		"back":
+			$Panel/LabelButton.visible = false
 			$Sprite2D.visible = false
 			$Panel/Id.visible = false
 			$Panel/ScrollContainer.visible = true
