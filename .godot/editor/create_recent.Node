@@ -1,11 +1,11 @@
-MeshInstance3D
-Node3D
 AnimationPlayer
+Node3D
+Timer
+MeshInstance3D
 CollisionShape3D
 Sprite3D
 StaticBody3D
 Label
-Timer
 HBoxContainer
 OmniLight3D
 CharacterBody3D

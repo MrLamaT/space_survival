@@ -1,23 +1,29 @@
 extends Node3D
 
-var speed: float = 50.0
-var direction: Vector3 = Vector3.ZERO
+var _already_triggered: bool = false
 var damage: int = 10
-var lifetime: float = 3.0
-var timer: float = 0.0
 
-func shoot(dir: Vector3, spd: float):
-	direction = dir
-	speed = spd
+func shoot(_dir: Vector3, _spd: float):
+	pass
 
-func _physics_process(delta):
-	if direction != Vector3.ZERO:
-		global_translate(direction * speed * delta)
-	timer += delta
-	if timer >= lifetime:
+@onready var ray_cast = $RayCast3D
+
+func _physics_process(_delta: float) -> void:
+	if _already_triggered:
+		return
+	if not ray_cast.is_colliding():
+		return
+	var collider = ray_cast.get_collider()
+	if collider == null or not is_instance_valid(collider):
 		queue_free()
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage(damage)
+		return
+	if collider.is_queued_for_deletion():
+		queue_free()
+		return
+	_already_triggered = true
+	if collider.has_method("take_damage"):
+		collider.take_damage(damage)
 	queue_free()
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	queue_free() 

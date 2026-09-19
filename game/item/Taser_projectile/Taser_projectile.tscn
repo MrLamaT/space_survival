@@ -1,26 +1,81 @@
-[gd_scene format=3 uid="uid://vmovb6pcitjg"]
+[gd_scene format=3 uid="uid://bjxrewihtox30"]
 
-[ext_resource type="Script" uid="uid://c06e3idr853tr" path="res://game/item/Taser_projectile/taser_projectile.gd" id="1_iexmd"]
-[ext_resource type="Texture2D" uid="uid://w67krk4gafpj" path="res://assets/charge.png" id="1_l5fgb"]
+[ext_resource type="Script" uid="uid://dowhj8t05cp4x" path="res://game/item/Taser_projectile/taser_projectile.gd" id="1_iexmd"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_iexmd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prm6p"]
+blend_mode = 4
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0.34000006, 0.4, 1)
+grow = true
+grow_amount = 0.025
 
-[node name="TaserProjectile" type="Node3D" unique_id=1211004102]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_color = Color(0, 0.85000014, 1, 0.5882353)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rrsja"]
+material = SubResource("StandardMaterial3D_yf5fn")
+top_radius = 0.025
+bottom_radius = 0.025
+
+[sub_resource type="Animation" id="Animation_rrsja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qk4dk"]
+resource_name = "shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.1, 1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wkaul"]
+_data = {
+&"RESET": SubResource("Animation_rrsja"),
+&"shoot": SubResource("Animation_qk4dk")
+}
+
+[node name="TaserProjectile" type="Node3D" unique_id=296867151]
 script = ExtResource("1_iexmd")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2053283637]
-transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
-billboard = 1
-texture = ExtResource("1_l5fgb")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=939888304]
-light_color = Color(0, 0.84313726, 1, 1)
-
-[node name="Area3D" type="Area3D" parent="." unique_id=656076559]
-collision_layer = 4
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1131305065]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(0, -30, 0)
 collision_mask = 20
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1064732246]
-shape = SubResource("SphereShape3D_iexmd")
+[node name="Node3D" type="Node3D" parent="." unique_id=1847237891]
+transform = Transform3D(14.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1708861790]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_prm6p")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_rrsja")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1968578242]
+libraries/ = SubResource("AnimationLibrary_wkaul")
+autoplay = &"shoot"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -58,8 +58,9 @@ shape = SubResource("BoxShape3D_5dflc")
 [node name="Timer" type="Timer" parent="Area3D" unique_id=1264007439]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=20536005]
-transform = Transform3D(-4.3711392e-08, -1, 0, 0.7235994, -3.1629533e-08, -0.69022024, 0.69022024, -3.017048e-08, 0.7235994, 0.25, 0, 0)
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.25, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_57qmd")
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_g4v7s")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1878687814]
