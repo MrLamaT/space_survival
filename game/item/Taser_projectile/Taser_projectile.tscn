@@ -2,22 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dowhj8t05cp4x" path="res://game/item/Taser_projectile/taser_projectile.gd" id="1_iexmd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prm6p"]
-blend_mode = 4
-cull_mode = 1
-shading_mode = 0
-albedo_color = Color(0, 0.34000006, 0.4, 1)
-grow = true
-grow_amount = 0.025
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrsja"]
 shading_mode = 0
 albedo_color = Color(0, 0.85000014, 1, 0.5882353)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_rrsja"]
-material = SubResource("StandardMaterial3D_yf5fn")
-top_radius = 0.025
-bottom_radius = 0.025
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_rrsja")
+size = Vector2(2, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk4dk"]
+shading_mode = 0
+albedo_color = Color(0, 0.34000006, 0.4, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wkaul"]
+material = SubResource("StandardMaterial3D_qk4dk")
+size = Vector2(2, 0.1)
 
 [sub_resource type="Animation" id="Animation_rrsja"]
 length = 0.001
@@ -33,6 +32,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.99999994, 0.99999994)]
+}
 
 [sub_resource type="Animation" id="Animation_qk4dk"]
 resource_name = "shoot"
@@ -47,7 +58,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.1, 1, 0.1)]
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 0.99999994, 0.99999994), Vector3(1, 1, 0.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wkaul"]
@@ -67,15 +90,21 @@ collision_mask = 20
 [node name="Node3D" type="Node3D" parent="." unique_id=1847237891]
 transform = Transform3D(14.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1708861790]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_prm6p")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1041788136]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -1, 0, 0)
 cast_shadow = 0
-mesh = SubResource("CylinderMesh_rrsja")
-skeleton = NodePath("../..")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=220140514]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, -1, -0.005, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_wkaul")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1968578242]
 libraries/ = SubResource("AnimationLibrary_wkaul")
 autoplay = &"shoot"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1265983883]
+light_color = Color(0, 0.8509804, 1, 1)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

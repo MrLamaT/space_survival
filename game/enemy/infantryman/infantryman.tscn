@@ -534,7 +534,7 @@ libraries/ = SubResource("AnimationLibrary_bwta7")
 libraries/ = SubResource("AnimationLibrary_kwygx")
 
 [node name="BulletSpawn" type="Marker3D" parent="body" unique_id=1802774342]
-transform = Transform3D(-4.371136e-08, 1, -1.7763568e-14, -0.9961945, -4.354503e-08, 0.0871557, 0.087155715, 3.80971e-09, 0.9961943, -1.1, 0.4, -0.5)
+transform = Transform3D(-4.3711378e-08, 1, 0, -0.99999976, -4.371139e-08, 0, 0, 0, 0.9999996, -1.1, 0.4, -0.5)
 
 [node name="legs1" type="Node3D" parent="body" unique_id=218807020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525, 0)

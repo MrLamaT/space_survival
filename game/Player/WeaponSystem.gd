@@ -42,18 +42,19 @@ var weapons: Dictionary = {
 	"Taser": {
 		"scene": preload("res://game/item/Taser_projectile/Taser_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Taser_projectile/Taser.tscn"),
-		"fire_rate": 0.2,
-		"bullet_speed": 50.0,
-		"energy_cost": 8.0,
-		"reload_animation": "r",
+		"fire_rate": 0.65,
+		"bullet_speed": 0.0,
+		"energy_cost": 20.0,
+		"shoot_animation": "shoot",
 		"visible_node": "Taser",
 		"pitch_scale": [1.4, 1.6],
 		"alt": {
 			"scene": preload("res://game/item/Taser_projectile/AltTaser_projectile.tscn"),
-			"fire_rate": 0.2,
-			"bullet_speed": 50.0,
-			"energy_cost": 8.0,
+			"fire_rate": 0.65,
+			"bullet_speed": 0.0,
+			"energy_cost": 100.0,
 			"reload_animation": "r",
+			"shoot_animation": "shoot",
 			"pitch_scale": [1.4, 1.6]
 		}
 	},
@@ -132,7 +133,6 @@ var weapons: Dictionary = {
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
 		"energy_cost": 8.0,
-		"reload_animation": "r",
 		"visible_node": "AggroSwapping",
 		"pitch_scale": [1.4, 1.6],
 		"alt": {
@@ -283,13 +283,15 @@ func shoot(is_alt: bool = false):
 		return
 	if not player.movement_enabled or Global.game_settings["IsDying"]:
 		return
-	if player.energy < min_energy_to_shoot:
-		return
 	var weapon_data = weapons[current_weapon_name]
 	var alt_data = weapon_data.get("alt")
 	if is_alt and alt_data == null:
 		return
 	var data_to_use = alt_data if is_alt else weapon_data
+	if not player.infE:
+		var required_energy = data_to_use.get("energy_cost", 0.0)
+		if player.energy < required_energy:
+			return
 	if data_to_use.has("UI"):
 		player.openUI(data_to_use["UI"])
 		return
@@ -314,11 +316,11 @@ func shoot(is_alt: bool = false):
 			current_weapon.get_node("AnimationPlayer").play(data_to_use["shoot_animation"])
 	
 	is_reloading = false
-	if player.energy < weapon_data["energy_cost"] + 5.0 and !is_reloading:
+	if player.energy < data_to_use["energy_cost"] + 5.0 and !is_reloading:
 		is_reloading = true
-		if weapon_data.has("reload_animation") and weapon_data["reload_animation"] != "":
+		if data_to_use.has("reload_animation") and data_to_use["reload_animation"] != "":
 			if current_weapon and current_weapon.has_node("AnimationPlayer"):
-				current_weapon.get_node("AnimationPlayer").play(weapon_data["reload_animation"])
+				current_weapon.get_node("AnimationPlayer").play(data_to_use["reload_animation"])
 	
 	var weapon_bullet_spawn = current_weapon.get_node("BulletSpawn")
 	_show_muzzle_flash(weapon_bullet_spawn)
@@ -349,32 +351,17 @@ func shoot(is_alt: bool = false):
 		var pitch_range = data_to_use.get("pitch_scale", [1.4, 1.6]) 
 		shooting_sound2.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
 		shooting_sound2.play()
-	add_recoil(is_alt)
 
 func _show_muzzle_flash(bullet_spawn: Node3D):
 	if bullet_spawn.has_node("flash"):
 		var flash = bullet_spawn.get_node("flash")
 		flash.visible = true
 		flash.rotation.z = randi_range(0, 90)
-		var scale_value = float(randi_range(1, 4))
-		flash.scale = Vector3(scale_value, scale_value, scale_value)
-		get_tree().create_timer(0.05).timeout.connect(func():
-			flash.visible = false
-		)
-
-func add_recoil(is_alt: bool = false):
-	var max_angle_for_recoil_degrees = 45.0
-	var max_angle_for_recoil = deg_to_rad(max_angle_for_recoil_degrees)
-	if abs(cam.rotation.x) > max_angle_for_recoil:
-		return
-	var recoil_multiplier = 1.5 if is_alt else 1.0
-	var recoil_up = randf_range(1.0, 2.0) * 0.01 * recoil_multiplier
-	cam.rotate_x(recoil_up)
-	var camera_x_rotation = cam.rotation.x
-	if camera_x_rotation < deg_to_rad(-89):
-		cam.rotation.x = deg_to_rad(-89)
-	elif camera_x_rotation > deg_to_rad(89):
-		cam.rotation.x = deg_to_rad(89)
+		flash.scale = Vector3(4, 4, 4)
+		await get_tree().create_timer(0.033).timeout
+		flash.scale = Vector3(2, 2, 2)
+		await get_tree().create_timer(0.066).timeout
+		flash.visible = false
 
 func has_weapon_in_slot(slot: int) -> bool:
 	return weapon_slots.get(slot, "") != ""
