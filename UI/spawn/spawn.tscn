@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/shield.png" id="66_63tcv"]
 [ext_resource type="Texture2D" uid="uid://dtqsfimpmq50t" path="res://assets/icon/equipment/jump.png" id="66_csqvi"]
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/icon/LogoDeath.png" id="67_5txe2"]
+[ext_resource type="Texture2D" uid="uid://co6ecqt6apyxp" path="res://assets/textures/standard.png" id="70_h60il"]
 [ext_resource type="Texture2D" uid="uid://djy4wxotwfx1m" path="res://assets/icon/noclip.png" id="80_qmh17"]
 [ext_resource type="Texture2D" uid="uid://b8r2t6kd1kgf8" path="res://assets/icon/eye.png" id="81_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://bkk1u6rfdejiy" path="res://assets/icon/energy.png" id="81_r5g20"]
@@ -622,7 +623,7 @@ target_node = NodePath("../../../../..")
 
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer11" unique_id=1590976222 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
-text = "enemy"
+text = "dummy"
 img = ExtResource("12_7nag5")
 type = "enemies"
 target_node = NodePath("../../../../..")
@@ -1262,6 +1263,13 @@ img = ExtResource("12_hcli3")
 type = "block"
 target_node = NodePath("../../../../..")
 
+[node name="card16" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1591018212 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "standard"
+img = ExtResource("70_h60il")
+type = "block"
+target_node = NodePath("../../../../..")
+
 [node name="Label8" parent="Panel/ScrollContainer/VBoxContainer" unique_id=171996419 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
 title = "maps"
@@ -1601,9 +1609,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
+offset_left = -82.0
 offset_top = -75.0
-offset_right = 32.0
+offset_right = -18.0
 offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1619,3 +1627,29 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_4g1b4")
 theme_override_icons/checked = ExtResource("85_h60il")
 theme_override_icons/unchecked = ExtResource("12_7nag5")
 text = "boss"
+
+[node name="CheckBox2" type="CheckBox" parent="Enemy_slot" unique_id=608640456]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -75.0
+offset_right = 82.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gm0h")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4g1b4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4g1b4")
+theme_override_icons/checked = ExtResource("85_h60il")
+theme_override_icons/unchecked = ExtResource("12_7nag5")
+text = "frozen"

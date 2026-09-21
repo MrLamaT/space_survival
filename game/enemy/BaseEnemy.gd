@@ -74,6 +74,7 @@ func _physics_process(delta):
 		_search_cooldown -= delta
 		if _search_cooldown <= 0:
 			player = get_tree().get_first_node_in_group(enemyTags)
+			print(player)
 			_search_cooldown = SEARCH_DELAY
 	if watch:
 		_process_enemy_watch(delta)

@@ -36,7 +36,8 @@ var game_settings: Dictionary = {
 		"name": "phantom",
 		"aura": 0,
 		"enemyTags": "player",
-		"boss": false
+		"boss": false,
+		"frozen": false
 	},
 	"summon_block": {
 		"name": ""

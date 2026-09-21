@@ -78,6 +78,7 @@ func handle_card_pressed(type, id, color_img):
 			$Panel.visible = false
 			$Enemy_slot.visible = true
 			$Enemy_slot/CheckBox.button_pressed = Global.game_settings["summon"]["boss"]
+			$Enemy_slot/CheckBox2.button_pressed = Global.game_settings["summon"]["frozen"]
 			if int(Global.game_settings["summon"]["aura"]) > 0:
 				$Enemy_slot/LineEdit.text = str(int(Global.game_settings["summon"]["aura"]))
 		"props":
@@ -222,6 +223,7 @@ func _on_label_button_pressed(id: String) -> void:
 			if new_value > 10:
 				new_value = 10
 			Global.game_settings["summon"]["boss"] = $Enemy_slot/CheckBox.button_pressed
+			Global.game_settings["summon"]["frozen"] = $Enemy_slot/CheckBox2.button_pressed
 			Global.game_settings["summon"]["aura"] = new_value
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -19,7 +19,6 @@ func _physics_process(delta):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.get("enemyTags"):
-		print(body.get("enemyTags"))
-		body["enemyTags"] = "phantom"
+		body["enemyTags"] = Global.game_settings["summon"]["enemyTags"]
 		body["player"] = null
 	queue_free()

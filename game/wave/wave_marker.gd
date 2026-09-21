@@ -3,10 +3,11 @@ extends Marker3D
 @export var enemy = "phantom"
 @export var numberWave = 0
 @export var is_boss = false
+@export var frozen = false
 @export var aura = 0
 @export var enemyTags: String = "player"
 const ENEMIES = {
-	"enemy": "res://game/enemy/enemy/enemy.tscn",
+	"dummy": "res://game/enemy/dummy/dummy.tscn",
 	"phantom": "res://game/enemy/phantom/phantom.tscn",
 	"giant stingray": "res://game/enemy/giantStingray/giantStingray.tscn",
 	"stingray": "res://game/enemy/stingray/stingray.tscn",
@@ -70,6 +71,7 @@ func spawn(type):
 		scene = load(PROPS["ERROR"])
 	var instance = scene.instantiate()
 	if ENEMIES.has(enemy):
+		instance.watch = frozen
 		instance.is_boss = is_boss
 		instance.aura = final_aura
 		instance.enemyTags = enemyTags

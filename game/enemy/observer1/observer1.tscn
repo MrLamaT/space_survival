@@ -16,28 +16,29 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
+height = 2.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
 material = ExtResource("4_rohrf")
-radius = 0.2
-height = 0.4
+radius = 0.3
+height = 0.6
 radial_segments = 16
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cudbv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_msdno"]
 shading_mode = 0
 texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_nrxh4"]
-material = SubResource("StandardMaterial3D_cudbv")
-radius = 0.05
-height = 0.1
+material = SubResource("StandardMaterial3D_msdno")
+radius = 0.075
+height = 0.15
 radial_segments = 16
 rings = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
 material = ExtResource("4_rohrf")
-size = Vector3(0.1, 0.5, 0.1)
+size = Vector3(0.15, 0.75, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf6sc"]
 albedo_color = Color(0.83137256, 0.627451, 0.23137255, 1)
@@ -48,7 +49,7 @@ texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_6gql8"]
 material = SubResource("StandardMaterial3D_xf6sc")
-size = Vector3(0.12, 0.05, 0.12)
+size = Vector3(0.18, 0.075, 0.18)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rohrf"]
 albedo_texture = ExtResource("6_6gql8")
@@ -58,20 +59,20 @@ texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_2rsbs"]
 material = SubResource("StandardMaterial3D_rohrf")
-size = Vector3(0.11, 0.1, 0.11)
+size = Vector3(0.165, 0.15, 0.165)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_s7v7n"]
 material = ExtResource("4_rohrf")
-top_radius = 0.2
-bottom_radius = 0.15
-height = 0.35
+top_radius = 0.3
+bottom_radius = 0.225
+height = 0.525
 radial_segments = 16
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pyykn"]
 material = ExtResource("4_rohrf")
-top_radius = 0.15
-bottom_radius = 0.2
-height = 0.2
+top_radius = 0.225
+bottom_radius = 0.3
+height = 0.3
 radial_segments = 16
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xf6sc"]
@@ -560,6 +561,7 @@ script = ExtResource("1_rohrf")
 health = 1000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165, 0)
 shape = SubResource("CapsuleShape3D_se8os")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
@@ -580,81 +582,84 @@ pitch_scale = 5.0
 [node name="body" type="Node3D" parent="." unique_id=718440528]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=15942310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
-mesh = SubResource("SphereMesh_gbrfq")
-skeleton = NodePath("../..")
+[node name="head" type="Node3D" parent="body" unique_id=446671557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35000002, 0)
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="body" unique_id=1650728555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, 0.075)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/head" unique_id=15942310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17499995, 0)
+mesh = SubResource("SphereMesh_gbrfq")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/head" unique_id=1650728555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.17499995, 0.112)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_nrxh4")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D6" unique_id=1909613313]
+[node name="OmniLight3D" type="OmniLight3D" parent="body/head/MeshInstance3D2" unique_id=1909613313]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_energy = 0.1
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="body" unique_id=1457677310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.35, -0.075)
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="body/head" unique_id=1457677310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.17499995, -0.112)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_nrxh4")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="body/MeshInstance3D7" unique_id=1256160706]
+[node name="OmniLight3D" type="OmniLight3D" parent="body/head/MeshInstance3D3" unique_id=1256160706]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 light_energy = 0.1
 
 [node name="hand1" type="Node3D" parent="body" unique_id=151550358]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999976, 0, 0.14999998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand1" unique_id=332451061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24052843, -0.275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.361, -0.412)
 mesh = SubResource("BoxMesh_smhvd")
 skeleton = NodePath("../../..")
 
 [node name="handItem" parent="body/hand1/MeshInstance3D" unique_id=837608605 instance=ExtResource("6_xf6sc")]
-transform = Transform3D(0.17364815, -0.9848073, -3.4987399e-15, 0.9848073, 0.17364815, 6.169224e-16, 0, -3.552713e-15, 0.99999976, 0, -0.25, 0)
+transform = Transform3D(0.26047233, -1.4772116, -5.248111e-15, 1.4772116, 0.26047233, 9.253839e-16, 0, -5.329072e-15, 1.5, 0, -0.375, 0)
 texture = ExtResource("7_rohrf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand1" unique_id=459883218]
-transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, -0.275)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.525, -0.412)
 mesh = SubResource("BoxMesh_6gql8")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="body/hand1" unique_id=556929851]
-transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, -0.275)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.525, -0.412)
 mesh = SubResource("BoxMesh_2rsbs")
 skeleton = NodePath("../../..")
 
 [node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.14999998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand2" unique_id=1956648094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.241, 0.275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.361, 0.412)
 mesh = SubResource("BoxMesh_smhvd")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="body/hand2" unique_id=135694505]
-transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, 0.275)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.525, 0.412)
 mesh = SubResource("BoxMesh_6gql8")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="body/hand2" unique_id=335892617]
-transform = Transform3D(-4.3711374e-08, 0, -0.99999976, 0, 0.9999999, 0, 0.99999964, 0, -4.371138e-08, 0, -0.35, 0.275)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -0.525, 0.412)
 mesh = SubResource("BoxMesh_2rsbs")
 skeleton = NodePath("../../..")
 
 [node name="body" type="Node3D" parent="body" unique_id=1046932904]
-transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body/body" unique_id=1740677290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 mesh = SubResource("CylinderMesh_s7v7n")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body" unique_id=2065237445]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.675, 0)
 mesh = SubResource("CylinderMesh_pyykn")
 skeleton = NodePath("../../..")
 

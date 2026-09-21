@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://dr0xwlu86qk5x"]
 
-[ext_resource type="Script" uid="uid://b6y3hncf2coij" path="res://game/enemy/enemy/enemy.gd" id="1_kir12"]
+[ext_resource type="Script" uid="uid://b6y3hncf2coij" path="res://game/enemy/dummy/dummy.gd" id="1_kir12"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_q6s2g"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_60c2x"]
-[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_6f4of"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_b6bf4"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="7_w1tt7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kklp"]
 radius = 0.4
+height = 2.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g63h1"]
 radius = 0.3
 height = 0.75
 radial_segments = 16
+
+[sub_resource type="BoxMesh" id="BoxMesh_1tfyx"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
 size = Vector3(0.375, 0.95, 0.225)
@@ -20,18 +24,19 @@ size = Vector3(0.375, 0.95, 0.225)
 [sub_resource type="BoxMesh" id="BoxMesh_g63h1"]
 size = Vector3(0.4, 0.5, 0.4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g63h1"]
-albedo_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
-albedo_texture = ExtResource("6_6f4of")
-metallic = 1.0
-uv1_triplanar = true
-texture_filter = 0
+[sub_resource type="BoxMesh" id="BoxMesh_ar8mc"]
+size = Vector3(0.6, 0.375, 0.6)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_7kklp"]
-material = SubResource("StandardMaterial3D_g63h1")
+[sub_resource type="CylinderMesh" id="CylinderMesh_svlj2"]
 top_radius = 0.15
-bottom_radius = 0.175
-height = 0.2
+bottom_radius = 0.3
+height = 0.3
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qtc01"]
+top_radius = 0.225
+bottom_radius = 0.262
+height = 0.3
 radial_segments = 16
 
 [sub_resource type="Animation" id="Animation_cudbv"]
@@ -255,12 +260,16 @@ _data = {
 &"aura": SubResource("Animation_jcinp")
 }
 
-[node name="enemy" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
+[node name="dummy" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_kir12")
+health = 100000
+SPEED = 6.0
+ACCELERATION = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=132772523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1652832, 0)
 shape = SubResource("CapsuleShape3D_7kklp")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
@@ -289,6 +298,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000006, 0)
 mesh = SubResource("CapsuleMesh_g63h1")
 skeleton = NodePath("../../..")
 
+[node name="head2" type="Node3D" parent="body" unique_id=1895945682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/head2" unique_id=1066228990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000006, 0)
+mesh = SubResource("BoxMesh_1tfyx")
+skeleton = NodePath("../../..")
+
 [node name="hand1" type="Node3D" parent="body" unique_id=151550358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
 
@@ -313,9 +331,23 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.375, 0)
 mesh = SubResource("BoxMesh_g63h1")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body" unique_id=1723786147]
-transform = Transform3D(-1.5, 2.2649371e-07, 0, -2.2649371e-07, -1.5, 0, 0, 0, 1.5, 0, -0.525, 0)
-mesh = SubResource("CylinderMesh_7kklp")
+[node name="body2" type="Node3D" parent="body" unique_id=740827195]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+visible = false
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="body/body2" unique_id=1522968437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, 0)
+mesh = SubResource("BoxMesh_ar8mc")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body2" unique_id=947502555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+mesh = SubResource("CylinderMesh_svlj2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body2" unique_id=876379834]
+transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, 0, -0.525, 0)
+mesh = SubResource("CylinderMesh_qtc01")
 skeleton = NodePath("../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=1858358337]
@@ -348,3 +380,10 @@ texture = ExtResource("7_w1tt7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
 libraries/ = SubResource("AnimationLibrary_itf4h")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1420551515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+modulate = Color(1, 0, 0, 1)
+text = "0"
+font = ExtResource("6_b6bf4")
+font_size = 75

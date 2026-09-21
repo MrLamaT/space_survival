@@ -10,8 +10,25 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var ATTACK_COOLDOWN_TIME: float = 1.5
 
+# --- Накопительный урон для Label3D ---
+var accumulated_damage: int = 0
+var damage_reset_timer: float = 0.0
+const DAMAGE_RESET_TIME: float = 5.0
+
 func _ready():
 	super._ready()
+	if randi_range(1, 2) == 1:
+		$body/head.visible = true
+		$body/head2.visible = false
+	else:
+		$body/head.visible = false
+		$body/head2.visible = true
+	if randi_range(1, 2) == 1:
+		$body/body.visible = true
+		$body/body2.visible = false
+	else:
+		$body/body.visible = false
+		$body/body2.visible = true
 	shatter_parts = [
 		$body/head,
 		$body/body,
@@ -28,7 +45,7 @@ func _disable_combat_states():
 	is_attacking = false
 
 func _get_boss_id() -> String:
-	return "enemy"
+	return "dummy"
 
 func _process_enemy_watch(delta):
 	if not is_on_floor():
@@ -39,6 +56,12 @@ func _process_enemy_behavior(delta):
 		velocity.y -= gravity * delta
 	if attack_cooldown > 0:
 		attack_cooldown -= delta
+	# --- Таймер сброса накопленного урона ---
+	if damage_reset_timer > 0.0:
+		damage_reset_timer -= delta
+		if damage_reset_timer <= 0.0:
+			accumulated_damage = 0
+			_update_damage_label()
 	if not is_chasing_player:
 		velocity = velocity.lerp(Vector3.ZERO, ACCELERATION * delta)
 		move_and_slide()
@@ -88,3 +111,13 @@ func attack_player():
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 			await get_tree().create_timer(0.5).timeout
 			is_attacking = false
+
+func take_damage(damage: int):
+	super.take_damage(damage)
+	accumulated_damage += damage
+	damage_reset_timer = DAMAGE_RESET_TIME
+	_update_damage_label()
+
+func _update_damage_label():
+	if has_node("Label3D"):
+		$Label3D.text = str(accumulated_damage)

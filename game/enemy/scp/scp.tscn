@@ -8,6 +8,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]
 radius = 0.4
+height = 2.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_em4ma"]
 albedo_color = Color(0.78431374, 0.63529414, 0.46666667, 1)
@@ -17,24 +18,19 @@ uv1_triplanar = true
 uv1_world_triplanar = true
 texture_filter = 0
 
-[sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8skxr"]
 material = SubResource("StandardMaterial3D_em4ma")
-radius = 0.2
-height = 0.4
+radius = 0.3
+height = 0.75
 radial_segments = 16
-rings = 16
 
-[sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
+[sub_resource type="BoxMesh" id="BoxMesh_d5h47"]
 material = SubResource("StandardMaterial3D_em4ma")
-size = Vector3(0.1, 0.7, 0.1)
+size = Vector3(0.375, 0.95, 0.225)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hu322"]
+[sub_resource type="BoxMesh" id="BoxMesh_dwfrx"]
 material = SubResource("StandardMaterial3D_em4ma")
-size = Vector3(0.1, 0.7, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_q05kb"]
-material = SubResource("StandardMaterial3D_em4ma")
-size = Vector3(0.4, 1, 0.4)
+size = Vector3(0.4, 0.5, 0.4)
 
 [sub_resource type="Animation" id="Animation_y5ww8"]
 length = 0.001
@@ -107,6 +103,7 @@ SPEED = 25.0
 ACCELERATION = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280648708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165, 0)
 shape = SubResource("CapsuleShape3D_se8os")
 debug_color = Color(0, 0.59607846, 0.7019608, 1)
 
@@ -124,52 +121,55 @@ stream = ExtResource("3_em4ma")
 volume_db = -15.0
 pitch_scale = 5.0
 
-[node name="body" type="Node3D" parent="." unique_id=718440528]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.5, 0)
+[node name="body" type="Node3D" parent="." unique_id=413731695]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.35, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body" unique_id=15942310]
+[node name="head" type="Node3D" parent="body" unique_id=530008021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
-mesh = SubResource("SphereMesh_gbrfq")
-skeleton = NodePath("../..")
 
-[node name="hand1" type="Node3D" parent="body" unique_id=151550358]
-transform = Transform3D(-4.3711385e-08, 1, 0, -0.99999994, -4.371139e-08, 0, 0, 0, 0.9999998, 0, 0.14999998, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand1" unique_id=332451061]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -0.25)
-mesh = SubResource("BoxMesh_smhvd")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/head" unique_id=1434051810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25000006, 0)
+mesh = SubResource("CapsuleMesh_8skxr")
 skeleton = NodePath("../../..")
 
-[node name="hand2" type="Node3D" parent="body" unique_id=1547239679]
-transform = Transform3D(-4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0, 0, 0, 0.99999994, 0, 0.14999998, 0)
+[node name="hand1" type="Node3D" parent="body" unique_id=1787255956]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.225, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand2" unique_id=1956648094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
-mesh = SubResource("BoxMesh_smhvd")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand1" unique_id=1361027732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -0.412)
+mesh = SubResource("BoxMesh_d5h47")
 skeleton = NodePath("../../..")
 
-[node name="legs1" type="Node3D" parent="body" unique_id=1074239634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+[node name="hand2" type="Node3D" parent="body" unique_id=716373757]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0.225, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/legs1" unique_id=2016550313]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -0.1)
-mesh = SubResource("BoxMesh_hu322")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/hand2" unique_id=2017257065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.412)
+mesh = SubResource("BoxMesh_d5h47")
 skeleton = NodePath("../../..")
 
-[node name="legs2" type="Node3D" parent="body" unique_id=808779380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
+[node name="body" type="Node3D" parent="body" unique_id=394028907]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/legs2" unique_id=2056232993]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0.1)
-mesh = SubResource("BoxMesh_hu322")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body" unique_id=923284808]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.375, 0)
+mesh = SubResource("BoxMesh_dwfrx")
 skeleton = NodePath("../../..")
 
-[node name="body" type="Node3D" parent="body" unique_id=1046932904]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+[node name="legs1" type="Node3D" parent="body" unique_id=161335451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body" unique_id=794991260]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4754336, 0)
-mesh = SubResource("BoxMesh_q05kb")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/legs1" unique_id=1955789742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315, -0.15)
+mesh = SubResource("BoxMesh_d5h47")
+skeleton = NodePath("../../..")
+
+[node name="legs2" type="Node3D" parent="body" unique_id=690975088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/legs2" unique_id=142935396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315, 0.15)
+mesh = SubResource("BoxMesh_d5h47")
 skeleton = NodePath("../../..")
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]

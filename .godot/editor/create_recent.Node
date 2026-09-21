@@ -1,3 +1,5 @@
+HBoxContainer
+Label3D
 AnimationPlayer
 MeshInstance3D
 Node3D
@@ -6,9 +8,7 @@ CollisionShape3D
 Sprite3D
 StaticBody3D
 Label
-HBoxContainer
 OmniLight3D
 CharacterBody3D
 HSlider
 Panel
-Sprite2D

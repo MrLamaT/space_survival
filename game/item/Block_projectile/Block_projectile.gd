@@ -37,6 +37,7 @@ const BLOCK_SCENES = {
 	"roof": "res://game/blocks/roof.tscn",
 	"water": "res://game/blocks/water.tscn",
 	"scheme": "res://game/blocks/scheme.tscn",
+	"standard": "res://game/blocks/standard.tscn",
 }
 
 const BLOCK_SIZE = 1.2  # Размер блока
