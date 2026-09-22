@@ -1,6 +1,7 @@
+res://assets/sound/
 res://assets/textures/
-res://assets/material/
 res://assets/weapon/
+res://assets/material/
 res://assets/
 res://
 res://assets/icon/
@@ -19,5 +20,4 @@ res://UI/demo/
 res://game/rooms/maps/MTR/
 res://assets/shaders/filter/
 res://assets/level/
-res://assets/sound/
 res://assets/shaders/

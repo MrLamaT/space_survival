@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6y3hncf2coij" path="res://game/enemy/dummy/dummy.gd" id="1_kir12"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_q6s2g"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_60c2x"]
+[ext_resource type="Texture2D" uid="uid://co6ecqt6apyxp" path="res://assets/textures/standard.png" id="4_b6bf4"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_b6bf4"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="7_w1tt7"]
 
@@ -10,30 +11,42 @@
 radius = 0.4
 height = 2.3
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqphi"]
+albedo_texture = ExtResource("4_b6bf4")
+uv1_triplanar = true
+texture_filter = 0
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g63h1"]
+material = SubResource("StandardMaterial3D_rqphi")
 radius = 0.3
 height = 0.75
 radial_segments = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_1tfyx"]
+material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
+material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.375, 0.95, 0.225)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g63h1"]
+material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.4, 0.5, 0.4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ar8mc"]
+material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.6, 0.375, 0.6)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_svlj2"]
+material = SubResource("StandardMaterial3D_rqphi")
 top_radius = 0.15
 bottom_radius = 0.3
 height = 0.3
 radial_segments = 16
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qtc01"]
+material = SubResource("StandardMaterial3D_rqphi")
 top_radius = 0.225
 bottom_radius = 0.262
 height = 0.3

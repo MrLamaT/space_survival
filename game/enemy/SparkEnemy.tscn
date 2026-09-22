@@ -8,12 +8,12 @@ initial_velocity_min = 5.0
 initial_velocity_max = 10.0
 scale_min = 0.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shb46"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn2gp"]
 albedo_color = Color(0, 0.84313726, 1, 1)
 
-[sub_resource type="QuadMesh" id="QuadMesh_wybfm"]
-material = SubResource("StandardMaterial3D_shb46")
-size = Vector2(0.1, 0.2)
+[sub_resource type="BoxMesh" id="BoxMesh_dcqbh"]
+material = SubResource("StandardMaterial3D_gn2gp")
+size = Vector3(0.1, 0.2, 0.1)
 
 [node name="spark" type="GPUParticles3D" unique_id=1438031841]
 cast_shadow = 0
@@ -23,4 +23,4 @@ lifetime = 0.4
 one_shot = true
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_cudbv")
-draw_pass_1 = SubResource("QuadMesh_wybfm")
+draw_pass_1 = SubResource("BoxMesh_dcqbh")

@@ -1,6 +1,6 @@
+AnimationPlayer
 HBoxContainer
 Label3D
-AnimationPlayer
 MeshInstance3D
 Node3D
 Timer

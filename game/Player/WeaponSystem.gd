@@ -53,7 +53,6 @@ var weapons: Dictionary = {
 			"fire_rate": 0.65,
 			"bullet_speed": 0.0,
 			"energy_cost": 100.0,
-			"reload_animation": "r",
 			"shoot_animation": "shoot",
 			"pitch_scale": [1.4, 1.6]
 		}
@@ -133,6 +132,7 @@ var weapons: Dictionary = {
 		"fire_rate": 0.2,
 		"bullet_speed": 50.0,
 		"energy_cost": 8.0,
+		"shoot_animation": "shoot",
 		"visible_node": "AggroSwapping",
 		"pitch_scale": [1.4, 1.6],
 		"alt": {
@@ -288,9 +288,14 @@ func shoot(is_alt: bool = false):
 	if is_alt and alt_data == null:
 		return
 	var data_to_use = alt_data if is_alt else weapon_data
-	if not player.infE:
+	var current_pool: float
+	if is_alt:
+		current_pool = player.alt_energy
+	else:
+		current_pool = player.energy
+	if !player.infE:
 		var required_energy = data_to_use.get("energy_cost", 0.0)
-		if player.energy < required_energy:
+		if current_pool < required_energy:
 			return
 	if data_to_use.has("UI"):
 		player.openUI(data_to_use["UI"])
@@ -306,9 +311,15 @@ func shoot(is_alt: bool = false):
 			return
 	
 	if !player.infE:
-		player.energy = max(0, player.energy - data_to_use.get("energy_cost", 0))
-		player.can_regenerate_energy = false
-		player.regen_energy_timer = 0.0
+		var cost = data_to_use.get("energy_cost", 0)
+		if is_alt:
+			player.alt_energy = max(0, player.alt_energy - cost)
+			player.can_regenerate_alt_energy = false
+			player.regen_alt_energy_timer = 0.0
+		else:
+			player.energy = max(0, player.energy - cost)
+			player.can_regenerate_energy = false
+			player.regen_energy_timer = 0.0
 		player.update_energy_display()
 	
 	if data_to_use.has("shoot_animation") and data_to_use["shoot_animation"] != "":
@@ -316,7 +327,8 @@ func shoot(is_alt: bool = false):
 			current_weapon.get_node("AnimationPlayer").play(data_to_use["shoot_animation"])
 	
 	is_reloading = false
-	if player.energy < data_to_use["energy_cost"] + 5.0 and !is_reloading:
+	var check_pool = player.alt_energy if is_alt else player.energy
+	if check_pool < data_to_use["energy_cost"] + 5.0 and !is_reloading:
 		is_reloading = true
 		if data_to_use.has("reload_animation") and data_to_use["reload_animation"] != "":
 			if current_weapon and current_weapon.has_node("AnimationPlayer"):

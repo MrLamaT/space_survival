@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var cam = $head/Camera3D
 @onready var stamina_bar = $head/Camera3D/UI/stamina/ProgressBar
 @onready var energy_bar = $head/Camera3D/UI/energy/ProgressBar
+@onready var alt_energy_bar = $head/Camera3D/UI/energy/ProgressBar2
 @onready var HP_bar = $head/Camera3D/UI/HP/ProgressBar
 @onready var HP_label = $head/Camera3D/UI/HP/ProgressBar/Label
 @onready var blood_overlay = $head/Camera3D/blood
@@ -80,11 +81,19 @@ var regen_timer = 0.0
 # Энергия для оружия
 var energy: float = 100.0
 var max_energy: float = 100.0
-var energy_depletion_rate: float = 25.0  # Скорость расходования энергии в секунду (для будущего использования, если понадобится)
 var energy_regen_rate: float = 25.0      # Скорость восстановления энергии в секунду
 var can_regenerate_energy: bool = true
 var regen_energy_timer: float = 0.0
 var regen_energy_delay: float = 0.5      # Задержка перед восстановлением после стрельбы
+
+# Альт-энергия для оружия
+var alt_energy: float = 100.0
+var max_alt_energy: float = 100.0
+var alt_energy_regen_rate: float = 12.5       # Скорость восстановления энергии в секунду
+var can_regenerate_alt_energy: bool = true
+var regen_alt_energy_timer: float = 0.0
+var regen_alt_energy_delay: float = 1.0
+var was_alt_energy_full: bool = true
 
 # Фонарик
 var flashlight_enabled: bool = false
@@ -441,6 +450,19 @@ func _update_energy(delta):
 			can_regenerate_energy = true
 	if can_regenerate_energy and energy < max_energy:
 		energy = min(max_energy, energy + energy_regen_rate * delta)
+	
+	if not can_regenerate_alt_energy:
+		regen_alt_energy_timer += delta
+		if regen_alt_energy_timer >= regen_alt_energy_delay:
+			can_regenerate_alt_energy = true
+	if can_regenerate_alt_energy and alt_energy < max_alt_energy:
+		alt_energy = min(max_alt_energy, alt_energy + alt_energy_regen_rate * delta)
+	
+	var is_full_now = alt_energy >= max_alt_energy
+	if is_full_now and not was_alt_energy_full:
+		$charge.play()
+	was_alt_energy_full = is_full_now
+	
 	update_energy_display()
 
 func update_energy_display():
@@ -452,6 +474,12 @@ func update_energy_display():
 			energy_bar.modulate = Color("ffff00ff")
 		else:
 			energy_bar.modulate = Color(1.0, 0.0, 0.0, 1.0)
+	if alt_energy_bar:
+		alt_energy_bar.value = alt_energy
+		if alt_energy == 100:
+			alt_energy_bar.modulate = Color("008fbfff")
+		else:
+			alt_energy_bar.modulate = Color(1.0, 0.0, 0.0, 1.0)
 
 func _update_fov_effects(delta):
 	var target_fov = base_fov

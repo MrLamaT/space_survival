@@ -1,24 +1,32 @@
 extends Node3D
 
-var speed: float = 50.0
-var direction: Vector3 = Vector3.ZERO
-var damage: int = 10
-var lifetime: float = 3.0
-var timer: float = 0.0
+var _has_hit: bool = false
 
-func shoot(dir: Vector3, spd: float):
-	direction = dir
-	speed = spd
+func shoot(dir: Vector3, _spd: float):
+	if dir.length() < 0.01:
+		return
+	var up_vector = Vector3.UP
+	if abs(dir.normalized().dot(Vector3.UP)) > 0.99:
+		up_vector = Vector3.FORWARD
+	look_at(global_position + dir.normalized(), up_vector)
+	rotate_object_local(Vector3.UP, -PI / 2)
 
-func _physics_process(delta):
-	if direction != Vector3.ZERO:
-		global_translate(direction * speed * delta)
-	timer += delta
-	if timer >= lifetime:
-		queue_free()
+@onready var ray_cast = $RayCast3D
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.get("enemyTags"):
-		body["enemyTags"] = Global.game_settings["summon"]["enemyTags"]
-		body["player"] = null
+func _physics_process(_delta):
+	if _has_hit:
+		return
+	ray_cast.force_raycast_update()
+	if not ray_cast.is_colliding():
+		return
+	var collider = ray_cast.get_collider()
+	if collider == null or not is_instance_valid(collider) or collider.is_queued_for_deletion():
+		return
+	if not collider.get("enemyTags"):
+		return
+	collider["enemyTags"] = Global.game_settings["summon"]["enemyTags"]
+	collider["player"] = null
+	_has_hit = true
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	queue_free()

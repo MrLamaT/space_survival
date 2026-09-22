@@ -243,7 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.05, 0)
 [node name="flash" type="Sprite3D" parent="BulletSpawn" unique_id=899645417]
 transform = Transform3D(-1.2363448e-07, 1.2363448e-07, 4, 2.828427, 2.828427, 0, -2.828427, 2.828427, -1.7484555e-07, 0, 0, 0)
 visible = false
-modulate = Color(0.55, 0.44962502, 0.1485, 0.039215688)
+modulate = Color(0.55, 0.44962502, 0.1485, 0.11764706)
 texture_filter = 0
 texture = ExtResource("6_h75wn")
 
