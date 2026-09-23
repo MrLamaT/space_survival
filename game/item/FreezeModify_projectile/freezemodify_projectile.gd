@@ -22,12 +22,9 @@ func _physics_process(_delta):
 	var collider = ray_cast.get_collider()
 	if collider == null or not is_instance_valid(collider) or collider.is_queued_for_deletion():
 		return
-	if not collider.get("enemyTags"):
+	if not ("watch" in collider):
 		return
-	collider["enemyTags"] = Global.game_settings["summon"]["enemyTags"]
-	collider["player"] = null
-	if collider.has_method("start_chasing_player"):
-		collider.start_chasing_player()
+	collider["watch"] = !collider["watch"]
 	_has_hit = true
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:

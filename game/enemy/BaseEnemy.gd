@@ -29,8 +29,6 @@ var death_timer: float = 0.0
 const DEATH_DELAY: float = 1.0
 
 var player: Node3D = null
-var _search_cooldown: float = 0.0
-const SEARCH_DELAY: float = 0.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed_multiplier: float = 1.0 
@@ -71,11 +69,9 @@ func _physics_process(delta):
 		_handle_death_process(delta)
 		return
 	if not player:
-		_search_cooldown -= delta
-		if _search_cooldown <= 0:
-			player = get_tree().get_first_node_in_group(enemyTags)
-			print(player)
-			_search_cooldown = SEARCH_DELAY
+		player = get_tree().get_first_node_in_group(enemyTags)
+		print(player)
+		return
 	if watch:
 		_process_enemy_watch(delta)
 		return

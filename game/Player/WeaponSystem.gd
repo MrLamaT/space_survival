@@ -128,16 +128,26 @@ var weapons: Dictionary = {
 	},
 	"Aggro Swapping": {
 		"scene": preload("res://game/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn"),
-		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/AggroSwapping.tscn"),
-		"fire_rate": 0.2,
-		"bullet_speed": 50.0,
-		"energy_cost": 8.0,
+		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
+		"fire_rate": 0.65,
+		"bullet_speed": 0.0,
+		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
-		"visible_node": "AggroSwapping",
+		"visible_node": "TechnicalTool",
 		"pitch_scale": [1.4, 1.6],
 		"alt": {
 			"UI": "aggression"
 		}
+	},
+	"Freeze Modify": {
+		"scene": preload("res://game/item/FreezeModify_projectile/FreezeModify_projectile.tscn"),
+		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
+		"fire_rate": 0.65,
+		"bullet_speed": 0.0,
+		"energy_cost": 20.0,
+		"shoot_animation": "shoot",
+		"visible_node": "TechnicalTool",
+		"pitch_scale": [1.4, 1.6]
 	},
 }
 

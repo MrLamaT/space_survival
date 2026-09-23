@@ -477,7 +477,7 @@ func update_energy_display():
 	if alt_energy_bar:
 		alt_energy_bar.value = alt_energy
 		if alt_energy == 100:
-			alt_energy_bar.modulate = Color("008fbfff")
+			alt_energy_bar.modulate = Color("3e0cc7")
 		else:
 			alt_energy_bar.modulate = Color(1.0, 0.0, 0.0, 1.0)
 

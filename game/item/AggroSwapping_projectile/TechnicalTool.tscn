@@ -228,7 +228,7 @@ _data = {
 &"take": SubResource("Animation_8y5eb")
 }
 
-[node name="AggroSwapping" type="Node3D" unique_id=1688804302]
+[node name="TechnicalTool" type="Node3D" unique_id=1688804302]
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_horck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, -0.25, 0.25)

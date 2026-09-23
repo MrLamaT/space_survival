@@ -227,7 +227,6 @@ emergency_light = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.52, 33.5)
 skin = 1
 level = 1
-stade = 1
 
 [node name="wall9" parent="NavigationRegion3D/Citadel" unique_id=1609011729 instance=ExtResource("12_2wc74")]
 transform = Transform3D(12.5, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 27.25)
@@ -1072,3 +1071,8 @@ freeze = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.75, 5.5, -53.65)
 textLabel_ru = "Здесь можно покупать экипировку."
 textLabel_en = "You can buy gear here."
+
+[node name="hologramText2" parent="." unique_id=834451660 instance=ExtResource("32_8dok3")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 21.25, 10.5, -55.65)
+textLabel_ru = "Когда фиолетовая полоска энергии полностью заполнится, нажми ПКМ, чтобы совершить мощный пронзающий выстрел."
+textLabel_en = "When the purple energy bar is fully charged, press RMB to perform a powerful piercing shot."
