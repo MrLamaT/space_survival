@@ -21,7 +21,12 @@ var last_velocity: Vector3 = Vector3.ZERO
 var is_flying_away: bool = false
 
 func shoot(dir: Vector3, spd: float):
-	direction = dir
+	var random_deviation = Vector3(
+		randf_range(-0.02, 0.02),
+		randf_range(-0.02, 0.02),
+		randf_range(-0.02, 0.02)
+	)
+	direction = (dir + random_deviation).normalized()
 	speed = spd
 
 func _physics_process(delta):
@@ -45,11 +50,6 @@ func _physics_process(delta):
 		var old_pos = global_position
 		global_position = target_pos + Vector3(offset_x, offset_y, offset_z)
 		last_velocity = (global_position - old_pos) / delta
-		var next_angle = orbit_angle + 0.1
-		var next_pos = target_pos + Vector3(cos(next_angle) * orbit_radius, 
-			sin(next_angle * 1.5) * vertical_oscillation + orbit_height, 
-			sin(next_angle) * orbit_radius)
-		look_at(next_pos, Vector3.UP)
 		if hit_timer >= hit_delay:
 			queue_free()
 		return
@@ -71,10 +71,6 @@ func start_flying_away():
 		else:
 			last_velocity = Vector3(randf_range(-1, 1), randf_range(-0.5, 0.5), randf_range(-1, 1)).normalized() * 10.0
 	target_body = null
-
-func on_hit(collider: Object):
-	if collider.has_method("take_damage"):
-		collider.take_damage(damage)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):

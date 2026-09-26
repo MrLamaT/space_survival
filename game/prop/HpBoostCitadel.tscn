@@ -25,15 +25,8 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_un0d0")
 size = Vector2(0.05, 0.05)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_yap75"]
-height = 1.0
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_p5toj"]
-height = 1.0
-radius = 1.0
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vinhs"]
-height = 0.75
+height = 3.0
 radius = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5toj"]
@@ -59,9 +52,10 @@ bottom_radius = 0.75
 height = 0.5
 radial_segments = 16
 
-[node name="HpBoost" type="RigidBody3D" unique_id=109831413 groups=["prop"]]
+[node name="HpBoost" type="RigidBody3D" unique_id=109831413 groups=["interactive_objects", "progressive_interactive", "prop"]]
 collision_layer = 4
 collision_mask = 7
+script = ExtResource("1_0q1sy")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1568795737]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2, 0)
@@ -94,22 +88,9 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("5_p5toj")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=2028970716 groups=["interactive_objects", "progressive_interactive"]]
-collision_layer = 4
-script = ExtResource("1_0q1sy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=949872611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-shape = SubResource("CylinderShape3D_yap75")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995665144]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, -8.742278e-08, -1, 4.371139e-08, 1, -8.742278e-08, 1.9106855e-15, 0, 0.5, 2.1855694e-08)
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, -8.742278e-08, -1, 4.371139e-08, 1, -8.742278e-08, 1.9106855e-15, 0, 1.5, 0)
 shape = SubResource("CylinderShape3D_p5toj")
-debug_fill = false
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=61327245]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, -8.742278e-08, -1, 4.371139e-08, 1, -8.742278e-08, 1.9106855e-15, 0, 2.65, 1.15835185e-07)
-shape = SubResource("CylinderShape3D_vinhs")
 debug_fill = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=807456685]
@@ -136,6 +117,3 @@ transform = Transform3D(1.9106855e-15, 1, 4.371139e-08, 4.371139e-08, -4.371139e
 light_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
 light_bake_mode = 1
 omni_range = 10.0
-
-[connection signal="mouse_entered" from="Area3D" to="Area3D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Area3D" to="Area3D" method="_on_mouse_exited"]

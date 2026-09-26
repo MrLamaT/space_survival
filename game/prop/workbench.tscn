@@ -46,12 +46,10 @@ shader_parameter/scanline_frequency = 0.5
 shader_parameter/scanline_width = 0.1
 shader_parameter/scanline_intensity = 0.35
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_frdbb"]
-size = Vector3(2.1, 2.1, 2.1)
-
-[node name="workbench" type="RigidBody3D" unique_id=285561631 groups=["prop"]]
+[node name="workbench" type="RigidBody3D" unique_id=285561631 groups=["interactive_objects", "prop"]]
 collision_layer = 4
 collision_mask = 7
+script = ExtResource("1_dyhft")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=104432087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -102,11 +100,3 @@ material = SubResource("ShaderMaterial_pdxuu")
 [node name="PC1" parent="." unique_id=1213763588 instance=ExtResource("4_2ghme")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 1.35, 1.365)
 nameUI = "skins"
-
-[node name="Area3D" type="Area3D" parent="." unique_id=333653502 groups=["interactive_objects"]]
-collision_layer = 4
-script = ExtResource("1_dyhft")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=820254001]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_frdbb")

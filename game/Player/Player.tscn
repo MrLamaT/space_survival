@@ -173,7 +173,7 @@ texture = ExtResource("3_lmkso")
 
 [node name="label" type="Label" parent="head/Camera3D" unique_id=886549709]
 visible = false
-z_index = 1
+z_index = 2
 offset_left = 1166.0
 offset_top = 542.0
 offset_right = 1652.0007
@@ -185,7 +185,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="head/Camera3D/label" unique_id=440266418]
-z_index = 1
+z_index = 2
 position = Vector2(507.55554, 7.111111)
 texture = ExtResource("5_r6r0m")
 

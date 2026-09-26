@@ -52,7 +52,7 @@ mesh = SubResource("BoxMesh_xil3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 mesh = SubResource("BoxMesh_1x00i")
 
-[node name="Laser" parent="." unique_id=1325278627 instance=ExtResource("2_rnfqe")]
+[node name="Laser1" parent="." unique_id=1325278627 instance=ExtResource("2_rnfqe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, -0.5, 0)
 damage = 25
 

@@ -69,8 +69,8 @@ var weapons: Dictionary = {
 		"alt": {
 			"scene": preload("res://game/item/Knife_projectile/Knife_projectile.tscn"),
 			"fire_rate": 0.75,
-			"bullet_speed": 50.0,
-			"energy_cost": 4.0,
+			"bullet_speed": 0.0,
+			"energy_cost": 100.0,
 			"shoot_animation": "magnet",
 			"pitch_scale": [1.2, 1.4]
 		}
