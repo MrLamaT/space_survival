@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcnxmdp8038cg"
-path="res://.godot/imported/pulse.png-6eeaa64333e544315196e2da27a2ffdc.ctex"
+path="res://.godot/imported/impulse.png-15436c23fcd49765a81669c374171b84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weapon/pulse.png"
-dest_files=["res://.godot/imported/pulse.png-6eeaa64333e544315196e2da27a2ffdc.ctex"]
+source_file="res://assets/weapon/impulse.png"
+dest_files=["res://.godot/imported/impulse.png-15436c23fcd49765a81669c374171b84.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

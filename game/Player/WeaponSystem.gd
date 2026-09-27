@@ -65,15 +65,17 @@ var weapons: Dictionary = {
 		"energy_cost": 1.5,
 		"reload_animation": "r",
 		"visible_node": "Hornet",
-		"pitch_scale": [1.4, 1.6],
-		"alt": {
-			"scene": preload("res://game/item/Knife_projectile/Knife_projectile.tscn"),
-			"fire_rate": 0.75,
-			"bullet_speed": 0.0,
-			"energy_cost": 100.0,
-			"shoot_animation": "magnet",
-			"pitch_scale": [1.2, 1.4]
-		}
+		"pitch_scale": [1.4, 1.6]
+	},
+	"Impulse": {
+		"scene": preload("res://game/item/Impulse_projectile/Impulse_projectile.tscn"),
+		"weapon_scene": preload("res://game/item/Impulse_projectile/Impulse.tscn"),
+		"fire_rate": 0.65,
+		"bullet_speed": 0.0,
+		"energy_cost": 45.0,
+		"reload_animation": "r",
+		"visible_node": "Impulse",
+		"pitch_scale": [1.4, 1.6]
 	},
 	"Move": {
 		"scene": preload("res://game/item/Move_projectile/Move_projectile.tscn"),

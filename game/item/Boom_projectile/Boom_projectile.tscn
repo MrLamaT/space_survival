@@ -7,7 +7,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxxb3"]
 transparency = 1
 cull_mode = 2
-albedo_color = Color(0.54509807, 0, 1, 0.39215687)
+albedo_color = Color(0.5500002, 0, 1, 0.39215687)
 metallic = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]

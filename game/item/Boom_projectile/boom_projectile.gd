@@ -11,7 +11,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if body is CharacterBody3D:
 			body.velocity.x = knockback_direction.x * KNOCKBACK_FORCE
 			body.velocity.z = knockback_direction.z * KNOCKBACK_FORCE
-			body.velocity.y = KNOCKBACK_FORCE * 0.1
+			body.velocity.y = KNOCKBACK_FORCE * 0.25
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "boom":

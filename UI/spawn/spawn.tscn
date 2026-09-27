@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
 [ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="22_qmh17"]
+[ext_resource type="Texture2D" uid="uid://bcnxmdp8038cg" path="res://assets/weapon/impulse.png" id="22_r5g20"]
 [ext_resource type="Texture2D" uid="uid://da6t4vfq68acd" path="res://assets/icon/enemyEgg/Egg_stingray.png" id="23_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/hand/knight/k_hand1.png" id="23_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://cploxr7hvuo6w" path="res://assets/hand/phantom/p_hand1.png" id="24_h60il"]
@@ -434,6 +435,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "Hornet"
 img = ExtResource("18_bj30i")
+type = "weapon"
+target_node = NodePath("../../../../..")
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer12" unique_id=1054978868 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Impulse"
+img = ExtResource("22_r5g20")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
