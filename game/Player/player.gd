@@ -33,7 +33,6 @@ var input_dir = Vector3(0,0,0)
 var direction = Vector3() 
 var sens = 0.005
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var is_walking = false
 var footstep_timer = 0.0
 var footstep_delay = 0.5
 
@@ -53,19 +52,19 @@ var damage_cooldown_duration: float = 1.0
 
 # Динамика камеры
 var camera_tilt_amount = 1.5  # градусы наклона при движении
-var camera_tilt_speed = 8.0   # скорость наклона
+var camera_tilt_speed = 16.0   # скорость наклона
 var current_tilt = 0.0        # текущий наклон
 
 # Дыхание
 var breathing_amplitude = 0.05  # амплитуда движения при дыхании
-var breathing_frequency = 0.5   # частота дыхания
+var breathing_frequency = 1.0   # частота дыхания
 var breathing_time = 0.0
 var base_camera_position = Vector3()
 
 # FOV эффекты
 var base_fov: float = 75.0  # базовое значение FOV
 var running_fov: float = 80.0  # FOV при беге
-var fov_transition_speed: float = 8.0  # скорость изменения FOV
+var fov_transition_speed: float = 16.0  # скорость изменения FOV
 var current_fov: float = base_fov
 
 # стамина
@@ -191,7 +190,7 @@ func _ready():
 	weapon_system.hand_position = hand_position
 	weapon_system.cam = cam
 	add_child(weapon_system)
-	update_max_stamina()
+	stamina_bar.max_value = max_stamina
 	var world = Global.get_world(Global.game_settings.word)
 	world["HP"] = 100
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
@@ -410,8 +409,6 @@ func _process(delta):
 	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$head/Camera3D/UI/speed.text = "Speed: %.2f" % velocity.length()
 	_update_hand_position(delta)
-	_update_camera_dynamics(delta)
-	_update_fov_effects(delta)
 	_update_stamina(delta)
 	_update_energy(delta)
 	_update_camera_dynamics(delta)
@@ -549,15 +546,11 @@ func _physics_process(delta):
 	else:
 		handle_flight_movement(delta)
 	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and movement_enabled and not Global.game_settings["UI"]:
-		if not is_walking:
-			is_walking = true
-			footstep_timer = 0
 		footstep_timer += delta
 		if footstep_timer >= footstep_delay:
 			play_footstep()
 			footstep_timer = 0
 	else:
-		is_walking = false
 		footstep_timer = 0
 	if crouched:
 		SPEED = 2.5
@@ -611,16 +604,6 @@ func _physics_process(delta):
 		weapon_system.shoot(false) 
 	if is_alt_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
 		weapon_system.shoot(true)
-
-func update_max_stamina():
-	var world = Global.get_world(Global.game_settings.word)
-	if "exoskeleton 3" in world["equipment"]:
-		max_stamina = 175.0
-	if "exoskeleton 2" in world["equipment"]:
-		max_stamina = 150.0
-	if "exoskeleton 1" in world["equipment"]:
-		max_stamina = 125.0
-	stamina_bar.max_value = max_stamina
 
 func force_stand_up():
 	if crouched:
@@ -694,6 +677,7 @@ func openUI(nameUI):
 			node = ui_scene.instantiate()
 			node.name = nameUI
 			get_node("head/Camera3D").add_child(node)
+			node.z_index = 10
 			node.add_to_group("UI")
 			Global.game_settings["UI"] = true
 	node.visible = true

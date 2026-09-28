@@ -34,7 +34,7 @@ var weapons: Dictionary = {
 		"weapon_scene": preload("res://game/item/Knife_projectile/Knife.tscn"),
 		"fire_rate": 0.75,
 		"bullet_speed": 0.0,
-		"energy_cost": 2.0,
+		"energy_cost": 10.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Knife",
 		"pitch_scale": [1.4, 1.6]
@@ -73,7 +73,7 @@ var weapons: Dictionary = {
 		"fire_rate": 0.65,
 		"bullet_speed": 0.0,
 		"energy_cost": 45.0,
-		"reload_animation": "r",
+		"shoot_animation": "shoot",
 		"visible_node": "Impulse",
 		"pitch_scale": [1.4, 1.6]
 	},

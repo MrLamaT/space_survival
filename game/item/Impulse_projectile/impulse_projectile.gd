@@ -1,6 +1,7 @@
 extends Node3D
 
 var _pierce_left: int = 1
+var damage: int = 28
 const BOOM_SCENE := preload("res://game/item/Boom_projectile/Boom_projectile.tscn")
 
 func shoot(dir: Vector3, _spd: float):
@@ -24,6 +25,8 @@ func _physics_process(_delta: float) -> void:
 	var collider = ray_cast.get_collider()
 	if collider == null or not is_instance_valid(collider) or collider.is_queued_for_deletion():
 		return
+	if collider.has_method("take_damage"):
+		collider.take_damage(damage)
 	_spawn_boom()
 	_pierce_left -= 1
 	ray_cast.add_exception(collider)
@@ -31,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 
 func _spawn_boom() -> void:
 	var boom = BOOM_SCENE.instantiate()
+	boom.impulse = true
 	get_tree().current_scene.add_child(boom)
 	boom.global_position = ray_cast.get_collision_point()
 

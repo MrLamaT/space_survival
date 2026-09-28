@@ -165,7 +165,7 @@ size = Vector2(0.05, 0.05)
 [node name="sandbox" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_pcht1")
 env_scene = ExtResource("2_kogva")
-weapons = Array[String](["Summon", "Taser", "Hornet", "inv", "inv"])
+weapons = Array[String](["Summon", "Taser", "Hornet", "Impulse", "Impulse"])
 player_checkpoint = true
 spawn_panel = true
 

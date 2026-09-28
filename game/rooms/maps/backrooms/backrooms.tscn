@@ -45,6 +45,7 @@ material = SubResource("StandardMaterial3D_jeau8")
 
 [node name="backrooms" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_5sxko")
+weapons = Array[String](["Vibro Spike", "Taser", "Hornet", "Impulse", "Impulse"])
 player_checkpoint = true
 earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
 

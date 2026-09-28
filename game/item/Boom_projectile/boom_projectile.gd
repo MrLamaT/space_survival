@@ -1,6 +1,8 @@
 extends Node3D
 
+var damage: int = 8
 var KNOCKBACK_FORCE: float = 40.0
+@export var impulse: bool = false
 
 func shoot(_dir: Vector3, _spd: float):
 	pass
@@ -11,6 +13,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if body is CharacterBody3D:
 			body.velocity.x = knockback_direction.x * KNOCKBACK_FORCE
 			body.velocity.z = knockback_direction.z * KNOCKBACK_FORCE
+			if body.is_in_group("phantom"):
+				if impulse:
+					body.take_damage(damage)
+			if body.is_in_group("player"):
+				body.force_stand_up()
+				if !impulse:
+					body.velocity.y = KNOCKBACK_FORCE * 0.1
+					return
 			body.velocity.y = KNOCKBACK_FORCE * 0.25
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
