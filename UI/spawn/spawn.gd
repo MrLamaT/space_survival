@@ -111,30 +111,10 @@ func handle_card_pressed(type, id, color_img):
 			queue_free()
 		"maps":
 			match id:
-				"level list":
-					var player = get_tree().get_first_node_in_group("player")
-					player.openUI("planet")
-					queue_free()
-				"unlock levels": 
-					var world = Global.get_world(Global.game_settings.word)
-					world["level"] = 5
-					world["stage"] = 2
-					var player = get_tree().get_first_node_in_group("player")
-					Global.save(Global.game_settings["word"])
-					if Global.game_settings["gui_settings"]["Language"] == "русский":
-						player.warning("Все уровни открыты!")
-					else:
-						player.warning("All levels are unlocked!")
-					player.openUI("planet")
-					queue_free()
 				"sandbox":
 					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/sandbox.tscn")
-				"FNaD":
-					SceneManager.load_scene_with_loading("res://game/rooms/maps/RoP/fnaf.tscn")
 				"flat":
 					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/flat.tscn")
-				"parkour":
-					SceneManager.load_scene_with_loading("res://game/rooms/maps/endless_parkour/endless_parkour.tscn")
 		"other":
 			match id:
 				"console": 

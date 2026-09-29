@@ -29,7 +29,7 @@ func _on_label_button_pressed(id: String) -> void:
 			$beep.play()
 			select_world = id
 			world_name_label.text = Global.get(select_world)["name"]
-			stage_label.text = "stage: " + str(Global.get(select_world)["stage"])
+			stage_label.text = "level: " + str(Global.get(select_world)["level"])
 			if Global.get(select_world)["name"].begins_with("[NEW GAME "):
 				world_name_label.text = world_names[randi() % world_names.size()]
 				Global.get(select_world)["mode"] = 0

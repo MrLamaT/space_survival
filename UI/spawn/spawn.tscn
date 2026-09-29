@@ -66,20 +66,16 @@
 [ext_resource type="Texture2D" uid="uid://bnnuusbf75he6" path="res://assets/icon/prop/shower.png" id="49_r5g20"]
 [ext_resource type="Texture2D" uid="uid://dcfdvqkr1k3h2" path="res://assets/textures/sand.png" id="50_fw3wd"]
 [ext_resource type="Texture2D" uid="uid://cln0kd0pfs6go" path="res://assets/icon/prop/beachball.png" id="50_jk6ju"]
-[ext_resource type="Texture2D" uid="uid://c1i8srqcd1ee8" path="res://assets/level/planetFnaf.png" id="50_v7lph"]
 [ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="51_csqvi"]
 [ext_resource type="Texture2D" uid="uid://bbmgd8elw5a28" path="res://assets/level/planet00.png" id="51_v7lph"]
-[ext_resource type="Texture2D" uid="uid://cqjgqkce4nlsc" path="res://assets/icon/sort.png" id="54_nv0ie"]
 [ext_resource type="Texture2D" uid="uid://lt1nu8xyef00" path="res://assets/level/planetFlat.png" id="56_xnmou"]
 [ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="57_jk6ju"]
 [ext_resource type="Texture2D" uid="uid://562f1kinp4yi" path="res://assets/textures/wallpaper1.png" id="58_fw3wd"]
-[ext_resource type="Texture2D" uid="uid://5tq8i4luthta" path="res://assets/level/planetParkour.png" id="58_rmstl"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 [ext_resource type="Texture2D" uid="uid://cchsbhyfsimkg" path="res://assets/textures/roof.png" id="60_5txe2"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="61_7addr"]
 [ext_resource type="Texture2D" uid="uid://3hqnq4w7des4" path="res://assets/icon/prop/colorball.png" id="62_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/shield.png" id="66_63tcv"]
-[ext_resource type="Texture2D" uid="uid://dtqsfimpmq50t" path="res://assets/icon/equipment/jump.png" id="66_csqvi"]
 [ext_resource type="Texture2D" uid="uid://b3cfn606itdpf" path="res://assets/icon/LogoDeath.png" id="67_5txe2"]
 [ext_resource type="Texture2D" uid="uid://co6ecqt6apyxp" path="res://assets/textures/standard.png" id="70_h60il"]
 [ext_resource type="Texture2D" uid="uid://djy4wxotwfx1m" path="res://assets/icon/noclip.png" id="80_qmh17"]
@@ -1298,45 +1294,17 @@ theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 15
 columns = 6
 
-[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1701227527 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "level list"
-img = ExtResource("54_nv0ie")
-type = "maps"
-target_node = NodePath("../../../../..")
-
-[node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1652641056 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "unlock levels"
-img = ExtResource("66_csqvi")
-type = "maps"
-target_node = NodePath("../../../../..")
-
-[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=509937286 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "sandbox"
 img = ExtResource("51_v7lph")
 type = "maps"
 target_node = NodePath("../../../../..")
 
-[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+[node name="card2" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1357763610 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "flat"
 img = ExtResource("56_xnmou")
-type = "maps"
-target_node = NodePath("../../../../..")
-
-[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1146954466 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "FNaD"
-img = ExtResource("50_v7lph")
-type = "maps"
-target_node = NodePath("../../../../..")
-
-[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1558646216 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "parkour"
-img = ExtResource("58_rmstl")
 type = "maps"
 target_node = NodePath("../../../../..")
 

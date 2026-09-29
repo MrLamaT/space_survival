@@ -1,21 +1,23 @@
 extends Node2D
 
+@onready var general_panel = $Panel/general/VBoxContainer
+
 func _ready() -> void:
 	if Global.game_settings["gui_settings"]["Language"] == "English":
-		$Panel/ScrollContainer/VBoxContainer/Language/OptionButton.selected = 0
+		general_panel.get_node("Language/OptionButton").selected = 0
 	else:
-		$Panel/ScrollContainer/VBoxContainer/Language/OptionButton.selected = 1
-	$Panel/ScrollContainer/VBoxContainer/Speedometer/CheckBox.button_pressed = Global.game_settings["gui_settings"]["Speed"]
-	$Panel/ScrollContainer/VBoxContainer/Coords/CheckBox.button_pressed = Global.game_settings["gui_settings"]["Coords"]
-	$Panel/ScrollContainer/VBoxContainer/FPS/CheckBox.button_pressed = Global.game_settings["gui_settings"]["FPS"]
-	$Panel/ScrollContainer/VBoxContainer/CrosshairType/OptionButton.selected = Global.game_settings["gui_settings"]["crosshair"] - 1
+		general_panel.get_node("Language/OptionButton").selected = 1
+	general_panel.get_node("Speedometer/CheckBox").button_pressed = Global.game_settings["gui_settings"]["Speed"]
+	general_panel.get_node("Coords/CheckBox").button_pressed = Global.game_settings["gui_settings"]["Coords"]
+	general_panel.get_node("FPS/CheckBox").button_pressed = Global.game_settings["gui_settings"]["FPS"]
+	general_panel.get_node("CrosshairType/OptionButton").selected = Global.game_settings["gui_settings"]["crosshair"] - 1
 	if Global.game_settings["gui_settings"]["ch_scale"] == 2.5:
-		$Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton.selected = 0
+		general_panel.get_node("CrosshairSize/OptionButton").selected = 0
 	if Global.game_settings["gui_settings"]["ch_scale"] == 5.0:
-		$Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton.selected = 1
+		general_panel.get_node("CrosshairSize/OptionButton").selected = 1
 	if Global.game_settings["gui_settings"]["ch_scale"] == 7.5:
-		$Panel/ScrollContainer/VBoxContainer/CrosshairSize/OptionButton.selected = 2
-	$Panel/ScrollContainer/VBoxContainer/Sensitivity/HSlider.value = float(Global.game_settings.gui_settings.sensitivity)
+		general_panel.get_node("CrosshairSize/OptionButton").selected = 2
+	general_panel.get_node("Sensitivity/HSlider").value = float(Global.game_settings.gui_settings.sensitivity)
 	
 func _on_label_button_pressed(id: String) -> void:
 	match id:
@@ -31,15 +33,15 @@ func _on_language_selected(index: int) -> void:
 	Global.save(0)
 
 func _on_Speed_pressed() -> void:
-	Global.game_settings["gui_settings"]["Speed"] = $Panel/ScrollContainer/VBoxContainer/Speedometer/CheckBox.button_pressed
+	Global.game_settings["gui_settings"]["Speed"] = general_panel.get_node("Speedometer/CheckBox").button_pressed
 	Global.save(0)
 
 func _on_Coords_pressed() -> void:
-	Global.game_settings["gui_settings"]["Coords"] = $Panel/ScrollContainer/VBoxContainer/Coords/CheckBox.button_pressed
+	Global.game_settings["gui_settings"]["Coords"] = general_panel.get_node("Coords/CheckBox").button_pressed
 	Global.save(0)
 
 func _on_FPS_pressed() -> void:
-	Global.game_settings["gui_settings"]["FPS"] = $Panel/ScrollContainer/VBoxContainer/FPS/CheckBox.button_pressed
+	Global.game_settings["gui_settings"]["FPS"] = general_panel.get_node("FPS/CheckBox").button_pressed
 	Global.save(0)
 
 func _on_crosshair_selected(index: int) -> void:

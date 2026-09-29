@@ -10,6 +10,7 @@ func _on_label_button_pressed(id: String) -> void:
 			$Panel/Id.visible = false
 			$Panel/ScrollContainer.visible = true
 			
+			$Panel/bonus.visible = false
 			$Panel/sim.visible = false
 			$Panel/RoP.visible = false
 
