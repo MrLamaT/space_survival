@@ -70,7 +70,7 @@ func update_accumulation(delta):
 		accumulated_radiation += current_radiation * delta * accumulation_speed
 		print(accumulated_radiation)
 		if accumulated_radiation >= damage_threshold:
-			player.HP(damage_amount)
+			player.take_damage(damage_amount)
 			accumulated_radiation = 0.0
 	else:
 		if accumulated_radiation > 0:

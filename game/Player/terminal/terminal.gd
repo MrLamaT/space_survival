@@ -200,7 +200,7 @@ func parse_command(text: String):
 		"restart", "respawn":
 			player.respawn_player()
 			SystemPrint("Player respawned")
-		"HP", "hp":
+		"HP", "hp", "take_damage", "damage":
 			var amount := 100
 			if arguments.size() >= 1:
 				if arguments[0].is_valid_int():
@@ -208,7 +208,7 @@ func parse_command(text: String):
 				else:
 					ErrorPrint("Invalid argument: must be an integer number")
 					return
-			player.HP(amount)
+			player.take_damage(amount)
 		"poison":
 			var amount := 100
 			if arguments.size() >= 1:
@@ -230,7 +230,7 @@ func parse_command(text: String):
 		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://game/rooms/maps/sandbox.tscn")
 		"save":
-			player.save()
+			Global.save(Global.game_settings["word"])
 			SystemPrint("World saved successfully")
 		"quit", "exit":
 			get_tree().quit()

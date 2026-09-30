@@ -51,8 +51,6 @@ func attack_player():
 		if player:
 			$hit.pitch_scale = randf_range(4, 6)
 			$hit.play()
-			if player.has_method("HP"):
-				player.HP(100000)
 			if player.has_method("take_damage"):
 				player.take_damage(100000)
 			take_damage(100000)

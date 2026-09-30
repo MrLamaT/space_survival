@@ -24,6 +24,7 @@ var weapon_system: WeaponSystem
 var is_shooting: bool = false
 var is_alt_shooting: bool = false
 
+var health: float = 100.0
 var accel = 6
 var SPEED = 5.0
 var base_speed = 5.0
@@ -136,6 +137,8 @@ var infE: bool = false
 var infS: bool = false
 var spawnPanel: bool = false
 
+var world = Global.get_world(Global.game_settings.word)
+
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -191,8 +194,6 @@ func _ready():
 	weapon_system.cam = cam
 	add_child(weapon_system)
 	stamina_bar.max_value = max_stamina
-	var world = Global.get_world(Global.game_settings.word)
-	world["HP"] = 100
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
 
 func PlayerDeath():
@@ -205,7 +206,6 @@ func PlayerDeath():
 		for enemy in enemies:
 			if enemy.has_method("ResetHealth"):
 				enemy.ResetHealth()
-	var world = Global.get_world(Global.game_settings.word)
 	$screem.play()
 	throw_camera_out()
 	movement_enabled = false
@@ -216,30 +216,29 @@ func PlayerDeath():
 	if world["mode"] != 2:
 		await get_tree().create_timer(2.5).timeout
 		$screem.stop()
-		world["HP"] = 100
+		health = 100.0
 		respawn_player()
 	else:
 		Global.delete_world_save(Global.game_settings.word)
 		SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 
-func HP(hp):
+func take_damage(hp):
 	if Global.game_settings["IsDying"]:
 		return
 	if damage_cooldown > 0:
 		return
-	var world = Global.get_world(Global.game_settings.word)
 	if !GodMod:
-		world["HP"] -= hp
+		health -= hp
 		damage_cooldown = damage_cooldown_duration
 	if hp > 0:
 		blood_overlay.modulate = Color("830000BD")
 	else:
 		blood_overlay.modulate = Color("E8D6C2FF")
 	$head/Camera3D/damage.play("damage")
-	if world["HP"] <= 0:
+	if health <= 0:
 		PlayerDeath()
-	if world["HP"] > 100:
-		world["HP"] = 100
+	if health > 100:
+		health = 100
 
 func apply_poison(damage: float) -> void:
 	if Global.game_settings["IsDying"]:
@@ -259,12 +258,11 @@ func _process_poison(delta: float) -> void:
 		poison_tick_timer += delta
 		if poison_tick_timer >= poison_tick_interval:
 			poison_tick_timer = 0.0
-			var world = Global.get_world(Global.game_settings.word)
 			if !GodMod:
-				world["HP"] -= poison_damage
+				health -= poison_damage
 			blood_overlay.modulate = Color("4CAF50")
 			$head/Camera3D/damage.play("damage")
-			if world["HP"] <= 0:
+			if health <= 0:
 				PlayerDeath()
 				is_poisoned = false
 	else:
@@ -272,7 +270,7 @@ func _process_poison(delta: float) -> void:
 		poison_damage = 0.0
 
 func respawn_player():
-	save()
+	Global.save(Global.game_settings["word"])
 	global_position = Global.game_settings["checkpoint"]
 	velocity = Vector3.ZERO
 	Global.game_settings["IsDying"] = false
@@ -337,15 +335,12 @@ func _input(event: InputEvent): #повороты мышкой
 	if Input.is_action_just_released("UI_alt_click"):
 		is_alt_shooting = false
 	if Input.is_action_just_pressed("+q"):
-		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1 or spawnPanel:
 			openUI("spawn")
 	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
-		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			noclip_cheat()
 	if Input.is_action_just_pressed("+delete"):
-		var world = Global.get_world(Global.game_settings.word)
 		if world["mode"] == 1:
 			var enemies = get_tree().get_nodes_in_group("enemy")
 			if enemies.size() > 0:
@@ -423,7 +418,7 @@ func _process(delta):
 func _update_stamina(delta):
 	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
 	var is_actually_moving = horizontal_speed > 0.5
-	if is_running and is_actually_moving and movement_enabled and is_on_floor() and not Global.game_settings["UI"]:
+	if is_running and is_actually_moving and is_on_floor() and can_move():
 		if not infS:
 			stamina = max(0, stamina - stamina_depletion_rate * delta)
 			can_regenerate = false
@@ -480,7 +475,7 @@ func update_energy_display():
 
 func _update_fov_effects(delta):
 	var target_fov = base_fov
-	if movement_enabled and input_dir.length() > 0.1:
+	if can_move() and input_dir.length() > 0.1:
 		var speed_factor = clamp(velocity.length() / SPEED, 0.0, 1.0)
 		target_fov = lerp(base_fov, running_fov, speed_factor)
 	current_fov = lerp(current_fov, target_fov, fov_transition_speed * delta)
@@ -488,11 +483,11 @@ func _update_fov_effects(delta):
 
 func _update_camera_dynamics(delta):
 	var target_tilt = 0.0
-	if movement_enabled and input_dir.length() > 0.1:
+	if can_move() and input_dir.length() > 0.1:
 		target_tilt = -input_dir.x * camera_tilt_amount
 	current_tilt = lerp(current_tilt, target_tilt, camera_tilt_speed * delta)
 	cam.rotation.z = deg_to_rad(current_tilt)
-	if movement_enabled and input_dir.length() < 0.1 and is_on_floor():
+	if can_move() and input_dir.length() < 0.1 and is_on_floor():
 		breathing_time += delta * breathing_frequency
 		var breathing_offset = sin(breathing_time) * breathing_amplitude
 		cam.position.y = base_camera_position.y + breathing_offset
@@ -502,24 +497,105 @@ func _update_camera_dynamics(delta):
 			breathing_time = 0.0
 
 func _physics_process(delta):
-	var world = Global.get_world(Global.game_settings.word)
+	_check_killzone()
+	_update_ui_labels()
+	_handle_gravity_and_jump(delta)
+	_handle_footsteps(delta)
+	_handle_crouch_animation()
+	_handle_movement_input(delta)
+	_handle_running()
+	move_and_slide()
+	interaction_manager.check_interactable()
+	_handle_shooting()
+
+func _handle_shooting():
+	if is_shooting and can_move():
+		weapon_system.shoot(false)
+	if is_alt_shooting and can_move():
+		weapon_system.shoot(true)
+
+func _handle_running():
+	if Input.is_action_pressed("+shift") and stamina > 0 and can_move() and not crouched:
+		var horizontal_speed = Vector2(velocity.x, velocity.z).length()
+		if horizontal_speed > 0.5:
+			if not is_running:
+				is_running = true
+				update_running_speed()
+		else:
+			if is_running:
+				is_running = false
+				update_running_speed()
+	else:
+		if is_running:
+			is_running = false
+			update_running_speed()
+
+func _handle_movement_input(delta):
+	if can_move():
+		if Global.game_settings["affected_by_gravity"]:
+			input_dir = Input.get_vector("+a", "+d", "+w", "+s")
+			direction = ($head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+			if is_on_ice and is_on_floor():
+				var current_accel = accel * ice_accel_multiplier
+				var target_vel_x = direction.x * SPEED
+				var target_vel_z = direction.z * SPEED
+				if input_dir.length() == 0:
+					velocity.x *= ice_friction
+					velocity.z *= ice_friction
+				else:
+					velocity.x = lerp(velocity.x, target_vel_x, current_accel * delta)
+					velocity.z = lerp(velocity.z, target_vel_z, current_accel * delta)
+			else:
+				velocity.x = lerp(velocity.x, direction.x * SPEED, accel * delta)
+				velocity.z = lerp(velocity.z, direction.z * SPEED, accel * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, accel * delta)
+		velocity.z = lerp(velocity.z, 0.0, accel * delta)
+		if not Global.game_settings["affected_by_gravity"]:
+			velocity.y = lerp(velocity.y, 0.0, accel * delta)
+
+func _handle_crouch_animation():
+	if crouched:
+		SPEED = 2.5
+		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 0.4, 0.4)
+		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 0.66, 0.4)
+		head.position.y = lerp(head.position.y, 1.0, 0.3)
+	else:
+		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 1.0, 0.4)
+		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 1.143, 0.4)
+		head.position.y = lerp(head.position.y, 1.85, 0.3)
+
+func _handle_footsteps(delta):
+	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and can_move():
+		footstep_timer += delta
+		if footstep_timer >= footstep_delay:
+			play_footstep()
+			footstep_timer = 0
+	else:
+		footstep_timer = 0
+
+func _check_killzone():
 	if global_position.y < Global.game_settings["min_y"]:
 		print("killZona!!!")
-		var new_hp = world["HP"] - world["HP"] * 0.5
+		var new_hp = health - health * 0.5
 		if new_hp < 1:
 			new_hp = 1
-		HP(world["HP"] - new_hp)
+		take_damage(health - new_hp)
 		global_position = Global.game_settings["checkpoint"]
 		velocity.y = 0
-	HP_label.text = str(int(world["HP"]))
-	HP_bar.value = int(world["HP"])
+
+func _update_ui_labels():
+	HP_label.text = str(int(health))
+	HP_bar.value = int(health)
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
+
+func _handle_gravity_and_jump(delta):
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
 			has_used_double_jump = false
-		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and Global.game_settings["CanStandUp"] and movement_enabled and not Global.game_settings["UI"]:
+		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and Global.game_settings["CanStandUp"] and can_move():
 			crouched = false
 			update_running_speed()
 			if is_on_floor():
@@ -539,71 +615,12 @@ func _physics_process(delta):
 		if is_on_floor():
 			is_jumping = false
 		if not is_on_floor():
-			if falling_fast and movement_enabled:
+			if falling_fast and can_move():
 				velocity.y -= gravity * delta * 10
 			else:
 				velocity.y -= gravity * delta
 	else:
 		handle_flight_movement(delta)
-	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and movement_enabled and not Global.game_settings["UI"]:
-		footstep_timer += delta
-		if footstep_timer >= footstep_delay:
-			play_footstep()
-			footstep_timer = 0
-	else:
-		footstep_timer = 0
-	if crouched:
-		SPEED = 2.5
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y,0.4,0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 0.66,0.4)
-		head.position.y = lerp(head.position.y, 1.0, 0.3)
-	else:
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 1.0 ,0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 1.143,0.4)
-		head.position.y = lerp(head.position.y, 1.85 , 0.3)
-	if !Global.game_settings["UI"]:
-		if Global.game_settings["affected_by_gravity"]:
-			input_dir = Input.get_vector("+a", "+d", "+w", "+s")
-			direction = ($head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-			if movement_enabled:
-				if is_on_ice and is_on_floor():
-					var current_accel = accel * ice_accel_multiplier
-					var target_vel_x = direction.x * SPEED
-					var target_vel_z = direction.z * SPEED
-					if input_dir.length() == 0:
-						velocity.x *= ice_friction
-						velocity.z *= ice_friction
-					else:
-						velocity.x = lerp(velocity.x, target_vel_x, current_accel * delta)
-						velocity.z = lerp(velocity.z, target_vel_z, current_accel * delta)
-				else:
-					velocity.x = lerp(velocity.x ,direction.x * SPEED, accel * delta)
-					velocity.z = lerp(velocity.z ,direction.z * SPEED, accel * delta)
-	else:
-		velocity.x = lerp(velocity.x, 0.0, accel * delta)
-		velocity.z = lerp(velocity.z, 0.0, accel * delta)
-		if not Global.game_settings["affected_by_gravity"]:
-			velocity.y = lerp(velocity.y, 0.0, accel * delta)
-	if Input.is_action_pressed("+shift") and stamina > 0 and movement_enabled and not crouched:
-		var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-		if horizontal_speed > 0.5:
-			if not is_running:
-				is_running = true
-				update_running_speed()
-		else:
-			if is_running:
-				is_running = false
-				update_running_speed()
-	else:
-		if is_running:
-			is_running = false
-			update_running_speed()
-	move_and_slide()
-	interaction_manager.check_interactable()
-	if is_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
-		weapon_system.shoot(false) 
-	if is_alt_shooting and movement_enabled and not Global.game_settings["UI"] and not Global.game_settings["IsDying"]:
-		weapon_system.shoot(true)
 
 func force_stand_up():
 	if crouched:
@@ -619,7 +636,7 @@ func handle_flight_movement(delta):
 		var right = cam_basis.x    
 		flight_direction = (forward * input_dir.y) + (right * input_dir.x)
 		flight_direction = flight_direction.normalized()
-	if movement_enabled and flight_direction.length() > 0:
+	if can_move() and flight_direction.length() > 0:
 		var target_velocity = flight_direction * float(SPEED)
 		velocity.x = lerp(velocity.x, target_velocity.x, accel * delta)
 		velocity.y = lerp(velocity.y, target_velocity.y, accel * delta)
@@ -639,7 +656,7 @@ func update_running_speed():
 
 func play_footstep():
 	var step = detect_ground_material()
-	if movement_enabled:
+	if can_move():
 		if step == "default":
 			footstep_player.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player.play()
@@ -652,9 +669,6 @@ func play_footstep():
 
 func _on_end_exit_pressed() -> void:
 	SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
-	
-func save():
-	Global.save(Global.game_settings["word"])
 
 func handle_ui_action(ui_name: String) -> void:
 	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
@@ -763,3 +777,12 @@ func detect_ground_material():
 	elif collider.is_in_group("metal"):
 		return "metal"
 	return "default"
+
+func can_move() -> bool:
+	if not movement_enabled:
+		return false
+	if Global.game_settings["UI"]:
+		return false
+	if Global.game_settings["IsDying"]:
+		return false
+	return true

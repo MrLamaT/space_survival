@@ -21,7 +21,7 @@ func trigger_interaction():
 		$Sprite3D.modulate = Color("808080")
 		remove_from_group("interactive_objects")
 		var player = get_tree().get_first_node_in_group("player")
-		player.HP(-100)
+		player.take_damage(-100)
 		Global.game_settings["checkpoint"] = player.global_position
 
 func _on_mouse_entered() -> void:

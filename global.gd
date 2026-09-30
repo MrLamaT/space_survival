@@ -47,7 +47,7 @@ var game_settings: Dictionary = {
 	"ThrownCamera": null,
 	"can_jump": true,
 	"affected_by_gravity": true,
-	"word": 0,
+	"word": 1,
 	"UI": false,
 	"UI_argument": null,
 	"GhostMod": false,
@@ -163,15 +163,11 @@ func save(world_num: int = 0):
 	save_settings(world_num)
 	print("сохранение: ", world_num)
 
-func load(world_num: int = 0):
-	load_settings(world_num)
-
 func reset_world_to_default(world_num: int) -> void:
 	var default_world = {
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"level": 0,
-		"HP": 100,
 		"equipment": [],
 		"weapon": ["", "", "", "", ""],
 		"costumes": "Classic",

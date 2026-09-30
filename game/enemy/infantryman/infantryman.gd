@@ -104,8 +104,6 @@ func attack_player():
 			is_attacking = true
 			$hit.pitch_scale = randf_range(4, 6)
 			$body/AnimationPlayer.play("attack")
-			if player.has_method("HP"):
-				player.HP(20)
 			if player.has_method("take_damage"):
 				player.take_damage(20)
 			if player is CharacterBody3D:

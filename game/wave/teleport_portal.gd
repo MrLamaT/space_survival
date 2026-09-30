@@ -18,6 +18,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		else:
 			if world["level"] <= level:
 				world["level"] = level + 1
-			body.save()
+			Global.save(Global.game_settings["word"])
 			body.set_movement_enabled(false)
 			SceneManager.load_scene_with_loading(Global.bonus_level.get(level))
