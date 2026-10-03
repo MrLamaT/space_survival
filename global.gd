@@ -44,7 +44,6 @@ var game_settings: Dictionary = {
 	},
 	"CanStandUp": true,
 	"IsDying": false,
-	"ThrownCamera": null,
 	"can_jump": true,
 	"affected_by_gravity": true,
 	"word": 1,

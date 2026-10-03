@@ -27,8 +27,8 @@ func _init(player: CharacterBody3D, camera: Camera3D, crosshair: TextureRect, pr
 
 func process_interaction_input():
 	if Input.is_action_just_pressed("+e") and current_interactable:
-		if _player["held_build"]:
-			_player.release_build()
+		if _player.object_holder.held_object:
+			_player.object_holder.release(false)
 			return
 		start_interaction()
 	if Input.is_action_just_released("+e"):

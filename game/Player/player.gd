@@ -16,61 +16,67 @@ extends CharacterBody3D
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var ground_ray = $GroundRay
 
-var current_ground_type = "default"
+var current_ground_type = "default" # Текущий тип поверхности под ногами
 
-var interaction_manager: InteractionManager
-var weapon_system: WeaponSystem
+# ==================== СИСТЕМЫ ====================
+var interaction_manager: InteractionManager # Менеджер взаимодействий
+var weapon_system: WeaponSystem  # Система оружия
+var object_holder: ObjectHolderSystem
 
-var is_shooting: bool = false
-var is_alt_shooting: bool = false
+var is_shooting: bool = false # Флаг основной стрельбы
+var is_alt_shooting: bool = false # Флаг альтернативной стрельбы
 
-var health: float = 100.0
-var accel = 6
-var SPEED = 5.0
-var base_speed = 5.0
-var crouched: bool = false
-var falling_fast: bool = false
-var input_dir = Vector3(0,0,0)
-var direction = Vector3() 
-var sens = 0.005
+# ==================== ЗДОРОВЬЕ И ДВИЖЕНИЕ ====================
+var health: float = 100.0 # Текущее здоровье игрока
+var accel = 6 # Ускорение движения
+var SPEED = 5.0 # Текущая скорость передвижения
+var base_speed = 5.0 # Базовая скорость передвижения
+var crouched: bool = false  # Флаг приседания
+var falling_fast: bool = false # Флаг быстрого падения
+var input_dir = Vector3(0,0,0) # Направление ввода игрока
+var direction = Vector3() # Направление движения
+var sens = 0.005 # Чувствительность мыши
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var footstep_timer = 0.0
-var footstep_delay = 0.5
+var footstep_timer = 0.0 # Таймер между шагами
+var footstep_delay = 0.5 # Задержка между шагами
 
-var standing_height = 1.85
-var crouching_height = 1.0
-var standing_collision_height = 1.143
-var crouching_collision_height = 0.66
-var standing_collision_scale = 1.0
-var crouching_collision_scale = 0.4
+# ==================== ПРИСЕДАНИЕ ====================
+var standing_height = 1.85 # Высота головы стоя
+var crouching_height = 1.0 # Высота головы при приседании
+var standing_collision_height = 1.143 # Высота коллизии стоя
+var crouching_collision_height = 0.66 # Высота коллизии при приседании
+var standing_collision_scale = 1.0 # Масштаб коллизии стоя
+var crouching_collision_scale = 0.4 # Масштаб коллизии при приседании
 
-var was_under_obstacle = false
+var was_under_obstacle = false # Флаг нахождения под препятствием
 
-var movement_enabled: bool = true
+var movement_enabled: bool = true # Флаг возможности движения
 
-var damage_cooldown: float = 0.0
-var damage_cooldown_duration: float = 1.0 
+# ==================== СИСТЕМА УРОНА ====================
+var damage_cooldown: float = 0.0 # Таймер перезарядки урона
+var damage_cooldown_duration: float = 1.0 # Длительность перезарядки урона
 
-# Динамика камеры
+# ==================== ДИНАМИКА КАМЕРЫ ====================
 var camera_tilt_amount = 1.5  # градусы наклона при движении
 var camera_tilt_speed = 16.0   # скорость наклона
 var current_tilt = 0.0        # текущий наклон
+var thrown_camera: Node3D = null   # Ссылка на выброшенную камеру
 
-# Дыхание
+# ==================== ДЫХАНИЕ ====================
 var breathing_amplitude = 0.05  # амплитуда движения при дыхании
 var breathing_frequency = 1.0   # частота дыхания
 var breathing_time = 0.0
 var base_camera_position = Vector3()
 
-# FOV эффекты
+# ==================== FOV ЭФФЕКТЫ ====================
 var base_fov: float = 75.0  # базовое значение FOV
 var running_fov: float = 80.0  # FOV при беге
 var fov_transition_speed: float = 16.0  # скорость изменения FOV
 var current_fov: float = base_fov
 
-# стамина
-var is_running = false
-var stamina = 100.0
+# ==================== СТАМИНА ====================
+var is_running = false # Флаг бега
+var stamina = 100.0 # Текущая стамина
 var max_stamina = 100.0
 var stamina_depletion_rate = 25.0  # Скорость расходования стамины в секунду
 var stamina_regen_rate = 25.0      # Скорость восстановления стамины в секунду
@@ -78,7 +84,7 @@ var can_regenerate = true
 var regen_delay = 0.5  # Задержка перед восстановлением после бега
 var regen_timer = 0.0
 
-# Энергия для оружия
+# ==================== ЭНЕРГИЯ ДЛЯ ОРУЖИЯ ====================
 var energy: float = 100.0
 var max_energy: float = 100.0
 var energy_regen_rate: float = 25.0      # Скорость восстановления энергии в секунду
@@ -86,7 +92,7 @@ var can_regenerate_energy: bool = true
 var regen_energy_timer: float = 0.0
 var regen_energy_delay: float = 0.5      # Задержка перед восстановлением после стрельбы
 
-# Альт-энергия для оружия
+# ==================== АЛЬТ-ЭНЕРГИЯ ДЛЯ ОРУЖИЯ ====================
 var alt_energy: float = 100.0
 var max_alt_energy: float = 100.0
 var alt_energy_regen_rate: float = 12.5       # Скорость восстановления энергии в секунду
@@ -95,42 +101,38 @@ var regen_alt_energy_timer: float = 0.0
 var regen_alt_energy_delay: float = 1.0
 var was_alt_energy_full: bool = true
 
-# Фонарик
+# ==================== ФОНАРИК ====================
 var flashlight_enabled: bool = false
 
 var is_paused = false
 
-#прыжок
-var jump_velocity = 4.5
+# ==================== ПРЫЖОК ====================
+var jump_velocity = 4.5 # Скорость прыжка
 var is_jumping = false
-var jump_cooldown = 0.2
+var jump_cooldown = 0.2 # Перезарядка прыжка
 var jump_cooldown_timer = 0.0
-var has_used_double_jump: bool = false
+var has_used_double_jump: bool = false # Флаг использования двойного прыжка
 
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
 
-# инерция руки
+# ==================== ИНЕРЦИЯ РУКИ ====================
 var hand_follow_speed = 15.0  # Скорость следования руки (чем больше, тем быстрее)
 var hand_rotation_speed = 15.0  # Скорость поворота руки
 var max_hand_offset = Vector3(0.1, 0.1, 0.1)
 
-#двигать объект
-var held_build: Node = null
-var hold_distance: float = 2.0
-
-# Система яда
+# ==================== СИСТЕМА ЯДА ====================
 var poison_damage: float = 0.0        # Урон от яда за тик
 var poison_duration: float = 0.0      # Оставшаяся длительность действия яда
 var poison_tick_timer: float = 0.0    # Таймер для тиков урона
 var poison_tick_interval: float = 1.0 # Интервал между тиками урона (1 секунда)
 var is_poisoned: bool = false         # Флаг отравления
 
-# Скольжение по льду
+# ==================== СКОЛЬЖЕНИЕ ПО ЛЬДУ ====================
 var is_on_ice: bool = false
 var ice_friction: float = 1.0  # Коэффициент сохранения скорости (чем меньше, тем быстрее тормозит)
 var ice_accel_multiplier: float = 1.0  # Множитель ускорения на льду
 
-#читы
+# ==================== ЧИТЫ ====================
 var GodMod: bool = false
 var noclip: bool = false
 var infE: bool = false
@@ -139,6 +141,7 @@ var spawnPanel: bool = false
 
 var world = Global.get_world(Global.game_settings.word)
 
+# Обновляет позицию и поворот руки, следуя за целевой точкой
 func _update_hand_position(delta):
 	if not hand_target or not hand_position:
 		return
@@ -166,6 +169,7 @@ func _update_hand_position(delta):
 		)
 		hand_position.position += move_offset
 
+# Поворачивает голову игрока в сторону указанной точки
 func look_at_point(target_point: Vector3):
 	var head_look_point = Vector3(target_point.x, head.global_position.y, target_point.z)
 	head.look_at(head_look_point, Vector3.UP)
@@ -193,14 +197,18 @@ func _ready():
 	weapon_system.hand_position = hand_position
 	weapon_system.cam = cam
 	add_child(weapon_system)
+	object_holder = ObjectHolderSystem.new()
+	object_holder.setup(self, cam, head)
+	add_child(object_holder)
 	stamina_bar.max_value = max_stamina
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
 
+# Обрабатывает смерть игрока
 func PlayerDeath():
 	if Global.game_settings["IsDying"]:
 		return
 	Global.game_settings["IsDying"] = true
-	release_build(false)
+	object_holder.release(false)
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	if enemies.size() > 0:
 		for enemy in enemies:
@@ -222,6 +230,7 @@ func PlayerDeath():
 		Global.delete_world_save(Global.game_settings.word)
 		SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 
+# Наносит урон игроку
 func take_damage(hp):
 	if Global.game_settings["IsDying"]:
 		return
@@ -240,6 +249,7 @@ func take_damage(hp):
 	if health > 100:
 		health = 100
 
+# Применяет отравление к игроку
 func apply_poison(damage: float) -> void:
 	if Global.game_settings["IsDying"]:
 		return
@@ -250,6 +260,7 @@ func apply_poison(damage: float) -> void:
 	poison_tick_timer = 0.0
 	is_poisoned = true
 
+# Обрабатывает урон от яда с течением времени
 func _process_poison(delta: float) -> void:
 	if not is_poisoned or Global.game_settings["IsDying"]:
 		return
@@ -269,6 +280,7 @@ func _process_poison(delta: float) -> void:
 		is_poisoned = false
 		poison_damage = 0.0
 
+# Возрождает игрока на последнем чекпоинте
 func respawn_player():
 	Global.save(Global.game_settings["word"])
 	global_position = Global.game_settings["checkpoint"]
@@ -282,10 +294,11 @@ func respawn_player():
 	poison_damage = 0.0
 	poison_duration = 0.0
 	poison_tick_timer = 0.0
-	if Global.game_settings["ThrownCamera"]:
-		Global.game_settings["ThrownCamera"].queue_free()
-		Global.game_settings["ThrownCamera"] = null
+	if is_instance_valid(thrown_camera):
+		thrown_camera.queue_free()
+		thrown_camera = null
 
+# Выбрасывает камеру из рук игрока при смерти
 func throw_camera_out():
 	var cam_scene = load("res://game/item/cam.tscn")
 	var thrown_cam = cam_scene.instantiate()
@@ -297,33 +310,25 @@ func throw_camera_out():
 	if thrown_cam.has_method("apply_impulse"):
 		thrown_cam.apply_impulse(throw_force)
 	cam.current = false
-	var thrown_camera_node = find_camera_in_node(thrown_cam)
-	if thrown_camera_node:
-		thrown_camera_node.current = true
-	Global.game_settings["ThrownCamera"] = thrown_cam
+	thrown_cam.get_node("Camera3D").current = true
+	thrown_camera = thrown_cam
 
-func find_camera_in_node(node: Node) -> Camera3D:
-	if node is Camera3D:
-		return node
-	for child in node.get_children():
-		var camera = find_camera_in_node(child)
-		if camera:
-			return camera
-	return null
-
+# Устанавливает возможность движения игрока
 func set_movement_enabled(enabled: bool):
 	movement_enabled = enabled
 	if not enabled:
 		velocity.x = 0
 		velocity.z = 0
 
+# Обновляет видимость элементов GUI
 func update_gui_visibility():
 	var gui_settings = Global.game_settings["gui_settings"]
 	$head/Camera3D/UI/coordinates.visible = gui_settings["Coords"]
 	$head/Camera3D/UI/fps.visible = gui_settings["FPS"]
 	$head/Camera3D/UI/speed.visible = gui_settings["Speed"]
 
-func _input(event: InputEvent): #повороты мышкой
+# Обрабатывает ввод игрока (повороты мышкой, стрельба, взаимодействия)
+func _input(event: InputEvent):
 	if Input.is_action_just_pressed("UI_click") and not is_paused:
 		is_shooting = true
 		weapon_system.shoot(false)
@@ -348,7 +353,7 @@ func _input(event: InputEvent): #повороты мышкой
 					if enemy.has_method("take_damage"):
 						enemy.take_damage(999999)
 	if Input.is_action_just_pressed("ui_cancel"):
-		release_build(false)
+		object_holder.release(false)
 		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
@@ -377,6 +382,7 @@ func _input(event: InputEvent): #повороты мышкой
 	if not Global.game_settings["IsDying"]:
 		interaction_manager.process_interaction_input()
 
+# Переключает фонарик
 func toggle_flashlight():
 	if flashlight_enabled:
 		flashlight_enabled = false
@@ -388,6 +394,7 @@ func toggle_flashlight():
 		$head/Camera3D/flashlight/SpotLight3D2.visible = true
 	$beep.play()
 
+# Переключает режим noclip (полет сквозь стены)
 func noclip_cheat():
 	noclip = !noclip
 	if noclip:
@@ -400,6 +407,7 @@ func noclip_cheat():
 		collision_mask = (1 << 2) | (1 << 3) | (1 << 5)
 		Global.game_settings["affected_by_gravity"] = true
 
+# Обрабатывает логику каждый кадр
 func _process(delta):
 	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$head/Camera3D/UI/speed.text = "Speed: %.2f" % velocity.length()
@@ -410,11 +418,12 @@ func _process(delta):
 	_update_fov_effects(delta)
 	_process_poison(delta)
 	interaction_manager.update_interaction(delta)
-	if held_build and is_instance_valid(held_build):
-		update_held_build()
+	if object_holder.is_holding():
+		object_holder.update_held_object()
 	if damage_cooldown > 0:
 		damage_cooldown -= delta
 
+# Обновляет стамину (расходование при беге, восстановление при отдыхе)
 func _update_stamina(delta):
 	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
 	var is_actually_moving = horizontal_speed > 0.5
@@ -435,6 +444,7 @@ func _update_stamina(delta):
 			stamina = min(max_stamina, stamina + stamina_regen_rate * delta)
 	stamina_bar.value = stamina
 
+# Обновляет энергию и альт-энергию
 func _update_energy(delta):
 	if not can_regenerate_energy:
 		regen_energy_timer += delta
@@ -457,6 +467,7 @@ func _update_energy(delta):
 	
 	update_energy_display()
 
+# Обновляет отображение энергии на экране
 func update_energy_display():
 	if energy_bar:
 		energy_bar.value = energy
@@ -473,6 +484,7 @@ func update_energy_display():
 		else:
 			alt_energy_bar.modulate = Color(1.0, 0.0, 0.0, 1.0)
 
+# Обновляет FOV камеры в зависимости от скорости движения
 func _update_fov_effects(delta):
 	var target_fov = base_fov
 	if can_move() and input_dir.length() > 0.1:
@@ -481,6 +493,7 @@ func _update_fov_effects(delta):
 	current_fov = lerp(current_fov, target_fov, fov_transition_speed * delta)
 	cam.fov = current_fov
 
+# Обновляет динамику камеры (наклон, дыхание)
 func _update_camera_dynamics(delta):
 	var target_tilt = 0.0
 	if can_move() and input_dir.length() > 0.1:
@@ -496,6 +509,7 @@ func _update_camera_dynamics(delta):
 		if input_dir.length() > 0.1:
 			breathing_time = 0.0
 
+# Основная физическая обработка игрока
 func _physics_process(delta):
 	_check_killzone()
 	_update_ui_labels()
@@ -508,12 +522,14 @@ func _physics_process(delta):
 	interaction_manager.check_interactable()
 	_handle_shooting()
 
+# Обрабатывает стрельбу
 func _handle_shooting():
 	if is_shooting and can_move():
 		weapon_system.shoot(false)
 	if is_alt_shooting and can_move():
 		weapon_system.shoot(true)
 
+# Обрабатывает бег
 func _handle_running():
 	if Input.is_action_pressed("+shift") and stamina > 0 and can_move() and not crouched:
 		var horizontal_speed = Vector2(velocity.x, velocity.z).length()
@@ -530,6 +546,7 @@ func _handle_running():
 			is_running = false
 			update_running_speed()
 
+# Обрабатывает ввод движения
 func _handle_movement_input(delta):
 	if can_move():
 		if Global.game_settings["affected_by_gravity"]:
@@ -554,17 +571,19 @@ func _handle_movement_input(delta):
 		if not Global.game_settings["affected_by_gravity"]:
 			velocity.y = lerp(velocity.y, 0.0, accel * delta)
 
+# Обрабатывает анимацию приседания
 func _handle_crouch_animation():
 	if crouched:
 		SPEED = 2.5
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 0.4, 0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 0.66, 0.4)
-		head.position.y = lerp(head.position.y, 1.0, 0.3)
+		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, crouching_collision_scale, 0.4)
+		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, crouching_collision_height, 0.4)
+		head.position.y = lerp(head.position.y, crouching_height, 0.3)
 	else:
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, 1.0, 0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, 1.143, 0.4)
-		head.position.y = lerp(head.position.y, 1.85, 0.3)
+		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, standing_collision_scale, 0.4)
+		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, standing_collision_height, 0.4)
+		head.position.y = lerp(head.position.y, standing_height, 0.3)
 
+# Обрабатывает звуки шагов
 func _handle_footsteps(delta):
 	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and can_move():
 		footstep_timer += delta
@@ -574,6 +593,7 @@ func _handle_footsteps(delta):
 	else:
 		footstep_timer = 0
 
+# Проверяет нахождение в зоне смерти
 func _check_killzone():
 	if global_position.y < Global.game_settings["min_y"]:
 		print("killZona!!!")
@@ -584,11 +604,13 @@ func _check_killzone():
 		global_position = Global.game_settings["checkpoint"]
 		velocity.y = 0
 
+# Обновляет текстовые метки UI (здоровье, координаты)
 func _update_ui_labels():
 	HP_label.text = str(int(health))
 	HP_bar.value = int(health)
 	$head/Camera3D/UI/coordinates.text = "%03d:%03d:%03d" % [global_position.x, global_position.y, global_position.z]
 
+# Обрабатывает гравитацию и прыжки
 func _handle_gravity_and_jump(delta):
 	if Global.game_settings["affected_by_gravity"]:
 		if is_on_floor():
@@ -622,11 +644,13 @@ func _handle_gravity_and_jump(delta):
 	else:
 		handle_flight_movement(delta)
 
+# Принудительно заставляет игрока встать
 func force_stand_up():
 	if crouched:
 		crouched = false
 		update_running_speed()
 
+# Обрабатывает движение в режиме полета (при отключенной гравитации)
 func handle_flight_movement(delta):
 	input_dir = Input.get_vector("+a", "+d", "+w", "+s")
 	var cam_basis = cam.global_transform.basis
@@ -646,6 +670,7 @@ func handle_flight_movement(delta):
 		velocity.y = lerp(velocity.y, 0.0, accel * delta)
 		velocity.z = lerp(velocity.z, 0.0, accel * delta)
 
+# Обновляет скорость бега
 func update_running_speed():
 	if is_running and stamina > 0:
 		SPEED = 8  # Скорость бега
@@ -654,6 +679,7 @@ func update_running_speed():
 		SPEED = base_speed
 		footstep_delay = 0.5   # Обычная частота шагов
 
+# Воспроизводит звук шага в зависимости от поверхности
 func play_footstep():
 	var step = detect_ground_material()
 	if can_move():
@@ -667,9 +693,7 @@ func play_footstep():
 			footstep_player3.pitch_scale = randf_range(0.9, 1.1)
 			footstep_player3.play()
 
-func _on_end_exit_pressed() -> void:
-	SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
-
+# Обрабатывает действие UI (открытие/закрытие)
 func handle_ui_action(ui_name: String) -> void:
 	var has_ui_nodes = cam.get_tree().get_nodes_in_group("UI").size()
 	if has_ui_nodes == 0:
@@ -681,6 +705,7 @@ func handle_ui_action(ui_name: String) -> void:
 			if child.is_in_group("UI"):
 				child.queue_free()
 
+# Открывает указанный UI
 func openUI(nameUI):
 	var path = "head/Camera3D/" + nameUI
 	var node = get_node_or_null(path)
@@ -699,6 +724,7 @@ func openUI(nameUI):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
 
+# Показывает предупреждение на экране
 func warning(text):
 	if $head/Camera3D/label.visible == false:
 		$head/Camera3D/label.text = text
@@ -708,57 +734,7 @@ func warning(text):
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
 		$head/Camera3D/label.visible = false
 
-func MoveBuild(build):
-	if held_build == build:
-		return
-	print("переместить: ", build)
-	held_build = build
-	var distance_to_build = global_position.distance_to(build.global_position)
-	var min_safe_distance = 2.0
-	if distance_to_build < min_safe_distance:
-		var direction_to_build = build.global_position - global_position
-		direction_to_build.y = 0
-		direction_to_build = direction_to_build.normalized()
-		if direction_to_build.length() < 0.1:
-			var forward = -cam.global_transform.basis.z
-			forward.y = 0
-			forward = forward.normalized()
-			direction_to_build = forward
-		build.global_position = global_position + (direction_to_build * min_safe_distance)
-		build.global_position.y = build.global_position.y 
-		hold_distance = min_safe_distance
-	else:
-		hold_distance = distance_to_build
-
-func update_held_build():
-	if not held_build:
-		return
-	var camera_forward = -cam.global_transform.basis.z
-	camera_forward = camera_forward.normalized()
-	var target_position = cam.global_position + (camera_forward * hold_distance)
-	held_build.global_position = target_position
-	if held_build is RigidBody3D:
-		held_build.linear_velocity = Vector3.ZERO
-		held_build.angular_velocity = Vector3.ZERO
-	var target_rotation = head.global_rotation
-	target_rotation.x = 0
-	target_rotation.z = 0
-	held_build.global_rotation = target_rotation
-
-func release_build(throw_force: bool = false):
-	if not held_build:
-		return
-	if throw_force and held_build is RigidBody3D:
-		var throw_dir = -cam.global_transform.basis.z  
-		var throw_strength = 15.0 
-		held_build.linear_velocity = throw_dir * throw_strength + Vector3.UP * 2.0
-		held_build.angular_velocity = Vector3(
-			randf_range(-2, 2),
-			randf_range(-2, 2),
-			randf_range(-2, 2)
-		)
-	held_build = null
-
+# Определяет материал поверхности под ногами
 func detect_ground_material():
 	if not ground_ray.is_colliding():
 		is_on_ice = false
@@ -778,6 +754,7 @@ func detect_ground_material():
 		return "metal"
 	return "default"
 
+# Проверяет, может ли игрок двигаться
 func can_move() -> bool:
 	if not movement_enabled:
 		return false

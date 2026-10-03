@@ -196,7 +196,7 @@ func handle_weapon_input():
 func _switch_to_next_weapon():
 	if weapon_scroll_cooldown <= 0:
 		if player:
-			player.release_build()
+			player.object_holder.release(false)
 		var start_slot = current_weapon_slot
 		var next_slot = start_slot
 		for i in range(1, 9):
@@ -213,7 +213,7 @@ func _switch_to_next_weapon():
 func _switch_to_previous_weapon():
 	if weapon_scroll_cooldown <= 0:
 		if player:
-			player.release_build()
+			player.object_holder.release(false)
 		var start_slot = current_weapon_slot
 		for i in range(1, 9):
 			var test_slot = start_slot - i
@@ -229,7 +229,7 @@ func _switch_to_slot(slot: int):
 	if slot < 1 or slot > 8:
 		return
 	if player:
-		player.release_build()
+		player.object_holder.release(false)
 	var weapon_name = weapon_slots.get(slot, "")
 	if weapon_name == "":
 		return

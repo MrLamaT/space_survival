@@ -132,7 +132,7 @@ floor_constant_speed = true
 script = ExtResource("1_3dlvw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1704773250]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.143, 0)
 shape = SubResource("CapsuleShape3D_al2fp")
 debug_color = Color(0, 0.576471, 0.701961, 1)
 
@@ -140,7 +140,7 @@ debug_color = Color(0, 0.576471, 0.701961, 1)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, 1.325, -0.6)
 
 [node name="head" type="Node3D" parent="." unique_id=1394368950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=2117932246]
 current = true

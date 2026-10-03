@@ -9,6 +9,7 @@ script = ExtResource("1_6euei")
 texture = ExtResource("2_xd7bl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437667083]
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=903337758]
 texture_filter = 0
