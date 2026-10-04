@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dw3s6pb1wc0lt" path="res://game/enemy/observer1/observer1.gd" id="1_rohrf"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_vgi0l"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_wesqi"]
-[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_rohrf"]
+[ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_msdno"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_6gql8"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_rohrf"]
 [ext_resource type="Shader" uid="uid://mfdjxlv4klj3" path="res://assets/shaders/wings.gdshader" id="6_wesqi"]
@@ -19,7 +19,7 @@ radius = 0.4
 height = 2.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_gbrfq"]
-material = ExtResource("4_rohrf")
+material = ExtResource("4_msdno")
 radius = 0.3
 height = 0.6
 radial_segments = 16
@@ -37,7 +37,7 @@ radial_segments = 16
 rings = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
-material = ExtResource("4_rohrf")
+material = ExtResource("4_msdno")
 size = Vector3(0.15, 0.75, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf6sc"]
@@ -62,14 +62,14 @@ material = SubResource("StandardMaterial3D_rohrf")
 size = Vector3(0.165, 0.15, 0.165)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_s7v7n"]
-material = ExtResource("4_rohrf")
+material = ExtResource("4_msdno")
 top_radius = 0.3
 bottom_radius = 0.225
 height = 0.525
 radial_segments = 16
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pyykn"]
-material = ExtResource("4_rohrf")
+material = ExtResource("4_msdno")
 top_radius = 0.225
 bottom_radius = 0.3
 height = 0.3
@@ -694,7 +694,7 @@ libraries/ = SubResource("AnimationLibrary_86h4e")
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, -0.5)
 visible = false
 texture_filter = 0
 texture = ExtResource("6_rohrf")

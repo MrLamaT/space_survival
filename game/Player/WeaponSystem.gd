@@ -176,22 +176,10 @@ func handle_weapon_input():
 		_switch_to_next_weapon()
 	if Input.is_action_just_pressed("PreviousWeapon"):
 		_switch_to_previous_weapon()
-	if Input.is_action_just_pressed("+1"):
-		_switch_to_slot(1)
-	if Input.is_action_just_pressed("+2"):
-		_switch_to_slot(2)
-	if Input.is_action_just_pressed("+3"):
-		_switch_to_slot(3)
-	if Input.is_action_just_pressed("+4"):
-		_switch_to_slot(4)
-	if Input.is_action_just_pressed("+5"):
-		_switch_to_slot(5)
-	if Input.is_action_just_pressed("+6"):
-		_switch_to_slot(6)
-	if Input.is_action_just_pressed("+7"):
-		_switch_to_slot(7)
-	if Input.is_action_just_pressed("+8"):
-		_switch_to_slot(8)
+	for slot in range(1, 9):
+		if Input.is_action_just_pressed("+" + str(slot)):
+			_switch_to_slot(slot)
+			break
 
 func _switch_to_next_weapon():
 	if weapon_scroll_cooldown <= 0:

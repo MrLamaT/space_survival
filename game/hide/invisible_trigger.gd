@@ -15,9 +15,3 @@ func _on_body_exited(body):
 	if body.is_in_group("player"):
 		Global.game_settings["CanStandUp"] = true
 		body.force_stand_up()
-
-func _on_mouse_entered() -> void:
-	pass # Replace with function body.
-
-func _on_mouse_exited() -> void:
-	pass # Replace with function body.

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cjr7abbsnpixk" path="res://game/enemy/shooter/shooter.gd" id="1_1ac51"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_kjk4p"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_1ac51"]
-[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_kjk4p"]
+[ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_ywqoh"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="6_1ac51"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="6_olswx"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="8_85lro"]
@@ -13,7 +13,7 @@ radius = 0.4
 height = 2.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_ywqoh"]
-material = ExtResource("4_kjk4p")
+material = ExtResource("4_ywqoh")
 radius = 0.3
 height = 0.6
 radial_segments = 16
@@ -31,7 +31,7 @@ radial_segments = 16
 rings = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
-material = ExtResource("4_kjk4p")
+material = ExtResource("4_ywqoh")
 size = Vector3(0.15, 0.75, 0.15)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjk4p"]
@@ -58,14 +58,14 @@ left_to_right = 1.0
 size = Vector3(0.225, 0.075, 0.225)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ywqoh"]
-material = ExtResource("4_kjk4p")
+material = ExtResource("4_ywqoh")
 top_radius = 0.3
 bottom_radius = 0.225
 height = 0.525
 radial_segments = 16
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4br6m"]
-material = ExtResource("4_kjk4p")
+material = ExtResource("4_ywqoh")
 top_radius = 0.225
 bottom_radius = 0.3
 height = 0.3
@@ -511,7 +511,7 @@ pitch_scale = 1.5
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
 [node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.75, -0.5)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, -0.5)
 visible = false
 texture_filter = 0
 texture = ExtResource("6_olswx")

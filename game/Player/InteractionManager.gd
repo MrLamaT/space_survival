@@ -1,5 +1,12 @@
 class_name InteractionManager
 
+#  Чтобы объект можно было "взаимодействовать", он должен:
+#  находиться в группе "interactive_objects"          (обязательно)
+#  иметь метод trigger_interaction()                   (обязательно)
+#  опционально: _on_mouse_entered() / _on_mouse_exited() для подсветки
+#  для взаимодействия с удержанием — быть в группе "progressive_interactive"
+#  В check_interactable() маска задана как 2 | 4 | 8 | 16.
+
 var _player: CharacterBody3D
 var _camera: Camera3D
 var _crosshair: TextureRect
@@ -61,18 +68,20 @@ func check_interactable():
 	
 	if result: 
 		var collider = result.collider
-		if collider and (collider is Area3D or collider is RigidBody3D or collider is CharacterBody3D):
+		if collider:
 			if collider.is_in_group("interactive_objects"):
 				found_interactable = collider
 	
 	if found_interactable != current_interactable:
 		if current_interactable:
-			current_interactable._on_mouse_exited()
+			if current_interactable.has_method("_on_mouse_exited"):
+				current_interactable._on_mouse_exited()
 			stop_interaction()
 		
 		current_interactable = found_interactable
 		if current_interactable:
-			current_interactable._on_mouse_entered()
+			if current_interactable.has_method("_on_mouse_entered"):
+				current_interactable._on_mouse_entered()
 	
 	_update_crosshair()
 
