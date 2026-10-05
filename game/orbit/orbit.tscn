@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bnvqwal8ur031"]
+
+[ext_resource type="Script" uid="uid://bp8ihnoa422rr" path="res://game/orbit/orbit.gd" id="1_s83o0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ald5"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0, 0.75, 1, 0.47058824)
+metallic = 0.3
+
+[sub_resource type="SphereMesh" id="SphereMesh_s83o0"]
+material = SubResource("StandardMaterial3D_5ald5")
+radius = 0.25
+height = 0.5
+radial_segments = 4
+rings = 2
+
+[sub_resource type="Animation" id="Animation_633ub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.1170107]
+}
+
+[sub_resource type="Animation" id="Animation_y8asj"]
+resource_name = "orbit_rot"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crystal:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hjrn"]
+_data = {
+&"RESET": SubResource("Animation_633ub"),
+&"orbit_rot": SubResource("Animation_y8asj")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 2, 1)
+
+[node name="Orbit" type="Area3D" unique_id=1082816874]
+script = ExtResource("1_s83o0")
+
+[node name="crystal" type="MeshInstance3D" parent="." unique_id=408715949]
+transform = Transform3D(0.8767423, 0, 1.7975881, 0, 3.5, 0, -1.7975881, 0, 0.8767423, 0, 0, 0)
+mesh = SubResource("SphereMesh_s83o0")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="crystal" unique_id=1624174539]
+transform = Transform3D(0.4039189, 0, 0.9147948, 0, 1, 0, -0.9147948, 0, 0.4039189, 0, 0, 0)
+light_color = Color(0, 0.7490196, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=458733146]
+libraries/ = SubResource("AnimationLibrary_5hjrn")
+autoplay = &"orbit_rot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2083685366]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

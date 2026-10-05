@@ -84,10 +84,10 @@ button_id = "checkpoint"
 
 [node name="LabelButton4" parent="Panel/VBoxContainer" unique_id=2106875067 instance=ExtResource("1_00hl7")]
 layout_mode = 2
-text = "MUSIC"
+text = "OPTIONS"
 direction_A_and_D = "D"
 target_node = NodePath("../../..")
-button_id = "music"
+button_id = "options"
 
 [node name="LabelButton6" parent="Panel/VBoxContainer" unique_id=1079060291 instance=ExtResource("1_00hl7")]
 layout_mode = 2

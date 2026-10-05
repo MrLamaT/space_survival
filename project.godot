@@ -24,6 +24,7 @@ config/icon="uid://c644es5qjluwt"
 Global="*res://global.gd"
 SceneManager="*res://game/load/SceneManager.gd"
 BaseProp="*uid://brbx55qomurrh"
+SettingsManager="*uid://bjcg0or300sfj"
 
 [display]
 

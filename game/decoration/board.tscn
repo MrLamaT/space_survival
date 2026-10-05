@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dc7cqja1od4hx" path="res://game/decoration/board.gd" id="1_cofpk"]
 [ext_resource type="Texture2D" uid="uid://f7113tsm5wda" path="res://assets/textures/woodenBoard.png" id="2_sd2c5"]
-[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture3.png" id="3_8lekn"]
+[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture2.png" id="3_8lekn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(0.43137255, 0.32941177, 0.23921569, 1)

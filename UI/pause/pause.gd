@@ -15,9 +15,9 @@ func _on_label_button_pressed(id: String) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
-		"music":
+		"options":
 			var player = get_tree().get_first_node_in_group("player")
-			player.openUI("music")
+			player.openUI("options")
 			queue_free()
 		"skin":
 			var player = get_tree().get_first_node_in_group("player")

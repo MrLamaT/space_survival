@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://co5j1wfw85gt6" path="res://game/decoration/home/home3.tscn" id="20_weu5r"]
 [ext_resource type="PackedScene" uid="uid://bdow2o2gyw6bg" path="res://game/blocks/roof.tscn" id="22_joaj5"]
 [ext_resource type="Material" uid="uid://btvvbjo13xi21" path="res://assets/material/plank.tres" id="22_qt861"]
+[ext_resource type="PackedScene" uid="uid://bnvqwal8ur031" path="res://game/orbit/orbit.tscn" id="28_70iat"]
 [ext_resource type="AudioStream" uid="uid://dynvn6ry0rbjr" path="res://assets/sound/nature.wav" id="38_80gio"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -708,6 +709,9 @@ freeze = true
 [node name="Tree13" parent="NavigationRegion3D/tree" unique_id=464761533 instance=ExtResource("10_rdpyo")]
 transform = Transform3D(0.6798382, 0, 0.73336214, 0, 1, 0, -0.73336214, 0, 0.6798382, 0.34999928, 7.75, -68)
 freeze = true
+
+[node name="Orbit" parent="NavigationRegion3D" unique_id=1082816874 instance=ExtResource("28_70iat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.696, 5, 45.851)
 
 [node name="Spring" parent="NavigationRegion3D" unique_id=1428768737 instance=ExtResource("13_27xmk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.696039, 0.5, 45.85109)

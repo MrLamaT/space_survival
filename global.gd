@@ -30,8 +30,12 @@ var game_settings: Dictionary = {
 		"Language": "English",
 		"crosshair": 1,
 		"ch_scale": 5.0,
-		"sensitivity": 50.0
+		"sensitivity": 50.0,
+		"sound_volume": 100.0,
+		"music_volume": 100.0,
+		"fov": 75.0
 	},
+	"key_bindings": {},
 	"summon": {
 		"name": "phantom",
 		"aura": 0,
@@ -95,9 +99,16 @@ func load_game_settings():
 		var parsed_result = json.parse(content)
 		if parsed_result == OK:
 			var loaded_settings = json.get_data()
-			for key in loaded_settings:
-				if game_settings.has(key):
-					game_settings[key] = loaded_settings[key]
+			if loaded_settings is Dictionary:
+				for key in loaded_settings:
+					if not game_settings.has(key):
+						continue
+					if key == "gui_settings" and loaded_settings[key] is Dictionary:
+						game_settings["gui_settings"].merge(loaded_settings[key], true)
+					elif key == "key_bindings" and loaded_settings[key] is Dictionary:
+						game_settings[key] = loaded_settings[key]
+					else:
+						game_settings[key] = loaded_settings[key]
 			print("Game settings loaded successfully!")
 		else:
 			print("Error parsing saved settings: ", json.get_error_message(), " at line ", json.get_error_line())
@@ -167,7 +178,6 @@ func reset_world_to_default(world_num: int) -> void:
 		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"level": 0,
-		"equipment": [],
 		"weapon": ["", "", "", "", ""],
 		"costumes": "Classic",
 		"inventory": []

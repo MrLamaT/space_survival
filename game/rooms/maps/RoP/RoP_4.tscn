@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://game/laser/tesla.tscn" id="14_aimxv"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="14_e2amk"]
 [ext_resource type="PackedScene" uid="uid://bu5guigkf6xux" path="res://game/decoration/unfinished_robots.tscn" id="14_kre1g"]
-[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture3.png" id="15_7li6h"]
+[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture2.png" id="15_7li6h"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="15_553gl"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="15_wm8tj"]
 [ext_resource type="PackedScene" uid="uid://dcqw41odbu4my" path="res://game/prop/сrystalCitadel.tscn" id="16_otutm"]

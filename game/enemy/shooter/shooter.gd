@@ -18,14 +18,6 @@ var BURST_INTERVAL: float = 0.4 # Интервал между выстрелам
 var burst_cooldown: float = 0.0  # Таймер полной задержки
 var BURST_COOLDOWN_TIME: float = 2.0  # Полная задержка после очереди
 
-# Прыжок
-var is_jumping: bool = false
-var jump_target_position: Vector3
-var jump_timeout: float = 0.0
-var JUMP_MAX_TIME: float = 2.0
-var JUMP_LAUNCH_SPEED: float = 5.0
-var JUMP_SPEED: float = 12.0
-
 func _ready():
 	super._ready()
 	shatter_parts = [
@@ -124,20 +116,9 @@ func shoot_at_player():
 	if audio:
 		audio.play()
 
-func start_jump_to_player():
-	if not player:
-		return
-	is_jumping = true
-	jump_target_position = player.global_position
-	jump_timeout = 0.0
-	$body/AnimationPlayer.play("jamp")
-	velocity.y = JUMP_LAUNCH_SPEED
-
-func land_from_jump():
+func _on_jump_landed() -> void:
 	velocity.x = 0
 	velocity.z = 0
-	is_jumping = false
-	$body/AnimationPlayer.play("RESET")
 	if player and can_attack_player():
 		attack_player()
 	else:
@@ -146,27 +127,6 @@ func land_from_jump():
 		burst_shots_left = BURST_SHOTS
 		burst_delay = 0.0
 		burst_cooldown = 0.0
-
-func handle_jump(delta):
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	jump_timeout += delta
-	if jump_timeout >= JUMP_MAX_TIME:
-		land_from_jump()
-		return
-	var horizontal_direction = (jump_target_position - global_position).normalized()
-	horizontal_direction.y = 0
-	if horizontal_direction.length() > 0.1:
-		horizontal_direction = horizontal_direction.normalized()
-		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
-		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
-		velocity.x = horizontal_direction.x * JUMP_SPEED
-		velocity.z = horizontal_direction.z * JUMP_SPEED
-	var distance_to_target = global_position.distance_to(jump_target_position)
-	var height_difference = abs(global_position.y - jump_target_position.y)
-	if distance_to_target < 1.5 and (is_on_floor() or height_difference < 1.0):
-		land_from_jump()
-	move_and_slide()
 
 func die():
 	if is_dying or is_dead:

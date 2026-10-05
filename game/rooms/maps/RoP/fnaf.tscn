@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="3_mn0nk"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="5_lmhaa"]
 [ext_resource type="Texture2D" uid="uid://53y16vswyp5o" path="res://assets/paintings/picture1.png" id="5_wj1xm"]
-[ext_resource type="Texture2D" uid="uid://6kkjsdt7mypl" path="res://assets/paintings/picture2.png" id="6_2ssgm"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="6_a28dm"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="6_o4f0n"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://game/decoration/button.tscn" id="8_1tvpo"]
@@ -17,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dwoyychcj82aq" path="res://game/decoration/ventilation_block.tscn" id="15_edpd3"]
 [ext_resource type="PackedScene" uid="uid://35wxdachd6tm" path="res://game/decoration/ventilation_block2.tscn" id="16_6xplk"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://game/decoration/table.tscn" id="17_u1qun"]
-[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture3.png" id="17_wfw5l"]
+[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture2.png" id="17_wfw5l"]
 [ext_resource type="PackedScene" uid="uid://dp6s7koysj4t1" path="res://game/enemy/destroyercik/destroyercik.tscn" id="18_6xplk"]
 [ext_resource type="PackedScene" uid="uid://bu5guigkf6xux" path="res://game/decoration/unfinished_robots.tscn" id="18_ukt60"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="20_wyr1c"]
@@ -325,11 +324,6 @@ texture = ExtResource("5_wj1xm")
 
 [node name="wall3" parent="NavigationRegion3D/floor_ceiling/room1" unique_id=19395837 instance=ExtResource("5_lmhaa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -56)
-
-[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D/floor_ceiling/room1/wall3" unique_id=142758485]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1, 2.75, 0.51)
-shaded = true
-texture = ExtResource("6_2ssgm")
 
 [node name="wall4" parent="NavigationRegion3D/floor_ceiling/room1" unique_id=1732100803 instance=ExtResource("5_lmhaa")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -46.5)
@@ -924,55 +918,46 @@ shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="destroyercik1" parent="NavigationRegion3D" unique_id=1538922931 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.75, 1.5, 9)
-place = true
 watch = true
 
 [node name="destroyercik2" parent="NavigationRegion3D" unique_id=1258227299 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.75, 1.5, 0)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik3" parent="NavigationRegion3D" unique_id=730604739 instance=ExtResource("18_6xplk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.75, 1.5, -4.5)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik4" parent="NavigationRegion3D" unique_id=1612963440 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18, 1.5, -42.5)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik5" parent="NavigationRegion3D" unique_id=1995175900 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8, 1.5, -42.5)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik7" parent="NavigationRegion3D" unique_id=269656915 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7, 1.5, -39.5)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik6" parent="NavigationRegion3D" unique_id=277366071 instance=ExtResource("18_6xplk")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 6, 1.5, -51)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik8" parent="NavigationRegion3D" unique_id=1281685167 instance=ExtResource("18_6xplk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 1.5, -51)
 visible = false
-place = true
 watch = true
 
 [node name="destroyercik9" parent="NavigationRegion3D" unique_id=1094000952 instance=ExtResource("18_6xplk")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -22.75, 1.5, -10)
 visible = false
-place = true
 watch = true
 
 [node name="Wave" parent="NavigationRegion3D" unique_id=956278609 instance=ExtResource("20_wyr1c")]

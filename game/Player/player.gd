@@ -105,13 +105,14 @@ var was_alt_energy_full: bool = true
 var flashlight_enabled: bool = false
 
 var is_paused = false
+var escape_held: bool = false
 
 # ==================== ПРЫЖОК ====================
 var jump_velocity = 4.5 # Скорость прыжка
 var is_jumping = false
 var jump_cooldown = 0.2 # Перезарядка прыжка
 var jump_cooldown_timer = 0.0
-var has_used_double_jump: bool = false # Флаг использования двойного прыжка
+var has_used_double_jump: bool = true # Флаг использования двойного прыжка
 
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
 
@@ -202,6 +203,10 @@ func _ready():
 	add_child(object_holder)
 	stamina_bar.max_value = max_stamina
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
+	base_fov = clampf(float(Global.game_settings.gui_settings.get("fov", 75.0)), 60.0, 110.0)
+	running_fov = minf(base_fov + 5.0, 115.0)
+	current_fov = base_fov
+	cam.fov = base_fov
 
 # Обрабатывает смерть игрока
 func PlayerDeath():
@@ -329,19 +334,34 @@ func update_gui_visibility():
 
 # Обрабатывает ввод игрока (повороты мышкой, стрельба, взаимодействия)
 func _input(event: InputEvent):
-	if Input.is_action_just_pressed("UI_click") and not is_paused:
+	if SettingsManager.is_rebinding:
+		return
+	if event.is_action_released("UI_click"):
+		is_shooting = false
+	if event.is_action_released("UI_alt_click"):
+		is_alt_shooting = false
+	if event.is_action_released("ui_cancel"):
+		escape_held = false
+		return
+	if event.is_action_pressed("ui_cancel"):
+		if escape_held:
+			return
+		escape_held = true
+		object_holder.release(false)
+		handle_ui_action("pause")
+		return
+	if Global.game_settings["UI"]:
+		return
+	if event.is_action_pressed("UI_click") and not is_paused:
 		is_shooting = true
 		weapon_system.shoot(false)
-	if Input.is_action_just_released("UI_click"):
-		is_shooting = false
-	if Input.is_action_just_pressed("UI_alt_click") and not is_paused:
+	if event.is_action_pressed("UI_alt_click") and not is_paused:
 		is_alt_shooting = true
 		weapon_system.shoot(true)
-	if Input.is_action_just_released("UI_alt_click"):
-		is_alt_shooting = false
-	if Input.is_action_just_pressed("+q"):
+	if event.is_action_pressed("+q"):
 		if world["mode"] == 1 or spawnPanel:
 			openUI("spawn")
+			return
 	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
 		if world["mode"] == 1:
 			noclip_cheat()
@@ -352,9 +372,6 @@ func _input(event: InputEvent):
 				for enemy in enemies:
 					if enemy.has_method("take_damage"):
 						enemy.take_damage(999999)
-	if Input.is_action_just_pressed("ui_cancel"):
-		object_holder.release(false)
-		handle_ui_action("pause")
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and not Global.game_settings["IsDying"]:
 		if event is InputEventMouseMotion:
 			head.rotate_y(-event.relative.x * sens)
@@ -486,6 +503,8 @@ func update_energy_display():
 
 # Обновляет FOV камеры в зависимости от скорости движения
 func _update_fov_effects(delta):
+	base_fov = clampf(float(Global.game_settings.gui_settings.get("fov", 75.0)), 60.0, 110.0)
+	running_fov = minf(base_fov + 5.0, 115.0)
 	var target_fov = base_fov
 	if can_move() and input_dir.length() > 0.1:
 		var speed_factor = clamp(velocity.length() / SPEED, 0.0, 1.0)
@@ -616,7 +635,6 @@ func _handle_gravity_and_jump(delta):
 		if is_on_floor():
 			falling_fast = false
 			$leg_damage/CollisionShape3D.disabled = true
-			has_used_double_jump = false
 		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and Global.game_settings["CanStandUp"] and can_move():
 			crouched = false
 			update_running_speed()
@@ -625,9 +643,8 @@ func _handle_gravity_and_jump(delta):
 					velocity.y = jump_velocity
 					is_jumping = true
 					jump_cooldown_timer = jump_cooldown
-					has_used_double_jump = false
 			else:
-				if "jump booster" in world["equipment"] and not has_used_double_jump:
+				if not has_used_double_jump:
 					velocity.y = jump_velocity
 					has_used_double_jump = true
 					is_jumping = true
@@ -707,6 +724,8 @@ func handle_ui_action(ui_name: String) -> void:
 
 # Открывает указанный UI
 func openUI(nameUI):
+	is_shooting = false
+	is_alt_shooting = false
 	var path = "head/Camera3D/" + nameUI
 	var node = get_node_or_null(path)
 	if not node:

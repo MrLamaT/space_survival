@@ -15,6 +15,11 @@ extends CharacterBody3D
 @export var ROTATION_SPEED: float = 10.0
 @export var watch = false
 
+@export_group("Jump")
+@export var JUMP_SPEED: float = 12.0
+@export var JUMP_LAUNCH_SPEED: float = 5.0
+@export var JUMP_MAX_TIME: float = 2.0
+
 const SPARK_SCENE = preload("res://game/enemy/SparkEnemy.tscn")
 const SPARK_DEAD_SCENE = preload("res://game/enemy/SparkDeadEnemy.tscn")
 const PORTAL_SCENE = preload("res://game/wave/WavePortal.tscn")
@@ -32,6 +37,10 @@ var player: Node3D = null
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var speed_multiplier: float = 1.0 
+
+var is_jumping: bool = false
+var jump_target_position: Vector3
+var jump_timeout: float = 0.0
 
 var boss_bars: CanvasLayer = null
 
@@ -217,6 +226,54 @@ func move_with_navigation(target_pos: Vector3, delta: float, speed: float = SPEE
 	var target_velocity = direction * speed
 	target_velocity.y = velocity.y
 	velocity = velocity.lerp(target_velocity, ACCELERATION * delta)
+
+## Начинает прыжок к текущей позиции игрока.
+func start_jump_to_player() -> void:
+	if not player:
+		return
+	is_jumping = true
+	jump_target_position = player.global_position
+	jump_timeout = 0.0
+	$body/AnimationPlayer.play("jamp")
+	velocity.y = JUMP_LAUNCH_SPEED
+	_on_jump_started()
+
+## Хук для поведения конкретного врага при старте прыжка.
+func _on_jump_started() -> void:
+	pass
+
+## Завершает прыжок и передаёт управление конкретному врагу.
+func land_from_jump() -> void:
+	is_jumping = false
+	$body/AnimationPlayer.play("RESET")
+	_on_jump_landed()
+
+## Хук для поведения конкретного врага после приземления.
+func _on_jump_landed() -> void:
+	pass
+
+## Общее движение во время прыжка.
+func handle_jump(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	jump_timeout += delta
+	if jump_timeout >= JUMP_MAX_TIME:
+		land_from_jump()
+		return
+	var horizontal_direction = (jump_target_position - global_position).normalized()
+	horizontal_direction.y = 0
+	if horizontal_direction.length() > 0.1:
+		horizontal_direction = horizontal_direction.normalized()
+		var target_rotation = atan2(horizontal_direction.x, horizontal_direction.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, ROTATION_SPEED * delta * 2)
+		velocity.x = horizontal_direction.x * JUMP_SPEED
+		velocity.z = horizontal_direction.z * JUMP_SPEED
+	var distance_to_target = global_position.distance_to(jump_target_position)
+	var height_difference = abs(global_position.y - jump_target_position.y)
+	if distance_to_target < 1.5 and (is_on_floor() or height_difference < 1.0):
+		land_from_jump()
+	move_and_slide()
+
 
 ## Создает и запускает пулю из указанной позиции в направлении цели
 ## spawn_position: Vector3 - позиция появления пули

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8vcefva1l136" path="res://game/decoration/wall/corridor_load.gd" id="1_joa0t"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="2_joa0t"]
-[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture3.png" id="3_3umol"]
+[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture2.png" id="3_3umol"]
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="3_hn745"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="4_8syrj"]
 [ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://game/decoration/pipe.tscn" id="4_tnopv"]
