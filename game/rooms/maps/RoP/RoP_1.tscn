@@ -1069,10 +1069,10 @@ freeze = true
 
 [node name="hologramText" parent="." unique_id=866615671 instance=ExtResource("32_8dok3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.75, 5.5, -53.65)
-textLabel_ru = "Здесь можно покупать экипировку."
-textLabel_en = "You can buy gear here."
+textLabel_ru = "Здесь можно сменить скин."
+textLabel_en = "You can change the skin here."
 
 [node name="hologramText2" parent="." unique_id=834451660 instance=ExtResource("32_8dok3")]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 21.25, 10.5, -55.65)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 19.25, 10.5, -57.65)
 textLabel_ru = "Когда фиолетовая полоска энергии полностью заполнится, нажми ПКМ, чтобы совершить мощный пронзающий выстрел."
 textLabel_en = "When the purple energy bar is fully charged, press RMB to perform a powerful piercing shot."

@@ -1,6 +1,6 @@
 extends Node3D
 
-var damage: int = 8
+var damage: int = 20
 var KNOCKBACK_FORCE: float = 40.0
 @export var impulse: bool = false
 

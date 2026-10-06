@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://84v2r0rchlr8" path="res://game/enemy/giantStingray/giantStingray.gd" id="1_msqjr"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_aouct"]
 [ext_resource type="AudioStream" uid="uid://dnbkkyy1xcgku" path="res://assets/sound/whate2.wav" id="3_aouct"]
+[ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_0238y"]
 [ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_pya71"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="5_pya71"]
 
@@ -10,7 +11,7 @@
 size = Vector3(10, 1, 10)
 
 [sub_resource type="PrismMesh" id="PrismMesh_460sa"]
-material = ExtResource("4_pya71")
+material = ExtResource("4_0238y")
 size = Vector3(10, 10, 0.25)
 
 [sub_resource type="PrismMesh" id="PrismMesh_yfwe0"]

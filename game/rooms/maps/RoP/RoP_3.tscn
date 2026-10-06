@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://game/decoration/container.tscn" id="22_e8b04"]
 [ext_resource type="PackedScene" uid="uid://d0jm4in8sle5d" path="res://game/decoration/container2.tscn" id="23_7wro8"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="24_tnkuj"]
+[ext_resource type="PackedScene" uid="uid://bolaym8laprkj" path="res://game/blocks/sercilist.tscn" id="24_w0xr8"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="25_dth03"]
 [ext_resource type="PackedScene" uid="uid://d2kp3ovym1413" path="res://game/decoration/PC2.tscn" id="27_5oi54"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="27_rlohk"]
@@ -40,24 +41,6 @@ geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294967268
 cell_size = 0.1
 agent_radius = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrfn2"]
-albedo_color = Color(0.38039216, 0.3882353, 0.5019608, 1)
-metallic = 1.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_7wro8"]
-material = SubResource("StandardMaterial3D_lrfn2")
-size = Vector3(30, 0.5, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(30, 0.5, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3cvld"]
-material = SubResource("StandardMaterial3D_lrfn2")
-size = Vector3(1, 0.5, 2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_entxm"]
-size = Vector3(1, 0.5, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7vsbb"]
 size = Vector3(1, 1.5, 1)
@@ -1261,33 +1244,11 @@ transform = Transform3D(-0.1305262, 0, 0.99144477, 0, 1, 0, -0.99144477, 0, -0.1
 [node name="Container10" parent="NavigationRegion3D" unique_id=1896854606 instance=ExtResource("23_7wro8")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -7, 0.5, 35)
 
-[node name="Node3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1545520908]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.25, 0.9, -10.25)
-collision_layer = 4
-collision_mask = 3
+[node name="sercilist" parent="NavigationRegion3D" unique_id=1284263833 instance=ExtResource("24_w0xr8")]
+transform = Transform3D(-1.3113416e-06, 0, 2, 0, 0.5, 0, -30, 0, -8.742278e-08, -14.25, 10.75, -10.25)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Node3D" unique_id=245357633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.85, 0)
-mesh = SubResource("BoxMesh_7wro8")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D" unique_id=421424985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.85, 0)
-shape = SubResource("BoxShape3D_g4v7s")
-
-[node name="Node3D2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=338897475]
-transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 0.9, -25)
-collision_layer = 4
-collision_mask = 3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Node3D2" unique_id=1015326090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.85, 0)
-mesh = SubResource("BoxMesh_3cvld")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D2" unique_id=1862385676]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.85, 0)
-shape = SubResource("BoxShape3D_entxm")
+[node name="sercilist2" parent="NavigationRegion3D" unique_id=1580890532 instance=ExtResource("24_w0xr8")]
+transform = Transform3D(35, 0, 0, 0, 0.5, 0, 0, 0, 2, 18.5, 10.75, -25)
 
 [node name="mine" type="Node3D" parent="NavigationRegion3D" unique_id=132632767]
 
@@ -1310,7 +1271,6 @@ emergency_light = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -41.75, 10.52, 36.25)
 skin = 1
 level = 3
-stade = 1
 
 [node name="wall2" parent="NavigationRegion3D/mine" unique_id=1750022861 instance=ExtResource("11_f1ie1")]
 transform = Transform3D(-3.059797e-07, 0, -1, 0, 1, 0, 7, 0, -4.371139e-08, -19, 10, 13.749999)
@@ -1398,12 +1358,6 @@ transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -49.
 img = ExtResource("31_yonax")
 global_key = "Home"
 id = 4
-
-[node name="chest3" parent="." unique_id=1369117451 instance=ExtResource("14_kipaj")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -34.25, 0.5, -43.25)
-img = ExtResource("31_yonax")
-global_key = "Home"
-id = 5
 
 [node name="chest4" parent="." unique_id=1760754668 instance=ExtResource("14_kipaj")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -9.9, 0.8, 32.75)

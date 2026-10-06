@@ -21,13 +21,19 @@ var current_ground_type = "default" # Текущий тип поверхност
 # ==================== СИСТЕМЫ ====================
 var interaction_manager: InteractionManager # Менеджер взаимодействий
 var weapon_system: WeaponSystem  # Система оружия
-var object_holder: ObjectHolderSystem
+var object_holder: ObjectHolderSystem # система перемещения пропов
+var health_system: PlayerHealth #система здоровья
 
 var is_shooting: bool = false # Флаг основной стрельбы
 var is_alt_shooting: bool = false # Флаг альтернативной стрельбы
 
 # ==================== ЗДОРОВЬЕ И ДВИЖЕНИЕ ====================
-var health: float = 100.0 # Текущее здоровье игрока
+var health: float: # Текущее здоровье игрока
+	get:
+		return health_system.health if health_system else 100.0
+	set(value):
+		if health_system:
+			health_system.health = value 
 var accel = 6 # Ускорение движения
 var SPEED = 5.0 # Текущая скорость передвижения
 var base_speed = 5.0 # Базовая скорость передвижения
@@ -51,10 +57,6 @@ var crouching_collision_scale = 0.4 # Масштаб коллизии при п�
 var was_under_obstacle = false # Флаг нахождения под препятствием
 
 var movement_enabled: bool = true # Флаг возможности движения
-
-# ==================== СИСТЕМА УРОНА ====================
-var damage_cooldown: float = 0.0 # Таймер перезарядки урона
-var damage_cooldown_duration: float = 1.0 # Длительность перезарядки урона
 
 # ==================== ДИНАМИКА КАМЕРЫ ====================
 var camera_tilt_amount = 1.5  # градусы наклона при движении
@@ -120,13 +122,6 @@ var vertical_movement_speed = 5.0 # Скорость движения вверх
 var hand_follow_speed = 15.0  # Скорость следования руки (чем больше, тем быстрее)
 var hand_rotation_speed = 15.0  # Скорость поворота руки
 var max_hand_offset = Vector3(0.1, 0.1, 0.1)
-
-# ==================== СИСТЕМА ЯДА ====================
-var poison_damage: float = 0.0        # Урон от яда за тик
-var poison_duration: float = 0.0      # Оставшаяся длительность действия яда
-var poison_tick_timer: float = 0.0    # Таймер для тиков урона
-var poison_tick_interval: float = 1.0 # Интервал между тиками урона (1 секунда)
-var is_poisoned: bool = false         # Флаг отравления
 
 # ==================== СКОЛЬЖЕНИЕ ПО ЛЬДУ ====================
 var is_on_ice: bool = false
@@ -201,6 +196,9 @@ func _ready():
 	object_holder = ObjectHolderSystem.new()
 	object_holder.setup(self, cam, head)
 	add_child(object_holder)
+	health_system = PlayerHealth.new()
+	health_system.setup(self)
+	add_child(health_system)
 	stamina_bar.max_value = max_stamina
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
 	base_fov = clampf(float(Global.game_settings.gui_settings.get("fov", 75.0)), 60.0, 110.0)
@@ -210,98 +208,19 @@ func _ready():
 
 # Обрабатывает смерть игрока
 func PlayerDeath():
-	if Global.game_settings["IsDying"]:
-		return
-	Global.game_settings["IsDying"] = true
-	object_holder.release(false)
-	var enemies = get_tree().get_nodes_in_group("enemy")
-	if enemies.size() > 0:
-		for enemy in enemies:
-			if enemy.has_method("ResetHealth"):
-				enemy.ResetHealth()
-	$screem.play()
-	throw_camera_out()
-	movement_enabled = false
-	velocity = Vector3.ZERO
-	is_running = false
-	$head/Camera3D/UI.visible = false
-	$hand_position.visible = false
-	if world["mode"] != 2:
-		await get_tree().create_timer(2.5).timeout
-		$screem.stop()
-		health = 100.0
-		respawn_player()
-	else:
-		Global.delete_world_save(Global.game_settings.word)
-		SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
+	health_system.player_death()
 
 # Наносит урон игроку
 func take_damage(hp):
-	if Global.game_settings["IsDying"]:
-		return
-	if damage_cooldown > 0:
-		return
-	if !GodMod:
-		health -= hp
-		damage_cooldown = damage_cooldown_duration
-	if hp > 0:
-		blood_overlay.modulate = Color("830000BD")
-	else:
-		blood_overlay.modulate = Color("E8D6C2FF")
-	$head/Camera3D/damage.play("damage")
-	if health <= 0:
-		PlayerDeath()
-	if health > 100:
-		health = 100
+	health_system.take_damage(hp)
 
 # Применяет отравление к игроку
 func apply_poison(damage: float) -> void:
-	if Global.game_settings["IsDying"]:
-		return
-	if GodMod:
-		return
-	poison_damage = damage
-	poison_duration = 8.0
-	poison_tick_timer = 0.0
-	is_poisoned = true
-
-# Обрабатывает урон от яда с течением времени
-func _process_poison(delta: float) -> void:
-	if not is_poisoned or Global.game_settings["IsDying"]:
-		return
-	if poison_duration > 0:
-		poison_duration -= delta
-		poison_tick_timer += delta
-		if poison_tick_timer >= poison_tick_interval:
-			poison_tick_timer = 0.0
-			if !GodMod:
-				health -= poison_damage
-			blood_overlay.modulate = Color("4CAF50")
-			$head/Camera3D/damage.play("damage")
-			if health <= 0:
-				PlayerDeath()
-				is_poisoned = false
-	else:
-		is_poisoned = false
-		poison_damage = 0.0
+	health_system.apply_poison(damage)
 
 # Возрождает игрока на последнем чекпоинте
 func respawn_player():
-	Global.save(Global.game_settings["word"])
-	global_position = Global.game_settings["checkpoint"]
-	velocity = Vector3.ZERO
-	Global.game_settings["IsDying"] = false
-	movement_enabled = true
-	$head/Camera3D/UI.visible = true
-	$hand_position.visible = true
-	cam.current = true
-	is_poisoned = false
-	poison_damage = 0.0
-	poison_duration = 0.0
-	poison_tick_timer = 0.0
-	if is_instance_valid(thrown_camera):
-		thrown_camera.queue_free()
-		thrown_camera = null
+	health_system.respawn_player()
 
 # Выбрасывает камеру из рук игрока при смерти
 func throw_camera_out():
@@ -433,12 +352,10 @@ func _process(delta):
 	_update_energy(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
-	_process_poison(delta)
+	health_system.update(delta)
 	interaction_manager.update_interaction(delta)
 	if object_holder.is_holding():
 		object_holder.update_held_object()
-	if damage_cooldown > 0:
-		damage_cooldown -= delta
 
 # Обновляет стамину (расходование при беге, восстановление при отдыхе)
 func _update_stamina(delta):
@@ -530,7 +447,6 @@ func _update_camera_dynamics(delta):
 
 # Основная физическая обработка игрока
 func _physics_process(delta):
-	_check_killzone()
 	_update_ui_labels()
 	_handle_gravity_and_jump(delta)
 	_handle_footsteps(delta)
@@ -611,17 +527,6 @@ func _handle_footsteps(delta):
 			footstep_timer = 0
 	else:
 		footstep_timer = 0
-
-# Проверяет нахождение в зоне смерти
-func _check_killzone():
-	if global_position.y < Global.game_settings["min_y"]:
-		print("killZona!!!")
-		var new_hp = health - health * 0.5
-		if new_hp < 1:
-			new_hp = 1
-		take_damage(health - new_hp)
-		global_position = Global.game_settings["checkpoint"]
-		velocity.y = 0
 
 # Обновляет текстовые метки UI (здоровье, координаты)
 func _update_ui_labels():

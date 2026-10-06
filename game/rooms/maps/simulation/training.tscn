@@ -519,13 +519,12 @@ omni_range = 20.0
 [node name="portal" parent="5" unique_id=2061914237 groups=["portal_end"] instance=ExtResource("22_r0400")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.51, 5)
 skin = 1
-stade = 1
 
 [node name="chest" parent="." unique_id=1567652648 instance=ExtResource("11_vp57u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 300, 0.5, -2)
 img = ExtResource("21_ud5jo")
 global_key = "Home"
-id = 10
+id = 5
 
 [node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("17_u1pd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.5, 7.5)
