@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq6db8b2dlaom"
-path="res://.godot/imported/MATiron.png-a8f826ed5424284d287015bd2cb2192a.ctex"
+uid="uid://bflx8bly6oy8x"
+path="res://.godot/imported/schematic.png-f841e45a98c5264edd6b207e31f38fdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/MATiron.png"
-dest_files=["res://.godot/imported/MATiron.png-a8f826ed5424284d287015bd2cb2192a.ctex"]
+source_file="res://assets/icon/schematic.png"
+dest_files=["res://.godot/imported/schematic.png-f841e45a98c5264edd6b207e31f38fdd.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

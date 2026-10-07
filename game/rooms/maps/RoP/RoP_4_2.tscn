@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://game/decoration/barrel2.tscn" id="5_d4hu4"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://game/prop/barrel.tscn" id="6_etb22"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://game/decoration/wall/wall_pillar.tscn" id="7_d4hu4"]
+[ext_resource type="PackedScene" uid="uid://cb1bxcrcvs0gn" path="res://game/prop/storageBox.tscn" id="8_u6ena"]
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://game/decoration/hologram_text.tscn" id="10_d4hu4"]
 [ext_resource type="PackedScene" uid="uid://bnvqwal8ur031" path="res://game/orbit/orbit.tscn" id="10_e2may"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://game/enemy/cockroach/cockroach.tscn" id="15_bsuao"]
@@ -469,6 +470,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.75, 17.8, -12)
 
 [node name="wall70" parent="floor_ceiling/room1" unique_id=502164306 instance=ExtResource("7_d4hu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, -13.15, -16)
+
+[node name="StorageBox" parent="floor_ceiling/room1" unique_id=1369413268 instance=ExtResource("8_u6ena")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30, 10.45, -12)
+freeze = true
 
 [node name="corridorLoad" parent="." unique_id=1027338799 groups=["corridorLoad_exit"] instance=ExtResource("31_4vkob")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

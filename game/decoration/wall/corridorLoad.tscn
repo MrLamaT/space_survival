@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8vcefva1l136" path="res://game/decoration/wall/corridor_load.gd" id="1_joa0t"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="2_joa0t"]
-[ext_resource type="Texture2D" uid="uid://clut6l6nrwsrs" path="res://assets/paintings/picture2.png" id="3_3umol"]
+[ext_resource type="Texture2D" uid="uid://c2w2s6pj0pau8" path="res://assets/textures/no_phantom.png" id="3_3umol"]
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="3_hn745"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="4_8syrj"]
 [ext_resource type="PackedScene" uid="uid://vqlspbo86t5h" path="res://game/decoration/pipe.tscn" id="4_tnopv"]
@@ -52,7 +52,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 emergency_light = true
 
 [node name="Sprite3D" type="Sprite3D" parent="wall2" unique_id=937505691]
-transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, 3, 2.5, 1.251)
+transform = Transform3D(-0.85, 0, -1.2834644e-07, 0, 0.85, 0, 1.2834644e-07, 0, -0.85, 3, 2.5, 1.251)
 shaded = true
 texture = ExtResource("3_3umol")
 

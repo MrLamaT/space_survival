@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://o46y72ok2qup" path="res://assets/models/rack.obj" id="1_eng3t"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_n3utq"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="3_85pi3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4pvd"]
 albedo_texture = ExtResource("1_n3utq")
@@ -19,9 +20,50 @@ collision_layer = 4
 collision_mask = 7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1490276045]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.25, 0, 0, 0)
+transform = Transform3D(1.375, 0, 0, 0, 0.925, 0, 0, 0, 0.875, 0, 0, 0)
 mesh = ExtResource("1_eng3t")
 surface_material_override/0 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/1 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/2 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/3 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/4 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/5 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/6 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/7 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/8 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/9 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/10 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/11 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/12 = ExtResource("3_85pi3")
+surface_material_override/13 = ExtResource("3_85pi3")
+surface_material_override/14 = ExtResource("3_85pi3")
+surface_material_override/15 = ExtResource("3_85pi3")
+surface_material_override/16 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/17 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/18 = ExtResource("3_85pi3")
+surface_material_override/19 = ExtResource("3_85pi3")
+surface_material_override/20 = ExtResource("3_85pi3")
+surface_material_override/21 = ExtResource("3_85pi3")
+surface_material_override/22 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/23 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/24 = ExtResource("3_85pi3")
+surface_material_override/25 = ExtResource("3_85pi3")
+surface_material_override/26 = ExtResource("3_85pi3")
+surface_material_override/27 = ExtResource("3_85pi3")
+surface_material_override/28 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/29 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/30 = ExtResource("3_85pi3")
+surface_material_override/31 = ExtResource("3_85pi3")
+surface_material_override/32 = ExtResource("3_85pi3")
+surface_material_override/33 = ExtResource("3_85pi3")
+surface_material_override/34 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/35 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/36 = ExtResource("3_85pi3")
+surface_material_override/37 = ExtResource("3_85pi3")
+surface_material_override/38 = ExtResource("3_85pi3")
+surface_material_override/39 = ExtResource("3_85pi3")
+surface_material_override/40 = SubResource("StandardMaterial3D_o4pvd")
+surface_material_override/41 = SubResource("StandardMaterial3D_o4pvd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1984064793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

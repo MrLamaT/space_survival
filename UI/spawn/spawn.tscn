@@ -922,6 +922,14 @@ color_img = Color(0.21960784, 0.50980395, 0.50980395, 1)
 type = "style_block"
 target_node = NodePath("../../../../..")
 
+[node name="card23" parent="Panel/ScrollContainer/VBoxContainer/GridContainer17" unique_id=201908441 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "plank"
+img = ExtResource("42_rmstl")
+color_img = Color(0.22352941, 0.22352941, 0.22352941, 1)
+type = "style_block"
+target_node = NodePath("../../../../..")
+
 [node name="card13" parent="Panel/ScrollContainer/VBoxContainer/GridContainer17" unique_id=653227564 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "grass"

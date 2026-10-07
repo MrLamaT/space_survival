@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbtrplygxa47d"
-path="res://.godot/imported/sercilist.png-5deed5e8a35983217f57e6aa60b129f2.ctex"
+uid="uid://befid2rv3o3vp"
+path="res://.godot/imported/credits.png-dd28a01c1bcc95efbad19b148714c3e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/sercilist.png"
-dest_files=["res://.godot/imported/sercilist.png-5deed5e8a35983217f57e6aa60b129f2.ctex"]
+source_file="res://assets/icon/credits.png"
+dest_files=["res://.godot/imported/credits.png-dd28a01c1bcc95efbad19b148714c3e2.ctex"]
 
 [params]
 

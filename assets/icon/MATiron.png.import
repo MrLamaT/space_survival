@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clut6l6nrwsrs"
-path.s3tc="res://.godot/imported/picture2.png-7421cbe8dcbc18c501c14e1446788369.s3tc.ctex"
+uid="uid://dq6db8b2dlaom"
+path="res://.godot/imported/MATiron.png-39c9e71a00d22840863d60666e66964b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/paintings/picture2.png"
-dest_files=["res://.godot/imported/picture2.png-7421cbe8dcbc18c501c14e1446788369.s3tc.ctex"]
+source_file="res://assets/icon/MATiron.png"
+dest_files=["res://.godot/imported/MATiron.png-39c9e71a00d22840863d60666e66964b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

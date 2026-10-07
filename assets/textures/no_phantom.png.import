@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bflx8bly6oy8x"
-path="res://.godot/imported/schematic.png-bfcfadfc1dfaa922d74108dc9ad62d52.ctex"
+uid="uid://c2w2s6pj0pau8"
+path="res://.godot/imported/no_phantom.png-24dd787771be76b37e03198e084e32a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/schematic.png"
-dest_files=["res://.godot/imported/schematic.png-bfcfadfc1dfaa922d74108dc9ad62d52.ctex"]
+source_file="res://assets/textures/no_phantom.png"
+dest_files=["res://.godot/imported/no_phantom.png-24dd787771be76b37e03198e084e32a2.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
