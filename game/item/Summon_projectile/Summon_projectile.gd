@@ -1,7 +1,5 @@
 extends Node3D
 
-var world = Global.get_world(Global.game_settings.word)
-
 func shoot(_dir: Vector3, _spd: float):
 	pass
 

@@ -2,7 +2,6 @@ extends Label
 
 @export var textLabel_en: String = ""
 @export var textLabel_ru: String = ""
-@export var setting = false
 
 @export var target_node: NodePath = "": 
 	set(value):
@@ -13,16 +12,10 @@ extends Label
 		button_id = value
 
 func _ready() -> void:
-	if setting:
-		if Global.game_settings["gui_settings"][button_id]:
-			text = textLabel_en + " [ON]"
-		else:
-			text = textLabel_en + " [OFF]"
+	if Global.game_settings["gui_settings"]["Language"] == "русский":
+		text = textLabel_ru
 	else:
-		if Global.game_settings["gui_settings"]["Language"] == "русский":
-			text = textLabel_ru
-		else:
-			text = textLabel_en
+		text = textLabel_en
 
 func _on_button_mouse_entered() -> void:
 	modulate = Color("#faff68")

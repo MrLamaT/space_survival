@@ -1,7 +1,5 @@
 extends Node3D
 
-var world = Global.get_world(Global.game_settings.word)
-
 const COLORS = {
 	"white": Color("cfd5d6"),
 	"orange": Color("e06101"),

@@ -22,11 +22,9 @@ func _on_label_button_pressed(id: String) -> void:
 			visible = false
 			world_setting.visible = false
 			get_parent().get_node("menu").visible = true
-			$beep.play()
 			select_world = "world_0"
 		"world_1", "world_2", "world_3", "world_4", "world_5":
 			world_setting.visible = true
-			$beep.play()
 			select_world = id
 			world_name_label.text = Global.get(select_world)["name"]
 			stage_label.text = "level: " + str(Global.get(select_world)["level"])
@@ -48,7 +46,6 @@ func _on_label_button_pressed(id: String) -> void:
 				delete_button.visible = true
 				load_button.text = "load"
 		"world name":
-			$beep.play()
 			var world_data = Global.get(select_world)
 			world_name_label.text = world_names[randi() % world_names.size()]
 			if !world_data["name"].begins_with("[NEW GAME "):
@@ -57,7 +54,6 @@ func _on_label_button_pressed(id: String) -> void:
 		"game mode":
 			var world_data = Global.get(select_world)
 			if world_data["name"].begins_with("[NEW GAME "):
-				$beep.play()
 				if world_data["mode"] == 0:
 					world_data["mode"] = 1
 					game_mode_label.text = "mode: creative"
@@ -68,22 +64,18 @@ func _on_label_button_pressed(id: String) -> void:
 					world_data["mode"] = 0
 					game_mode_label.text = "mode: survival"
 		"delete":
-			$beep.play()
 			confirmation_dialog.visible = true
 			panel.visible = false
 			world_setting.visible = false
 		"CANCEL":
-			$beep.play()
 			confirmation_dialog.visible = false
 			panel.visible = true
 		"DELETE":
-			$beep.play()
 			confirmation_dialog.visible = false
 			panel.visible = true
 			Global.delete_world_save(int(select_world[-1]))
 			Initialization_names()
 		"load":
-			$beep.play()
 			var world_data = Global.get(select_world)
 			if world_data["name"].begins_with("[NEW GAME "):
 				world_setting.visible = false

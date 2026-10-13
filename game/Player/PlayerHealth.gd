@@ -79,9 +79,6 @@ func player_death() -> void:
 		player.get_node("screem").stop()
 		health = 100.0
 		respawn_player()
-	else:
-		Global.delete_world_save(Global.game_settings.word)
-		SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 
 func respawn_player() -> void:
 	Global.save(Global.game_settings["word"])

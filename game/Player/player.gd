@@ -320,15 +320,10 @@ func _input(event: InputEvent):
 
 # Переключает фонарик
 func toggle_flashlight():
-	if flashlight_enabled:
-		flashlight_enabled = false
-		$head/Camera3D/flashlight/SpotLight3D.visible = false
-		$head/Camera3D/flashlight/SpotLight3D2.visible = false
-	else:
-		flashlight_enabled = true
-		$head/Camera3D/flashlight/SpotLight3D.visible = true
-		$head/Camera3D/flashlight/SpotLight3D2.visible = true
-	$beep.play()
+	flashlight_enabled = !flashlight_enabled
+	$head/Camera3D/flashlight/SpotLight3D.visible = flashlight_enabled
+	$head/Camera3D/flashlight/SpotLight3D2.visible = flashlight_enabled
+	$flashlight.play()
 
 # Переключает режим noclip (полет сквозь стены)
 func noclip_cheat():

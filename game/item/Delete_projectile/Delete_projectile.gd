@@ -1,6 +1,5 @@
 extends Node3D
 
-var world = Global.get_world(Global.game_settings.word)
 var _already_triggered: bool = false
 var delete_portal_scene = preload("res://game/wave/DeletePortal.tscn")
 
