@@ -32,6 +32,7 @@ const PROPS = {
 	"sofa 2": "res://game/prop/sofa2.tscn",
 	"storage box": "res://game/prop/storageBox.tscn",
 	"toilet": "res://game/prop/toilet.tscn",
+	"sink": "res://game/prop/sink.tscn",
 	"shower": "res://game/prop/shower.tscn",
 	"balloon": "res://game/prop/balloon.tscn",
 	"workbench": "res://game/prop/workbench.tscn",

@@ -175,7 +175,6 @@ func save(world_num: int = 0):
 
 func reset_world_to_default(world_num: int) -> void:
 	var default_world = {
-		"name": "[NEW GAME " + str(world_num) + "]",
 		"mode": 0,
 		"level": 0,
 		"weapon": ["", "", "", "", ""],

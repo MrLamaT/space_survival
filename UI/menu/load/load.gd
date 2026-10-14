@@ -4,7 +4,6 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel") and visible == true and $AnimationPlayer.is_playing():
 		$AnimationPlayer.stop()
 		visible = false
-		$beep.play()
 		get_parent().get_node("menu").visible = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

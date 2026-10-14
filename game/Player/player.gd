@@ -321,8 +321,7 @@ func _input(event: InputEvent):
 # Переключает фонарик
 func toggle_flashlight():
 	flashlight_enabled = !flashlight_enabled
-	$head/Camera3D/flashlight/SpotLight3D.visible = flashlight_enabled
-	$head/Camera3D/flashlight/SpotLight3D2.visible = flashlight_enabled
+	$head/Camera3D/flashlight.visible = flashlight_enabled
 	$flashlight.play()
 
 # Переключает режим noclip (полет сквозь стены)
@@ -639,7 +638,6 @@ func openUI(nameUI):
 			node.add_to_group("UI")
 			Global.game_settings["UI"] = true
 	node.visible = true
-	$beep.play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
 

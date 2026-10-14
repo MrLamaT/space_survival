@@ -74,11 +74,10 @@ func player_death() -> void:
 	player.is_running = false
 	player.get_node("head/Camera3D/UI").visible = false
 	player.get_node("hand_position").visible = false
-	if player.world["mode"] != 2:
-		await player.get_tree().create_timer(2.5).timeout
-		player.get_node("screem").stop()
-		health = 100.0
-		respawn_player()
+	await player.get_tree().create_timer(2.5).timeout
+	player.get_node("screem").stop()
+	health = 100.0
+	respawn_player()
 
 func respawn_player() -> void:
 	Global.save(Global.game_settings["word"])

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://fyfdd5uhb2dt" path="res://game/decoration/pc.gd" id="1_b40f0"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="2_d1mq6"]
-[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="3_r36w7"]
 [ext_resource type="Texture2D" uid="uid://bopx18mm06xvw" path="res://assets/textures/envelope.png" id="4_d1mq6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnnrj"]
@@ -94,11 +93,6 @@ visible = false
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 1, 0, -0.035019755, -0.7727012)
 texture_filter = 0
 texture = ExtResource("2_d1mq6")
-
-[node name="beep" type="AudioStreamPlayer3D" parent="." unique_id=697877636]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.81020856)
-stream = ExtResource("3_r36w7")
-volume_db = -20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=824673077 groups=["interactive_objects"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.810791)

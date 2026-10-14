@@ -24,11 +24,9 @@ func _ensure_bus(bus_name: String) -> void:
 		AudioServer.set_bus_name(AudioServer.bus_count - 1, bus_name)
 		AudioServer.set_bus_send(AudioServer.bus_count - 1, "Master")
 
-
 func _on_node_added(node: Node) -> void:
 	if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
 		_route_audio_node.call_deferred(node)
-
 
 func _route_audio_node(node: Node) -> void:
 	if not is_instance_valid(node) or not node.is_inside_tree():
@@ -43,7 +41,6 @@ func apply_audio_settings() -> void:
 	_set_bus_percent("SFX", float(gui.get("sound_volume", 100.0)))
 	_set_bus_percent("Music", float(gui.get("music_volume", 100.0)))
 
-
 func _set_bus_percent(bus_name: String, percent: float) -> void:
 	var bus_index := AudioServer.get_bus_index(bus_name)
 	if bus_index == -1:
@@ -51,7 +48,6 @@ func _set_bus_percent(bus_name: String, percent: float) -> void:
 	var linear := clampf(percent / 100.0, 0.0, 1.0)
 	AudioServer.set_bus_mute(bus_index, linear <= 0.0)
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(maxf(linear, 0.0001)))
-
 
 func set_volume(setting_name: String, percent: float) -> void:
 	if setting_name != "sound_volume" and setting_name != "music_volume":

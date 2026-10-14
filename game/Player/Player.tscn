@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://bxucg5nn7jjp0" path="res://assets/sound/step3.wav" id="11_8e3ni"]
 [ext_resource type="AudioStream" uid="uid://dpfst47uxv0ah" path="res://assets/sound/step.wav" id="12_y13tn"]
 [ext_resource type="AudioStream" uid="uid://b2awi1tyy4yej" path="res://assets/sound/step2.wav" id="13_s8fo2"]
-[ext_resource type="AudioStream" uid="uid://cdn6b446ovhet" path="res://assets/sound/beep.wav" id="14_uckl1"]
 [ext_resource type="AudioStream" uid="uid://t63e3x7si58" path="res://assets/sound/flashlight.wav" id="15_higfp"]
 [ext_resource type="PackedScene" uid="uid://dmi02cwgjhplq" path="res://UI/music/music_audio.tscn" id="15_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
@@ -147,14 +146,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
 current = true
 
 [node name="flashlight" type="Node3D" parent="head/Camera3D" unique_id=1438072815]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=592302959]
-visible = false
+light_color = Color(0.9882353, 1, 0.7137255, 1)
+light_energy = 5.0
 spot_range = 15.0
+spot_angle = 25.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="head/Camera3D/flashlight" unique_id=1939203437]
-visible = false
-spot_angle = 90.0
+[node name="OmniLight3D" type="OmniLight3D" parent="head/Camera3D/flashlight" unique_id=1200844793]
+light_color = Color(0.9882353, 1, 0.7137255, 1)
 
 [node name="crosshair" type="TextureRect" parent="head/Camera3D" unique_id=538462597]
 anchors_preset = 8
@@ -405,9 +406,6 @@ volume_db = -20.0
 
 [node name="screem" type="AudioStreamPlayer2D" parent="." unique_id=544180724]
 stream = ExtResource("16_s8fo2")
-
-[node name="beep" type="AudioStreamPlayer2D" parent="." unique_id=151725173]
-stream = ExtResource("14_uckl1")
 
 [node name="flashlight" type="AudioStreamPlayer2D" parent="." unique_id=256043790]
 stream = ExtResource("15_higfp")

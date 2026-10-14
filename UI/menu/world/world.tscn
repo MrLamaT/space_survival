@@ -34,36 +34,36 @@ pivot_offset_ratio = Vector2(0, 0.5)
 
 [node name="ButtonText1" parent="Panel/VBoxContainer" unique_id=907316837 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
-textLabel_en = "[NEW GAME 1]"
-textLabel_ru = "[NEW GAME 1]"
+textLabel_en = "[SAVE 1]"
+textLabel_ru = "[SAVE 1]"
 target_node = NodePath("../../..")
 button_id = "world_1"
 
 [node name="ButtonText2" parent="Panel/VBoxContainer" unique_id=504955367 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
-textLabel_en = "[NEW GAME 2]"
-textLabel_ru = "[NEW GAME 2]"
+textLabel_en = "[SAVE 2]"
+textLabel_ru = "[SAVE 2]"
 target_node = NodePath("../../..")
 button_id = "world_2"
 
 [node name="ButtonText3" parent="Panel/VBoxContainer" unique_id=1974376998 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
-textLabel_en = "[NEW GAME 3]"
-textLabel_ru = "[NEW GAME 3]"
+textLabel_en = "[SAVE 3]"
+textLabel_ru = "[SAVE 3]"
 target_node = NodePath("../../..")
 button_id = "world_3"
 
 [node name="ButtonText4" parent="Panel/VBoxContainer" unique_id=810010795 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
-textLabel_en = "[NEW GAME 4]"
-textLabel_ru = "[NEW GAME 4]"
+textLabel_en = "[SAVE 4]"
+textLabel_ru = "[SAVE 4]"
 target_node = NodePath("../../..")
 button_id = "world_4"
 
 [node name="ButtonText5" parent="Panel/VBoxContainer" unique_id=296138154 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
-textLabel_en = "[NEW GAME 5]"
-textLabel_ru = "[NEW GAME 5]"
+textLabel_en = "[SAVE 5]"
+textLabel_ru = "[SAVE 5]"
 target_node = NodePath("../../..")
 button_id = "world_5"
 
@@ -93,20 +93,6 @@ offset_right = 210.0
 offset_bottom = 239.0
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0, 0.5)
-
-[node name="WorldName" parent="Panel/worldSetting/VBoxContainer" unique_id=1315856506 instance=ExtResource("2_ai7i6")]
-layout_mode = 2
-textLabel_en = "world name"
-textLabel_ru = "world name"
-target_node = NodePath("../../../..")
-button_id = "world name"
-
-[node name="GameMode" parent="Panel/worldSetting/VBoxContainer" unique_id=1524632697 instance=ExtResource("2_ai7i6")]
-layout_mode = 2
-textLabel_en = "game mode"
-textLabel_ru = "game mode"
-target_node = NodePath("../../../..")
-button_id = "game mode"
 
 [node name="stage" parent="Panel/worldSetting/VBoxContainer" unique_id=437004217 instance=ExtResource("2_ai7i6")]
 layout_mode = 2
