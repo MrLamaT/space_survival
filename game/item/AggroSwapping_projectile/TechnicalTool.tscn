@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brimn5y3pn3ss"]
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_horck"]
+[ext_resource type="Script" uid="uid://bcewlnesxak6i" path="res://game/item/AggroSwapping_projectile/technical_tool.gd" id="1_mf1j0"]
 [ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="2_ahv2k"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="2_pri5j"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="3_veh1i"]
@@ -229,6 +230,7 @@ _data = {
 }
 
 [node name="TechnicalTool" type="Node3D" unique_id=1688804302]
+script = ExtResource("1_mf1j0")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_horck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, -0.25, 0.25)

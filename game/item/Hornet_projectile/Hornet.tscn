@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgam3ugd44oh8"]
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_hb7q2"]
+[ext_resource type="Script" uid="uid://clk0n8hnsbs1y" path="res://game/item/Hornet_projectile/hornet.gd" id="1_vy8qp"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="2_ahilh"]
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="2_yrpy8"]
 [ext_resource type="AudioStream" uid="uid://cli5gkjgxo25n" path="res://assets/sound/fly_buzzing.wav" id="3_ftu2p"]
@@ -229,9 +230,10 @@ _data = {
 }
 
 [node name="Hornet" type="Node3D" unique_id=1688804302]
+script = ExtResource("1_vy8qp")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_hb7q2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.25, 0.25)
 visible = false
 texture = ExtResource("2_yrpy8")
 

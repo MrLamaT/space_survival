@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b1ngo3sl22c3g"]
 
+[ext_resource type="Script" uid="uid://buheqr555eq65" path="res://game/item/Impulse_projectile/impulse.gd" id="1_1q67r"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_dlhr3"]
 [ext_resource type="Texture2D" uid="uid://bcnxmdp8038cg" path="res://assets/weapon/impulse.png" id="2_7v8ys"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="3_jlue8"]
@@ -132,6 +133,7 @@ _data = {
 }
 
 [node name="Impulse" type="Node3D" unique_id=1688804302]
+script = ExtResource("1_1q67r")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_dlhr3")]
 visible = false

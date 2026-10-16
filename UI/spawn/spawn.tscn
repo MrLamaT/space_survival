@@ -1344,6 +1344,13 @@ img = ExtResource("46_0xjbb")
 type = "other"
 target_node = NodePath("../../../../..")
 
+[node name="card12" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=1610551182 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "cheat"
+img = ExtResource("46_0xjbb")
+type = "other"
+target_node = NodePath("../../../../..")
+
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=1093581175 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "god"

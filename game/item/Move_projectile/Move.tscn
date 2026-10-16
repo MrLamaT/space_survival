@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3iyjnx5spi4v"]
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_28j4h"]
+[ext_resource type="Script" uid="uid://cx8tv0h5m7174" path="res://game/item/Move_projectile/move.gd" id="1_41wg3"]
 [ext_resource type="Texture2D" uid="uid://d0ol5srqkqi21" path="res://assets/weapon/move.png" id="2_e2jvc"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="3_e2jvc"]
 
@@ -119,6 +120,7 @@ _data = {
 }
 
 [node name="Move" type="Node3D" unique_id=362993477]
+script = ExtResource("1_41wg3")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_28j4h")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, 0, 0)

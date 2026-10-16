@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dr5ruuu3hmlm6"]
 
+[ext_resource type="Script" uid="uid://do5pktytl8i6k" path="res://game/item/Block_projectile/block.gd" id="1_dsp56"]
 [ext_resource type="Texture2D" uid="uid://cs7g8jl11tc48" path="res://assets/textures/grass.png" id="1_fmr54"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ai5f"]
@@ -92,12 +93,13 @@ _data = {
 }
 
 [node name="Block" type="Node3D" unique_id=1429431744]
+script = ExtResource("1_dsp56")
 
 [node name="BulletSpawn" type="Marker3D" parent="." unique_id=251631248]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0.3)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=61218353]
-transform = Transform3D(0.90630746, 0, 0.42261815, 0, 0.99999976, 0, -0.42261818, 0, 0.90630746, 0, -0.15, -0.175)
+transform = Transform3D(0.90630746, 0, 0.42261815, 0, 0.99999976, 0, -0.42261815, 0, 0.90630746, 0, -0.15, -0.175)
 cast_shadow = 0
 mesh = SubResource("BoxMesh_g4v7s")
 

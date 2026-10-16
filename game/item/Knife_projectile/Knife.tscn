@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bev0pwjmn8sk3"]
 
+[ext_resource type="Script" uid="uid://dpyygn0j4xhfa" path="res://game/item/Knife_projectile/knife.gd" id="1_06fes"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_udn4a"]
 [ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="2_iyb0i"]
 [ext_resource type="AudioStream" uid="uid://bpjw5ktpagcdq" path="res://assets/sound/sword.wav" id="3_857ox"]
@@ -193,6 +194,7 @@ _data = {
 }
 
 [node name="Knife" type="Node3D" unique_id=1598003082]
+script = ExtResource("1_06fes")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_udn4a")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, -0.2, 0.2)

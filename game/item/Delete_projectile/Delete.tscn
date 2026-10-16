@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dh65kln2m3pgt"]
 
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_0n8qu"]
+[ext_resource type="Script" uid="uid://cdub7o1fe8c0i" path="res://game/item/Delete_projectile/delete.gd" id="1_cp4he"]
 [ext_resource type="Texture2D" uid="uid://7c138cmjwfyy" path="res://assets/weapon/delete.png" id="2_sxqjk"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="3_sxqjk"]
 
@@ -90,6 +91,7 @@ _data = {
 }
 
 [node name="Delete" type="Node3D" unique_id=914906232]
+script = ExtResource("1_cp4he")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_0n8qu")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, 0, 0)

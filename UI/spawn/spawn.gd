@@ -1,5 +1,7 @@
 extends Node2D
 
+var world = Global.get_world(Global.game_settings.word)
+
 func handle_card_pressed(type, id, color_img):
 	match type:
 		"gravity":
@@ -64,7 +66,6 @@ func handle_card_pressed(type, id, color_img):
 				if button and not button.is_connected("pressed", Callable(self, "_on_weapon_slot_selected").bind(i)):
 					button.pressed.connect(_on_weapon_slot_selected.bind(i + 1, id))
 		"costumes":
-			var world = Global.get_world(Global.game_settings.word)
 			world["costumes"] = id
 			var hand_nodes = get_tree().get_nodes_in_group("hand")
 			for node in hand_nodes:
@@ -120,6 +121,16 @@ func handle_card_pressed(type, id, color_img):
 				"console": 
 					var player = get_tree().get_first_node_in_group("player")
 					player.openUI("cheat")
+					queue_free()
+				"cheat": 
+					var player = get_tree().get_first_node_in_group("player")
+					if world["mode"] == 1:
+						world["mode"] = 0
+					else:
+						world["mode"] = 1
+					player.warning("Cheat mode changed [" + str(world["mode"]) + "]")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
 					queue_free()
 				"god": 
 					var player = get_tree().get_first_node_in_group("player")

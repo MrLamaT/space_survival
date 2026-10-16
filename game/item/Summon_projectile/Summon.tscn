@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dwgeow4xng3p1"]
 
+[ext_resource type="Script" uid="uid://clg34qvnjtgco" path="res://game/item/Summon_projectile/summon.gd" id="1_2on1y"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_qcpem"]
 [ext_resource type="Texture2D" uid="uid://ecpjbyqy1nup" path="res://assets/weapon/summon.png" id="2_pe443"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="3_pe443"]
@@ -90,6 +91,7 @@ _data = {
 }
 
 [node name="Summon" type="Node3D" unique_id=1429431744]
+script = ExtResource("1_2on1y")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_qcpem")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1, 0, 0)

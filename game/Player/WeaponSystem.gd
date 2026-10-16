@@ -7,10 +7,8 @@ class_name WeaponSystem
 
 var current_weapon: Node3D = null
 var current_weapon_name: String = ""
-var is_reloading: bool = false
 var fire_rate: float = 0.2
 var last_fire_time: float = 0.0
-var bullet_speed: float = 50.0
 var stamina_cost_per_shot: float = 8.0
 var min_energy_to_shoot: float = 5.0
 
@@ -30,126 +28,100 @@ var weapon_slots: Dictionary = {
 
 var weapons: Dictionary = {
 	"Vibro Spike": {
-		"scene": preload("res://game/item/Knife_projectile/Knife_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Knife_projectile/Knife.tscn"),
 		"fire_rate": 0.75,
-		"bullet_speed": 0.0,
 		"energy_cost": 10.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Knife",
-		"pitch_scale": [1.4, 1.6]
+		"node_fire_method": "fire",
 	},
 	"Taser": {
-		"scene": preload("res://game/item/Taser_projectile/Taser_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Taser_projectile/Taser.tscn"),
 		"fire_rate": 0.65,
-		"bullet_speed": 0.0,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Taser",
-		"pitch_scale": [1.4, 1.6],
+		"node_fire_method": "fire",
 		"alt": {
-			"scene": preload("res://game/item/Taser_projectile/AltTaser_projectile.tscn"),
 			"fire_rate": 0.65,
-			"bullet_speed": 0.0,
 			"energy_cost": 100.0,
 			"shoot_animation": "shoot",
-			"pitch_scale": [1.4, 1.6]
+			"node_fire_method": "fire"
 		}
 	},
 	"Hornet": {
-		"scene": preload("res://game/item/Hornet_projectile/Hornet_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Hornet_projectile/Hornet.tscn"),
 		"fire_rate": 0.06,
-		"bullet_speed": 35.0,
 		"energy_cost": 1.5,
 		"reload_animation": "r",
 		"visible_node": "Hornet",
-		"pitch_scale": [1.4, 1.6]
+		"node_fire_method": "fire"
 	},
 	"Impulse": {
-		"scene": preload("res://game/item/Impulse_projectile/Impulse_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Impulse_projectile/Impulse.tscn"),
 		"fire_rate": 0.65,
-		"bullet_speed": 0.0,
 		"energy_cost": 45.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Impulse",
-		"pitch_scale": [1.4, 1.6]
+		"node_fire_method": "fire"
 	},
 	"Move": {
-		"scene": preload("res://game/item/Move_projectile/Move_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Move_projectile/Move.tscn"),
 		"fire_rate": 0.5,
-		"bullet_speed": 0.0,
-		"energy_cost": 0.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Move",
+		"node_fire_method": "fire",
 		"alt": {
-			"scene": preload("res://game/item/Move_projectile/AltMove_projectile.tscn"),
 			"fire_rate": 0.5,
-			"bullet_speed": 0.0,
-			"energy_cost": 0.0,
-			"shoot_animation": "shoot"
+			"shoot_animation": "shoot",
+			"node_fire_method": "fire",
 		}
 	},
 	"Delete": {
-		"scene": preload("res://game/item/Delete_projectile/Delete_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Delete_projectile/Delete.tscn"),
 		"fire_rate": 0.25,
-		"bullet_speed": 0.0,
-		"energy_cost": 0.0,
-		"visible_node": "Delete"
+		"visible_node": "Delete",
+		"node_fire_method": "fire"
 	},
 	"Summon": {
-		"scene": preload("res://game/item/Summon_projectile/Summon_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Summon_projectile/Summon.tscn"),
 		"fire_rate": 0.25,
-		"bullet_speed": 0.0,
-		"energy_cost": 0.0,
 		"visible_node": "Summon",
+		"node_fire_method": "fire",
 		"alt": {
-			"UI": "spawn"
+			"node_fire_method": "fire"
 		}
 	},
 	"Block": {
-		"scene": preload("res://game/item/Block_projectile/Block_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/Block_projectile/Block.tscn"),
 		"fire_rate": 0.25,
-		"bullet_speed": 0.0,
-		"energy_cost": 0.0,
 		"shoot_animation": "shoot",
 		"visible_node": "Block",
+		"node_fire_method": "fire",
 		"alt": {
-			"scene": preload("res://game/item/Delete_projectile/Delete_projectile.tscn"),
 			"fire_rate": 0.25,
-			"bullet_speed": 0.0,
-			"energy_cost": 0.0,
-			"shoot_animation": "shoot"
+			"shoot_animation": "shoot",
+			"node_fire_method": "fire"
 		}
 	},
 	"Aggro Swapping": {
-		"scene": preload("res://game/item/AggroSwapping_projectile/AggroSwapping_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
 		"fire_rate": 0.65,
-		"bullet_speed": 0.0,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
 		"visible_node": "TechnicalTool",
-		"pitch_scale": [1.4, 1.6],
+		"node_fire_method": "fireAggro",
 		"alt": {
-			"UI": "aggression"
+			"node_fire_method": "fireAggro",
 		}
 	},
 	"Freeze Modify": {
-		"scene": preload("res://game/item/FreezeModify_projectile/FreezeModify_projectile.tscn"),
 		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
 		"fire_rate": 0.65,
-		"bullet_speed": 0.0,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
 		"visible_node": "TechnicalTool",
-		"pitch_scale": [1.4, 1.6]
+		"node_fire_method": "fireFreeze",
 	},
 }
 
@@ -300,8 +272,6 @@ func shoot(is_alt: bool = false):
 	if data_to_use.has("UI"):
 		player.openUI(data_to_use["UI"])
 		return
-	if not data_to_use.has("scene"):
-		return
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if is_alt:
 		if current_time - last_alt_fire_time < data_to_use.get("fire_rate", 0.2):
@@ -309,7 +279,6 @@ func shoot(is_alt: bool = false):
 	else:
 		if current_time - last_fire_time < weapon_data["fire_rate"]:
 			return
-	
 	if !player.infE:
 		var cost = data_to_use.get("energy_cost", 0)
 		if is_alt:
@@ -326,54 +295,24 @@ func shoot(is_alt: bool = false):
 		if current_weapon and current_weapon.has_node("AnimationPlayer"):
 			current_weapon.get_node("AnimationPlayer").play(data_to_use["shoot_animation"])
 	
-	is_reloading = false
 	var check_pool = player.alt_energy if is_alt else player.energy
-	if check_pool < data_to_use["energy_cost"] + 5.0 and !is_reloading:
-		is_reloading = true
-		if data_to_use.has("reload_animation") and data_to_use["reload_animation"] != "":
-			if current_weapon and current_weapon.has_node("AnimationPlayer"):
-				current_weapon.get_node("AnimationPlayer").play(data_to_use["reload_animation"])
-	
-	var weapon_bullet_spawn = current_weapon.get_node("BulletSpawn")
-	_show_muzzle_flash(weapon_bullet_spawn)
-	var bullet = data_to_use["scene"].instantiate()
-	player.get_parent().add_child(bullet)
-	bullet.global_transform = weapon_bullet_spawn.global_transform
-	
-	var shoot_direction = -cam.global_transform.basis.z.normalized()
-	
-	if bullet.has_method("shoot"):
-		bullet.shoot(shoot_direction, data_to_use.get("bullet_speed", 50.0))
-	elif bullet.has_method("apply_central_impulse") and bullet is RigidBody3D:
-		bullet.apply_central_impulse(shoot_direction * data_to_use.get("bullet_speed", 50.0))
-	elif bullet.has_method("set_velocity") and bullet is CharacterBody3D:
-		bullet.velocity = shoot_direction * data_to_use.get("bullet_speed", 50.0)
-	
+	if data_to_use.has("energy_cost"):
+		if check_pool < data_to_use["energy_cost"] + 5.0:
+			if data_to_use.has("reload_animation") and data_to_use["reload_animation"] != "":
+				if current_weapon and current_weapon.has_node("AnimationPlayer"):
+					current_weapon.get_node("AnimationPlayer").play(data_to_use["reload_animation"])
+		
+	if data_to_use.has("node_fire_method") and current_weapon:
+		var method_name: String = data_to_use.get("node_fire_method", "fire")
+		if current_weapon.has_method(method_name):
+			current_weapon.call(method_name, cam, player.get_parent(), is_alt)
+		else:
+			push_warning("Weapon node '%s' has no method '%s'" % [current_weapon.name, method_name])
+
 	if is_alt:
 		last_alt_fire_time = current_time
 	else:
 		last_fire_time = current_time
-	if current_weapon and current_weapon.has_node("shootingSound"):
-		var shooting_sound = current_weapon.get_node("shootingSound")
-		var pitch_range = data_to_use.get("pitch_scale", [1.4, 1.6]) 
-		shooting_sound.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
-		shooting_sound.play()
-	if current_weapon and current_weapon.has_node("shootingSound2") and randf() < 0.25:
-		var shooting_sound2 = current_weapon.get_node("shootingSound2")
-		var pitch_range = data_to_use.get("pitch_scale", [1.4, 1.6]) 
-		shooting_sound2.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
-		shooting_sound2.play()
-
-func _show_muzzle_flash(bullet_spawn: Node3D):
-	if bullet_spawn.has_node("flash"):
-		var flash = bullet_spawn.get_node("flash")
-		flash.visible = true
-		flash.rotation.z = randi_range(0, 90)
-		flash.scale = Vector3(4, 4, 4)
-		await get_tree().create_timer(0.033).timeout
-		flash.scale = Vector3(2, 2, 2)
-		await get_tree().create_timer(0.066).timeout
-		flash.visible = false
 
 func has_weapon_in_slot(slot: int) -> bool:
 	return weapon_slots.get(slot, "") != ""

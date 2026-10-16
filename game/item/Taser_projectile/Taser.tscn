@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://38pf3qnhxlqx"]
 
+[ext_resource type="Script" uid="uid://cebwhx25myxgn" path="res://game/item/Taser_projectile/taser.gd" id="1_smq5p"]
 [ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_yweyb"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="2_tij6w"]
 [ext_resource type="PackedScene" uid="uid://crey1ruj463ih" path="res://game/item/hand.tscn" id="4_i5vkf"]
@@ -228,6 +229,7 @@ _data = {
 }
 
 [node name="Taser" type="Node3D" unique_id=1688804302]
+script = ExtResource("1_smq5p")
 
 [node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_yweyb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, 0.035, 0)
