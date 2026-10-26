@@ -18,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="17_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cn1jcy4apn3vv" path="res://assets/sound/charge-up.wav" id="18_5qjw8"]
 [ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://game/Player/leg_damage.gd" id="23_q4qd6"]
-[ext_resource type="AudioStream" uid="uid://bbdfyp7jsu3lq" path="res://assets/sound/craft.wav" id="24_278cu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
 
@@ -409,9 +408,6 @@ stream = ExtResource("16_s8fo2")
 
 [node name="flashlight" type="AudioStreamPlayer2D" parent="." unique_id=256043790]
 stream = ExtResource("15_higfp")
-
-[node name="craft" type="AudioStreamPlayer2D" parent="." unique_id=1456027631]
-stream = ExtResource("24_278cu")
 
 [node name="music" parent="." unique_id=615568374 instance=ExtResource("15_s8fo2")]
 

@@ -71,7 +71,11 @@ func player_death() -> void:
 	player.throw_camera_out()
 	player.movement_enabled = false
 	player.velocity = Vector3.ZERO
-	player.is_running = false
+	player.is_slamming = false
+	player.is_slide_jumping = false
+	player.cancel_dash()
+	player.slam_direction = Vector3.ZERO
+	player.update_running_speed()
 	player.get_node("head/Camera3D/UI").visible = false
 	player.get_node("hand_position").visible = false
 	await player.get_tree().create_timer(2.5).timeout
@@ -83,6 +87,11 @@ func respawn_player() -> void:
 	Global.save(Global.game_settings["word"])
 	player.global_position = Global.game_settings["checkpoint"]
 	player.velocity = Vector3.ZERO
+	player.is_slamming = false
+	player.is_slide_jumping = false
+	player.cancel_dash()
+	player.slam_direction = Vector3.ZERO
+	player.update_running_speed()
 	Global.game_settings["IsDying"] = false
 	player.movement_enabled = true
 	player.get_node("head/Camera3D/UI").visible = true
@@ -102,5 +111,10 @@ func _check_killzone() -> void:
 		if new_health < 1.0:
 			new_health = 1.0
 		take_damage(health - new_health)
+		player.is_slamming = false
+		player.is_slide_jumping = false
+		player.cancel_dash()
+		player.slam_direction = Vector3.ZERO
 		player.global_position = Global.game_settings["checkpoint"]
-		player.velocity.y = 0.0
+		player.velocity = Vector3.ZERO
+		player.update_running_speed()

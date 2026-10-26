@@ -66,7 +66,6 @@ size = Vector3(2.5, 2.5, 2.5)
 [node name="RoP" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
 script = ExtResource("1_le6ex")
 env_scene = ExtResource("2_anwhy")
-gravity = 0
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "inv", "inv", "inv", "inv"])
 earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
@@ -1049,23 +1048,27 @@ material = SubResource("StandardMaterial3D_kmrdn")
 [node name="Spring2" parent="." unique_id=1626194758 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.402298, 5.4864545, -51.612144)
 freeze = true
+jump_force = 10.5
 
 [node name="Spring5" parent="." unique_id=1428768737 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.123, 0.486, 23.7955)
 freeze = true
-jump_force = 15.0
+jump_force = 18.0
 
 [node name="Spring" parent="." unique_id=301584675 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.76787, 10.486, -35.82549)
 freeze = true
+jump_force = 10.5
 
 [node name="Spring4" parent="." unique_id=1887141575 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.521797, 15.486, -29.014624)
 freeze = true
+jump_force = 10.5
 
 [node name="Spring3" parent="." unique_id=415764733 instance=ExtResource("12_dfycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.215, 15.5, 31.18865)
 freeze = true
+jump_force = 10.5
 
 [node name="hologramText" parent="." unique_id=866615671 instance=ExtResource("32_8dok3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.75, 5.5, -53.65)

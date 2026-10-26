@@ -7,7 +7,7 @@ extends Node2D
 
 const ACTION_NAMES := {
 	"+w": "Forward", "+s": "Backward", "+a": "Left", "+d": "Right",
-	"+space": "Jump", "+shift": "Sprint", "+crouch": "Crouch",
+	"+space": "Jump", "+shift": "Dash", "+crouch": "Slide",
 	"+e": "Interact", "+f": "Flashlight", "+q": "Spawn menu",
 	"UI_click": "Fire", "UI_alt_click": "Alt fire",
 	"+1": "Slot 1", "+2": "Slot 2", "+3": "Slot 3", "+4": "Slot 4",

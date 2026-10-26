@@ -35,11 +35,11 @@ var health: float: # Текущее здоровье игрока
 		if health_system:
 			health_system.health = value 
 var accel = 6 # Ускорение движения
-var SPEED = 5.0 # Текущая скорость передвижения
-var base_speed = 5.0 # Базовая скорость передвижения
+var SPEED = 7.0 # Текущая скорость передвижения
+var base_speed = 7.0 # Базовая скорость передвижения
 var crouched: bool = false  # Флаг приседания
 var falling_fast: bool = false # Флаг быстрого падения
-var input_dir = Vector3(0,0,0) # Направление ввода игрока
+var input_dir: Vector2 = Vector2.ZERO # Направление ввода игрока
 var direction = Vector3() # Направление движения
 var sens = 0.005 # Чувствительность мыши
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -76,11 +76,26 @@ var running_fov: float = 80.0  # FOV при беге
 var fov_transition_speed: float = 16.0  # скорость изменения FOV
 var current_fov: float = base_fov
 
+# ==================== СЛЭМ ====================
+var is_slamming: bool = false
+var slam_direction: Vector3 = Vector3.ZERO
+var slam_speed: float = base_speed * (24.0 / 16.5)
+var crouch_walk_speed: float = 2.5
+var is_slide_jumping: bool = false
+var slide_jump_air_accel: float = 25.0
+
+# ==================== РЫВОК ====================
+var is_dashing: bool = false
+var dash_direction: Vector3 = Vector3.ZERO
+var dash_timer: float = 0.0
+var dash_speed: float = base_speed * (49.5 / 16.5)
+var dash_duration: float = 0.18
+var dash_stamina_cost: float = 30.0
+
 # ==================== СТАМИНА ====================
-var is_running = false # Флаг бега
 var stamina = 100.0 # Текущая стамина
 var max_stamina = 100.0
-var stamina_depletion_rate = 25.0  # Скорость расходования стамины в секунду
+var stamina_depletion_rate = 35.0  # Скорость расходования стамины в секунду
 var stamina_regen_rate = 25.0      # Скорость восстановления стамины в секунду
 var can_regenerate = true
 var regen_delay = 0.5  # Задержка перед восстановлением после бега
@@ -110,7 +125,7 @@ var is_paused = false
 var escape_held: bool = false
 
 # ==================== ПРЫЖОК ====================
-var jump_velocity = 4.5 # Скорость прыжка
+var jump_velocity = 5.0 # Скорость прыжка
 var is_jumping = false
 var jump_cooldown = 0.2 # Перезарядка прыжка
 var jump_cooldown_timer = 0.0
@@ -299,17 +314,6 @@ func _input(event: InputEvent):
 			if new_camera_rotation < deg_to_rad(-89) or new_camera_rotation > deg_to_rad(89):
 				vertical_rotation = 0
 			cam.rotate_x(vertical_rotation)
-	if Input.is_action_just_pressed("+crouch") and Global.game_settings["affected_by_gravity"] and not Global.game_settings["UI"]:
-		if not is_on_floor():
-			falling_fast = true
-			$leg_damage/CollisionShape3D.disabled = false
-		else:
-			if crouched:
-				if Global.game_settings["CanStandUp"]:
-					crouched = false
-			else:
-				crouched = !crouched  
-			update_running_speed()
 	if Input.is_action_just_pressed("+f"):
 		toggle_flashlight()
 	if Input.is_action_just_pressed("+f1"):
@@ -328,10 +332,13 @@ func toggle_flashlight():
 func noclip_cheat():
 	noclip = !noclip
 	if noclip:
+		cancel_dash()
 		crouched = false
 		collision_mask = 1
 		Global.game_settings["affected_by_gravity"] = false
-		is_running = false
+		is_slamming = false
+		is_slide_jumping = false
+		slam_direction = Vector3.ZERO
 		update_running_speed()
 	else:
 		collision_mask = (1 << 2) | (1 << 3) | (1 << 5)
@@ -342,7 +349,6 @@ func _process(delta):
 	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$head/Camera3D/UI/speed.text = "Speed: %.2f" % velocity.length()
 	_update_hand_position(delta)
-	_update_stamina(delta)
 	_update_energy(delta)
 	_update_camera_dynamics(delta)
 	_update_fov_effects(delta)
@@ -351,25 +357,33 @@ func _process(delta):
 	if object_holder.is_holding():
 		object_holder.update_held_object()
 
-# Обновляет стамину (расходование при беге, восстановление при отдыхе)
+# Обновляет стамину
 func _update_stamina(delta):
-	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-	var is_actually_moving = horizontal_speed > 0.5
-	if is_running and is_actually_moving and is_on_floor() and can_move():
+	if is_dashing:
+		can_regenerate = false
+		regen_timer = 0.0
+		stamina_bar.value = stamina
+		return
+	if is_slamming:
+		can_regenerate = false
+		regen_timer = 0.0
 		if not infS:
-			stamina = max(0, stamina - stamina_depletion_rate * delta)
-			can_regenerate = false
-			regen_timer = 0.0
-			if stamina <= 0:
-				is_running = false
-				update_running_speed()
+			stamina = maxf(
+				0.0,
+				stamina - stamina_depletion_rate * delta
+			)
+			if stamina <= 0.0:
+				stop_slam()
 	else:
 		if not can_regenerate:
 			regen_timer += delta
 			if regen_timer >= regen_delay:
 				can_regenerate = true
 		if can_regenerate and stamina < max_stamina:
-			stamina = min(max_stamina, stamina + stamina_regen_rate * delta)
+			stamina = minf(
+				max_stamina,
+				stamina + stamina_regen_rate * delta
+			)
 	stamina_bar.value = stamina
 
 # Обновляет энергию и альт-энергию
@@ -442,12 +456,28 @@ func _update_camera_dynamics(delta):
 # Основная физическая обработка игрока
 func _physics_process(delta):
 	_update_ui_labels()
-	_handle_gravity_and_jump(delta)
-	_handle_footsteps(delta)
+	if (
+		not can_move()
+		or SettingsManager.is_rebinding
+		or not Global.game_settings["affected_by_gravity"]
+	):
+		is_slide_jumping = false
+	var dash_active_this_frame: bool = _handle_dash(delta)
+	if not dash_active_this_frame:
+		_handle_slam()
+	_update_stamina(delta)
+	update_running_speed()
+	if not dash_active_this_frame:
+		_handle_gravity_and_jump(delta)
+		_handle_movement_input(delta)
 	_handle_crouch_animation()
-	_handle_movement_input(delta)
-	_handle_running()
 	move_and_slide()
+	if is_on_floor():
+		is_slide_jumping = false
+	if dash_active_this_frame:
+		footstep_timer = 0.0
+	else:
+		_handle_footsteps(delta)
 	interaction_manager.check_interactable()
 	_handle_shooting()
 
@@ -458,25 +488,120 @@ func _handle_shooting():
 	if is_alt_shooting and can_move():
 		weapon_system.shoot(true)
 
-# Обрабатывает бег
-func _handle_running():
-	if Input.is_action_pressed("+shift") and stamina > 0 and can_move() and not crouched:
-		var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-		if horizontal_speed > 0.5:
-			if not is_running:
-				is_running = true
+# Обрабатывает слэм
+func _handle_slam() -> void:
+	if not can_move() or SettingsManager.is_rebinding:
+		if is_slamming:
+			stop_slam()
+		return
+	if not Global.game_settings["affected_by_gravity"]:
+		if is_slamming:
+			stop_slam()
+		return
+	var ctrl_held: bool = Input.is_action_pressed("+crouch")
+	if is_slamming:
+		if not ctrl_held:
+			stop_slam()
+		elif not is_on_floor():
+			is_slide_jumping = true
+		return
+	if Input.is_action_just_pressed("+crouch"):
+		if is_on_floor():
+			if stamina > 0.0 or infS:
+				start_slam()
+			else:
+				crouched = true
 				update_running_speed()
 		else:
-			if is_running:
-				is_running = false
-				update_running_speed()
-	else:
-		if is_running:
-			is_running = false
+			is_slide_jumping = false
+			falling_fast = true
+			$leg_damage/CollisionShape3D.disabled = false
+	if not is_slamming and crouched and not ctrl_held:
+		if Global.game_settings["CanStandUp"]:
+			crouched = false
 			update_running_speed()
+
+# Выбирает горизонтальное направление действия в мировых координатах.
+func get_action_direction() -> Vector3:
+	var action_input: Vector2 = Input.get_vector("+a", "+d", "+w", "+s")
+	if action_input.is_zero_approx():
+		action_input = Vector2(0.0, -1.0)
+
+	var local_direction := Vector3(action_input.x, 0.0, action_input.y)
+	var action_direction: Vector3 = head.global_transform.basis * local_direction
+	action_direction.y = 0.0
+	return action_direction.normalized()
+
+func start_slam() -> void:
+	if is_slamming:
+		return
+	if not can_move() or SettingsManager.is_rebinding:
+		return
+	if not is_on_floor():
+		return
+	if not Global.game_settings["affected_by_gravity"]:
+		return
+	if stamina <= 0.0 and not infS:
+		return
+	slam_direction = get_action_direction()
+	if slam_direction.is_zero_approx():
+		return
+	is_slamming = true
+	crouched = true
+	can_regenerate = false
+	regen_timer = 0.0
+	footstep_timer = 0.0
+	update_running_speed()
+
+func stop_slam() -> void:
+	if not is_slamming:
+		return
+	is_slamming = false
+	slam_direction = Vector3.ZERO
+	crouched = not Global.game_settings["CanStandUp"]
+	can_regenerate = false
+	regen_timer = 0.0
+	update_running_speed()
+	if is_slide_jumping:
+		return
+	var horizontal_velocity := Vector2(velocity.x, velocity.z)
+	horizontal_velocity = horizontal_velocity.limit_length(SPEED)
+	velocity.x = horizontal_velocity.x
+	velocity.z = horizontal_velocity.y
 
 # Обрабатывает ввод движения
 func _handle_movement_input(delta):
+	if is_slide_jumping and can_move():
+		input_dir = Input.get_vector("+a", "+d", "+w", "+s")
+		if not input_dir.is_zero_approx():
+			var wish_direction: Vector3 = (
+				head.global_transform.basis
+				* Vector3(input_dir.x, 0.0, input_dir.y)
+			)
+			wish_direction.y = 0.0
+			wish_direction = wish_direction.normalized()
+			direction = wish_direction
+			var horizontal_velocity := Vector2(
+				velocity.x,
+				velocity.z
+			)
+			var target_velocity := Vector2(
+				wish_direction.x,
+				wish_direction.z
+			) * slam_speed
+			horizontal_velocity = horizontal_velocity.move_toward(
+				target_velocity,
+				slide_jump_air_accel * delta
+			)
+			velocity.x = horizontal_velocity.x
+			velocity.z = horizontal_velocity.y
+		return
+	if is_slamming and can_move():
+		input_dir = Vector2.ZERO
+		direction = slam_direction
+		velocity.x = slam_direction.x * slam_speed
+		velocity.z = slam_direction.z * slam_speed
+		return
 	if can_move():
 		if Global.game_settings["affected_by_gravity"]:
 			input_dir = Input.get_vector("+a", "+d", "+w", "+s")
@@ -503,7 +628,6 @@ func _handle_movement_input(delta):
 # Обрабатывает анимацию приседания
 func _handle_crouch_animation():
 	if crouched:
-		SPEED = 2.5
 		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, crouching_collision_scale, 0.4)
 		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, crouching_collision_height, 0.4)
 		head.position.y = lerp(head.position.y, crouching_height, 0.3)
@@ -514,6 +638,9 @@ func _handle_crouch_animation():
 
 # Обрабатывает звуки шагов
 func _handle_footsteps(delta):
+	if is_slamming:
+		footstep_timer = 0.0
+		return
 	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and can_move():
 		footstep_timer += delta
 		if footstep_timer >= footstep_delay:
@@ -530,38 +657,58 @@ func _update_ui_labels():
 
 # Обрабатывает гравитацию и прыжки
 func _handle_gravity_and_jump(delta):
-	if Global.game_settings["affected_by_gravity"]:
-		if is_on_floor():
-			falling_fast = false
-			$leg_damage/CollisionShape3D.disabled = true
-		if Input.is_action_just_pressed("+space") and Global.game_settings["can_jump"] and Global.game_settings["CanStandUp"] and can_move():
-			crouched = false
-			update_running_speed()
-			if is_on_floor():
-				if jump_cooldown_timer <= 0:
-					velocity.y = jump_velocity
-					is_jumping = true
-					jump_cooldown_timer = jump_cooldown
-			else:
-				if not has_used_double_jump:
-					velocity.y = jump_velocity
-					has_used_double_jump = true
-					is_jumping = true
-					$spring.play()
-		if jump_cooldown_timer > 0:
-			jump_cooldown_timer -= delta
-		if is_on_floor():
-			is_jumping = false
-		if not is_on_floor():
-			if falling_fast and can_move():
-				velocity.y -= gravity * delta * 10
-			else:
-				velocity.y -= gravity * delta
-	else:
+	if not Global.game_settings["affected_by_gravity"]:
 		handle_flight_movement(delta)
+		return
+	if jump_cooldown_timer > 0.0:
+		jump_cooldown_timer = maxf(
+			0.0,
+			jump_cooldown_timer - delta
+		)
+	if is_on_floor():
+		falling_fast = false
+		$leg_damage/CollisionShape3D.disabled = true
+		is_jumping = false
+	var jump_pressed: bool = Input.is_action_just_pressed("+space")
+	var jump_allowed: bool = (
+		can_move()
+		and not SettingsManager.is_rebinding
+		and Global.game_settings["can_jump"]
+		and Global.game_settings["CanStandUp"]
+	)
+	if jump_pressed and jump_allowed:
+		if is_on_floor():
+			if jump_cooldown_timer <= 0.0:
+				if is_slamming:
+					is_slide_jumping = true
+					velocity.x = slam_direction.x * slam_speed
+					velocity.z = slam_direction.z * slam_speed
+					crouched = true
+				else:
+					is_slide_jumping = false
+					crouched = false
+				velocity.y = jump_velocity
+				is_jumping = true
+				jump_cooldown_timer = jump_cooldown
+				update_running_speed()
+		else:
+			if not has_used_double_jump:
+				velocity.y = jump_velocity
+				has_used_double_jump = true
+				is_jumping = true
+				$spring.play()
+	if not is_on_floor():
+		if falling_fast and can_move():
+			velocity.y -= gravity * delta * 10.0
+		else:
+			velocity.y -= gravity * delta
 
 # Принудительно заставляет игрока встать
 func force_stand_up():
+	if is_slamming:
+		return
+	if not Global.game_settings["CanStandUp"]:
+		return
 	if crouched:
 		crouched = false
 		update_running_speed()
@@ -588,12 +735,13 @@ func handle_flight_movement(delta):
 
 # Обновляет скорость бега
 func update_running_speed():
-	if is_running and stamina > 0:
-		SPEED = 8  # Скорость бега
-		footstep_delay = 0.35  # Более частые шаги при беге
+	if is_slamming:
+		SPEED = slam_speed
+	elif crouched:
+		SPEED = crouch_walk_speed
 	else:
 		SPEED = base_speed
-		footstep_delay = 0.5   # Обычная частота шагов
+	footstep_delay = 0.5
 
 # Воспроизводит звук шага в зависимости от поверхности
 func play_footstep():
@@ -679,4 +827,57 @@ func can_move() -> bool:
 		return false
 	if Global.game_settings["IsDying"]:
 		return false
+	return true
+
+func start_dash() -> void:
+	if is_dashing:
+		return
+	if not can_move() or SettingsManager.is_rebinding:
+		return
+	if not Global.game_settings["affected_by_gravity"]:
+		return
+	if not infS and stamina < dash_stamina_cost:
+		return
+	dash_direction = get_action_direction()
+	if dash_direction.is_zero_approx():
+		return
+	if not infS:
+		stamina = maxf(0.0, stamina - dash_stamina_cost)
+	can_regenerate = false
+	regen_timer = 0.0
+	stamina_bar.value = stamina
+	is_slamming = false
+	is_slide_jumping = false
+	slam_direction = Vector3.ZERO
+	falling_fast = false
+	$leg_damage/CollisionShape3D.set_deferred("disabled", true)
+	is_dashing = true
+	dash_timer = dash_duration
+	footstep_timer = 0.0
+	velocity = dash_direction * dash_speed
+	update_running_speed()
+
+func cancel_dash() -> void:
+	is_dashing = false
+	dash_timer = 0.0
+	dash_direction = Vector3.ZERO
+
+func _handle_dash(delta: float) -> bool:
+	if (
+		not can_move()
+		or SettingsManager.is_rebinding
+		or not Global.game_settings["affected_by_gravity"]
+	):
+		cancel_dash()
+		return false
+	if is_dashing and dash_timer <= 0.0:
+		cancel_dash()
+	if not is_dashing and Input.is_action_just_pressed("+shift"):
+		start_dash()
+	if not is_dashing:
+		return false
+	dash_timer -= delta
+	input_dir = Vector2.ZERO
+	velocity = dash_direction * dash_speed
+	velocity.y = 0.0
 	return true

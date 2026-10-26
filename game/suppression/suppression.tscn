@@ -10,131 +10,16 @@
 [ext_resource type="AudioStream" uid="uid://bsc68wfvoipt" path="res://assets/sound/whate.wav" id="9_lvbb8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf86b"]
-size = Vector3(2, 3, 2)
+size = Vector3(1.5, 10.5, 1.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u627u"]
-size = Vector3(1.1, 2, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vvaxq"]
+size = Vector3(2, 1, 1.65)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yvv66"]
-size = Vector3(1.1, 0.75, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2guc"]
+size = Vector3(0.7, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u627u"]
-albedo_texture = ExtResource("1_xgtdw")
-metallic = 1.0
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="BoxMesh" id="BoxMesh_wxdti"]
-material = SubResource("StandardMaterial3D_u627u")
-size = Vector3(2, 1, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lvbb8"]
-material = SubResource("StandardMaterial3D_u627u")
-size = Vector3(2, 1, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nf86b"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0, 0.6156863, 0.99607843, 0.09803922)
-metallic = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2guc"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(0.99, 0, 0.7095, 0.47058824)
-metallic = 0.3
-
-[sub_resource type="SphereMesh" id="SphereMesh_nf86b"]
-material = SubResource("StandardMaterial3D_s2guc")
-radial_segments = 4
-rings = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7cab"]
-albedo_color = Color(0.9882353, 0, 0.7137255, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_cexfy"]
-material = SubResource("StandardMaterial3D_n7cab")
-size = Vector3(0.1, 1, 0.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cexfy"]
-albedo_color = Color(0.6313726, 0.5137255, 0.40784314, 1)
-
-[sub_resource type="Animation" id="Animation_xgtdw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGCombiner3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_u627u"]
-resource_name = "start"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGCombiner3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("box/crystal:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CSGCombiner3D2:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvv66"]
-_data = {
-&"RESET": SubResource("Animation_xgtdw"),
-&"start": SubResource("Animation_u627u")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
-albedo_texture = ExtResource("1_nf86b")
-metallic = 1.0
-uv1_offset = Vector3(0.5, 0.5, 0.5)
-uv1_triplanar = true
-texture_filter = 0
-
-[sub_resource type="PrismMesh" id="PrismMesh_u627u"]
-material = SubResource("StandardMaterial3D_m0uje")
-size = Vector3(1, 0.5, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xgtdw"]
-material = SubResource("StandardMaterial3D_m0uje")
-size = Vector3(1.25, 0.5, 1.1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww1ky"]
+size = Vector3(1.35, 1, 1.65)
 
 [sub_resource type="Gradient" id="Gradient_vvaxq"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
@@ -181,206 +66,132 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxdti"]
 size = Vector3(10, 10, 10)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
+albedo_texture = ExtResource("1_nf86b")
+metallic = 1.0
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_mms8n"]
+material = SubResource("StandardMaterial3D_m0uje")
+size = Vector3(2, 1, 1.65)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2guc"]
+material = SubResource("StandardMaterial3D_m0uje")
+size = Vector3(1, 0.1, 1.65)
+
+[sub_resource type="PrismMesh" id="PrismMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_m0uje")
+left_to_right = 1.0
+size = Vector3(1, 1, 1.65)
+
+[sub_resource type="PrismMesh" id="PrismMesh_s2guc"]
+material = SubResource("StandardMaterial3D_m0uje")
+left_to_right = 1.0
+size = Vector3(0.75, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u627u"]
+albedo_texture = ExtResource("1_xgtdw")
+metallic = 1.0
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_vvaxq"]
+material = SubResource("StandardMaterial3D_u627u")
+size = Vector3(1.5, 8.5, 1.5)
+
+[sub_resource type="PrismMesh" id="PrismMesh_26icm"]
+material = SubResource("StandardMaterial3D_u627u")
+left_to_right = 1.0
+size = Vector3(1.5, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww1ky"]
+shading_mode = 0
+albedo_color = Color(0.99, 0, 0.7095, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_ww1ky")
+size = Vector3(0.1, 1, 1.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_26icm"]
+material = SubResource("StandardMaterial3D_ww1ky")
+size = Vector3(0.1, 1, 1.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26icm"]
+albedo_texture = ExtResource("1_nf86b")
+metallic = 1.0
+uv1_scale = Vector3(0.5, 0.25, 0.5)
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_banu5"]
+material = SubResource("StandardMaterial3D_26icm")
+size = Vector3(1.75, 2.5, 1.75)
+
+[sub_resource type="PrismMesh" id="PrismMesh_ww1ky"]
+material = SubResource("StandardMaterial3D_26icm")
+left_to_right = 1.0
+size = Vector3(1.75, 1, 1.75)
+
+[sub_resource type="Animation" id="Animation_s2guc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vvaxq"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2guc"]
+_data = {
+&"RESET": SubResource("Animation_s2guc"),
+&"start": SubResource("Animation_vvaxq")
+}
+
 [node name="Suppression" type="StaticBody3D" unique_id=88630]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_x7cqa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2131091596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("BoxShape3D_nf86b")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=318586142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 1.25)
-shape = SubResource("BoxShape3D_u627u")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2137907629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.25, 0)
+shape = SubResource("BoxShape3D_vvaxq")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1682040187]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, -1.25)
-shape = SubResource("BoxShape3D_u627u")
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=429623040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.25, 0)
+shape = SubResource("BoxShape3D_s2guc")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1658611735]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 2.75, 0)
-shape = SubResource("BoxShape3D_u627u")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1538639160]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 2.75, 0)
-shape = SubResource("BoxShape3D_u627u")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="." unique_id=2106702358]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 1.25)
-shape = SubResource("BoxShape3D_yvv66")
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="." unique_id=74004280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -1.25)
-shape = SubResource("BoxShape3D_yvv66")
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="." unique_id=1630246121]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0.4, 0)
-shape = SubResource("BoxShape3D_yvv66")
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="." unique_id=935410443]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 0.4, 0)
-shape = SubResource("BoxShape3D_yvv66")
-
-[node name="Node3D" type="Node3D" parent="." unique_id=1787382047]
-
-[node name="Node3D" type="Node3D" parent="Node3D" unique_id=1539323787]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D" unique_id=185661233]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-mesh = SubResource("BoxMesh_wxdti")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D" unique_id=1224039575]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
-mesh = SubResource("BoxMesh_lvbb8")
-skeleton = NodePath("../../..")
-
-[node name="box" type="CSGBox3D" parent="Node3D/Node3D" unique_id=897404595 groups=["wall"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-size = Vector3(2, 1, 2)
-material = SubResource("StandardMaterial3D_nf86b")
-
-[node name="crystal" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=952753017]
-transform = Transform3D(0.24235134, 0, -0.5488769, 0, 0.9, 0, 0.5488769, 0, 0.24235134, 0, 0, 0)
-mesh = SubResource("SphereMesh_nf86b")
-skeleton = NodePath("")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=1488974757]
-mesh = SubResource("BoxMesh_cexfy")
-skeleton = NodePath("")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/Node3D/box" unique_id=243251853]
-light_color = Color(0.9882353, 0, 0.7137255, 1)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/box" unique_id=58147248]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.030107439)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Node3D/Node3D" unique_id=1294820871]
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Node3D/Node3D/CSGCombiner3D" unique_id=1901192383]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35448396, 0)
-radius = 0.9
-height = 1.0
-material = SubResource("StandardMaterial3D_cexfy")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Node3D/Node3D/CSGCombiner3D" unique_id=171805590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35448396, 0)
-operation = 2
-radius = 0.8
-height = 1.0
-material = SubResource("StandardMaterial3D_cexfy")
-
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="Node3D/Node3D" unique_id=1414015297]
-transform = Transform3D(0.40391886, 0, 0.91479474, 0, 1, 0, -0.91479474, 0, 0.40391886, 0, 1.75, 0)
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Node3D/Node3D/CSGCombiner3D2" unique_id=1491010299]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35448396, 0)
-radius = 0.9
-height = 1.0
-material = SubResource("StandardMaterial3D_cexfy")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Node3D/Node3D/CSGCombiner3D2" unique_id=1350775591]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35448396, 0)
-operation = 2
-radius = 0.8
-height = 1.0
-material = SubResource("StandardMaterial3D_cexfy")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D/Node3D" unique_id=450810713]
-libraries/ = SubResource("AnimationLibrary_yvv66")
-
-[node name="Node3D" type="Node3D" parent="Node3D/Node3D" unique_id=1546015220]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/Node3D" unique_id=1865509955]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0.5, -1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/Node3D" unique_id=1660035394]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0.5, 1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/Node3D/Node3D" unique_id=1404048760]
-transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D/Node3D" unique_id=1516452520]
-transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="Node3D2" type="Node3D" parent="Node3D/Node3D" unique_id=431731304]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/Node3D2" unique_id=1332159590]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0.5, -1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/Node3D2" unique_id=1357786878]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0.5, 1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/Node3D/Node3D2" unique_id=366547941]
-transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D/Node3D2" unique_id=834134670]
-transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="Node3D4" type="Node3D" parent="Node3D/Node3D" unique_id=1537699711]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/Node3D4" unique_id=1218943763]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 1.1, -1.25)
-mesh = SubResource("BoxMesh_xgtdw")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/Node3D4" unique_id=743550744]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 1.1, 1.25)
-mesh = SubResource("BoxMesh_xgtdw")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D/Node3D4" unique_id=1324558496]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.25, 1.1, 0)
-mesh = SubResource("BoxMesh_xgtdw")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/Node3D/Node3D4" unique_id=1839461159]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.25, 1.1, 0)
-mesh = SubResource("BoxMesh_xgtdw")
-skeleton = NodePath("../../../..")
-
-[node name="Node3D3" type="Node3D" parent="Node3D/Node3D" unique_id=1026268764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D/Node3D3" unique_id=1997409733]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0.5, -1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/Node3D/Node3D3" unique_id=344016119]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0, 0.5, 1.25)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/Node3D/Node3D3" unique_id=636204894]
-transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/Node3D/Node3D3" unique_id=1154176863]
-transform = Transform3D(-4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0, 1, 1.25, 0.5, 0)
-mesh = SubResource("PrismMesh_u627u")
-skeleton = NodePath("../../../..")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=563762143]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0, 1, -1.275, -0.075, 0)
+shape = SubResource("BoxShape3D_ww1ky")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1104189940]
 transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, -5, 0, 5, -2.1855695e-07, 0, 0, 0)
@@ -388,35 +199,8 @@ shaded = true
 texture_filter = 0
 texture = ExtResource("2_cexfy")
 
-[node name="lighthouse4" parent="." unique_id=1550972398 instance=ExtResource("4_u627u")]
+[node name="lighthouse" parent="." unique_id=1550972398 instance=ExtResource("4_u627u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0.25, 2.3)
-
-[node name="button" parent="." unique_id=1344810726 instance=ExtResource("5_yvv66")]
-transform = Transform3D(-3.0908616e-08, -3.090862e-08, 0.99999994, -0.7071067, 0.70710677, 0, -0.7071067, -0.70710677, -4.3711385e-08, 0, 1.025, 1.3)
-interaction_name = "start"
-handler_node = NodePath("..")
-
-[node name="button2" parent="." unique_id=449707663 instance=ExtResource("5_yvv66")]
-transform = Transform3D(-3.0908616e-08, -3.0908616e-08, -0.99999994, -0.7071067, 0.7071067, 0, 0.7071067, 0.7071067, -4.3711385e-08, 0, 1.025, -1.3)
-interaction_name = "start"
-handler_node = NodePath("..")
-
-[node name="button3" parent="." unique_id=63878006 instance=ExtResource("5_yvv66")]
-transform = Transform3D(0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 0, 0, 0.99999994, -1.3, 1.025, 0)
-interaction_name = "start"
-handler_node = NodePath("..")
-
-[node name="button4" parent="." unique_id=529658988 instance=ExtResource("5_yvv66")]
-transform = Transform3D(-0.7071067, 0.7071066, 0, -0.7071066, -0.7071067, 0, 0, 0, 0.99999994, 1.3, 1.025, 0)
-interaction_name = "start"
-handler_node = NodePath("..")
-
-[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=861739717]
-transform = Transform3D(25, 0, 0, 0, -1.0927847e-06, -25, 0, 25, -1.0927847e-06, 0, 3.01, 0)
-modulate = Color(0.76, 0.6429601, 0.17480001, 1)
-shaded = true
-texture_filter = 0
-texture = ExtResource("6_bxxb3")
 
 [node name="attack" type="Area3D" parent="." unique_id=102826565]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -460,6 +244,127 @@ pitch_scale = 2.0
 
 [node name="BulletSpawn" type="Marker3D" parent="." unique_id=35716350]
 transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 1.5, 0)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1951661942]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1092089998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14999962, 0.25, 0)
+mesh = SubResource("BoxMesh_mms8n")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D" unique_id=867042039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.45, 0)
+mesh = SubResource("BoxMesh_s2guc")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/MeshInstance3D" unique_id=1728764379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+mesh = SubResource("PrismMesh_g4v7s")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/MeshInstance3D" unique_id=446137177]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.375, 0, 0)
+mesh = SubResource("PrismMesh_s2guc")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=781737829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_vvaxq")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D2" unique_id=1378203399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.75, 0)
+mesh = SubResource("PrismMesh_26icm")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/MeshInstance3D2" unique_id=1098746180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -3.25, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D2" unique_id=341095927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D2" unique_id=2023014434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/MeshInstance3D2" unique_id=174795350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D3" unique_id=861933255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D3" unique_id=451480356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D/MeshInstance3D2" unique_id=187914587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.6, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D4" unique_id=491304657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D4" unique_id=1972123861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D/MeshInstance3D2" unique_id=1438241388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3.75, 0)
+mesh = SubResource("BoxMesh_26icm")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D5" unique_id=1017967429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/MeshInstance3D2/MeshInstance3D5" unique_id=1540354059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+light_color = Color(0.9882353, 0, 0.7137255, 1)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D" unique_id=1003183774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+mesh = SubResource("BoxMesh_banu5")
+skeleton = NodePath("../../..")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D/MeshInstance3D3" unique_id=1646785947]
+transform = Transform3D(7.5, 0, 0, 0, 7.5, 0, 0, 0, 7.5, 0.5, 1.5, -0.876)
+modulate = Color(0.76, 0.6429601, 0.17480001, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("6_bxxb3")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Node3D/MeshInstance3D3" unique_id=1666419631]
+transform = Transform3D(-7.5, 0, -6.556708e-07, 0, 7.5, 0, 6.556708e-07, 0, -7.5, 0.5, 1.5, 0.876)
+modulate = Color(0.76, 0.6429601, 0.17480001, 1)
+shaded = true
+texture_filter = 0
+texture = ExtResource("6_bxxb3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/MeshInstance3D3" unique_id=776407705]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, -1.75, 0)
+mesh = SubResource("PrismMesh_ww1ky")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/MeshInstance3D3" unique_id=496379182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+mesh = SubResource("PrismMesh_ww1ky")
+skeleton = NodePath("../../../..")
+
+[node name="button" parent="Node3D" unique_id=1344810726 instance=ExtResource("5_yvv66")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, -0.8000002, 1.35, 0)
+interaction_name = "start"
+handler_node = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2137755130]
+libraries/ = SubResource("AnimationLibrary_s2guc")
 
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

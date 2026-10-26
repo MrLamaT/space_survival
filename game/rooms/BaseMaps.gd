@@ -3,7 +3,6 @@ extends Node
 var world = Global.get_world(Global.game_settings.word)
 
 @export var env_scene: PackedScene
-@export var gravity: int = 1
 @export var portal: Node3D
 @export var weapons: Array[String] = ["Vibro Spike", "Taser", "Hornet", "inv", "inv"]
 @export var player_checkpoint: bool = false
@@ -18,8 +17,6 @@ func _ready() -> void:
 	if env_scene:
 		var env_instance = env_scene.instantiate()
 		add_child(env_instance)
-	if gravity == 0:
-		$Player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 	if portal:
 		portal.teleport_contents()
 	for slot_index in range(weapons.size()):

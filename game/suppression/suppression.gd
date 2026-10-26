@@ -9,13 +9,9 @@ var SpawnAudio = false
 func _ready() -> void:
 	if !ImpenetrableField:
 		is_active = false
-		$Node3D/Node3D/AnimationPlayer.play("start")
 		$attack/AnimationPlayer.play("attack")
 		$attack/CollisionShape3D.disabled = false
-		$button.queue_free()
-		$button2.queue_free()
-		$button3.queue_free()
-		$button4.queue_free()
+		$Node3D/button.queue_free()
 
 func handle_interaction(object_name: String):
 	match object_name:
@@ -50,7 +46,6 @@ func start_wave() -> void:
 
 func _on_wave_complete() -> void:
 	$Timer.stop()
-	$Node3D/Node3D/AnimationPlayer.play("start")
 	$attack/AnimationPlayer.play("attack")
 	$attack/CollisionShape3D.disabled = false
 	ImpenetrableField.on(true)

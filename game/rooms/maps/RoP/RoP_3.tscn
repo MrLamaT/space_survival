@@ -48,7 +48,6 @@ size = Vector3(1, 1.5, 1)
 [node name="RoP" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
 script = ExtResource("1_7vsbb")
 env_scene = ExtResource("2_wablc")
-gravity = 0
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "Taser", "inv", "inv", "inv"])
 earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
@@ -1154,7 +1153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0.52, 18)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.52, -10)
 
 [node name="Suppression7" parent="NavigationRegion3D" unique_id=1453891240 node_paths=PackedStringArray("ImpenetrableField") instance=ExtResource("21_mwmxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0.52, -27)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -46, 0.52, -27)
 ImpenetrableField = NodePath("../ImpenetrableField2")
 
 [node name="WaveMarker" parent="NavigationRegion3D/Suppression7" unique_id=991189368 instance=ExtResource("17_ik10i")]
@@ -1190,12 +1189,12 @@ enemy = "shooter"
 numberWave = 1
 
 [node name="WaveMarker11" parent="NavigationRegion3D/Suppression7" unique_id=428044548 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 5, 1, 0)
+transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, 5)
 enemy = "infantryman"
 numberWave = 2
 
 [node name="WaveMarker12" parent="NavigationRegion3D/Suppression7" unique_id=1579013655 instance=ExtResource("17_ik10i")]
-transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, -5, 1, 0)
+transform = Transform3D(-1.4731392, 0, -0.5892556, 0, 1, 0, 1.7677668, 0, -0.70710677, 0, 1, -5)
 enemy = "infantryman"
 numberWave = 2
 
@@ -1412,4 +1411,4 @@ debug_fill = false
 [node name="Spring" parent="." unique_id=1428768737 instance=ExtResource("12_0i53t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 0.5, -43.75)
 freeze = true
-jump_force = 10.0
+jump_force = 14.0

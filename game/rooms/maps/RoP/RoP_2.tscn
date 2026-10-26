@@ -69,7 +69,6 @@ material = SubResource("StandardMaterial3D_800fd")
 
 [node name="RoP" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
 script = ExtResource("1_and26")
-gravity = 0
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "Taser", "inv", "inv", "inv"])
 earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
@@ -627,17 +626,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -36.25)
 [node name="Laser" parent="NavigationRegion3D/floor_ceiling/corridor8" unique_id=2040103948 instance=ExtResource("14_ku5ek")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 2.234, 2.5)
 size_laser = 10.0
+period = 2
 damage = 25
 
 [node name="Laser2" parent="NavigationRegion3D/floor_ceiling/corridor8" unique_id=204831612 instance=ExtResource("14_ku5ek")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 1.234, 2.5)
 size_laser = 10.0
-damage = 25
-
-[node name="Laser3" parent="NavigationRegion3D/floor_ceiling/corridor8" unique_id=2136380678 instance=ExtResource("14_ku5ek")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 3.234, 2.5)
-size_laser = 10.0
-period = 2
 damage = 25
 
 [node name="corridor9" parent="NavigationRegion3D/floor_ceiling" unique_id=2122069074 instance=ExtResource("16_cnhd8")]
@@ -733,17 +727,12 @@ PipeRight = true
 [node name="Laser" parent="NavigationRegion3D/floor_ceiling/corridor2" unique_id=1498727282 instance=ExtResource("14_ku5ek")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 2.234, 2.5)
 size_laser = 10.0
+period = 2
 damage = 25
 
 [node name="Laser2" parent="NavigationRegion3D/floor_ceiling/corridor2" unique_id=1933496460 instance=ExtResource("14_ku5ek")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 1.234, 2.5)
 size_laser = 10.0
-damage = 25
-
-[node name="Laser3" parent="NavigationRegion3D/floor_ceiling/corridor2" unique_id=462968469 instance=ExtResource("14_ku5ek")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.0000896, 3.234, 2.5)
-size_laser = 10.0
-period = 2
 damage = 25
 
 [node name="metal" parent="NavigationRegion3D/floor_ceiling" unique_id=1120599015 instance=ExtResource("38_yuibf")]
