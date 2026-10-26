@@ -81,9 +81,9 @@ func _on_label_button_pressed(_id: String) -> void:
 		if Global.game_settings["gui_settings"]["Language"] == "русский":
 			await type_text($Panel/Label, "Движение
 W, A, S, D — передвижение
-Shift — бег
+Shift — рывок
 Space — прыжок
-C, ctrl — присесть
+Ctrl — скользить
 
 Взаимодействие с миром
 E — взаимодействие с объектами
@@ -95,9 +95,9 @@ F — включить/выключить фонарик
 		else:
 			await type_text($Panel/Label, "Movement
 W, A, S, D — movement
-Shift — sprint
+Shift — dash
 Space — jump
-C, Ctrl — crouch
+Ctrl — slide
 
 Interaction with the world
 E — interact with objects

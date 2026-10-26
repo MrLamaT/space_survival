@@ -210,7 +210,7 @@ omni_range = 10.0
 
 [node name="hologramText" parent="2" unique_id=866615671 instance=ExtResource("4_wot7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.997)
-textLabel_ru = "Зажмите ctrl, что бы скользить"
+textLabel_ru = "Зажмите Ctrl, что бы скользить"
 textLabel_en = "Hold down Ctrl to slide"
 
 [node name="3" type="NavigationRegion3D" parent="." unique_id=920126422]
@@ -258,8 +258,8 @@ jump_force = 9.0
 
 [node name="hologramText" parent="3" unique_id=565329897 instance=ExtResource("4_wot7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
-textLabel_ru = "Нажмите Shift + прыжок."
-textLabel_en = "Press shift + jump"
+textLabel_ru = "Нажмите Shift находясь в воздухе."
+textLabel_en = "Press Shift while in the air."
 
 [node name="4" type="NavigationRegion3D" parent="." unique_id=744626495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 0)

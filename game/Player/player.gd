@@ -15,6 +15,8 @@ extends CharacterBody3D
 @onready var hand_position = $hand_position
 @onready var hand_target: Marker3D = $head/Camera3D/HandTarget
 @onready var ground_ray = $GroundRay
+@onready var dash_sound: AudioStreamPlayer2D = $DashSound
+@onready var slide_sound: AudioStreamPlayer2D = $SlideSound
 
 var current_ground_type = "default" # Текущий тип поверхности под ногами
 
@@ -61,6 +63,8 @@ var movement_enabled: bool = true # Флаг возможности движен
 # ==================== ДИНАМИКА КАМЕРЫ ====================
 var camera_tilt_amount = 1.5  # градусы наклона при движении
 var camera_tilt_speed = 16.0   # скорость наклона
+var slide_camera_tilt: float = 3.0 # Боковой наклон при подкате
+var dash_camera_tilt: float = 5.0 # Боковой наклон при рывке
 var current_tilt = 0.0        # текущий наклон
 var thrown_camera: Node3D = null   # Ссылка на выброшенную камеру
 
@@ -75,6 +79,8 @@ var base_fov: float = 75.0  # базовое значение FOV
 var running_fov: float = 80.0  # FOV при беге
 var fov_transition_speed: float = 16.0  # скорость изменения FOV
 var current_fov: float = base_fov
+var slide_fov_boost: float = 7.0 # Расширение FOV при подкате
+var dash_fov_boost: float = 12.0 # Расширение FOV при рывке
 
 # ==================== СЛЭМ ====================
 var is_slamming: bool = false
@@ -216,8 +222,7 @@ func _ready():
 	add_child(health_system)
 	stamina_bar.max_value = max_stamina
 	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
-	base_fov = clampf(float(Global.game_settings.gui_settings.get("fov", 75.0)), 60.0, 110.0)
-	running_fov = minf(base_fov + 5.0, 115.0)
+	refresh_fov_settings()
 	current_fov = base_fov
 	cam.fov = base_fov
 
@@ -359,15 +364,9 @@ func _process(delta):
 
 # Обновляет стамину
 func _update_stamina(delta):
-	if is_dashing:
-		can_regenerate = false
-		regen_timer = 0.0
-		stamina_bar.value = stamina
-		return
-	if is_slamming:
-		can_regenerate = false
-		regen_timer = 0.0
-		if not infS:
+	if is_dashing or is_slamming:
+		delay_stamina_regeneration()
+		if is_slamming and not is_dashing and not infS:
 			stamina = maxf(
 				0.0,
 				stamina - stamina_depletion_rate * delta
@@ -428,39 +427,99 @@ func update_energy_display():
 
 # Обновляет FOV камеры в зависимости от скорости движения
 func _update_fov_effects(delta):
-	base_fov = clampf(float(Global.game_settings.gui_settings.get("fov", 75.0)), 60.0, 110.0)
-	running_fov = minf(base_fov + 5.0, 115.0)
+	refresh_fov_settings()
 	var target_fov = base_fov
-	if can_move() and input_dir.length() > 0.1:
-		var speed_factor = clamp(velocity.length() / SPEED, 0.0, 1.0)
-		target_fov = lerp(base_fov, running_fov, speed_factor)
-	current_fov = lerp(current_fov, target_fov, fov_transition_speed * delta)
+	if can_move():
+		if is_dashing:
+			target_fov = base_fov + dash_fov_boost
+		elif is_slamming or is_slide_jumping:
+			target_fov = base_fov + slide_fov_boost
+		else:
+			var horizontal_speed: float = Vector2(
+				velocity.x,
+				velocity.z
+			).length()
+			var speed_factor: float = clampf(
+				horizontal_speed / maxf(SPEED, 0.01),
+				0.0,
+				1.0
+			)
+			target_fov = lerpf(
+				base_fov,
+				running_fov,
+				speed_factor
+			)
+	target_fov = clampf(target_fov, 60.0, 115.0)
+	var blend: float = 1.0 - exp(-fov_transition_speed * delta)
+	current_fov = lerpf(current_fov, target_fov, blend)
 	cam.fov = current_fov
 
 # Обновляет динамику камеры (наклон, дыхание)
 func _update_camera_dynamics(delta):
-	var target_tilt = 0.0
-	if can_move() and input_dir.length() > 0.1:
-		target_tilt = -input_dir.x * camera_tilt_amount
-	current_tilt = lerp(current_tilt, target_tilt, camera_tilt_speed * delta)
+	var horizontal_velocity := Vector3(
+		velocity.x,
+		0.0,
+		velocity.z
+	)
+	var horizontal_speed: float = horizontal_velocity.length()
+	var target_tilt: float = 0.0
+	if can_move():
+		if is_dashing or is_slamming or is_slide_jumping:
+			var movement_direction: Vector3 = (
+				horizontal_velocity.normalized()
+			)
+			var camera_right: Vector3 = (
+				head.global_transform.basis.x.normalized()
+			)
+			var side_amount: float = clampf(
+				movement_direction.dot(camera_right),
+				-1.0,
+				1.0
+			)
+			var action_tilt: float = (
+				dash_camera_tilt if is_dashing
+				else slide_camera_tilt
+			)
+			target_tilt = -side_amount * action_tilt
+		elif input_dir.length() > 0.1:
+			target_tilt = -input_dir.x * camera_tilt_amount
+	var tilt_blend: float = 1.0 - exp(-camera_tilt_speed * delta)
+	current_tilt = lerpf(current_tilt, target_tilt, tilt_blend)
 	cam.rotation.z = deg_to_rad(current_tilt)
-	if can_move() and input_dir.length() < 0.1 and is_on_floor():
+	var target_camera_y: float = base_camera_position.y
+	if (
+		can_move()
+		and is_on_floor()
+		and horizontal_speed < 0.1
+		and not is_dashing
+		and not is_slamming
+		and not is_slide_jumping
+	):
 		breathing_time += delta * breathing_frequency
-		var breathing_offset = sin(breathing_time) * breathing_amplitude
-		cam.position.y = base_camera_position.y + breathing_offset
+		target_camera_y += sin(breathing_time) * breathing_amplitude
 	else:
-		cam.position.y = lerp(cam.position.y, base_camera_position.y, 5.0 * delta)
-		if input_dir.length() > 0.1:
-			breathing_time = 0.0
+		breathing_time = 0.0
+	var breathing_blend: float = 1.0 - exp(-5.0 * delta)
+	cam.position.y = lerpf(
+		cam.position.y,
+		target_camera_y,
+		breathing_blend
+	)
 
 # Основная физическая обработка игрока
 func _physics_process(delta):
 	_update_ui_labels()
-	if (
-		not can_move()
-		or SettingsManager.is_rebinding
-		or not Global.game_settings["affected_by_gravity"]
-	):
+	_update_movement(delta)
+	_handle_crouch_animation()
+	move_and_slide()
+	_handle_landing()
+	_handle_footsteps(delta)
+	interaction_manager.check_interactable()
+	_handle_shooting()
+
+# Обновляет состояния движения, стамину и скорость игрока
+func _update_movement(delta: float) -> void:
+	if not can_use_movement_actions():
 		is_slide_jumping = false
 	var dash_active_this_frame: bool = _handle_dash(delta)
 	if not dash_active_this_frame:
@@ -470,16 +529,11 @@ func _physics_process(delta):
 	if not dash_active_this_frame:
 		_handle_gravity_and_jump(delta)
 		_handle_movement_input(delta)
-	_handle_crouch_animation()
-	move_and_slide()
+
+# Сбрасывает состояние Slide Jump при приземлении
+func _handle_landing() -> void:
 	if is_on_floor():
 		is_slide_jumping = false
-	if dash_active_this_frame:
-		footstep_timer = 0.0
-	else:
-		_handle_footsteps(delta)
-	interaction_manager.check_interactable()
-	_handle_shooting()
 
 # Обрабатывает стрельбу
 func _handle_shooting():
@@ -490,11 +544,7 @@ func _handle_shooting():
 
 # Обрабатывает слэм
 func _handle_slam() -> void:
-	if not can_move() or SettingsManager.is_rebinding:
-		if is_slamming:
-			stop_slam()
-		return
-	if not Global.game_settings["affected_by_gravity"]:
+	if not can_use_movement_actions():
 		if is_slamming:
 			stop_slam()
 		return
@@ -532,14 +582,11 @@ func get_action_direction() -> Vector3:
 	action_direction.y = 0.0
 	return action_direction.normalized()
 
+# Запускает подкат в выбранном направлении
 func start_slam() -> void:
 	if is_slamming:
 		return
-	if not can_move() or SettingsManager.is_rebinding:
-		return
-	if not is_on_floor():
-		return
-	if not Global.game_settings["affected_by_gravity"]:
+	if not can_use_movement_actions() or not is_on_floor():
 		return
 	if stamina <= 0.0 and not infS:
 		return
@@ -548,19 +595,19 @@ func start_slam() -> void:
 		return
 	is_slamming = true
 	crouched = true
-	can_regenerate = false
-	regen_timer = 0.0
+	delay_stamina_regeneration()
 	footstep_timer = 0.0
 	update_running_speed()
+	slide_sound.play()
 
+# Завершает подкат и обновляет положение игрока
 func stop_slam() -> void:
 	if not is_slamming:
 		return
 	is_slamming = false
 	slam_direction = Vector3.ZERO
 	crouched = not Global.game_settings["CanStandUp"]
-	can_regenerate = false
-	regen_timer = 0.0
+	delay_stamina_regeneration()
 	update_running_speed()
 	if is_slide_jumping:
 		return
@@ -627,27 +674,46 @@ func _handle_movement_input(delta):
 
 # Обрабатывает анимацию приседания
 func _handle_crouch_animation():
-	if crouched:
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, crouching_collision_scale, 0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, crouching_collision_height, 0.4)
-		head.position.y = lerp(head.position.y, crouching_height, 0.3)
-	else:
-		$CollisionShape3D.scale.y = lerp($CollisionShape3D.scale.y, standing_collision_scale, 0.4)
-		$CollisionShape3D.position.y = lerp($CollisionShape3D.position.y, standing_collision_height, 0.4)
-		head.position.y = lerp(head.position.y, standing_height, 0.3)
+	var target_scale: float = (
+		crouching_collision_scale if crouched
+		else standing_collision_scale
+	)
+	var target_collision_height: float = (
+		crouching_collision_height if crouched
+		else standing_collision_height
+	)
+	var target_head_height: float = (
+		crouching_height if crouched
+		else standing_height
+	)
+	$CollisionShape3D.scale.y = lerp(
+		$CollisionShape3D.scale.y,
+		target_scale,
+		0.4
+	)
+	$CollisionShape3D.position.y = lerp(
+		$CollisionShape3D.position.y,
+		target_collision_height,
+		0.4
+	)
+	head.position.y = lerp(
+		head.position.y,
+		target_head_height,
+		0.3
+	)
 
 # Обрабатывает звуки шагов
 func _handle_footsteps(delta):
-	if is_slamming:
+	if is_dashing or is_slamming:
 		footstep_timer = 0.0
 		return
 	if Global.game_settings["affected_by_gravity"] and is_on_floor() and input_dir.length() > 0 and can_move():
 		footstep_timer += delta
 		if footstep_timer >= footstep_delay:
 			play_footstep()
-			footstep_timer = 0
+			footstep_timer = 0.0
 	else:
-		footstep_timer = 0
+		footstep_timer = 0.0
 
 # Обновляет текстовые метки UI (здоровье, координаты)
 func _update_ui_labels():
@@ -745,17 +811,21 @@ func update_running_speed():
 
 # Воспроизводит звук шага в зависимости от поверхности
 func play_footstep():
-	var step = detect_ground_material()
-	if can_move():
-		if step == "default":
-			footstep_player.pitch_scale = randf_range(0.9, 1.1)
-			footstep_player.play()
-		elif step == "grass":
-			footstep_player2.pitch_scale = randf_range(0.9, 1.1)
-			footstep_player2.play()
-		elif step == "metal":
-			footstep_player3.pitch_scale = randf_range(0.9, 1.1)
-			footstep_player3.play()
+	var ground_material = detect_ground_material()
+	if not can_move():
+		return
+	var selected_player: AudioStreamPlayer3D
+	match ground_material:
+		"default":
+			selected_player = footstep_player
+		"grass":
+			selected_player = footstep_player2
+		"metal":
+			selected_player = footstep_player3
+		_:
+			return
+	selected_player.pitch_scale = randf_range(0.9, 1.1)
+	selected_player.play()
 
 # Обрабатывает действие UI (открытие/закрытие)
 func handle_ui_action(ui_name: String) -> void:
@@ -829,12 +899,19 @@ func can_move() -> bool:
 		return false
 	return true
 
+# Проверяет доступность подката и рывка
+func can_use_movement_actions() -> bool:
+	return (
+		can_move()
+		and not SettingsManager.is_rebinding
+		and Global.game_settings["affected_by_gravity"]
+	)
+
+# Запускает рывок и списывает стамину
 func start_dash() -> void:
 	if is_dashing:
 		return
-	if not can_move() or SettingsManager.is_rebinding:
-		return
-	if not Global.game_settings["affected_by_gravity"]:
+	if not can_use_movement_actions():
 		return
 	if not infS and stamina < dash_stamina_cost:
 		return
@@ -843,8 +920,7 @@ func start_dash() -> void:
 		return
 	if not infS:
 		stamina = maxf(0.0, stamina - dash_stamina_cost)
-	can_regenerate = false
-	regen_timer = 0.0
+	delay_stamina_regeneration()
 	stamina_bar.value = stamina
 	is_slamming = false
 	is_slide_jumping = false
@@ -856,18 +932,18 @@ func start_dash() -> void:
 	footstep_timer = 0.0
 	velocity = dash_direction * dash_speed
 	update_running_speed()
+	slide_sound.stop()
+	dash_sound.play()
 
+# Сбрасывает состояние рывка
 func cancel_dash() -> void:
 	is_dashing = false
 	dash_timer = 0.0
 	dash_direction = Vector3.ZERO
 
+# Обновляет рывок и сообщает о его активности
 func _handle_dash(delta: float) -> bool:
-	if (
-		not can_move()
-		or SettingsManager.is_rebinding
-		or not Global.game_settings["affected_by_gravity"]
-	):
+	if not can_use_movement_actions():
 		cancel_dash()
 		return false
 	if is_dashing and dash_timer <= 0.0:
@@ -881,3 +957,16 @@ func _handle_dash(delta: float) -> bool:
 	velocity = dash_direction * dash_speed
 	velocity.y = 0.0
 	return true
+
+# Откладывает восстановление стамины
+func delay_stamina_regeneration() -> void:
+	can_regenerate = false
+	regen_timer = 0.0
+
+# Читает настройки базового и расширенного FOV
+func refresh_fov_settings() -> void:
+	var configured_fov: float = float(
+		Global.game_settings.gui_settings.get("fov", 75.0)
+	)
+	base_fov = clampf(configured_fov, 60.0, 110.0)
+	running_fov = minf(base_fov + 5.0, 115.0)

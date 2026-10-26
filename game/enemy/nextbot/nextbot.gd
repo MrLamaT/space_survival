@@ -52,7 +52,7 @@ func attack_player():
 			$hit.pitch_scale = randf_range(4, 6)
 			$hit.play()
 			if player.has_method("take_damage"):
-				player.take_damage(100000)
+				player.take_damage(100)
 			take_damage(100000)
 			attack_cooldown = ATTACK_COOLDOWN_TIME
 

@@ -15,8 +15,10 @@
 [ext_resource type="AudioStream" uid="uid://t63e3x7si58" path="res://assets/sound/flashlight.wav" id="15_higfp"]
 [ext_resource type="PackedScene" uid="uid://dmi02cwgjhplq" path="res://UI/music/music_audio.tscn" id="15_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://c3m8vyvv1glpq" path="res://assets/sound/damage.wav" id="16_s8fo2"]
+[ext_resource type="AudioStream" uid="uid://3alatblanu8n" path="res://assets/sound/slide.wav" id="17_higfp"]
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="17_s8fo2"]
 [ext_resource type="AudioStream" uid="uid://cn1jcy4apn3vv" path="res://assets/sound/charge-up.wav" id="18_5qjw8"]
+[ext_resource type="AudioStream" uid="uid://dqtorj7iawj86" path="res://assets/sound/dash.wav" id="18_sjfxt"]
 [ext_resource type="Script" uid="uid://be0c2c68v8jo2" path="res://game/Player/leg_damage.gd" id="23_q4qd6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al2fp"]
@@ -414,6 +416,14 @@ stream = ExtResource("15_higfp")
 [node name="spring" type="AudioStreamPlayer2D" parent="." unique_id=1174528615]
 stream = ExtResource("17_s8fo2")
 volume_db = -20.0
+
+[node name="SlideSound" type="AudioStreamPlayer2D" parent="." unique_id=1134684095]
+stream = ExtResource("17_higfp")
+volume_db = -5.0
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=1350424238]
+stream = ExtResource("18_sjfxt")
+volume_db = -10.0
 
 [node name="charge" type="AudioStreamPlayer2D" parent="." unique_id=1476595305]
 stream = ExtResource("18_5qjw8")
