@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://lt1nu8xyef00" path="res://assets/level/planetFlat.png" id="56_xnmou"]
 [ext_resource type="Texture2D" uid="uid://datw5qxkhsoyi" path="res://assets/textures/boundaryMesh.png" id="57_jk6ju"]
 [ext_resource type="Texture2D" uid="uid://562f1kinp4yi" path="res://assets/textures/wallpaper1.png" id="58_fw3wd"]
+[ext_resource type="Texture2D" uid="uid://crnfwyfhj500g" path="res://assets/icon/prop/feronLL.png" id="58_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 [ext_resource type="Texture2D" uid="uid://cchsbhyfsimkg" path="res://assets/textures/roof.png" id="60_5txe2"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="61_7addr"]
@@ -777,6 +778,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "music box"
 img = ExtResource("48_neoys")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card19" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=1001579807 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "feronLL"
+img = ExtResource("58_kwbp6")
 type = "props"
 target_node = NodePath("../../../../..")
 

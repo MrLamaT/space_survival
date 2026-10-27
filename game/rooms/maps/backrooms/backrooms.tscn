@@ -43,7 +43,7 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_86k74"]
 material = SubResource("StandardMaterial3D_jeau8")
 
-[node name="backrooms" type="Node3D" unique_id=1913855422]
+[node name="level" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_5sxko")
 weapons = Array[String](["Vibro Spike", "Taser", "Hornet", "Impulse", "Impulse"])
 player_checkpoint = true

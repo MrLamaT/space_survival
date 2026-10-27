@@ -16,8 +16,8 @@ collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1008519008]
 transform = Transform3D(0.6, 0, 0, 0, -0.6, 9.059749e-08, 0, -9.059749e-08, -0.6, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_xww5i")
 mesh = ExtResource("1_dcr4s")
-surface_material_override/0 = SubResource("StandardMaterial3D_xww5i")
 
 [node name="Barrel" parent="." unique_id=82198151 instance=ExtResource("1_8uhhh")]
 transform = Transform3D(-0.0050789337, 0, -0.9999871, 0, 1, 0, 0.9999871, 0, -0.0050789337, -0.306, 0.25, 0.453)

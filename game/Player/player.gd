@@ -861,13 +861,12 @@ func openUI(nameUI):
 
 # Показывает предупреждение на экране
 func warning(text):
-	if $head/Camera3D/label.visible == false:
+	if $head/Camera3D/label.modulate.a == 0:
 		$head/Camera3D/label.text = text
-		$head/Camera3D/label.visible = true
 		$head/Camera3D/warning.play("warning")
 		await get_tree().create_timer(5).timeout
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
-		$head/Camera3D/label.visible = false
+		$head/Camera3D/label.modulate.a = 0
 
 # Определяет материал поверхности под ногами
 func detect_ground_material():

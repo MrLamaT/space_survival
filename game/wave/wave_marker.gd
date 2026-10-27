@@ -47,7 +47,8 @@ const PROPS = {
 	"music box": "res://game/prop/column.tscn",
 	"light ball": "res://game/prop/lightball.tscn",
 	"beach ball": "res://game/prop/beachball.tscn",
-	"color ball": "res://game/prop/colorball.tscn"
+	"color ball": "res://game/prop/colorball.tscn",
+	"feronLL": "res://game/prop/feronLL.tscn"
 }
 var scene
 

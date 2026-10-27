@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://cyhpb2fq0on1c"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3nhvu5p4yudn" path="res://assets/models/feronLL.obj" id="1_i3738"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0uje"]
+size = Vector3(1.5, 3.3, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0uje"]
+albedo_color = Color(0.9882353, 0.7137255, 0.007843138, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnjlq"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej8gu"]
+shading_mode = 0
+albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+
+[node name="StreetLamp" type="RigidBody3D" unique_id=1748656771 groups=["prop"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1868613835]
+transform = Transform3D(0.49497473, 0, 0.49497473, 0, 0.7, 0, -0.49497473, 0, 0.49497473, 0, 0.425, 0)
+shape = SubResource("BoxShape3D_m0uje")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2106735378]
+transform = Transform3D(-3.8247464e-08, 0, 0.875, 0, 0.875, 0, -0.875, 0, -3.8247464e-08, 0, -0.75, 0)
+mesh = ExtResource("1_i3738")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/1 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/2 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/3 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/4 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/5 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/6 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/7 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/8 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/9 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/10 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/11 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/12 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/13 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/14 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/15 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/16 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/17 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/18 = SubResource("StandardMaterial3D_ej8gu")
+surface_material_override/19 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/20 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/21 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/22 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/23 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/24 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/25 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/26 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/27 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/28 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/29 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/30 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/31 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/32 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/33 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/34 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/35 = SubResource("StandardMaterial3D_ej8gu")
+surface_material_override/36 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/37 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/38 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/39 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/40 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/41 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/42 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/43 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/44 = SubResource("StandardMaterial3D_m0uje")
+surface_material_override/45 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/46 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/47 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/48 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/49 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/50 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/51 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/52 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/53 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/54 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/55 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/56 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/57 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/58 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/59 = SubResource("StandardMaterial3D_mnjlq")
+surface_material_override/60 = SubResource("StandardMaterial3D_mnjlq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D" unique_id=447435856]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.4, 2.292, 0)
+spot_range = 70.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="MeshInstance3D" unique_id=1097698561]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.4, 2.292, 0)
+spot_range = 70.0

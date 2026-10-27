@@ -17,10 +17,9 @@ agent_radius = 0.3
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1yh3"]
 size = Vector3(0.5, 1, 0.5)
 
-[node name="endless_parkour" type="Node3D" unique_id=1913855422]
+[node name="level" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_jgjwa")
 env_scene = ExtResource("2_xygor")
-gravity = 0
 weapons = Array[String](["Vibro Spike"])
 player_checkpoint = true
 

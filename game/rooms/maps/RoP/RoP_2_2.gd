@@ -9,3 +9,13 @@ func handle_interaction(object_name: String):
 				player.warning("Непробиваемое поле открылось")
 			else:
 				player.warning("The Impenetrable Field has opened")
+
+func activate_trigger(object_name: String):
+	match object_name:
+		"boss":
+			$floor_ceiling/room5/RisingRing.on()
+			$floor_ceiling/room5/RisingRing2.on()
+			$floor_ceiling/room5/RisingRing3.on()
+			$floor_ceiling/room5/RisingRing4.on()
+			$floor_ceiling/room5/RisingRing5.on()
+			$floor_ceiling/room5/RisingRing6.on()

@@ -39,7 +39,7 @@ bottom_radius = 0.25
 height = 10.0
 radial_segments = 32
 
-[node name="Mtr42" type="NavigationRegion3D" unique_id=573822879]
+[node name="level" type="NavigationRegion3D" unique_id=573822879]
 navigation_mesh = SubResource("NavigationMesh_htu6x")
 navigation_layers = 4
 

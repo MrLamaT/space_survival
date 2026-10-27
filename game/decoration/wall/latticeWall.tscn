@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckqg38pdvnigu"]
 
-[ext_resource type="Texture2D" uid="uid://bgr1shco8oahn" path="res://assets/textures/lattice.png" id="2_hcohb"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="3_mdqbu"]
+[ext_resource type="ArrayMesh" uid="uid://b3vf2td7noiqp" path="res://assets/models/lattice.obj" id="3_qvapj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6q4hf"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
@@ -27,15 +27,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0, 0)
 size = Vector3(0.5, 4, 0.25)
 material = SubResource("StandardMaterial3D_6q4hf")
 
-[node name="Sprite3D" type="Sprite3D" parent="wall" unique_id=1115792504]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
-shaded = true
-texture_filter = 0
-texture = ExtResource("2_hcohb")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=844559820]
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=539931473]
 shape = SubResource("BoxShape3D_pqpdn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=57159028]
+transform = Transform3D(1.815, 0, 0, 0, 2, 0, 0, 0, 1.815, 0, -2, 0)
+material_override = SubResource("StandardMaterial3D_6q4hf")
+mesh = ExtResource("3_qvapj")

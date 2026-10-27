@@ -21,11 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="17_w52mc"]
 [ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://game/decoration/wall/latticeWall.tscn" id="18_n2t2h"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="19_vu8ni"]
-[ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://game/decoration/feronLL505.tscn" id="19_w52mc"]
+[ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://game/prop/feronLL.tscn" id="19_w52mc"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://game/decoration/wall/impenetrableField.tscn" id="20_6xomq"]
 [ext_resource type="PackedScene" uid="uid://dwoyychcj82aq" path="res://game/decoration/ventilation_block.tscn" id="20_mh7cw"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://game/prop/barrel.tscn" id="20_yuibf"]
-[ext_resource type="PackedScene" uid="uid://35wxdachd6tm" path="res://game/decoration/ventilation_block2.tscn" id="21_n81jb"]
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://game/decoration/barrel2.tscn" id="21_rpmhb"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="22_ve0yt"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="23_54uxv"]
@@ -67,7 +66,7 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_kt463"]
 material = SubResource("StandardMaterial3D_800fd")
 
-[node name="RoP" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
+[node name="level" type="Node3D" unique_id=1913855422 node_paths=PackedStringArray("portal")]
 script = ExtResource("1_and26")
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "Taser", "inv", "inv", "inv"])
@@ -420,7 +419,8 @@ freeze = true
 transform = Transform3D(-7.5, 0, 1.3212133e-06, 0, 1, 0, -1.1324685e-06, 0, -8.75, -30, 0.183, -36)
 
 [node name="StreetLamp" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=1550972398 instance=ExtResource("19_w52mc")]
-transform = Transform3D(0.6060772, 0, -0.3502433, 0, 0.70000005, 0, 0.3502433, 0, 0.6060772, -27.5, 1.15, -33.5)
+transform = Transform3D(0.86582464, 0, -0.50034755, 0, 1, 0, 0.50034755, 0, 0.86582464, -27.5, 1.4, -33.5)
+freeze = true
 
 [node name="Barrel2" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=868428457 instance=ExtResource("20_yuibf")]
 transform = Transform3D(0.34202012, 0, -0.93969256, 0, 1, 0, 0.93969256, 0, 0.34202012, -29.75, 1.15, -38.45)
@@ -526,41 +526,11 @@ transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, 5.
 [node name="ventilation_block" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1098785356 instance=ExtResource("20_mh7cw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.25, -12.75)
 
-[node name="ventilation_block2" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=591772484 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.75, -12.75)
-
-[node name="ventilation_block3" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=2037755721 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5.75, -12.75)
-
-[node name="ventilation_block4" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=628704817 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 7.25, -12.75)
-
-[node name="ventilation_block5" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=498972469 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 8.75, -12.75)
-
-[node name="ventilation_block7" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=2134431432 instance=ExtResource("21_n81jb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4.25, -12.75)
-
 [node name="latticeWall2" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=436716869 instance=ExtResource("18_n2t2h")]
 transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, 5.45, 2.516, -22.9)
 
-[node name="ventilation_block6" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=636588773 instance=ExtResource("20_mh7cw")]
+[node name="ventilation_block2" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=636588773 instance=ExtResource("20_mh7cw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 1.25, -12.75)
-
-[node name="ventilation_block8" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=190518755 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 2.75, -12.75)
-
-[node name="ventilation_block9" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=54348913 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 5.75, -12.75)
-
-[node name="ventilation_block10" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1408396424 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 7.25, -12.75)
-
-[node name="ventilation_block11" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=316372772 instance=ExtResource("20_mh7cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 8.75, -12.75)
-
-[node name="ventilation_block12" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1613306679 instance=ExtResource("21_n81jb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 4.25, -12.75)
 
 [node name="PC" parent="NavigationRegion3D/floor_ceiling/room5" unique_id=1824689195 instance=ExtResource("10_e4kfk")]
 transform = Transform3D(-1, 0, -1.4570462e-07, 0, 1, 0, 5.2453668e-08, 0, -1, 8.225, 2.45, -13.816373)

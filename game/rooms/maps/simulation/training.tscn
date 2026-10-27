@@ -95,7 +95,7 @@ agent_radius = 0.3
 [sub_resource type="BoxShape3D" id="BoxShape3D_wmlfu"]
 size = Vector3(20, 1, 10)
 
-[node name="training" type="Node3D" unique_id=1913855422]
+[node name="level" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_wgrq1")
 env_scene = ExtResource("2_fs7wu")
 weapons = Array[String](["inv", "inv", "inv", "inv", "inv"])
