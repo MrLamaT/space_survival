@@ -138,6 +138,7 @@ var jump_cooldown_timer = 0.0
 var has_used_double_jump: bool = true # Флаг использования двойного прыжка
 
 var vertical_movement_speed = 5.0 # Скорость движения вверх/вниз при отключенной гравитации
+var flight_boost_multiplier: float = 3.0 # Ускорение полёта при удержании Shift
 
 # ==================== ИНЕРЦИЯ РУКИ ====================
 var hand_follow_speed = 15.0  # Скорость следования руки (чем больше, тем быстрее)
@@ -782,22 +783,19 @@ func force_stand_up():
 # Обрабатывает движение в режиме полета (при отключенной гравитации)
 func handle_flight_movement(delta):
 	input_dir = Input.get_vector("+a", "+d", "+w", "+s")
-	var cam_basis = cam.global_transform.basis
-	var flight_direction = Vector3.ZERO
-	if input_dir.length() > 0:
-		var forward = cam_basis.z  
-		var right = cam_basis.x    
-		flight_direction = (forward * input_dir.y) + (right * input_dir.x)
-		flight_direction = flight_direction.normalized()
-	if can_move() and flight_direction.length() > 0:
-		var target_velocity = flight_direction * float(SPEED)
-		velocity.x = lerp(velocity.x, target_velocity.x, accel * delta)
-		velocity.y = lerp(velocity.y, target_velocity.y, accel * delta)
-		velocity.z = lerp(velocity.z, target_velocity.z, accel * delta)
-	else:
-		velocity.x = lerp(velocity.x, 0.0, accel * delta)
-		velocity.y = lerp(velocity.y, 0.0, accel * delta)
-		velocity.z = lerp(velocity.z, 0.0, accel * delta)
+	var target_velocity := Vector3.ZERO
+	if can_move() and not SettingsManager.is_rebinding:
+		var cam_basis: Basis = cam.global_transform.basis
+		var flight_direction: Vector3 = (
+			cam_basis.z * input_dir.y
+			+ cam_basis.x * input_dir.x
+		).normalized()
+		var flight_speed: float = float(SPEED)
+		if Input.is_action_pressed("+shift"):
+			flight_speed *= flight_boost_multiplier
+		target_velocity = flight_direction * flight_speed
+	var blend: float = clampf(accel * delta, 0.0, 1.0)
+	velocity = velocity.lerp(target_velocity, blend)
 
 # Обновляет скорость бега
 func update_running_speed():
