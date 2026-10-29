@@ -13,7 +13,7 @@ func create_custom_material() -> void:
 		"White": "res://assets/hand/white/w_hand1.png",
 		"Prisoner": "res://assets/hand/prisoner/p_hand1.png"
 	}
-	var world = Global.get_world(Global.game_settings.word)
+	var world = Global.get_world(Global.game_settings.world)
 	var costume_key = world.get("costumes", "Classic")
 	var texture_path = costume_textures.get(costume_key, "res://assets/hand/classic/c_hand1.png")
 	var material = StandardMaterial3D.new()

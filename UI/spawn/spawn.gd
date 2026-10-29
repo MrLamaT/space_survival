@@ -1,22 +1,20 @@
 extends Node2D
 
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 
 func handle_card_pressed(type, id, color_img):
 	match type:
 		"gravity":
-			Global.game_settings["affected_by_gravity"] = true
+			var player = get_tree().get_first_node_in_group("player")
+			player.affected_by_gravity = true
 			match id:
 				"None":
-					Global.game_settings["affected_by_gravity"] = false
+					player.affected_by_gravity = false
 				"Terra":
-					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 				"Weak":
-					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") / 2
 				"Supermass":
-					var player = get_tree().get_first_node_in_group("player")
 					player.gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
 		"skybox":
 			match id:
@@ -70,20 +68,20 @@ func handle_card_pressed(type, id, color_img):
 			var hand_nodes = get_tree().get_nodes_in_group("hand")
 			for node in hand_nodes:
 				node.create_custom_material()
-			Global.save(Global.game_settings["word"])
+			Global.save(Global.game_settings["world"])
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()
 		"enemies":
-			Global.game_settings["summon"]["name"] = id
+			Global.summon["name"] = id
 			$Panel.visible = false
 			$Enemy_slot.visible = true
-			$Enemy_slot/CheckBox.button_pressed = Global.game_settings["summon"]["boss"]
-			$Enemy_slot/CheckBox2.button_pressed = Global.game_settings["summon"]["frozen"]
-			if int(Global.game_settings["summon"]["aura"]) > 0:
-				$Enemy_slot/LineEdit.text = str(int(Global.game_settings["summon"]["aura"]))
+			$Enemy_slot/CheckBox.button_pressed = Global.summon["boss"]
+			$Enemy_slot/CheckBox2.button_pressed = Global.summon["frozen"]
+			if int(Global.summon["aura"]) > 0:
+				$Enemy_slot/LineEdit.text = str(int(Global.summon["aura"]))
 		"props":
-			Global.game_settings["summon"]["name"] = id
+			Global.summon["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
@@ -105,7 +103,7 @@ func handle_card_pressed(type, id, color_img):
 			Global.game_settings["UI"] = false
 			queue_free()
 		"block":
-			Global.game_settings["summon_block"]["name"] = id
+			Global.summon_block["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Block")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
@@ -167,6 +165,13 @@ func handle_card_pressed(type, id, color_img):
 					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 					Global.game_settings["UI"] = false
 					queue_free()
+				"freeze enemies":
+					var player = get_tree().get_first_node_in_group("player")
+					Global.game_settings["FreezeEnemies"] = !Global.game_settings["FreezeEnemies"]
+					player.warning("Freeze enemies changed [" + str(Global.game_settings["FreezeEnemies"]) + "]")
+					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+					Global.game_settings["UI"] = false
+					queue_free()
 				"kill All":
 					var player = get_tree().get_first_node_in_group("player")
 					var enemies = get_tree().get_nodes_in_group("enemy")
@@ -213,9 +218,9 @@ func _on_label_button_pressed(id: String) -> void:
 				new_value = 0
 			if new_value > 10:
 				new_value = 10
-			Global.game_settings["summon"]["boss"] = $Enemy_slot/CheckBox.button_pressed
-			Global.game_settings["summon"]["frozen"] = $Enemy_slot/CheckBox2.button_pressed
-			Global.game_settings["summon"]["aura"] = new_value
+			Global.summon["boss"] = $Enemy_slot/CheckBox.button_pressed
+			Global.summon["frozen"] = $Enemy_slot/CheckBox2.button_pressed
+			Global.summon["aura"] = new_value
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false

@@ -9,9 +9,9 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("player"):  
 		if not can_stand_up:
-			Global.game_settings["CanStandUp"] = false
+			body.CanStandUp = false
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
-		Global.game_settings["CanStandUp"] = true
+		body.CanStandUp = true
 		body.force_stand_up()

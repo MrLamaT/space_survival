@@ -31,6 +31,13 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.5, 0.5, 0.5)
 
+[sub_resource type="SphereMesh" id="SphereMesh_b6bf4"]
+material = SubResource("StandardMaterial3D_rqphi")
+radius = 0.3
+height = 0.6
+radial_segments = 16
+rings = 16
+
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
 material = SubResource("StandardMaterial3D_rqphi")
 size = Vector3(0.375, 0.95, 0.225)
@@ -59,6 +66,20 @@ radial_segments = 16
 material = SubResource("StandardMaterial3D_rqphi")
 top_radius = 0.225
 bottom_radius = 0.262
+height = 0.3
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b6bf4"]
+material = SubResource("StandardMaterial3D_rqphi")
+top_radius = 0.3
+bottom_radius = 0.225
+height = 0.525
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qegfn"]
+material = SubResource("StandardMaterial3D_rqphi")
+top_radius = 0.225
+bottom_radius = 0.3
 height = 0.3
 radial_segments = 16
 
@@ -329,6 +350,15 @@ visible = false
 mesh = SubResource("BoxMesh_1tfyx")
 skeleton = NodePath("../../..")
 
+[node name="head3" type="Node3D" parent="body" unique_id=1940068523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35000005, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/head3" unique_id=1611787867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17499995, 0)
+mesh = SubResource("SphereMesh_b6bf4")
+skeleton = NodePath("../../..")
+
 [node name="hand1" type="Node3D" parent="body" unique_id=151550358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225, 0)
 
@@ -369,6 +399,20 @@ skeleton = NodePath("../../..")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body/body2" unique_id=876379834]
 transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, 0, -0.525, 0)
 mesh = SubResource("CylinderMesh_qtc01")
+skeleton = NodePath("../../..")
+
+[node name="body3" type="Node3D" parent="body" unique_id=26968500]
+transform = Transform3D(0.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26238135, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body/body3" unique_id=222230000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("CylinderMesh_b6bf4")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="body/body3" unique_id=2123229354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.675, 0)
+mesh = SubResource("CylinderMesh_qegfn")
 skeleton = NodePath("../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" unique_id=1858358337]

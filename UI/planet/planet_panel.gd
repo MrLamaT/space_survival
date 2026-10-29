@@ -1,6 +1,6 @@
 extends Control
 
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 
 @export var nameLevel = "1-1: RoP-856"
 @export var img: Texture

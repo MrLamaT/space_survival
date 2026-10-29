@@ -24,7 +24,7 @@ func _physics_process(_delta):
 		return
 	if not collider.get("enemyTags"):
 		return
-	collider["enemyTags"] = Global.game_settings["summon"]["enemyTags"]
+	collider["enemyTags"] = Global.summon["enemyTags"]
 	collider["player"] = null
 	if collider.has_method("start_chasing_player"):
 		collider.start_chasing_player()

@@ -17,10 +17,10 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") and !task:
 		hand_item.queue_free()
-		var world = Global.get_world(Global.game_settings.word)
+		var world = Global.get_world(Global.game_settings.world)
 		world["weapon"][slot - 1] = weapon
 		var weapon_system = body.weapon_system
 		weapon_system.weapon_slots[slot] = weapon
 		weapon_system.equip_weapon(weapon_system.weapon_slots.get(slot, ""))
 		task = true
-		Global.save(Global.game_settings["word"])
+		Global.save(Global.game_settings["world"])

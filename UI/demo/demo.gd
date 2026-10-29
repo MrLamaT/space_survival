@@ -18,4 +18,4 @@ func _on_label_button_pressed(id: String) -> void:
 			SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 
 func save():
-	Global.save(Global.game_settings["word"])
+	Global.save(Global.game_settings["world"])

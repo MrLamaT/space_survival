@@ -20,15 +20,27 @@ func _ready():
 	if randi_range(1, 2) == 1:
 		$body/head.visible = true
 		$body/head2.visible = false
-	else:
+		$body/head3.visible = false
+	elif randi_range(1, 2) == 1:
 		$body/head.visible = false
 		$body/head2.visible = true
+		$body/head3.visible = false
+	else:
+		$body/head.visible = false
+		$body/head2.visible = false
+		$body/head3.visible = true
 	if randi_range(1, 2) == 1:
 		$body/body.visible = true
 		$body/body2.visible = false
-	else:
+		$body/body3.visible = false
+	elif randi_range(1, 2) == 1:
 		$body/body.visible = false
 		$body/body2.visible = true
+		$body/body3.visible = false
+	else:
+		$body/body.visible = false
+		$body/body2.visible = false
+		$body/body3.visible = true
 	shatter_parts = [
 		$body/head,
 		$body/body,

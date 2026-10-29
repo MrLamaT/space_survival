@@ -11,8 +11,6 @@ func _get_boss_id() -> String:
 	return "stingray"
 	
 func _handle_death_process(delta):
-	if Global.game_settings["UI"] or Global.game_settings["GhostMod"]:
-		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if is_on_floor():

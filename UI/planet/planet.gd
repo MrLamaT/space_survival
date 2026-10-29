@@ -1,6 +1,6 @@
 extends Node2D
 
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:

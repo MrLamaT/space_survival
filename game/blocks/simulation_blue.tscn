@@ -13,7 +13,6 @@ uv1_world_triplanar = true
 texture_filter = 0
 
 [node name="wall" type="StaticBody3D" unique_id=295574921]
-transform = Transform3D(-4.371139e-08, -1, 0, -4.371139e-08, 1.9106855e-15, -1, 1, -4.371139e-08, -4.371139e-08, 0, 0, 0)
 collision_layer = 36
 collision_mask = 3
 

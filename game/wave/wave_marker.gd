@@ -59,7 +59,7 @@ func spawn(type):
 	var final_aura = 0
 	if enemy != "random":
 		final_aura = aura
-		if Global.get_world(Global.game_settings.word)["mode"] == 2:
+		if Global.get_world(Global.game_settings.world)["mode"] == 2:
 			if randf() < 0.1:
 				final_aura = aura + 1
 	else:

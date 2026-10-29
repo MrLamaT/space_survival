@@ -376,8 +376,7 @@ target_node = NodePath("../../../../..")
 [node name="card6" parent="Panel/ScrollContainer/VBoxContainer/GridContainer3" unique_id=2130005864 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Block"
-img = ExtResource("43_l5m7m")
-color_img = Color(0.19607843, 0.24705882, 0.09411765, 1)
+img = ExtResource("70_h60il")
 type = "weapon"
 target_node = NodePath("../../../../..")
 
@@ -1390,6 +1389,13 @@ target_node = NodePath("../../../../..")
 [node name="card8" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=79765106 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "ghost"
+img = ExtResource("81_kwbp6")
+type = "other"
+target_node = NodePath("../../../../..")
+
+[node name="card13" parent="Panel/ScrollContainer/VBoxContainer/GridContainer13" unique_id=591285752 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "freeze enemies"
 img = ExtResource("81_kwbp6")
 type = "other"
 target_node = NodePath("../../../../..")

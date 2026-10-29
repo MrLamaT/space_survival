@@ -99,13 +99,29 @@ func _build_block() -> void:
 			queue_free()
 			return
 	
-	var block_name = Global.game_settings.get("summon_block", {}).get("name", "")
-	
-	if block_name.to_lower() in COLORS:
-		_create_colored_block(place_position, block_name.to_lower())
+	var scheme = get_tree().get_first_node_in_group("block_scheme")
+	if scheme == null:
+		var scheme_scene = load(BLOCK_SCENES["scheme"]) as PackedScene
+		if scheme_scene == null:
+			queue_free()
+			return
+		var scheme_instance = scheme_scene.instantiate() as Node3D
+		if scheme_instance == null:
+			queue_free()
+			return
+		scheme_instance.add_to_group("block_scheme")
+		get_tree().current_scene.add_child(scheme_instance)
+		scheme_instance.global_position = place_position
+		queue_free()
+		return
+	var block_name: String = str(Global.summon_block.get("name", "")).to_lower()
+	if block_name == "scheme":
+		queue_free()
+		return
+	if block_name in COLORS:
+		_create_colored_block(place_position, block_name)
 	else:
-		_create_scene_block(place_position, block_name.to_lower())
-	
+		_create_scene_block(place_position, block_name)
 	queue_free()
 
 func _create_colored_block(block_position: Vector3, color_name: String) -> void:
@@ -143,28 +159,8 @@ func _create_colored_block(block_position: Vector3, color_name: String) -> void:
 		static_body.add_child(collision_shape)
 		get_tree().current_scene.add_child(static_body)
 		static_body.global_position = center
+		scheme.queue_free()
 		print("Цветной блок ", color_name, " растянут от block_scheme до ", block_position)
-	else:
-		var static_body = StaticBody3D.new()
-		static_body.collision_layer = 4  
-		static_body.collision_mask = 0
-		static_body.add_to_group("block")
-		var mesh_instance = MeshInstance3D.new()
-		var box_mesh = BoxMesh.new()
-		box_mesh.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-		var material = StandardMaterial3D.new()
-		material.albedo_color = COLORS[color_name]
-		box_mesh.material = material
-		mesh_instance.mesh = box_mesh
-		var collision_shape = CollisionShape3D.new()
-		var box_shape = BoxShape3D.new()
-		box_shape.size = Vector3(BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-		collision_shape.shape = box_shape
-		static_body.add_child(mesh_instance)
-		static_body.add_child(collision_shape)
-		get_tree().current_scene.add_child(static_body)
-		static_body.global_position = block_position
-		print("Цветной блок ", color_name, " поставлен на позиции: ", block_position)
 
 func _create_scene_block(block_position: Vector3, block_name: String) -> void:
 	var scene_path = BLOCK_SCENES.get(block_name)
@@ -181,7 +177,6 @@ func _create_scene_block(block_position: Vector3, block_name: String) -> void:
 	block_instance.add_to_group("block")
 	get_tree().current_scene.add_child(block_instance)
 	block_instance.global_position = block_position
-	var scale_factor = BLOCK_SIZE / 1.0 
 	var scheme = get_tree().get_first_node_in_group("block_scheme")
 	if scheme:
 		var start_position = scheme.global_position
@@ -199,7 +194,6 @@ func _create_scene_block(block_position: Vector3, block_name: String) -> void:
 		)
 		block_instance.global_position = center
 		block_instance.scale = Vector3(size_x,size_y,size_z)
+		scheme.queue_free()
 		print("Блок растянут от block_scheme до ", block_position)
 		return
-	block_instance.scale = Vector3(scale_factor, scale_factor, scale_factor)
-	print("Сцена блока ", block_name, " поставлена на позиции: ", block_position)

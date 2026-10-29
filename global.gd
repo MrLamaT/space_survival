@@ -6,7 +6,18 @@ var world_3: Dictionary
 var world_4: Dictionary
 var world_5: Dictionary
 
-var terminal_history: Array[Dictionary] = []
+var terminal_history: Array[Dictionary] = [] 
+var summon = {
+		"name": "phantom",
+		"aura": 0,
+		"enemyTags": "player",
+		"boss": false,
+		"frozen": false
+	}
+var summon_block = {
+		"name": "standard"
+	}
+var IsDying = false
 
 var bonus_level: Dictionary = {
 	1: "res://game/rooms/maps/backrooms/backrooms.tscn",
@@ -38,35 +49,19 @@ var game_settings: Dictionary = {
 		"fov": 75.0
 	},
 	"key_bindings": {},
-	"summon": {
-		"name": "phantom",
-		"aura": 0,
-		"enemyTags": "player",
-		"boss": false,
-		"frozen": false
-	},
-	"summon_block": {
-		"name": ""
-	},
-	"CanStandUp": true,
-	"IsDying": false,
-	"can_jump": true,
-	"affected_by_gravity": true,
-	"word": 1,
+	"world": 1,
 	"UI": false,
 	"UI_argument": null,
 	"GhostMod": false,
+	"FreezeEnemies": false,
 	"checkpoint": Vector3(0.0, 0.0, 0.0),
 	"min_y": -5.0,
 	"music": ""
 }
 
 func _ready():
-	reset_world_to_default(1)
-	reset_world_to_default(2)
-	reset_world_to_default(3)
-	reset_world_to_default(4)
-	reset_world_to_default(5)
+	for i in range(1, 6):
+		reset_world_to_default(i)
 	load_game_settings()
 	for i in range(1, 6):
 		load_world(i)

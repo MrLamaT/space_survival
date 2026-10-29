@@ -183,7 +183,7 @@ func handle_set_command(raw_args: String) -> void:
 			Global.game_settings[var_name] = new_value
 			SystemPrint("Global '%s' set to %s" % [var_name, str(new_value)])
 		"save":
-			var world = Global.get_world(Global.game_settings.word)
+			var world = Global.get_world(Global.game_settings.world)
 			if not world.has(var_name):
 				ErrorPrint("Save key not found: " + var_name)
 				return
@@ -308,7 +308,7 @@ func parse_command(text: String):
 						SystemPrint(str(key) + " " + str(Global.game_settings[key]))
 				"save":
 					SystemPrint("--- SAVE ---")
-					var world = Global.get_world(Global.game_settings.word)
+					var world = Global.get_world(Global.game_settings.world)
 					for key in world.keys():
 						SystemPrint(str(key) + " " + str(world[key]))
 				"player":
@@ -350,7 +350,7 @@ func parse_command(text: String):
 		"sand", "sandbox", "test":
 			SceneManager.load_scene_with_loading("res://game/rooms/maps/sandbox.tscn")
 		"save":
-			Global.save(Global.game_settings["word"])
+			Global.save(Global.game_settings["world"])
 			SystemPrint("World saved successfully")
 		"quit", "exit":
 			get_tree().quit()

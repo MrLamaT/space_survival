@@ -140,7 +140,7 @@ func _process(delta):
 	handle_weapon_input()
 
 func handle_weapon_input():
-	if Global.game_settings["IsDying"] or Global.game_settings["UI"]:
+	if Global.IsDying or Global.game_settings["UI"]:
 		return
 	if player and not player.movement_enabled:
 		return
@@ -253,7 +253,7 @@ func shoot(is_alt: bool = false):
 		return
 	if current_weapon_name == "" or not weapons.has(current_weapon_name):
 		return
-	if not player.movement_enabled or Global.game_settings["IsDying"]:
+	if not player.movement_enabled or Global.IsDying:
 		return
 	var weapon_data = weapons[current_weapon_name]
 	var alt_data = weapon_data.get("alt")

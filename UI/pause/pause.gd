@@ -29,4 +29,4 @@ func _on_label_button_pressed(id: String) -> void:
 			queue_free()
 
 func save():
-	Global.save(Global.game_settings["word"])
+	Global.save(Global.game_settings["world"])

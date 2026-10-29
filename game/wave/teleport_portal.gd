@@ -1,7 +1,7 @@
 extends MeshInstance3D
 
 @export var level = -1
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -18,6 +18,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		else:
 			if world["level"] <= level:
 				world["level"] = level + 1
-			Global.save(Global.game_settings["word"])
+			Global.save(Global.game_settings["world"])
 			body.set_movement_enabled(false)
 			SceneManager.load_scene_with_loading(Global.bonus_level.get(level))

@@ -2,7 +2,7 @@ extends StaticBody3D
 
 @export var skin = 0
 @export var level = 0
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 var is_animating = false
 var cubes = []
 var win_anim = false
@@ -97,7 +97,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			win_anim = true
 		if world["level"] <= level:
 			world["level"] = level + 1
-		Global.save(Global.game_settings["word"])
+		Global.save(Global.game_settings["world"])
 		body.set_movement_enabled(false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		body.global_position = global_position

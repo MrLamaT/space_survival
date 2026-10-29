@@ -42,5 +42,5 @@ func _on_label_button_pressed(id: String) -> void:
 				SceneManager.load_scene_with_loading(level_path)
 			else:
 				SceneManager.load_scene_with_loading("res://UI/planet/planet.tscn")
-			Global.game_settings["word"] = world_index
-			print(Global.game_settings["word"])
+			Global.game_settings["world"] = world_index
+			print(Global.game_settings["world"])

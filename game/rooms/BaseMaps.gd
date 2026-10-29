@@ -1,6 +1,6 @@
 extends Node
 
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 
 @export var env_scene: PackedScene
 @export var portal: Node3D

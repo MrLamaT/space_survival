@@ -21,7 +21,7 @@ func update(delta: float) -> void:
 	_check_killzone()
 
 func take_damage(amount: float) -> void:
-	if not player or Global.game_settings["IsDying"] or damage_cooldown > 0.0:
+	if not player or Global.IsDying or damage_cooldown > 0.0:
 		return
 	if not player.GodMod:
 		health -= amount
@@ -33,7 +33,7 @@ func take_damage(amount: float) -> void:
 	health = minf(health, 100.0)
 
 func apply_poison(amount: float) -> void:
-	if not player or Global.game_settings["IsDying"] or player.GodMod:
+	if not player or Global.IsDying or player.GodMod:
 		return
 	poison_damage = amount
 	poison_duration = 8.0
@@ -41,7 +41,7 @@ func apply_poison(amount: float) -> void:
 	is_poisoned = true
 
 func _process_poison(delta: float) -> void:
-	if not is_poisoned or not player or Global.game_settings["IsDying"]:
+	if not is_poisoned or not player or Global.IsDying:
 		return
 	if poison_duration > 0.0:
 		poison_duration -= delta
@@ -60,9 +60,9 @@ func _process_poison(delta: float) -> void:
 		poison_damage = 0.0
 
 func player_death() -> void:
-	if Global.game_settings["IsDying"]:
+	if Global.IsDying:
 		return
-	Global.game_settings["IsDying"] = true
+	Global.IsDying = true
 	player.object_holder.release(false)
 	for enemy in player.get_tree().get_nodes_in_group("enemy"):
 		if enemy.has_method("ResetHealth"):
@@ -84,7 +84,7 @@ func player_death() -> void:
 	respawn_player()
 
 func respawn_player() -> void:
-	Global.save(Global.game_settings["word"])
+	Global.save(Global.game_settings["world"])
 	player.global_position = Global.game_settings["checkpoint"]
 	player.velocity = Vector3.ZERO
 	player.is_slamming = false
@@ -92,7 +92,7 @@ func respawn_player() -> void:
 	player.cancel_dash()
 	player.slam_direction = Vector3.ZERO
 	player.update_running_speed()
-	Global.game_settings["IsDying"] = false
+	Global.IsDying = false
 	player.movement_enabled = true
 	player.get_node("head/Camera3D/UI").visible = true
 	player.get_node("hand_position").visible = true

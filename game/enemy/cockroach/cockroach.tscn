@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dh0v4wos4c0b1" path="res://game/enemy/cockroach/cockroach.gd" id="1_e015f"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_460sa"]
-[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="3_vugxl"]
+[ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="3_euh2a"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="4_vugxl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
 size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="PrismMesh" id="PrismMesh_460sa"]
-material = ExtResource("3_vugxl")
+material = ExtResource("3_euh2a")
 size = Vector3(0.25, 0.05, 0.25)
 
 [sub_resource type="Animation" id="Animation_ju8ud"]
@@ -75,7 +75,7 @@ _data = {
 }
 
 [sub_resource type="PrismMesh" id="PrismMesh_e015f"]
-material = ExtResource("3_vugxl")
+material = ExtResource("3_euh2a")
 size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="Animation" id="Animation_y5ww8"]

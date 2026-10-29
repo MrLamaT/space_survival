@@ -5,12 +5,12 @@ var current_item_id: String = ""
 func handle_card_pressed(type, id, _color_img):
 	match type:
 		"costumes":
-			var world = Global.get_world(Global.game_settings.word)
+			var world = Global.get_world(Global.game_settings.world)
 			world["costumes"] = id
 			var hand_nodes = get_tree().get_nodes_in_group("hand")
 			for node in hand_nodes:
 				node.create_custom_material()
-			Global.save(Global.game_settings["word"])
+			Global.save(Global.game_settings["world"])
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false
 			queue_free()

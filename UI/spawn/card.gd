@@ -13,7 +13,7 @@ func _ready() -> void:
 	$Panel/card.modulate = color_img
 	
 	if price > 0:
-		var world_data = Global.get_world(Global.game_settings.word)
+		var world_data = Global.get_world(Global.game_settings.world)
 		var found_count = 0
 		for i in range(1, price + 1):
 			var key = str(text) + "_" + str(i)

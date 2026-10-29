@@ -8,7 +8,7 @@ var error_color := Color("ff0000")
 @onready var chat_text = $Panel/RichTextLabel
 
 var player: CharacterBody3D
-var world = Global.get_world(Global.game_settings.word)
+var world = Global.get_world(Global.game_settings.world)
 var MessageID = Global.game_settings["UI_argument"]
 
 func _ready():

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://doe82o2u6jcbf" path="res://game/enemy/stingray/stingray.gd" id="1_54la3"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_0jx2a"]
 [ext_resource type="AudioStream" uid="uid://bdktyolepse0e" path="res://assets/sound/whate3.wav" id="3_54la3"]
-[ext_resource type="Material" uid="uid://bxc3eyx5mveqp" path="res://assets/material/materialPhantom.tres" id="4_bwb0x"]
+[ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_15e6q"]
 [ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="5_0plv1"]
 [ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/item/beam_projectile/Beam_spawn.tscn" id="6_l8e10"]
 
@@ -11,15 +11,15 @@
 size = Vector3(2.5, 0.1, 2.5)
 
 [sub_resource type="PrismMesh" id="PrismMesh_460sa"]
-material = ExtResource("4_bwb0x")
+material = ExtResource("4_15e6q")
 size = Vector3(2.5, 2.5, 0.1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_yfwe0"]
-material = ExtResource("4_bwb0x")
+material = ExtResource("4_15e6q")
 size = Vector3(0.6, 0.6, 0.1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_msqjr"]
-material = ExtResource("4_bwb0x")
+material = ExtResource("4_15e6q")
 size = Vector3(0.225, 1.25, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cudbv"]
