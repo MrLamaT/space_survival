@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://clmin385tevr1"]
+
+[ext_resource type="Script" uid="uid://d3874kafpk1p2" path="res://game/decoration/wall/elevator.gd" id="1_604ha"]
+[ext_resource type="PackedScene" uid="uid://c2yyywgpuuaup" path="res://game/blocks/plank.tscn" id="2_604ha"]
+[ext_resource type="PackedScene" uid="uid://bdow2o2gyw6bg" path="res://game/blocks/roof.tscn" id="3_q3jr1"]
+[ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="4_q3jr1"]
+[ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://game/decoration/light.tscn" id="4_t23cx"]
+[ext_resource type="PackedScene" uid="uid://vp6d2sdlmwdf" path="res://game/decoration/ventilation.tscn" id="5_olg67"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="6_6vvfp"]
+[ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="6_olg67"]
+[ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://game/decoration/wall/wall_pillar.tscn" id="7_6vvfp"]
+[ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://game/decoration/button.tscn" id="9_5eino"]
+[ext_resource type="PackedScene" uid="uid://ckqg38pdvnigu" path="res://game/decoration/wall/latticeWall.tscn" id="10_q3jr1"]
+[ext_resource type="AudioStream" uid="uid://ghi83jpu8s8j" path="res://assets/sound/elevator_door.wav" id="12_olg67"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dbuq"]
+size = Vector3(5, 1, 7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_11g11"]
+material = ExtResource("6_6vvfp")
+
+[sub_resource type="Animation" id="Animation_604ha"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody3D/elev/latticeWall:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D/AudioDoor:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_t23cx"]
+resource_name = "down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [30.0, 30.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody3D/elev/latticeWall:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [5.5, 2.25, 2.25, 5.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D/AudioDoor:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q3jr1"]
+resource_name = "up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 30.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody3D/elev/latticeWall:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [5.5, 2.25, 2.25, 5.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D/AudioDoor:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t23cx"]
+_data = {
+&"RESET": SubResource("Animation_604ha"),
+&"down": SubResource("Animation_t23cx"),
+&"up": SubResource("Animation_q3jr1")
+}
+
+[node name="elevator" type="Node3D" unique_id=2055780126]
+script = ExtResource("1_604ha")
+
+[node name="wallGates" parent="." unique_id=1992864570 instance=ExtResource("6_olg67")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -3.75)
+unlocked = true
+
+[node name="button" parent="." unique_id=287696276 instance=ExtResource("9_5eino")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 2, -4.5)
+interaction_name = "call_down"
+handler_node = NodePath("..")
+
+[node name="button2" parent="." unique_id=403382348 instance=ExtResource("9_5eino")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45, 32, -4.5)
+interaction_name = "call_up"
+handler_node = NodePath("..")
+
+[node name="wallGates2" parent="." unique_id=1533157946 instance=ExtResource("6_olg67")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 30, -3.75)
+
+[node name="wall" parent="." unique_id=27622155 instance=ExtResource("7_6vvfp")]
+transform = Transform3D(4.75, 0, 0, 0, 2.25, 0, 0, 0, 0.25, 0, 7.5, -4.15)
+
+[node name="wall3" parent="." unique_id=1609011729 instance=ExtResource("7_6vvfp")]
+transform = Transform3D(-4.371139e-08, -0.6, 0, 1, -2.6226834e-08, 0, 0, 0, 0.6, 2.75, 0, -4.1)
+
+[node name="wall4" parent="." unique_id=557616041 instance=ExtResource("7_6vvfp")]
+transform = Transform3D(-4.371139e-08, -0.6, 0, 1, -2.6226834e-08, 0, 0, 0, 0.6, 2.75, 30, -4.1)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=311767155]
+collision_layer = 36
+collision_mask = 3
+
+[node name="elev" type="Node3D" parent="AnimatableBody3D" unique_id=1476050677]
+
+[node name="metal" parent="AnimatableBody3D/elev" unique_id=1357790181 instance=ExtResource("4_q3jr1")]
+transform = Transform3D(-4.371139e-09, 0, 3.5, 0, 5, 0, -0.1, 0, -1.5298986e-07, 0, 2.75, 1.75)
+
+[node name="plank" parent="AnimatableBody3D/elev" unique_id=1486646960 instance=ExtResource("2_604ha")]
+transform = Transform3D(-2.4041263e-08, 0, 2.55, 0, 0.25, 0, -0.55, 0, -1.1146404e-07, 0, 1.25, 1.5)
+
+[node name="plank2" parent="AnimatableBody3D/elev" unique_id=1584472368 instance=ExtResource("2_604ha")]
+transform = Transform3D(-6.5567085e-09, 0, 3.5, 0, 0.25, 0, -0.15, 0, -1.5298986e-07, 0, 1.25, 1.75)
+
+[node name="plank3" parent="AnimatableBody3D/elev" unique_id=1563241830 instance=ExtResource("2_604ha")]
+transform = Transform3D(0.15, 0, 0, 0, 0.25, 0, 0, 0, 6.05, -1.75, 1.25, -0.5)
+
+[node name="plank4" parent="AnimatableBody3D/elev" unique_id=326869068 instance=ExtResource("2_604ha")]
+transform = Transform3D(0.15, 0, 0, 0, 0.25, 0, 0, 0, 6.05, 1.75, 1.25, -0.5)
+
+[node name="metal2" parent="AnimatableBody3D/elev" unique_id=568732344 instance=ExtResource("4_q3jr1")]
+transform = Transform3D(-2.1855694e-08, 0, 2.5, 0, 5, 0, -0.5, 0, -1.09278474e-07, 0, 2.75, 1.5)
+
+[node name="metal3" parent="AnimatableBody3D/elev" unique_id=1495288409 instance=ExtResource("4_q3jr1")]
+transform = Transform3D(0.1, 0, 0, 0, 5, 0, 0, 0, 6, 1.75, 2.75, -0.5)
+
+[node name="metal4" parent="AnimatableBody3D/elev" unique_id=1609025914 instance=ExtResource("4_q3jr1")]
+transform = Transform3D(0.1, 0, 0, 0, 5, 0, 0, 0, 6, -1.75, 2.75, -0.5)
+
+[node name="roof" parent="AnimatableBody3D/elev" unique_id=626963753 instance=ExtResource("3_q3jr1")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 7, 0, 4.5, 0)
+
+[node name="Light" parent="AnimatableBody3D/elev/roof" unique_id=153195712 instance=ExtResource("4_t23cx")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.175)
+
+[node name="ventilation" parent="AnimatableBody3D/elev/roof" unique_id=1928639244 instance=ExtResource("5_olg67")]
+transform = Transform3D(0.5, 0, 0, 0, -7.8243385e-09, -1, 0, 0.179, -4.371139e-08, 0, -0.55, 0.071)
+
+[node name="wall" parent="AnimatableBody3D/elev" unique_id=1783133379 instance=ExtResource("7_6vvfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -3.5)
+
+[node name="wall2" parent="AnimatableBody3D/elev" unique_id=1140336854 instance=ExtResource("7_6vvfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -3.5)
+
+[node name="button" parent="AnimatableBody3D/elev" unique_id=1344810726 instance=ExtResource("9_5eino")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2, -2)
+interaction_name = "down"
+handler_node = NodePath("../../..")
+
+[node name="button2" parent="AnimatableBody3D/elev" unique_id=2098725613 instance=ExtResource("9_5eino")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 2.45, -2)
+interaction_name = "up"
+handler_node = NodePath("../../..")
+
+[node name="latticeWall" parent="AnimatableBody3D/elev" unique_id=1337111662 instance=ExtResource("10_q3jr1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=1301444334]
+shape = SubResource("BoxShape3D_6dbuq")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=1764771033]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0)
+mesh = SubResource("BoxMesh_11g11")
+
+[node name="AudioDoor" type="AudioStreamPlayer3D" parent="AnimatableBody3D" unique_id=1412127026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+stream = ExtResource("12_olg67")
+volume_db = -25.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=330721062]
+libraries/ = SubResource("AnimationLibrary_t23cx")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

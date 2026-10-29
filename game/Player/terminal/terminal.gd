@@ -15,7 +15,9 @@ var error_color := Color("ff0000")
 var player: CharacterBody3D
 
 func _ready():
-	SystemPrint("The system is running")
+	restore_terminal_history()
+	if Global.terminal_history.is_empty():
+		SystemPrint("The system is running")
 	player = get_tree().get_first_node_in_group("player")
 	_create_custom_scripts_folder()
 
@@ -82,20 +84,32 @@ func get_current_time() -> String:
 	var time = Time.get_time_dict_from_system()
 	return "[%02d:%02d:%02d]" % [time.hour, time.minute, time.second]
 
-func SystemPrint(text: String):
-	chat_text.push_color(system_color)
-	chat_text.add_text(get_current_time() + " SYSTEM: " + text + "\n")
+func add_terminal_message(prefix: String, text: String, color: Color) -> void:
+	var entry := {
+		"text": get_current_time() + " " + prefix + ": " + text + "\n",
+		"color": color
+	}
+	Global.terminal_history.append(entry)
+	render_terminal_message(entry)
+
+func render_terminal_message(entry: Dictionary) -> void:
+	chat_text.push_color(entry["color"])
+	chat_text.add_text(entry["text"])
 	chat_text.pop()
 
-func ErrorPrint(text: String):
-	chat_text.push_color(error_color)
-	chat_text.add_text(get_current_time() + " ERROR: " + text + "\n")
-	chat_text.pop()
+func restore_terminal_history() -> void:
+	chat_text.clear()
+	for entry in Global.terminal_history:
+		render_terminal_message(entry)
 
-func UserPrint(text: String):
-	chat_text.push_color(user_color)
-	chat_text.add_text(get_current_time() + " YOU: " + text + "\n")
-	chat_text.pop()
+func SystemPrint(text: String) -> void:
+	add_terminal_message("SYSTEM", text, system_color)
+
+func ErrorPrint(text: String) -> void:
+	add_terminal_message("ERROR", text, error_color)
+
+func UserPrint(text: String) -> void:
+	add_terminal_message("YOU", text, user_color)
 
 func _on_send_pressed(_arg = null):
 	var text = input_box.text.strip_edges()
@@ -341,7 +355,8 @@ func parse_command(text: String):
 		"quit", "exit":
 			get_tree().quit()
 		"clear":
-			chat_text.text = ""
+			Global.terminal_history.clear()
+			chat_text.clear()
 		"message", "msg":
 			if raw_args == "":
 				ErrorPrint("Usage: msg <text>")

@@ -56,3 +56,8 @@ func _teleport_player(player: Node3D) -> void:
 	root_node.remove_child(current_region)
 	current_region.queue_free()
 	is_loading = false
+
+func teleport_contents():
+	var player = get_tree().get_first_node_in_group("player")
+	player.global_position = self.global_position
+	Global.game_settings["checkpoint"] = player.global_position

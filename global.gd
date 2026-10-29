@@ -6,6 +6,8 @@ var world_3: Dictionary
 var world_4: Dictionary
 var world_5: Dictionary
 
+var terminal_history: Array[Dictionary] = []
+
 var bonus_level: Dictionary = {
 	1: "res://game/rooms/maps/backrooms/backrooms.tscn",
 	2: "res://game/rooms/maps/RoP/fnaf.tscn",

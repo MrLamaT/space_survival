@@ -76,6 +76,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="corridorLoad2" parent="." unique_id=2055780126 instance=ExtResource("4_3bpnc")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 30.25)
+isFullSceneLoad = true
 next_corridor_scene = ExtResource("4_3w7ur")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1564148054]

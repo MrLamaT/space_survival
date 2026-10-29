@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://vp6d2sdlmwdf"]
+
+[ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="2_ntw6t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqoej"]
+albedo_texture = ExtResource("2_ntw6t")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_biire"]
+material = SubResource("StandardMaterial3D_rqoej")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8pyo"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ub2wn"]
+material = SubResource("StandardMaterial3D_u8pyo")
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkmqe"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fp0bw"]
+material = SubResource("StandardMaterial3D_tkmqe")
+size = Vector3(1.2, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83n5t"]
+size = Vector3(1, 1, 0.25)
+
+[node name="ventilation" type="StaticBody3D" unique_id=2114936078]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1819731911]
+mesh = SubResource("QuadMesh_biire")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2131728359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=579649777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+mesh = SubResource("BoxMesh_ub2wn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=257079276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_fp0bw")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=657822719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_fp0bw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1181485998]
+shape = SubResource("BoxShape3D_83n5t")

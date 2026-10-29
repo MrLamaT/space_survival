@@ -298,9 +298,11 @@ freeze = true
 
 [node name="HpBoost2" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=1927433888 instance=ExtResource("16_otutm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34, 0.49999997, -16.25)
+freeze = true
 
 [node name="HpBoost3" parent="NavigationRegion3D/floor_ceiling/room4" unique_id=622572424 instance=ExtResource("16_otutm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31, 0.49999997, -16.25)
+freeze = true
 
 [node name="room5" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1494883876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 27)

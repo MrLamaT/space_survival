@@ -55,7 +55,7 @@ func _get_boss_id() -> String:
 	return "phantom observer"
 
 func _process_enemy_watch(_delta):
-	if player and global_position.distance_to(player.global_position) < 10.0:
+	if player and global_position.distance_to(player.global_position) < 15.0:
 		create_portal(global_position)
 		queue_free()
 	move_and_slide()
