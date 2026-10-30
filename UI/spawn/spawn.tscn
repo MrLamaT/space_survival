@@ -1290,13 +1290,6 @@ color_img = Color(0.047058824, 0.7764706, 0.8, 1)
 type = "block"
 target_node = NodePath("../../../../..")
 
-[node name="card14" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1177310900 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
-layout_mode = 2
-text = "scheme"
-img = ExtResource("12_hcli3")
-type = "block"
-target_node = NodePath("../../../../..")
-
 [node name="card16" parent="Panel/ScrollContainer/VBoxContainer/GridContainer15" unique_id=1591018212 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "standard"

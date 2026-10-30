@@ -1,7 +1,19 @@
 extends Node3D
 
-var _pierce_left: int = 2 
-var damage: int = 10
+@export var _pierce_left: int = 2 
+@export var damage: int = 10
+@export var color: Color = Color("00d9ff")
+
+func _ready() -> void:
+	$OmniLight3D.light_color = color
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_color = color
+	$Node3D/MeshInstance3D.material_override = material
+	var overlay := StandardMaterial3D.new()
+	overlay.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	overlay.albedo_color = color.darkened(0.6)
+	$Node3D/MeshInstance3D2.material_overlay = overlay
 
 func shoot(dir: Vector3, _spd: float):
 	if dir.length() < 0.01:

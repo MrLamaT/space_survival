@@ -4,10 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrsja"]
 shading_mode = 0
-albedo_color = Color(0, 0.85000014, 1, 0.5882353)
+albedo_color = Color(0, 0.8509804, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
-material = SubResource("StandardMaterial3D_rrsja")
 size = Vector2(2, 0.05)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk4dk"]
@@ -15,7 +14,6 @@ shading_mode = 0
 albedo_color = Color(0, 0.34000006, 0.4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wkaul"]
-material = SubResource("StandardMaterial3D_qk4dk")
 size = Vector2(2, 0.1)
 
 [sub_resource type="Animation" id="Animation_rrsja"]
@@ -92,11 +90,13 @@ transform = Transform3D(14.75, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1041788136]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -1, 0, 0)
+material_override = SubResource("StandardMaterial3D_rrsja")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_g4v7s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=220140514]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, -0.7071067, 0, 0.7071067, 0.7071067, -1, -0.005, 0)
+material_override = SubResource("StandardMaterial3D_qk4dk")
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_wkaul")
 

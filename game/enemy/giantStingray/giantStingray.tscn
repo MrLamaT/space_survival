@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_aouct"]
 [ext_resource type="AudioStream" uid="uid://dnbkkyy1xcgku" path="res://assets/sound/whate2.wav" id="3_aouct"]
 [ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_0238y"]
-[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="5_pya71"]
+[ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_3syit"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
 size = Vector3(10, 1, 10)
@@ -117,68 +117,6 @@ _data = {
 &"fly": SubResource("Animation_msqjr")
 }
 
-[sub_resource type="Animation" id="Animation_y5ww8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcinp"]
-resource_name = "aura"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieqws"]
-_data = {
-&"RESET": SubResource("Animation_y5ww8"),
-&"aura": SubResource("Animation_jcinp")
-}
-
 [node name="giantStingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 collision_layer = 16
@@ -284,14 +222,8 @@ light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 libraries/ = SubResource("AnimationLibrary_aouct")
 autoplay = &"fly"
 
-[node name="Aura" type="Sprite3D" parent="." unique_id=1449631541]
+[node name="Aura" parent="." unique_id=314199772 instance=ExtResource("5_3syit")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -0.5)
-visible = false
-texture_filter = 0
-texture = ExtResource("5_pya71")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1437858389]
-libraries/ = SubResource("AnimationLibrary_ieqws")
 
 [node name="BulletSpawn" type="Marker3D" parent="." unique_id=64820117]
 transform = Transform3D(0.9999997, -2.4868992e-14, -7.1054274e-15, 1.4210855e-14, 1, -1.7763568e-14, 7.1054274e-15, 1.4210853e-14, 0.99999964, 0, 0, 5)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccsi7m41872cs"]
 
 [ext_resource type="ArrayMesh" uid="uid://4bgfjrj1g5kr" path="res://assets/models/shower.obj" id="2_8q5x1"]
-[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="2_tn44k"]
+[ext_resource type="Material" uid="uid://dvo6ehb3isl83" path="res://assets/material/ceramics.tres" id="2_r1kl0"]
 [ext_resource type="Texture2D" uid="uid://fd3385a2q1h" path="res://assets/textures/textile.png" id="3_tn44k"]
 [ext_resource type="PackedScene" uid="uid://cdrhprd8i3g4q" path="res://game/decoration/light.tscn" id="4_r1kl0"]
 
@@ -36,7 +36,7 @@ collision_mask = 7
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=932354984]
 transform = Transform3D(0.5, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("2_8q5x1")
-surface_material_override/0 = ExtResource("2_tn44k")
+surface_material_override/0 = ExtResource("2_r1kl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=537617352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)

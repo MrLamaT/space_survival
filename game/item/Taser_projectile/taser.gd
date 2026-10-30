@@ -1,13 +1,15 @@
 extends Node3D
 
 @onready var bullet_scene = preload("res://game/item/Taser_projectile/Taser_projectile.tscn")
-@onready var Alt_bullet_scene = preload("res://game/item/Taser_projectile/AltTaser_projectile.tscn")
 
 func fire(cam: Camera3D, world_parent: Node, is_alt: bool = false) -> void:
 	var spawn = $BulletSpawn
 	var bullet
 	if is_alt:
-		bullet = Alt_bullet_scene.instantiate()
+		bullet = bullet_scene.instantiate()
+		bullet._pierce_left = 50
+		bullet.damage = 50
+		bullet.color = Color("ff0004")
 	else:
 		bullet = bullet_scene.instantiate()
 	_show_muzzle_flash(spawn)

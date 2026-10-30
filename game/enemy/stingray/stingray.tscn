@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_0jx2a"]
 [ext_resource type="AudioStream" uid="uid://bdktyolepse0e" path="res://assets/sound/whate3.wav" id="3_54la3"]
 [ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_15e6q"]
-[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="5_0plv1"]
+[ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_15e6q"]
 [ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/item/beam_projectile/Beam_spawn.tscn" id="6_l8e10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
@@ -32,68 +32,6 @@ radius = 0.1
 height = 0.1
 radial_segments = 16
 rings = 16
-
-[sub_resource type="Animation" id="Animation_y5ww8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcinp"]
-resource_name = "aura"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ieqws"]
-_data = {
-&"RESET": SubResource("Animation_y5ww8"),
-&"aura": SubResource("Animation_jcinp")
-}
 
 [node name="stingray" type="CharacterBody3D" unique_id=1538922931 groups=["enemy", "phantom"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
@@ -194,13 +132,7 @@ light_energy = 0.1
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 0, -2.1855695e-07)
 light_color = Color(0.24313726, 0.047058824, 0.78039217, 1)
 
-[node name="Aura" type="Sprite3D" parent="." unique_id=1449631541]
+[node name="Aura" parent="." unique_id=314199772 instance=ExtResource("5_15e6q")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.3711385e-08, 0, -1.5)
-visible = false
-texture_filter = 0
-texture = ExtResource("5_0plv1")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1437858389]
-libraries/ = SubResource("AnimationLibrary_ieqws")
 
 [node name="BeamSpawn" parent="." unique_id=1685857646 instance=ExtResource("6_l8e10")]

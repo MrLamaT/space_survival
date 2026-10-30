@@ -4,8 +4,8 @@
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_q6s2g"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_60c2x"]
 [ext_resource type="Texture2D" uid="uid://co6ecqt6apyxp" path="res://assets/textures/standard.png" id="4_b6bf4"]
+[ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_b6bf4"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_b6bf4"]
-[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="7_w1tt7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7kklp"]
 radius = 0.4
@@ -242,68 +242,6 @@ _data = {
 &"run": SubResource("Animation_o20w3")
 }
 
-[sub_resource type="Animation" id="Animation_y5ww8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcinp"]
-resource_name = "aura"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_itf4h"]
-_data = {
-&"RESET": SubResource("Animation_y5ww8"),
-&"aura": SubResource("Animation_jcinp")
-}
-
 [node name="dummy" type="CharacterBody3D" unique_id=1538922931 groups=["enemy"]]
 collision_layer = 16
 collision_mask = 21
@@ -437,14 +375,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.315, 0.15)
 mesh = SubResource("BoxMesh_smhvd")
 skeleton = NodePath("../../..")
 
-[node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
+[node name="Aura" parent="." unique_id=314199772 instance=ExtResource("5_b6bf4")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, -0.5)
-visible = false
-texture_filter = 0
-texture = ExtResource("7_w1tt7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
-libraries/ = SubResource("AnimationLibrary_itf4h")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=1420551515]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

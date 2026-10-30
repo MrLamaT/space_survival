@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_j4t6h"]
 [ext_resource type="Texture2D" uid="uid://cvskq2ib6h3nx" path="res://assets/textures/metal.png" id="5_n4hur"]
 [ext_resource type="Texture2D" uid="uid://ccpmoysk2fpo8" path="res://assets/textures/ventilationDoor.png" id="6_b73np"]
+[ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="6_i8piu"]
 [ext_resource type="AudioStream" uid="uid://0ocngr06kqvf" path="res://assets/sound/Spring.ogg" id="7_h7m6h"]
-[ext_resource type="Texture2D" uid="uid://ds0gsrstdq5yk" path="res://assets/Aura.png" id="10_vdv27"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h3rxe"]
 height = 0.25
@@ -50,68 +50,6 @@ radial_segments = 16
 [sub_resource type="BoxMesh" id="BoxMesh_h3rxe"]
 material = SubResource("StandardMaterial3D_geiqc")
 size = Vector3(1, 0.1, 1)
-
-[sub_resource type="Animation" id="Animation_y5ww8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_jcinp"]
-resource_name = "aura"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_itf4h"]
-_data = {
-&"RESET": SubResource("Animation_y5ww8"),
-&"aura": SubResource("Animation_jcinp")
-}
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mxpvw"]
 height = 0.025
@@ -239,14 +177,8 @@ skeleton = NodePath("../..")
 light_color = Color(0, 0.7490196, 1, 1)
 omni_range = 1.0
 
-[node name="Aura" type="Sprite3D" parent="." unique_id=1486660232]
+[node name="Aura" parent="." unique_id=314199772 instance=ExtResource("6_i8piu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.14975739, -0.5)
-visible = false
-texture_filter = 0
-texture = ExtResource("10_vdv27")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1812282757]
-libraries/ = SubResource("AnimationLibrary_itf4h")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1142629775]
 collision_layer = 0
