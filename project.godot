@@ -25,6 +25,7 @@ Global="*res://global.gd"
 SceneManager="*res://game/load/SceneManager.gd"
 BaseProp="*uid://brbx55qomurrh"
 SettingsManager="*uid://bjcg0or300sfj"
+BaseWeapon="*uid://b6ad4jphsxqq6"
 
 [display]
 

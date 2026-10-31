@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bdktyolepse0e" path="res://assets/sound/whate3.wav" id="3_54la3"]
 [ext_resource type="Material" uid="uid://ctn60lcv237t4" path="res://assets/material/materialPhantomStatic.tres" id="4_15e6q"]
 [ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_15e6q"]
-[ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/item/beam_projectile/Beam_spawn.tscn" id="6_l8e10"]
+[ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/enemy_projectile/beam_projectile/Beam_spawn.tscn" id="6_l8e10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
 size = Vector3(2.5, 0.1, 2.5)

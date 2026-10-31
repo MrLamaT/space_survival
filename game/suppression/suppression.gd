@@ -26,7 +26,7 @@ func _on_attack_body_entered(body: Node3D) -> void:
 		body.take_damage(999999)
 
 func start_wave() -> void:
-	var boom_scene = load("res://game/item/Boom_projectile/Boom_projectile.tscn")
+	var boom_scene = load("res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn")
 	if boom_scene:
 		var boom_instance = boom_scene.instantiate()
 		get_tree().root.add_child(boom_instance)
@@ -60,7 +60,7 @@ func _on_timer_timeout() -> void:
 	print("enemy_wale: ", enemy_nodes.size())
 	if enemy_nodes.size() == 0:
 		current_wave += 1
-		var boom_scene = load("res://game/item/Boom_projectile/Boom_projectile.tscn")
+		var boom_scene = load("res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn")
 		if boom_scene:
 			var boom_instance = boom_scene.instantiate()
 			get_tree().root.add_child(boom_instance)

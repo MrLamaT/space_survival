@@ -223,7 +223,7 @@ func _ready():
 	health_system.setup(self)
 	add_child(health_system)
 	stamina_bar.max_value = max_stamina
-	sens = float(Global.game_settings.gui_settings.sensitivity) * 0.0001
+	sens = float(Global.game_settings.gui_settings.sensitivity)
 	refresh_fov_settings()
 	current_fov = base_fov
 	cam.fov = base_fov
@@ -353,6 +353,7 @@ func noclip_cheat():
 
 # Обрабатывает логику каждый кадр
 func _process(delta):
+	sens = float(Global.game_settings.gui_settings.sensitivity)
 	$head/Camera3D/UI/fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$head/Camera3D/UI/speed.text = "Speed: %.2f" % velocity.length()
 	_update_hand_position(delta)

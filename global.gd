@@ -43,7 +43,7 @@ var game_settings: Dictionary = {
 		"Language": "English",
 		"crosshair": 1,
 		"ch_scale": 5.0,
-		"sensitivity": 50.0,
+		"sensitivity": 0.005,
 		"sound_volume": 100.0,
 		"music_volume": 100.0,
 		"fov": 75.0

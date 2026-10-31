@@ -28,7 +28,7 @@ var weapon_slots: Dictionary = {
 
 var weapons: Dictionary = {
 	"Vibro Spike": {
-		"weapon_scene": preload("res://game/item/Knife_projectile/Knife.tscn"),
+		"weapon_scene": preload("res://game/item/Knife/Knife.tscn"),
 		"fire_rate": 0.75,
 		"energy_cost": 10.0,
 		"shoot_animation": "shoot",
@@ -36,7 +36,7 @@ var weapons: Dictionary = {
 		"node_fire_method": "fire",
 	},
 	"Taser": {
-		"weapon_scene": preload("res://game/item/Taser_projectile/Taser.tscn"),
+		"weapon_scene": preload("res://game/item/Taser/Taser.tscn"),
 		"fire_rate": 0.65,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
@@ -50,7 +50,7 @@ var weapons: Dictionary = {
 		}
 	},
 	"Hornet": {
-		"weapon_scene": preload("res://game/item/Hornet_projectile/Hornet.tscn"),
+		"weapon_scene": preload("res://game/item/Hornet/Hornet.tscn"),
 		"fire_rate": 0.06,
 		"energy_cost": 1.5,
 		"reload_animation": "r",
@@ -58,7 +58,7 @@ var weapons: Dictionary = {
 		"node_fire_method": "fire"
 	},
 	"Impulse": {
-		"weapon_scene": preload("res://game/item/Impulse_projectile/Impulse.tscn"),
+		"weapon_scene": preload("res://game/item/Impulse/Impulse.tscn"),
 		"fire_rate": 0.65,
 		"energy_cost": 45.0,
 		"shoot_animation": "shoot",
@@ -66,7 +66,7 @@ var weapons: Dictionary = {
 		"node_fire_method": "fire"
 	},
 	"Move": {
-		"weapon_scene": preload("res://game/item/Move_projectile/Move.tscn"),
+		"weapon_scene": preload("res://game/item/Move/Move.tscn"),
 		"fire_rate": 0.5,
 		"shoot_animation": "shoot",
 		"visible_node": "Move",
@@ -78,13 +78,13 @@ var weapons: Dictionary = {
 		}
 	},
 	"Delete": {
-		"weapon_scene": preload("res://game/item/Delete_projectile/Delete.tscn"),
+		"weapon_scene": preload("res://game/item/Delete/Delete.tscn"),
 		"fire_rate": 0.25,
 		"visible_node": "Delete",
 		"node_fire_method": "fire"
 	},
 	"Summon": {
-		"weapon_scene": preload("res://game/item/Summon_projectile/Summon.tscn"),
+		"weapon_scene": preload("res://game/item/Summon/Summon.tscn"),
 		"fire_rate": 0.25,
 		"visible_node": "Summon",
 		"node_fire_method": "fire",
@@ -93,7 +93,7 @@ var weapons: Dictionary = {
 		}
 	},
 	"Block": {
-		"weapon_scene": preload("res://game/item/Block_projectile/Block.tscn"),
+		"weapon_scene": preload("res://game/item/Block/Block.tscn"),
 		"fire_rate": 0.25,
 		"shoot_animation": "shoot",
 		"visible_node": "Block",
@@ -105,7 +105,7 @@ var weapons: Dictionary = {
 		}
 	},
 	"Aggro Swapping": {
-		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
+		"weapon_scene": preload("res://game/item/TechnicalTool/TechnicalTool.tscn"),
 		"fire_rate": 0.65,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",
@@ -116,7 +116,7 @@ var weapons: Dictionary = {
 		}
 	},
 	"Freeze Modify": {
-		"weapon_scene": preload("res://game/item/AggroSwapping_projectile/TechnicalTool.tscn"),
+		"weapon_scene": preload("res://game/item/TechnicalTool/TechnicalTool.tscn"),
 		"fire_rate": 0.65,
 		"energy_cost": 20.0,
 		"shoot_animation": "shoot",

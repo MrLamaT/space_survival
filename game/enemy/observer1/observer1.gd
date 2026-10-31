@@ -1,7 +1,7 @@
 extends "res://game/enemy/BaseEnemy.gd"
 
 # Стрельба
-var bullet_scene = preload("res://game/item/Homing_projectile/Homing_projectile.tscn")
+var bullet_scene = preload("res://game/enemy_projectile/Homing_projectile/Homing_projectile.tscn")
 var BURST_SHOTS: int = 3
 var BURST_INTERVAL: float = 0.4
 

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bp32wxdohtoxv" path="res://assets/weapon/spear.png" id="7_rohrf"]
 [ext_resource type="AudioStream" uid="uid://wj5v5y3udc83" path="res://assets/sound/laser-blast.wav" id="11_2rsbs"]
 [ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="11_msdno"]
-[ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/item/beam_projectile/Beam_spawn.tscn" id="12_aj6pu"]
+[ext_resource type="PackedScene" uid="uid://cbs2lefp3fx4w" path="res://game/enemy_projectile/beam_projectile/Beam_spawn.tscn" id="12_aj6pu"]
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://game/laser/laser.tscn" id="13_3n64p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]

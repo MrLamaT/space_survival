@@ -89,13 +89,13 @@ layout_mode = 2
 
 [node name="Language" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=2103395969]
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 65
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/Language" unique_id=1025777119]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Language"
 
 [node name="OptionButton" type="OptionButton" parent="Panel/general/VBoxContainer/Language" unique_id=923022423]
@@ -118,10 +118,10 @@ layout_mode = 2
 theme_override_constants/separation = 200
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/Speedometer" unique_id=1294438110]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Speedometer"
 
 [node name="CheckBox" type="CheckBox" parent="Panel/general/VBoxContainer/Speedometer" unique_id=552329853]
@@ -141,10 +141,10 @@ layout_mode = 2
 theme_override_constants/separation = 200
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/Coords" unique_id=627686732]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Coords"
 
 [node name="CheckBox" type="CheckBox" parent="Panel/general/VBoxContainer/Coords" unique_id=1139073735]
@@ -164,10 +164,10 @@ layout_mode = 2
 theme_override_constants/separation = 200
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/FPS" unique_id=881778445]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "FPS"
 
 [node name="CheckBox" type="CheckBox" parent="Panel/general/VBoxContainer/FPS" unique_id=1670666220]
@@ -184,15 +184,14 @@ theme_override_icons/unchecked = ExtResource("4_ufaa7")
 
 [node name="CrosshairType" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=166324889]
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 65
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/CrosshairType" unique_id=1905738170]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
-text = "Crosshair 
-Type"
+theme_override_font_sizes/font_size = 30
+text = "Crosshair Type"
 
 [node name="OptionButton" type="OptionButton" parent="Panel/general/VBoxContainer/CrosshairType" unique_id=1638399226]
 custom_minimum_size = Vector2(200, 0)
@@ -219,15 +218,14 @@ popup/item_4/id = 4
 
 [node name="CrosshairSize" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=1923867943]
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 65
 
 [node name="Label" type="Label" parent="Panel/general/VBoxContainer/CrosshairSize" unique_id=2064079170]
-custom_minimum_size = Vector2(310, 0)
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
-text = "Crosshair 
-Size"
+theme_override_font_sizes/font_size = 30
+text = "Crosshair Size"
 
 [node name="OptionButton" type="OptionButton" parent="Panel/general/VBoxContainer/CrosshairSize" unique_id=250234411]
 custom_minimum_size = Vector2(200, 0)
@@ -256,18 +254,21 @@ theme_override_constants/separation = 200
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Sensitivity"
 
 [node name="HSlider" type="HSlider" parent="Panel/general/VBoxContainer/Sensitivity" unique_id=1813623234]
-custom_minimum_size = Vector2(240, 60)
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_icons/grabber = SubResource("GradientTexture2D_g4v7s")
 theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_g4v7s")
 theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_g4v7s")
 theme_override_styles/slider = SubResource("StyleBoxFlat_smngk")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_47bef")
-value = 50.0
+min_value = 0.001
+max_value = 0.01
+step = 0.001
+value = 0.005
 
 [node name="Sound" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=453862380]
 layout_mode = 2
@@ -277,7 +278,7 @@ theme_override_constants/separation = 200
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Sound volume"
 
 [node name="HSlider" type="HSlider" parent="Panel/general/VBoxContainer/Sound" unique_id=1741709659]
@@ -288,6 +289,7 @@ theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_g4v7s")
 theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_g4v7s")
 theme_override_styles/slider = SubResource("StyleBoxFlat_smngk")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_47bef")
+step = 10.0
 value = 50.0
 
 [node name="Music" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=1310616965]
@@ -298,7 +300,7 @@ theme_override_constants/separation = 200
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Music volume"
 
 [node name="HSlider" type="HSlider" parent="Panel/general/VBoxContainer/Music" unique_id=1157539781]
@@ -309,6 +311,7 @@ theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_g4v7s")
 theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_g4v7s")
 theme_override_styles/slider = SubResource("StyleBoxFlat_smngk")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_47bef")
+step = 10.0
 value = 50.0
 
 [node name="FOV" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=289349609]
@@ -319,11 +322,11 @@ theme_override_constants/separation = 200
 custom_minimum_size = Vector2(310, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_awjio")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "FOV"
 
 [node name="HSlider" type="HSlider" parent="Panel/general/VBoxContainer/FOV" unique_id=947721724]
-custom_minimum_size = Vector2(240, 60)
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_icons/grabber = SubResource("GradientTexture2D_g4v7s")
 theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_g4v7s")
@@ -332,6 +335,7 @@ theme_override_styles/slider = SubResource("StyleBoxFlat_smngk")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_47bef")
 min_value = 60.0
 max_value = 110.0
+step = 5.0
 value = 60.0
 
 [node name="controls" type="ScrollContainer" parent="Panel" unique_id=1392793898]

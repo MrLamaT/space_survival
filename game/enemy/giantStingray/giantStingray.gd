@@ -26,7 +26,7 @@ func _handle_death_process(delta):
 	move_and_slide()
 
 func _spawn_boom_projectile():
-	var boom_scene = load("res://game/item/Boom_projectile/Boom_projectile.tscn")
+	var boom_scene = load("res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn")
 	if boom_scene:
 		var boom_instance = boom_scene.instantiate()
 		get_tree().root.add_child(boom_instance)
