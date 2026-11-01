@@ -15,7 +15,7 @@ var SHOOT_DISTANCE_MIN: float = 3.0  # минимальная дистанция
 var SHOOT_DISTANCE_MAX: float = 12.0 # максимальная дистанция для стрельбы
 var shoot_timer: float = 0.0
 var SHOOT_COOLDOWN: float = 3.5
-var bullet_scene = preload("res://game/item/Enemy_projectile/Enemy_projectile.tscn")
+var bullet_scene = preload("res://game/enemy_projectile/Enemy_projectile/Enemy_projectile.tscn")
 
 func _ready():
 	super._ready()

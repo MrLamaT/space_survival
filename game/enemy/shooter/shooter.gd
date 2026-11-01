@@ -10,7 +10,7 @@ var ATTACK_COOLDOWN_TIME: float = 1.5
 
 #стрельба
 var is_shooting_mode: bool = false
-var bullet_scene = preload("res://game/item/Phantom_projectile/Phantom_projectile.tscn")
+var bullet_scene = preload("res://game/enemy_projectile/Phantom_projectile/Phantom_projectile.tscn")
 var burst_shots_left: int = 0  # Сколько выстрелов осталось в очереди
 var burst_delay: float = 0.0   # Задержка между выстрелами в очереди
 var BURST_SHOTS: int = 3       # Количество выстрелов в очереди

@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ro4vmyvnqqi" path="res://game/debris/debris.tscn" id="28_56evf"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://game/decoration/button.tscn" id="29_305si"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://game/decoration/container.tscn" id="30_22wtc"]
-[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="31_ubeqg"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/skin_npc/fox_home2.png" id="31_ubeqg"]
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://game/decoration/hologram_text.tscn" id="32_8dok3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://io54ewta76wj"]
+
+[ext_resource type="Texture2D" uid="uid://fd3385a2q1h" path="res://assets/textures/textile.png" id="1_xglpv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1yh3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sxko"]
+albedo_color = Color(0.4509804, 0.3764706, 0.14509805, 1)
+albedo_texture = ExtResource("1_xglpv")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_5sxko")
+
+[node name="backroomsFloor" type="StaticBody3D" unique_id=1985107351]
+collision_layer = 36
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=610331907]
+shape = SubResource("BoxShape3D_m1yh3")
+debug_fill = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=96207537]
+mesh = SubResource("BoxMesh_g4v7s")

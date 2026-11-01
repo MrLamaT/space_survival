@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bbnoxi1tcr3a6" path="res://game/enemy/nextbot/nextbot.gd" id="1_bpc6b"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_1p1qd"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_1p1qd"]
-[ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="4_1p1qd"]
+[ext_resource type="Texture2D" uid="uid://6j2kpajaeqnq" path="res://assets/portrait3.png" id="4_gl8ot"]
 [ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_gl8ot"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e015f"]
 size = Vector3(2.5, 2.5, 2.5)
 
-[node name="nextbot" type="CharacterBody3D" unique_id=1538922931 groups=["backrooms_entity", "enemy", "nextbot"]]
+[node name="nextbot" type="CharacterBody3D" unique_id=1538922931 groups=["backrooms_entity", "enemy", "glitchy"]]
 collision_layer = 16
 collision_mask = 21
 script = ExtResource("1_bpc6b")
@@ -37,9 +37,9 @@ pitch_scale = 5.0
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="body" unique_id=2075416521]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 billboard = 2
-texture = ExtResource("4_1p1qd")
+texture = ExtResource("4_gl8ot")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1012682746]
 light_color = Color(1, 0.060000002, 0.07566643, 1)

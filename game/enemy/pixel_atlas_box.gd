@@ -2,6 +2,19 @@
 extends MeshInstance3D
 class_name PixelAtlasBox
 
+@export var atlas_texture: Texture2D = preload("res://assets/textures/standard.png"):
+	set(value):
+		atlas_texture = value
+		_request_rebuild()
+@export var transparency_alpha: bool = false:
+	set(value):
+		transparency_alpha = value
+		_request_rebuild()
+@export var unshaded: bool = false:
+	set(value):
+		unshaded = value
+		_request_rebuild()
+
 # ============================================================
 # РАЗМЕР КУБА И ПРАВИЛО КООРДИНАТ
 # ============================================================
@@ -16,10 +29,6 @@ class_name PixelAtlasBox
 # ПЕРЕДНЯЯ ГРАНЬ (+Z)
 # ============================================================
 @export_group("Передняя грань (+Z)")
-@export var front_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		front_texture = value
-		_request_rebuild()
 @export var front_from := Vector2i(0, 0):
 	set(value):
 		front_from = value
@@ -33,10 +42,6 @@ class_name PixelAtlasBox
 # ЗАДНЯЯ ГРАНЬ (-Z)
 # ============================================================
 @export_group("Задняя грань (-Z)")
-@export var back_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		back_texture = value
-		_request_rebuild()
 @export var back_from := Vector2i(16, 0):
 	set(value):
 		back_from = value
@@ -50,10 +55,6 @@ class_name PixelAtlasBox
 # ПРАВАЯ ГРАНЬ (+X)
 # ============================================================
 @export_group("Правая грань (+X)")
-@export var right_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		right_texture = value
-		_request_rebuild()
 @export var right_from := Vector2i(32, 0):
 	set(value):
 		right_from = value
@@ -67,10 +68,6 @@ class_name PixelAtlasBox
 # ЛЕВАЯ ГРАНЬ (-X)
 # ============================================================
 @export_group("Левая грань (-X)")
-@export var left_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		left_texture = value
-		_request_rebuild()
 @export var left_from := Vector2i(0, 16):
 	set(value):
 		left_from = value
@@ -84,10 +81,6 @@ class_name PixelAtlasBox
 # ВЕРХНЯЯ ГРАНЬ (+Y)
 # ============================================================
 @export_group("Верхняя грань (+Y)")
-@export var top_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		top_texture = value
-		_request_rebuild()
 @export var top_from := Vector2i(16, 16):
 	set(value):
 		top_from = value
@@ -101,10 +94,6 @@ class_name PixelAtlasBox
 # НИЖНЯЯ ГРАНЬ (-Y)
 # ============================================================
 @export_group("Нижняя грань (-Y)")
-@export var bottom_texture: Texture2D = preload("res://assets/textures/standard.png"):
-	set(value):
-		bottom_texture = value
-		_request_rebuild()
 @export var bottom_from := Vector2i(32, 16):
 	set(value):
 		bottom_from = value
@@ -112,6 +101,38 @@ class_name PixelAtlasBox
 @export var bottom_to := Vector2i(48, 32):
 	set(value):
 		bottom_to = value
+		_request_rebuild()
+
+@export_group("Поворот текстур")
+
+@export_enum("0°", "90°", "180°", "270°") var front_rotation: int = 0:
+	set(value):
+		front_rotation = value
+		_request_rebuild()
+
+@export_enum("0°", "90°", "180°", "270°") var back_rotation: int = 0:
+	set(value):
+		back_rotation = value
+		_request_rebuild()
+
+@export_enum("0°", "90°", "180°", "270°") var right_rotation: int = 0:
+	set(value):
+		right_rotation = value
+		_request_rebuild()
+
+@export_enum("0°", "90°", "180°", "270°") var left_rotation: int = 0:
+	set(value):
+		left_rotation = value
+		_request_rebuild()
+
+@export_enum("0°", "90°", "180°", "270°") var top_rotation: int = 0:
+	set(value):
+		top_rotation = value
+		_request_rebuild()
+
+@export_enum("0°", "90°", "180°", "270°") var bottom_rotation: int = 0:
+	set(value):
+		bottom_rotation = value
 		_request_rebuild()
 
 var _rebuild_queued := false
@@ -131,17 +152,17 @@ func _rebuild() -> void:
 	var y := half.y
 	var z := half.z
 	var result := ArrayMesh.new()
-	_add_face(result, [Vector3(-x, y, z), Vector3(x, y, z), Vector3(x, -y, z), Vector3(-x, -y, z)], Vector3.FORWARD, front_texture, front_from, front_to)
-	_add_face(result, [Vector3(x, y, -z), Vector3(-x, y, -z), Vector3(-x, -y, -z), Vector3(x, -y, -z)], Vector3.BACK, back_texture, back_from, back_to)
-	_add_face(result, [Vector3(x, y, z), Vector3(x, y, -z), Vector3(x, -y, -z), Vector3(x, -y, z)], Vector3.RIGHT, right_texture, right_from, right_to)
-	_add_face(result, [Vector3(-x, y, -z), Vector3(-x, y, z), Vector3(-x, -y, z), Vector3(-x, -y, -z)], Vector3.LEFT, left_texture, left_from, left_to)
-	_add_face(result, [Vector3(-x, y, -z), Vector3(x, y, -z), Vector3(x, y, z), Vector3(-x, y, z)], Vector3.UP, top_texture, top_from, top_to)
-	_add_face(result, [Vector3(-x, -y, z), Vector3(x, -y, z), Vector3(x, -y, -z), Vector3(-x, -y, -z)], Vector3.DOWN, bottom_texture, bottom_from, bottom_to)
+	_add_face(result, [Vector3(-x, y, z), Vector3(x, y, z), Vector3(x, -y, z), Vector3(-x, -y, z)], Vector3.FORWARD, atlas_texture, front_from, front_to, front_rotation)
+	_add_face(result, [Vector3(x, y, -z), Vector3(-x, y, -z), Vector3(-x, -y, -z), Vector3(x, -y, -z)], Vector3.BACK, atlas_texture, back_from, back_to, back_rotation)
+	_add_face(result, [Vector3(x, y, z), Vector3(x, y, -z), Vector3(x, -y, -z), Vector3(x, -y, z)], Vector3.RIGHT, atlas_texture, right_from, right_to, right_rotation)
+	_add_face(result, [Vector3(-x, y, -z), Vector3(-x, y, z), Vector3(-x, -y, z), Vector3(-x, -y, -z)], Vector3.LEFT, atlas_texture, left_from, left_to, left_rotation)
+	_add_face(result, [Vector3(-x, y, -z), Vector3(x, y, -z), Vector3(x, y, z), Vector3(-x, y, z)], Vector3.UP, atlas_texture, top_from, top_to, top_rotation)
+	_add_face(result, [Vector3(-x, -y, z), Vector3(x, -y, z), Vector3(x, -y, -z), Vector3(-x, -y, -z)], Vector3.DOWN, atlas_texture, bottom_from, bottom_to, bottom_rotation)
 	mesh = result
 	material_override = null 
 	update_configuration_warnings()
 
-func _add_face(result: ArrayMesh, corners: Array, normal: Vector3, texture: Texture2D, pixel_from: Vector2i, pixel_to: Vector2i) -> void:
+func _add_face(result: ArrayMesh, corners: Array, normal: Vector3, texture: Texture2D, pixel_from: Vector2i, pixel_to: Vector2i, rotation_steps: int = 0) -> void:
 	var uv := [Vector2.ZERO, Vector2.RIGHT, Vector2.ONE, Vector2.DOWN]
 	if texture != null and texture.get_width() > 0 and texture.get_height() > 0:
 		var width := texture.get_width()
@@ -159,10 +180,12 @@ func _add_face(result: ArrayMesh, corners: Array, normal: Vector3, texture: Text
 	var vertices := PackedVector3Array()
 	var normals := PackedVector3Array()
 	var uvs := PackedVector2Array()
+	var turns := posmod(rotation_steps, 4)
 	for index in [0, 1, 2, 0, 2, 3]:
 		vertices.append(corners[index])
 		normals.append(normal)
-		uvs.append(uv[index])
+		var uv_index := posmod(index - turns, 4)
+		uvs.append(uv[uv_index])
 	var arrays := []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -170,19 +193,26 @@ func _add_face(result: ArrayMesh, corners: Array, normal: Vector3, texture: Text
 	arrays[Mesh.ARRAY_TEX_UV] = uvs
 	result.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	var material := StandardMaterial3D.new()
+	if transparency_alpha:
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	else:
+		material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
+	if unshaded:
+		material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	else:
+		material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	material.albedo_texture = texture
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	result.surface_set_material(result.get_surface_count() - 1, material)
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray()
-	_check_face(warnings, "Передняя", front_texture, front_from, front_to)
-	_check_face(warnings, "Задняя", back_texture, back_from, back_to)
-	_check_face(warnings, "Правая", right_texture, right_from, right_to)
-	_check_face(warnings, "Левая", left_texture, left_from, left_to)
-	_check_face(warnings, "Верхняя", top_texture, top_from, top_to)
-	_check_face(warnings, "Нижняя", bottom_texture, bottom_from, bottom_to)
+	_check_face(warnings, "Передняя", atlas_texture, front_from, front_to)
+	_check_face(warnings, "Задняя", atlas_texture, back_from, back_to)
+	_check_face(warnings, "Правая", atlas_texture, right_from, right_to)
+	_check_face(warnings, "Левая", atlas_texture, left_from, left_to)
+	_check_face(warnings, "Верхняя", atlas_texture, top_from, top_to)
+	_check_face(warnings, "Нижняя", atlas_texture, bottom_from, bottom_to)
 	return warnings
 
 func _check_face(warnings: PackedStringArray, title: String, texture: Texture2D, pixel_from: Vector2i, pixel_to: Vector2i) -> void:

@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://game/spawnpoint/spawnpoint.tscn" id="17_u1pd6"]
 [ext_resource type="PackedScene" uid="uid://dhsstafmhh5bn" path="res://game/laser/laser.tscn" id="18_ik7v6"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://game/decoration/wall/wall_pillar.tscn" id="19_80dxx"]
-[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="21_ud5jo"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/skin_npc/fox_home2.png" id="21_ud5jo"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://game/portal/portal.tscn" id="22_r0400"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="27_u1pd6"]
 

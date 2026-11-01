@@ -58,7 +58,6 @@ UI=""
 portal=""
 enemy=""
 BossBar=""
-nextbot=""
 prop=""
 phantom=""
 portal_end=""
@@ -74,6 +73,7 @@ grass=""
 ice=""
 block_scheme=""
 hand=""
+glitchy=""
 
 [input]
 

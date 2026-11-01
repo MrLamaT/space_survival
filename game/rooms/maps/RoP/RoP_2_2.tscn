@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://d1lre76f0a5ir" path="res://game/chest/chest.tscn" id="31_yb0pq"]
 [ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://game/spawnpoint/spawnpoint.tscn" id="32_nbjnv"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://game/laser/tesla.tscn" id="34_cby0a"]
-[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="34_uj4ru"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/skin_npc/fox_home2.png" id="34_uj4ru"]
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="35_h51xo"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="36_pjjw1"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="37_xout2"]

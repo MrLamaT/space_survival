@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy1xv73tcpiu6"
-path="res://.godot/imported/s_hand1.png-cad439d97dce8405192ecffe0fb7a9e9.ctex"
+uid="uid://d4islse20ywxp"
+path="res://.godot/imported/fox_black2.png-713206b8ff2a28871614076743363ef6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hand/snow/s_hand1.png"
-dest_files=["res://.godot/imported/s_hand1.png-cad439d97dce8405192ecffe0fb7a9e9.ctex"]
+source_file="res://assets/skin_npc/fox_black2.png"
+dest_files=["res://.godot/imported/fox_black2.png-713206b8ff2a28871614076743363ef6.ctex"]
 
 [params]
 

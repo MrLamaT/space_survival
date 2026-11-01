@@ -10,6 +10,7 @@ var terminal_history: Array[Dictionary] = []
 var summon = {
 		"name": "phantom",
 		"aura": 0,
+		"scale": 1,
 		"enemyTags": "player",
 		"boss": false,
 		"frozen": false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq2cegleonom2"
-path="res://.godot/imported/k_hand1.png-21e3f15ac43824c725edd80075324999.ctex"
+uid="uid://b8nf43idf2trw"
+path="res://.godot/imported/fox_white.png-3eab65d4a0ef3edf1af69059b0b7b772.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hand/knight/k_hand1.png"
-dest_files=["res://.godot/imported/k_hand1.png-21e3f15ac43824c725edd80075324999.ctex"]
+source_file="res://assets/skin_npc/fox_white.png"
+dest_files=["res://.godot/imported/fox_white.png-3eab65d4a0ef3edf1af69059b0b7b772.ctex"]
 
 [params]
 

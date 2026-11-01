@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bgtim1b6u6ffe" path="res://assets/models/chestDown.obj" id="2_hymxg"]
 [ext_resource type="Texture2D" uid="uid://du51io0upot4g" path="res://assets/textures/flash.png" id="4_86lb7"]
 [ext_resource type="ArrayMesh" uid="uid://yhjyskmim86e" path="res://assets/models/chestUp.obj" id="4_i2h2h"]
-[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="5_qvjvl"]
+[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/skin_npc/fox_black2.png" id="5_qvjvl"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_qvjvl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p15nw"]

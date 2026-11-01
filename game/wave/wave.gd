@@ -59,13 +59,13 @@ func _on_wave_complete() -> void:
 
 func _on_timer_timeout() -> void:
 	var enemy_nodes = get_tree().get_nodes_in_group("enemy_wave")
-	var nextbots = get_tree().get_nodes_in_group("nextbot")
-	var only_nextbots_left = true
+	var glitchy = get_tree().get_nodes_in_group("glitchy")
+	var only_glitchy_left = true
 	for enemy in enemy_nodes:
-		if not enemy in nextbots:
-			only_nextbots_left = false
+		if not enemy in glitchy:
+			only_glitchy_left = false
 			break
-	if only_nextbots_left and enemy_nodes.size() > 0:
+	if only_glitchy_left and enemy_nodes.size() > 0:
 		for enemy in enemy_nodes:
 			if enemy.has_method("take_damage"):
 				enemy.take_damage(999999)

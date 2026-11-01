@@ -5,6 +5,7 @@ extends Marker3D
 @export var is_boss = false
 @export var frozen = false
 @export var aura = 0
+@export var enemy_scale = 1
 @export var enemyTags: String = "player"
 const ENEMIES = {
 	"dummy": "res://game/enemy/dummy/dummy.tscn",
@@ -76,6 +77,7 @@ func spawn(type):
 		instance.watch = frozen
 		instance.is_boss = is_boss
 		instance.aura = final_aura
+		instance.scale = Vector3(enemy_scale, enemy_scale, enemy_scale)
 		instance.enemyTags = enemyTags
 	get_tree().root.add_child(instance)
 	instance.global_position = global_position

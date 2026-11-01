@@ -22,14 +22,19 @@ radius = 0.3
 height = 0.75
 radial_segments = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqphi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qegfn"]
 albedo_texture = ExtResource("4_b6bf4")
 uv1_triplanar = true
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_1tfyx"]
-material = SubResource("StandardMaterial3D_rqphi")
+material = SubResource("StandardMaterial3D_qegfn")
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqphi"]
+albedo_texture = ExtResource("4_b6bf4")
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_b6bf4"]
 material = SubResource("StandardMaterial3D_rqphi")
@@ -39,16 +44,16 @@ radial_segments = 16
 rings = 16
 
 [sub_resource type="BoxMesh" id="BoxMesh_smhvd"]
-material = SubResource("StandardMaterial3D_rqphi")
+material = SubResource("StandardMaterial3D_qegfn")
 size = Vector3(0.375, 0.95, 0.225)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qegfn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar8mc"]
 albedo_texture = ExtResource("4_b6bf4")
 uv1_triplanar = true
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wiuko"]
-material = SubResource("StandardMaterial3D_qegfn")
+material = SubResource("StandardMaterial3D_ar8mc")
 size = Vector3(0.6, 0.75, 0.6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ar8mc"]

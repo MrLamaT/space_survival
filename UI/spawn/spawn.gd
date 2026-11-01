@@ -78,8 +78,8 @@ func handle_card_pressed(type, id, color_img):
 			$Enemy_slot.visible = true
 			$Enemy_slot/CheckBox.button_pressed = Global.summon["boss"]
 			$Enemy_slot/CheckBox2.button_pressed = Global.summon["frozen"]
-			if int(Global.summon["aura"]) > 0:
-				$Enemy_slot/LineEdit.text = str(int(Global.summon["aura"]))
+			$Enemy_slot/aura/HSlider.value = int(Global.summon["aura"])
+			$Enemy_slot/scale/HSlider.value = float(Global.summon["scale"])
 		"props":
 			Global.summon["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
@@ -114,6 +114,8 @@ func handle_card_pressed(type, id, color_img):
 					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/sandbox.tscn")
 				"flat":
 					SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/flat.tscn")
+				"backrooms":
+					SceneManager.load_scene_with_loading("res://game/rooms/maps/backrooms/backrooms.tscn")
 		"other":
 			match id:
 				"console": 
@@ -207,20 +209,10 @@ func _clear_group(group_name: String) -> void:
 func _on_label_button_pressed(id: String) -> void:
 	match id:
 		"set_enemy":
-			var line_edit = $Enemy_slot/LineEdit
-			var input_text = line_edit.text.strip_edges()
-			var new_value: int = 0
-			if input_text.is_valid_int():
-				new_value = input_text.to_int()
-			else:
-				new_value = 0
-			if new_value < 0:
-				new_value = 0
-			if new_value > 10:
-				new_value = 10
 			Global.summon["boss"] = $Enemy_slot/CheckBox.button_pressed
 			Global.summon["frozen"] = $Enemy_slot/CheckBox2.button_pressed
-			Global.summon["aura"] = new_value
+			Global.summon["aura"] = $Enemy_slot/aura/HSlider.value
+			Global.summon["scale"] = $Enemy_slot/scale/HSlider.value
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			Global.game_settings["UI"] = false

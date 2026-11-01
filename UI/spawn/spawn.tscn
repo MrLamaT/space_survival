@@ -21,24 +21,23 @@
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="16_5tetk"]
 [ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="16_d71kh"]
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="18_bj30i"]
-[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/hand/classic/c_hand1.png" id="21_rp21u"]
+[ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/skin_npc/fox_black2.png" id="21_rp21u"]
 [ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
-[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/hand/home/h_hand1.png" id="22_qmh17"]
+[ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/skin_npc/fox_home2.png" id="22_qmh17"]
 [ext_resource type="Texture2D" uid="uid://bcnxmdp8038cg" path="res://assets/weapon/impulse.png" id="22_r5g20"]
 [ext_resource type="Texture2D" uid="uid://da6t4vfq68acd" path="res://assets/icon/enemyEgg/Egg_stingray.png" id="23_4g2gr"]
-[ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/hand/knight/k_hand1.png" id="23_kwbp6"]
+[ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/skin_npc/fox_knight2.png" id="23_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://cploxr7hvuo6w" path="res://assets/hand/phantom/p_hand1.png" id="24_h60il"]
 [ext_resource type="Texture2D" uid="uid://cytujp0panmgm" path="res://assets/icon/enemyEgg/Egg_cockroach.png" id="24_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://ba47gfu4rtp31" path="res://assets/icon/enemyEgg/Egg_shooter.png" id="25_b68df"]
-[ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/hand/snow/s_hand1.png" id="25_r5g20"]
-[ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/hand/white/w_hand1.png" id="26_d6vnn"]
+[ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/skin_npc/fox_snow2.png" id="25_r5g20"]
+[ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/skin_npc/fox_white2.png" id="26_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bwcwe6nl7eqfb" path="res://assets/icon/enemyEgg/Egg_cleaner.png" id="26_gudhd"]
 [ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/prisoner/p_hand1.png" id="27_5vwum"]
 [ext_resource type="Texture2D" uid="uid://dhqbm1f7ak0b" path="res://assets/icon/enemyEgg/Egg_observer1.png" id="27_c4wer"]
 [ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
-[ext_resource type="Texture2D" uid="uid://pfk44f2kx8qv" path="res://assets/icon/enemyEgg/nextbot.jpg" id="30_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://bmk4l3rn8vtaa" path="res://assets/icon/enemyEgg/Egg_siren_head.png" id="31_b68df"]
 [ext_resource type="Texture2D" uid="uid://b057av3jfqeaa" path="res://assets/icon/prop/barrel.png" id="32_08bs1"]
 [ext_resource type="Texture2D" uid="uid://8h523mx5nc1d" path="res://assets/icon/enemyEgg/Egg_scp.png" id="33_vwlru"]
@@ -46,11 +45,13 @@
 [ext_resource type="Texture2D" uid="uid://dk8qmuj2ngw7e" path="res://assets/icon/prop/sofa.png" id="36_08bs1"]
 [ext_resource type="Texture2D" uid="uid://cc6fw35n3e4tb" path="res://assets/icon/prop/sofa2.png" id="37_1rgpu"]
 [ext_resource type="Texture2D" uid="uid://c3j4k4opqjvjn" path="res://assets/icon/prop/StorageBox.png" id="38_fyfm7"]
+[ext_resource type="Texture2D" uid="uid://6j2kpajaeqnq" path="res://assets/portrait3.png" id="38_h60il"]
 [ext_resource type="Texture2D" uid="uid://buph5o37h2vg5" path="res://assets/icon/prop/balloon.png" id="38_muxdo"]
 [ext_resource type="Texture2D" uid="uid://dcrlbptcgwp6q" path="res://assets/icon/prop/workbench.png" id="39_2xvln"]
 [ext_resource type="Texture2D" uid="uid://c3kdrymk320vg" path="res://assets/icon/prop/toilet.png" id="39_muxdo"]
 [ext_resource type="Texture2D" uid="uid://bgqftwg4buq1w" path="res://assets/icon/prop/spring.png" id="40_e3pou"]
 [ext_resource type="Texture2D" uid="uid://cecjamia13gcn" path="res://assets/textures/sun.png" id="40_xnmou"]
+[ext_resource type="Texture2D" uid="uid://bpmouwrx7bv33" path="res://assets/icon/enemyEgg/Egg_dummy.png" id="41_r5g20"]
 [ext_resource type="Texture2D" uid="uid://hii0jd8hbkqu" path="res://assets/icon/prop/tree1.png" id="41_rq4f4"]
 [ext_resource type="Texture2D" uid="uid://fe8fesd61yv7" path="res://assets/icon/prop/tree2.png" id="42_qhjgh"]
 [ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="42_rmstl"]
@@ -109,13 +110,21 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ib5f"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_dkgfw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h60il"]
+gradient = SubResource("Gradient_dkgfw")
+width = 15
+height = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5g20"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+border_width_bottom = 5
+border_color = Color(0.6, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6vnn"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4g1b4"]
 content_margin_left = 3.0
@@ -615,7 +624,7 @@ columns = 6
 [node name="card" parent="Panel/ScrollContainer/VBoxContainer/GridContainer11" unique_id=729949337 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "nextbot"
-img = ExtResource("30_ssy0r")
+img = ExtResource("38_h60il")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
@@ -636,7 +645,7 @@ target_node = NodePath("../../../../..")
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer11" unique_id=1590976222 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "dummy"
-img = ExtResource("12_7nag5")
+img = ExtResource("41_r5g20")
 type = "enemies"
 target_node = NodePath("../../../../..")
 
@@ -1324,6 +1333,14 @@ img = ExtResource("56_xnmou")
 type = "maps"
 target_node = NodePath("../../../../..")
 
+[node name="card3" parent="Panel/ScrollContainer/VBoxContainer/GridContainer8" unique_id=1685888119 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "backrooms"
+img = ExtResource("58_fw3wd")
+color_img = Color(0.61960787, 0.60784316, 0.34509805, 1)
+type = "maps"
+target_node = NodePath("../../../../..")
+
 [node name="Label13" parent="Panel/ScrollContainer/VBoxContainer" unique_id=505603551 node_paths=PackedStringArray("cat_node") instance=ExtResource("2_6jgxq")]
 layout_mode = 2
 title = "other"
@@ -1581,23 +1598,77 @@ text = "Enemy data"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="Enemy_slot" unique_id=1795717338]
+[node name="aura" type="HBoxContainer" parent="Enemy_slot" unique_id=1922240414]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -225.0
-offset_top = -20.0
-offset_right = 225.0
+offset_left = -200.0
+offset_top = -30.0
+offset_right = 200.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Enemy_slot/aura" unique_id=869900668]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("6_d3066")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ib5f")
-placeholder_text = "Aura"
+theme_override_font_sizes/font_size = 32
+text = "Aura:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Enemy_slot/aura" unique_id=1563600592]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_h60il")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_h60il")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_h60il")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r5g20")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_d6vnn")
+max_value = 10.0
+
+[node name="scale" type="HBoxContainer" parent="Enemy_slot" unique_id=1174506603]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="Enemy_slot/scale" unique_id=1796882880]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("6_d3066")
+theme_override_font_sizes/font_size = 32
+text = "Scale:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Enemy_slot/scale" unique_id=1877693554]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_icons/grabber = SubResource("GradientTexture2D_h60il")
+theme_override_icons/grabber_highlight = SubResource("GradientTexture2D_h60il")
+theme_override_icons/grabber_disabled = SubResource("GradientTexture2D_h60il")
+theme_override_styles/slider = SubResource("StyleBoxFlat_r5g20")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_d6vnn")
+min_value = 0.5
+max_value = 4.0
+step = 0.5
+value = 1.0
 
 [node name="LabelButton" parent="Enemy_slot" unique_id=2104878985 instance=ExtResource("22_o0w04")]
 layout_mode = 1

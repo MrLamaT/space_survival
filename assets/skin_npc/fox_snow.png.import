@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db8gjtuhp1lxc"
-path="res://.godot/imported/c_hand2.png-e5d0f9966553bb4f1efa6af81bc1e01f.ctex"
+uid="uid://dmdg7c86nlcvc"
+path="res://.godot/imported/fox_snow.png-d39f6ca6b86a295477aa4e374460740c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hand/classic/c_hand2.png"
-dest_files=["res://.godot/imported/c_hand2.png-e5d0f9966553bb4f1efa6af81bc1e01f.ctex"]
+source_file="res://assets/skin_npc/fox_snow.png"
+dest_files=["res://.godot/imported/fox_snow.png-d39f6ca6b86a295477aa4e374460740c.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
