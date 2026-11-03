@@ -8,10 +8,10 @@ func create_custom_material() -> void:
 		"Classic": preload("res://assets/skin_npc/fox_black.png"),
 		"Home": preload("res://assets/skin_npc/fox_home.png"),
 		"Knight": preload("res://assets/skin_npc/fox_knight.png"),
-		"Phantom": "res://assets/hand/phantom/p_hand1.png",
+		"Phantom": "res://assets/skin_npc/fox_phantom.png",
 		"Snow": preload("res://assets/skin_npc/fox_snow.png"),
 		"White": preload("res://assets/skin_npc/fox_white.png"),
-		"Prisoner": "res://assets/hand/prisoner/p_hand1.png"
+		"Prisoner": preload("res://assets/skin_npc/fox_prisoner.png")
 	}
 	var world = Global.get_world(Global.game_settings.world)
 	var costume_key = world.get("costumes", "Classic")

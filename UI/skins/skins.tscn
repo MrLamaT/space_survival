@@ -3,12 +3,13 @@
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="1_0ah20"]
 [ext_resource type="Script" uid="uid://cbccuo34l0l56" path="res://UI/skins/skins.gd" id="1_pl7qy"]
 [ext_resource type="PackedScene" uid="uid://whn8plkartqb" path="res://UI/spawn/card.tscn" id="2_7o7ry"]
+[ext_resource type="Texture2D" uid="uid://b3yybc845o52x" path="res://assets/skin_npc/fox_phantom2.png" id="10_pl7qy"]
 [ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/skin_npc/fox_black2.png" id="21_rfa7u"]
 [ext_resource type="Texture2D" uid="uid://ch10r0xn2bn01" path="res://assets/skin_npc/fox_home2.png" id="22_vdi1o"]
 [ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/skin_npc/fox_knight2.png" id="23_tb0ds"]
 [ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/skin_npc/fox_snow2.png" id="25_xvh4a"]
 [ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/skin_npc/fox_white2.png" id="26_pnvfg"]
-[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/prisoner/p_hand1.png" id="27_10558"]
+[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/skin_npc/fox_prisoner2.png" id="27_10558"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pd4jw"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -78,6 +79,14 @@ price = 10
 layout_mode = 2
 text = "Knight"
 img = ExtResource("23_tb0ds")
+type = "costumes"
+target_node = NodePath("../../../../..")
+price = 8
+
+[node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer" unique_id=1698169042 node_paths=PackedStringArray("target_node") instance=ExtResource("2_7o7ry")]
+layout_mode = 2
+text = "Phantom"
+img = ExtResource("10_pl7qy")
 type = "costumes"
 target_node = NodePath("../../../../..")
 price = 8

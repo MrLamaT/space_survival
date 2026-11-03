@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwivitdcwltbk"
-path="res://.godot/imported/p_hand1.png-f99b77af2e15aceb7f28b6cf3234ceb8.ctex"
+uid="uid://di6c0ktcp5jd6"
+path="res://.godot/imported/fox_prisoner.png-ac92091a6095b3033e4247a545898496.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hand/prisoner/p_hand1.png"
-dest_files=["res://.godot/imported/p_hand1.png-f99b77af2e15aceb7f28b6cf3234ceb8.ctex"]
+source_file="res://assets/skin_npc/fox_prisoner.png"
+dest_files=["res://.godot/imported/fox_prisoner.png-ac92091a6095b3033e4247a545898496.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

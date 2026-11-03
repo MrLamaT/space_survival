@@ -28,13 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://bcnxmdp8038cg" path="res://assets/weapon/impulse.png" id="22_r5g20"]
 [ext_resource type="Texture2D" uid="uid://da6t4vfq68acd" path="res://assets/icon/enemyEgg/Egg_stingray.png" id="23_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://dq2cegleonom2" path="res://assets/skin_npc/fox_knight2.png" id="23_kwbp6"]
-[ext_resource type="Texture2D" uid="uid://cploxr7hvuo6w" path="res://assets/hand/phantom/p_hand1.png" id="24_h60il"]
 [ext_resource type="Texture2D" uid="uid://cytujp0panmgm" path="res://assets/icon/enemyEgg/Egg_cockroach.png" id="24_ssy0r"]
 [ext_resource type="Texture2D" uid="uid://ba47gfu4rtp31" path="res://assets/icon/enemyEgg/Egg_shooter.png" id="25_b68df"]
 [ext_resource type="Texture2D" uid="uid://cy1xv73tcpiu6" path="res://assets/skin_npc/fox_snow2.png" id="25_r5g20"]
 [ext_resource type="Texture2D" uid="uid://dgpi2fkv12ufn" path="res://assets/skin_npc/fox_white2.png" id="26_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bwcwe6nl7eqfb" path="res://assets/icon/enemyEgg/Egg_cleaner.png" id="26_gudhd"]
-[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/hand/prisoner/p_hand1.png" id="27_5vwum"]
+[ext_resource type="Texture2D" uid="uid://b3yybc845o52x" path="res://assets/skin_npc/fox_phantom2.png" id="26_h60il"]
+[ext_resource type="Texture2D" uid="uid://dwivitdcwltbk" path="res://assets/skin_npc/fox_prisoner2.png" id="27_5vwum"]
 [ext_resource type="Texture2D" uid="uid://dhqbm1f7ak0b" path="res://assets/icon/enemyEgg/Egg_observer1.png" id="27_c4wer"]
 [ext_resource type="Texture2D" uid="uid://dkaiwun15aw3a" path="res://assets/icon/enemyEgg/Egg_infantryman.png" id="28_4g2gr"]
 [ext_resource type="Texture2D" uid="uid://cvasdkhnp6gtd" path="res://assets/icon/enemyEgg/Egg_destroyercik.png" id="29_k6u5q"]
@@ -490,7 +490,7 @@ price = 8
 [node name="card4" parent="Panel/ScrollContainer/VBoxContainer/GridContainer16" unique_id=571819702 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
 layout_mode = 2
 text = "Phantom"
-img = ExtResource("24_h60il")
+img = ExtResource("26_h60il")
 type = "costumes"
 target_node = NodePath("../../../../..")
 price = 8

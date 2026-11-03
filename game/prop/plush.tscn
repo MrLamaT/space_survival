@@ -5,35 +5,29 @@
 [ext_resource type="Script" uid="uid://dtsinbclwpyuu" path="res://game/enemy/pixel_atlas_box.gd" id="2_0p7y3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.5, 0.75, 0.5)
+size = Vector3(1, 1, 0.6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p7y3"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jn7sw"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xqpn"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgbec"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd4r4"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6kon3"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -95,32 +89,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0abui"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6uw2"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qk8su"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jufee"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy4hb"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nc2fs"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -182,32 +170,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_stti2"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bkwq"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpv6n"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubii5"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i06ew"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h438j"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -269,32 +251,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kcq7"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se2xs"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0urc"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3u3p6"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k20fn"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0trw"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -356,32 +332,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yg7y1"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1wtf"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13d3t"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibiet"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so4ud"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lymck"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -443,32 +413,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1v3i"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xxx6"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_betyx"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ap0p"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqtdu"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfhml"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -530,32 +494,26 @@ _surfaces = [{
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5ln2"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cayab"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtxbi"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc807"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ekad"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vccqb"]
-cull_mode = 2
 albedo_texture = ExtResource("1_0p7y3")
 texture_filter = 0
 
@@ -617,18 +575,18 @@ _surfaces = [{
 }]
 
 [node name="plush" type="RigidBody3D" unique_id=1828673876 groups=["prop"]]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 7
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource("1_jn7sw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1446710806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.5, 0)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=211093010]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.125, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.15, -0.15, 0)
 
 [node name="head" type="Node3D" parent="Node3D" unique_id=221591970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
