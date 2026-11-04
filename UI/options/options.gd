@@ -18,7 +18,7 @@ var binding_buttons: Dictionary = {}
 var pending_action := ""
 
 func _ready() -> void:
-	if Global.game_settings["gui_settings"]["Language"] == "English":
+	if Global.game_settings["gui_settings"]["Language"] == "en":
 		general_panel.get_node("Language/OptionButton").selected = 0
 	else:
 		general_panel.get_node("Language/OptionButton").selected = 1
@@ -109,9 +109,10 @@ func _on_label_button_pressed(id: String) -> void:
 
 func _on_language_selected(index: int) -> void:
 	if index == 0:
-		Global.game_settings["gui_settings"]["Language"] = "English"
+		TranslationServer.set_locale("en")
 	else:
-		Global.game_settings["gui_settings"]["Language"] = "русский"
+		TranslationServer.set_locale("ru")
+	Global.game_settings["gui_settings"]["Language"] = TranslationServer.get_locale()
 	Global.save(0)
 
 func _on_Speed_pressed() -> void:

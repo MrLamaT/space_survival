@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bc8w5yeuff64v"]
+
+[ext_resource type="Script" uid="uid://cijslvlhsosxl" path="res://game/portal/walkthrough_portal.gd" id="1_2loj4"]
+
+[node name="WalkthroughPortal" type="Node3D" unique_id=995601067]
+script = ExtResource("1_2loj4")

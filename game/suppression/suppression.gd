@@ -50,10 +50,7 @@ func _on_wave_complete() -> void:
 	$attack/CollisionShape3D.disabled = false
 	ImpenetrableField.on(true)
 	var player = get_tree().get_first_node_in_group("player")
-	if Global.game_settings["gui_settings"]["Language"] == "русский":
-		player.warning("Непробиваемое поле открылось")
-	else:
-		player.warning("The Impenetrable Field has opened")
+	player.warning("NOTICE_FIELD_OPEN")
 
 func _on_timer_timeout() -> void:
 	var enemy_nodes = get_tree().get_nodes_in_group("enemy_wave")

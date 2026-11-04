@@ -1,0 +1,57 @@
+keys,en,ru
+"LOADING","loading","загрузка"
+
+"MENU_PLAY","PLAY","ИГРАТЬ"
+"MENU_OPTIONS","OPTIONS","НАСТРОЙКИ"
+"MENU_QUIT","QUIT","ВЫХОД"
+
+"Language","Language","Язык"
+"Speedometer","Speedometer","Спидометр"
+"Coords","Coords","Координаты"
+"Crosshair Type","Crosshair Type","Тип прицела"
+"Crosshair Size","Crosshair Size","Размер прицела"
+"Sensitivity","Sensitivity","Чувствительность"
+"Sound volume","Sound volume","Громкость звуков"
+"Music volume","Music volume","Громкость музыки"
+"general","general","общие"
+"controls","controls","управление"
+"back","back","назад"
+
+"delete","delete","удалить"
+"load","load","загрузить"
+
+"map","map","карта"
+"Simulation","Simulation","Симуляция"
+"Bonus","Bonus","Бонус"
+"Completed","Completed","Пройдено"
+"Locked","Locked","Заблокировано"
+"Available","Available","Доступно"
+
+"path: ","path: ","путь: "
+"update","update","обновить"
+
+"PAUSED","PAUSED","ПАУЗА"
+"RESUME","RESUME","ПРОДОЛЖИТЬ"
+"OPTIONS","OPTIONS","НАСТРОЙКИ"
+"SKINS","SKINS","СКИНЫ"
+"MISSIONS","MISSIONS","МИССИИ"
+"QUIT TO MENU","QUIT TO MENU","ВЫЙТИ В МЕНЮ"
+
+"costumes","costumes","костюмы"
+
+"Select a slot","Select a slot","Выберите слот"
+"Enemy data","Enemy data","Данные о противнике"
+"Aura:","Aura:","Аура:"
+"Scale:","Scale:","Масштаб:"
+"set","set","установить"
+"boss","boss","босс"
+"frozen","frozen","заморожен"
+
+"HINT_HOLD_CTRL","Hold Ctrl to slide.","Зажмите Ctrl, чтобы скользить."
+"HINT_AIR_DASH","Press Shift while in the air.","Нажмите Shift, находясь в воздухе."
+"HINT_HEAL","Use the medical station to\nrestore health.","Используйте медицинскую станцию, чтобы\nвосстановить здоровье."
+"HINT_SKIN","You can change the skin here.","Здесь можно сменить скин."
+"HINT_CRYSTAL_EXTRA_JUMP","Press Jump while inside a blue crystal to jump again.","Нажмите «Прыжок», когда находитесь в синем кристалле, для дополнительного прыжка."
+
+"NOTICE_FIELD_OPEN","The impenetrable field is open.","Непробиваемое поле открылось."
+"NOTICE_PASSAGE_OPEN","The passage is open.","Проход открыт."

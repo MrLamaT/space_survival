@@ -41,7 +41,7 @@ var game_settings: Dictionary = {
 		"Coords": false,
 		"FPS": false,
 		"Speed": false,
-		"Language": "English",
+		"Language": "en",
 		"crosshair": 1,
 		"ch_scale": 5.0,
 		"sensitivity": 0.005,

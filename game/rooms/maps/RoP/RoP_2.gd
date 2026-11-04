@@ -5,13 +5,7 @@ func handle_interaction(object_name: String):
 		"room1":
 			$NavigationRegion3D/floor_ceiling/room1/wallGates3.unlocking()
 			$NavigationRegion3D/floor_ceiling/room3/wallGates.unlocking()
-			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				$Player.warning("Проход открыт")
-			else:
-				$Player.warning("A door opens")
+			$Player.warning("NOTICE_PASSAGE_OPEN")
 		"room5":
 			$NavigationRegion3D/floor_ceiling/room5/ImpenetrableField.on(true)
-			if Global.game_settings["gui_settings"]["Language"] == "русский":
-				$Player.warning("Непробиваемое поле открылось")
-			else:
-				$Player.warning("The Impenetrable Field has opened")
+			$Player.warning("NOTICE_FIELD_OPEN")

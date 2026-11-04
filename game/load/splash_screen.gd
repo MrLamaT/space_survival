@@ -12,4 +12,5 @@ func _ready():
 		var random_texture = textures[randi() % textures.size()]
 		$Panel/TextureRect.texture = random_texture
 	await get_tree().create_timer(2.0).timeout 
+	TranslationServer.set_locale(Global.game_settings["gui_settings"]["Language"])
 	SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")

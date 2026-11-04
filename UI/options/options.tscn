@@ -110,7 +110,7 @@ selected = 0
 item_count = 2
 popup/item_0/text = "English"
 popup/item_0/id = 0
-popup/item_1/text = "русский"
+popup/item_1/text = "Русский"
 popup/item_1/id = 1
 
 [node name="Speedometer" type="HBoxContainer" parent="Panel/general/VBoxContainer" unique_id=1021724252]

@@ -25,30 +25,28 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 10.0
-offset_top = -53.0
+offset_top = -35.0
 offset_right = 50.0
-offset_bottom = 53.0
+offset_bottom = 30.000061
 grow_vertical = 2
+scale = Vector2(1.75, 1.75)
 pivot_offset_ratio = Vector2(0, 0.5)
 
 [node name="ButtonText" parent="Panel/VBoxContainer" unique_id=907316837 instance=ExtResource("2_8yxkb")]
 layout_mode = 2
-textLabel_en = "PLAY"
-textLabel_ru = "PLAY"
+textLabel_en = "MENU_PLAY"
 target_node = NodePath("../../..")
 button_id = "play"
 
 [node name="ButtonText2" parent="Panel/VBoxContainer" unique_id=504955367 instance=ExtResource("2_8yxkb")]
 layout_mode = 2
-textLabel_en = "OPTIONS"
-textLabel_ru = "OPTIONS"
+textLabel_en = "MENU_OPTIONS"
 target_node = NodePath("../../..")
 button_id = "options"
 
 [node name="ButtonText3" parent="Panel/VBoxContainer" unique_id=1974376998 instance=ExtResource("2_8yxkb")]
 layout_mode = 2
-textLabel_en = "QUIT"
-textLabel_ru = "QUIT"
+textLabel_en = "MENU_QUIT"
 target_node = NodePath("../../..")
 button_id = "quit"
 

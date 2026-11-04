@@ -32,7 +32,9 @@ func type_text(label, text: String) -> void:
 	skip_typing = false
 
 func _on_En_pressed() -> void:
-	Global.game_settings["gui_settings"]["Language"] = "English"
+	TranslationServer.set_locale("en")
+	Global.game_settings["gui_settings"]["Language"] = TranslationServer.get_locale()
+	Global.save(0)
 	$language.visible = false
 	$Panel.visible = true
 	await type_text($Panel/Label, "STATUS: Cleaner
@@ -46,7 +48,9 @@ Outcome: In the event of death — written off without debriefing.")
 	
 
 func _on_Ru_pressed() -> void:
-	Global.game_settings["gui_settings"]["Language"] = "русский"
+	TranslationServer.set_locale("ru")
+	Global.game_settings["gui_settings"]["Language"] = TranslationServer.get_locale()
+	Global.save(0)
 	$language.visible = false
 	$Panel.visible = true
 	await type_text($Panel/Label, "СТАТУС: Чистильщик
@@ -78,7 +82,7 @@ func _on_label_button_pressed(_id: String) -> void:
 	$Panel/Label.text = ""
 	$Panel/Sprite2D.visible = false
 	if page == 1:
-		if Global.game_settings["gui_settings"]["Language"] == "русский":
+		if Global.game_settings["gui_settings"]["Language"] == "ru":
 			await type_text($Panel/Label, "Движение
 W, A, S, D — передвижение
 Shift — рывок
@@ -91,7 +95,8 @@ F — включить/выключить фонарик
 
 оружия
 1–5 — слоты оружия
-ЛКМ — стрельба")
+ЛКМ — стрельба
+ПКМ — альтернативная стрельба")
 		else:
 			await type_text($Panel/Label, "Movement
 W, A, S, D — movement
@@ -105,7 +110,8 @@ F — toggle flashlight
 
 Weapons
 1–5 — weapon slots
-LMB — shoot")
+LMB — fire
+RMB — alternate fire")
 		$Panel/LabelButton.visible = true
 	if page >= 2:
 		SceneManager.load_scene_with_loading("res://game/rooms/maps/simulation/training.tscn")

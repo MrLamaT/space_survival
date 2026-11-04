@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://crnfwyfhj500g" path="res://assets/icon/prop/feronLL.png" id="58_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 [ext_resource type="Texture2D" uid="uid://cchsbhyfsimkg" path="res://assets/textures/roof.png" id="60_5txe2"]
+[ext_resource type="Texture2D" uid="uid://dgl68glgk38ir" path="res://assets/icon/prop/plush.png" id="60_r5g20"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="61_7addr"]
 [ext_resource type="Texture2D" uid="uid://3hqnq4w7des4" path="res://assets/icon/prop/colorball.png" id="62_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://bc8km00407rxy" path="res://assets/icon/shield.png" id="66_63tcv"]
@@ -793,6 +794,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "feronLL"
 img = ExtResource("58_kwbp6")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card20" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=107204966 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "plush"
+img = ExtResource("60_r5g20")
 type = "props"
 target_node = NodePath("../../../../..")
 
@@ -1605,10 +1613,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -30.0
-offset_right = 200.0
-offset_bottom = 30.0
+offset_left = -227.0
+offset_top = -50.0
+offset_right = 227.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)

@@ -16,7 +16,7 @@ func _ready():
 	print("MessagesID:", MessageID)
 	$AnimationPlayer.play("logo")
 	if MessageID == 1:
-		if Global.game_settings["gui_settings"]["Language"] == "русский":
+		if Global.game_settings["gui_settings"]["Language"] == "ru":
 			chat_text.text = "Тема: УРОВЕНЬ ЗАРАЖЕНИЯ ФАНТОМАМИ.
 
 [СИСТЕМНОЕ СООБЩЕНИЕ]
@@ -29,7 +29,7 @@ func _ready():
 WARNING: PHANTOM INFESTATION LEVEL: CRITICAL.
 Active suppression field generators have failed by 94.7% since last maintenance. Cascade failure event."
 	if MessageID == 2:
-		if Global.game_settings["gui_settings"]["Language"] == "русский":
+		if Global.game_settings["gui_settings"]["Language"] == "ru":
 			chat_text.text = "Тема: Охота за серцилистом.
 
 Цитадель всё выгребла из шахт. Серцилиста тут нет… но мы нашли их старую базу. Оборудование, корпуса, даже трубы — всё из этого проклятого металла.
