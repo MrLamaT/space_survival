@@ -13,8 +13,10 @@ keys,en,ru
 "Sensitivity","Sensitivity","Чувствительность"
 "Sound volume","Sound volume","Громкость звуков"
 "Music volume","Music volume","Громкость музыки"
+
 "general","general","общие"
 "controls","controls","управление"
+"saves","saves","сохранение"
 "back","back","назад"
 
 "delete","delete","удалить"
@@ -24,7 +26,6 @@ keys,en,ru
 "Simulation","Simulation","Симуляция"
 "Bonus","Bonus","Бонус"
 "Completed","Completed","Пройдено"
-"Locked","Locked","Заблокировано"
 "Available","Available","Доступно"
 
 "path: ","path: ","путь: "

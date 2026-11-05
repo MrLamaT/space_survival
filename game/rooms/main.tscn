@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bpglrkg3gng2c" path="res://game/decoration/lightTable.tscn" id="6_4kqoq"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="6_7o45e"]
 [ext_resource type="PackedScene" uid="uid://bjxdu0c8o6rrf" path="res://UI/menu/menu/menu.tscn" id="6_8lup6"]
-[ext_resource type="PackedScene" uid="uid://wkycjb503jb1" path="res://UI/menu/world/world.tscn" id="7_1u0l2"]
 [ext_resource type="PackedScene" uid="uid://66f66cwy6tfc" path="res://game/decoration/table.tscn" id="8_vy737"]
 
 [sub_resource type="Animation" id="Animation_7o45e"]
@@ -119,9 +118,6 @@ visible = false
 visible = false
 
 [node name="menu" parent="Camera3D" unique_id=1618934113 instance=ExtResource("6_8lup6")]
-visible = false
-
-[node name="world" parent="Camera3D" unique_id=966059859 instance=ExtResource("7_1u0l2")]
 visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=194896446]

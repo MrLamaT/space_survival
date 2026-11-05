@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://bdow2o2gyw6bg" path="res://game/blocks/roof.tscn" id="22_joaj5"]
 [ext_resource type="Material" uid="uid://btvvbjo13xi21" path="res://assets/material/plank.tres" id="22_qt861"]
 [ext_resource type="PackedScene" uid="uid://cjdydfcyoineg" path="res://game/prop/plush.tscn" id="34_70iat"]
-[ext_resource type="PackedScene" uid="uid://bc8w5yeuff64v" path="res://game/portal/walkthrough_portal.tscn" id="35_ulaod"]
 [ext_resource type="AudioStream" uid="uid://dynvn6ry0rbjr" path="res://assets/sound/nature.wav" id="38_80gio"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -167,7 +166,7 @@ size = Vector2(0.05, 0.05)
 [node name="sandbox" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_pcht1")
 env_scene = ExtResource("2_kogva")
-weapons = Array[String](["Summon", "Taser", "Hornet", "Impulse", "Impulse"])
+weapons = Array[String](["Summon", "Taser", "Breaker", "Hornet", "Impulse"])
 player_checkpoint = true
 spawn_panel = true
 
@@ -776,13 +775,5 @@ autoplay = true
 [node name="plush" parent="." unique_id=1828673876 instance=ExtResource("34_70iat")]
 transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, -56, 1, 39)
 skin = "fox_white"
-
-[node name="WalkthroughPortal" parent="." unique_id=995601067 node_paths=PackedStringArray("exit_portal") instance=ExtResource("35_ulaod")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-exit_portal = NodePath("../WalkthroughPortal2")
-
-[node name="WalkthroughPortal2" parent="." unique_id=1364697581 node_paths=PackedStringArray("exit_portal") instance=ExtResource("35_ulaod")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 2, 0)
-exit_portal = NodePath("../WalkthroughPortal")
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

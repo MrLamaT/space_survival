@@ -4,6 +4,8 @@ extends Node2D
 @onready var general_scroll: ScrollContainer = $Panel/general
 @onready var controls_panel = $Panel/controls/VBoxContainer
 @onready var controls_scroll: ScrollContainer = $Panel/controls
+@onready var saves_panel = $Panel/saves/VBoxContainer
+@onready var saves_scroll: ScrollContainer = $Panel/saves
 
 const ACTION_NAMES := {
 	"+w": "Forward", "+s": "Backward", "+a": "Left", "+d": "Right",
@@ -37,6 +39,48 @@ func _ready() -> void:
 	general_panel.get_node("Music/HSlider").value = float(Global.game_settings.gui_settings.music_volume)
 	general_panel.get_node("FOV/HSlider").value = float(Global.game_settings.gui_settings.fov)
 	_build_binding_controls()
+	if !get_parent().has_node("menu"):
+		$Panel/Button4.visible = false
+	for i in range(1, 6):
+		var button := saves_panel.get_node("slot%d/Button" % i) as Button
+		button.pressed.connect(_on_save_slot_pressed.bind(i))
+		var delete_button := saves_panel.get_node("slot%d/Button2" % i) as Button
+		delete_button.pressed.connect(_on_delete_slot_pressed.bind(i))
+	_update_slot_highlight()
+	_update_slot_labels()
+
+func _on_save_slot_pressed(slot: int) -> void:
+	if not get_parent().has_node("menu"):
+		return
+	Global.game_settings["world"] = slot
+	Global.save(0)
+	_update_slot_highlight()
+
+func _on_delete_slot_pressed(slot: int) -> void:
+	if not get_parent().has_node("menu"):
+		return
+	Global.delete_world_save(slot)
+	_update_slot_labels()
+	_update_slot_highlight()
+
+func _update_slot_highlight() -> void:
+	var selected_slot := int(Global.game_settings["world"])
+	for i in range(1, 6):
+		var slot_node := saves_panel.get_node("slot%d" % i) as CanvasItem
+		if i == selected_slot:
+			slot_node.modulate = Color.YELLOW
+		else:
+			slot_node.modulate = Color.WHITE
+
+func _update_slot_labels() -> void:
+	for i in range(1, 6):
+		var path := "Panel/saves/VBoxContainer/slot%d/Label" % i
+		var label := get_node_or_null(path) as Label
+		if label == null:
+			push_warning("Не найден узел: " + path)
+			continue
+		var world = Global.get_world(i)
+		label.text = "Slot %d [level: %d]" % [i, world["level"]]
 
 func _exit_tree() -> void:
 	SettingsManager.is_rebinding = false
@@ -92,9 +136,15 @@ func _on_label_button_pressed(id: String) -> void:
 		"general":
 			general_scroll.visible = true
 			controls_scroll.visible = false
+			saves_scroll.visible = false
 		"controls":
 			general_scroll.visible = false
 			controls_scroll.visible = true
+			saves_scroll.visible = false
+		"saves":
+			general_scroll.visible = false
+			controls_scroll.visible = false
+			saves_scroll.visible = true
 		"back":
 			if SettingsManager.is_rebinding:
 				_finish_rebinding()

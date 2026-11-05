@@ -49,6 +49,14 @@ var weapons: Dictionary = {
 			"node_fire_method": "fire"
 		}
 	},
+	"Breaker": {
+		"weapon_scene": preload("res://game/item/Breaker/Breaker.tscn"),
+		"fire_rate": 0.8,
+		"energy_cost": 25.0,
+		"shoot_animation": "shoot",
+		"visible_node": "Breaker",
+		"node_fire_method": "fire"
+	},
 	"Hornet": {
 		"weapon_scene": preload("res://game/item/Hornet/Hornet.tscn"),
 		"fire_rate": 0.06,

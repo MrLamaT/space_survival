@@ -357,7 +357,161 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/controls" unique_id=2031478812]
 layout_mode = 2
 
-[node name="Button" parent="Panel" unique_id=1811368051 instance=ExtResource("6_4gm0h")]
+[node name="saves" type="ScrollContainer" parent="Panel" unique_id=1580975914]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -299.0
+offset_right = 474.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/saves" unique_id=1899312095]
+layout_mode = 2
+
+[node name="slot1" type="HBoxContainer" parent="Panel/saves/VBoxContainer" unique_id=189286775]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/saves/VBoxContainer/slot1" unique_id=1871700582]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 25
+text = "Slot 1"
+
+[node name="Button" type="Button" parent="Panel/saves/VBoxContainer/slot1" unique_id=283552370]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "SELECTED"
+
+[node name="Button2" type="Button" parent="Panel/saves/VBoxContainer/slot1" unique_id=371143962]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "DELETE"
+
+[node name="slot2" type="HBoxContainer" parent="Panel/saves/VBoxContainer" unique_id=218694920]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/saves/VBoxContainer/slot2" unique_id=1891669559]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 25
+text = "Slot 2"
+
+[node name="Button" type="Button" parent="Panel/saves/VBoxContainer/slot2" unique_id=881637683]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "SELECTED"
+
+[node name="Button2" type="Button" parent="Panel/saves/VBoxContainer/slot2" unique_id=295123898]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "DELETE"
+
+[node name="slot3" type="HBoxContainer" parent="Panel/saves/VBoxContainer" unique_id=55439802]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/saves/VBoxContainer/slot3" unique_id=1633404010]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 25
+text = "Slot 3"
+
+[node name="Button" type="Button" parent="Panel/saves/VBoxContainer/slot3" unique_id=884387054]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "SELECTED"
+
+[node name="Button2" type="Button" parent="Panel/saves/VBoxContainer/slot3" unique_id=1494675932]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "DELETE"
+
+[node name="slot4" type="HBoxContainer" parent="Panel/saves/VBoxContainer" unique_id=1470422441]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/saves/VBoxContainer/slot4" unique_id=2058854890]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 25
+text = "Slot 4"
+
+[node name="Button" type="Button" parent="Panel/saves/VBoxContainer/slot4" unique_id=92119384]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "SELECTED"
+
+[node name="Button2" type="Button" parent="Panel/saves/VBoxContainer/slot4" unique_id=1083643529]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "DELETE"
+
+[node name="slot5" type="HBoxContainer" parent="Panel/saves/VBoxContainer" unique_id=1112395464]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Panel/saves/VBoxContainer/slot5" unique_id=1789701734]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 25
+text = "Slot 5"
+
+[node name="Button" type="Button" parent="Panel/saves/VBoxContainer/slot5" unique_id=1804868917]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "SELECTED"
+
+[node name="Button2" type="Button" parent="Panel/saves/VBoxContainer/slot5" unique_id=48276065]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_awjio")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_lf5q0")
+text = "DELETE"
+
+[node name="Button" parent="Panel" unique_id=1796526412 instance=ExtResource("6_4gm0h")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -392,6 +546,24 @@ text = "controls"
 direction_A_and_D = "D"
 target_node = NodePath("../..")
 button_id = "controls"
+
+[node name="Button4" parent="Panel" unique_id=1009394122 instance=ExtResource("6_4gm0h")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -431.0
+offset_top = -74.0
+offset_right = -431.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "saves"
+direction_A_and_D = "D"
+target_node = NodePath("../..")
+button_id = "saves"
 
 [node name="Button3" parent="Panel" unique_id=585717463 instance=ExtResource("6_4gm0h")]
 layout_mode = 1

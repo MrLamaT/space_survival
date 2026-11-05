@@ -1,6 +1,29 @@
 [gd_scene format=3 uid="uid://bc8w5yeuff64v"]
 
 [ext_resource type="Script" uid="uid://cijslvlhsosxl" path="res://game/portal/walkthrough_portal.gd" id="1_2loj4"]
+[ext_resource type="Shader" uid="uid://bg3wfm0bkhjn3" path="res://game/portal/walkthrough_portal.gdshader" id="2_ls7a7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh50r"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_ls7a7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2loj4"]
+size = Vector2(3, 3)
 
 [node name="WalkthroughPortal" type="Node3D" unique_id=995601067]
+process_priority = 100
 script = ExtResource("1_2loj4")
+
+[node name="Surface" type="MeshInstance3D" parent="." unique_id=1950514978]
+layers = 524288
+material_override = SubResource("ShaderMaterial_jh50r")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_2loj4")
+
+[node name="PortalView" type="SubViewport" parent="." unique_id=1439530531]
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="PortalCamera" type="Camera3D" parent="PortalView" unique_id=1478932628]
+current = true

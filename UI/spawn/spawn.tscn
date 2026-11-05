@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dopl01nk55aia" path="res://assets/weapon/taser.png" id="16_5tetk"]
 [ext_resource type="Texture2D" uid="uid://djrxgu2yjwjjo" path="res://assets/weapon/technical.png" id="16_d71kh"]
 [ext_resource type="Texture2D" uid="uid://4qbnyli0yynf" path="res://assets/weapon/stinger.png" id="18_bj30i"]
+[ext_resource type="Texture2D" uid="uid://cm3rlkhx7yvla" path="res://assets/weapon/breaker.png" id="21_d6vnn"]
 [ext_resource type="Texture2D" uid="uid://d4islse20ywxp" path="res://assets/skin_npc/fox_black2.png" id="21_rp21u"]
 [ext_resource type="Texture2D" uid="uid://umvfqfj0w7h6" path="res://assets/icon/enemyEgg/Egg_phantom.png" id="22_6btrt"]
 [ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="22_o0w04"]
@@ -435,6 +436,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "Taser"
 img = ExtResource("16_5tetk")
+type = "weapon"
+target_node = NodePath("../../../../..")
+
+[node name="card5" parent="Panel/ScrollContainer/VBoxContainer/GridContainer12" unique_id=1243654722 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "Breaker"
+img = ExtResource("21_d6vnn")
 type = "weapon"
 target_node = NodePath("../../../../..")
 

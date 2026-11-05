@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnnv22jtoflvu"
-path="res://.godot/imported/ChatGPT_03_43_56.png-98b1b4bda03c1f34e437cadd36dfd208.ctex"
+uid="uid://cm3rlkhx7yvla"
+path="res://.godot/imported/breaker.png-80430f5221e0f9c1f36b3f436007324c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weapon/ChatGPT_03_43_56.png"
-dest_files=["res://.godot/imported/ChatGPT_03_43_56.png-98b1b4bda03c1f34e437cadd36dfd208.ctex"]
+source_file="res://assets/weapon/breaker.png"
+dest_files=["res://.godot/imported/breaker.png-80430f5221e0f9c1f36b3f436007324c.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

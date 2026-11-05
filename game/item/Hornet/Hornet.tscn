@@ -119,7 +119,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(3.1415927, 3.1415927, 1.5707964), Vector3(3.1415927, 2.3561945, 1.5707964), Vector3(3.1415927, 2.3561945, 1.5707964), Vector3(0.08726646, 3.1415925, 1.5707964)]
+"values": [Vector3(0, -0.61086524, -1.5707964), Vector3(0, -1.3089969, -1.5707964), Vector3(0, -1.3089969, -1.5707964), Vector3(0, -0.61086524, -1.5707964)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -131,7 +131,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.4, 0.6, 0.75, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.35, -0.5, 0.75), Vector3(-0.25, -0.5, 0.2), Vector3(-0.2, -0.45, 0.2), Vector3(-0.25, -0.5, 0.2), Vector3(-0.2, -0.45, 0.2), Vector3(0.35, -0.5, 0.75)]
+"values": [Vector3(0.35, -0.15, 0.25), Vector3(-0.25, -0.5, 0.25), Vector3(-0.2, -0.45, 0.25), Vector3(-0.25, -0.5, 0.25), Vector3(-0.2, -0.45, 0.25), Vector3(0.35, -0.15, 0.25)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -140,10 +140,10 @@ tracks/4/path = NodePath("hand:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_8y5eb"]
@@ -183,7 +183,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.08726646, 3.1415927, 1.5707964)]
+"values": [Vector3(0, -0.61086524, -1.5707964)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -195,7 +195,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [false]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -207,7 +207,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.35, -0.3, 0.25), Vector3(0.35, -0.07, 0)]
+"values": [Vector3(0.35, -0.3, 0.425), Vector3(0.35, -0.15, 0.25)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -250,6 +250,7 @@ pitch_scale = 1.5
 libraries/ = SubResource("AnimationLibrary_g5fsn")
 
 [node name="hand" parent="." unique_id=1885934729 instance=ExtResource("3_g5sil")]
+visible = false
 
 [node name="BulletSpawn" type="Marker3D" parent="." unique_id=1983465359]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.05, 0)

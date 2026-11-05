@@ -13,7 +13,7 @@ func _ready() -> void:
 	var overlay := StandardMaterial3D.new()
 	overlay.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	overlay.albedo_color = color.darkened(0.6)
-	$Node3D/MeshInstance3D2.material_overlay = overlay
+	$Node3D/MeshInstance3D2.material_override = overlay
 
 func shoot(dir: Vector3, _spd: float):
 	if dir.length() < 0.01:
