@@ -31,6 +31,9 @@ albedo_texture = ExtResource("2_5wqm1")
 metallic = 1.0
 texture_filter = 0
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_g4v7s"]
+size = Vector3(7, 10, 0.8)
+
 [node name="wall" type="Node3D" unique_id=1533157946]
 script = ExtResource("1_vabq7")
 
@@ -113,3 +116,7 @@ material = SubResource("StandardMaterial3D_1t1nx")
 
 [node name="Light" parent="." unique_id=1381863763 instance=ExtResource("3_5wqm1")]
 transform = Transform3D(1, 0, 0, 0, 0.4999999, 0.8660253, 0, -0.8660253, 0.4999999, 0, 4.4, 0.675)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=452593419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+occluder = SubResource("BoxOccluder3D_g4v7s")

@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://game/decoration/wall/corridorLoad.tscn" id="9_40c1g"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://game/prop/barrel.tscn" id="9_qn6o2"]
 [ext_resource type="PackedScene" uid="uid://cb1bxcrcvs0gn" path="res://game/prop/storageBox.tscn" id="10_553gl"]
+[ext_resource type="PackedScene" uid="uid://bk3onh6r0kr07" path="res://game/item/Organizer_give.tscn" id="10_dssqi"]
 [ext_resource type="PackedScene" uid="uid://d2kp3ovym1413" path="res://game/decoration/PC2.tscn" id="11_0rxj5"]
+[ext_resource type="Texture2D" uid="uid://cm3rlkhx7yvla" path="res://assets/weapon/breaker.png" id="11_3njp7"]
 [ext_resource type="PackedScene" uid="uid://cxf02h3jh5uew" path="res://game/decoration/work_table.tscn" id="12_x3jtn"]
 [ext_resource type="PackedScene" uid="uid://b3rxfbmsi1qv2" path="res://game/prop/workbench.tscn" id="13_l3nwv"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://game/laser/tesla.tscn" id="14_aimxv"]
@@ -117,6 +119,12 @@ skin = 4
 transform = Transform3D(-0.94343704, 0, 0.33155227, 0, 1, 0, -0.33155227, 0, -0.94343704, 2.75, 2, -52)
 freeze = true
 skin = 1
+
+[node name="TaserGive" parent="NavigationRegion3D/floor_ceiling/room1" unique_id=2030828468 instance=ExtResource("10_dssqi")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -8, 0.9999998, -48)
+weapon = "Breaker"
+slot = 3
+img = ExtResource("11_3njp7")
 
 [node name="room2" type="Node3D" parent="NavigationRegion3D/floor_ceiling" unique_id=1717040588]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 27)

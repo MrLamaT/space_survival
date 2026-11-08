@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d0wcq8ude8m2e"]
+
+[ext_resource type="PackedScene" uid="uid://gwq81slq1cw4" path="res://game/item/hand_item.tscn" id="1_iex6w"]
+[ext_resource type="Script" uid="uid://dqsdqoqiltm75" path="res://game/item/Knife/knife_boomerang.gd" id="1_k75tf"]
+[ext_resource type="Texture2D" uid="uid://yil4eemr5kwt" path="res://assets/weapon/engineers_cleaver.png" id="2_k75tf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="Animation" id="Animation_hw704"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 156.58992)]
+}
+
+[sub_resource type="Animation" id="Animation_lcnr0"]
+resource_name = "knifeBoomerangRot"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handItem:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 6.2831855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g8bl5"]
+_data = {
+&"RESET": SubResource("Animation_hw704"),
+&"knifeBoomerangRot": SubResource("Animation_lcnr0")
+}
+
+[node name="KnifeBoomerang" type="Node3D" unique_id=562154695]
+script = ExtResource("1_k75tf")
+
+[node name="handItem" parent="." unique_id=837608605 instance=ExtResource("1_iex6w")]
+transform = Transform3D(0.88246787, 0.4703723, 0, 2.0560623e-08, -3.85739e-08, 0.99999994, 0.47037223, -0.882468, -4.3711385e-08, 0, 0, 0)
+texture = ExtResource("2_k75tf")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=413556162]
+collision_layer = 4
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=28871537]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1649499748]
+libraries/ = SubResource("AnimationLibrary_g8bl5")
+autoplay = &"knifeBoomerangRot"

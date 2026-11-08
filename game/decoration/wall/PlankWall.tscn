@@ -12,6 +12,9 @@ albedo_texture = ExtResource("1_pmtan")
 metallic = 1.0
 texture_filter = 0
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_pmtan"]
+size = Vector3(7, 10, 0.8)
+
 [node name="wall" type="Node3D" unique_id=1533157946]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1794776523]
@@ -49,3 +52,7 @@ material = SubResource("StandardMaterial3D_u83kx")
 
 [node name="plank" parent="StaticBody3D/wall" unique_id=403841509 instance=ExtResource("3_wfksu")]
 transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 1.25, 0, 2.5, 0)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=548980181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+occluder = SubResource("BoxOccluder3D_pmtan")

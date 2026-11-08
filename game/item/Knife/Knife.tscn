@@ -80,6 +80,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("hand:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.07000001]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("handItem:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.15000002]
+}
 
 [sub_resource type="Animation" id="Animation_7fx2g"]
 resource_name = "shoot"
@@ -186,11 +210,40 @@ tracks/4/keys = {
 "values": [Vector3(0.35, -0.5, 0), Vector3(0.35, -0.07, 0), Vector3(0.35, -0.07, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ecgf7"]
+resource_name = "throw"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.07000001, -1.5, -0.07]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handItem:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.15000002, -1.3, 0.15]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7fx2g"]
 _data = {
 &"RESET": SubResource("Animation_278cu"),
 &"shoot": SubResource("Animation_7fx2g"),
-&"take": SubResource("Animation_bsm05")
+&"take": SubResource("Animation_bsm05"),
+&"throw": SubResource("Animation_ecgf7")
 }
 
 [node name="Knife" type="Node3D" unique_id=1598003082]
@@ -211,6 +264,7 @@ pitch_scale = 1.5
 
 [node name="hand" parent="." unique_id=1885934729 instance=ExtResource("4_fl0d8")]
 transform = Transform3D(4.582688e-08, 1.5, -2.2563182e-07, 1.494292, -6.531758e-08, -0.13073348, -0.13073348, -2.2077917e-07, -1.494292, 0.25, -0.2, 0)
+visible = false
 
 [node name="BulletSpawn" type="Marker3D" parent="." unique_id=1981150485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0.3)

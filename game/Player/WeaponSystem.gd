@@ -34,6 +34,12 @@ var weapons: Dictionary = {
 		"shoot_animation": "shoot",
 		"visible_node": "Knife",
 		"node_fire_method": "fire",
+		"alt": {
+			"fire_rate": 1.35,
+			"energy_cost": 100.0,
+			"shoot_animation": "throw",
+			"node_fire_method": "throw_spike",
+		},
 	},
 	"Taser": {
 		"weapon_scene": preload("res://game/item/Taser/Taser.tscn"),

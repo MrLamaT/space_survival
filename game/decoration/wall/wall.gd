@@ -14,3 +14,4 @@ func _ready() -> void:
 		var glass_mat = load("res://assets/material/glass.tres")
 		$StaticBody3D/wall/box.material = glass_mat
 		$StaticBody3D/wall/box.size = Vector3(4.9, 2.5, 1.0)
+		$OccluderInstance3D.hide()

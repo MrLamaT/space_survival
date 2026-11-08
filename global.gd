@@ -67,6 +67,35 @@ func _ready():
 	for i in range(1, 6):
 		load_world(i)
 
+var _slow_motion_tween: Tween
+
+func slow_motion(
+	speed: float = 0.25,
+	hold_seconds: float = 0.35,
+	recover_seconds: float = 0.2
+) -> void:
+	if _slow_motion_tween != null:
+		_slow_motion_tween.kill()
+	Engine.time_scale = clampf(speed, 0.05, 1.0)
+	_slow_motion_tween = create_tween()
+	_slow_motion_tween.set_ignore_time_scale(true)
+	_slow_motion_tween.tween_interval(maxf(hold_seconds, 0.0))
+	_slow_motion_tween.tween_method(
+		_set_time_scale,
+		Engine.time_scale,
+		1.0,
+		maxf(recover_seconds, 0.0)
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _set_time_scale(value: float) -> void:
+	Engine.time_scale = value
+
+func stop_slow_motion() -> void:
+	if _slow_motion_tween != null:
+		_slow_motion_tween.kill()
+		_slow_motion_tween = null
+	Engine.time_scale = 1.0
+
 func get_world(world_num: int) -> Dictionary:
 	match world_num:
 		1: return world_1
