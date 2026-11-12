@@ -13,11 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://game/decoration/hologram_text.tscn" id="10_d4hu4"]
 [ext_resource type="PackedScene" uid="uid://bnvqwal8ur031" path="res://game/orbit/orbit.tscn" id="10_e2may"]
 [ext_resource type="PackedScene" uid="uid://3wierofwxkw1" path="res://game/decoration/wall/corridor.tscn" id="10_s4qug"]
+[ext_resource type="ArrayMesh" uid="uid://c6cqei4elpe1b" path="res://assets/models/reactor.obj" id="13_jfjou"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://game/laser/tesla.tscn" id="13_rcvxr"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="13_xbl6y"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="14_7g3nl"]
 [ext_resource type="PackedScene" uid="uid://dcqw41odbu4my" path="res://game/prop/сrystalCitadel.tscn" id="14_rcvxr"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://game/decoration/wall/impenetrableField.tscn" id="14_se26l"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="15_aynrw"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://game/enemy/cockroach/cockroach.tscn" id="15_bsuao"]
+[ext_resource type="ArrayMesh" uid="uid://ceng85qtd5ctd" path="res://assets/models/bomba.obj" id="16_aynrw"]
 [ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://game/enemy/observer1/observer1.tscn" id="16_b20mc"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://game/decoration/button.tscn" id="16_kls77"]
 [ext_resource type="PackedScene" uid="uid://cwuqgfd843rge" path="res://game/decoration/container.tscn" id="17_dw61b"]
@@ -38,6 +42,14 @@ geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294967268
 cell_size = 0.1
 agent_radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfjou"]
+shading_mode = 0
+albedo_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvawq"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
 
 [node name="level" type="NavigationRegion3D" unique_id=953575263]
 navigation_mesh = SubResource("NavigationMesh_3j5e6")
@@ -660,73 +672,85 @@ transform = Transform3D(-22, 0, -3.3219076e-06, 0, 1, 0, 3.3219076e-06, 0, -22, 
 [node name="dirt2" parent="floor_ceiling/room4" unique_id=1397167951 instance=ExtResource("4_e2may")]
 transform = Transform3D(-22, 0, -3.3219076e-06, 0, 1, 0, 3.3219076e-06, 0, -22, -28.5, 19.5, 12)
 
-[node name="latticeWall" parent="floor_ceiling/room4" unique_id=1600565065 instance=ExtResource("18_q2c33")]
-transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, -25.5, 12.5, 17.5)
-
-[node name="latticeWall2" parent="floor_ceiling/room4" unique_id=441974186 instance=ExtResource("18_q2c33")]
-transform = Transform3D(-6.556708e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.371139e-08, -25.5, 16.5, 17.5)
-
-[node name="wall8" parent="floor_ceiling/room4" unique_id=1324745665 instance=ExtResource("7_d4hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 10.5, 20.5)
-
-[node name="wall9" parent="floor_ceiling/room4" unique_id=1224972027 instance=ExtResource("7_d4hu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 10.5, 13.5)
-
 [node name="StorageBox" parent="floor_ceiling/room4" unique_id=1998873695 instance=ExtResource("8_u6ena")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 10.5, 21)
 freeze = true
 
 [node name="StorageBox2" parent="floor_ceiling/room4" unique_id=880172966 instance=ExtResource("8_u6ena")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.5, 10.5, 12)
-freeze = true
-
-[node name="StreetLamp" parent="floor_ceiling/room4" unique_id=1748656771 instance=ExtResource("3_okdwg")]
-transform = Transform3D(-0.9890159, 0, -0.14780943, 0, 1, 0, 0.14780943, 0, -0.9890159, -24.5, 11.225, 14.5)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -37.5, 10.5, 12)
 freeze = true
 
 [node name="StreetLamp3" parent="floor_ceiling/room4" unique_id=1945872844 instance=ExtResource("3_okdwg")]
-transform = Transform3D(-0.9890159, 0, -0.14780943, 0, 1, 0, 0.14780943, 0, -0.9890159, -31.5, 11.225, 7.5)
+transform = Transform3D(-0.9890159, 0, -0.14780943, 0, 1, 0, 0.14780943, 0, -0.9890159, -37.5, 11.225, 7.5)
 freeze = true
 
 [node name="StreetLamp4" parent="floor_ceiling/room4" unique_id=1187025143 instance=ExtResource("3_okdwg")]
-transform = Transform3D(0.7826081, 0, 0.6225147, 0, 1, 0, -0.6225147, 0, 0.7826081, -19.5, 11.225, 7.5)
+transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, -19.5, 11.225, 7.5)
 freeze = true
 
 [node name="StreetLamp2" parent="floor_ceiling/room4" unique_id=752446873 instance=ExtResource("3_okdwg")]
-transform = Transform3D(-0.9890159, 0, -0.14780943, 0, 1, 0, 0.14780943, 0, -0.9890159, -24.5, 11.225, 19.5)
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, -19.5, 11.225, 16.5)
 freeze = true
 
 [node name="StreetLamp5" parent="floor_ceiling/room4" unique_id=582191657 instance=ExtResource("3_okdwg")]
-transform = Transform3D(-0.9304176, 0, 0.36650115, 0, 1, 0, -0.36650115, 0, -0.9304176, -31.5, 11.225, 19.5)
+transform = Transform3D(-0.57357645, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.57357645, -37.5, 11.225, 16.5)
 freeze = true
 
 [node name="Barrel" parent="floor_ceiling/room4" unique_id=1632387689 instance=ExtResource("5_d4hu4")]
 transform = Transform3D(0.1045284, 0, 0.99452174, 0, 1, 0, -0.99452174, 0, 0.1045284, -20.575, 10.9, 3.85)
 
 [node name="Barrel2" parent="floor_ceiling/room4" unique_id=1992134812 instance=ExtResource("6_etb22")]
-transform = Transform3D(0.5644344, 0, 0.82547814, 0, 1, 0, -0.82547814, 0, 0.5644344, -25, 11, 12.875)
+transform = Transform3D(-0.33155224, 0, -0.9434371, 0, 1, 0, 0.9434371, 0, -0.33155224, -20, 10.999998, 5.875)
 freeze = true
 skin = 5
 
 [node name="Barrel3" parent="floor_ceiling/room4" unique_id=321832563 instance=ExtResource("6_etb22")]
-transform = Transform3D(0.5644344, 0, 0.82547814, 0, 1, 0, -0.82547814, 0, 0.5644344, -26.25, 11, 12.875)
+transform = Transform3D(-0.99710226, 0, 0.076075405, 0, 1, 0, -0.076075405, 0, -0.99710226, -23.25, 10.999998, 3.875)
 freeze = true
 skin = 1
 
 [node name="Barrel5" parent="floor_ceiling/room4" unique_id=149094325 instance=ExtResource("6_etb22")]
-transform = Transform3D(0.5644344, 0, 0.82547814, 0, 1, 0, -0.82547814, 0, 0.5644344, -26.55, 11, 13.875)
+transform = Transform3D(0.5644344, 0, 0.82547814, 0, 1, 0, -0.82547814, 0, 0.5644344, -21.55, 10.999998, 5.875)
 freeze = true
 skin = 1
 
 [node name="Barrel6" parent="floor_ceiling/room4" unique_id=2126986415 instance=ExtResource("6_etb22")]
-transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -26.55, 11, 15)
+transform = Transform3D(-1.0000001, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1.0000001, -21.55, 10.999998, 7)
 freeze = true
 skin = 6
 
 [node name="Barrel4" parent="floor_ceiling/room4" unique_id=2118464505 instance=ExtResource("6_etb22")]
-transform = Transform3D(-0.43266788, 0, 0.90155363, 0, 1, 0, -0.90155363, 0, -0.43266788, -26.25, 12, 12.875)
+transform = Transform3D(-0.56443435, 0, -0.82547826, 0, 1, 0, 0.82547826, 0, -0.56443435, -23.25, 11.999998, 3.875)
 freeze = true
 skin = 5
+
+[node name="reactor" type="StaticBody3D" parent="floor_ceiling/room4" unique_id=1562717032]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -28.5, 10.25, 21.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor_ceiling/room4/reactor" unique_id=1186297705]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("13_jfjou")
+surface_material_override/0 = ExtResource("14_7g3nl")
+surface_material_override/1 = ExtResource("15_aynrw")
+surface_material_override/2 = ExtResource("14_7g3nl")
+surface_material_override/3 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/4 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/5 = SubResource("StandardMaterial3D_kvawq")
+surface_material_override/6 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/7 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/8 = SubResource("StandardMaterial3D_jfjou")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="floor_ceiling/room4/reactor" unique_id=683807567]
+transform = Transform3D(0.5, 0, 0, 0, 0.4829629, 0.12940952, 0, -0.12940952, 0.4829629, 0, 0.25, 3.5)
+mesh = ExtResource("16_aynrw")
+surface_material_override/0 = ExtResource("14_7g3nl")
+surface_material_override/1 = ExtResource("15_aynrw")
+surface_material_override/2 = ExtResource("15_aynrw")
+surface_material_override/3 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/4 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/5 = SubResource("StandardMaterial3D_kvawq")
+surface_material_override/6 = SubResource("StandardMaterial3D_kvawq")
+surface_material_override/7 = SubResource("StandardMaterial3D_jfjou")
 
 [node name="corridor11" parent="floor_ceiling" unique_id=2055780126 instance=ExtResource("10_s4qug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 10, 12)
