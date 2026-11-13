@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cdmb766ygbgoo"]
+
+[ext_resource type="ArrayMesh" uid="uid://c6cqei4elpe1b" path="res://assets/models/reactor.obj" id="1_j3h5f"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="2_prioe"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="3_urmpy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hct6"]
+shading_mode = 0
+albedo_color = Color(0.9529412, 0.94509804, 0.77254903, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfjou"]
+shading_mode = 0
+albedo_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aynrw"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.99, 0.46200004, 0, 0.5882353)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(9.5, 9, 5)
+
+[node name="reactor" type="StaticBody3D" unique_id=1559161937]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1887288195]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("1_j3h5f")
+surface_material_override/0 = ExtResource("2_prioe")
+surface_material_override/1 = ExtResource("3_urmpy")
+surface_material_override/2 = ExtResource("2_prioe")
+surface_material_override/3 = SubResource("StandardMaterial3D_4hct6")
+surface_material_override/4 = SubResource("StandardMaterial3D_jfjou")
+surface_material_override/5 = SubResource("StandardMaterial3D_aynrw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=659694668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+light_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="MeshInstance3D" unique_id=533049415]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.75, 0)
+light_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="MeshInstance3D" unique_id=227873258]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.75, 0)
+light_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+light_energy = 2.0
+light_bake_mode = 1
+omni_range = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1525755905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+shape = SubResource("BoxShape3D_g4v7s")
