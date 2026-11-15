@@ -1,11 +1,213 @@
 [gd_scene format=3 uid="uid://bh4lldjba2smx"]
 
-[ext_resource type="Script" uid="uid://wt1sfybui2nh" path="res://UI/start/start.gd" id="1_v4mn3"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="2_c0x5f"]
 [ext_resource type="Texture2D" uid="uid://dhft6b4r38kjk" path="res://assets/icon/USA.png" id="3_p7atd"]
 [ext_resource type="Texture2D" uid="uid://djotj0lsuuykf" path="res://assets/icon/RU.png" id="4_03dfm"]
-[ext_resource type="PackedScene" uid="uid://btlhau0niepik" path="res://UI/LabelButton/LabelButton.tscn" id="5_03dfm"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="4_5mk0y"]
 [ext_resource type="Texture2D" uid="uid://bv00cbkqn6i5d" path="res://assets/portrait2.png" id="6_5mk0y"]
+
+[sub_resource type="GDScript" id="GDScript_dossier"]
+script/source = "extends Node2D
+
+const PLUSH_SOURCE := preload(\"res://game/prop/plush.tscn\")
+const CLASSIC_SKIN := preload(\"res://assets/skin_npc/fox_black.png\")
+const TRAINING := \"res://game/rooms/maps/simulation/training.tscn\"
+
+const ENGLISH := {
+	\"ОГРАНИЧЕННЫЙ ДОСТУП\": \"RESTRICTED ACCESS\",
+	\"Личное дело\": \"Personnel File\",
+	\"Имя\": \"Name\",
+	\"Пол\": \"Sex\",
+	\"Мужской\": \"Male\",
+	\"Вид\": \"Species\",
+	\"Лис\": \"Fox\",
+	\"Гражданство\": \"Citizenship\",
+	\"Цитадель\": \"Citadel\",
+	\"Статус\": \"Status\",
+	\"Чистильщик\": \"Cleaner\",
+	\"Возраст\": \"Age\",
+	\"25 лет\": \"25\",
+	\"Проживание\": \"Residence\",
+	\"Транзитный блок 06, сектор «Кромка»\": \"Transit Block 06, Rim Sector\",
+
+	\"Задача\": \"Objective\",
+	\"Проникнуть через портал, нейтрализовать все цели, утратившие контроль, добраться до точки активации и инициировать подрыв объекта.\": \"Enter through the portal, neutralize all targets no longer under Citadel control, reach the activation point, and initiate the demolition of the facility.\",
+	\"Разрешены любые средства, найденные на месте. Сбор вооружения, ресурсов и модификация экипировки поощряются.\": \"Use any equipment found on site. Collecting weapons and resources and modifying gear are encouraged.\",
+
+	\"Права Чистильщика\": \"Cleaner Authorizations\",
+	\"Маршрут и эвакуация\": \"Transit and evacuation\",
+	\"Пользоваться назначенным порталом, выбирать маршрут на объекте и запрашивать эвакуацию при угрозе жизни.\": \"Use the assigned portal, choose a route through the facility, and request evacuation if your life is in danger.\",
+	\"Доступ к объекту\": \"Facility access\",
+	\"Входить в служебные зоны по заданию, считывать местные журналы и работать с терминалами, если это нужно для выполнения задачи.\": \"Enter service areas, read local logs, and operate terminals as required for the assignment.\",
+	\"Снаряжение и ресурсы\": \"Equipment and resources\",
+	\"Подбирать вооружение и материалы, заменять повреждённые узлы и модифицировать экипировку в поле.\": \"Recover weapons and materials, replace damaged components, and modify equipment in the field.\",
+	\"Управление объектом\": \"Facility controls\",
+	\"Включать поля подавления и аварийные системы. Инициировать подрыв только назначенного объекта.\": \"Enable suppression fields and emergency systems. Initiate demolition only at the assigned facility.\",
+	\"Поддержка Цитадели\": \"Citadel support\",
+	\"Запрашивать данные об объекте, связь с куратором и медицинскую помощь до и после выхода.\": \"Request site data, contact your handler, and seek medical care before and after deployment.\",
+	\"Границы полномочий\": \"Limits of authority\",
+	\"Допуск действует только на время задания.\": \"Clearance is valid only for the duration of the assignment.\",
+
+	\"Характеристика\": \"Personnel Profile\",
+	\"ЛИЧНЫЙ СОСТАВ / ПРИЛОЖЕНИЕ К ДЕЛУ\": \"PERSONNEL / FILE SUPPLEMENT\",
+	\"Личные характеристики\": \"Personal Profile\",
+	\"Прежняя работа\": \"Former occupation\",
+	\"Контрабандист и сборщик оружия. После задержания принял службу Чистильщиком взамен тюремного срока.\": \"Smuggler and weapons assembler. After his arrest, he accepted service as a Cleaner in lieu of prison.\",
+	\"CMD-фактор\": \"CMD Factor\",
+	\"Даёт ускоренную регенерацию, повышенную силу и быструю адаптацию к физическим нагрузкам.\": \"Grants accelerated regeneration, increased strength, and rapid adaptation to physical strain.\",
+	\"Заметки о Чистильщике\": \"Notes on the Cleaner\",
+	\"Быстрый.\": \"Fast.\",
+	\"Разбирается в сборке оружия.\": \"Skilled at assembling weapons.\",
+	\"Слегка высокомерный.\": \"Slightly arrogant.\",
+	\"Торгуется даже при выдаче снаряжения.\": \"Haggles even when equipment is issued.\",
+	\"Неохотно говорит о бывших заказчиках.\": \"Reluctant to discuss former clients.\",
+	\"Чинит инструменты, которые другие списали.\": \"Repairs tools others have written off.\",
+
+	\"Управление\": \"Controls\",
+	\"Движение\": \"Movement\",
+	\"W, A, S, D — передвижение\\nShift — рывок\\nSpace — прыжок\\nCtrl — скольжение\": \"W, A, S, D — move\\nShift — dash\\nSpace — jump\\nCtrl — slide\",
+	\"Взаимодействие\": \"Interaction\",
+	\"E — взаимодействие с объектами\\nF — фонарик\": \"E — interact with objects\\nF — toggle flashlight\",
+	\"Оружие\": \"Weapons\",
+	\"1–5 — слоты оружия\\nЛКМ — стрельба\\nПКМ — альтернативная стрельба\": \"1–5 — weapon slots\\nLMB — fire\\nRMB — alternate fire\",
+}
+
+const typing_speed: float = 0.025
+const preview_model: PackedScene = preload(\"res://game/Player/visual_model_player.tscn\")
+const rotation_speed := 0.32
+
+@onready var panel: Panel = $Panel
+@onready var scroll: ScrollContainer = $Panel/Layout/Scroll
+@onready var content: VBoxContainer = $Panel/Layout/Scroll/Center/Content
+@onready var dossier: VBoxContainer = $Panel/Layout/Scroll/Center/Content/Dossier
+@onready var profile: VBoxContainer = $Panel/Layout/Scroll/Center/Content/Profile
+@onready var controls: VBoxContainer = $Panel/Layout/Scroll/Center/Content/Controls
+@onready var back_button: Button = $Panel/Layout/Footer/Buttons/Back
+@onready var next_button: Button = $Panel/Layout/Footer/Buttons/Next
+@onready var pivot: Node3D = $Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview/Viewport/Pivot
+
+var _original_texts: Dictionary[Label, String] = {}
+var _skip_typing := false
+var _page := 0
+var _russian := true
+var _loading := false
+
+func _ready() -> void:
+	for node in content.find_children(\"*\", \"Label\", true, false):
+		var label := node as Label
+		_original_texts[label] = label.text
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	_show_language_picker()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_cancel\"):
+		_skip_typing = true
+
+func _show_language_picker() -> void:
+	var prompt := \"Select language\"
+	var label: Label = $language/Label
+	label.text = \"\"
+	_skip_typing = false
+	for index in range(prompt.length()):
+		if _skip_typing:
+			label.text = prompt
+			break
+		label.text += prompt[index]
+		await get_tree().create_timer(typing_speed).timeout
+	await get_tree().create_timer(0.5).timeout
+	$language/AnimationPlayer.play(\"language\")
+
+func _on_En_pressed() -> void:
+	_open_dossier(\"en\")
+
+func _on_Ru_pressed() -> void:
+	_open_dossier(\"ru\")
+
+func _on_En_mouse_entered() -> void:
+	$language/usa.scale = Vector2(1.25, 1.25)
+
+func _on_En_mouse_exited() -> void:
+	$language/usa.scale = Vector2.ONE
+
+func _on_Ru_mouse_entered() -> void:
+	$language/ru.scale = Vector2(1.25, 1.25)
+
+func _on_Ru_mouse_exited() -> void:
+	$language/ru.scale = Vector2.ONE
+
+func _open_dossier(locale: String) -> void:
+	_russian = locale == \"ru\"
+	TranslationServer.set_locale(locale)
+	Global.game_settings[\"gui_settings\"][\"Language\"] = TranslationServer.get_locale()
+	Global.save(0)
+	for label in _original_texts:
+		if not is_instance_valid(label):
+			continue
+		var original: String = _original_texts[label]
+		label.text = original if _russian else ENGLISH.get(original.strip_edges(), original)
+	_build_preview()
+	$language.hide()
+	panel.show()
+	_show_page(0)
+
+func _show_page(index: int) -> void:
+	_page = index
+	dossier.visible = _page == 0
+	profile.visible = _page == 1
+	controls.visible = _page == 2
+	back_button.disabled = _page == 0
+	back_button.text = \"Назад\" if _russian else \"Back\"
+	if _page == 2:
+		next_button.text = \"Продолжить\" if _russian else \"Continue\"
+	else:
+		next_button.text = \"Далее\" if _russian else \"Next\"
+	scroll.set_deferred(\"scroll_vertical\", 0)
+
+func _on_back_pressed() -> void:
+	if not _loading and _page > 0:
+		_show_page(_page - 1)
+
+func _on_next_pressed() -> void:
+	if _loading:
+		return
+	if _page < 2:
+		_show_page(_page + 1)
+		return
+	_loading = true
+	back_button.disabled = true
+	next_button.disabled = true
+	await SceneManager.load_scene_with_loading(TRAINING)
+	if is_inside_tree():
+		_loading = false
+		back_button.disabled = false
+		next_button.disabled = false
+
+func _build_preview() -> void:
+	if pivot.get_child_count() > 0:
+		return
+	if preview_model != null:
+		pivot.add_child(preview_model.instantiate())
+		return
+	var prop := PLUSH_SOURCE.instantiate()
+	var model := prop.get_node(\"Node3D\") as Node3D
+	prop.remove_child(model)
+	prop.free()
+	model.position.x = 0.0
+	for part in model.find_children(\"*\", \"MeshInstance3D\", true, false):
+		part.set(\"atlas_texture\", CLASSIC_SKIN)
+	var head := model.get_node(\"head\") as Node3D
+	var left_arm := model.get_node(\"hand1\") as Node3D
+	var right_arm := model.get_node(\"hand2\") as Node3D
+	head.rotate_y(deg_to_rad(17.0))
+	head.rotate_z(deg_to_rad(-8.0))
+	left_arm.rotate_z(deg_to_rad(18.0))
+	right_arm.rotate_z(deg_to_rad(-12.0))
+	pivot.add_child(model)
+
+func _process(delta: float) -> void:
+	if panel.visible and _page == 0:
+		pivot.rotate_y(rotation_speed * delta)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7t6s"]
 bg_color = Color(0, 0, 0, 1)
@@ -148,8 +350,16 @@ _data = {
 &"language": SubResource("Animation_e01xd")
 }
 
-[node name="Pause" type="Node2D" unique_id=709397907 groups=["UI"]]
-script = ExtResource("1_v4mn3")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mask"]
+bg_color = Color(0.007843, 0.011765, 0.031373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.658824, 0.705882, 0.796078, 1)
+
+[node name="start" type="Node2D" unique_id=709397907 groups=["UI"]]
+script = SubResource("GDScript_dossier")
 
 [node name="language" type="Panel" parent="." unique_id=1405108526]
 offset_right = 1152.0
@@ -218,52 +428,860 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="Panel" type="Panel" parent="." unique_id=541691378]
+[node name="Panel" type="Panel" parent="." unique_id=315404584]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7t6s")
 
-[node name="Label" type="Label" parent="Panel" unique_id=82571892]
+[node name="Layout" type="VBoxContainer" parent="Panel" unique_id=968616086]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -536.0
-offset_top = -64.0
-offset_right = 175.0
-offset_bottom = 64.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = -24.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-pivot_offset_ratio = Vector2(0, 0.5)
+theme_override_constants/separation = 10
+
+[node name="Scroll" type="ScrollContainer" parent="Panel/Layout" unique_id=1641139783]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Center" type="CenterContainer" parent="Panel/Layout/Scroll" unique_id=529019721]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="VBoxContainer" parent="Panel/Layout/Scroll/Center" unique_id=373264184]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Dossier" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content" unique_id=1603596263]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Archive" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1580965598]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Layout/Scroll/Center/Content/Dossier/Archive" unique_id=761729376]
+position = Vector2(9, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("4_5mk0y")
+
+[node name="Access" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Archive" unique_id=198932367]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(558, 0)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_c0x5f")
-vertical_alignment = 1
+text = "ОГРАНИЧЕННЫЙ ДОСТУП"
+horizontal_alignment = 2
 
-[node name="LabelButton" parent="Panel" unique_id=1811368051 instance=ExtResource("5_03dfm")]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = 256.0
-offset_bottom = 256.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "continue"
-direction_A_and_D = "D"
-target_node = NodePath("../..")
-button_id = "continue"
+[node name="ArchiveRule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1053734461]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel" unique_id=769051573]
-visible = false
-position = Vector2(576, 125)
-scale = Vector2(0.25, 0.25)
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1509303636]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 44
+text = "Личное дело"
+horizontal_alignment = 1
+
+[node name="Identity" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1259800464]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Portrait" type="TextureRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity" unique_id=79195989]
+texture_filter = 2
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
 texture = ExtResource("6_5mk0y")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Fields" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity" unique_id=1146820257]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Field1" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=556607621]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1" unique_id=1754971822]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Имя"
+
+[node name="Mask" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1" unique_id=572870511]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 3
+
+[node name="Block1" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=640136825]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block2" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1770109477]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block3" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1893156250]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block4" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1695987683]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block5" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1229620901]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block6" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1457549461]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block7" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1184223703]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block8" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=1431258646]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="Block9" type="Panel" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field1/Mask" unique_id=945684910]
+custom_minimum_size = Vector2(11, 11)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mask")
+
+[node name="FieldRule1" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=977015585]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.223529, 0.27451, 0.364706, 1)
+
+[node name="Field2" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1988342240]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field2" unique_id=1874390849]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Пол"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field2" unique_id=1206517533]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Мужской"
+
+[node name="FieldRule2" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=391696418]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.223529, 0.27451, 0.364706, 1)
+
+[node name="Field3" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1505522523]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field3" unique_id=1436876153]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Вид"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field3" unique_id=1124023786]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Лис"
+
+[node name="FieldRule3" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1757576702]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.223529, 0.27451, 0.364706, 1)
+
+[node name="Field4" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1001532326]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field4" unique_id=840885923]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Гражданство"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field4" unique_id=109075574]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Цитадель"
+
+[node name="FieldRule4" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1314973781]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.223529, 0.27451, 0.364706, 1)
+
+[node name="Field5" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=231580077]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field5" unique_id=1885039454]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Статус"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field5" unique_id=1411722070]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Чистильщик"
+
+[node name="FieldRule5" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=861259304]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Field6" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1412327330]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field6" unique_id=734405763]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Возраст"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field6" unique_id=1663507108]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "25 лет"
+
+[node name="FieldRule6" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1678627178]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Field7" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1518465085]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Key" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field7" unique_id=1401015622]
+custom_minimum_size = Vector2(105, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Проживание"
+
+[node name="Value" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields/Field7" unique_id=1894473814]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Транзитный блок 06, сектор «Кромка»"
+
+[node name="FieldRule7" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Identity/Fields" unique_id=1136634116]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PreviewRow" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1689457828]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Preview" type="SubViewportContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow" unique_id=1497364896]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+focus_mode = 0
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview" unique_id=874873243]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(160, 160)
+render_target_update_mode = 0
+
+[node name="Pivot" type="Node3D" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview/Viewport" unique_id=1119514748]
+
+[node name="Camera" type="Camera3D" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview/Viewport" unique_id=690772977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 3)
+projection = 1
+current = true
+size = 1.65
+
+[node name="Key" type="DirectionalLight3D" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview/Viewport" unique_id=1742619640]
+transform = Transform3D(0.7661291, 0.32156664, -0.55645406, 0, 0.8658247, 0.50034744, 0.6426867, -0.38333073, 0.6633335, 0, 0, 0)
+light_energy = 1.1
+
+[node name="Fill" type="DirectionalLight3D" parent="Panel/Layout/Scroll/Center/Content/Dossier/PreviewRow/Preview/Viewport" unique_id=1874177559]
+transform = Transform3D(-0.7069692, -0.18318535, 0.68310887, 0, 0.9658739, 0.25901282, -0.70724434, 0.18311408, -0.6828431, 0, 0, 0)
+light_energy = 0.5
+
+[node name="Mission" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1714464554]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Mission" unique_id=1930231439]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 20
+text = "Задача"
+
+[node name="Rule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Mission" unique_id=1384451969]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Objective" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Mission" unique_id=342860382]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Проникнуть через портал, нейтрализовать все цели, утратившие контроль, добраться до точки активации и инициировать подрыв объекта."
+autowrap_mode = 3
+
+[node name="Equipment" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Mission" unique_id=1039024718]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Разрешены любые средства, найденные на месте. Сбор вооружения и ресурсов, а также модификация экипировки поощряются."
+autowrap_mode = 3
+
+[node name="Rights" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=2140710936]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=1351664987]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 20
+text = "Права Чистильщика"
+
+[node name="Rule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=201984395]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Entry1" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=435806993]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry1" unique_id=972634436]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Маршрут и эвакуация"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry1" unique_id=1515515542]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Пользоваться назначенным порталом, выбирать маршрут на объекте и запрашивать эвакуацию при угрозе жизни."
+autowrap_mode = 3
+
+[node name="Entry2" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=256247281]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry2" unique_id=2127315367]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Доступ к объекту"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry2" unique_id=1334137650]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Входить в служебные зоны по заданию, считывать местные журналы и работать с терминалами, если это нужно для выполнения задачи."
+autowrap_mode = 3
+
+[node name="Entry3" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=2094940968]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry3" unique_id=1959347779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Снаряжение и ресурсы"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry3" unique_id=1855065529]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Подбирать вооружение и материалы, заменять повреждённые узлы и модифицировать экипировку в поле."
+autowrap_mode = 3
+
+[node name="Entry4" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=1886720018]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry4" unique_id=1237365076]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Управление объектом"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry4" unique_id=371642811]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Включать поля подавления и аварийные системы. Инициировать подрыв только назначенного объекта."
+autowrap_mode = 3
+
+[node name="Entry5" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=1365133651]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry5" unique_id=2090388626]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Поддержка Цитадели"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Entry5" unique_id=1920095540]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Запрашивать данные об объекте, связь с куратором и медицинскую помощь до и после выхода."
+autowrap_mode = 3
+
+[node name="Limits" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights" unique_id=994120069]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Limits" unique_id=1820884153]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Границы полномочий"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/Rights/Limits" unique_id=586993778]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Допуск действует только на время задания."
+autowrap_mode = 3
+
+[node name="FooterRule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=2092262151]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PageFooter" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Dossier" unique_id=1736993553]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page" type="Label" parent="Panel/Layout/Scroll/Center/Content/Dossier/PageFooter" unique_id=1006654965]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "1 / 2"
+
+[node name="Profile" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content" unique_id=494379926]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Archive" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=1298194596]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/Layout/Scroll/Center/Content/Profile/Archive" unique_id=1767611113]
+position = Vector2(9, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("4_5mk0y")
+
+[node name="Access" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Archive" unique_id=2108101747]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(558, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "ОГРАНИЧЕННЫЙ ДОСТУП"
+horizontal_alignment = 2
+
+[node name="ArchiveRule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=434296987]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=684629668]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 40
+text = "Характеристика"
+
+[node name="Subtitle" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=539140156]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "ЛИЧНЫЙ СОСТАВ / ПРИЛОЖЕНИЕ К ДЕЛУ"
+
+[node name="Personal" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=45026654]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal" unique_id=433883159]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 20
+text = "Личные характеристики"
+
+[node name="Rule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal" unique_id=1749220966]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Entry1" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal" unique_id=1545221385]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal/Entry1" unique_id=418825909]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Прежняя работа"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal/Entry1" unique_id=852146854]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Контрабандист и сборщик оружия. После задержания принял службу Чистильщиком взамен тюремного срока."
+autowrap_mode = 3
+
+[node name="Rule2" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Personal" unique_id=1892650557]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CMD" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=1943608397]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/CMD" unique_id=1471974662]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 20
+text = "CMD-фактор"
+
+[node name="Rule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/CMD" unique_id=627540264]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Effects" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/CMD" unique_id=1751608098]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Даёт ускоренную регенерацию, повышенную силу и быструю адаптацию к физическим нагрузкам."
+autowrap_mode = 3
+
+[node name="Notes" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=1024650286]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=491536231]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 20
+text = "Заметки о Чистильщике"
+
+[node name="Rule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=2117176525]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note1" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=1130142550]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note1" unique_id=1540484254]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note1" unique_id=1191351504]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Быстрый."
+
+[node name="NoteRule1" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=279392379]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note2" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=782774085]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note2" unique_id=1549072379]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note2" unique_id=26091433]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Разбирается в сборке оружия."
+
+[node name="NoteRule2" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=1233064870]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note3" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=2145124185]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note3" unique_id=2008756129]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note3" unique_id=686875352]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Слегка высокомерный."
+
+[node name="NoteRule3" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=158374286]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note5" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=92945645]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note5" unique_id=1122871102]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note5" unique_id=379413017]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Торгуется даже при выдаче снаряжения."
+
+[node name="NoteRule5" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=1824883516]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note7" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=314752333]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note7" unique_id=750181883]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note7" unique_id=418980860]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Неохотно говорит о бывших заказчиках."
+
+[node name="NoteRule7" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=1493783768]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Note8" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=1319510109]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="Bullet" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note8" unique_id=1198723149]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 14
+text = "▪"
+
+[node name="Text" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes/Note8" unique_id=1332859563]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "Чинит инструменты, которые другие списали."
+
+[node name="NoteRule8" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile/Notes" unique_id=2069122037]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="FooterRule" type="ColorRect" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=1310721407]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PageFooter" type="HBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Profile" unique_id=939938565]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Page" type="Label" parent="Panel/Layout/Scroll/Center/Content/Profile/PageFooter" unique_id=61507394]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.705882, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "2 / 2"
+
+[node name="Controls" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content" unique_id=1150018318]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls" unique_id=1756866006]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 40
+text = "Управление"
+
+[node name="Entry1" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Controls" unique_id=826484446]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry1" unique_id=1780097900]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 18
+text = "Движение"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry1" unique_id=1934007939]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "W, A, S, D — передвижение
+Shift — рывок
+Space — прыжок
+Ctrl — скольжение"
+autowrap_mode = 3
+
+[node name="Entry2" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Controls" unique_id=479256196]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry2" unique_id=55184888]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 18
+text = "Взаимодействие"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry2" unique_id=1791071553]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "E — взаимодействие с объектами
+F — фонарик"
+autowrap_mode = 3
+
+[node name="Entry3" type="VBoxContainer" parent="Panel/Layout/Scroll/Center/Content/Controls" unique_id=687272644]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry3" unique_id=600497120]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.74902, 0.4, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+theme_override_font_sizes/font_size = 18
+text = "Оружие"
+
+[node name="Body" type="Label" parent="Panel/Layout/Scroll/Center/Content/Controls/Entry3" unique_id=1367304510]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.945098, 0.972549, 1)
+theme_override_fonts/font = ExtResource("2_c0x5f")
+text = "1–5 — слоты оружия
+ЛКМ — стрельба
+ПКМ — альтернативная стрельба"
+autowrap_mode = 3
+
+[node name="Footer" type="CenterContainer" parent="Panel/Layout" unique_id=51212012]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/Layout/Footer" unique_id=2073489691]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Back" type="Button" parent="Panel/Layout/Footer/Buttons" unique_id=308532935]
+custom_minimum_size = Vector2(150, 41)
+layout_mode = 2
+text = "Назад"
+
+[node name="Next" type="Button" parent="Panel/Layout/Footer/Buttons" unique_id=2108956182]
+custom_minimum_size = Vector2(150, 41)
+layout_mode = 2
+text = "Далее"
 
 [connection signal="mouse_entered" from="language/usa/Button" to="." method="_on_En_mouse_entered"]
 [connection signal="mouse_exited" from="language/usa/Button" to="." method="_on_En_mouse_exited"]
@@ -271,3 +1289,5 @@ texture = ExtResource("6_5mk0y")
 [connection signal="mouse_entered" from="language/ru/Button" to="." method="_on_Ru_mouse_entered"]
 [connection signal="mouse_exited" from="language/ru/Button" to="." method="_on_Ru_mouse_exited"]
 [connection signal="pressed" from="language/ru/Button" to="." method="_on_Ru_pressed"]
+[connection signal="pressed" from="Panel/Layout/Footer/Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/Layout/Footer/Buttons/Next" to="." method="_on_next_pressed"]
