@@ -167,15 +167,15 @@ func _on_language_selected(index: int) -> void:
 
 func _on_Speed_pressed() -> void:
 	Global.game_settings["gui_settings"]["Speed"] = general_panel.get_node("Speedometer/CheckBox").button_pressed
-	Global.save(0)
+	_apply_hud_settings()
 
 func _on_Coords_pressed() -> void:
 	Global.game_settings["gui_settings"]["Coords"] = general_panel.get_node("Coords/CheckBox").button_pressed
-	Global.save(0)
+	_apply_hud_settings()
 
 func _on_FPS_pressed() -> void:
 	Global.game_settings["gui_settings"]["FPS"] = general_panel.get_node("FPS/CheckBox").button_pressed
-	Global.save(0)
+	_apply_hud_settings()
 
 func _on_crosshair_selected(index: int) -> void:
 	Global.game_settings["gui_settings"]["crosshair"] = index + 1
@@ -204,4 +204,10 @@ func _on_music_value_changed(value: float) -> void:
 
 func _on_fov_value_changed(value: float) -> void:
 	Global.game_settings["gui_settings"]["fov"] = value
+	Global.save(0)
+
+func _apply_hud_settings() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.update_gui_visibility()
 	Global.save(0)

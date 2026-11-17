@@ -69,9 +69,7 @@ func handle_card_pressed(type, id, color_img):
 			for node in hand_nodes:
 				node.create_custom_material()
 			Global.save(Global.game_settings["world"])
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"enemies":
 			Global.summon["name"] = id
 			$Panel.visible = false
@@ -83,9 +81,7 @@ func handle_card_pressed(type, id, color_img):
 		"props":
 			Global.summon["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"style_block":
 			if id == "plank":
 				var plank = preload("res://assets/material/plank.tres")
@@ -99,15 +95,11 @@ func handle_card_pressed(type, id, color_img):
 			if id == "water":
 				var water = preload("res://assets/material/water.tres")
 				water.albedo_color = color_img
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"block":
 			Global.summon_block["name"] = id
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Block")
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"maps":
 			match id:
 				"sandbox":
@@ -129,51 +121,37 @@ func handle_card_pressed(type, id, color_img):
 					else:
 						world["mode"] = 1
 					player.warning("Cheat mode changed [" + str(world["mode"]) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"god": 
 					var player = get_tree().get_first_node_in_group("player")
 					player.GodMod = !player.GodMod
 					player.warning("God mode changed [" + str(player.GodMod) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"infE": 
 					var player = get_tree().get_first_node_in_group("player")
 					player.infE = !player.infE
 					player.warning("infE mode changed [" + str(player.infE) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"infS": 
 					var player = get_tree().get_first_node_in_group("player")
 					player.infS = !player.infS
 					player.warning("infS mode changed [" + str(player.infS) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"noclip [V]":
 					var player = get_tree().get_first_node_in_group("player")
 					player.noclip_cheat()
 					player.warning("Noclip toggled")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"ghost":
 					var player = get_tree().get_first_node_in_group("player")
 					Global.game_settings["GhostMod"] = !Global.game_settings["GhostMod"]
 					player.warning("Ghost mode changed [" + str(Global.game_settings["GhostMod"]) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"freeze enemies":
 					var player = get_tree().get_first_node_in_group("player")
 					Global.game_settings["FreezeEnemies"] = !Global.game_settings["FreezeEnemies"]
 					player.warning("Freeze enemies changed [" + str(Global.game_settings["FreezeEnemies"]) + "]")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"kill All":
 					var player = get_tree().get_first_node_in_group("player")
 					var enemies = get_tree().get_nodes_in_group("enemy")
@@ -184,9 +162,7 @@ func handle_card_pressed(type, id, color_img):
 						player.warning("Killed " + str(enemies.size()) + " enemy/enemies")
 					else:
 						player.warning("No enemies found")
-					Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-					Global.game_settings["UI"] = false
-					queue_free()
+					Global.close_ui_and_resume_game(self)
 				"clear charact": 
 					_clear_group("enemy")
 				"clear props": 
@@ -202,9 +178,7 @@ func _clear_group(group_name: String) -> void:
 		if node and is_instance_valid(node):
 			node.queue_free()
 	print("Удалено ", nodes.size(), " объектов из группы: ", group_name)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.game_settings["UI"] = false
-	queue_free()
+	Global.close_ui_and_resume_game(self)
 
 func _on_label_button_pressed(id: String) -> void:
 	match id:
@@ -214,9 +188,7 @@ func _on_label_button_pressed(id: String) -> void:
 			Global.summon["aura"] = $Enemy_slot/aura/HSlider.value
 			Global.summon["scale"] = $Enemy_slot/scale/HSlider.value
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 
 func _replace_skybox(new_skybox_scene: PackedScene) -> void:
 	var world_environment = get_tree().get_first_node_in_group("skybox")
@@ -234,6 +206,4 @@ func _on_weapon_slot_selected(slot_index: int, weapon_name: String) -> void:
 	player.weapon_system.weapon_slots[slot_index] = weapon_name
 	player.weapon_system.equip_weapon(player.weapon_system.weapon_slots.get(slot_index, ""))
 	print("Оружие ", weapon_name, " установлено в слот ", slot_index)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.game_settings["UI"] = false
-	queue_free()
+	Global.close_ui_and_resume_game(self)

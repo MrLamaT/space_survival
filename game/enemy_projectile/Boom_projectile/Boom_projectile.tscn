@@ -12,8 +12,8 @@ metallic = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_yf5fn"]
 material = SubResource("StandardMaterial3D_bxxb3")
-radial_segments = 32
-rings = 16
+radial_segments = 8
+rings = 3
 
 [sub_resource type="Animation" id="Animation_d2d6q"]
 length = 0.001

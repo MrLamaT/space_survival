@@ -13,14 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://dmkqn2w75o55d" path="res://game/decoration/hologram_text.tscn" id="10_d4hu4"]
 [ext_resource type="PackedScene" uid="uid://bnvqwal8ur031" path="res://game/orbit/orbit.tscn" id="10_e2may"]
 [ext_resource type="PackedScene" uid="uid://3wierofwxkw1" path="res://game/decoration/wall/corridor.tscn" id="10_s4qug"]
+[ext_resource type="PackedScene" uid="uid://bhmfn4vg4sn76" path="res://game/prop/bomba.tscn" id="13_aynrw"]
 [ext_resource type="PackedScene" uid="uid://c555sdmpuxlk4" path="res://game/laser/tesla.tscn" id="13_rcvxr"]
 [ext_resource type="PackedScene" uid="uid://d3jvjw4032h1c" path="res://game/prop/HpBoostCitadel.tscn" id="13_xbl6y"]
-[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="14_7g3nl"]
 [ext_resource type="PackedScene" uid="uid://dcqw41odbu4my" path="res://game/prop/сrystalCitadel.tscn" id="14_rcvxr"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://game/decoration/wall/impenetrableField.tscn" id="14_se26l"]
-[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="15_aynrw"]
 [ext_resource type="PackedScene" uid="uid://bfnt2r04vbgom" path="res://game/enemy/cockroach/cockroach.tscn" id="15_bsuao"]
-[ext_resource type="ArrayMesh" uid="uid://ceng85qtd5ctd" path="res://assets/models/bomba.obj" id="16_aynrw"]
 [ext_resource type="PackedScene" uid="uid://x8vx3lltl35v" path="res://game/enemy/observer1/observer1.tscn" id="16_b20mc"]
 [ext_resource type="PackedScene" uid="uid://cdmb766ygbgoo" path="res://game/decoration/reactor.tscn" id="16_cqmcf"]
 [ext_resource type="PackedScene" uid="uid://r8ovmsrsspiy" path="res://game/decoration/button.tscn" id="16_kls77"]
@@ -44,14 +42,6 @@ geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294967268
 cell_size = 0.1
 agent_radius = 0.3
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfjou"]
-shading_mode = 0
-albedo_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvawq"]
-shading_mode = 0
-albedo_color = Color(1, 0, 0, 1)
 
 [node name="level" type="NavigationRegion3D" unique_id=953575263]
 navigation_mesh = SubResource("NavigationMesh_3j5e6")
@@ -727,16 +717,8 @@ transform = Transform3D(-0.56443435, 0, -0.82547826, 0, 1, 0, 0.82547826, 0, -0.
 freeze = true
 skin = 5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor_ceiling/room4" unique_id=683807567]
-transform = Transform3D(-0.5, 1.131334e-08, -4.222196e-08, 0, 0.4829629, 0.12940952, 4.371139e-08, 0.12940952, -0.4829629, -28.5, 10.499998, 18)
-mesh = ExtResource("16_aynrw")
-skeleton = NodePath("../reactor")
-surface_material_override/0 = ExtResource("14_7g3nl")
-surface_material_override/1 = ExtResource("15_aynrw")
-surface_material_override/2 = ExtResource("15_aynrw")
-surface_material_override/3 = SubResource("StandardMaterial3D_jfjou")
-surface_material_override/4 = SubResource("StandardMaterial3D_jfjou")
-surface_material_override/5 = SubResource("StandardMaterial3D_kvawq")
+[node name="bomba" parent="floor_ceiling/room4" unique_id=1715435291 instance=ExtResource("13_aynrw")]
+transform = Transform3D(-4.222196e-08, 1.131334e-08, 1, 0.25881904, 0.9659258, 0, -0.9659258, 0.25881904, -4.371139e-08, -28.5, 10.499998, 18)
 
 [node name="reactor" parent="floor_ceiling/room4" unique_id=1559161937 instance=ExtResource("16_cqmcf")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -28.5, 10.25, 21.5)
@@ -959,7 +941,7 @@ transform = Transform3D(0.8191521, 0, -0.5735766, 0, 1, 0, 0.5735766, 0, 0.81915
 transform = Transform3D(-0.34202027, 0, -0.9396927, 0, 1, 0, 0.9396927, 0, -0.34202027, 4.377992, -4.25, 20.794659)
 
 [node name="observer1" parent="." unique_id=1924557569 instance=ExtResource("16_b20mc")]
-transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -5.75, 8.5, 11)
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, -5.75, 8.5, 13)
 watch = true
 
 [node name="Container" parent="." unique_id=903616838 instance=ExtResource("17_dw61b")]

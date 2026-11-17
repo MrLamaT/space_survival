@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bhmfn4vg4sn76"]
+
+[ext_resource type="Script" uid="uid://cic6a085bxevs" path="res://game/prop/bomba.gd" id="1_efoap"]
+[ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="1_ttq4i"]
+[ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="3_efoap"]
+[ext_resource type="ArrayMesh" uid="uid://ceng85qtd5ctd" path="res://assets/models/bomba.obj" id="4_tdxuj"]
+[ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="6_efoap"]
+[ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="6_nason"]
+[ext_resource type="AudioStream" uid="uid://b0b7hqoxdeenc" path="res://assets/sound/keycard_accept.wav" id="7_tdxuj"]
+[ext_resource type="AudioStream" uid="uid://lor73cugvvni" path="res://assets/sound/notification.wav" id="8_nason"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhobw"]
+size = Vector3(0.75, 1.5, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fp8q"]
+shading_mode = 0
+albedo_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bffy"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="bomba" type="RigidBody3D" unique_id=1828673876 groups=["interactive_objects", "prop"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_efoap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1446710806]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.35, 0)
+visible = false
+shape = SubResource("BoxShape3D_yhobw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1232258215]
+transform = Transform3D(5.9624403e-09, 0, 0.49999997, 0, 0.49999997, 0, -0.5, 0, 5.96244e-09, 0, 0, 0)
+mesh = ExtResource("4_tdxuj")
+surface_material_override/0 = ExtResource("1_ttq4i")
+surface_material_override/1 = ExtResource("6_nason")
+surface_material_override/2 = ExtResource("6_nason")
+surface_material_override/3 = SubResource("StandardMaterial3D_2fp8q")
+surface_material_override/4 = SubResource("StandardMaterial3D_2fp8q")
+surface_material_override/5 = SubResource("StandardMaterial3D_8bffy")
+
+[node name="Sprite3D2" type="Sprite3D" parent="MeshInstance3D" unique_id=642970424]
+transform = Transform3D(4.5, -2.2464056e-07, 1.105369e-07, 6.479877e-08, 2.9641032, 3.385867, -2.4183234e-07, -3.385867, 2.9641032, 1.6694831e-09, 1.1634455, 0.45668292)
+shaded = true
+texture_filter = 0
+texture = ExtResource("3_efoap")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=388782620]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, -1.7763568e-15, 0, 0.9999999, 0, 0.715, 0.817)
+texture_filter = 0
+modulate = Color(1, 0, 0, 1)
+text = "00:00"
+font = ExtResource("6_efoap")
+font_size = 50
+outline_size = 0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1627311652]
+stream = ExtResource("7_tdxuj")
+volume_db = -10.0
+
+[node name="AudioTick" type="AudioStreamPlayer3D" parent="." unique_id=1048755075]
+stream = ExtResource("8_nason")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[node name="Timer" type="Timer" parent="." unique_id=250969684]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

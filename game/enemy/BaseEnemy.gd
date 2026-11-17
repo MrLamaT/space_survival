@@ -66,7 +66,7 @@ func _ready():
 	_setup_boss_bar()
 
 func _physics_process(delta):
-	if Global.game_settings["UI"] or Global.game_settings["FreezeEnemies"]:
+	if Global.game_settings["FreezeEnemies"]:
 		return
 	if Global.game_settings["GhostMod"] and enemyTags == "player":
 		return

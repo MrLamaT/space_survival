@@ -7,18 +7,11 @@ extends Node3D
 @export var geiger_interval_min: float = 0.1   # Минимальный интервал при уровне 3 (быстро)
 @export var geiger_interval_max: float = 2.0   # Максимальный интервал при уровне 1 (медленно)
 
-@export var damage_threshold: float = 100.0  # Порог, после которого наносится урон
-@export var damage_amount: float = 10.0  # Количество урона при превышении порога
-@export var accumulation_speed: float = 10.0  # Скорость накопления (множитель)
-
 var player: Node3D = null
 var current_radiation: float = 0.0
 var radiation_level: float = 0.0
 var is_active: bool = true
 var previous_radiation_level: float = -1.0  # Для отслеживания изменений
-
-# Накопительная переменная
-var accumulated_radiation: float = 0.0
 
 static var all_radiation_levels: Dictionary = {}
 static var global_radiation_level: float = 0.0
@@ -53,7 +46,6 @@ func _process(delta):
 		if distance <= min_distance:
 			current_radiation = max_radiation_level
 	update_global_radiation()
-	update_accumulation(delta)
 	update_geiger_sound(delta)
 
 func update_global_radiation():
@@ -64,19 +56,6 @@ func update_global_radiation():
 		if all_radiation_levels[key] > max_radiation:
 			max_radiation = all_radiation_levels[key]
 	global_radiation_level = max_radiation
-
-func update_accumulation(delta):
-	if current_radiation > 0:
-		accumulated_radiation += current_radiation * delta * accumulation_speed
-		print(accumulated_radiation)
-		if accumulated_radiation >= damage_threshold:
-			player.take_damage(damage_amount)
-			accumulated_radiation = 0.0
-	else:
-		if accumulated_radiation > 0:
-			accumulated_radiation -= delta * 0.1  
-			if accumulated_radiation < 0:
-				accumulated_radiation = 0.0
 
 func update_geiger_sound(delta):
 	if not geiger:
@@ -95,12 +74,6 @@ func update_geiger_sound(delta):
 
 func get_local_radiation_level() -> float:
 	return current_radiation
-
-func get_accumulated_radiation() -> float:
-	return accumulated_radiation
-
-func get_accumulation_percent() -> float:
-	return clamp(accumulated_radiation / damage_threshold * 100.0, 0.0, 100.0)
 
 func _exit_tree():
 	var trigger_id = get_instance_id()

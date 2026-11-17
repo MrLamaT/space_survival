@@ -11,6 +11,4 @@ func handle_card_pressed(type, id, _color_img):
 			for node in hand_nodes:
 				node.create_custom_material()
 			Global.save(Global.game_settings["world"])
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)

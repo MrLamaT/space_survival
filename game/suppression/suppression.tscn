@@ -172,7 +172,7 @@ _data = {
 &"start": SubResource("Animation_vvaxq")
 }
 
-[node name="Suppression" type="StaticBody3D" unique_id=88630]
+[node name="Suppression" type="StaticBody3D" unique_id=88630 groups=["wave_controllers"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_x7cqa")

@@ -61,11 +61,37 @@ var game_settings: Dictionary = {
 }
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	for i in range(1, 6):
 		reset_world_to_default(i)
 	load_game_settings()
 	for i in range(1, 6):
 		load_world(i)
+
+func on_game_ui_closed() -> void:
+	var tree := get_tree()
+	if tree.has_group("UI"):
+		return
+
+	await tree.create_timer(0.0, true, false).timeout
+
+	if not tree.has_group("UI") and _active_freezes == 0:
+		tree.paused = false
+
+func close_ui_and_resume_game(window: Node) -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	game_settings["UI"] = false
+	window.queue_free()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("ui_cancel") or SettingsManager.is_rebinding:
+		return
+	if not get_tree().paused or not get_tree().has_group("UI"):
+		return
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		get_viewport().set_input_as_handled()
+		player.handle_ui_action("pause")
 
 var _slow_motion_tween: Tween
 
@@ -107,7 +133,7 @@ func freeze(seconds: float = 0.08) -> void:
 	await tree.create_timer(seconds, true, true, true).timeout
 	_active_freezes -= 1
 	if _active_freezes == 0:
-		tree.paused = false
+		tree.paused = tree.has_group("UI")
 
 func get_world(world_num: int) -> Dictionary:
 	match world_num:

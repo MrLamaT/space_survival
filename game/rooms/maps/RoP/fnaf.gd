@@ -193,12 +193,9 @@ func _on_timer_timeout() -> void:
 			door[1] = true
 			cam(0)
 
-func _input(_event: InputEvent):
-	if Input.is_action_just_pressed("ui_cancel"):
-		$Player/head/Camera3D.current = true
-		$Panel.visible = false
-		$NavigationRegion3D/floor_ceiling/room1/button.position.y = 1.7
-		update_usage()
+func _process(_delta: float) -> void:
+	if $Panel.visible and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_reload_pressed() -> void:
 	if $Panel/reload/ProgressBar.value < 2000 and $Panel/reload/ProgressBar.value > 0:

@@ -154,7 +154,7 @@ func _process(delta):
 	handle_weapon_input()
 
 func handle_weapon_input():
-	if Global.IsDying or Global.game_settings["UI"]:
+	if Global.IsDying:
 		return
 	if player and not player.movement_enabled:
 		return
@@ -261,8 +261,6 @@ func _cleanup_dead_weapons():
 
 
 func shoot(is_alt: bool = false):
-	if Global.game_settings["UI"]:
-		return
 	if not current_weapon:
 		return
 	if current_weapon_name == "" or not weapons.has(current_weapon_name):

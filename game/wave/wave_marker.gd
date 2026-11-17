@@ -4,6 +4,7 @@ extends Marker3D
 @export var numberWave = 0
 @export var is_boss = false
 @export var frozen = false
+@export var random = 0
 @export var aura = 0
 @export var enemy_scale = 1
 @export var enemyTags: String = "player"
@@ -46,6 +47,7 @@ const PROPS = {
 	"ERROR": "res://game/prop/error.tscn",
 	"watermelon": "res://game/prop/watermelon.tscn",
 	"music box": "res://game/prop/column.tscn",
+	"bomba": "res://game/prop/bomba.tscn",
 	"light ball": "res://game/prop/lightball.tscn",
 	"beach ball": "res://game/prop/beachball.tscn",
 	"color ball": "res://game/prop/colorball.tscn",
@@ -57,15 +59,9 @@ var scene
 func _ready() -> void:
 	$Sprite3D.queue_free()
 
-func spawn(type):
-	var final_aura = 0
-	if enemy != "random":
-		final_aura = aura
-		if Global.get_world(Global.game_settings.world)["mode"] == 2:
-			if randf() < 0.1:
-				final_aura = aura + 1
-	else:
-		var available_enemies = get_random_enemies_by_aura(aura)
+func spawn(type, keep_enemy_marker: bool = false) -> Node3D:
+	if enemy == "random":
+		var available_enemies = get_random_enemies(random)
 		enemy = available_enemies[randi() % available_enemies.size()]
 	if ENEMIES.has(enemy): 
 		scene = load(ENEMIES[enemy])
@@ -77,7 +73,7 @@ func spawn(type):
 	if ENEMIES.has(enemy):
 		instance.watch = frozen
 		instance.is_boss = is_boss
-		instance.aura = final_aura
+		instance.aura = aura
 		instance.scale = Vector3(enemy_scale, enemy_scale, enemy_scale)
 		instance.enemyTags = enemyTags
 	get_tree().root.add_child(instance)
@@ -88,9 +84,11 @@ func spawn(type):
 	var portal_instance = portal_scene.instantiate()
 	get_tree().root.add_child(portal_instance)
 	portal_instance.global_position = global_position
-	queue_free()
+	if not keep_enemy_marker or not ENEMIES.has(enemy):
+		queue_free()
+	return instance
 
-func get_random_enemies_by_aura(aura_level: int) -> Array:
+func get_random_enemies(aura_level: int) -> Array:
 	if RANDOM_ENEMIES_BY_AURA.has(aura_level):
 		return RANDOM_ENEMIES_BY_AURA[aura_level]
 	var all_enemies = []

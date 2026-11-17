@@ -1,11 +1,5 @@
 extends AudioStreamPlayer2D
 
-func _process(_delta: float) -> void:
-	if Global.game_settings["UI"]:
-		volume_db = -5.0
-	else:
-		volume_db = 0.0
-
 func _check_and_play_custom_music() -> bool:
 	Global.save(0)
 	if not Global.game_settings.get("music", ""):

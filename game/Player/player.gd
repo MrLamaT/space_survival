@@ -210,7 +210,7 @@ func _ready():
 	base_camera_position = cam.position
 	stamina_bar.value = stamina
 	update_energy_display()
-	update_gui_visibility()
+	update_gui_visibility.call_deferred()
 	weapon_system = WeaponSystem.new()
 	weapon_system.player = self
 	weapon_system.hand_position = hand_position
@@ -285,13 +285,12 @@ func _input(event: InputEvent):
 		escape_held = false
 		return
 	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
 		if escape_held:
 			return
 		escape_held = true
 		object_holder.release(false)
 		handle_ui_action("pause")
-		return
-	if Global.game_settings["UI"]:
 		return
 	if event.is_action_pressed("UI_click") and not is_paused:
 		is_shooting = true
@@ -303,7 +302,7 @@ func _input(event: InputEvent):
 		if world["mode"] == 1 or spawnPanel:
 			openUI("spawn")
 			return
-	if Input.is_action_just_pressed("+v") and not Global.game_settings["UI"]:
+	if Input.is_action_just_pressed("+v"):
 		if world["mode"] == 1:
 			noclip_cheat()
 	if Input.is_action_just_pressed("+delete"):
@@ -325,7 +324,7 @@ func _input(event: InputEvent):
 		toggle_flashlight()
 	if Input.is_action_just_pressed("+f1"):
 		$head/Camera3D/UI.visible = !$head/Camera3D/UI.visible
-		$head/Camera3D/crosshair.visible = $head/Camera3D/UI.visible
+		crosshair.visible = $head/Camera3D/UI.visible
 	if not Global.IsDying:
 		interaction_manager.process_interaction_input()
 
@@ -854,10 +853,16 @@ func openUI(nameUI):
 			var ui_scene = load(ui_scene_path)
 			node = ui_scene.instantiate()
 			node.name = nameUI
+			node.process_mode = Node.PROCESS_MODE_ALWAYS
+			node.tree_exited.connect(Global.on_game_ui_closed)
 			get_node("head/Camera3D").add_child(node)
 			node.z_index = 10
 			node.add_to_group("UI")
 			Global.game_settings["UI"] = true
+	if node == null:
+		return
+	escape_held = false
+	get_tree().paused = true
 	node.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	update_gui_visibility()
@@ -894,8 +899,6 @@ func detect_ground_material():
 # Проверяет, может ли игрок двигаться
 func can_move() -> bool:
 	if not movement_enabled:
-		return false
-	if Global.game_settings["UI"]:
 		return false
 	if Global.IsDying:
 		return false

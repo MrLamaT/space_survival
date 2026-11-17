@@ -11,9 +11,7 @@ func start_typing_effect(full_text: String) -> void:
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("stop")
 	await get_tree().create_timer(1).timeout
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.game_settings["UI"] = false
-	queue_free()
+	Global.close_ui_and_resume_game(self)
 
 func type_text(text: String) -> void:
 	for i in range(text.length()):

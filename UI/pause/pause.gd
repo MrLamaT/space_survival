@@ -6,15 +6,11 @@ func _on_label_button_pressed(id: String) -> void:
 			save()
 			SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 		"back":
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"checkpoint":
 			var player = get_tree().get_first_node_in_group("player")
 			player.respawn_player()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			Global.game_settings["UI"] = false
-			queue_free()
+			Global.close_ui_and_resume_game(self)
 		"options":
 			var player = get_tree().get_first_node_in_group("player")
 			player.openUI("options")

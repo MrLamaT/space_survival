@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://crnfwyfhj500g" path="res://assets/icon/prop/feronLL.png" id="58_kwbp6"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="59_csqvi"]
 [ext_resource type="Texture2D" uid="uid://cchsbhyfsimkg" path="res://assets/textures/roof.png" id="60_5txe2"]
+[ext_resource type="Texture2D" uid="uid://kqr20scsa25l" path="res://assets/icon/prop/bomba.png" id="60_5vwum"]
 [ext_resource type="Texture2D" uid="uid://dgl68glgk38ir" path="res://assets/icon/prop/plush.png" id="60_r5g20"]
 [ext_resource type="Texture2D" uid="uid://kg48b6cljwbh" path="res://assets/textures/water.png" id="61_7addr"]
 [ext_resource type="Texture2D" uid="uid://3hqnq4w7des4" path="res://assets/icon/prop/colorball.png" id="62_d6vnn"]
@@ -795,6 +796,13 @@ target_node = NodePath("../../../../..")
 layout_mode = 2
 text = "music box"
 img = ExtResource("48_neoys")
+type = "props"
+target_node = NodePath("../../../../..")
+
+[node name="card21" parent="Panel/ScrollContainer/VBoxContainer/GridContainer6" unique_id=470867989 node_paths=PackedStringArray("target_node") instance=ExtResource("2_2pp8e")]
+layout_mode = 2
+text = "bomba"
+img = ExtResource("60_5vwum")
 type = "props"
 target_node = NodePath("../../../../..")
 
