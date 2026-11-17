@@ -7,6 +7,7 @@ func _init() -> void:
 
 func _configure_bullet(bullet: Node3D, is_alt: bool) -> void:
 	if is_alt:
+		bullet.set("is_alt_shot", true)
 		bullet.set("_pierce_left", 50)
 		bullet.set("damage", 50)
 		bullet.set("color", Color("ff0004"))

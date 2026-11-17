@@ -165,6 +165,7 @@ func _pierce_enemy(enemy: CollisionObject3D) -> void:
 		return
 	var damage := FIRST_BOUNCE_DAMAGE if _bounce_count >= 1 else DIRECT_DAMAGE
 	enemy.call("take_damage", damage)
+	Global.freeze(0.05)
 
 func _refresh_pierced_enemies() -> void:
 	if _hit_enemies.is_empty():

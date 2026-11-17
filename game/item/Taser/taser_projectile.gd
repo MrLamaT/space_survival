@@ -3,6 +3,7 @@ extends Node3D
 @export var _pierce_left: int = 2 
 @export var damage: int = 10
 @export var color: Color = Color("00d9ff")
+var is_alt_shot: bool = false
 
 func _ready() -> void:
 	$OmniLight3D.light_color = color
@@ -39,6 +40,8 @@ func _physics_process(_delta: float) -> void:
 	if not collider.has_method("take_damage"):
 		return
 	collider.take_damage(damage)
+	if is_alt_shot and collider.is_in_group("enemy"):
+		Global.freeze(0.05)
 	_pierce_left -= 1
 	if _pierce_left <= 0:
 		queue_free()

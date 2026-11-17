@@ -540,6 +540,10 @@ func _handle_landing() -> void:
 
 # Обрабатывает стрельбу
 func _handle_shooting():
+	if not Input.is_action_pressed("UI_click"):
+		is_shooting = false
+	if not Input.is_action_pressed("UI_alt_click"):
+		is_alt_shooting = false
 	if is_shooting and can_move():
 		weapon_system.shoot(false)
 	if is_alt_shooting and can_move():

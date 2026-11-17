@@ -96,6 +96,19 @@ func stop_slow_motion() -> void:
 		_slow_motion_tween = null
 	Engine.time_scale = 1.0
 
+var _active_freezes: int = 0
+
+func freeze(seconds: float = 0.08) -> void:
+	var tree := get_tree()
+	if seconds <= 0.0 or (tree.paused and _active_freezes == 0):
+		return
+	_active_freezes += 1
+	tree.paused = true
+	await tree.create_timer(seconds, true, true, true).timeout
+	_active_freezes -= 1
+	if _active_freezes == 0:
+		tree.paused = false
+
 func get_world(world_num: int) -> Dictionary:
 	match world_num:
 		1: return world_1
