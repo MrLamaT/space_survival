@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bk6by30asccx6"]
+
+[ext_resource type="Script" uid="uid://dhdlnyu7sgxkv" path="res://game/enemy_projectile/Ring_projectile/ring_projectile.gd" id="1_ls4ye"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(1, 0.13833332, 0.060000002, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_g4v7s"]
+inner_radius = 0.8
+outer_radius = 1.6
+rings = 8
+ring_segments = 3
+
+[sub_resource type="Animation" id="Animation_ls4ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ring:mesh:inner_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:mesh:outer_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.6]
+}
+
+[sub_resource type="Animation" id="Animation_ojd45"]
+resource_name = "expand"
+length = 1.5999999999999999
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ring:mesh:inner_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 17.6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:mesh:outer_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.6, 18.400000000000002]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ltrw"]
+_data = {
+&"RESET": SubResource("Animation_ls4ye"),
+&"expand": SubResource("Animation_ojd45")
+}
+
+[node name="RingProjectile" type="Node3D" unique_id=26421488]
+script = ExtResource("1_ls4ye")
+
+[node name="Ring" type="MeshInstance3D" parent="." unique_id=39462953]
+transform = Transform3D(1, 0, 0, 0, 0.35, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+cast_shadow = 0
+mesh = SubResource("TorusMesh_g4v7s")
+
+[node name="Ring" type="MeshInstance3D" parent="Ring" unique_id=762674073]
+material_override = SubResource("StandardMaterial3D_yf5fn")
+cast_shadow = 0
+mesh = SubResource("TorusMesh_g4v7s")
+skeleton = NodePath("../..")
+
+[node name="Ring2" type="MeshInstance3D" parent="Ring" unique_id=1307663425]
+material_override = SubResource("StandardMaterial3D_yf5fn")
+cast_shadow = 0
+mesh = SubResource("TorusMesh_g4v7s")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1075228820]
+libraries/ = SubResource("AnimationLibrary_2ltrw")

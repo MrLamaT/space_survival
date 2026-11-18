@@ -24,10 +24,18 @@ var ASCEND_SPEED: float = 3.0      # Скорость подъёма
 var ASCEND_HEIGHT: float = 2.5     # Высота подъёма от текущей позиции
 var start_y: float = 0.0           # Начальная высота перед подъёмом
 var target_y: float = 0.0          # Целевая высота
+var ring_count: int = 3
+var ring_interval: float = 1.2
+var ring_first_delay: float = 0.6
+var rings_spawned: int = 0
+var ring_timer: float = 0.0
 
 # Телепорт
 var is_teleporting: bool = false
 var spawn_position: Vector3 = Vector3.ZERO
+const RING_SCENE := preload(
+	"res://game/enemy_projectile/Ring_projectile/Ring_projectile.tscn"
+)
 
 # Система атак
 enum AttackType { SHOOT, BEAM , ASCEND, TELEPORT }
@@ -168,18 +176,22 @@ func start_ascend_attack():
 	if not can_act or is_ascending or is_teleporting:
 		is_attacking = false
 		return
-	print("лазеры!")
+	print("Кольца!")
 	can_act = false
 	$body/AnimationPlayer.play("jump")
 	await get_tree().create_timer(0.3).timeout
-	$laser/AnimationPlayer.play("laser")
-	is_ascending = true
-	ascend_timer = 0.0
+	if is_dead or is_dying:
+		return
 	start_y = global_position.y
 	target_y = start_y + ASCEND_HEIGHT
+	ascend_timer = 0.0
+	rings_spawned = 0
+	ring_timer = ring_first_delay
+	is_ascending = true
 	while is_ascending and is_instance_valid(self) and not is_dead:
 		await get_tree().process_frame
-	$laser/AnimationPlayer.play("RESET")
+	if is_dead or is_dying:
+		return
 	$body/AnimationPlayer.play("RESET")
 	can_act = true
 	is_attacking = false
@@ -206,6 +218,7 @@ func teleport_to_spawn():
 		return
 	is_teleporting = true
 	is_ascending = false
+	velocity = Vector3.ZERO
 	create_portal(global_position)
 	var offset_values = [-2.5, 0, 2.5]
 	var random_x = offset_values[randi() % offset_values.size()]
@@ -229,21 +242,41 @@ func shoot_at_player():
 		audio.play()
 
 func handle_ascend(delta):
-	ascend_timer += delta
-	if ascend_timer >= ASCEND_DURATION:
-		is_ascending = false
-		velocity.y = -2.0 
+	if global_position.y < target_y - 0.05:
+		ascend_timer += delta
+		if ascend_timer >= ASCEND_DURATION:
+			is_ascending = false
+			velocity = Vector3.ZERO
+			return
+		velocity = Vector3.UP * minf(
+			ASCEND_SPEED,
+			(target_y - global_position.y) / delta
+		)
 		move_and_slide()
 		return
-	var current_y = global_position.y
-	if current_y < target_y:
-		velocity.y = ASCEND_SPEED
-	else:
-		velocity.y = 0.0
-		global_position.y = target_y + sin(ascend_timer * 0.5) * 0.1
-	velocity.x = lerp(velocity.x, 0.0, 5.0 * delta)
-	velocity.z = lerp(velocity.z, 0.0, 5.0 * delta)
-	move_and_slide()
+	velocity = Vector3.ZERO
+	ring_timer -= delta
+	if ring_timer > 0.0:
+		return
+	spawn_ring_below()
+	rings_spawned += 1
+	ring_timer = ring_interval
+	if rings_spawned >= ring_count:
+		is_ascending = false
+
+func spawn_ring_below() -> void:
+	var query := PhysicsRayQueryParameters3D.create(
+		global_position,
+		global_position + Vector3.DOWN * 30.0,
+		1 << 2
+	)
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		return
+	var ground_position: Vector3 = hit["position"]
+	var ring := RING_SCENE.instantiate() as Node3D
+	get_tree().current_scene.add_child(ring)
+	ring.global_position = ground_position + Vector3.UP * 0.08
 
 func die():
 	if is_dying or is_dead:

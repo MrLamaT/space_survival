@@ -4,6 +4,7 @@ func _on_label_button_pressed(id: String) -> void:
 	match id:
 		"exit":
 			save()
+			Global.close_ui_and_resume_game(self)
 			SceneManager.load_scene_with_loading("res://game/rooms/main.tscn")
 		"back":
 			Global.close_ui_and_resume_game(self)

@@ -9,6 +9,8 @@ height = 15.0
 radius = 1.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+transparency = 1
+blend_mode = 1
 shading_mode = 0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_q83rc"]
@@ -92,6 +94,14 @@ shape = SubResource("CylinderShape3D_jsqbf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2042095113]
 transform = Transform3D(0.1, -2.1565224e-36, 3.5527137e-16, 0, 1, 6.070071e-23, -3.5527137e-16, -6.070071e-22, 0.1, 0, -7.55, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_q83rc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=52426325]
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_q83rc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1354450611]
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_q83rc")
 
