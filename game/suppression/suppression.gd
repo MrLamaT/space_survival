@@ -1,65 +1,43 @@
-extends StaticBody3D
+extends "res://game/wave/BaseWave.gd"
 
 @export var ImpenetrableField: Node3D
-@export var sound = true
-var is_active = true
-var current_wave = 0
-var SpawnAudio = false
+
+const BOOM_SCENE = preload(
+	"res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn"
+)
 
 func _ready() -> void:
-	if !ImpenetrableField:
+	if not is_instance_valid(ImpenetrableField):
 		is_active = false
-		$attack/AnimationPlayer.play("attack")
-		$attack/CollisionShape3D.disabled = false
+		_enable_attack()
 		$Node3D/button.queue_free()
 
-func handle_interaction(object_name: String):
-	match object_name:
-		"start":
-			if ImpenetrableField and is_active:
-				start_wave()
-				$Timer.start()
-				is_active = false
+func handle_interaction(object_name: String) -> void:
+	if object_name != "start":
+		return
+	if not is_active or not is_instance_valid(ImpenetrableField):
+		return
+	is_active = false
+	start_wave()
+	wave_timer.start()
 
 func _on_attack_body_entered(body: Node3D) -> void:
-	if body.has_method("take_damage") and body.is_in_group("phantom"):
+	if body.is_in_group("phantom") and body.has_method("take_damage"):
 		body.take_damage(999999)
 
-func start_wave() -> void:
-	var boom_scene = load("res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn")
-	if boom_scene:
-		var boom_instance = boom_scene.instantiate()
-		get_tree().root.add_child(boom_instance)
-		boom_instance.global_position = $BulletSpawn.global_position
-	if !SpawnAudio and sound:
-		$AudioStreamPlayer3D.pitch_scale = randf_range(1.9, 2.1)
-		$AudioStreamPlayer3D.play()
-		SpawnAudio = true
-	var markers = find_children("*", "Marker3D", true, false)
-	var wave_started = false
-	for marker in markers:
-		if marker.has_method("spawn") and marker["numberWave"] == current_wave:
-			marker.spawn("key")
-			wave_started = true
-	if not wave_started and current_wave != 0:
-		_on_wave_complete()
+func _before_wave_start() -> void:
+	var boom := BOOM_SCENE.instantiate() as Node3D
+	get_tree().root.add_child(boom)
+	boom.global_position = $BulletSpawn.global_position
 
 func _on_wave_complete() -> void:
-	$Timer.stop()
-	$attack/AnimationPlayer.play("attack")
-	$attack/CollisionShape3D.disabled = false
-	ImpenetrableField.on(true)
-	var player = get_tree().get_first_node_in_group("player")
-	player.warning("NOTICE_FIELD_OPEN")
+	_enable_attack()
+	if is_instance_valid(ImpenetrableField):
+		ImpenetrableField.on(true)
+	var player := get_tree().get_first_node_in_group("player")
+	if player != null and player.has_method("warning"):
+		player.warning("NOTICE_FIELD_OPEN")
 
-func _on_timer_timeout() -> void:
-	var enemy_nodes = get_tree().get_nodes_in_group("enemy_wave")
-	print("enemy_wale: ", enemy_nodes.size())
-	if enemy_nodes.size() == 0:
-		current_wave += 1
-		var boom_scene = load("res://game/enemy_projectile/Boom_projectile/Boom_projectile.tscn")
-		if boom_scene:
-			var boom_instance = boom_scene.instantiate()
-			get_tree().root.add_child(boom_instance)
-			boom_instance.global_position = $BulletSpawn.global_position
-		start_wave()
+func _enable_attack() -> void:
+	$attack/AnimationPlayer.play("attack")
+	$attack/CollisionShape3D.set_deferred("disabled", false)

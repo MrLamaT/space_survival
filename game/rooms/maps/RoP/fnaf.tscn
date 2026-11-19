@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://gqyvaooawkdd" path="res://assets/sound/fnaf/Ambience.wav" id="30_jxvpw"]
 [ext_resource type="AudioStream" uid="uid://bt36vo6b3fhlg" path="res://assets/sound/fnaf/Blip.wav" id="31_r7v48"]
 [ext_resource type="AudioStream" uid="uid://t7r44c2yr7ci" path="res://assets/sound/fnaf/CrowdSmallChil.wav" id="32_gxagf"]
+[ext_resource type="PackedScene" uid="uid://cjdydfcyoineg" path="res://game/prop/plush.tscn" id="33_wfw5l"]
 [ext_resource type="PackedScene" uid="uid://c6vhj6o1e6kgl" path="res://game/decoration/wall/impenetrableField.tscn" id="40_bhlcq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_o4e3a"]
@@ -1452,6 +1453,10 @@ stream = ExtResource("32_gxagf")
 
 [node name="metal" parent="." unique_id=234968091 instance=ExtResource("3_mn0nk")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 125, 0, 9.516, 0)
+
+[node name="plush" parent="." unique_id=1828673876 instance=ExtResource("33_wfw5l")]
+transform = Transform3D(-0.819152, 0, -0.57357633, 0, 1, 0, 0.57357633, 0, -0.819152, 2.75, 0.545, -48.25)
+skin = "destroyercik"
 
 [connection signal="pressed" from="Panel/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]

@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://blwlp10ju341k" path="res://assets/material/roof.tres" id="6_nason"]
 [ext_resource type="AudioStream" uid="uid://b0b7hqoxdeenc" path="res://assets/sound/keycard_accept.wav" id="7_tdxuj"]
 [ext_resource type="AudioStream" uid="uid://lor73cugvvni" path="res://assets/sound/notification.wav" id="8_nason"]
+[ext_resource type="AudioStream" uid="uid://dsly30yc30gpd" path="res://assets/sound/bomba.wav" id="9_2fp8q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhobw"]
 size = Vector3(0.75, 1.5, 0.75)
@@ -20,18 +21,78 @@ albedo_color = Color(0.9882353, 0.4627451, 0.003921569, 1)
 shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_2fp8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhiteFlash:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8bffy"]
+resource_name = "flash"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteFlash:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhy87"]
+_data = {
+&"RESET": SubResource("Animation_2fp8q"),
+&"flash": SubResource("Animation_8bffy")
+}
+
 [node name="bomba" type="RigidBody3D" unique_id=1828673876 groups=["bombs", "interactive_objects", "prop"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_efoap")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1446710806]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.35, 0)
-visible = false
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0, 0.35, 0)
 shape = SubResource("BoxShape3D_yhobw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1232258215]
-transform = Transform3D(5.9624403e-09, 0, 0.49999997, 0, 0.49999997, 0, -0.5, 0, 5.96244e-09, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.49999997, 0, 0, 0, 0.49999997, 0, 0, 0)
 mesh = ExtResource("4_tdxuj")
 surface_material_override/0 = ExtResource("1_ttq4i")
 surface_material_override/1 = ExtResource("6_nason")
@@ -64,6 +125,26 @@ stream = ExtResource("8_nason")
 volume_db = -10.0
 pitch_scale = 2.0
 
+[node name="AudioBoom" type="AudioStreamPlayer3D" parent="." unique_id=673169441]
+stream = ExtResource("9_2fp8q")
+
 [node name="Timer" type="Timer" parent="." unique_id=250969684]
 
+[node name="FlashLayer" type="CanvasLayer" parent="." unique_id=1849963851]
+layer = 100
+visible = false
+
+[node name="WhiteFlash" type="ColorRect" parent="FlashLayer" unique_id=1799144849]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FlashLayer" unique_id=708387878]
+libraries/ = SubResource("AnimationLibrary_yhy87")
+
+[connection signal="finished" from="AudioBoom" to="." method="_on_audio_boom_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

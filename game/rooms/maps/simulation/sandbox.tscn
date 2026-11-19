@@ -773,7 +773,7 @@ stream = ExtResource("38_80gio")
 autoplay = true
 
 [node name="plush" parent="." unique_id=1828673876 instance=ExtResource("34_70iat")]
-transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, -56, 1, 39)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -56, 1, 39)
 skin = "fox_white"
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

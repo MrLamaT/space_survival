@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://clmin385tevr1" path="res://game/decoration/wall/elevator.tscn" id="19_5vdi1"]
 [ext_resource type="PackedScene" uid="uid://dfiu4jlcpw5b4" path="res://game/wave/wave.tscn" id="19_h7ems"]
 [ext_resource type="PackedScene" uid="uid://dm3440epbqcd3" path="res://game/wave/waveMarker.tscn" id="20_u6ena"]
+[ext_resource type="PackedScene" uid="uid://dc2ophfdpgcj" path="res://game/spawnpoint/spawnpoint.tscn" id="21_j1byu"]
 [ext_resource type="PackedScene" uid="uid://cw1os0hbj8gt8" path="res://game/blocks/metal.tscn" id="27_df01x"]
 [ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://game/decoration/wall/corridorLoad.tscn" id="31_4vkob"]
 [ext_resource type="PackedScene" uid="uid://ds3dtc7v0xerw" path="res://game/rooms/maps/MTR/MTR_4_2.tscn" id="32_ifk41"]
@@ -717,8 +718,48 @@ transform = Transform3D(-0.56443435, 0, -0.82547826, 0, 1, 0, 0.82547826, 0, -0.
 freeze = true
 skin = 5
 
-[node name="bomba" parent="floor_ceiling/room4" unique_id=1715435291 instance=ExtResource("13_aynrw")]
-transform = Transform3D(-4.222196e-08, 1.131334e-08, 1, 0.25881904, 0.9659258, 0, -0.9659258, 0.25881904, -4.371139e-08, -28.5, 10.499998, 18)
+[node name="bomba" parent="floor_ceiling/room4" unique_id=1715435291 node_paths=PackedStringArray("Gates") instance=ExtResource("13_aynrw")]
+transform = Transform3D(-0.99999994, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742277e-08, 0, -1, -28.5, 10.499998, 18)
+duration_seconds = 60
+wave_mode = true
+Gates = [NodePath("../wallGates")]
+
+[node name="WaveMarker" parent="floor_ceiling/room4/bomba" unique_id=378935040 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.99999994, 0, -1.1368684e-13, 0, 0.99999994, 0, -7.1054274e-15, 0, 1, -2.8, 1, 7.797)
+enemy = "stingray"
+
+[node name="WaveMarker2" parent="floor_ceiling/room4/bomba" unique_id=155107906 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.9999999, 0, -1.1368684e-13, 0, 0.9999999, 0, -7.1054274e-15, 0, 1, 2.1999989, 1, 7.797002)
+
+[node name="WaveMarker3" parent="floor_ceiling/room4/bomba" unique_id=205508390 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.9999998, 0, -1.1368684e-13, 0, 0.9999998, 0, -1.4210855e-14, 0, 1, 2.199997, 1, 9.797003)
+
+[node name="WaveMarker4" parent="floor_ceiling/room4/bomba" unique_id=1032271819 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.99999976, 0, -1.1368684e-13, 0, 0.99999976, 0, -2.1316282e-14, 0, 1, 2.199997, 1, 4.7970037)
+
+[node name="WaveMarker5" parent="floor_ceiling/room4/bomba" unique_id=1085207261 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.9999998, 0, -1.1368684e-13, 0, 0.9999998, 0, -1.4210855e-14, 0, 1, 5.199995, 1, 7.797003)
+numberWave = 1
+
+[node name="WaveMarker6" parent="floor_ceiling/room4/bomba" unique_id=1814981116 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.99999976, 0, -1.1368684e-13, 0, 0.99999976, 0, -2.1316282e-14, 0, 1, 5.199995, 1, 9.797004)
+numberWave = 1
+
+[node name="WaveMarker8" parent="floor_ceiling/room4/bomba" unique_id=454765145 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.9999997, 0, -1.1368684e-13, 0, 0.9999997, 0, -2.842171e-14, 0, 1, 5.199995, 1, 12.797005)
+enemy = "nextbot"
+numberWave = 1
+is_boss = true
+
+[node name="WaveMarker9" parent="floor_ceiling/room4/bomba" unique_id=308362882 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.99999964, 0, -1.1368684e-13, 0, 0.99999964, 0, -2.842171e-14, 0, 1, 1.199995, 1, 12.797005)
+enemy = "watermelon"
+numberWave = 1
+is_boss = true
+
+[node name="WaveMarker7" parent="floor_ceiling/room4/bomba" unique_id=1462697384 instance=ExtResource("20_u6ena")]
+transform = Transform3D(0.9999997, 0, -1.1368684e-13, 0, 0.9999997, 0, -2.842171e-14, 0, 1, 5.199995, 1, 4.7970047)
+numberWave = 1
 
 [node name="reactor" parent="floor_ceiling/room4" unique_id=1559161937 instance=ExtResource("16_cqmcf")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -28.5, 10.25, 21.5)
@@ -757,6 +798,9 @@ PipeLeft = true
 
 [node name="Tesla" parent="floor_ceiling/corridor1" unique_id=612756504 instance=ExtResource("13_rcvxr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.15, 2.751, 0)
+
+[node name="spawnpoint" parent="floor_ceiling/corridor1" unique_id=1018967805 instance=ExtResource("21_j1byu")]
+transform = Transform3D(-1.09278474e-07, 0, -1, 0, 1, 0, 2.5, 0, -4.371139e-08, -2.5, 1.484, 0.25)
 
 [node name="corridor2" parent="floor_ceiling" unique_id=861449048 instance=ExtResource("10_s4qug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 40, 12)
@@ -977,7 +1021,7 @@ transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 28.25, 9.516, 23.5)
 [node name="Wave" parent="." unique_id=956278609 instance=ExtResource("19_h7ems")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 66.5, 13, 9.85)
 
-[node name="WaveMarker" parent="Wave" unique_id=378935040 instance=ExtResource("20_u6ena")]
+[node name="WaveMarker" parent="Wave" unique_id=2089967545 instance=ExtResource("20_u6ena")]
 transform = Transform3D(1, 0, -1.1368684e-13, 0, 1, 0, 0, 0, 1, 0.275, -1.5, 9.75)
 enemy = "shooter"
 

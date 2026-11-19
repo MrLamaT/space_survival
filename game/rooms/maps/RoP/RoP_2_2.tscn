@@ -562,6 +562,9 @@ PipeRight = true
 [node name="corridor9" parent="floor_ceiling" unique_id=1109037214 instance=ExtResource("31_8v18c")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 0, 13)
 
+[node name="spawnpoint" parent="floor_ceiling/corridor9" unique_id=1018967805 instance=ExtResource("32_nbjnv")]
+transform = Transform3D(-1.09278474e-07, 0, -1, 0, 1, 0, 2.5, 0, -4.371139e-08, -2.5, 1.484, 0.25)
+
 [node name="metal" parent="floor_ceiling" unique_id=31672546 instance=ExtResource("35_h51xo")]
 transform = Transform3D(-87.25, 0, 1.4457848e-05, 0, 1, 0, -1.3174384e-05, 0, -95.75, 0, 0, 0)
 
@@ -703,6 +706,3 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14, 
 img = ExtResource("34_uj4ru")
 global_key = "Home"
 id = 3
-
-[node name="spawnpoint" parent="." unique_id=1018967805 instance=ExtResource("32_nbjnv")]
-transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, 1.5, 15.5)

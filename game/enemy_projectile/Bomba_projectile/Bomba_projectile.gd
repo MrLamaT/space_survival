@@ -15,7 +15,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if body is CharacterBody3D:
 			body.velocity.x = knockback_direction.x * KNOCKBACK_FORCE
 			body.velocity.z = knockback_direction.z * KNOCKBACK_FORCE
-			body.take_damage(75)
+			body.take_damage(25)
 			if body.is_in_group("player"):
 				body.force_stand_up()
 				body.velocity.y = KNOCKBACK_FORCE * 0.01
