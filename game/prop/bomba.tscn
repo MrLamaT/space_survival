@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://b0b7hqoxdeenc" path="res://assets/sound/keycard_accept.wav" id="7_tdxuj"]
 [ext_resource type="AudioStream" uid="uid://lor73cugvvni" path="res://assets/sound/notification.wav" id="8_nason"]
 [ext_resource type="AudioStream" uid="uid://dsly30yc30gpd" path="res://assets/sound/bomba.wav" id="9_2fp8q"]
+[ext_resource type="AudioStream" uid="uid://46isutjkyac3" path="res://assets/sound/siren.wav" id="10_8bffy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhobw"]
 size = Vector3(0.75, 1.5, 0.75)
@@ -128,6 +129,11 @@ pitch_scale = 2.0
 [node name="AudioBoom" type="AudioStreamPlayer3D" parent="." unique_id=673169441]
 stream = ExtResource("9_2fp8q")
 
+[node name="AudioSiren" type="AudioStreamPlayer3D" parent="." unique_id=462815634]
+stream = ExtResource("10_8bffy")
+volume_db = -30.0
+pitch_scale = 2.0
+
 [node name="Timer" type="Timer" parent="." unique_id=250969684]
 
 [node name="FlashLayer" type="CanvasLayer" parent="." unique_id=1849963851]
@@ -147,4 +153,5 @@ mouse_filter = 2
 libraries/ = SubResource("AnimationLibrary_yhy87")
 
 [connection signal="finished" from="AudioBoom" to="." method="_on_audio_boom_finished"]
+[connection signal="finished" from="AudioSiren" to="." method="_on_audio_siren_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

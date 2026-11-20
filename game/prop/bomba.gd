@@ -66,6 +66,7 @@ func trigger_interaction() -> void:
 		_wave_delay_left = WAVE_DELAY
 		_wave_index = -1
 		_spawned_enemies.clear()
+		$AudioSiren.play()
 		for gate in Gates:
 			if is_instance_valid(gate):
 				gate.blocking()
@@ -155,11 +156,13 @@ func _has_wave_enemies() -> bool:
 
 func _complete_waves() -> void:
 	_waves_complete = true
+	$AudioSiren.stop()
 	for gate in Gates:
 		if is_instance_valid(gate):
 			gate.unlocking()
 
 func _reset_failed_attempt() -> void:
+	$AudioSiren.stop()
 	tick = false
 	exploding = false
 	_attempt_active = false
@@ -180,6 +183,7 @@ func _reset_failed_attempt() -> void:
 	add_to_group("interactive_objects")
 
 func _pause_until_respawn() -> void:
+	$AudioSiren.stop()
 	tick = false
 	countdown.stop()
 	audio_tick.stop()
@@ -194,6 +198,7 @@ func detonate() -> void:
 		return
 	if wave_mode and not _attempt_active:
 		return
+	$AudioSiren.stop()
 	exploding = true
 	tick = false
 	countdown.stop()
@@ -248,3 +253,7 @@ func _update_display(seconds: int) -> void:
 func _on_audio_boom_finished() -> void:
 	if not wave_mode:
 		queue_free()
+
+func _on_audio_siren_finished() -> void:
+	if wave_mode and tick and not exploding and not _waves_complete:
+		$AudioSiren.play()
