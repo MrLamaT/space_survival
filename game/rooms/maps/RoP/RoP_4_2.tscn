@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bwtga10fw2ccs" path="res://game/rooms/maps/RoP/RoP_4_2.gd" id="1_qgo8g"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="2_aopa1"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://game/prop/feronLL.tscn" id="3_okdwg"]
-[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="4_e2may"]
+[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/cobblestone.tscn" id="4_e2may"]
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://game/decoration/barrel2.tscn" id="5_d4hu4"]
 [ext_resource type="PackedScene" uid="uid://c6fkye315biac" path="res://game/prop/barrel.tscn" id="6_etb22"]
 [ext_resource type="PackedScene" uid="uid://bh30777mfkhal" path="res://game/decoration/wall/wall_pillar.tscn" id="7_d4hu4"]

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwf5obhlhsolk" path="res://game/decoration/wall/MineWall.tscn" id="5_4rm82"]
 [ext_resource type="PackedScene" uid="uid://cyhpb2fq0on1c" path="res://game/prop/feronLL.tscn" id="6_6eq70"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="6_hl11s"]
-[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="7_6eq70"]
+[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/cobblestone.tscn" id="7_6eq70"]
 [ext_resource type="PackedScene" uid="uid://des3uqpu6rvbh" path="res://game/decoration/wall/corridor_angle.tscn" id="8_5meqi"]
 [ext_resource type="PackedScene" uid="uid://brc4saufsupfn" path="res://game/decoration/barrel2.tscn" id="8_lrqp0"]
 [ext_resource type="PackedScene" uid="uid://flwlje7qhs1" path="res://game/decoration/wall/corridorLoad.tscn" id="9_40c1g"]
@@ -42,7 +42,6 @@ agent_radius = 0.3
 script = ExtResource("1_otutm")
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "Taser", "inv", "inv", "inv"])
-earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
 stone_color = Color(0.6509804, 0.65882355, 0.654902, 1)
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_o65g5")]

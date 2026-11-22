@@ -89,12 +89,9 @@ func handle_card_pressed(type, id, color_img):
 			if id == "grass":
 				var earth = preload("res://assets/material/earth.tres")
 				earth.albedo_color = color_img
-			if id == "stone":
-				var stone = preload("res://assets/material/stone.tres")
-				stone.albedo_color = color_img
-			if id == "water":
-				var water = preload("res://assets/material/water.tres")
-				water.albedo_color = color_img
+			if id == "brick":
+				var brick = preload("res://assets/material/brick.tres")
+				brick.albedo_color = color_img
 			Global.close_ui_and_resume_game(self)
 		"block":
 			Global.summon_block["name"] = id

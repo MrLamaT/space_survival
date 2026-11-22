@@ -292,7 +292,6 @@ size = Vector3(10, 8, 10)
 [node name="level" type="Node3D" unique_id=1913855422]
 script = ExtResource("1_ns6pj")
 weapons = Array[String]([])
-earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
 stone_color = Color(0.6509804, 0.65882355, 0.654902, 1)
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_lficm")]

@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bfm28wm4bmet1" path="res://game/rooms/maps/RoP/RoP_1.gd" id="1_le6ex"]
 [ext_resource type="PackedScene" uid="uid://cn5qxioc77162" path="res://game/Player/Player.tscn" id="2_agh46"]
 [ext_resource type="PackedScene" uid="uid://cnapm3ml63i6a" path="res://game/sky/skybox.tscn" id="2_anwhy"]
-[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="3_le6ex"]
+[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/cobblestone.png" id="3_le6ex"]
 [ext_resource type="PackedScene" uid="uid://baf8dlttmni7" path="res://game/portal/portal.tscn" id="4_esd74"]
-[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="6_8dok3"]
+[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/cobblestone.tscn" id="6_8dok3"]
 [ext_resource type="PackedScene" uid="uid://wstyeotnokcn" path="res://game/decoration/wall/wall.tscn" id="6_s8mwg"]
 [ext_resource type="PackedScene" uid="uid://ch5k162ylg5lq" path="res://game/decoration/wall/wallGates.tscn" id="7_ehydn"]
 [ext_resource type="FontFile" uid="uid://vpmakd0urni6" path="res://Undertale-Battle-Font.ttf-5b3f8609511f8e0c8fc5e3287eaa9635.fontdata" id="8_ug7w8"]
@@ -68,7 +68,6 @@ script = ExtResource("1_le6ex")
 env_scene = ExtResource("2_anwhy")
 portal = NodePath("NavigationRegion3D/portal")
 weapons = Array[String](["Vibro Spike", "inv", "inv", "inv", "inv"])
-earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
 stone_color = Color(0.6509804, 0.65882355, 0.654902, 1)
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("2_agh46")]

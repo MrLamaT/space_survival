@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b08qh3o3dhsql" path="res://game/enemy/scp/scp.gd" id="1_hu322"]
 [ext_resource type="AudioStream" uid="uid://bll553j7ykk0i" path="res://assets/sound/shock.mp3" id="2_q05kb"]
 [ext_resource type="AudioStream" uid="uid://cg4uilpjkiujw" path="res://assets/sound/hit.ogg" id="3_em4ma"]
-[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/stone.png" id="4_q05kb"]
+[ext_resource type="Texture2D" uid="uid://dlyogfksb47ei" path="res://assets/textures/cobblestone.png" id="4_q05kb"]
 [ext_resource type="PackedScene" uid="uid://cgfgi3r38jvqr" path="res://game/enemy/aura.tscn" id="5_8skxr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_se8os"]

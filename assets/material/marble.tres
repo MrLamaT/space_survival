@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5jfluo3jnt35"]
+
+[ext_resource type="Texture2D" uid="uid://c1wgqsrgi1ik1" path="res://assets/textures/marble.png" id="1_0tufh"]
+
+[resource]
+albedo_color = Color(0.9019608, 0.89411765, 0.8745098, 1)
+albedo_texture = ExtResource("1_0tufh")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

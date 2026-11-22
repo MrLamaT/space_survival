@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://4y8kunhxo2vx"]
+
+[ext_resource type="Texture2D" uid="uid://crxjai2b6hea8" path="res://assets/textures/lava.png" id="1_7ml62"]
+
+[resource]
+cull_mode = 2
+albedo_color = Color(0.8156863, 0.29411766, 0.043137256, 1)
+albedo_texture = ExtResource("1_7ml62")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

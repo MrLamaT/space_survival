@@ -10,8 +10,6 @@ var world = Global.get_world(Global.game_settings.world)
 @export var spawn_panel: bool = false
 @export var plank_color: Color = Color("4b3017")
 @export var earth_color: Color = Color("323f18")
-@export var stone_color: Color = Color("666666ff")
-@export var water_color: Color = Color("0cc6cc")
 
 func _ready() -> void:
 	if env_scene:
@@ -37,7 +35,3 @@ func _ready() -> void:
 	plank.albedo_color = plank_color
 	var earth = preload("res://assets/material/earth.tres")
 	earth.albedo_color = earth_color
-	var stone = preload("res://assets/material/stone.tres")
-	stone.albedo_color = stone_color
-	var water = preload("res://assets/material/water.tres")
-	water.albedo_color = water_color

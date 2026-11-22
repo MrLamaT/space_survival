@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwf5obhlhsolk"]
 
-[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/RoPstone.tscn" id="2_6w42t"]
+[ext_resource type="PackedScene" uid="uid://pa17wvlety3k" path="res://game/blocks/cobblestone.tscn" id="2_6w42t"]
 [ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="2_kgmxx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]

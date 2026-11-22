@@ -100,7 +100,6 @@ script = ExtResource("1_wgrq1")
 env_scene = ExtResource("2_fs7wu")
 weapons = Array[String](["inv", "inv", "inv", "inv", "inv"])
 player_checkpoint = true
-earth_color = Color(0.49411765, 0.4627451, 0.16078432, 1)
 
 [node name="Player" parent="." unique_id=886631140 instance=ExtResource("3_c8tpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0.656, 9)
@@ -210,7 +209,6 @@ omni_range = 10.0
 
 [node name="hologramText" parent="2" unique_id=866615671 instance=ExtResource("4_wot7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.997)
-textLabel_ru = "Зажмите Ctrl, что бы скользить"
 textLabel_en = "HINT_HOLD_CTRL"
 
 [node name="3" type="NavigationRegion3D" parent="." unique_id=920126422]
@@ -258,7 +256,6 @@ jump_force = 9.0
 
 [node name="hologramText" parent="3" unique_id=565329897 instance=ExtResource("4_wot7y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 4)
-textLabel_ru = "Нажмите Shift находясь в воздухе."
 textLabel_en = "HINT_AIR_DASH"
 
 [node name="4" type="NavigationRegion3D" parent="." unique_id=744626495]
@@ -426,9 +423,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 
 
 [node name="hologramText" parent="4" unique_id=1412646924 instance=ExtResource("4_wot7y")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.5, 14.5, 8.5)
-textLabel_ru = "Используйте Медицинскую станцию, 
-чтобы восстановить здоровье 
-и снять повреждения."
 textLabel_en = "HINT_HEAL"
 
 [node name="5" type="NavigationRegion3D" parent="." unique_id=1683475438]

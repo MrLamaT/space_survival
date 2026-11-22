@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcqw41odbu4my"]
 
 [ext_resource type="ArrayMesh" uid="uid://c1hbbu3qxoec6" path="res://assets/models/hydroponicFarm.obj" id="2_upiba"]
-[ext_resource type="Material" uid="uid://bjo6fn2swtg20" path="res://assets/material/stone.tres" id="3_3m568"]
+[ext_resource type="Material" uid="uid://bjo6fn2swtg20" path="res://assets/material/cobblestone.tres" id="3_3m568"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="3_iwlg7"]
 [ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="5_t3ct2"]
 

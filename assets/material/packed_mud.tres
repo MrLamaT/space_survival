@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b85q4gqnsm85g"]
+
+[ext_resource type="Texture2D" uid="uid://cmrw6a538ldjv" path="res://assets/textures/packed_mud.png" id="1_riqx2"]
+
+[resource]
+albedo_color = Color(0.60784316, 0.46666667, 0.35686275, 1)
+albedo_texture = ExtResource("1_riqx2")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

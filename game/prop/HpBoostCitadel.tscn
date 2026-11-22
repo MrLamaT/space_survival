@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1hbbu3qxoec6" path="res://assets/models/hydroponicFarm.obj" id="5_7kj46"]
 [ext_resource type="Material" uid="uid://ced3fp744ebje" path="res://assets/material/sercilist.tres" id="5_m3ti8"]
 [ext_resource type="Texture2D" uid="uid://bxj2sw3re86dx" path="res://assets/icon/citadelFlow.png" id="5_p5toj"]
-[ext_resource type="Material" uid="uid://5v8lo6h71e3q" path="res://assets/material/earth.tres" id="6_wihv5"]
+[ext_resource type="Material" uid="uid://78na8yld67hl" path="res://assets/material/wild_earth.tres" id="7_7kj46"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yap75"]
 emission_shape_scale = Vector3(0.5, 0.5, 0.5)
@@ -37,7 +37,7 @@ material = SubResource("StandardMaterial3D_p5toj")
 size = Vector3(3.85, 0.5, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0q1sy"]
-material = ExtResource("6_wihv5")
+material = ExtResource("7_7kj46")
 bottom_radius = 1.0
 height = 0.5
 radial_segments = 16

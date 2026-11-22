@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cnjxharol34ot"]
+
+[ext_resource type="Texture2D" uid="uid://cpgmtk3x3kw83" path="res://assets/textures/basalt.png" id="1_0lv3b"]
+
+[resource]
+albedo_color = Color(0.19215687, 0.17254902, 0.21176471, 1)
+albedo_texture = ExtResource("1_0lv3b")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
