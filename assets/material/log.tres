@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4kbpn2clop3c"]
+
+[ext_resource type="Texture2D" uid="uid://c3dbaab2abk15" path="res://assets/textures/log.png" id="1_x0mn1"]
+
+[resource]
+albedo_color = Color(0.39215687, 0.2901961, 0.2, 1)
+albedo_texture = ExtResource("1_x0mn1")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://c0hpfy3saayc4"]
 
+[ext_resource type="Material" uid="uid://b4kbpn2clop3c" path="res://assets/material/log.tres" id="1_r57yb"]
 [ext_resource type="Material" uid="uid://5v8lo6h71e3q" path="res://assets/material/earth.tres" id="2_seeeu"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plsy4"]
-albedo_color = Color(0.39215687, 0.2901961, 0.2, 1)
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_udo1o"]
-material = SubResource("StandardMaterial3D_plsy4")
+material = ExtResource("1_r57yb")
 radial_segments = 6
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4bgu3"]
@@ -31,7 +29,7 @@ radial_segments = 6
 rings = 6
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_plsy4"]
-material = SubResource("StandardMaterial3D_plsy4")
+material = ExtResource("1_r57yb")
 bottom_radius = 1.0
 height = 0.5
 radial_segments = 6

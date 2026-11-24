@@ -511,6 +511,7 @@ func _update_camera_dynamics(delta):
 # Основная физическая обработка игрока
 func _physics_process(delta):
 	_update_ui_labels()
+	_update_ground_surface()
 	_update_movement(delta)
 	_handle_crouch_animation()
 	move_and_slide()
@@ -813,12 +814,11 @@ func update_running_speed():
 
 # Воспроизводит звук шага в зависимости от поверхности
 func play_footstep():
-	var ground_material = detect_ground_material()
 	if not can_move():
 		return
 	var selected_player: AudioStreamPlayer3D
-	match ground_material:
-		"default":
+	match current_ground_type:
+		"default", "ice":
 			selected_player = footstep_player
 		"grass":
 			selected_player = footstep_player2
@@ -876,23 +876,22 @@ func warning(text):
 		$head/Camera3D/warning.play("warning", -1, -1.0, true)
 		$head/Camera3D/label.modulate.a = 0
 
+func _update_ground_surface() -> void:
+	current_ground_type = detect_ground_material()
+	is_on_ice = current_ground_type == "ice"
+
 # Определяет материал поверхности под ногами
-func detect_ground_material():
+func detect_ground_material() -> String:
 	if not ground_ray.is_colliding():
-		is_on_ice = false
 		return "default"
 	var collider = ground_ray.get_collider()
-	if not collider:
-		is_on_ice = false
+	if not is_instance_valid(collider):
 		return "default"
 	if collider.is_in_group("ice"):
-		is_on_ice = true
-		return "default"
-	else:
-		is_on_ice = false
+		return "ice"
 	if collider.is_in_group("grass"):
 		return "grass"
-	elif collider.is_in_group("metal"):
+	if collider.is_in_group("metal"):
 		return "metal"
 	return "default"
 
