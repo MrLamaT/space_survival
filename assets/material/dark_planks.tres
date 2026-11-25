@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cf5ri0aqprbkt"]
+
+[ext_resource type="Texture2D" uid="uid://do5y7jxljt63c" path="res://assets/textures/plank.png" id="1_08d0q"]
+
+[resource]
+albedo_color = Color(0.22352941, 0.22352941, 0.22352941, 1)
+albedo_texture = ExtResource("1_08d0q")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0

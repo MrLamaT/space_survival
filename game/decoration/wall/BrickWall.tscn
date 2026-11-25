@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://rcf2nvfwhl5i"]
 
-[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_pmtan"]
-[ext_resource type="PackedScene" uid="uid://c2yyywgpuuaup" path="res://game/blocks/plank.tscn" id="3_wfksu"]
+[ext_resource type="Texture2D" uid="uid://bfegx3jao2xq8" path="res://assets/textures/polishedMetal.png" id="1_wf2ha"]
+[ext_resource type="PackedScene" uid="uid://cqa07jl20mtti" path="res://game/blocks/black_brick.tscn" id="2_vwh1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aeb8l"]
 size = Vector3(7, 10, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u83kx"]
 albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
-albedo_texture = ExtResource("1_pmtan")
+albedo_texture = ExtResource("1_wf2ha")
 metallic = 1.0
 texture_filter = 0
 
@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0)
 size = Vector3(1, 5, 1.5)
 material = SubResource("StandardMaterial3D_u83kx")
 
-[node name="plank" parent="StaticBody3D/wall" unique_id=403841509 instance=ExtResource("3_wfksu")]
+[node name="dirt" parent="StaticBody3D/wall" unique_id=1357790181 instance=ExtResource("2_vwh1n")]
 transform = Transform3D(5, 0, 0, 0, 10, 0, 0, 0, 1.25, 0, 2.5, 0)
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=548980181]

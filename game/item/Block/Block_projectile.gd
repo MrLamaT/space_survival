@@ -20,7 +20,19 @@ const COLORS = {
 }
 
 const BLOCK_SCENES = {
-	"plank": "res://game/blocks/plank.tscn",
+	"acacia planks": "res://game/blocks/acacia_planks.tscn",
+	"bamboo planks": "res://game/blocks/bamboo_planks.tscn",
+	"birch planks": "res://game/blocks/birch_planks.tscn",
+	"cherry planks": "res://game/blocks/cherry_planks.tscn",
+	"dark planks": "res://game/blocks/dark_planks.tscn",
+	"mangrove planks": "res://game/blocks/mangrove_planks.tscn",
+	"oak planks": "res://game/blocks/oak_planks.tscn",
+	"pale planks": "res://game/blocks/pale_planks.tscn",
+	"planks": "res://game/blocks/plank.tscn",
+	"purple planks": "res://game/blocks/purple_planks.tscn",
+	"spruce planks": "res://game/blocks/spruce_planks.tscn",
+	"tropical planks": "res://game/blocks/tropical_planks.tscn",
+	"turquoise planks": "res://game/blocks/turquoise_planks.tscn",
 	"log": "res://game/blocks/log.tscn",
 	"grass": "res://game/blocks/grass.tscn",
 	"wild grass": "res://game/blocks/wild_grass.tscn",

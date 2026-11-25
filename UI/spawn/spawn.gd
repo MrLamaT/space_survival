@@ -83,15 +83,9 @@ func handle_card_pressed(type, id, color_img):
 			get_tree().get_first_node_in_group("player").weapon_system.equip_weapon("Summon")
 			Global.close_ui_and_resume_game(self)
 		"style_block":
-			if id == "plank":
-				var plank = preload("res://assets/material/plank.tres")
-				plank.albedo_color = color_img
 			if id == "grass":
 				var earth = preload("res://assets/material/earth.tres")
 				earth.albedo_color = color_img
-			if id == "brick":
-				var brick = preload("res://assets/material/brick.tres")
-				brick.albedo_color = color_img
 			Global.close_ui_and_resume_game(self)
 		"block":
 			Global.summon_block["name"] = id
